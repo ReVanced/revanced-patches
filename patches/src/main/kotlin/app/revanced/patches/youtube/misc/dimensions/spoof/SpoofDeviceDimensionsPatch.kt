@@ -27,10 +27,12 @@ val spoofDeviceDimensionsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.43.41",
             "20.14.43",
             "20.21.37",
-            "20.31.40",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -42,19 +44,20 @@ val spoofDeviceDimensionsPatch = bytecodePatch(
         )
 
         // Override the parameters containing the dimensions.
-        deviceDimensionsModelToStringMethod.classDef.methods.firstMethod { name == "<init>" }.addInstructions(
-            1, // Add after super call.
-            arrayOf(
-                1 to "MinHeightOrWidth", // p1 = min height
-                2 to "MaxHeightOrWidth", // p2 = max height
-                3 to "MinHeightOrWidth", // p3 = min width
-                4 to "MaxHeightOrWidth", // p4 = max width
-            ).map { (parameter, method) ->
-                """
+        deviceDimensionsModelToStringMethod.classDef.methods.firstMethod { name == "<init>" }
+            .addInstructions(
+                1, // Add after super call.
+                arrayOf(
+                    1 to "MinHeightOrWidth", // p1 = min height
+                    2 to "MaxHeightOrWidth", // p2 = max height
+                    3 to "MinHeightOrWidth", // p3 = min width
+                    4 to "MaxHeightOrWidth", // p4 = max width
+                ).map { (parameter, method) ->
+                    """
                     invoke-static { p$parameter }, $EXTENSION_CLASS_DESCRIPTOR->get$method(I)I
                     move-result p$parameter
                 """
-            }.joinToString("\n") { it },
-        )
+                }.joinToString("\n") { it },
+            )
     }
 }

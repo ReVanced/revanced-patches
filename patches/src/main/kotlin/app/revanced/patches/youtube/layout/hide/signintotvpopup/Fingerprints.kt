@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
 
-internal val BytecodePatchContext.signInToTvPopupMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.signInToTVPopupMethod by gettingFirstMethodDeclaratively {
     returnType("Z")
     parameterTypes("Ljava/lang/String;", "Z", "L")
     instructions(ResourceType.STRING("mdx_seamless_tv_sign_in_drawer_fragment_title"))

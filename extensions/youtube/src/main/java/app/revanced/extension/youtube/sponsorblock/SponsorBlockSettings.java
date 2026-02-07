@@ -29,7 +29,7 @@ import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGrou
 @SuppressWarnings("NewApi")
 public class SponsorBlockSettings {
     /**
-     * Minimum length a SB user id must be, as set by SB API.
+     * Minimum length an SB user ID must be, as set by SB API.
      */
     private static final int SB_PRIVATE_USER_ID_MINIMUM_LENGTH = 30;
 
@@ -80,7 +80,7 @@ public class SponsorBlockSettings {
                     Utils.showToastLong(categoryKey + " unknown behavior key: " + categoryKey);
                 } else if (category == SegmentCategory.HIGHLIGHT && behaviour == CategoryBehaviour.SKIP_AUTOMATICALLY_ONCE) {
                     Utils.showToastLong("Skip-once behavior not allowed for " + category.keyValue);
-                    category.setBehaviour(CategoryBehaviour.SKIP_AUTOMATICALLY); // Use closest match.
+                    category.setBehaviour(CategoryBehaviour.SKIP_AUTOMATICALLY); // Use the closest match.
                 } else {
                     category.setBehaviour(behaviour);
                 }
@@ -90,7 +90,7 @@ public class SponsorBlockSettings {
             if (settingsJson.has("userID")) {
                 // User id does not exist if user never voted or created any segments.
                 String userID = settingsJson.getString("userID");
-                if (isValidSBUserId(userID)) {
+                if (isValidSBUserID(userID)) {
                     Settings.SB_PRIVATE_USER_ID.save(userID);
                 }
             }
@@ -159,7 +159,7 @@ public class SponsorBlockSettings {
                     categorySelectionsArray.put(behaviorObject);
                 }
             }
-            if (SponsorBlockSettings.userHasSBPrivateId()) {
+            if (SponsorBlockSettings.userHasSBPrivateID()) {
                 json.put("userID", Settings.SB_PRIVATE_USER_ID.get());
             }
             json.put("isVip", Settings.SB_USER_IS_VIP.get());
@@ -183,14 +183,14 @@ public class SponsorBlockSettings {
     }
 
     /**
-     * Export the categories using flatten json (no embedded dictionaries or arrays).
+     * Export the categories using flatten JSON (no embedded dictionaries or arrays).
      */
     private static void showExportWarningIfNeeded(@Nullable Context dialogContext) {
         Utils.verifyOnMainThread();
         initialize();
 
-        // If user has a SponsorBlock user id then show a warning.
-        if (dialogContext != null && SponsorBlockSettings.userHasSBPrivateId()
+        // If user has a SponsorBlock user ID then show a warning.
+        if (dialogContext != null && SponsorBlockSettings.userHasSBPrivateID()
                 && !Settings.SB_HIDE_EXPORT_WARNING.get()) {
             // Create the custom dialog.
             Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
@@ -214,12 +214,12 @@ public class SponsorBlockSettings {
         }
     }
 
-    public static boolean isValidSBUserId(@NonNull String userId) {
-        return !userId.isEmpty() && userId.length() >= SB_PRIVATE_USER_ID_MINIMUM_LENGTH;
+    public static boolean isValidSBUserID(@NonNull String userID) {
+        return !userID.isEmpty() && userID.length() >= SB_PRIVATE_USER_ID_MINIMUM_LENGTH;
     }
 
     /**
-     * A non comprehensive check if a SB api server address is valid.
+     * A non-comprehensive check if an SB API server address is valid.
      */
     public static boolean isValidSBServerAddress(@NonNull String serverAddress) {
         if (!Patterns.WEB_URL.matcher(serverAddress).matches()) {
@@ -237,12 +237,12 @@ public class SponsorBlockSettings {
     /**
      * @return if the user has ever voted, created a segment, or imported existing SB settings.
      */
-    public static boolean userHasSBPrivateId() {
+    public static boolean userHasSBPrivateID() {
         return !Settings.SB_PRIVATE_USER_ID.get().isEmpty();
     }
 
     /**
-     * Use this only if a user id is required (creating segments, voting).
+     * Use this only if a user ID is required (creating segments, voting).
      */
     @NonNull
     public static String getSBPrivateUserID() {

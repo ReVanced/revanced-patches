@@ -112,7 +112,7 @@ internal val BytecodePatchContext.lottieAnimationViewSetAnimationIntMethod by ge
     parameterTypes("I")
     returnType("V")
 
-    lateinit var methodDefiningClass: String
+    var methodDefiningClass = ""
     custom {
         methodDefiningClass = definingClass
         true

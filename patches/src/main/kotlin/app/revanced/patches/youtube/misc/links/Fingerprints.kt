@@ -34,15 +34,3 @@ internal val BytecodePatchContext.abUriParserMethodMatch by composingFirstMethod
         method { toString() == "Ljava/util/List;->get(I)Ljava/lang/Object;" },
     )
 }
-
-internal val BytecodePatchContext.httpUriParserMethodMatch by composingFirstMethod {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returnType("Landroid/net/Uri;")
-    parameterTypes("Ljava/lang/String;")
-    instructions(
-        method { toString() == "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;" },
-        "https"(),
-        "://"(),
-        "https:"(),
-    )
-}

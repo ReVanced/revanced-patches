@@ -2,16 +2,9 @@ package app.revanced.patches.youtube.layout.buttons.navigation
 
 import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-
-internal val BytecodePatchContext.addCreateButtonViewMethodMatch by composingFirstMethod {
-    instructions(
-        "Android Wear"(),
-        Opcode.IF_EQZ(),
-        after("Android Automotive"()),
-    )
-}
 
 internal val BytecodePatchContext.createPivotBarMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
@@ -31,6 +24,28 @@ internal val BytecodePatchContext.animatedNavigationTabsFeatureFlagMethodMatch b
     returnType("Z")
     instructions(
         45680008L(),
+    )
+}
+
+
+internal val BytecodePatchContext.pivotBarStyleMethodMatch by composingFirstMethod {
+    definingClass("/PivotBar;")
+    returnType("V")
+    parameterTypes("L")
+    opcodes(
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT,
+        Opcode.XOR_INT_2ADDR
+    )
+}
+
+internal val BytecodePatchContext.pivotBarChangedMethodMatch by composingFirstMethod {
+    name("onConfigurationChanged")
+    definingClass("/PivotBar;")
+    returnType("V")
+    opcodes(
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT
     )
 }
 
@@ -62,4 +77,21 @@ internal val BytecodePatchContext.translucentNavigationButtonsSystemFeatureFlagM
     instructions(
         45632194L(), // Translucent system buttons feature flag.
     )
+}
+
+internal val BytecodePatchContext.setWordmarkHeaderMethod by gettingFirstMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("Landroid/widget/ImageView;")
+    instructions(
+        ResourceType.ATTR("ytPremiumWordmarkHeader"),
+        ResourceType.ATTR("ytWordmarkHeader")
+    )
+}
+
+internal val BytecodePatchContext.wideSearchbarLayoutMethod by gettingFirstMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("Landroid/view/View;")
+    parameterTypes("L", "L")
+    instructions(ResourceType.LAYOUT("action_bar_ringo"))
 }

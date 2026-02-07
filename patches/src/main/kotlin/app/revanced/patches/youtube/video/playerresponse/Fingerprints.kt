@@ -23,7 +23,7 @@ internal val BytecodePatchContext.playerParameterBuilderMethod by gettingFirstMe
         "Ljava/lang/String;",
         "Ljava/lang/String;",
         "L",
-        "Z", // Appears to indicate if the video id is being opened or is currently playing.
+        "Z", // Appears to indicate if the video ID is being opened or is currently playing.
         "Z",
         "Z",
         "Lj$/time/Duration;",
@@ -49,7 +49,7 @@ internal val BytecodePatchContext.playerParameterBuilder2026Method by gettingFir
         "Ljava/lang/String;",
         "Ljava/lang/String;",
         "L",
-        "Z", // Appears to indicate if the video id is being opened or is currently playing.
+        "Z", // Appears to indicate if the video ID is being opened or is currently playing.
         "Z",
         "Z",
         "Lj$/time/Duration;",
@@ -76,7 +76,7 @@ internal val BytecodePatchContext.playerParameterBuilder2015Method by gettingFir
         "Ljava/lang/String;",
         "Ljava/lang/String;",
         "L",
-        "Z", // Appears to indicate if the video id is being opened or is currently playing.
+        "Z", // Appears to indicate if the video ID is being opened or is currently playing.
         "Z",
         "Z",
     )
@@ -102,7 +102,7 @@ internal val BytecodePatchContext.playerParameterBuilder2010Method by gettingFir
         "Ljava/lang/String;",
         "Ljava/lang/String;",
         "L",
-        "Z", // Appears to indicate if the video id is being opened or is currently playing.
+        "Z", // Appears to indicate if the video ID is being opened or is currently playing.
         "Z",
         "Z",
         "Z",
@@ -128,7 +128,7 @@ internal val BytecodePatchContext.playerParameterBuilder2002Method by gettingFir
         "Ljava/lang/String;",
         "Ljava/lang/String;",
         "L",
-        "Z", // Appears to indicate if the video id is being opened or is currently playing.
+        "Z", // Appears to indicate if the video ID is being opened or is currently playing.
         "Z",
         "Z",
         "Z",
@@ -154,7 +154,7 @@ internal val BytecodePatchContext.playerParameterBuilder1925Method by gettingFir
         "Ljava/lang/String;",
         "Ljava/lang/String;",
         "L",
-        "Z", // Appears to indicate if the video id is being opened or is currently playing.
+        "Z", // Appears to indicate if the video ID is being opened or is currently playing.
         "Z",
         "Z",
     )
@@ -178,7 +178,7 @@ internal val BytecodePatchContext.playerParameterBuilderLegacyMethod by gettingF
         "Ljava/lang/String;",
         "Ljava/lang/String;",
         "L",
-        "Z", // Appears to indicate if the video id is being opened or is currently playing.
+        "Z", // Appears to indicate if the video ID is being opened or is currently playing.
         "Z",
         "Z",
     )

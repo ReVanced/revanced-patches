@@ -29,14 +29,3 @@ internal val BytecodePatchContext.cairoFragmentConfigMethodMatch by composingFir
         afterAtMost(10, Opcode.MOVE_RESULT()),
     )
 }
-
-// Flag is present in 20.23, but bold icons are missing and forcing them crashes the app.
-// 20.31 is the first target with all the bold icons present.
-internal val BytecodePatchContext.boldIconsFeatureFlagMethodMatch by composingFirstMethod {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returnType("Z")
-    parameterTypes()
-    instructions(
-        45685201L(),
-    )
-}

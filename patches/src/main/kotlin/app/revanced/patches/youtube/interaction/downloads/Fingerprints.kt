@@ -10,7 +10,7 @@ internal val BytecodePatchContext.offlineVideoEndpointMethod by gettingFirstMeth
     parameterTypes(
         "Ljava/util/Map;",
         "L",
-        "Ljava/lang/String", // VideoId
+        "Ljava/lang/String", // Video ID
         "L",
     )
     instructions(

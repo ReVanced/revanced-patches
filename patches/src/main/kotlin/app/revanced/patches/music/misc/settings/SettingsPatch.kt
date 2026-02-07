@@ -8,14 +8,18 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
+import app.revanced.patches.music.playservice.is_8_40_or_greater
+import app.revanced.patches.music.playservice.versionCheckPatch
+import app.revanced.patches.shared.boldIconsFeatureFlagMethodMatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.settingsPatch
 import app.revanced.patches.youtube.misc.settings.modifyActivityForSettingsInjection
 import app.revanced.util.copyXmlNode
 import app.revanced.util.inputStreamFromBundledResource
+import app.revanced.util.insertLiteralOverride
 
-private const val GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
+private const val MUSIC_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/music/settings/MusicActivityHook;"
 
 private val preferences = mutableSetOf<BasePreference>()
@@ -72,6 +76,7 @@ val settingsPatch = bytecodePatch(
         sharedExtensionPatch,
         settingsResourcePatch,
         addResourcesPatch,
+        versionCheckPatch
     )
 
     apply {
@@ -90,6 +95,12 @@ val settingsPatch = bytecodePatch(
             SwitchPreference("revanced_settings_search_history")
         )
 
+        if (is_8_40_or_greater) {
+            PreferenceScreen.GENERAL.addPreferences(
+                SwitchPreference("revanced_settings_disable_bold_icons")
+            )
+        }
+
         PreferenceScreen.MISC.addPreferences(
             TextPreference(
                 key = null,
@@ -103,9 +114,18 @@ val settingsPatch = bytecodePatch(
         modifyActivityForSettingsInjection(
             googleApiActivityMethod.classDef,
             googleApiActivityMethod,
-            GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR,
+            MUSIC_ACTIVITY_HOOK_CLASS_DESCRIPTOR,
             true
         )
+
+        if (is_8_40_or_greater) {
+            boldIconsFeatureFlagMethodMatch.let {
+                it.method.insertLiteralOverride(
+                    it[0],
+                    "$MUSIC_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useBoldIcons(Z)Z"
+                )
+            }
+        }
     }
 
     afterDependents {

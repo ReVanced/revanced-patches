@@ -49,21 +49,21 @@ public class ReturnYouTubeDislikePatch {
 
     /**
      * The last litho based Shorts loaded.
-     * May be the same value as {@link #currentVideoData}, but usually is the next short to swipe to.
+     * Maybe the same value as {@link #currentVideoData}, but usually is the next short to swipe to.
      */
     @Nullable
     private static volatile ReturnYouTubeDislike lastLithoShortsVideoData;
 
     /**
      * Because litho Shorts spans are created offscreen after {@link ReturnYouTubeDislikeFilter}
-     * detects the video ids, but the current Short can arbitrarily reload the same span,
+     * detects the video IDs, but the current Short can arbitrarily reload the same span,
      * then use the {@link #lastLithoShortsVideoData} if this value is greater than zero.
      */
     @GuardedBy("ReturnYouTubeDislikePatch.class")
     private static int useLithoShortsVideoDataCount;
 
     /**
-     * Last video id prefetched. Field is to prevent prefetching the same video id multiple times in a row.
+     * Last video ID prefetched. Field is to prevent prefetching the same video ID multiple times in a row.
      */
     @Nullable
     private static volatile String lastPrefetchedVideoId;
@@ -101,6 +101,19 @@ public class ReturnYouTubeDislikePatch {
     /**
      * Injection point.
      *
+     * Logs if new litho text layout is used.
+     */
+    public static boolean useNewLithoTextCreation(boolean useNewLithoTextCreation) {
+        // Don't force flag on/off unless debugging patch hooks,
+        // because forcing off with newer YT targets causes Shorts player to show no buttons,
+        // presumably because the old litho data isn't in the layout data.
+        Logger.printDebug(() -> "useNewLithoTextCreation: " + useNewLithoTextCreation);
+        return useNewLithoTextCreation;
+    }
+
+    /**
+     * Injection point.
+     *
      * For Litho segmented buttons and Litho Shorts player.
      */
     @NonNull
@@ -113,7 +126,7 @@ public class ReturnYouTubeDislikePatch {
      * Called when a litho text component is initially created,
      * and also when a Span is later reused again (such as scrolling off/on screen).
      *
-     * This method is sometimes called on the main thread, but it usually is called _off_ the main thread.
+     * This method is sometimes called on the main thread, but it is usually called _off_ the main thread.
      * This method can be called multiple times for the same UI element (including after dislikes was added).
      *
      * @param original Original char sequence was created or reused by Litho.
@@ -185,14 +198,14 @@ public class ReturnYouTubeDislikePatch {
 
         final ReturnYouTubeDislike videoData;
         if (decrementUseLithoDataIfNeeded()) {
-            // New Short is loading off screen.
+            // New Short is loading off-screen.
             videoData = lastLithoShortsVideoData;
         } else {
             videoData = currentVideoData;
         }
 
         if (videoData == null) {
-            // The Shorts litho video id filter did not detect the video id.
+            // The Shorts litho video ID filter did not detect the video ID.
             // This is normal in incognito mode, but otherwise is abnormal.
             Logger.printDebug(() -> "Cannot modify Shorts litho span, data is null");
             return original;
@@ -292,7 +305,7 @@ public class ReturnYouTubeDislikePatch {
 
     /**
      * Remove Rolling Number text view modifications made by this patch.
-     * Required as it appears text views can be reused for other rolling numbers (view count, upload time, etc).
+     * Required as it appears text views can be reused for other rolling numbers (view count, upload time, etc.).
      */
     private static void removeRollingNumberPatchChanges(TextView view) {
         if (view.getCompoundDrawablePadding() != 0) {
@@ -314,7 +327,7 @@ public class ReturnYouTubeDislikePatch {
                 return original;
             }
             // Called for all instances of RollingNumber, so must check if text is for a dislikes.
-            // Text will already have the correct content but it's missing the drawable separators.
+            // Text will already have the correct content, but it's missing the drawable separators.
             if (!ReturnYouTubeDislike.isPreviouslyCreatedSegmentedSpan(original.toString())) {
                 // The text is the video view count, upload time, or some other text.
                 removeRollingNumberPatchChanges(view);
@@ -351,13 +364,13 @@ public class ReturnYouTubeDislikePatch {
     }
 
     //
-    // Video Id and voting hooks (all players).
+    // Video ID and voting hooks (all players).
     //
 
     private static volatile boolean lastPlayerResponseWasShort;
 
     /**
-     * Injection point.  Uses 'playback response' video id hook to preload RYD.
+     * Injection point.  Uses 'playback response' video ID hook to preload RYD.
      */
     public static void preloadVideoId(@NonNull String videoId, boolean isShortAndOpeningOrPlaying) {
         try {
@@ -387,7 +400,7 @@ public class ReturnYouTubeDislikePatch {
             if (waitForFetchToComplete && !fetch.fetchCompleted()) {
                 // This call is off the main thread, so wait until the RYD fetch completely finishes,
                 // otherwise if this returns before the fetch completes then the UI can
-                // become frozen when the main thread tries to modify the litho Shorts dislikes and
+                // become frozen when the main thread tries to modify the litho Shorts dislikes, and
                 // it must wait for the fetch.
                 // Only need to do this for the first Short opened, as the next Short to swipe to
                 // are preloaded in the background.
@@ -406,7 +419,7 @@ public class ReturnYouTubeDislikePatch {
     }
 
     /**
-     * Injection point.  Uses 'current playing' video id hook.  Always called on main thread.
+     * Injection point. Uses 'current playing' video ID hook. Always called on main thread.
      */
     public static void newVideoLoaded(@NonNull String videoId) {
         try {
@@ -424,7 +437,7 @@ public class ReturnYouTubeDislikePatch {
             if (videoIdIsSame(currentVideoData, videoId)) {
                 return;
             }
-            Logger.printDebug(() -> "New video id: " + videoId + " playerType: " + currentPlayerType);
+            Logger.printDebug(() -> "New video ID: " + videoId + " playerType: " + currentPlayerType);
 
             if (!Utils.isNetworkConnected()) {
                 Logger.printDebug(() -> "Cannot fetch RYD, network is not connected");
@@ -450,16 +463,16 @@ public class ReturnYouTubeDislikePatch {
         }
 
         if (videoId == null) {
-            // Litho filter did not detect the video id.  App is in incognito mode,
-            // or the proto buffer structure was changed and the video id is no longer present.
+            // Litho filter did not detect the video ID.  App is in incognito mode,
+            // or the proto buffer structure was changed and the video ID is no longer present.
             // Must clear both currently playing and last litho data otherwise the
             // next regular video may use the wrong data.
-            Logger.printDebug(() -> "Litho filter did not find any video ids");
+            Logger.printDebug(() -> "Litho filter did not find any video IDs");
             clearData();
             return;
         }
 
-        Logger.printDebug(() -> "New litho Shorts video id: " + videoId);
+        Logger.printDebug(() -> "New litho Shorts video ID: " + videoId);
         ReturnYouTubeDislike videoData = ReturnYouTubeDislike.getFetchForVideoId(videoId);
         videoData.setVideoIdIsShort(true);
         lastLithoShortsVideoData = videoData;

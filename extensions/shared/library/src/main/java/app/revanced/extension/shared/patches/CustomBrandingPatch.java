@@ -7,6 +7,8 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -53,24 +55,35 @@ public class CustomBrandingPatch {
         }
     }
 
-    private static final int notificationSmallIcon;
+    @Nullable
+    private static Integer notificationSmallIcon;
 
-    static {
-        BrandingTheme branding = BaseSettings.CUSTOM_BRANDING_ICON.get();
-        if (branding == BrandingTheme.ORIGINAL) {
-            notificationSmallIcon = 0;
-        } else {
-            // Original icon is quantum_ic_video_youtube_white_24
-            String iconName = "revanced_notification_icon";
-            if (branding == BrandingTheme.CUSTOM) {
-                iconName += "_custom";
+    private static int getNotificationSmallIcon() {
+        // Cannot use static initialization block otherwise cyclic references exist
+        // between Settings initialization and this class.
+        if (notificationSmallIcon == null) {
+            if (GmsCoreSupport.isPackageNameOriginal()) {
+                Logger.printDebug(() -> "App is root mounted. Not overriding small notification icon");
+                return notificationSmallIcon = 0;
             }
 
-            notificationSmallIcon = Utils.getResourceIdentifier(ResourceType.DRAWABLE, iconName);
-            if (notificationSmallIcon == 0) {
-                Logger.printException(() -> "Could not load notification small icon");
+            BrandingTheme branding = BaseSettings.CUSTOM_BRANDING_ICON.get();
+            if (branding == BrandingTheme.ORIGINAL) {
+                notificationSmallIcon = 0;
+            } else {
+                // Original icon is quantum_ic_video_youtube_white_24
+                String iconName = "revanced_notification_icon";
+                if (branding == BrandingTheme.CUSTOM) {
+                    iconName += "_custom";
+                }
+
+                notificationSmallIcon = Utils.getResourceIdentifier(ResourceType.DRAWABLE, iconName);
+                if (notificationSmallIcon == 0) {
+                    Logger.printException(() -> "Could not load notification small icon");
+                }
             }
         }
+        return notificationSmallIcon;
     }
 
     /**
@@ -89,8 +102,9 @@ public class CustomBrandingPatch {
      */
     public static void setNotificationIcon(Notification.Builder builder) {
         try {
-            if (notificationSmallIcon != 0) {
-                builder.setSmallIcon(notificationSmallIcon)
+            final int smallIcon = getNotificationSmallIcon();
+            if (smallIcon != 0) {
+                builder.setSmallIcon(smallIcon)
                         .setColor(Color.TRANSPARENT); // Remove YT red tint.
             }
         } catch (Exception ex) {
@@ -104,8 +118,41 @@ public class CustomBrandingPatch {
      * The total number of app name aliases, including dummy aliases.
      */
     private static int numberOfPresetAppNames() {
-        // Modified during patching.
-        throw new IllegalStateException();
+        // Modified during patching, but requires a default if custom branding is excluded.
+        return 1;
+    }
+
+
+    /**
+     * Injection point.
+     * <p>
+     * If a custom icon was provided during patching.
+     */
+    private static boolean userProvidedCustomIcon() {
+        // Modified during patching, but requires a default if custom branding is excluded.
+        return false;
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * If a custom name was provided during patching.
+     */
+    private static boolean userProvidedCustomName() {
+        // Modified during patching, but requires a default if custom branding is excluded..
+        return false;
+    }
+
+    public static int getDefaultAppNameIndex() {
+        return userProvidedCustomName()
+                ? numberOfPresetAppNames()
+                : 1;
+    }
+
+    public static BrandingTheme getDefaultIconStyle() {
+        return userProvidedCustomIcon()
+                ? BrandingTheme.CUSTOM
+                : BrandingTheme.ORIGINAL;
     }
 
     /**

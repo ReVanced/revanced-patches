@@ -7,33 +7,47 @@ import app.revanced.patches.youtube.shared.videoQualityChangedMethodMatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
-import org.stringtemplate.v4.compiler.Bytecode
 
 internal val BytecodePatchContext.createVideoPlayerSeekbarMethod by gettingFirstImmutableMethodDeclaratively {
     returnType("V")
     instructions("timed_markers_width"())
 }
 
-internal val BytecodePatchContext.onPlaybackSpeedItemClickMethod by gettingFirstMethodDeclaratively {
+
+internal val BytecodePatchContext.onPlaybackSpeedItemClickParentMethod by gettingFirstImmutableMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returnType("L")
+    parameterTypes("L", "Ljava/lang/String;")
+    instructions(
+        method("getSupportFragmentManager"),
+        after(Opcode.MOVE_RESULT_OBJECT()),
+        after(method { returnType.startsWith("L") && parameterTypes.size == 1 && parameterTypes.first() == "Ljava/lang/String;" }),
+        after(Opcode.MOVE_RESULT_OBJECT()),
+        after(Opcode.IF_EQZ()),
+        after(Opcode.CHECK_CAST())
+    )
+    custom { immutableClassDef.methods.count() == 8 }
+}
+
+/**
+ * Resolves using the method found in [onPlaybackSpeedItemClickParentMethod].
+ */
+
+context(_: BytecodePatchContext)
+internal fun ClassDef.getOnPlaybackSpeedItemClickMethod() = firstMethodDeclaratively {
     name("onItemClick")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L", "L", "I", "J")
-    instructions(
-        allOf(
-            Opcode.IGET_OBJECT(),
-            field { type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;" },
-        ),
-    )
 }
 
 internal val BytecodePatchContext.playerControllerSetTimeReferenceMethodMatch by
-    composingFirstMethod("Media progress reported outside media playback: ") {
-        opcodes(
-            Opcode.INVOKE_DIRECT_RANGE,
-            Opcode.IGET_OBJECT,
-        )
-    }
+composingFirstMethod("Media progress reported outside media playback: ") {
+    opcodes(
+        Opcode.INVOKE_DIRECT_RANGE,
+        Opcode.IGET_OBJECT,
+    )
+}
 
 internal val BytecodePatchContext.playVideoCheckVideoStreamingDataResponseMethod by gettingFirstImmutableMethodDeclaratively {
     instructions("playVideo called on player response with no videoStreamingData."())
@@ -43,7 +57,14 @@ internal val BytecodePatchContext.playVideoCheckVideoStreamingDataResponseMethod
  * Matched using class found in [playVideoCheckVideoStreamingDataResponseMethod].
  */
 internal fun ClassDef.getSeekMethod() = firstImmutableMethodDeclaratively {
-    instructions("Attempting to seek during an ad"())
+    instructions(
+        anyOf(
+            // 20.xx
+            "Attempting to seek during an ad"(),
+            // 21.02+
+            "currentPositionMs."()
+        )
+    )
 }
 
 internal val ClassDef.videoLengthMethodMatch by ClassDefComposing.composingFirstMethod {
@@ -116,16 +137,32 @@ internal fun ClassDef.getSeekRelativeMethod() = firstMethodDeclaratively {
     )
 }
 
-internal val BytecodePatchContext.videoEndMethodMatch by composingFirstMethod {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returnType("Z")
-    parameterTypes("J", "L")
-    instructions(
-        method { parameterTypes.isEmpty() && returnType == "V" },
-        afterAtMost(5, 45368273L()),
-        "Attempting to seek when video is not playing"(),
-    )
+internal val BytecodePatchContext.playerStatusEnumMethod by gettingFirstImmutableMethodDeclaratively(
+    "NEW",
+    "PLAYBACK_PENDING",
+    "PLAYBACK_LOADED",
+    "PLAYBACK_INTERRUPTED",
+    "INTERSTITIAL_REQUESTED",
+    "INTERSTITIAL_PLAYING",
+    "VIDEO_PLAYING",
+    "ENDED",
+) {
+    accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
 }
+
+context(context: BytecodePatchContext)
+internal fun ClassDef.getPlayerStatusMethod() =
+    firstMethodDeclaratively {
+        accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+        returnType("V")
+        parameterTypes(context.playerStatusEnumMethod.immutableClassDef.type)
+        instructions(
+            // The opcode for the first index of the method is sget-object.
+            // Even in sufficiently old versions, such as YT 17.34, the opcode for the first index is sget-object.
+            Opcode.SGET_OBJECT(),
+            method { name == "plus" && definingClass == "Lj$/time/Instant;" },
+        )
+    }
 
 /**
  * Matches with the class found in [videoQualityChangedMethodMatch].
@@ -146,14 +183,11 @@ internal val BytecodePatchContext.playbackSpeedClassMethod by gettingFirstMethod
     opcodes(Opcode.RETURN_OBJECT)
 }
 
-internal const val YOUTUBE_VIDEO_QUALITY_CLASS_TYPE =
-    "Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"
-
 /**
  * YouTube 20.19 and lower.
  */
 internal val BytecodePatchContext.videoQualityLegacyMethod by gettingFirstMethodDeclaratively {
-    definingClass(YOUTUBE_VIDEO_QUALITY_CLASS_TYPE)
+    definingClass("Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes(
         "I", // Resolution.
@@ -163,8 +197,21 @@ internal val BytecodePatchContext.videoQualityLegacyMethod by gettingFirstMethod
     )
 }
 
+
+internal val BytecodePatchContext.playbackStartDescriptorToStringMethodMatch by composingFirstMethod {
+    name("toString")
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("Ljava/lang/String;")
+    instructions(
+        method { toString() == "Ljava/util/Locale;->getDefault()Ljava/util/Locale;" },
+        // First method call after Locale is the video ID.
+        method { returnType == "Ljava/lang/String;" && parameterTypes.isEmpty() },
+        "PlaybackStartDescriptor:"(String::startsWith)
+    )
+}
+
+// Class name is un-obfuscated in targets before 21.01.
 internal val BytecodePatchContext.videoQualityMethod by gettingFirstMethodDeclaratively {
-    definingClass(YOUTUBE_VIDEO_QUALITY_CLASS_TYPE)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes(
         "I", // Resolution.

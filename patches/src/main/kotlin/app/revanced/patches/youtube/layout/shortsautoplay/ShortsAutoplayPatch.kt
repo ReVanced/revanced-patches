@@ -32,7 +32,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ShortsAutoplayPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/ShortsAutoplayPatch;"
 
 @Suppress("ObjectPropertyName")
 val shortsAutoplayPatch = bytecodePatch(
@@ -48,10 +49,12 @@ val shortsAutoplayPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.43.41",
             "20.14.43",
             "20.21.37",
-            "20.31.40",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -90,15 +93,16 @@ val shortsAutoplayPatch = bytecodePatch(
             )
         }
 
-        val reelPlaybackRepeatMethod = reelPlaybackRepeatParentMethod.immutableClassDef.getReelPlaybackRepeatMethod()
+        val reelPlaybackRepeatMethod =
+            reelPlaybackRepeatParentMethod.immutableClassDef.getReelPlaybackRepeatMethod()
 
         reelPlaybackRepeatMethod.apply {
             // The behavior enums are looked up from an ordinal value to an enum type.
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == reelEnumClass &&
-                    reference.parameterTypes.firstOrNull() == "I" &&
-                    reference.returnType == reelEnumClass
+                        reference.parameterTypes.firstOrNull() == "I" &&
+                        reference.returnType == reelEnumClass
             }.forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
@@ -125,14 +129,15 @@ val shortsAutoplayPatch = bytecodePatch(
                 // Find the first call modified by extension code above.
                 val extensionReturnResultIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_STATIC &&
-                        getReference<MethodReference>()?.definingClass == EXTENSION_CLASS_DESCRIPTOR
+                            getReference<MethodReference>()?.definingClass == EXTENSION_CLASS_DESCRIPTOR
                 } + 1
-                val enumRegister = getInstruction<OneRegisterInstruction>(extensionReturnResultIndex).registerA
+                val enumRegister =
+                    getInstruction<OneRegisterInstruction>(extensionReturnResultIndex).registerA
                 val getReelSequenceControllerIndex = indexOfFirstInstructionOrThrow {
                     val reference = getReference<FieldReference>()
                     opcode == Opcode.IGET_OBJECT &&
-                        reference?.definingClass == definingClass &&
-                        reference.type == reelSequenceControllerMethodReference.definingClass
+                            reference?.definingClass == definingClass &&
+                            reference.type == reelSequenceControllerMethodReference.definingClass
                 }
                 val getReelSequenceControllerReference =
                     getInstruction<ReferenceInstruction>(getReelSequenceControllerIndex).reference

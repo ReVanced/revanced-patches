@@ -109,7 +109,7 @@ public class ShortsAutoplayPatch {
             }
 
             if (original == null) {
-                // Cannot return null, as null is used to indicate Short was auto played.
+                // Cannot return null, as null is used to indicate the Short was autoplayed.
                 // Unpatched app replaces null with unknown enum type (appears to fix for bad api data).
                 Enum<?> unknown = ShortsLoopBehavior.UNKNOWN.ytEnumValue;
                 Logger.printDebug(() -> "Original is null, returning: " + unknown.name());

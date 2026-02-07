@@ -18,16 +18,16 @@ import app.revanced.patches.youtube.misc.playservice.is_20_14_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.getToolBarButtonMethodMatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/spoof/SpoofAppVersionPatch;"
 
-@Suppress("ObjectPropertyName")
 val spoofAppVersionPatch = bytecodePatch(
     name = "Spoof app version",
     description = "Adds an option to trick YouTube into thinking you are running an older version of the app. " +
-        "This can be used to restore old UI elements and features.",
+            "This can be used to restore old UI elements and features.",
 ) {
     dependsOn(
         resourceMappingPatch,
@@ -39,10 +39,12 @@ val spoofAppVersionPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.43.41",
             "20.14.43",
             "20.21.37",
-            "20.31.40",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -82,9 +84,11 @@ val spoofAppVersionPatch = bytecodePatch(
          * missing image resources. As a workaround, do not set an image in the
          * toolbar when the enum name is UNKNOWN.
          */
-        toolBarButtonMethodMatch.let {
+        // Method is shared and indexes may no longer be correct.
+        getToolBarButtonMethodMatch().let {
             val imageResourceIndex = it[2]
-            val register = it.method.getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
+            val register =
+                it.method.getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
             val jumpIndex = it[-1] + 1
 
             it.method.addInstructionsWithLabels(

@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.layout.hide.endscreencards
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -35,7 +36,7 @@ private val hideEndScreenCardsResourcePatch = resourcePatch {
         addResources("youtube", "layout.hide.endscreencards.hideEndScreenCardsResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_endscreen_cards"),
+            SwitchPreference("revanced_hide_end_screen_cards"),
         )
 
         fun idOf(name: String) = ResourceType.LAYOUT["endscreen_element_layout_$name"]
@@ -62,10 +63,12 @@ val hideEndScreenCardsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.43.41",
             "20.14.43",
             "20.21.37",
-            "20.31.40",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -82,7 +85,7 @@ val hideEndScreenCardsPatch = bytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static { v$viewRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->hideEndScreenCardView(Landroid/view/View;)V",
+                            "$EXTENSION_CLASS_DESCRIPTOR->hideEndScreenCardView(Landroid/view/View;)V",
                 )
             }
         }

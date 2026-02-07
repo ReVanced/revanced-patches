@@ -7,6 +7,21 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
+internal val BytecodePatchContext.componentContextParserMethod by gettingFirstImmutableMethodDeclaratively {
+    returnType("L")
+    instructions(
+        "Failed to parse Element proto."(),
+        "Cannot read theme key from model."()
+    )
+}
+
+context(_: BytecodePatchContext)
+internal fun ClassDef.getTreeNodeResultListMethod() = firstMethodDeclaratively  {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
+    returnType("Ljava/util/List;")
+    instructions(allOf(Opcode.INVOKE_STATIC(), method("nCopies")))
+}
+
 internal val BytecodePatchContext.shortsBottomBarContainerMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
@@ -19,9 +34,6 @@ internal val BytecodePatchContext.shortsBottomBarContainerMethodMatch by composi
     )
 }
 
-/**
- * 19.41 to 20.44.
- */
 
 context(_: BytecodePatchContext)
 internal fun ClassDef.getRenderBottomNavigationBarMethodMatch() = firstMethodDeclaratively {
@@ -34,10 +46,10 @@ internal fun ClassDef.getRenderBottomNavigationBarMethodMatch() = firstMethodDec
         after(Opcode.IF_EQZ()),
         after(Opcode.INVOKE_INTERFACE()),
         Opcode.MONITOR_EXIT(),
-        after(Opcode.RETURN_VOID()),
-        after(Opcode.MOVE_EXCEPTION()),
-        after(Opcode.MONITOR_EXIT()),
-        after(Opcode.THROW()),
+        Opcode.RETURN_VOID(),
+        Opcode.MOVE_EXCEPTION(),
+        Opcode.MONITOR_EXIT(),
+        Opcode.THROW()
     )
 }
 
@@ -59,8 +71,7 @@ internal val BytecodePatchContext.legacyRenderBottomNavigationBarLegacyParentMet
 }
 
 /**
- * Identical to [legacyRenderBottomNavigationBarLegacyParentMethod]
- * except this has an extra parameter.
+ * 19.41 - 20.44
  */
 internal val BytecodePatchContext.renderBottomNavigationBarLegacy1941ParentMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -78,6 +89,9 @@ internal val BytecodePatchContext.renderBottomNavigationBarLegacy1941ParentMetho
     )
 }
 
+/**
+ * 20.45+
+ */
 internal val BytecodePatchContext.renderBottomNavigationBarParentMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("[Ljava/lang/Class;")

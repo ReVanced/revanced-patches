@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.layout.returnyoutubedislike
 
 import app.revanced.patcher.*
 import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -70,7 +71,8 @@ internal val BytecodePatchContext.rollingNumberSetterMethodMatch by composingFir
         Opcode.IGET_OBJECT,
     )
 
-    val match = indexedMatcher("RollingNumberType required properties missing! Need"(String::contains))
+    val match =
+        indexedMatcher("RollingNumberType required properties missing! Need"(String::contains))
     custom { match(instructions) }
 }
 
@@ -88,15 +90,17 @@ internal val BytecodePatchContext.rollingNumberTextViewMethod by gettingFirstMet
     )
     custom {
         immutableClassDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;" || immutableClassDef.superclass ==
-            "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
+                "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
     }
 }
 
 internal val BytecodePatchContext.textComponentConstructorMethod by gettingFirstImmutableMethodDeclaratively {
-    accessFlags(AccessFlags.CONSTRUCTOR, AccessFlags.PRIVATE)
-    instructions(
-        "TextComponent"(),
-    )
+    custom {
+        // 20.23+ is public.
+        // 20.22 and lower is private.
+        AccessFlags.CONSTRUCTOR.isSet(accessFlags)
+    }
+    instructions("TextComponent"())
 }
 
 internal val BytecodePatchContext.textComponentDataMethod by gettingFirstImmutableMethodDeclaratively {
@@ -119,9 +123,35 @@ internal fun ClassDef.getTextComponentLookupMethod() = firstMethodDeclaratively 
     instructions("…"())
 }
 
-internal val BytecodePatchContext.textComponentFeatureFlagMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.textComponentFeatureFlagMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
     instructions(45675738L())
+}
+
+
+internal val BytecodePatchContext.lithoSpannableStringCreationMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("L", "Ljava/lang/Object;", "L")
+    instructions(
+        allOf(Opcode.NEW_INSTANCE(), type("Landroid/text/SpannableString;")),
+        afterAtMost(
+            5,
+            method {
+                toString() == "Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V"
+            }
+        ),
+        afterAtMost(
+            5,
+            method {
+                toString() == "Landroid/text/SpannableString;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;"
+            }
+        ),
+        method {
+            name == "addOnLayoutChangeListener" && parameterTypes.size == 1 &&
+                    parameterTypes.first() == $$"Landroid/view/View$OnLayoutChangeListener;"
+        }
+    )
 }

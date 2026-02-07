@@ -31,7 +31,8 @@ internal var searchButton = -1L
 internal var topBarMenuItemImageView = -1L
     private set
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/HideButtonsPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/music/patches/HideButtonsPatch;"
 
 @Suppress("unused")
 val hideButtonsPatch = bytecodePatch(
@@ -49,6 +50,8 @@ val hideButtonsPatch = bytecodePatch(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
             "8.10.52",
+            "8.37.56",
+            "8.40.54",
         ),
     )
 
@@ -91,7 +94,11 @@ val hideButtonsPatch = bytecodePatch(
         arrayOf(
             Triple(playerOverlayChipMethod, playerOverlayChip, "hideCastButton"),
             Triple(searchActionViewMethod, searchButton, "hideSearchButton"),
-            Triple(topBarMenuItemImageViewMethod, topBarMenuItemImageView, "hideNotificationButton"),
+            Triple(
+                topBarMenuItemImageViewMethod,
+                topBarMenuItemImageView,
+                "hideNotificationButton"
+            ),
         ).forEach { (method, resourceIdLiteral, methodName) ->
             method.apply {
                 val resourceIndex = indexOfFirstLiteralInstructionOrThrow(resourceIdLiteral)
@@ -104,7 +111,7 @@ val hideButtonsPatch = bytecodePatch(
                 addInstruction(
                     targetIndex + 1,
                     "invoke-static { v$targetRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V",
+                            "$EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V",
                 )
             }
         }

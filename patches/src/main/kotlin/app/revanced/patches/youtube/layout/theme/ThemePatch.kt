@@ -1,11 +1,16 @@
 package app.revanced.patches.youtube.layout.theme
 
+
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.layout.theme.THEME_COLOR_OPTION_DESCRIPTION
+import app.revanced.patches.shared.layout.theme.THEME_DEFAULT_DARK_COLOR_NAMES
+import app.revanced.patches.shared.layout.theme.THEME_DEFAULT_LIGHT_COLOR_NAMES
 import app.revanced.patches.shared.layout.theme.baseThemePatch
 import app.revanced.patches.shared.layout.theme.baseThemeResourcePatch
 import app.revanced.patches.shared.layout.theme.darkThemeBackgroundColorOption
@@ -20,13 +25,19 @@ import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.seekbar.seekbarColorPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_02_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_21_06_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.forEachChildElement
 import app.revanced.util.insertLiteralOverride
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.w3c.dom.Element
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/theme/ThemePatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/theme/ThemePatch;"
 
 val themePatch = baseThemePatch(
     extensionClassDescriptor = EXTENSION_CLASS_DESCRIPTOR,
@@ -147,18 +158,44 @@ val themePatch = baseThemePatch(
             settingsPatch,
             addResourcesPatch,
             seekbarColorPatch,
+            versionCheckPatch,
             baseThemeResourcePatch(
                 lightColorReplacement = { lightThemeBackgroundColor!! },
+                getDarkColorNames = {
+                    THEME_DEFAULT_DARK_COLOR_NAMES + if (is_21_06_or_greater)
+                        setOf(
+                            // yt_ref_color_constants_baseline_black_black0
+                            "yt_sys_color_baseline_dark_menu_background",
+                            // yt_ref_color_constants_baseline_black_black1
+                            "yt_sys_color_baseline_dark_static_black",
+                            "yt_sys_color_baseline_dark_raised_background",
+                            // yt_ref_color_constants_baseline_black_black3
+                            "yt_sys_color_baseline_dark_base_background",
+                            "yt_sys_color_baseline_dark_static_black",
+                            "yt_sys_color_baseline_light_inverted_background",
+                            "yt_sys_color_baseline_light_static_black",
+                        ) else emptySet()
+                },
+                getLightColorNames = {
+                    THEME_DEFAULT_LIGHT_COLOR_NAMES + if (is_21_06_or_greater)
+                        setOf(
+                            "yt_sys_color_baseline_light_base_background",
+                            "yt_sys_color_baseline_light_raised_background"
+                        )
+                    else emptySet()
+                }
             ),
             themeResourcePatch,
         )
 
         compatibleWith(
             "com.google.android.youtube"(
-                "19.43.41",
                 "20.14.43",
                 "20.21.37",
-                "20.31.40",
+                "20.26.46",
+                "20.31.42",
+                "20.37.48",
+                "20.40.45"
             ),
         )
     },
@@ -210,6 +247,40 @@ val themePatch = baseThemePatch(
                 splashScreenStyleMethodMatch[0],
                 "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I",
             )
+        }
+
+        showSplashScreen1MethodMatch.let {
+            it.method.apply {
+                val index = it[-1]
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index + 1,
+                    """
+                        invoke-static { v$register }, ${EXTENSION_CLASS_DESCRIPTOR}->showSplashScreen(Z)Z
+                        move-result v$register
+                    """
+                )
+            }
+        }
+
+        if (is_20_02_or_greater) {
+            showSplashScreen2MethodMatch.let {
+                val insertIndex = it[1]
+                it.method.apply {
+                    val insertInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
+                    val registerA = insertInstruction.registerA
+                    val registerB = insertInstruction.registerB
+
+                    addInstructions(
+                        insertIndex,
+                        """
+                            invoke-static { v$registerA, v$registerB }, ${EXTENSION_CLASS_DESCRIPTOR}->showSplashScreen(II)I
+                            move-result v$registerA
+                        """
+                    )
+                }
+            }
         }
     },
 )

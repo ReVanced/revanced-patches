@@ -8,10 +8,10 @@ import app.revanced.patches.shared.misc.settings.preference.NonInteractivePrefer
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.imageurlhook.addImageUrlErrorCallbackHook
-import app.revanced.patches.youtube.misc.imageurlhook.addImageUrlHook
-import app.revanced.patches.youtube.misc.imageurlhook.addImageUrlSuccessCallbackHook
-import app.revanced.patches.youtube.misc.imageurlhook.cronetImageUrlHookPatch
+import app.revanced.patches.youtube.misc.imageurlhook.addImageURLErrorCallbackHook
+import app.revanced.patches.youtube.misc.imageurlhook.addImageURLHook
+import app.revanced.patches.youtube.misc.imageurlhook.addImageURLSuccessCallbackHook
+import app.revanced.patches.youtube.misc.imageurlhook.cronetImageURLHookPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -29,15 +29,17 @@ val alternativeThumbnailsPatch = bytecodePatch(
         settingsPatch,
         addResourcesPatch,
         navigationBarHookPatch,
-        cronetImageUrlHookPatch,
+        cronetImageURLHookPatch,
     )
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.43.41",
             "20.14.43",
             "20.21.37",
-            "20.31.40",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -85,8 +87,8 @@ val alternativeThumbnailsPatch = bytecodePatch(
             ListPreference("revanced_alt_thumbnail_stills_time"),
         )
 
-        addImageUrlHook(EXTENSION_CLASS_DESCRIPTOR)
-        addImageUrlSuccessCallbackHook(EXTENSION_CLASS_DESCRIPTOR)
-        addImageUrlErrorCallbackHook(EXTENSION_CLASS_DESCRIPTOR)
+        addImageURLHook(EXTENSION_CLASS_DESCRIPTOR)
+        addImageURLSuccessCallbackHook(EXTENSION_CLASS_DESCRIPTOR)
+        addImageURLErrorCallbackHook(EXTENSION_CLASS_DESCRIPTOR)
     }
 }

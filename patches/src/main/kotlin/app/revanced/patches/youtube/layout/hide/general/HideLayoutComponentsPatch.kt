@@ -1,6 +1,8 @@
 package app.revanced.patches.youtube.layout.hide.general
 
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.CompositeMatch
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.resourcePatch
@@ -9,9 +11,11 @@ import app.revanced.patches.shared.layout.hide.general.hideLayoutComponentsPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.*
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
+import app.revanced.patches.youtube.misc.engagement.engagementPanelHookPatch
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
-import app.revanced.patches.youtube.misc.playservice.is_20_26_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_21_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -19,12 +23,18 @@ import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 internal var albumCardId = -1L
     private set
@@ -71,6 +81,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         hideLayoutComponentsResourcePatch,
         navigationBarHookPatch,
         versionCheckPatch,
+        engagementPanelHookPatch,
         resourceMappingPatch,
     ),
     filterClasses = setOf(
@@ -82,14 +93,22 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
     ),
     compatibleWithPackages = arrayOf(
         "com.google.android.youtube" to setOf(
-            "19.43.41",
             "20.14.43",
             "20.21.37",
-            "20.31.40",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
         ),
     ),
 ) {
     addResources("youtube", "layout.hide.general.hideLayoutComponentsPatch")
+
+    PreferenceScreen.ADS.addPreferences(
+        // Uses horizontal shelf and a buffer, which requires managing in a single place in the code
+        // to ensure the generic "hide horizontal shelves" doesn't hide when it should show.
+        SwitchPreference("revanced_hide_creator_store_shelf")
+    )
 
     PreferenceScreen.PLAYER.addPreferences(
         PreferenceScreenPreference(
@@ -99,15 +118,22 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                 SwitchPreference("revanced_hide_ask_section"),
                 SwitchPreference("revanced_hide_attributes_section"),
                 SwitchPreference("revanced_hide_chapters_section"),
+                SwitchPreference("revanced_hide_course_progress_section"),
+                SwitchPreference("revanced_hide_explore_section"),
+                SwitchPreference("revanced_hide_explore_course_section"),
+                SwitchPreference("revanced_hide_explore_podcast_section"),
                 SwitchPreference("revanced_hide_featured_links_section"),
+                SwitchPreference("revanced_hide_featured_places_section"),
                 SwitchPreference("revanced_hide_featured_videos_section"),
-                SwitchPreference("revanced_hide_info_cards_section"),
+                SwitchPreference("revanced_hide_gaming_section"),
                 SwitchPreference("revanced_hide_how_this_was_made_section"),
                 SwitchPreference("revanced_hide_hype_points"),
+                SwitchPreference("revanced_hide_info_cards_section"),
                 SwitchPreference("revanced_hide_key_concepts_section"),
-                SwitchPreference("revanced_hide_podcast_section"),
+                SwitchPreference("revanced_hide_music_section"),
                 SwitchPreference("revanced_hide_subscribe_button"),
                 SwitchPreference("revanced_hide_transcript_section"),
+                SwitchPreference("revanced_hide_quizzes_section")
             ),
         ),
         PreferenceScreenPreference(
@@ -118,13 +144,14 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                 SwitchPreference("revanced_hide_comments_channel_guidelines"),
                 SwitchPreference("revanced_hide_comments_by_members_header"),
                 SwitchPreference("revanced_hide_comments_section"),
+                SwitchPreference("revanced_hide_comments_section_in_home_feed"),
                 SwitchPreference("revanced_hide_comments_community_guidelines"),
                 SwitchPreference("revanced_hide_comments_create_a_short_button"),
                 SwitchPreference("revanced_hide_comments_emoji_and_timestamp_buttons"),
                 SwitchPreference("revanced_hide_comments_preview_comment"),
                 SwitchPreference("revanced_hide_comments_thanks_button"),
             ),
-            sorting = PreferenceScreenPreference.Sorting.UNSORTED,
+            sorting = Sorting.UNSORTED,
         ),
         SwitchPreference("revanced_hide_channel_bar"),
         SwitchPreference("revanced_hide_channel_watermark"),
@@ -132,29 +159,34 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         SwitchPreference("revanced_hide_emergency_box"),
         SwitchPreference("revanced_hide_info_panels"),
         SwitchPreference("revanced_hide_join_membership_button"),
+        SwitchPreference("revanced_hide_live_chat_replay_button"),
         SwitchPreference("revanced_hide_medical_panels"),
         SwitchPreference("revanced_hide_quick_actions"),
         SwitchPreference("revanced_hide_related_videos"),
         SwitchPreference("revanced_hide_subscribers_community_guidelines"),
         SwitchPreference("revanced_hide_timed_reactions"),
+        SwitchPreference("revanced_hide_video_title")
     )
 
     PreferenceScreen.FEED.addPreferences(
         PreferenceScreenPreference(
             key = "revanced_hide_keyword_content_screen",
-            sorting = PreferenceScreenPreference.Sorting.UNSORTED,
+            sorting = Sorting.UNSORTED,
             preferences = setOf(
                 SwitchPreference("revanced_hide_keyword_content_home"),
                 SwitchPreference("revanced_hide_keyword_content_subscriptions"),
                 SwitchPreference("revanced_hide_keyword_content_search"),
-                TextPreference("revanced_hide_keyword_content_phrases", inputType = InputType.TEXT_MULTI_LINE),
+                TextPreference(
+                    "revanced_hide_keyword_content_phrases",
+                    inputType = InputType.TEXT_MULTI_LINE
+                ),
                 NonInteractivePreference(
                     key = "revanced_hide_keyword_content_about",
                     tag = "app.revanced.extension.shared.settings.preference.BulletPointPreference",
                 ),
                 NonInteractivePreference(
                     key = "revanced_hide_keyword_content_about_whole_words",
-                    tag = "app.revanced.extension.youtube.settings.preference.HtmlPreference",
+                    tag = "app.revanced.extension.youtube.settings.preference.HTMLPreference",
                 ),
             ),
         ),
@@ -170,6 +202,18 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         PreferenceScreenPreference(
             key = "revanced_channel_screen",
             preferences = setOf(
+                PreferenceCategory(
+                    titleKey = null,
+                    sorting = Sorting.UNSORTED,
+                    tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
+                    preferences = setOf(
+                        SwitchPreference("revanced_hide_channel_tab"),
+                        TextPreference(
+                            "revanced_hide_channel_tab_filter_strings",
+                            inputType = InputType.TEXT_MULTI_LINE
+                        ),
+                    )
+                ),
                 SwitchPreference("revanced_hide_community_button"),
                 SwitchPreference("revanced_hide_for_you_shelf"),
                 SwitchPreference("revanced_hide_join_button"),
@@ -185,6 +229,18 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         SwitchPreference("revanced_hide_community_posts"),
         SwitchPreference("revanced_hide_compact_banner"),
         SwitchPreference("revanced_hide_expandable_card"),
+        PreferenceCategory(
+            titleKey = null,
+            sorting = Sorting.UNSORTED,
+            tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
+            preferences = setOf(
+                SwitchPreference("revanced_hide_feed_flyout_menu"),
+                TextPreference(
+                    "revanced_hide_feed_flyout_menu_filter_strings",
+                    inputType = InputType.TEXT_MULTI_LINE
+                ),
+            )
+        ),
         SwitchPreference("revanced_hide_floating_microphone_button"),
         SwitchPreference(
             key = "revanced_hide_horizontal_shelves",
@@ -192,6 +248,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         ),
         SwitchPreference("revanced_hide_image_shelf"),
         SwitchPreference("revanced_hide_latest_posts"),
+        SwitchPreference("revanced_hide_latest_videos_button"),
         SwitchPreference("revanced_hide_mix_playlists"),
         SwitchPreference("revanced_hide_movies_section"),
         SwitchPreference("revanced_hide_notify_me_button"),
@@ -206,7 +263,13 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         SwitchPreference("revanced_hide_doodles"),
     )
 
-    // region Mix playlists
+    if (is_20_21_or_greater) {
+        PreferenceScreen.FEED.addPreferences(
+            SwitchPreference("revanced_hide_you_may_like_section")
+        )
+    }
+
+    // region Hide mix playlists
 
     parseElementFromBufferMethodMatch.let {
         it.method.apply {
@@ -214,12 +277,18 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
             val insertIndex = startIndex + 1
 
             val byteArrayParameter = "p3"
-            val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
-            val returnEmptyComponentInstruction = instructions.last { it.opcode == Opcode.INVOKE_STATIC }
+            val conversionContextRegister =
+                getInstruction<TwoRegisterInstruction>(startIndex).registerA
+            val returnEmptyComponentInstruction =
+                instructions.last { it.opcode == Opcode.INVOKE_STATIC }
             val returnEmptyComponentRegister =
                 (returnEmptyComponentInstruction as FiveRegisterInstruction).registerC
             val freeRegister =
-                findFreeRegister(insertIndex, conversionContextRegister, returnEmptyComponentRegister)
+                findFreeRegister(
+                    insertIndex,
+                    conversionContextRegister,
+                    returnEmptyComponentRegister
+                )
 
             addInstructionsWithLabels(
                 insertIndex,
@@ -239,7 +308,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // endregion
 
-    // region Watermark (legacy code for old versions of YouTube)
+    // region Hide watermark (legacy code for old versions of YouTube)
 
     playerOverlayMethod.immutableClassDef.getShowWatermarkMethod().apply {
         val index = implementation!!.instructions.size - 5
@@ -256,25 +325,94 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // endregion
 
-    // region Show more button
+    // region Hide Show more button
 
-    (if (is_20_26_or_greater) hideShowMoreButtonMethodMatch else hideShowMoreLegacyButtonMethodMatch).let {
+    val (textViewField, buttonContainerField) = hideShowMoreButtonSetViewMethodMatch.let {
+        val textViewIndex = it[1]
+        val buttonContainerIndex = it[3]
+
+        Pair(
+            it.method.getInstruction<ReferenceInstruction>(textViewIndex).reference,
+            it.method.getInstruction<ReferenceInstruction>(buttonContainerIndex).reference
+        )
+    }
+
+    val parentViewMethod = hideShowMoreButtonSetViewMethodMatch.immutableClassDef
+        .getHideShowMoreButtonGetParentViewMethod()
+
+    hideShowMoreButtonSetViewMethodMatch.immutableClassDef.getHideShowMoreButtonMethod().apply {
+        val helperMethod = ImmutableMethod(
+            definingClass,
+            "patch_hideShowMoreButton",
+            listOf(),
+            "V",
+            AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
+            null,
+            null,
+            MutableMethodImplementation(7),
+        ).toMutable().apply {
+            addInstructions(
+                0,
+                """
+                    move-object/from16 v0, p0
+                    invoke-virtual { v0 }, $parentViewMethod
+                    move-result-object v1
+                    iget-object v2, v0, $buttonContainerField
+                    iget-object v3, v0, $textViewField
+                    invoke-static { v1, v2, v3 }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideShowMoreButton(Landroid/view/View;Landroid/view/View;Landroid/widget/TextView;)V
+                    return-void
+                """
+            )
+        }.also(classDef.methods::add)
+
+        findInstructionIndicesReversedOrThrow(Opcode.RETURN_VOID).forEach { index ->
+            addInstruction(index, "invoke-direct/range { p0 .. p0 }, $helperMethod")
+        }
+    }
+
+    // endregion
+
+
+    // region Hide Subscribed channels bar
+
+    // Tablet
+    val methodMatch = if (is_20_21_or_greater)
+        hideSubscribedChannelsBarConstructorMethodMatch
+    else hideSubscribedChannelsBarConstructorLegacyMethodMatch
+
+    methodMatch.let {
         it.method.apply {
-            val moveRegisterIndex = it[-1]
-            val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
+            val index = it[1]
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-            val insertIndex = moveRegisterIndex + 1
             addInstruction(
-                insertIndex,
-                "invoke-static { v$viewRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
-                    "->hideShowMoreButton(Landroid/view/View;)V",
+                index + 1,
+                "invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
+                        "->hideSubscribedChannelsBar(Landroid/view/View;)V",
+            )
+        }
+    }
+
+    // Phone (landscape mode)
+    methodMatch.immutableClassDef.hideSubscribedChannelsBarLandscapeMethodMatch.let {
+        it.method.apply {
+            val index = it[-1]
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+            addInstructions(
+                index + 1,
+                """
+                    invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideSubscribedChannelsBar(I)I
+                    move-result v$register
+                """
             )
         }
     }
 
     // endregion
 
-    // region crowdfunding box
+    // region Hide Crowdfunding box
+
     crowdfundingBoxMethodMatch.let {
         it.method.apply {
             val insertIndex = it[-1]
@@ -283,14 +421,14 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
             addInstruction(
                 insertIndex,
                 "invoke-static {v$objectRegister}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
-                    "->hideCrowdfundingBox(Landroid/view/View;)V",
+                        "->hideCrowdfundingBox(Landroid/view/View;)V",
             )
         }
     }
 
     // endregion
 
-    // region hide album cards
+    // region Hide Album cards
 
     albumCardsMethodMatch.let {
         it.method.apply {
@@ -301,14 +439,14 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
             addInstruction(
                 insertIndex,
                 "invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
-                    "->hideAlbumCard(Landroid/view/View;)V",
+                        "->hideAlbumCard(Landroid/view/View;)V",
             )
         }
     }
 
     // endregion
 
-    // region hide floating microphone
+    // region Hide Floating microphone
 
     showFloatingMicrophoneButtonMethodMatch.let {
         it.method.apply {
@@ -327,7 +465,27 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // endregion
 
-    // region 'Yoodles'
+    // region Hide latest videos button
+
+    listOf(
+        latestVideosContentPillMethodMatch,
+        latestVideosBarMethodMatch,
+    ).forEach { match ->
+        match.method.apply {
+            val moveIndex = match[-1]
+            val viewRegister = getInstruction<OneRegisterInstruction>(moveIndex).registerA
+
+            addInstruction(
+                moveIndex + 1,
+                "invoke-static { v$viewRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
+                        "->hideLatestVideosButton(Landroid/view/View;)V"
+            )
+        }
+    }
+
+    // endregion
+
+    // region Hide 'Yoodles'
 
     yoodlesImageViewMethod.apply {
         findInstructionIndicesReversedOrThrow {
@@ -339,14 +497,14 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
             replaceInstruction(
                 insertIndex,
                 "invoke-static { v$imageViewRegister, v$drawableRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->" +
-                    "setDoodleDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V",
+                        "setDoodleDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V",
             )
         }
     }
 
     // endregion
 
-    // region hide view count
+    // region Hide view count
 
     hideViewCountMethodMatch.method.apply {
         val startIndex = hideViewCountMethodMatch[0]
@@ -356,10 +514,10 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         val applyDimensionIndex = indexOfFirstInstructionReversedOrThrow {
             val reference = getReference<MethodReference>()
             opcode == Opcode.INVOKE_STATIC &&
-                reference?.definingClass == "Landroid/util/TypedValue;" &&
-                reference.returnType == "F" &&
-                reference.name == "applyDimension" &&
-                reference.parameterTypes == listOf("I", "F", "Landroid/util/DisplayMetrics;")
+                    reference?.definingClass == "Landroid/util/TypedValue;" &&
+                    reference.returnType == "F" &&
+                    reference.name == "applyDimension" &&
+                    reference.parameterTypes == listOf("I", "F", "Landroid/util/DisplayMetrics;")
         }
 
         // A float value is passed which is used to determine subtitle text size.
@@ -378,7 +536,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // endregion
 
-    // region hide filter bar
+    // region Hide filter bar
 
     /**
      * Patch a [Method] with a given [instructions].
@@ -416,6 +574,179 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     relatedChipCloudMethodMatch.patch<OneRegisterInstruction>(1) { register ->
         "invoke-static { v$register }, " +
-            "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
+                "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
     }
+
+    // endregion
+
+    // region Hide You may like section
+
+    if (is_20_21_or_greater) {
+        val searchSuggestionEndpointField =
+            searchSuggestionEndpointConstructorMethod.immutableClassDef
+                .searchSuggestionEndpointMethodMatch.let {
+                    it.method.getInstruction(it[0]).fieldReference!!
+                }
+        val searchSuggestionEndpointClass = searchSuggestionEndpointField.definingClass
+
+        searchBoxTypingStringMethodMatch.let {
+            it.method.apply {
+                // A collection of search suggestions.
+                // This includes trending search (also known as 'You may like' section)
+                // and your search history.
+
+                val searchSuggestionCollectionField = getInstruction(it[0]).fieldReference!!
+                val typedStringField = getInstruction(it[2]).fieldReference!!
+
+                val helperMethod = ImmutableMethod(
+                    definingClass,
+                    "patch_setSearchSuggestions",
+                    listOf(
+                        ImmutableMethodParameter(
+                            parameterTypes.first().toString(),
+                            null,
+                            null
+                        )
+                    ),
+                    "V",
+                    AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
+                    annotations,
+                    null,
+                    MutableMethodImplementation(7),
+                ).toMutable().apply {
+                    addInstructionsWithLabels(
+                        0,
+                        """
+                                move-object/from16 v0, p1
+                                iget-object v1, v0, $typedStringField
+                                
+                                # Check if the setting is enabled and if the typed string is empty.
+                                invoke-static { v1 }, ${LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR}->hideYouMayLikeSection(Ljava/lang/String;)Z
+                                move-result v1
+                                
+                                # If the setting is disabled or the typed string is not empty, do nothing.
+                                if-eqz v1, :ignore
+
+                                ## Get a collection of search suggestions.
+                                iget-object v1, v0, $searchSuggestionCollectionField
+                                
+                                # Iterate through the collection and check if the search suggestion is the search history.
+                                invoke-interface { v1 }, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+                                move-result-object v2
+                                
+                                :loop
+                                invoke-interface { v2 }, Ljava/util/Iterator;->hasNext()Z
+                                move-result v3
+                                if-eqz v3, :exit
+                                invoke-interface { v2 }, Ljava/util/Iterator;->next()Ljava/lang/Object;
+                                move-result-object v3
+                                instance-of v4, v3, $searchSuggestionEndpointClass
+                                if-eqz v4, :loop
+                                check-cast v3, $searchSuggestionEndpointClass
+
+                                # Each search suggestion has a command endpoint.
+                                # If the search suggestion is the search history, the command includes the keyword '/delete'.
+                                iget-object v4, v3, $searchSuggestionEndpointField
+                                invoke-static { v3, v4 }, ${LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR}->isSearchHistory(Ljava/lang/Object;Ljava/lang/String;)Z
+                                move-result v3
+                                
+                                # If this search suggestion is the search history, do nothing.
+                                if-nez v3, :loop
+                                
+                                # If this search suggestion is not the search history, remove it from the search suggestions collection.
+                                invoke-interface { v2 }, Ljava/util/Iterator;->remove()V
+                                goto :loop
+
+                                # Save the updated collection to a field.
+                                :exit
+                                iput-object v1, v0, $searchSuggestionCollectionField
+
+                                :ignore
+                                return-void
+                            """
+                    )
+                }.also(it.classDef.methods::add)
+
+                addInstruction(
+                    0,
+                    "invoke-direct/range { p0 .. p1 }, $helperMethod"
+                )
+            }
+        }
+    }
+
+    // endregion
+
+    // region Hide flyout menu items
+
+    bottomSheetMenuItemBuilderMethodMatch.let {
+        it.method.apply {
+            val index = it[1]
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+            addInstructions(
+                index + 1,
+                """
+                        invoke-static { v$register }, ${LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR}->hideFlyoutMenu(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                        move-result-object v$register      
+                    """
+            )
+        }
+    }
+
+    contextualMenuItemBuilderMethodMatch.let {
+        it.method.apply {
+            val index = it[1]
+            val targetInstruction = getInstruction<FiveRegisterInstruction>(index)
+
+            addInstruction(
+                index + 1,
+                "invoke-static { v${targetInstruction.registerC}, v${targetInstruction.registerD} }, " +
+                        "${LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR}->hideFlyoutMenu(Landroid/widget/TextView;Ljava/lang/CharSequence;)V"
+            )
+        }
+    }
+
+    // endregion
+
+    // region Hide channel tab
+
+    channelTabRendererMethod.apply {
+        val iteratorIndex = indexOfFirstInstructionReversedOrThrow {
+            methodReference?.name == "hasNext"
+        }
+
+        val iteratorRegister = getInstruction<FiveRegisterInstruction>(iteratorIndex).registerC
+        val targetIndex = indexOfFirstInstructionReversedOrThrow {
+            val reference = methodReference
+
+            opcode == Opcode.INVOKE_INTERFACE &&
+                    reference?.returnType == channelTabBuilderMethod.returnType &&
+                    reference.parameterTypes == channelTabBuilderMethod.parameterTypes
+        }
+
+        val objectIndex = indexOfFirstInstructionReversedOrThrow(
+            targetIndex,
+            Opcode.IGET_OBJECT
+        )
+        val objectInstruction = getInstruction<TwoRegisterInstruction>(objectIndex)
+        val objectReference = getInstruction<ReferenceInstruction>(objectIndex).reference
+
+        addInstructionsWithLabels(
+            objectIndex + 1,
+            """
+                invoke-static { v${objectInstruction.registerA} }, ${LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR}->hideChannelTab(Ljava/lang/String;)Z
+                move-result v${objectInstruction.registerA}
+                if-eqz v${objectInstruction.registerA}, :ignore
+                invoke-interface { v$iteratorRegister }, Ljava/util/Iterator;->remove()V
+                goto :next_iterator
+                :ignore
+                iget-object v${objectInstruction.registerA}, v${objectInstruction.registerB}, $objectReference
+                """,
+            ExternalLabel("next_iterator", getInstruction(iteratorIndex))
+        )
+    }
+
+    // endregion
 }
+

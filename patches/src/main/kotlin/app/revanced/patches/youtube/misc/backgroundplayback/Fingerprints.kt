@@ -72,13 +72,6 @@ internal val BytecodePatchContext.kidsBackgroundPlaybackPolicyControllerMethod b
     literal { 5 }
 }
 
-internal val BytecodePatchContext.backgroundPlaybackManagerShortsMethod by gettingFirstMethodDeclaratively {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returnType("Z")
-    parameterTypes("L")
-    instructions(151635310L())
-}
-
 internal val BytecodePatchContext.shortsBackgroundPlaybackFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
@@ -92,4 +85,8 @@ internal val BytecodePatchContext.pipInputConsumerFeatureFlagMethodMatch by comp
         // PiP input consumer feature flag.
         45638483L(),
     )
+}
+
+internal val BytecodePatchContext.newPlayerTypeEnumFeatureFlagMethod by gettingFirstMethodDeclaratively {
+    instructions(45698813L())
 }

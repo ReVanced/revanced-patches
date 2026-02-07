@@ -9,9 +9,11 @@ import app.revanced.extension.youtube.shared.PlayerType;
 public final class CommentsFilter extends Filter {
 
     private static final String COMMENT_COMPOSER_PATH = "comment_composer.e";
+    private static final String VIDEO_LOCKUP_WITH_ATTACHMENT_PATH = "video_lockup_with_attachment.e";
 
     private final StringFilterGroup chipBar;
     private final ByteArrayFilterGroup aiCommentsSummary;
+    private final StringFilterGroup comments;
     private final StringFilterGroup emojiAndTimestampButtons;
     
     public CommentsFilter() {
@@ -41,7 +43,7 @@ public final class CommentsFilter extends Filter {
                 "sponsorships_comments_footer.e"
         );
 
-        var comments = new StringFilterGroup(
+        comments = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_SECTION,
                 "video_metadata_carousel",
                 "_comments"
@@ -90,12 +92,19 @@ public final class CommentsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String identifier, String path, byte[] buffer,
+    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == chipBar) {
             // Playlist sort button uses same components and must only filter if the player is opened.
             return PlayerType.getCurrent().isMaximizedOrFullscreen()
                     && aiCommentsSummary.check(buffer).isFiltered();
+        }
+
+        if (matchedGroup == comments) {
+            if (path.startsWith(VIDEO_LOCKUP_WITH_ATTACHMENT_PATH)) {
+                return Settings.HIDE_COMMENTS_SECTION_IN_HOME_FEED.get();
+            }
+            return Settings.HIDE_COMMENTS_SECTION.get();
         }
 
         if (matchedGroup == emojiAndTimestampButtons) {

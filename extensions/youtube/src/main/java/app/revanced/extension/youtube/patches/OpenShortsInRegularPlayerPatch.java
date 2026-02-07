@@ -34,6 +34,13 @@ public class OpenShortsInRegularPlayerPatch {
     /**
      * Injection point.
      */
+    public static boolean overrideBackPressToExit() {
+        return overrideBackPressToExit(true);
+    }
+
+    /**
+     * Injection point.
+     */
     public static boolean overrideBackPressToExit(boolean original) {
         if (overrideBackPressToExit) {
             Logger.printDebug(() -> "Overriding back press to exit activity");
@@ -46,7 +53,7 @@ public class OpenShortsInRegularPlayerPatch {
     /**
      * Injection point.
      */
-    public static boolean openShort(String videoID) {
+    public static boolean openShort(String videoId) {
         try {
             ShortsPlayerType type = Settings.SHORTS_PLAYER_TYPE.get();
             if (type == ShortsPlayerType.SHORTS_PLAYER) {
@@ -54,7 +61,7 @@ public class OpenShortsInRegularPlayerPatch {
                 return false; // Default unpatched behavior.
             }
 
-            if (videoID.isEmpty()) {
+            if (videoId.isEmpty()) {
                 // Shorts was opened using launcher app shortcut.
                 //
                 // This check will not detect if the Shorts app shortcut is used
@@ -84,12 +91,12 @@ public class OpenShortsInRegularPlayerPatch {
             // Can use the application context and add intent flags of
             // FLAG_ACTIVITY_NEW_TASK and FLAG_ACTIVITY_CLEAR_TOP
             // But the activity context seems to fix random app crashes
-            // if Shorts urls are opened outside the app.
+            // if Shorts URLs are opened outside the app.
             var context = mainActivityRef.get();
 
             Intent videoPlayerIntent = new Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://youtube.com/watch?v=" + videoID)
+                    Uri.parse("https://youtube.com/watch?v=" + videoId)
             );
             videoPlayerIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             videoPlayerIntent.setPackage(context.getPackageName());

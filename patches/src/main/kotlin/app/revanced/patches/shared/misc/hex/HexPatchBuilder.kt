@@ -95,18 +95,15 @@ class Replacement(
      */
     private fun indexOfPatternIn(haystack: ByteArray): Int {
         val needle = bytes
-
-        val haystackLength = haystack.size - 1
-        val needleLength = needle.size - 1
         val right = IntArray(256) { -1 }
 
-        for (i in 0 until needleLength) right[needle[i].toInt().and(0xFF)] = i
+        for (i in 0 until needle.size) right[needle[i].toInt().and(0xFF)] = i
 
         var skip: Int
-        for (i in 0..haystackLength - needleLength) {
+        for (i in 0..haystack.size - needle.size) {
             skip = 0
 
-            for (j in needleLength - 1 downTo 0) {
+            for (j in needle.size - 1 downTo 0) {
                 if (needle[j] != haystack[i + j]) {
                     skip = max(1, j - right[haystack[i + j].toInt().and(0xFF)])
 

@@ -35,7 +35,9 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.PlayerControlsVisibility;
 import app.revanced.extension.youtube.shared.PlayerType;
+import app.revanced.extension.youtube.shared.ShortsPlayerState;
 import app.revanced.extension.youtube.shared.VideoState;
 import app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory;
@@ -128,7 +130,7 @@ public class SegmentPlaybackController {
 
     /**
      * Current segments that have been auto skipped.
-     * If field is non null then the range will always contain the current video time.
+     * If field is non-null then the range will always contain the current video time.
      * Range is used to prevent auto-skipping after undo.
      * Android Range object has inclusive end time, unlike {@link SponsorSegment}.
      */
@@ -136,7 +138,7 @@ public class SegmentPlaybackController {
     private static Range<Long> undoAutoSkipRange;
     /**
      * Range to undo if the toast is tapped.
-     * Is always null or identical to the last non null value of {@link #undoAutoSkipRange}.
+     * Is always null or identical to the last non-null value of {@link #undoAutoSkipRange}.
      */
     @Nullable
     private static Range<Long> undoAutoSkipRangeToast;
@@ -311,7 +313,10 @@ public class SegmentPlaybackController {
             if (videoId == null || !Settings.SB_ENABLED.get()) {
                 return;
             }
-            if (PlayerType.getCurrent().isNoneOrHidden()) {
+            // Cannot use PlayerType to check because on some newer targets
+            // the player type can be updated out of order and incorrectly
+            // is "none" when the regular player is open
+            if (ShortsPlayerState.isOpen()) {
                 Logger.printDebug(() -> "Ignoring Short");
                 return;
             }
@@ -382,8 +387,8 @@ public class SegmentPlaybackController {
 
             Logger.printDebug(() -> {
                 String visibilityMessage = switch (visibility) {
-                    case View.VISIBLE   -> "VISIBLE";
-                    case View.GONE      -> "GONE";
+                    case View.VISIBLE -> "VISIBLE";
+                    case View.GONE -> "GONE";
                     case View.INVISIBLE -> "INVISIBLE";
                     default -> "UNKNOWN";
                 };
@@ -394,12 +399,18 @@ public class SegmentPlaybackController {
 
     /**
      * When a video ad is playing in a regular video player, segments or the Skip button should be hidden.
+     *
      * @return Whether the Ad Progress TextView is visible in the regular video player.
      */
     public static boolean isAdProgressTextVisible() {
         return adProgressTextVisibility == View.VISIBLE;
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
+    private static boolean autoSkipIsEnabledAndPlayerOverlayIsActive() {
+        return Settings.SB_AUTO_HIDE_SKIP_BUTTON.get() &&
+                PlayerControlsVisibility.getCurrent() != PlayerControlsVisibility.PLAYER_CONTROLS_VISIBILITY_HIDDEN;
+    }
 
     /**
      * Injection point.
@@ -422,7 +433,7 @@ public class SegmentPlaybackController {
             // Amount of time to look ahead for the next segment,
             // and the threshold to determine if a scheduled show/hide is at the correct video time when it's run.
             //
-            // This value must be greater than largest time between calls to this method (1000ms),
+            // This value must be greater than the largest time between calls to this method (1000ms),
             // and must be adjusted for the video speed.
             //
             // To debug the stale skip logic, set this to a very large value (5000 or more)
@@ -490,7 +501,7 @@ public class SegmentPlaybackController {
 
                     // Only schedule, if the segment start time is not near the end time of the current segment.
                     // This check is needed to prevent scheduled hide and show from clashing with each other.
-                    // Instead the upcoming segment will be handled when the current segment scheduled hide calls back into this method.
+                    // Instead, the upcoming segment will be handled when the current segment scheduled hide calls back into this method.
                     final long minTimeBetweenStartEndOfSegments = 1000;
                     if (foundSegmentCurrentlyPlaying == null
                             || !foundSegmentCurrentlyPlaying.endIsNear(segment.start, minTimeBetweenStartEndOfSegments)) {
@@ -519,7 +530,11 @@ public class SegmentPlaybackController {
                 Logger.printDebug(() -> "Auto hiding skip button for segment: " + segmentCurrentlyPlaying);
                 skipSegmentButtonEndTime = 0;
                 hiddenSkipSegmentsForCurrentVideoTime.add(foundSegmentCurrentlyPlaying);
-                SponsorBlockViewController.hideSkipSegmentButton();
+                // Do not hide if auto-hide is enabled and player controls are visible.
+                // Skip button will hide when the overlay controls are dismissed.
+                if (!autoSkipIsEnabledAndPlayerOverlayIsActive()) {
+                    SponsorBlockViewController.hideSkipSegmentButton();
+                }
             }
 
             // Schedule a hide, but only if the segment end is near.
@@ -602,12 +617,12 @@ public class SegmentPlaybackController {
                         }
                     }, delayUntilSkip);
                 }
-            }
 
-            // Clear undo range if video time is outside the segment.  Must check last.
-            if (undoAutoSkipRange != null && !undoAutoSkipRange.contains(millis)) {
-                Logger.printDebug(() -> "Clearing undo range as current time is now outside range: " + undoAutoSkipRange);
-                undoAutoSkipRange = null;
+                // Clear undo range if video time is outside the segment.  Must check last.
+                if (undoAutoSkipRange != null && !undoAutoSkipRange.contains(millis)) {
+                    Logger.printDebug(() -> "Clearing undo range as current time is now outside range: " + undoAutoSkipRange);
+                    undoAutoSkipRange = null;
+                }
             }
         } catch (Exception e) {
             Logger.printException(() -> "setVideoTime failure", e);
@@ -615,7 +630,7 @@ public class SegmentPlaybackController {
     }
 
     /**
-     * Removes all previously hidden segments that are not longer contained in the given video time.
+     * Removes all previously hidden segments that are no longer contained in the given video time.
      */
     private static void updateHiddenSegments(long currentVideoTime) {
         hiddenSkipSegmentsForCurrentVideoTime.removeIf((hiddenSegment) -> {
@@ -629,7 +644,9 @@ public class SegmentPlaybackController {
 
     private static void setSegmentCurrentlyPlaying(@Nullable SponsorSegment segment) {
         if (segment == null) {
-            if (segmentCurrentlyPlaying != null) Logger.printDebug(() -> "Hiding segment: " + segmentCurrentlyPlaying);
+            if (segmentCurrentlyPlaying != null) {
+                Logger.printDebug(() -> "Hiding segment: " + segmentCurrentlyPlaying);
+            }
             segmentCurrentlyPlaying = null;
             skipSegmentButtonEndTime = 0;
             SponsorBlockViewController.hideSkipSegmentButton();
@@ -643,7 +660,12 @@ public class SegmentPlaybackController {
             if (hiddenSkipSegmentsForCurrentVideoTime.contains(segment)) {
                 // Playback exited a nested segment and the outer segment skip button was previously hidden.
                 Logger.printDebug(() -> "Ignoring previously auto-hidden segment: " + segment);
-                SponsorBlockViewController.hideSkipSegmentButton();
+                // Must set view segment so overlay controls shows the correct skip button.
+                SponsorBlockViewController.setSkipSegment(segment);
+                // Do not hide skip button if
+                if (!autoSkipIsEnabledAndPlayerOverlayIsActive()) {
+                    SponsorBlockViewController.hideSkipSegmentButton();
+                }
                 return;
             }
             skipSegmentButtonEndTime = System.currentTimeMillis() + getSkipButtonDuration();
@@ -746,6 +768,15 @@ public class SegmentPlaybackController {
                 || !undoAutoSkipRange.contains(currentVideoTime));
     }
 
+    public static boolean currentlyInsideSkippableSegment() {
+        return segmentCurrentlyPlaying != null || !hiddenSkipSegmentsForCurrentVideoTime.isEmpty();
+    }
+
+    public static boolean shouldNotFadeOutPlayerOverlaySkipButton() {
+        // Only fade out overlay if auto hide is enabled and a scheduled button auto hide is not scheduled.
+        return skipSegmentButtonEndTime != 0 || !Settings.SB_AUTO_HIDE_SKIP_BUTTON.get();
+    }
+
     private static void showSkippedSegmentToast(SponsorSegment segment) {
         Utils.verifyOnMainThread();
         toastSegmentSkipped = segment;
@@ -757,8 +788,8 @@ public class SegmentPlaybackController {
         final long delayToToastMilliseconds = 250;
         Utils.runOnMainThreadDelayed(() -> {
             try {
-                // Do not show a toast if the user is scrubbing thru a paused video.
-                // Cannot do this video state check in setTime or before calling this this method,
+                // Do not show a toast if the user is scrubbing through a paused video.
+                // Cannot do this video state check in setTime or before calling this method,
                 // as the video state may not be up to date. So instead, only ignore the toast
                 // just before it's about to show since the video state is up to date.
                 if (VideoState.getCurrent() == VideoState.PAUSED) {
@@ -791,6 +822,13 @@ public class SegmentPlaybackController {
     private static void showAutoSkipToast(String messageToToast, Range<Long> rangeToUndo) {
         Objects.requireNonNull(messageToToast);
         Utils.verifyOnMainThread();
+
+        if (PlayerType.getCurrent() == PlayerType.INLINE_MINIMAL) {
+            // Cannot easily show a toast since there is no layout view context.
+            // Probably better to not show a toast here anyway.
+            Logger.printDebug(() -> "Not showing undo toast for feed playback");
+            return;
+        }
 
         Context currentContext = SponsorBlockViewController.getOverLaysViewGroupContext();
         if (currentContext == null) {
@@ -836,13 +874,17 @@ public class SegmentPlaybackController {
         fadeIn.setDuration(fadeDurationFast);
         fadeOut.setDuration(fadeDurationFast);
         fadeOut.setAnimationListener(new Animation.AnimationListener() {
-            public void onAnimationStart(Animation animation) { }
+            public void onAnimationStart(Animation animation) {
+            }
+
             public void onAnimationEnd(Animation animation) {
                 if (dialog.isShowing()) {
                     dialog.dismiss();
                 }
             }
-            public void onAnimationRepeat(Animation animation) { }
+
+            public void onAnimationRepeat(Animation animation) {
+            }
         });
 
         mainLayout.setOnClickListener(v -> {
@@ -891,7 +933,8 @@ public class SegmentPlaybackController {
      */
     public static void onSkipSegmentClicked(SponsorSegment segment) {
         try {
-            if (segment != highlightSegment && segment != segmentCurrentlyPlaying) {
+            if (segment != highlightSegment && segment != segmentCurrentlyPlaying
+                    && !hiddenSkipSegmentsForCurrentVideoTime.contains(segment)) {
                 Logger.printException(() -> "error: segment not available to skip"); // Should never happen.
                 SponsorBlockViewController.hideSkipSegmentButton();
                 SponsorBlockViewController.hideSkipHighlightButton();
@@ -994,7 +1037,7 @@ public class SegmentPlaybackController {
     @SuppressWarnings("unused")
     public static void drawSegmentTimeBars(final Canvas canvas, final float posY) {
         try {
-            if (segments == null) return;
+            if (segments == null || isAdProgressTextVisible()) return;
             final long videoLength = VideoInformation.getVideoLength();
             if (videoLength <= 0) return;
 

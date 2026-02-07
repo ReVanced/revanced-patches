@@ -15,11 +15,10 @@ internal fun ClassDef.getVideoIdMethodMatch() = firstMethodComposite {
     returnType("V")
     parameterTypes("L")
     instructions(
-        method {
-            definingClass == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;" &&
-                returnType == "Ljava/lang/String;"
-        },
-        Opcode.MOVE_RESULT_OBJECT(),
+        allOf(Opcode.INVOKE_INTERFACE(), method { returnType == "Ljava/lang/String;" }),
+        after(Opcode.MOVE_RESULT_OBJECT()), // videoId
+        afterAtMost(6, method { toString() == "Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" }),
+        after(Opcode.RETURN_VOID())
     )
 }
 
@@ -28,10 +27,7 @@ internal val BytecodePatchContext.videoIdBackgroundPlayMethodMatch by composingF
     returnType("V")
     parameterTypes("L")
     instructions(
-        method {
-            definingClass == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;" &&
-                returnType == "Ljava/lang/String;"
-        },
+        method { returnType == "Ljava/lang/String;" },
         Opcode.MOVE_RESULT_OBJECT(),
         Opcode.IPUT_OBJECT(),
         Opcode.MONITOR_EXIT(),
@@ -41,7 +37,7 @@ internal val BytecodePatchContext.videoIdBackgroundPlayMethodMatch by composingF
     )
     custom {
         immutableClassDef.methods.count() == 17 || // 20.39 and lower.
-            immutableClassDef.methods.count() == 16 // 20.40+
+                immutableClassDef.methods.count() == 16 // 20.40+
     }
 }
 

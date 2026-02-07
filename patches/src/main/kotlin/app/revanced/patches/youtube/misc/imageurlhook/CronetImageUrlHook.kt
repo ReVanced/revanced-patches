@@ -17,8 +17,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
-private lateinit var loadImageUrlMethod: MutableMethod
-private var loadImageUrlIndex = 0
+private lateinit var loadImageURLMethod: MutableMethod
+private var loadImageURLIndex = 0
 
 private lateinit var loadImageSuccessCallbackMethod: MutableMethod
 private var loadImageSuccessCallbackIndex = 0
@@ -26,14 +26,14 @@ private var loadImageSuccessCallbackIndex = 0
 private lateinit var loadImageErrorCallbackMethod: MutableMethod
 private var loadImageErrorCallbackIndex = 0
 
-val cronetImageUrlHookPatch = bytecodePatch(
-    description = "Hooks Cronet image urls.",
+val cronetImageURLHookPatch = bytecodePatch(
+    description = "Hooks Cronet image URLs.",
 ) {
     dependsOn(sharedExtensionPatch)
 
     apply {
 
-        loadImageUrlMethod = messageDigestImageUrlParentMethod.immutableClassDef.getMessageDigestImageUrlMethod()
+        loadImageURLMethod = messageDigestImageURLParentMethod.immutableClassDef.getMessageDigestImageURLMethod()
         loadImageSuccessCallbackMethod = onResponseStartedMethod.immutableClassDef.getOnSucceededMethod()
         loadImageErrorCallbackMethod = onResponseStartedMethod.immutableClassDef.getOnFailureMethod()
 
@@ -72,22 +72,22 @@ val cronetImageUrlHookPatch = bytecodePatch(
 /**
  * @param highPriority If the hook should be called before all other hooks.
  */
-fun addImageUrlHook(targetMethodClass: String, highPriority: Boolean = false) {
-    loadImageUrlMethod.addInstructions(
-        if (highPriority) 0 else loadImageUrlIndex,
+fun addImageURLHook(targetMethodClass: String, highPriority: Boolean = false) {
+    loadImageURLMethod.addInstructions(
+        if (highPriority) 0 else loadImageURLIndex,
         """
         invoke-static { p1 }, $targetMethodClass->overrideImageURL(Ljava/lang/String;)Ljava/lang/String;
         move-result-object p1
         """,
     )
-    loadImageUrlIndex += 2
+    loadImageURLIndex += 2
 }
 
 /**
  * If a connection completed, which includes normal 200 responses but also includes
  * status 404 and other error like http responses.
  */
-fun addImageUrlSuccessCallbackHook(targetMethodClass: String) {
+fun addImageURLSuccessCallbackHook(targetMethodClass: String) {
     loadImageSuccessCallbackMethod.addInstruction(
         loadImageSuccessCallbackIndex++,
         "invoke-static { p1, p2 }, $targetMethodClass->handleCronetSuccess(" +
@@ -98,7 +98,7 @@ fun addImageUrlSuccessCallbackHook(targetMethodClass: String) {
 /**
  * If a connection outright failed to complete any connection.
  */
-fun addImageUrlErrorCallbackHook(targetMethodClass: String) {
+fun addImageURLErrorCallbackHook(targetMethodClass: String) {
     loadImageErrorCallbackMethod.addInstruction(
         loadImageErrorCallbackIndex++,
         "invoke-static { p1, p2, p3 }, $targetMethodClass->handleCronetFailure(" +

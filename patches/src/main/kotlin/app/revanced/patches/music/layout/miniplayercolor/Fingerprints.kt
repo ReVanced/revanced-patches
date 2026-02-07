@@ -7,12 +7,11 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.miniPlayerConstructorMethodMatch by composingFirstMethod {
-    returnType("V")
-    instructions(
-        ResourceType.ID("mpp_player_bottom_sheet"),
-        "sharedToggleMenuItemMutations"(),
-    )
+internal val BytecodePatchContext.miniPlayerConstructorMethodMatch by composingFirstMethod(
+    "sharedToggleMenuItemMutations"
+) {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    instructions(ResourceType.ID("music_playback_controls"))
 }
 
 /**

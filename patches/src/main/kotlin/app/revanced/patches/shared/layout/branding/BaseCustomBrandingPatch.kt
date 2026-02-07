@@ -3,6 +3,7 @@ package app.revanced.patches.shared.layout.branding
 import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.firstImmutableClassDef
 import app.revanced.patcher.patch.*
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
@@ -52,9 +53,11 @@ private val USER_CUSTOM_ADAPTIVE_FILE_NAMES = arrayOf(
 
 private const val USER_CUSTOM_MONOCHROME_FILE_NAME =
     "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml"
-private const val USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME = "${NOTIFICATION_ICON_NAME}_$CUSTOM_USER_ICON_STYLE_NAME.xml"
+private const val USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME =
+    "${NOTIFICATION_ICON_NAME}_$CUSTOM_USER_ICON_STYLE_NAME.xml"
 
-internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/patches/CustomBrandingPatch;"
+internal const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/shared/patches/CustomBrandingPatch;"
 
 /**
  * Shared custom branding patch for YouTube and YT Music.
@@ -75,7 +78,7 @@ internal fun baseCustomBrandingPatch(
 ) = resourcePatch(
     name = "Custom branding",
     description = "Adds options to change the app icon and app name. " +
-        "Branding cannot be changed for mounted (root) installations.",
+            "Branding cannot be changed for mounted (root) installations.",
 ) {
     val customName by stringOption(
         name = "App name",
@@ -116,6 +119,8 @@ internal fun baseCustomBrandingPatch(
                 )
 
                 numberOfPresetAppNamesExtensionMethod.returnEarly(numberOfPresetAppNames)
+                userProvidedCustomNameExtensionMethod.returnEarly(customName != null)
+                userProvidedCustomIconExtensionMethod.returnEarly(customIcon != null)
 
                 notificationMethod.apply {
                     val getBuilderIndex = if (isYouTubeMusic) {
@@ -128,7 +133,7 @@ internal fun baseCustomBrandingPatch(
                         val builderCastIndex = indexOfFirstInstructionOrThrow {
                             val reference = getReference<TypeReference>()
                             opcode == Opcode.CHECK_CAST &&
-                                reference?.type == "Landroid/app/Notification\$Builder;"
+                                    reference?.type == "Landroid/app/Notification\$Builder;"
                         }
                         indexOfFirstInstructionReversedOrThrow(builderCastIndex) {
                             getReference<FieldReference>()?.type == "Ljava/lang/Object;"
@@ -173,11 +178,14 @@ internal fun baseCustomBrandingPatch(
     }
 
     apply {
+        val useCustomName = customName != null
+        val useCustomIcon = customIcon != null
+
         addResources("shared", "layout.branding.baseCustomBrandingPatch")
         addResources(addResourcePatchName, "layout.branding.customBrandingPatch")
 
         preferenceScreen.addPreferences(
-            if (customName != null) {
+            if (useCustomName) {
                 ListPreference(
                     key = "revanced_custom_branding_name",
                     entriesKey = "revanced_custom_branding_name_custom_entries",
@@ -186,7 +194,7 @@ internal fun baseCustomBrandingPatch(
             } else {
                 ListPreference("revanced_custom_branding_name")
             },
-            if (customIcon != null) {
+            if (useCustomIcon) {
                 ListPreference(
                     key = "revanced_custom_branding_icon",
                     entriesKey = "revanced_custom_branding_icon_custom_entries",
@@ -196,9 +204,6 @@ internal fun baseCustomBrandingPatch(
                 ListPreference("revanced_custom_branding_icon")
             },
         )
-
-        val useCustomName = customName != null
-        val useCustomIcon = customIcon != null
 
         iconStyleNames.forEach { style ->
             copyResources(
@@ -307,7 +312,7 @@ internal fun baseCustomBrandingPatch(
                 activityAliasNameWithIntents,
             ).childNodes
 
-            // The YT application name can appear in some places along side the system
+            // The YT application name can appear in some places alongside the system
             // YouTube app, such as the settings app list and in the "open with" file picker.
             // Because the YouTube app cannot be completely uninstalled and only disabled,
             // use a custom name for this situation to disambiguate which app is which.
@@ -315,6 +320,9 @@ internal fun baseCustomBrandingPatch(
                 "android:label",
                 "@string/revanced_custom_branding_name_entry_2",
             )
+
+            val enabledNameIndex = if (useCustomName) numberOfPresetAppNames else 1 // 1 indexing.
+            val enabledIconIndex = if (useCustomIcon) iconStyleNames.size else 0 // 0 indexing.
 
             for (appNameIndex in 1..numberOfPresetAppNames) {
                 fun aliasName(name: String): String = ".revanced_" + name + '_' + appNameIndex
@@ -334,14 +342,14 @@ internal fun baseCustomBrandingPatch(
                 )
 
                 // Bundled icons.
-                iconStyleNames.forEach { style ->
+                iconStyleNames.forEachIndexed { iconIndex, style ->
                     application.appendChild(
                         createAlias(
                             aliasName = aliasName(style),
                             iconMipmapName = LAUNCHER_RESOURCE_NAME_PREFIX + style,
                             appNameIndex = appNameIndex,
                             useCustomName = useCustomNameLabel,
-                            enabled = false,
+                            enabled = (appNameIndex == enabledNameIndex && iconIndex == enabledIconIndex),
                             intentFilters,
                         ),
                     )
@@ -351,7 +359,7 @@ internal fun baseCustomBrandingPatch(
                 //
                 // Must add all aliases even if the user did not provide a custom icon of their own.
                 // This is because if the user installs with an option, then repatches without the option,
-                // the alias must still exist because if it was previously enabled and then it's removed
+                // the alias must still exist because if it was previously enabled, and then it's removed
                 // the app will become broken and cannot launch. Even if the app data is cleared
                 // it still cannot be launched and the only fix is to uninstall the app.
                 // To prevent this, always include all aliases and use dummy data if needed.
@@ -361,7 +369,7 @@ internal fun baseCustomBrandingPatch(
                         iconMipmapName = LAUNCHER_RESOURCE_NAME_PREFIX + CUSTOM_USER_ICON_STYLE_NAME,
                         appNameIndex = appNameIndex,
                         useCustomName = useCustomNameLabel,
-                        enabled = false,
+                        enabled = appNameIndex == enabledNameIndex && useCustomIcon,
                         intentFilters,
                     ),
                 )
@@ -413,7 +421,7 @@ internal fun baseCustomBrandingPatch(
                 if (customFiles.isNotEmpty() && customFiles.size != USER_CUSTOM_ADAPTIVE_FILE_NAMES.size) {
                     throw PatchException(
                         "Must include all required icon files " +
-                            "but only found " + customFiles.map { it.name },
+                                "but only found " + customFiles.map { it.name },
                     )
                 }
 
@@ -444,8 +452,8 @@ internal fun baseCustomBrandingPatch(
             if (!copiedFiles) {
                 throw PatchException(
                     "Expected to find directories and files: " +
-                        USER_CUSTOM_ADAPTIVE_FILE_NAMES.contentToString() +
-                        "\nBut none were found in the provided option file path: " + iconPathFile.absolutePath,
+                            USER_CUSTOM_ADAPTIVE_FILE_NAMES.contentToString() +
+                            "\nBut none were found in the provided option file path: " + iconPathFile.absolutePath,
                 )
             }
         }

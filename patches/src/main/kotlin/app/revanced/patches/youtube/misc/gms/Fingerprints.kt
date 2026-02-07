@@ -18,8 +18,8 @@ internal val BytecodePatchContext.specificNetworkErrorViewControllerMethodMatch 
     )
 }
 
-// It's not clear if this second class is ever used and it may be dead code,
-// but it the layout image/text is identical to the network error match above.
+// It's not clear if this second class is ever used, and it may be dead code,
+// but it is the layout image/text is identical to the network error match above.
 internal val BytecodePatchContext.loadingFrameLayoutControllerMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")

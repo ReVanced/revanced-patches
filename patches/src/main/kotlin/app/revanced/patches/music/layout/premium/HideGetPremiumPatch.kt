@@ -13,7 +13,8 @@ import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/HideGetPremiumPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/music/patches/HideGetPremiumPatch;"
 
 @Suppress("unused")
 val hideGetMusicPremiumPatch = bytecodePatch(
@@ -30,6 +31,8 @@ val hideGetMusicPremiumPatch = bytecodePatch(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
             "8.10.52",
+            "8.37.56",
+            "8.40.54",
         ),
     )
 
@@ -56,7 +59,7 @@ val hideGetMusicPremiumPatch = bytecodePatch(
                 addInstruction(
                     insertIndex + 1,
                     "invoke-virtual {v$getPremiumViewRegister, v$visibilityRegister}, " +
-                        "Landroid/view/View;->setVisibility(I)V",
+                            "Landroid/view/View;->setVisibility(I)V",
                 )
             }
         }

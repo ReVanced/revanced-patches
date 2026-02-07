@@ -15,7 +15,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 internal var chipCloud = -1L
     private set
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/HideCategoryBarPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/music/patches/HideCategoryBarPatch;"
 
 @Suppress("unused")
 val hideCategoryBarPatch = bytecodePatch(
@@ -32,6 +33,8 @@ val hideCategoryBarPatch = bytecodePatch(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
             "8.10.52",
+            "8.37.56",
+            "8.40.54",
         ),
     )
 
@@ -46,7 +49,8 @@ val hideCategoryBarPatch = bytecodePatch(
 
         chipCloudMethodMatch.let {
             val targetIndex = it[-1]
-            val targetRegister = it.method.getInstruction<OneRegisterInstruction>(targetIndex).registerA
+            val targetRegister =
+                it.method.getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             it.method.addInstruction(
                 targetIndex + 1,

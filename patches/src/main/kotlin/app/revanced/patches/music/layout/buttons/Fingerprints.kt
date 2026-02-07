@@ -27,9 +27,7 @@ internal val BytecodePatchContext.historyMenuItemMethodMatch by composingFirstMe
         Opcode.RETURN_VOID,
     )
     literal { historyMenuItem }
-    custom {
-        immutableClassDef.methods.count() == 5
-    }
+    custom { immutableClassDef.methods.count() == 5 || immutableClassDef.methods.count() == 4 }
 }
 
 internal val BytecodePatchContext.historyMenuItemOfflineTabMethodMatch by composingFirstMethod {

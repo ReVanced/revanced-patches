@@ -4,15 +4,13 @@ import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableClassDef
 import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableField
 import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
 import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.*
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.util.InstructionUtils.Companion.branchOpcodes
-import app.revanced.util.InstructionUtils.Companion.returnOpcodes
-import app.revanced.util.InstructionUtils.Companion.writeOpcodes
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.Opcode.*
@@ -20,6 +18,7 @@ import com.android.tools.smali.dexlib2.analysis.reflection.util.ReflectionUtils
 import com.android.tools.smali.dexlib2.formatter.DexFormatter
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.MethodParameter
 import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -27,158 +26,17 @@ import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.iface.value.*
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 import com.android.tools.smali.dexlib2.immutable.value.*
 import java.util.*
-import kotlin.collections.ArrayDeque
-
-/**
- * Starting from and including the instruction at index [startIndex],
- * finds the next register that is wrote to and not read from. If a return instruction
- * is encountered, then the lowest unused register is returned.
- *
- * This method can return a non 4-bit register, and the calling code may need to temporarily
- * swap register contents if a 4-bit register is required.
- *
- * @param startIndex Inclusive starting index.
- * @param registersToExclude Registers to exclude, and consider as used. For most use cases,
- *                           all registers used in injected code should be specified.
- * @throws IllegalArgumentException If a branch or conditional statement is encountered
- *                                  before a suitable register is found.
- */
-fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): Int {
-    if (implementation == null) {
-        throw IllegalArgumentException("Method has no implementation: $this")
-    }
-    if (startIndex < 0 || startIndex >= instructions.count()) {
-        throw IllegalArgumentException("startIndex out of bounds: $startIndex")
-    }
-
-    // Highest 4-bit register available, exclusive. Ideally return a free register less than this.
-    val maxRegister4Bits = 16
-    var bestFreeRegisterFound: Int? = null
-    val usedRegisters = registersToExclude.toMutableSet()
-
-    for (i in startIndex until instructions.count()) {
-        val instruction = getInstruction(i)
-        val instructionRegisters = instruction.registersUsed
-
-        val writeRegister = instruction.writeRegister
-        if (writeRegister != null) {
-            if (writeRegister !in usedRegisters) {
-                // Verify the register is only used for write and not also as a parameter.
-                // If the instruction uses the write register once then it's not also a read register.
-                if (instructionRegisters.count { register -> register == writeRegister } == 1) {
-                    if (writeRegister < maxRegister4Bits) {
-                        // Found an ideal register.
-                        return writeRegister
-                    }
-
-                    // Continue searching for a 4-bit register if available.
-                    if (bestFreeRegisterFound == null || writeRegister < bestFreeRegisterFound) {
-                        bestFreeRegisterFound = writeRegister
-                    }
-                }
-            }
-        }
-
-        usedRegisters.addAll(instructionRegisters)
-
-        if (instruction.isBranchInstruction) {
-            if (bestFreeRegisterFound != null) {
-                return bestFreeRegisterFound
-            }
-            // This method is simple and does not follow branching.
-            throw IllegalArgumentException(
-                "Encountered a branch statement before " +
-                        "a free register could be found from startIndex: $startIndex",
-            )
-        }
-
-        if (instruction.isReturnInstruction) {
-            // Use lowest register that hasn't been encountered.
-            val freeRegister = (0 until implementation!!.registerCount).find {
-                it !in usedRegisters
-            }
-            if (freeRegister != null) {
-                return freeRegister
-            }
-            if (bestFreeRegisterFound != null) {
-                return bestFreeRegisterFound
-            }
-
-            // Somehow every method register was read from before any register was wrote to.
-            // In practice this never occurs.
-            throw IllegalArgumentException(
-                "Could not find a free register from startIndex: " +
-                        "$startIndex excluding: $registersToExclude",
-            )
-        }
-    }
-
-    // Some methods can have array payloads at the end of the method after a return statement.
-    // But in normal usage this cannot be reached since a branch or return statement
-    // will be encountered before the end of the method.
-    throw IllegalArgumentException("Start index is outside the range of normal control flow: $startIndex")
-}
-
-/**
- * @return The registers used by this instruction.
- */
-internal val Instruction.registersUsed: List<Int>
-    get() = when (this) {
-        is FiveRegisterInstruction -> {
-            when (registerCount) {
-                0 -> listOf()
-                1 -> listOf(registerC)
-                2 -> listOf(registerC, registerD)
-                3 -> listOf(registerC, registerD, registerE)
-                4 -> listOf(registerC, registerD, registerE, registerF)
-                else -> listOf(registerC, registerD, registerE, registerF, registerG)
-            }
-        }
-
-        is ThreeRegisterInstruction -> listOf(registerA, registerB, registerC)
-
-        is TwoRegisterInstruction -> listOf(registerA, registerB)
-
-        is OneRegisterInstruction -> listOf(registerA)
-
-        is RegisterRangeInstruction -> (startRegister until (startRegister + registerCount)).toList()
-
-        else -> emptyList()
-    }
-
-/**
- * @return The register that is written to by this instruction,
- *         or NULL if this is not a write opcode.
- */
-internal val Instruction.writeRegister: Int?
-    get() {
-        if (this.opcode !in writeOpcodes) {
-            return null
-        }
-        if (this !is OneRegisterInstruction) {
-            throw IllegalStateException("Not a write instruction: $this")
-        }
-        return registerA
-    }
-
-/**
- * @return If this instruction is an unconditional or conditional branch opcode.
- */
-internal val Instruction.isBranchInstruction: Boolean
-    get() = this.opcode in branchOpcodes
-
-/**
- * @return If this instruction returns or throws.
- */
-internal val Instruction.isReturnInstruction: Boolean
-    get() = this.opcode in returnOpcodes
+import kotlin.apply
+import kotlin.collections.remove
 
 /**
  * Find the instruction index used for a toString() StringBuilder write of a given String name.
  *
- * @param fieldName The name of the field to find.  Partial matches are allowed.
+ * @param fieldName The name of the field to find. Partial matches are allowed.
  */
 private fun Method.findInstructionIndexFromToString(fieldName: String): Int {
     val stringIndex = indexOfFirstInstruction {
@@ -231,7 +89,7 @@ private fun Method.findInstructionIndexFromToString(fieldName: String): Int {
 /**
  * Find the method used for a toString() StringBuilder write of a given String name.
  *
- * @param fieldName The name of the field to find.  Partial matches are allowed.
+ * @param fieldName The name of the field to find. Partial matches are allowed.
  */
 context(context: BytecodePatchContext)
 internal fun Method.findMethodFromToString(fieldName: String): MutableMethod {
@@ -242,7 +100,7 @@ internal fun Method.findMethodFromToString(fieldName: String): MutableMethod {
 /**
  * Find the field used for a toString() StringBuilder write of a given String name.
  *
- * @param fieldName The name of the field to find.  Partial matches are allowed.
+ * @param fieldName The name of the field to find. Partial matches are allowed.
  */
 internal fun Method.findFieldFromToString(fieldName: String): FieldReference {
     val methodUsageIndex = findInstructionIndexFromToString(fieldName)
@@ -284,25 +142,6 @@ fun MutableMethod.injectHideViewCall(
     insertIndex,
     "invoke-static { v$viewRegister }, $classDescriptor->$targetMethod(Landroid/view/View;)V",
 )
-
-/**
- * Inserts instructions at a given index, using the existing control flow label at that index.
- * Inserted instructions can have it's own control flow labels as well.
- *
- * Effectively this changes the code from:
- * :label
- * (original code)
- *
- * Into:
- * :label
- * (patch code)
- * (original code)
- */
-// TODO: delete this on next major version bump.
-fun MutableMethod.addInstructionsAtControlFlowLabel(
-    insertIndex: Int,
-    instructions: String,
-) = addInstructionsAtControlFlowLabel(insertIndex, instructions, *arrayOf<ExternalLabel>())
 
 /**
  * Inserts instructions at a given index, using the existing control flow label at that index.
@@ -819,7 +658,196 @@ private fun MutableMethod.checkReturnType(expectedTypes: Iterable<Class<*>>) {
     check(expectedTypes.any { returnTypeJava == it.name }) {
         "Actual return type $returnTypeJava is not contained in expected types: $expectedTypes"
     }
+
 }
+
+/**
+ * Additional registers effectively take the place of the pX parameters (p0, p1, p2, etc.)
+ * and contain the original contents of the method parameters.
+ * Added registers always start at index: `originalMethod.implementation!!.registerCount` of the
+ * original uncloned method.
+ *
+ * **Fingerprint match indexes will be increased positively by [numberOfParameterRegistersLogical]**.
+ */
+context(_: BytecodePatchContext)
+fun Method.cloneMutableAndPreserveParameters() =
+    cloneMutableAndPreserveParameters(classDef)
+
+/**
+ * Additional registers effectively take the place of the pX parameters (p0, p1, p2, etc.)
+ * and contain the original contents of the method parameters.
+ * Added registers always start at index: `originalMethod.implementation!!.registerCount` of the
+ * original uncloned method.
+ *
+ * **Fingerprint match indexes will be increased positively by [numberOfParameterRegistersLogical]**.
+ */
+fun Method.cloneMutableAndPreserveParameters(mutableClassDef : MutableClassDef) : MutableMethod {
+    check (!AccessFlags.STATIC.isSet(accessFlags) || parameters.isNotEmpty()) {
+        "Static methods have no parameter registers to preserve"
+    }
+
+    val clonedMethod = cloneMutable(
+        additionalRegisters = numberOfParameterRegisters
+    )
+
+    // Replace existing method with cloned with more registers.
+    mutableClassDef.methods.apply {
+        remove(this@cloneMutableAndPreserveParameters)
+        add(clonedMethod)
+    }
+
+    return clonedMethod
+}
+
+// Adapted from BiliRoamingX:
+// https://github.com/BiliRoamingX/BiliRoamingX/blob/ae58109f3acdd53ec2d2b3fb439c2a2ef1886221/patches/src/main/kotlin/app/revanced/patches/bilibili/utils/Extenstions.kt#L51
+/**
+ * Additional registers effectively take the place of the pX parameters (p0, p1, p2, etc.)
+ * and contain the original contents of the method parameters.
+ * Added registers always start at index: `originalMethod.implementation!!.registerCount` of the
+ * original uncloned method.
+ *
+ * **Fingerprint match indexes will be increased positively by [additionalRegisters]**.
+ */
+fun Method.cloneMutable(
+    name: String = this.name,
+    accessFlags: Int = this.accessFlags,
+    parameters: List<MethodParameter> = this.parameters,
+    returnType: String = this.returnType,
+    additionalRegisters: Int = 0,
+): MutableMethod {
+    check(additionalRegisters >= 0) {
+        "Additional registers cannot be negative"
+    }
+
+    val implementationExists = implementation != null
+    val oldFirstParameterRegister = if (implementationExists) p0Register else 0
+
+    val clonedImplementation = implementation?.let {
+        ImmutableMethodImplementation(
+            it.registerCount + additionalRegisters,
+            it.instructions,
+            it.tryBlocks,
+            it.debugItems,
+        )
+    }
+
+    return ImmutableMethod(
+        definingClass,
+        name,
+        parameters,
+        returnType,
+        accessFlags,
+        annotations,
+        hiddenApiRestrictions,
+        clonedImplementation
+    ).toMutable().apply {
+        var insertIndex = 0
+        var addedInstructions = 0
+        val isNotStatic = !AccessFlags.STATIC.isSet(accessFlags)
+
+        if (implementationExists && additionalRegisters > 0 && (parameters.isNotEmpty() || isNotStatic)) {
+            var destReg = oldFirstParameterRegister
+            var pReg = 0
+
+            // Handle `this`.
+            if (isNotStatic) {
+                addInstructions(insertIndex++, "move-object/from16 v$destReg, p$pReg")
+                addedInstructions++
+                destReg += 1
+                pReg += 1
+            }
+
+            // Handle method parameters.
+            for (parameter in parameters) {
+                val opcode = when (parameter.type) {
+                    "J", "D" -> "move-wide/from16"
+                    else -> {
+                        if (parameter.type.startsWith('L') || parameter.type.startsWith('[')) {
+                            "move-object/from16"
+                        } else {
+                            "move/from16"
+                        }
+                    }
+                }
+
+                addInstructions(insertIndex++, "$opcode v$destReg, p$pReg")
+                addedInstructions++
+
+                val width = if (opcode.startsWith("move-wide")) 2 else 1
+                destReg += width
+                pReg += width
+            }
+
+            if (addedInstructions != numberOfParameterRegistersLogical) {
+                throw IllegalStateException(
+                    "Added instructions do not match additional registers " +
+                            "addedInstructions: $addedInstructions " +
+                            "numberOfParameterRegistersLogical: $numberOfParameterRegistersLogical"
+                )
+            }
+        }
+    }
+}
+
+/**
+ * @return The number of registers for all parameters, including p0.
+ * This includes 2 registers for each wide parameter.
+ */
+val Method.numberOfParameterRegisters: Int
+    get() {
+        var count = 0
+
+        if (!AccessFlags.STATIC.isSet(accessFlags)) {
+            count += 1
+        }
+
+        for (param in parameters) {
+            count += when (param.type) {
+                "J", "D" -> 2   // wide
+                else -> 1       // normal
+            }
+        }
+
+        return count
+    }
+
+/**
+ * @return The number of parameter registers, including p0 as 'this' if method is not static.
+ *   This differs from [numberOfParameterRegisters] in that long/double parameters are counted only once each.
+ */
+val Method.numberOfParameterRegistersLogical: Int
+    get() = parameters.count() + if (AccessFlags.STATIC.isSet(accessFlags)) {
+        0
+    } else {
+        1
+    }
+
+/**
+ * @return the actual register number of p0 for this method.
+ * Throws if the method has no implementation.
+ */
+val Method.p0Register: Int
+    get() {
+        val impl = implementation ?: throw IllegalStateException("Method has no implementation: $this")
+        var paramRegs = 0
+
+        // Count explicit parameters (wide types take 2 registers).
+        for (type in this.parameterTypes) {
+            paramRegs += if (type == "J" || type == "D") 2 else 1
+        }
+
+        // Add implicit 'this' for non-static methods.
+        if (!AccessFlags.STATIC.isSet(this.accessFlags)) {
+            paramRegs += 1
+        }
+
+        val totalRegs = impl.registerCount
+
+        return totalRegs - paramRegs
+    }
+
+private const val RETURN_TYPE_MISMATCH = "Mismatch between override type and Method return type"
 
 /**
  * Overrides the first instruction of a method with returning the default value for the type (or `void`).
@@ -1253,61 +1281,3 @@ fun MutablePredicateList<Method>.literal(literalSupplier: () -> Long) {
     custom { containsLiteralInstruction(literalSupplier()) }
 }
 
-private class InstructionUtils {
-    companion object {
-        val branchOpcodes: EnumSet<Opcode> = EnumSet.of(
-            GOTO, GOTO_16, GOTO_32,
-            IF_EQ, IF_NE, IF_LT, IF_GE, IF_GT, IF_LE,
-            IF_EQZ, IF_NEZ, IF_LTZ, IF_GEZ, IF_GTZ, IF_LEZ,
-            PACKED_SWITCH_PAYLOAD, SPARSE_SWITCH_PAYLOAD,
-        )
-
-        val returnOpcodes: EnumSet<Opcode> = EnumSet.of(
-            RETURN_VOID,
-            RETURN,
-            RETURN_WIDE,
-            RETURN_OBJECT,
-            RETURN_VOID_NO_BARRIER,
-            THROW,
-        )
-
-        val writeOpcodes: EnumSet<Opcode> = EnumSet.of(
-            ARRAY_LENGTH,
-            INSTANCE_OF,
-            NEW_INSTANCE, NEW_ARRAY,
-            MOVE, MOVE_FROM16, MOVE_16, MOVE_WIDE, MOVE_WIDE_FROM16, MOVE_WIDE_16, MOVE_OBJECT,
-            MOVE_OBJECT_FROM16, MOVE_OBJECT_16, MOVE_RESULT, MOVE_RESULT_WIDE, MOVE_RESULT_OBJECT, MOVE_EXCEPTION,
-            CONST, CONST_4, CONST_16, CONST_HIGH16, CONST_WIDE_16, CONST_WIDE_32,
-            CONST_WIDE, CONST_WIDE_HIGH16, CONST_STRING, CONST_STRING_JUMBO,
-            IGET, IGET_WIDE, IGET_OBJECT, IGET_BOOLEAN, IGET_BYTE, IGET_CHAR, IGET_SHORT,
-            IGET_VOLATILE, IGET_WIDE_VOLATILE, IGET_OBJECT_VOLATILE,
-            SGET, SGET_WIDE, SGET_OBJECT, SGET_BOOLEAN, SGET_BYTE, SGET_CHAR, SGET_SHORT,
-            SGET_VOLATILE, SGET_WIDE_VOLATILE, SGET_OBJECT_VOLATILE,
-            AGET, AGET_WIDE, AGET_OBJECT, AGET_BOOLEAN, AGET_BYTE, AGET_CHAR, AGET_SHORT,
-            // Arithmetic and logical operations.
-            ADD_DOUBLE_2ADDR, ADD_DOUBLE, ADD_FLOAT_2ADDR, ADD_FLOAT, ADD_INT_2ADDR,
-            ADD_INT_LIT8, ADD_INT, ADD_LONG_2ADDR, ADD_LONG, ADD_INT_LIT16,
-            AND_INT_2ADDR, AND_INT_LIT8, AND_INT_LIT16, AND_INT, AND_LONG_2ADDR, AND_LONG,
-            DIV_DOUBLE_2ADDR, DIV_DOUBLE, DIV_FLOAT_2ADDR, DIV_FLOAT, DIV_INT_2ADDR,
-            DIV_INT_LIT16, DIV_INT_LIT8, DIV_INT, DIV_LONG_2ADDR, DIV_LONG,
-            DOUBLE_TO_FLOAT, DOUBLE_TO_INT, DOUBLE_TO_LONG,
-            FLOAT_TO_DOUBLE, FLOAT_TO_INT, FLOAT_TO_LONG,
-            INT_TO_BYTE, INT_TO_CHAR, INT_TO_DOUBLE, INT_TO_FLOAT, INT_TO_LONG, INT_TO_SHORT,
-            LONG_TO_DOUBLE, LONG_TO_FLOAT, LONG_TO_INT,
-            MUL_DOUBLE_2ADDR, MUL_DOUBLE, MUL_FLOAT_2ADDR, MUL_FLOAT, MUL_INT_2ADDR,
-            MUL_INT_LIT16, MUL_INT_LIT8, MUL_INT, MUL_LONG_2ADDR, MUL_LONG,
-            NEG_DOUBLE, NEG_FLOAT, NEG_INT, NEG_LONG,
-            NOT_INT, NOT_LONG,
-            OR_INT_2ADDR, OR_INT_LIT16, OR_INT_LIT8, OR_INT, OR_LONG_2ADDR, OR_LONG,
-            REM_DOUBLE_2ADDR, REM_DOUBLE, REM_FLOAT_2ADDR, REM_FLOAT, REM_INT_2ADDR,
-            REM_INT_LIT16, REM_INT_LIT8, REM_INT, REM_LONG_2ADDR, REM_LONG,
-            RSUB_INT_LIT8, RSUB_INT,
-            SHL_INT_2ADDR, SHL_INT_LIT8, SHL_INT, SHL_LONG_2ADDR, SHL_LONG,
-            SHR_INT_2ADDR, SHR_INT_LIT8, SHR_INT, SHR_LONG_2ADDR, SHR_LONG,
-            SUB_DOUBLE_2ADDR, SUB_DOUBLE, SUB_FLOAT_2ADDR, SUB_FLOAT, SUB_INT_2ADDR,
-            SUB_INT, SUB_LONG_2ADDR, SUB_LONG,
-            USHR_INT_2ADDR, USHR_INT_LIT8, USHR_INT, USHR_LONG_2ADDR, USHR_LONG,
-            XOR_INT_2ADDR, XOR_INT_LIT16, XOR_INT_LIT8, XOR_INT, XOR_LONG_2ADDR, XOR_LONG,
-        )
-    }
-}

@@ -2,22 +2,36 @@
 
 package app.revanced.patches.shared.misc.litho.filter
 
+import app.revanced.util.getFreeRegisterProvider
 import app.revanced.com.android.tools.smali.dexlib2.iface.value.MutableEncodedValue.Companion.toMutable
+import app.revanced.patcher.afterAtMost
+import app.revanced.patcher.allOf
 import app.revanced.patcher.classDef
+import app.revanced.patcher.custom
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.removeInstructions
-import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.typeReference
 import app.revanced.patcher.firstImmutableClassDef
+import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.immutableClassDef
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.method
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.findFreeRegister
 import app.revanced.util.findFieldFromToString
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableBooleanEncodedValue
 
 /**
@@ -156,29 +170,67 @@ internal fun lithoFilterPatch(
             type == builderMethodDescriptor.returnType
         }.fields.single()
 
-        // Match all component creations methods
+        // Find the method call that gets the value of 'buttonViewModel.accessibilityId'.
+        val accessibilityIdMethod = accessibilityIdMethodMatch.let {
+            it.immutableMethod.getInstruction<ReferenceInstruction>(it[0]).methodReference!!
+        }
+
+        // There's a method in the same class that gets the value of 'buttonViewModel.accessibilityText'.
+        // As this class is abstract, another method that uses a method call is used.
+        val accessibilityTextMethod = getAccessibilityTextMethodMatch(accessibilityIdMethod).let {
+            // Find the method call that gets the value of 'buttonViewModel.accessibilityText'.
+            it.method.getInstruction<ReferenceInstruction>(it[0]).methodReference
+        }
+
         componentCreateMethod.apply {
             val insertIndex = componentCreateInsertionIndex()
-            val freeRegister = findFreeRegister(insertIndex)
-            val identifierRegister = findFreeRegister(insertIndex, freeRegister)
-            val pathRegister = findFreeRegister(insertIndex, freeRegister, identifierRegister)
+
+            // Directly access the class related with the buttonViewModel from this method.
+            // This is within 10 lines of insertIndex.
+            val buttonViewModelIndex = indexOfFirstInstructionReversedOrThrow(insertIndex) {
+                opcode == Opcode.CHECK_CAST &&
+                        typeReference?.type == accessibilityIdMethod.definingClass
+            }
+            val buttonViewModelRegister =
+                getInstruction<OneRegisterInstruction>(buttonViewModelIndex).registerA
+            val accessibilityIdIndex = buttonViewModelIndex + 2
+
+            // This is an index that checks if there is accessibility-related text.
+            // This is within 10 lines of buttonViewModelIndex.
+            val nullCheckIndex = indexOfFirstInstructionReversedOrThrow(
+                buttonViewModelIndex, Opcode.IF_EQZ
+            )
+
+            val registerProvider = getFreeRegisterProvider(
+                insertIndex, 3, buttonViewModelRegister
+            )
+            val freeRegister = registerProvider.getFreeRegister()
+            val identifierRegister = registerProvider.getFreeRegister()
+            val pathRegister = registerProvider.getFreeRegister()
+
+            // Find a free register to store the accessibilityId and accessibilityText.
+            // This is before the insertion index.
+            val accessibilityRegisterProvider = getFreeRegisterProvider(
+                nullCheckIndex,
+                2,
+                registerProvider.getUsedAndUnAvailableRegisters()
+            )
+            val accessibilityIdRegister = accessibilityRegisterProvider.getFreeRegister()
+            val accessibilityTextRegister = accessibilityRegisterProvider.getFreeRegister()
 
             addInstructionsAtControlFlowLabel(
                 insertIndex,
                 """
                     move-object/from16 v$freeRegister, p2 # ConversionContext parameter
                     
-                    # In YT 20.41 the field is the abstract superclass.
-                    # Check it's the actual ConversionContext just in case. 
+                    # In YouTube 20.41 the field is the abstract superclass.
+                    # Verify it's the expected subclass just in case. 
                     instance-of v$identifierRegister, v$freeRegister, ${conversionContextToStringMethod.immutableClassDef.type}
                     if-eqz v$identifierRegister, :unfiltered
                     
-                    # Get identifier and path from ConversionContext
                     iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
                     iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
-                    
-                    # Check if the component should be filtered.
-                    invoke-static { v$identifierRegister, v$pathRegister }, $EXTENSION_CLASS_DESCRIPTOR->isFiltered(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
+                    invoke-static { v$identifierRegister, v$accessibilityIdRegister, v$accessibilityTextRegister, v$pathRegister }, ${EXTENSION_CLASS_DESCRIPTOR}->isFiltered(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/StringBuilder;)Z
                     move-result v$freeRegister
                     if-eqz v$freeRegister, :unfiltered
                     
@@ -191,7 +243,31 @@ internal fun lithoFilterPatch(
         
                     :unfiltered
                     nop
-                """,
+                """
+            )
+
+            // If there is text related to accessibility, get the accessibilityId and accessibilityText.
+            addInstructions(
+                accessibilityIdIndex,
+                """
+                    # Get accessibilityId
+                    invoke-interface { v$buttonViewModelRegister }, $accessibilityIdMethod
+                    move-result-object v$accessibilityIdRegister
+                    
+                    # Get accessibilityText
+                    invoke-interface { v$buttonViewModelRegister }, $accessibilityTextMethod
+                    move-result-object v$accessibilityTextRegister
+                """
+            )
+
+            // If there is no accessibility-related text,
+            // both accessibilityId and accessibilityText use empty values.
+            addInstructions(
+                nullCheckIndex,
+                """
+                    const-string v$accessibilityIdRegister, ""
+                    const-string v$accessibilityTextRegister, ""
+                """
             )
         }
 

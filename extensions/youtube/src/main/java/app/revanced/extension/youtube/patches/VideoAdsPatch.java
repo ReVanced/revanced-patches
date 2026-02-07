@@ -14,4 +14,13 @@ public class VideoAdsPatch {
         return SHOW_VIDEO_ADS;
     }
 
+    /**
+     * Injection point.
+     */
+    public static String hideShortsAds(String osName) {
+        return SHOW_VIDEO_ADS
+                ? osName
+                : "Android Automotive";
+    }
+
 }

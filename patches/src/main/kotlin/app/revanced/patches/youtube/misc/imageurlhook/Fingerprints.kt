@@ -46,12 +46,12 @@ internal val BytecodePatchContext.requestMethod by gettingFirstMethodDeclarative
 }
 
 context(_: BytecodePatchContext)
-internal fun ClassDef.getMessageDigestImageUrlMethod() = firstMethodDeclaratively {
+internal fun ClassDef.getMessageDigestImageURLMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes("Ljava/lang/String;", "L")
 }
 
-internal val BytecodePatchContext.messageDigestImageUrlParentMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.messageDigestImageURLParentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/String;")
     parameterTypes()

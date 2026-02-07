@@ -2,10 +2,7 @@ package app.revanced.patches.youtube.interaction.seekbar
 
 import app.revanced.patcher.*
 import app.revanced.patcher.extensions.instructions
-import app.revanced.patcher.extensions.stringReference
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patches.youtube.misc.playservice.*
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -61,25 +58,6 @@ internal val BytecodePatchContext.disableFastForwardGestureMethodMatch by compos
     custom { instructions.count() > 30 }
 }
 
-internal val BytecodePatchContext.customTapAndHoldMethodMatch by composingFirstMethod {
-    name("run")
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returnType("V")
-    parameterTypes()
-    instructions(2.0f.toRawBits().toLong()())
-    custom {
-        // Code is found in different methods with different strings.
-        val findSearchLandingKey = (is_19_34_or_greater && !is_19_47_or_greater) ||
-            (is_20_19_or_greater && !is_20_20_or_greater) || is_20_31_or_greater
-
-        indexOfFirstInstruction {
-            val string = stringReference?.string
-            string == "Failed to easy seek haptics vibrate." ||
-                (findSearchLandingKey && string == "search_landing_cache_key")
-        } >= 0
-    }
-}
-
 internal val BytecodePatchContext.onTouchEventHandlerMethodMatch by composingFirstMethod {
     name("onTouchEvent")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.PUBLIC)
@@ -103,7 +81,7 @@ internal val BytecodePatchContext.onTouchEventHandlerMethodMatch by composingFir
     )
 }
 
-internal val BytecodePatchContext.seekbarTappingMethodMatch by composingFirstMethod {
+internal val BytecodePatchContext.tapToSeekMethodMatch by composingFirstMethod {
     name("onTouchEvent")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
@@ -130,15 +108,6 @@ internal val BytecodePatchContext.slideToSeekMethodMatch by composingFirstMethod
         Opcode.GOTO_16,
     )
     literal { 67108864 }
-}
-
-internal val BytecodePatchContext.fullscreenSeekbarThumbnailsQualityMethod by gettingFirstMethodDeclaratively {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returnType("Z")
-    parameterTypes()
-    instructions(
-        45399684L(), // Video stream seekbar thumbnails feature flag.
-    )
 }
 
 internal val BytecodePatchContext.fullscreenLargeSeekbarFeatureFlagMethodMatch by composingFirstMethod {

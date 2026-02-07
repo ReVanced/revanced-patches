@@ -126,7 +126,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             )
         }
 
-        // Hook onto back button pressed.  Needed to fix race problem with
+        // Hook onto back button pressed. Needed to fix race problem with
         // Litho filtering based on navigation tab before the tab is updated.
         mainActivityOnBackPressedMethod.addInstruction(
             0,
@@ -204,14 +204,8 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             )
         }
 
-        if (is_20_39_or_greater) {
-            return@apply Logger.getLogger(this::class.java.name).warning(
-                "20.39+ Navigation tab activity button selected state is not yet fixed.",
-            )
-        }
-
         // Fix YT bug of notification tab missing the filled icon.
-        if (is_19_35_or_greater && !is_20_39_or_greater) { // FIXME: 20.39+ needs this fix.
+        if (is_19_35_or_greater) {
             val cairoNotificationEnumReference =
                 imageEnumConstructorMethodMatch.method.getInstruction(imageEnumConstructorMethodMatch[-1]).reference
 

@@ -4,10 +4,12 @@ import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButt
 
 import android.view.View;
 
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.shared.patches.litho.FilterGroup.*;
 import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.litho.FilterGroupList.ByteArrayFilterGroupList;
+import app.revanced.extension.shared.patches.litho.LithoFilterPatch;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
 
@@ -20,10 +22,11 @@ import java.util.Map;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.EngagementPanel;
 import app.revanced.extension.youtube.shared.NavigationBar;
 import app.revanced.extension.youtube.shared.PlayerType;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "FieldCanBeLocal"})
 public final class ShortsFilter extends Filter {
     private static final boolean HIDE_SHORTS_NAVIGATION_BAR = Settings.HIDE_SHORTS_NAVIGATION_BAR.get();
     private static final String COMPONENT_TYPE = "ComponentType";
@@ -67,18 +70,22 @@ public final class ShortsFilter extends Filter {
 
     private final StringFilterGroup shortsCompactFeedVideo;
     private final ByteArrayFilterGroup shortsCompactFeedVideoBuffer;
+    private final StringFilterGroup channelProfile;
+    private final ByteArrayFilterGroup channelProfileShelfHeaderBuffer;
     private final StringFilterGroup useSoundButton;
     private final ByteArrayFilterGroup useSoundButtonBuffer;
     private final StringFilterGroup useTemplateButton;
     private final ByteArrayFilterGroup useTemplateButtonBuffer;
-    private final StringFilterGroup reelCarousel;
-    private final ByteArrayFilterGroup reelCarouselBuffer;
 
     private final StringFilterGroup autoDubbedLabel;
     private final StringFilterGroup subscribeButton;
     private final StringFilterGroup joinButton;
     private final StringFilterGroup paidPromotionLabel;
-    private final StringFilterGroup shelfHeader;
+    private final StringFilterGroup shelfHeaderIdentifier;
+    private final StringFilterGroup shelfHeaderPath;
+
+    private final StringFilterGroup reelCarousel;
+    private final ByteArrayFilterGroupList reelCarouselBuffer = new ByteArrayFilterGroupList();
 
     private final StringFilterGroup suggestedAction;
     private final ByteArrayFilterGroupList suggestedActionsBuffer = new ByteArrayFilterGroupList();
@@ -97,24 +104,34 @@ public final class ShortsFilter extends Filter {
                 "shorts_shelf",
                 "inline_shorts",
                 "shorts_grid",
-                "shorts_video_cell",
+                "shorts_video_cell"
+        );
+
+        channelProfile = new StringFilterGroup(
+                Settings.HIDE_SHORTS_CHANNEL,
                 "shorts_pivot_item"
+        );
+
+        channelProfileShelfHeaderBuffer = new ByteArrayFilterGroup(
+                Settings.HIDE_SHORTS_CHANNEL,
+                "Shorts"
         );
 
         // Feed Shorts shelf header.
         // Use a different filter group for this pattern, as it requires an additional check after matching.
-        shelfHeader = new StringFilterGroup(
+        shelfHeaderIdentifier = new StringFilterGroup(
                 null,
                 "shelf_header.e"
         );
 
-        addIdentifierCallbacks(shortsIdentifiers, shelfHeader);
+        addIdentifierCallbacks(shortsIdentifiers, channelProfile, shelfHeaderIdentifier);
 
         //
         // Path components.
         //
 
-        shortsCompactFeedVideo = new StringFilterGroup(null,
+        shortsCompactFeedVideo = new StringFilterGroup(
+                null,
                 // Shorts that appear in the feed/search when the device is using tablet layout.
                 "compact_video.e",
                 // 'video_lockup_with_attachment.e' is shown instead of 'compact_video.e' for some users
@@ -125,7 +142,14 @@ public final class ShortsFilter extends Filter {
         // Filter out items that use the 'frame0' thumbnail.
         // This is a valid thumbnail for both regular videos and Shorts,
         // but it appears these thumbnails are used only for Shorts.
-        shortsCompactFeedVideoBuffer = new ByteArrayFilterGroup(null, "/frame0.jpg");
+        shortsCompactFeedVideoBuffer = new ByteArrayFilterGroup(
+                null,
+                "/frame0.jpg");
+
+        shelfHeaderPath = new StringFilterGroup(
+                null,
+                "shelf_header.e"
+        );
 
         // Shorts player components.
         StringFilterGroup pausedOverlayButtons = new StringFilterGroup(
@@ -229,13 +253,21 @@ public final class ShortsFilter extends Filter {
         );
 
         reelCarousel = new StringFilterGroup(
-                Settings.HIDE_SHORTS_SOUND_METADATA_LABEL,
+                null,
                 "reel_carousel.e"
         );
 
-        reelCarouselBuffer = new ByteArrayFilterGroup(
-                null,
-                "FEsfv_audio_pivot"
+        reelCarouselBuffer.addAll(
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_AI_BUTTON,
+                        "yt_outline_info_circle",
+                        "yt_outline_experimental_info_circle"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_SOUND_METADATA_LABEL,
+                        "yt_outline_audio", // Doesn't seem to be needed as v20.14.43 uses 'yt_outline_experimental_audio' as well. But still just in case.
+                        "yt_outline_experimental_audio"
+                )
         );
 
         useSoundButton = new StringFilterGroup(
@@ -279,10 +311,10 @@ public final class ShortsFilter extends Filter {
         );
 
         addPathCallbacks(
-                shortsCompactFeedVideo, joinButton, subscribeButton, paidPromotionLabel, livePreview,
-                suggestedAction, pausedOverlayButtons, channelBar, previewComment, autoDubbedLabel,
-                fullVideoLinkLabel, videoTitle, useSoundButton, reelSoundMetadata, soundButton, reelCarousel,
-                infoPanel, stickers, likeFountain, likeButton, dislikeButton
+                shortsCompactFeedVideo, shelfHeaderPath, joinButton, subscribeButton, paidPromotionLabel,
+                livePreview, suggestedAction, pausedOverlayButtons, channelBar, infoPanel, previewComment,
+                autoDubbedLabel, fullVideoLinkLabel, videoTitle, useSoundButton, soundButton, stickers,
+                reelCarousel, reelSoundMetadata, likeFountain, likeButton, dislikeButton
         );
 
         // Legacy hiding of Shorts action buttons. Because of 20.31+ buffer changes
@@ -331,7 +363,7 @@ public final class ShortsFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_TAGGED_PRODUCTS,
                         // Product buttons show pictures of the products, and does not have any unique icons to identify.
-                        // Instead use a unique identifier found in the buffer.
+                        // Instead, use a unique identifier found in the buffer.
                         "PAproduct_listZ"
                 ),
                 new ByteArrayFilterGroup(
@@ -402,8 +434,23 @@ public final class ShortsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String identifier, String path, byte[] buffer,
+    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+        if (contentType == FilterContentType.IDENTIFIER) {
+            if (matchedGroup == shelfHeaderIdentifier) {
+                // Shelf header reused in history/channel/etc.
+                // Shorts header is always index 0
+                if (contentIndex != 0) {
+                    return false;
+                }
+            }
+            if (matchedGroup == channelProfile) {
+                return true;
+            }
+
+            return shouldHideShortsFeedItems();
+        }
+
         if (contentType == FilterContentType.PATH) {
             if (matchedGroup == subscribeButton || matchedGroup == joinButton
                     || matchedGroup == paidPromotionLabel || matchedGroup == autoDubbedLabel) {
@@ -428,6 +475,19 @@ public final class ShortsFilter extends Filter {
                 return shouldHideShortsFeedItems() && shortsCompactFeedVideoBuffer.check(buffer).isFiltered();
             }
 
+            if (matchedGroup == shelfHeaderPath) {
+                // Shelf header reused in history/channel/etc.
+                // Shorts header is always index 0
+                if (contentIndex != 0) {
+                    return false;
+                }
+                if (!channelProfileShelfHeaderBuffer.check(buffer).isFiltered()) {
+                    return false;
+                }
+
+                return shouldHideShortsFeedItems();
+            }
+
             // Video action buttons (comment, share, remix) have the same path.
             // Like and dislike are separate path filters and don't require buffer searching.
             if (matchedGroup == shortsActionBar) {
@@ -449,40 +509,35 @@ public final class ShortsFilter extends Filter {
             return true;
         }
 
-        // Feed/search identifier components.
-        if (matchedGroup == shelfHeader) {
-            // Because the header is used in watch history and possibly other places, check for the index,
-            // which is 0 when the shelf header is used for Shorts.
-            if (contentIndex != 0) return false;
-        }
-
-        return shouldHideShortsFeedItems();
+        return false;
     }
 
-    private static boolean shouldHideShortsFeedItems() {
+    private boolean shouldHideShortsFeedItems() {
         // Known issue if hide home is on but at least one other hide is off:
         //
         // Shorts suggestions will load in the background if a video is opened and
         // immediately minimized before any suggestions are loaded.
         // In this state the player type will show minimized, which cannot
         // distinguish between Shorts suggestions loading in the player and between
-        // scrolling thru search/home/subscription tabs while a player is minimized.
+        // scrolling through search/home/subscription tabs while a player is minimized.
         final boolean hideHome = Settings.HIDE_SHORTS_HOME.get();
         final boolean hideSubscriptions = Settings.HIDE_SHORTS_SUBSCRIPTIONS.get();
         final boolean hideSearch = Settings.HIDE_SHORTS_SEARCH.get();
+        final boolean hideVideoDescription = Settings.HIDE_SHORTS_VIDEO_DESCRIPTION.get();
         final boolean hideHistory = Settings.HIDE_SHORTS_HISTORY.get();
 
-        if (!hideHome && !hideSubscriptions && !hideSearch && !hideHistory) {
+        if (!hideHome && !hideSubscriptions && !hideSearch && !hideVideoDescription && !hideHistory) {
             return false;
         }
-        if (hideHome && hideSubscriptions && hideSearch && hideHistory) {
+        if (hideHome && hideSubscriptions && hideSearch && hideVideoDescription && hideHistory) {
             return true;
         }
 
         // Must check player type first, as search bar can be active behind the player.
         if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
-            // For now, consider the under video results the same as the home feed.
-            return hideHome;
+            return EngagementPanel.isDescription()
+                    ? hideVideoDescription // Player video description panel opened.
+                    : hideHome; // For now, consider Shorts under video player the same as the home feed.
         }
 
         // Must check second, as search can be from any tab.
@@ -507,6 +562,58 @@ public final class ShortsFilter extends Filter {
             case LIBRARY -> hideHistory;
             default -> false;
         };
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Hide action buttons by index.
+     * <p>
+     * Regular video action buttons vary in order by video, country, and account.
+     * Therefore, hiding buttons by index may hide unintended buttons.
+     * <p>
+     * Shorts action buttons are almost always in the same order.
+     * (From top to bottom: Like, Dislike, Comment, Share, Remix).
+     * Therefore, we can hide Shorts action buttons by index.
+     *
+     * @param pathBuilder Same as pathBuilder used in {@link LithoFilterPatch}.
+     * @param treeNodeResultList List containing Litho components.
+     */
+    public static void hideActionButtons(StringBuilder pathBuilder, List<Object> treeNodeResultList) {
+        try {
+            if (pathBuilder == null || pathBuilder.length() == 0 || treeNodeResultList == null) {
+                return;
+            }
+            int size = treeNodeResultList.size();
+
+            // The minimum size of the target List is 4.
+            if (size < 4) {
+                return;
+            }
+            String path = pathBuilder.toString();
+
+            if (!Utils.containsAny(path, REEL_ACTION_BAR_PATHS)
+                    // Regular Shorts: [ComponentType, ComponentType, ComponentType, ComponentType, ComponentType]
+                    // Shorts ads: [ComponentType, ComponentType, ComponentType, ComponentType] (No Remix button)
+                    || !COMPONENT_TYPE.equals(treeNodeResultList.get(0).toString())) {
+                return;
+            }
+            // Removing elements without iterating through the list in reverse order will throw an exception.
+            for (int i = size - 1; i > -1; i--) {
+                // treeNodeResult is each button.
+                Object treeNodeResult = treeNodeResultList.get(i);
+                if (treeNodeResult != null) {
+                    BooleanSetting setting = REEL_ACTION_BUTTONS_MAP.get(i);
+                    if (setting != null && setting.get()) {
+                        int finalI = i;
+                        Logger.printDebug(() -> "Hiding action button by index: " + finalI + ", key: " + setting.key);
+                        treeNodeResultList.remove(i);
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "hideActionButtons failed", ex);
+        }
     }
 
     /**

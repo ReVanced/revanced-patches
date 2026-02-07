@@ -7,18 +7,30 @@ import android.graphics.drawable.Drawable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.util.Pair;
 import android.view.View;
-
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.annotation.Nullable;
 
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
+
+import app.revanced.extension.shared.ByteTrieSearch;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.StringTrieSearch;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
-import app.revanced.extension.shared.patches.litho.FilterGroupList.ByteArrayFilterGroupList;
+import app.revanced.extension.shared.patches.litho.FilterGroupList.StringFilterGroupList;
+import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.youtube.patches.ChangeHeaderPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar;
@@ -27,7 +39,7 @@ import app.revanced.extension.youtube.shared.PlayerType;
 @SuppressWarnings("unused")
 public final class LayoutComponentsFilter extends Filter {
     private static final StringTrieSearch mixPlaylistsContextExceptions = new StringTrieSearch(
-            "V.ED", // Playlist browse id.
+            "V.ED", // Playlist browseId.
             "java.lang.ref.WeakReference"
     );
     private static final ByteArrayFilterGroup mixPlaylistsBufferExceptions = new ByteArrayFilterGroup(
@@ -40,24 +52,43 @@ public final class LayoutComponentsFilter extends Filter {
             "&list="
     );
 
-    private static final String PAGE_HEADER_PATH = "page_header.e";
+    private static final List<String> channelTabFilterStrings;
+    private static final List<String> flyoutMenuFilterStrings;
+
+    static {
+        channelTabFilterStrings = getFilterStrings(Settings.HIDE_CHANNEL_TAB_FILTER_STRINGS);
+        flyoutMenuFilterStrings = getFilterStrings(Settings.HIDE_FEED_FLYOUT_MENU_FILTER_STRINGS);
+    }
+
+    private static List<String> getFilterStrings(StringSetting setting) {
+        String[] filterArray = setting.get().split("\\n");
+        List<String> filters = new ArrayList<>(filterArray.length);
+
+        for (String line : filterArray) {
+            String trimmed = line.trim();
+            if (!trimmed.isEmpty()) filters.add(trimmed);
+        }
+
+        return filters;
+    }
 
     private final StringTrieSearch exceptions = new StringTrieSearch();
     private final StringFilterGroup communityPosts;
     private final StringFilterGroup surveys;
-    private final StringFilterGroup subscribeButton;
     private final StringFilterGroup notifyMe;
     private final StringFilterGroup singleItemInformationPanel;
     private final StringFilterGroup expandableMetadata;
     private final StringFilterGroup compactChannelBarInner;
     private final StringFilterGroup compactChannelBarInnerButton;
     private final ByteArrayFilterGroup joinMembershipButton;
-    private final StringFilterGroup horizontalShelves;
-    private final ByteArrayFilterGroup ticketShelfBuffer;
     private final StringFilterGroup chipBar;
     private final StringFilterGroup channelProfile;
-    private final ByteArrayFilterGroupList channelProfileBuffer;
+    private final StringFilterGroupList channelProfileGroupList;
+    private final StringFilterGroup horizontalShelves;
     private final ByteArrayFilterGroup playablesBuffer;
+    private final ByteArrayFilterGroup ticketShelfBuffer;
+    private final ByteArrayFilterGroup playerShoppingShelfBuffer;
+    private final ByteTrieSearch descriptionSearch;
 
     public LayoutComponentsFilter() {
         exceptions.addPatterns(
@@ -71,9 +102,26 @@ public final class LayoutComponentsFilter extends Filter {
 
         // Identifiers.
 
+        final var cellDivider = new StringFilterGroup(
+                Settings.HIDE_COMPACT_BANNER,
+                // Empty padding and a relic from very old YT versions. Not related to compact banner but included here to avoid adding another setting.
+                "cell_divider"
+        );
+
         final var chipsShelf = new StringFilterGroup(
                 Settings.HIDE_CHIPS_SHELF,
                 "chips_shelf"
+        );
+
+        final var liveChatReplay = new StringFilterGroup(
+                Settings.HIDE_LIVE_CHAT_REPLAY_BUTTON,
+                "live_chat_ep_entrypoint.e"
+        );
+
+        addIdentifierCallbacks(
+                cellDivider,
+                chipsShelf,
+                liveChatReplay
         );
 
         final var visualSpacer = new StringFilterGroup(
@@ -83,6 +131,7 @@ public final class LayoutComponentsFilter extends Filter {
 
         addIdentifierCallbacks(
                 chipsShelf,
+                liveChatReplay,
                 visualSpacer
         );
 
@@ -124,6 +173,11 @@ public final class LayoutComponentsFilter extends Filter {
         final var subscriptionsChipBar = new StringFilterGroup(
                 Settings.HIDE_FILTER_BAR_FEED_IN_FEED,
                 "subscriptions_chip_bar"
+        );
+
+        final var subscribedChannelsBar = new StringFilterGroup(
+                Settings.HIDE_SUBSCRIBED_CHANNELS_BAR,
+                "subscriptions_channel_bar"
         );
 
         chipBar = new StringFilterGroup(
@@ -272,29 +326,39 @@ public final class LayoutComponentsFilter extends Filter {
                 "endorsement_header_footer.e"
         );
 
+        final var videoTitle = new StringFilterGroup(
+                Settings.HIDE_VIDEO_TITLE,
+                "player_overlay_video_heading.e"
+        );
+
+        final var webLinkPanel = new StringFilterGroup(
+                Settings.HIDE_WEB_SEARCH_RESULTS,
+                "web_link_panel",
+                "web_result_panel"
+        );
+
         channelProfile = new StringFilterGroup(
                 null,
                 "channel_profile.e",
-                PAGE_HEADER_PATH
+                "page_header.e"
         );
-        channelProfileBuffer = new ByteArrayFilterGroupList();
-        channelProfileBuffer.addAll(new ByteArrayFilterGroup(
-                        Settings.HIDE_STORE_BUTTON,
-                        "store_button"
-                ),
-                new ByteArrayFilterGroup(
+        channelProfileGroupList = new StringFilterGroupList();
+        channelProfileGroupList.addAll(new StringFilterGroup(
                         Settings.HIDE_COMMUNITY_BUTTON,
                         "community_button"
                 ),
-                new ByteArrayFilterGroup(
+                new StringFilterGroup(
                         Settings.HIDE_JOIN_BUTTON,
                         "sponsor_button"
+                ),
+                new StringFilterGroup(
+                        Settings.HIDE_STORE_BUTTON,
+                        "header_store_button"
+                ),
+                new StringFilterGroup(
+                        Settings.HIDE_SUBSCRIBE_BUTTON_IN_CHANNEL_PAGE,
+                        "subscribe_button"
                 )
-        );
-
-        subscribeButton = new StringFilterGroup(
-                Settings.HIDE_SUBSCRIBE_BUTTON_IN_CHANNEL_PAGE,
-                "subscribe_button"
         );
 
         horizontalShelves = new StringFilterGroup(
@@ -308,6 +372,38 @@ public final class LayoutComponentsFilter extends Filter {
         ticketShelfBuffer = new ByteArrayFilterGroup(
                 null,
                 "ticket_item.e"
+        );
+
+        playerShoppingShelfBuffer = new ByteArrayFilterGroup(
+                null,
+                "shopping_item_card_list"
+        );
+
+        // Work around for unique situation where filtering is based on the setting,
+        // but it must not fall over to other filters if the setting is _not_ enabled.
+        // This is only needed for the horizontal shelf that is used so extensively everywhere.
+        descriptionSearch = new ByteTrieSearch();
+        List.of(
+                new Pair<>(Settings.HIDE_FEATURED_PLACES_SECTION, "yt_fill_star"),
+                new Pair<>(Settings.HIDE_FEATURED_PLACES_SECTION, "yt_fill_experimental_star"),
+                new Pair<>(Settings.HIDE_GAMING_SECTION, "yt_outline_gaming"),
+                new Pair<>(Settings.HIDE_GAMING_SECTION, "yt_outline_experimental_gaming"),
+                new Pair<>(Settings.HIDE_MUSIC_SECTION, "yt_outline_audio"),
+                new Pair<>(Settings.HIDE_MUSIC_SECTION, "yt_outline_experimental_audio"),
+                new Pair<>(Settings.HIDE_QUIZZES_SECTION, "post_base_wrapper_slim"),
+                // May no longer work on v20.31+, even though the component is still there.
+                new Pair<>(Settings.HIDE_ATTRIBUTES_SECTION, "cell_video_attribute")
+        ).forEach(pair -> {
+                    BooleanSetting setting = pair.first;
+                    descriptionSearch.addPattern(pair.second.getBytes(StandardCharsets.UTF_8),
+                            (textSearched, matchedStartIndex, matchedLength, callbackParameter) -> {
+                                //noinspection unchecked
+                                AtomicReference<Boolean> hide = (AtomicReference<Boolean>) callbackParameter;
+                                hide.set(setting.get());
+                                return true;
+                            }
+                    );
+                }
         );
 
         addPathCallbacks(
@@ -337,21 +433,23 @@ public final class LayoutComponentsFilter extends Filter {
                 quickActions,
                 relatedVideos,
                 singleItemInformationPanel,
-                subscribeButton,
+                subscribedChannelsBar,
                 subscribersCommunityGuidelines,
                 subscriptionsChipBar,
                 surveys,
                 timedReactions,
-                videoRecommendationLabels
+                videoTitle,
+                videoRecommendationLabels,
+                webLinkPanel
         );
     }
 
     @Override
-    public boolean isFiltered(String identifier, String path, byte[] buffer,
+    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // This identifier is used not only in players but also in search results:
         // https://github.com/ReVanced/revanced-patches/issues/3245
-        // Until 2024, medical information panels such as Covid 19 also used this identifier and were shown in the search results.
+        // Until 2024, medical information panels such as Covid-19 also used this identifier and were shown in the search results.
         // From 2025, the medical information panel is no longer shown in the search results.
         // Therefore, this identifier does not filter when the search bar is activated.
         if (matchedGroup == singleItemInformationPanel) {
@@ -365,14 +463,13 @@ public final class LayoutComponentsFilter extends Filter {
         }
 
         if (matchedGroup == channelProfile) {
-            return channelProfileBuffer.check(buffer).isFiltered();
+            return channelProfileGroupList.check(accessibility).isFiltered();
         }
 
-        if (matchedGroup == subscribeButton) {
-            return path.startsWith(PAGE_HEADER_PATH);
-        }
-
-        if (matchedGroup == communityPosts && NavigationBar.isBackButtonVisible()) {
+        if (matchedGroup == communityPosts
+                && NavigationBar.isBackButtonVisible()
+                && !NavigationBar.isSearchBarActive()
+                && PlayerType.getCurrent() != PlayerType.WATCH_WHILE_MAXIMIZED) {
             // Allow community posts on channel profile page,
             // or if viewing an individual channel in the feed.
             return false;
@@ -387,18 +484,43 @@ public final class LayoutComponentsFilter extends Filter {
                     && joinMembershipButton.check(buffer).isFiltered();
         }
 
+        // Horizontal shelves are used everywhere in the app. And to prevent the generic "hide shelves"
+        // from incorrectly hiding other stuff that has its own hide filters,
+        // the more specific shelf filters must check first _and_ they must halt falling over
+        // to other filters if the buffer matches but the setting is off.
         if (matchedGroup == horizontalShelves) {
             if (contentIndex != 0) return false;
+
+            AtomicReference<Boolean> descriptionFilterResult = new AtomicReference<>(null);
+            if (descriptionSearch.matches(buffer, descriptionFilterResult)) {
+                return descriptionFilterResult.get();
+            }
+
+            // Check if others are off before searching.
             final boolean hideShelves = Settings.HIDE_HORIZONTAL_SHELVES.get();
             final boolean hideTickets = Settings.HIDE_TICKET_SHELF.get();
             final boolean hidePlayables = Settings.HIDE_PLAYABLES.get();
+            final boolean hidePlayerShoppingShelf = Settings.HIDE_CREATOR_STORE_SHELF.get();
+            if (!hideShelves && !hideTickets && !hidePlayables && !hidePlayerShoppingShelf)
+                return false;
 
-            if (!hideShelves && !hideTickets && !hidePlayables) return false;
-
-            // Must always check other buffers first, to prevent incorrectly hiding them
-            // if they are set to show but hide horizontal shelves is set to hidden.
             if (ticketShelfBuffer.check(buffer).isFiltered()) return hideTickets;
             if (playablesBuffer.check(buffer).isFiltered()) return hidePlayables;
+            if (playerShoppingShelfBuffer.check(buffer).isFiltered())
+                return hidePlayerShoppingShelf;
+
+            // 20.31+ when exiting fullscreen after watching for a while or when resuming the app,
+            // then sometimes the buffer isn't correct and the player shopping shelf is shown.
+            // If filtering reaches this point then there are no more shelves that could be in the player.
+            // If shopping shelves are set to hidden and the player is active, then assume
+            // it's the shopping shelf.
+            if (hidePlayerShoppingShelf) {
+                PlayerType type = PlayerType.getCurrent();
+                if (type == PlayerType.WATCH_WHILE_MAXIMIZED || type == PlayerType.WATCH_WHILE_FULLSCREEN
+                        || type == PlayerType.WATCH_WHILE_SLIDING_MAXIMIZED_FULLSCREEN) {
+                    return true;
+                }
+            }
 
             return hideShelves && hideShelves();
         }
@@ -477,6 +599,13 @@ public final class LayoutComponentsFilter extends Filter {
     /**
      * Injection point.
      */
+    public static void hideLatestVideosButton(View view) {
+        Utils.hideViewUnderCondition(Settings.HIDE_LATEST_VIDEOS_BUTTON.get(), view);
+    }
+
+    /**
+     * Injection point.
+     */
     public static int hideInFeed(final int height) {
         return Settings.HIDE_FILTER_BAR_FEED_IN_FEED.get()
                 ? 0
@@ -523,20 +652,109 @@ public final class LayoutComponentsFilter extends Filter {
         imageView.setImageDrawable(replacement);
     }
 
+    private static final FrameLayout.LayoutParams EMPTY_LAYOUT_PARAMS = new FrameLayout.LayoutParams(0, 0);
     private static final boolean HIDE_SHOW_MORE_BUTTON_ENABLED = Settings.HIDE_SHOW_MORE_BUTTON.get();
+
+    /**
+     * The ShowMoreButton should not always be hidden.
+     * According to the preference summary, only the ShowMoreButton in search results is hidden.
+     * Since the ShowMoreButton should be visible on other pages, such as channels,
+     * the original values of the Views are saved in fields.
+     */
+    private static FrameLayout.LayoutParams cachedLayoutParams;
+    private static int cachedButtonContainerMinimumHeight = -1;
+    private static int cachedPlaceHolderMinimumHeight = -1;
+    private static int cachedRootViewMinimumHeight = -1;
 
     /**
      * Injection point.
      */
-    public static void hideShowMoreButton(View view) {
+    public static void hideShowMoreButton(View view, View buttonContainer, TextView textView) {
         if (HIDE_SHOW_MORE_BUTTON_ENABLED
-                && NavigationBar.isSearchBarActive()
-                // Search bar can be active but behind the player.
-                && !PlayerType.getCurrent().isMaximizedOrFullscreen()) {
-            // FIXME: "Show more" button is visible hidden,
-            //        but an empty space remains that can be clicked.
-            Utils.hideViewByLayoutParams(view);
+                && view instanceof ViewGroup rootView
+                && buttonContainer != null
+                && textView != null
+                && buttonContainer.getLayoutParams() instanceof FrameLayout.LayoutParams lp
+        ) {
+            View placeHolder = rootView.getChildAt(0);
+
+            // For some users, ShowMoreButton has a PlaceHolder ViewGroup (A/B tests).
+            // When a PlaceHolder is present, a different method is used to hide or show the ViewGroup.
+            boolean hasPlaceHolder = placeHolder instanceof FrameLayout;
+
+            // Only in search results, the content description of RootView and the text of TextView match.
+            // Hide ShowMoreButton in search results, but show ShowMoreButton in other pages (e.g. channels).
+            boolean isSearchResults = TextUtils.equals(rootView.getContentDescription(), textView.getText());
+
+            if (hasPlaceHolder) {
+                hideShowMoreButtonWithPlaceHolder(placeHolder, isSearchResults);
+            } else {
+                hideShowMoreButtonWithOutPlaceHolder(buttonContainer, lp, isSearchResults);
+            }
+
+            if (cachedRootViewMinimumHeight == -1) {
+                cachedRootViewMinimumHeight = rootView.getMinimumHeight();
+            }
+
+            if (isSearchResults) {
+                rootView.setMinimumHeight(0);
+                rootView.setVisibility(View.GONE);
+            } else {
+                rootView.setMinimumHeight(cachedRootViewMinimumHeight);
+                rootView.setVisibility(View.VISIBLE);
+            }
         }
+    }
+
+    private static void hideShowMoreButtonWithPlaceHolder(View placeHolder, boolean isSearchResults) {
+        if (cachedPlaceHolderMinimumHeight == -1) {
+            cachedPlaceHolderMinimumHeight = placeHolder.getMinimumHeight();
+        }
+
+        if (isSearchResults) {
+            placeHolder.setMinimumHeight(0);
+            placeHolder.setVisibility(View.GONE);
+        } else {
+            placeHolder.setMinimumHeight(cachedPlaceHolderMinimumHeight);
+            placeHolder.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private static void hideShowMoreButtonWithOutPlaceHolder(View buttonContainer, FrameLayout.LayoutParams lp,
+                                                             boolean isSearchResults) {
+        if (cachedButtonContainerMinimumHeight == -1) {
+            cachedButtonContainerMinimumHeight = buttonContainer.getMinimumHeight();
+        }
+
+        if (cachedLayoutParams == null) {
+            cachedLayoutParams = lp;
+        }
+
+        if (isSearchResults) {
+            buttonContainer.setMinimumHeight(0);
+            buttonContainer.setLayoutParams(EMPTY_LAYOUT_PARAMS);
+            buttonContainer.setVisibility(View.GONE);
+        } else {
+            buttonContainer.setMinimumHeight(cachedButtonContainerMinimumHeight);
+            buttonContainer.setLayoutParams(cachedLayoutParams);
+            buttonContainer.setVisibility(View.VISIBLE);
+        }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void hideSubscribedChannelsBar(View view) {
+        Utils.hideViewByRemovingFromParentUnderCondition(Settings.HIDE_SUBSCRIBED_CHANNELS_BAR, view);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static int hideSubscribedChannelsBar(int original) {
+        return Settings.HIDE_SUBSCRIBED_CHANNELS_BAR.get()
+                ? 0
+                : original;
     }
 
     private static boolean hideShelves() {
@@ -620,5 +838,113 @@ public final class LayoutComponentsFilter extends Filter {
         }
 
         return original;
+    }
+
+    /**
+     *
+     * Injection point.
+     * <p>
+     * Hide feed flyout menu for phone
+     *
+     * @param menuTitleCharSequence menu title
+     */
+    @Nullable
+    public static CharSequence hideFlyoutMenu(@Nullable CharSequence menuTitleCharSequence) {
+        if (menuTitleCharSequence == null || !Settings.HIDE_FEED_FLYOUT_MENU.get()
+                || flyoutMenuFilterStrings.isEmpty()) {
+            return menuTitleCharSequence;
+        }
+
+        String menuTitleString = menuTitleCharSequence.toString();
+
+        for (String filter : flyoutMenuFilterStrings) {
+            if (menuTitleString.equalsIgnoreCase(filter)) {
+                return null;
+            }
+        }
+
+        return menuTitleCharSequence;
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * hide feed flyout panel for tablet
+     *
+     * @param menuTextView          flyout text view
+     * @param menuTitleCharSequence raw text
+     */
+    public static void hideFlyoutMenu(TextView menuTextView, CharSequence menuTitleCharSequence) {
+        if (menuTitleCharSequence == null || !Settings.HIDE_FEED_FLYOUT_MENU.get()
+                || flyoutMenuFilterStrings.isEmpty()
+                || !(menuTextView.getParent() instanceof View parentView)) {
+            return;
+        }
+
+        String menuTitleString = menuTitleCharSequence.toString();
+
+        for (String filter : flyoutMenuFilterStrings) {
+            if (menuTitleString.equalsIgnoreCase(filter)) {
+                Utils.hideViewByLayoutParams(parentView);
+            }
+        }
+    }
+
+    /**
+     *
+     * Injection point.
+     * <p>
+     * Rather than simply hiding the channel tab view, completely remove the channel tab from the list.
+     * If a channel tab is removed from the list, users will not be able to open it by swiping.
+     *
+     * @param channelTabText Text assigned to the channel tab, such as "Shorts", "Playlists",
+     *                       "Community", "Store". This text follows the user's language.
+     * @return Whether to remove the channel tab from the list.
+     */
+    public static boolean hideChannelTab(@Nullable String channelTabText) {
+        if (channelTabText == null || !Settings.HIDE_CHANNEL_TAB.get()
+                || channelTabFilterStrings.isEmpty()) {
+            return false;
+        }
+
+        for (String filter : channelTabFilterStrings) {
+            if (channelTabText.equalsIgnoreCase(filter)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Injection point.
+     *
+     * @param typedString   Keywords typed in the search bar.
+     * @return              Whether the setting is enabled and the typed string is empty.
+     */
+    public static boolean hideYouMayLikeSection(String typedString) {
+        return Settings.HIDE_YOU_MAY_LIKE_SECTION.get()
+                // The 'You may like' section is only visible when no search terms are entered.
+                // To avoid unnecessary collection traversals, filtering is performed only when the typedString is empty.
+                && TextUtils.isEmpty(typedString);
+    }
+
+    /**
+     * Injection point.
+     *
+     * @param searchTerm    This class contains information related to search terms.
+     *                      The {@code toString()} method of this class overrides the search term.
+     * @param endpoint      Endpoint related with the search term.
+     *                      For search history, this value is:
+     *                      '/complete/deleteitems?client=youtube-android-pb&delq=${searchTerm}&deltok=${token}'.
+     *                      For search suggestions, this value is null or empty.
+     * @return              Whether search term is a search history or not.
+     */
+    public static boolean isSearchHistory(Object searchTerm, String endpoint) {
+        boolean isSearchHistory = endpoint != null && endpoint.contains("/delete");
+        if (!isSearchHistory) {
+            Logger.printDebug(() -> "Remove search suggestion: " + searchTerm);
+        }
+        return isSearchHistory;
     }
 }

@@ -2,13 +2,9 @@ package app.revanced.patches.youtube.layout.hide.endscreencards
 
 import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.util.containsLiteralInstruction
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 internal val BytecodePatchContext.layoutCircleMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -33,7 +29,7 @@ internal val BytecodePatchContext.layoutIconMethodMatch by composingFirstMethod 
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
 
-    )
+        )
     literal { layoutIcon }
 }
 
@@ -55,14 +51,18 @@ internal val BytecodePatchContext.showEndscreenCardsMethod by gettingFirstMethod
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L")
+    instructions(
+        allOf(Opcode.IPUT_OBJECT(), field { type == "Ljava/lang/String;" }),
+        allOf(Opcode.IGET_OBJECT(), field { type == "Ljava/lang/String;" }),
+        afterAtMost(7, allOf(Opcode.INVOKE_VIRTUAL(), method("ordinal"))),
+        5L(),
+        8L(),
+        9L()
+    )
     custom {
-        immutableClassDef.methods.count() == 5 &&
-            containsLiteralInstruction(0) &&
-            containsLiteralInstruction(5) &&
-            containsLiteralInstruction(8) &&
-            indexOfFirstInstruction {
-                val reference = getReference<FieldReference>()
-                reference?.type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
-            } >= 0
+        immutableClassDef.methods.count() == 5
+                // 'public final' or 'final'
+                && AccessFlags.FINAL.isSet(accessFlags)
     }
 }
+

@@ -9,7 +9,8 @@ import app.revanced.extension.youtube.settings.Settings;
 @SuppressWarnings("unused")
 public class ThemePatch extends BaseThemePatch {
     public enum SplashScreenAnimationStyle {
-        DEFAULT(0),
+        // 0 int style exists in target app as a fall through default, but its value is repurposed to be disabled.
+        DISABLED(0),
         FPS_60_ONE_SECOND(1),
         FPS_60_TWO_SECOND(2),
         FPS_60_FIVE_SECOND(3),
@@ -18,7 +19,7 @@ public class ThemePatch extends BaseThemePatch {
         FPS_30_TWO_SECOND(6),
         FPS_30_FIVE_SECOND(7),
         FPS_30_BLACK_AND_WHITE(8);
-        // There exists a 10th json style used as the switch statement default,
+        // There exists a 10th JSON style used as the switch statement default,
         // but visually it is identical to 60fps one second.
 
         @Nullable
@@ -78,9 +79,27 @@ public class ThemePatch extends BaseThemePatch {
     /**
      * Injection point.
      */
+    public static boolean showSplashScreen(boolean original) {
+        return Settings.SPLASH_SCREEN_ANIMATION_STYLE.get() != SplashScreenAnimationStyle.DISABLED && original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static int showSplashScreen(int i, int i2) {
+        if (Settings.SPLASH_SCREEN_ANIMATION_STYLE.get() != SplashScreenAnimationStyle.DISABLED || i != i2) {
+            return i;
+        }
+        return i - 1;
+    }
+
+    /**
+     * Injection point.
+     */
     public static int getLoadingScreenType(int original) {
         SplashScreenAnimationStyle style = Settings.SPLASH_SCREEN_ANIMATION_STYLE.get();
-        if (style == SplashScreenAnimationStyle.DEFAULT) {
+
+        if (style == SplashScreenAnimationStyle.DISABLED) {
             return original;
         }
 

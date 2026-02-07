@@ -147,7 +147,7 @@ public final class NavigationBar {
         }
 
         if (Utils.isCurrentlyOnMainThread()) {
-            // The latch is released from the main thread, and waiting from the main thread will always timeout.
+            // The latch is released from the main thread, and waiting from the main thread will always time out.
             // This situation has only been observed when navigating out of a submenu and not changing tabs.
             // and for that use case the nav bar does not change so it's safe to return here.
             Logger.printDebug(() -> "Cannot block main thread waiting for nav button. " +
@@ -307,7 +307,7 @@ public final class NavigationBar {
         SHORTS("TAB_SHORTS", "TAB_SHORTS_CAIRO"),
         /**
          * Create new video tab.
-         * This tab will never be in a selected state, even if the create video UI is on screen.
+         * This tab will never be in a selected state, even if the Create video UI is on screen.
          */
         CREATE("CREATION_TAB_LARGE", "CREATION_TAB_LARGE_CAIRO"),
         /**

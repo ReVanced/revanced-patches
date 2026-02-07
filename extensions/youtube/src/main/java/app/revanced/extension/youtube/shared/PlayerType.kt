@@ -1,7 +1,7 @@
 package app.revanced.extension.youtube.shared
 
 import app.revanced.extension.shared.Logger
-import app.revanced.extension.youtube.Event
+import app.revanced.extension.youtube.shared.Event
 
 /**
  * Regular player type.
@@ -107,7 +107,7 @@ enum class PlayerType {
      * Instead of this method, consider using {@link ShortsPlayerState}
      * which may work better for some situations.
      *
-     * @return If nothing, a Short, or a regular video is sliding off screen to a dismissed or hidden state.
+     * @return If nothing, a Short, or a regular video is sliding off-screen to a dismissed or hidden state.
      * @see ShortsPlayerState
      */
     fun isNoneHiddenOrSlidingMinimized(): Boolean {
@@ -119,7 +119,7 @@ enum class PlayerType {
      * [NONE], [HIDDEN], [WATCH_WHILE_MINIMIZED], [WATCH_WHILE_SLIDING_MINIMIZED_DISMISSED].
      *
      * Useful to check if a Short is being played,
-     * although will return false positive if a regular video is
+     * although it will return false positive if a regular video is
      * opened and minimized (and a Short is not playing or being opened).
      *
      * Typically used to detect if a Short is playing when the player cannot be in a minimized state,
@@ -128,7 +128,7 @@ enum class PlayerType {
      * Instead of this method, consider using {@link ShortsPlayerState}
      * which may work better for some situations.
      *
-     * @return If nothing, a Short, a regular video is sliding off screen to a dismissed or hidden state,
+     * @return If nothing, a Short, a regular video is sliding off-screen to a dismissed or hidden state,
      *         a regular video is minimized (and a new video is not being opened).
      * @see ShortsPlayerState
      */

@@ -3,7 +3,7 @@ package app.revanced.extension.youtube.videoplayer;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.settings.preference.CustomDialogListPreference.*;
 import static app.revanced.extension.youtube.patches.VideoInformation.AUTOMATIC_VIDEO_QUALITY_VALUE;
-import static app.revanced.extension.youtube.patches.VideoInformation.VIDEO_QUALITY_PREMIUM_NAME;
+import static app.revanced.extension.youtube.patches.VideoInformation.isPremiumVideoQuality;
 import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.fadeInDuration;
 import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.getDialogBackgroundColor;
 
@@ -23,16 +23,15 @@ import androidx.annotation.Nullable;
 import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.shared.ui.SheetBottomDialog;
 import app.revanced.extension.youtube.shared.PlayerType;
-import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.patches.VideoInformation;
+import app.revanced.extension.youtube.patches.VideoInformation.VideoQualityInterface;
 import app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import kotlin.Unit;
@@ -48,7 +47,7 @@ public class VideoQualityDialogButton {
     private static CharSequence currentOverlayText;
 
     static {
-        VideoInformation.onQualityChange.addObserver((@Nullable VideoQuality quality) -> {
+        VideoInformation.onQualityChange.addObserver((@Nullable VideoQualityInterface quality) -> {
             updateButtonText(quality);
             return Unit.INSTANCE;
         });
@@ -79,7 +78,7 @@ public class VideoQualityDialogButton {
                     },
                     view -> {
                         try {
-                            VideoQuality[] qualities = VideoInformation.getCurrentQualities();
+                            VideoQualityInterface[] qualities = VideoInformation.getCurrentQualities();
                             if (qualities == null) {
                                 Logger.printDebug(() -> "Cannot reset quality, videoQualities is null");
                                 return true;
@@ -87,7 +86,7 @@ public class VideoQualityDialogButton {
 
                             // Reset to default quality.
                             final int defaultResolution = RememberVideoQualityPatch.getDefaultQualityResolution();
-                            for (VideoQuality quality : qualities) {
+                            for (VideoQualityInterface quality : qualities) {
                                 final int resolution = quality.patch_getResolution();
                                 if (resolution != AUTOMATIC_VIDEO_QUALITY_VALUE && resolution <= defaultResolution) {
                                     Logger.printDebug(() -> "Resetting quality to: " + quality);
@@ -142,7 +141,7 @@ public class VideoQualityDialogButton {
     /**
      * Updates the button text based on the current video quality.
      */
-    public static void updateButtonText(@Nullable VideoQuality quality) {
+    public static void updateButtonText(@Nullable VideoQualityInterface quality) {
         try {
             Utils.verifyOnMainThread();
             if (instance == null) return;
@@ -164,7 +163,7 @@ public class VideoQualityDialogButton {
             };
             text.append(qualityText);
 
-            if (quality != null && quality.patch_getQualityName().contains(VIDEO_QUALITY_PREMIUM_NAME)) {
+            if (quality != null && isPremiumVideoQuality(quality)) {
                 // Underline the entire "FHD" text for 1080p Premium.
                 text.setSpan(new UnderlineSpan(), 0, qualityText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
@@ -187,8 +186,8 @@ public class VideoQualityDialogButton {
      */
     private static void showVideoQualityDialog(Context context) {
         try {
-            VideoQuality[] currentQualities = VideoInformation.getCurrentQualities();
-            VideoQuality currentQuality = VideoInformation.getCurrentQuality();
+            VideoQualityInterface[] currentQualities = VideoInformation.getCurrentQualities();
+            VideoQualityInterface currentQuality = VideoInformation.getCurrentQuality();
             if (currentQualities == null || currentQuality == null) {
                 Logger.printDebug(() -> "Cannot show qualities dialog, videoQualities is null");
                 return;
@@ -201,7 +200,7 @@ public class VideoQualityDialogButton {
 
             // -1 adjustment for automatic quality at first index.
             int listViewSelectedIndex = -1;
-            for (VideoQuality quality : currentQualities) {
+            for (VideoQualityInterface quality : currentQualities) {
                 if (quality.patch_getQualityName().equals(currentQuality.patch_getQualityName())) {
                     break;
                 }
@@ -209,7 +208,7 @@ public class VideoQualityDialogButton {
             }
 
             List<String> qualityLabels = new ArrayList<>(currentQualities.length - 1);
-            for (VideoQuality availableQuality : currentQualities) {
+            for (VideoQualityInterface availableQuality : currentQualities) {
                 if (availableQuality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE) {
                     qualityLabels.add(availableQuality.patch_getQualityName());
                 }
@@ -283,7 +282,7 @@ public class VideoQualityDialogButton {
             listView.setOnItemClickListener((parent, view, which, id) -> {
                 try {
                     final int originalIndex = which + 1; // Adjust for automatic.
-                    VideoQuality selectedQuality = currentQualities[originalIndex];
+                    VideoQualityInterface selectedQuality = currentQualities[originalIndex];
                     RememberVideoQualityPatch.userChangedQuality(selectedQuality.patch_getResolution());
                     VideoInformation.changeQuality(selectedQuality);
 

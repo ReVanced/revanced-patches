@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_49_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.shared.videoQualityChangedMethodMatch
 import app.revanced.patches.youtube.video.playerresponse.Hook
@@ -24,9 +25,11 @@ import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.addStaticFieldToExtension
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.patcher.patch.PatchException
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -42,9 +45,11 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/VideoInformation;"
 private const val EXTENSION_PLAYER_INTERFACE =
-    "Lapp/revanced/extension/youtube/patches/VideoInformation\$PlaybackController;"
+    $$"Lapp/revanced/extension/youtube/patches/VideoInformation$PlaybackController;"
 private const val EXTENSION_VIDEO_QUALITY_MENU_INTERFACE =
-    "Lapp/revanced/extension/youtube/patches/VideoInformation\$VideoQualityMenuInterface;"
+    $$"Lapp/revanced/extension/youtube/patches/VideoInformation$VideoQualityMenuInterface;"
+internal const val EXTENSION_VIDEO_QUALITY_INTERFACE =
+    $$"Lapp/revanced/extension/youtube/patches/VideoInformation$VideoQualityInterface;"
 
 private lateinit var playerInitMethod: MutableMethod
 private var playerInitInsertIndex = -1
@@ -57,7 +62,7 @@ private var mdxInitInsertRegister = -1
 private lateinit var timeMethod: MutableMethod
 private var timeInitInsertIndex = 2
 
-// Old speed menu, where speeds are entries in a list.  Method is also used by the player speed button.
+// Old speed menu, where speeds are entries in a list. Method is also used by the player speed button.
 private lateinit var legacySpeedSelectionInsertMethod: MutableMethod
 private var legacySpeedSelectionInsertIndex = -1
 private var legacySpeedSelectionValueRegister = -1
@@ -71,10 +76,12 @@ private var speedSelectionValueRegister = -1
 private lateinit var setPlaybackSpeedMethod: MutableMethod
 private var setPlaybackSpeedMethodIndex = -1
 
-internal lateinit var videoEndMethod: MutableMethod
+internal lateinit var playerStatusMethod: MutableMethod
 
 // Used by other patches.
 internal lateinit var setPlaybackSpeedContainerClassFieldReference: FieldReference
+    private set
+internal lateinit var setPlaybackSpeedContainerClassFieldReferenceClassType: ClassDef
     private set
 internal lateinit var setPlaybackSpeedClassFieldReference: FieldReference
     private set
@@ -123,7 +130,7 @@ val videoInformationPatch = bytecodePatch(
             mdxInitInsertIndex = initThisIndex + 1
 
             // Hook the MDX director for use through the extension.
-            onCreateHookMdx(EXTENSION_CLASS_DESCRIPTOR, "initializeMdx")
+            onCreateHookMDX(EXTENSION_CLASS_DESCRIPTOR, "initializeMDX")
 
             addSeekInterfaceMethods(
                 classDef,
@@ -150,11 +157,10 @@ val videoInformationPatch = bytecodePatch(
             }
         }
 
-        videoEndMethod = navigate(videoEndMethodMatch.immutableMethod)
-            .to(videoEndMethodMatch[0]).stop()
+        playerStatusMethod = playerInitMethod.immutableClassDef.getPlayerStatusMethod()
 
         /*
-         * Inject call for video ids
+         * Inject call for video IDs
          */
         val videoIdMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->setVideoId(Ljava/lang/String;)V"
         hookVideoId(videoIdMethodDescriptor)
@@ -162,8 +168,8 @@ val videoInformationPatch = bytecodePatch(
         hookPlayerResponseVideoId(
             "$EXTENSION_CLASS_DESCRIPTOR->setPlayerResponseVideoId(Ljava/lang/String;Z)V",
         )
-        // Call before any other video id hooks,
-        // so they can use VideoInformation and check if the video id is for a Short.
+        // Call before any other video ID hooks,
+        // so they can use VideoInformation and check if the video ID is for a Short.
         addPlayerResponseMethodHook(
             Hook.ProtoBufferParameterBeforeVideoId(
                 "$EXTENSION_CLASS_DESCRIPTOR->" +
@@ -185,7 +191,7 @@ val videoInformationPatch = bytecodePatch(
         /*
          * Hook the user playback speed selection.
          */
-        onPlaybackSpeedItemClickMethod.apply {
+        onPlaybackSpeedItemClickParentMethod.immutableClassDef.getOnPlaybackSpeedItemClickMethod().apply {
             val speedSelectionValueInstructionIndex = indexOfFirstInstructionOrThrow(Opcode.IGET)
 
             legacySpeedSelectionInsertMethod = this
@@ -193,20 +199,49 @@ val videoInformationPatch = bytecodePatch(
             legacySpeedSelectionValueRegister =
                 getInstruction<TwoRegisterInstruction>(speedSelectionValueInstructionIndex).registerA
 
-            setPlaybackSpeedMethodReference =
-                getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 2).reference as MethodReference
-            setPlaybackSpeedClassFieldReference =
-                getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 1).reference as FieldReference
-            setPlaybackSpeedContainerClassFieldReference =
-                getInstruction<ReferenceInstruction>(indexOfFirstInstructionOrThrow(Opcode.IF_EQZ) - 1).reference as FieldReference
+            setPlaybackSpeedMethodReference = getInstruction<ReferenceInstruction>(
+                indexOfFirstInstructionOrThrow(speedSelectionValueInstructionIndex) {
+                    val reference = getReference<MethodReference>()
+                    reference?.parameterTypes?.size == 1 && reference.parameterTypes.first() == "F"
+                }
+            ).reference as MethodReference
 
-            setPlaybackSpeedMethod =
-                firstClassDef(setPlaybackSpeedMethodReference.definingClass)
-                    .methods.first { it.name == setPlaybackSpeedMethodReference.name }
+            setPlaybackSpeedContainerClassFieldReference = getInstruction<ReferenceInstruction>(
+                indexOfFirstInstructionOrThrow(Opcode.IF_EQZ) - 1
+            ).reference as FieldReference
+
+            if (is_20_49_or_greater) {
+                // Only one class implements the interface. Patcher currently does not have a
+                // 'first' accessor for looking up classes, so do it ourselves to verify
+                // we're using the expected class type.
+                var fieldReferenceType: ClassDef? = null
+                classDefs.forEach { classDef ->
+                    if (classDef.interfaces.contains(setPlaybackSpeedContainerClassFieldReference.type)) {
+                        if (fieldReferenceType != null) {
+                            throw PatchException("Found more than one playback speed interface: $classDef")
+                        }
+                        fieldReferenceType = classDef
+                    }
+                }
+                setPlaybackSpeedContainerClassFieldReferenceClassType = fieldReferenceType!!
+            } else {
+                setPlaybackSpeedContainerClassFieldReferenceClassType =
+                    classDefs[setPlaybackSpeedContainerClassFieldReference.type]!!
+            }
+
+            setPlaybackSpeedClassFieldReference = getInstruction<ReferenceInstruction>(
+                indexOfFirstInstructionOrThrow(speedSelectionValueInstructionIndex) {
+                    getReference<FieldReference>()?.type?.startsWith("L") == true
+                }
+            ).reference as FieldReference
+
+            setPlaybackSpeedMethod = firstClassDef(
+                setPlaybackSpeedMethodReference.definingClass
+            ).methods.first { it.name == setPlaybackSpeedMethodReference.name }
             setPlaybackSpeedMethodIndex = 0
 
             // Add override playback speed method.
-            onPlaybackSpeedItemClickMethod.classDef.methods.add(
+            classDef.methods.add(
                 ImmutableMethod(
                     definingClass,
                     "overridePlaybackSpeed",
@@ -224,16 +259,19 @@ val videoInformationPatch = bytecodePatch(
                             if-lez v0, :ignore
                             
                             # Get the container class field.
-                            iget-object v0, v2, $setPlaybackSpeedContainerClassFieldReference  
-
+                            iget-object v0, v2, $setPlaybackSpeedContainerClassFieldReference
+                            
                             # For some reason, in YouTube 19.44.39 this value is sometimes null.
                             if-eqz v0, :ignore
+                            
+                            # Required cast for 20.49+
+                            check-cast v0, $setPlaybackSpeedContainerClassFieldReferenceClassType
 
                             # Get the field from its class.
                             iget-object v1, v0, $setPlaybackSpeedClassFieldReference
                             
                             # Invoke setPlaybackSpeed on that class.
-                            invoke-virtual {v1, v3}, $setPlaybackSpeedMethodReference
+                            invoke-virtual { v1, v3 }, $setPlaybackSpeedMethodReference
 
                             :ignore
                             return-void
@@ -286,7 +324,10 @@ val videoInformationPatch = bytecodePatch(
             }
         }
 
+        val videoQualityClassType : String
         (if (is_20_19_or_greater) videoQualityMethod else videoQualityLegacyMethod).apply {
+            videoQualityClassType = immutableClassDef.type
+
             // Fix bad data used by YouTube.
             val nameRegister = if (is_20_20_or_greater) "p3" else "p2"
             addInstructions(
@@ -299,6 +340,9 @@ val videoInformationPatch = bytecodePatch(
 
             // Add methods to access obfuscated quality fields.
             classDef.apply {
+                // Add interface and helper methods to allow extension code to call obfuscated methods.
+                interfaces.add(EXTENSION_VIDEO_QUALITY_INTERFACE)
+
                 methods.add(
                     ImmutableMethod(
                         type,
@@ -370,7 +414,7 @@ val videoInformationPatch = bytecodePatch(
                         type,
                         "patch_setQuality",
                         listOf(
-                            ImmutableMethodParameter(YOUTUBE_VIDEO_QUALITY_CLASS_TYPE, null, null),
+                            ImmutableMethodParameter(EXTENSION_VIDEO_QUALITY_INTERFACE, null, null),
                         ),
                         "V",
                         AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
@@ -379,12 +423,13 @@ val videoInformationPatch = bytecodePatch(
                         MutableMethodImplementation(2),
                     ).toMutable().apply {
                         val setQualityMenuIndexMethod = methods.single { method ->
-                            method.parameterTypes.firstOrNull() == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
+                            method.parameterTypes.firstOrNull() == videoQualityClassType
                         }
 
                         addInstructions(
                             0,
                             """
+                                check-cast p1, $videoQualityClassType
                                 invoke-virtual { p0, p1 }, $setQualityMenuIndexMethod
                                 return-void
                             """,
@@ -400,7 +445,7 @@ val videoInformationPatch = bytecodePatch(
                     iget-object v0, p0, $onItemClickListenerClassReference
                     iget-object v0, v0, $setQualityFieldReference
                     
-                    invoke-static { p1, v0, p2 }, $EXTENSION_CLASS_DESCRIPTOR->setVideoQuality([$YOUTUBE_VIDEO_QUALITY_CLASS_TYPE${EXTENSION_VIDEO_QUALITY_MENU_INTERFACE}I)I
+                    invoke-static { p1, v0, p2 }, $EXTENSION_CLASS_DESCRIPTOR->setVideoQuality([$EXTENSION_VIDEO_QUALITY_INTERFACE${EXTENSION_VIDEO_QUALITY_MENU_INTERFACE}I)I
                     move-result p2
                 """,
             )
@@ -471,9 +516,9 @@ private fun MutableMethod.insertTimeHook(insertIndex: Int, descriptor: String) =
     insert(insertIndex, "p1, p2", descriptor)
 
 /**
- * Hook the player controller.  Called when a video is opened or the current video is changed.
+ * Hook the player controller. Called when a video is opened or the current video is changed.
  *
- * Note: This hook is called very early and is called before the video id, video time, video length,
+ * Note: This hook is called very early and is called before the video ID, video time, video length,
  * and many other data fields are set.
  *
  * @param targetMethodClass The descriptor for the class to invoke when the player controller is created.
@@ -492,7 +537,7 @@ internal fun onCreateHook(targetMethodClass: String, targetMethodName: String) =
  * @param targetMethodClass The descriptor for the class to invoke when the player controller is created.
  * @param targetMethodName The name of the static method to invoke when the player controller is created.
  */
-internal fun onCreateHookMdx(targetMethodClass: String, targetMethodName: String) =
+internal fun onCreateHookMDX(targetMethodClass: String, targetMethodName: String) =
     mdxInitMethod.insert(
         mdxInitInsertIndex++,
         "v$mdxInitInsertRegister",

@@ -10,7 +10,7 @@ import app.revanced.patches.youtube.video.speed.custom.customPlaybackSpeedPatch
 import app.revanced.patches.youtube.video.speed.remember.rememberPlaybackSpeedPatch
 
 /**
- * Speed menu settings.  Used to organize all speed related settings together.
+ * Speed menu settings. Used to organize all speed related settings together.
  */
 internal val settingsMenuVideoSpeedGroup = mutableSetOf<BasePreference>()
 
@@ -18,7 +18,7 @@ internal val settingsMenuVideoSpeedGroup = mutableSetOf<BasePreference>()
 val playbackSpeedPatch = bytecodePatch(
     name = "Playback speed",
     description = "Adds options to customize available playback speeds, set a default playback speed, " +
-        "and show a speed dialog button in the video player.",
+            "and show a speed dialog button in the video player.",
 ) {
     dependsOn(
         customPlaybackSpeedPatch,
@@ -28,10 +28,12 @@ val playbackSpeedPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.43.41",
             "20.14.43",
             "20.21.37",
-            "20.31.40",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
         )
     )
 

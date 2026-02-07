@@ -14,6 +14,6 @@ public final class SanitizeSharingLinksPatch {
      * Injection point.
      */
     public static String sanitizeSharingLink(String url) {
-        return sanitizer.sanitizeUrlString(url);
+        return sanitizer.sanitizeURLString(url);
     }
 }

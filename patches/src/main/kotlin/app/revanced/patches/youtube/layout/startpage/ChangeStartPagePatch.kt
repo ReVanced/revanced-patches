@@ -15,7 +15,8 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ChangeStartPagePatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/ChangeStartPagePatch;"
 
 @Suppress("unused")
 val changeStartPagePatch = bytecodePatch(
@@ -30,10 +31,12 @@ val changeStartPagePatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.43.41",
             "20.14.43",
             "20.21.37",
-            "20.31.40",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -59,7 +62,8 @@ val changeStartPagePatch = bytecodePatch(
         browseIdMethodMatch.let {
             it.method.apply {
                 val browseIdIndex = it[0]
-                val browseIdRegister = getInstruction<OneRegisterInstruction>(browseIdIndex).registerA
+                val browseIdRegister =
+                    getInstruction<OneRegisterInstruction>(browseIdIndex).registerA
 
                 addInstructions(
                     browseIdIndex + 1,

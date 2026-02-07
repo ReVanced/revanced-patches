@@ -11,9 +11,11 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_29_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.backgroundPlaybackManagerShortsMethod
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
@@ -43,10 +45,12 @@ val removeBackgroundPlaybackRestrictionsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.43.41",
             "20.14.43",
             "20.21.37",
-            "20.31.40",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -57,7 +61,8 @@ val removeBackgroundPlaybackRestrictionsPatch = bytecodePatch(
             SwitchPreference("revanced_shorts_disable_background_playback"),
         )
 
-        prefBackgroundAndOfflineCategoryId = ResourceType.STRING["pref_background_and_offline_category"]
+        prefBackgroundAndOfflineCategoryId =
+            ResourceType.STRING["pref_background_and_offline_category"]
 
         arrayOf(
             backgroundPlaybackManagerMethod to "isBackgroundPlaybackAllowed",
@@ -72,7 +77,7 @@ val removeBackgroundPlaybackRestrictionsPatch = bytecodePatch(
                         """
                             invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$integrationsMethod(Z)Z
                             move-result v$register 
-                        """,
+                        """
                     )
                 }
             }
@@ -105,6 +110,12 @@ val removeBackgroundPlaybackRestrictionsPatch = bytecodePatch(
                     false,
                 )
             }
+        }
+
+        if (is_20_29_or_greater) {
+            // Client flag that interferes with background playback of some video types.
+            // Exact purpose is not clear and it's used in ~ 100 locations.
+            newPlayerTypeEnumFeatureFlagMethod.returnLate(false)
         }
     }
 }

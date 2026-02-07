@@ -55,15 +55,17 @@ private val downloadsResourcePatch = resourcePatch {
     }
 }
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/DownloadsPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/DownloadsPatch;"
 
-internal const val BUTTON_DESCRIPTOR = "Lapp/revanced/extension/youtube/videoplayer/ExternalDownloadButton;"
+internal const val BUTTON_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/videoplayer/ExternalDownloadButton;"
 
 @Suppress("unused")
 val downloadsPatch = bytecodePatch(
     name = "Downloads",
     description = "Adds support to download videos with an external downloader app " +
-        "using the in-app download button or a video player action button.",
+            "using the in-app download button or a video player action button.",
 ) {
     dependsOn(
         downloadsResourcePatch,
@@ -73,10 +75,12 @@ val downloadsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.43.41",
             "20.14.43",
             "20.21.37",
-            "20.31.40",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
         ),
     )
 

@@ -47,10 +47,12 @@ val hideInfoCardsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.43.41",
             "20.14.43",
             "20.21.37",
-            "20.31.40",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -61,21 +63,21 @@ val hideInfoCardsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_info_cards"),
         )
 
-        // Edit: This old non litho code may be obsolete and no longer used by any supported versions.
+        // Edit: This old non-litho code may be obsolete and no longer used by any supported versions.
         infocardsIncognitoParentMethod.immutableClassDef.getInfocardsIncognitoMethod().apply {
             val invokeInstructionIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
-                    ((it as ReferenceInstruction).reference.toString() == "Landroid/view/View;->setVisibility(I)V")
+                        ((it as ReferenceInstruction).reference.toString() == "Landroid/view/View;->setVisibility(I)V")
             }
 
             addInstruction(
                 invokeInstructionIndex,
                 "invoke-static {v${getInstruction<FiveRegisterInstruction>(invokeInstructionIndex).registerC}}," +
-                    " Lapp/revanced/extension/youtube/patches/HideInfoCardsPatch;->hideInfoCardsIncognito(Landroid/view/View;)V",
+                        " Lapp/revanced/extension/youtube/patches/HideInfoCardsPatch;->hideInfoCardsIncognito(Landroid/view/View;)V",
             )
         }
 
-        // Edit: This old non litho code may be obsolete and no longer used by any supported versions.
+        // Edit: This old non-litho code may be obsolete and no longer used by any supported versions.
         infocardsMethodCallMethodMatch.let {
             val invokeInterfaceIndex = it[-1]
             it.method.apply {
@@ -97,7 +99,8 @@ val hideInfoCardsPatch = bytecodePatch(
         }
 
         // Info cards can also appear as Litho components.
-        val filterClassDescriptor = "Lapp/revanced/extension/youtube/patches/litho/HideInfoCardsFilter;"
+        val filterClassDescriptor =
+            "Lapp/revanced/extension/youtube/patches/litho/HideInfoCardsFilter;"
         addLithoFilter(filterClassDescriptor)
     }
 }

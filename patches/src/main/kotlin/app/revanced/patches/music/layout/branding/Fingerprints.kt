@@ -7,8 +7,8 @@ import app.revanced.patches.shared.misc.mapping.ResourceType
 
 internal val BytecodePatchContext.cairoSplashAnimationConfigMethod by gettingFirstMethodDeclaratively {
     name("onCreate")
-    returnType("V")
     definingClass(YOUTUBE_MUSIC_MAIN_ACTIVITY_CLASS_TYPE)
+    returnType("V")
     parameterTypes("Landroid/os/Bundle;")
     instructions(ResourceType.LAYOUT("main_activity_launch_animation"))
 }

@@ -36,7 +36,7 @@ import app.revanced.extension.youtube.shared.PlayerType;
  * - Some layout component residue will remain, such as the video chapter previews for some search results.
  *   These components do not include the video title or channel name, and they
  *   appear outside the filtered components so they are not caught.
- * - Keywords are case sensitive, but some casing variation is manually added.
+ * - Keywords are case-sensitive, but some casing variation is manually added.
  *   (ie: "mr beast" automatically filters "Mr Beast" and "MR BEAST").
  * - Keywords present in the layout or video data cannot be used as filters, otherwise all videos
  *   will always be hidden.  This patch checks for some words of these words.
@@ -46,7 +46,7 @@ import app.revanced.extension.youtube.shared.PlayerType;
 public final class KeywordContentFilter extends Filter {
 
     /**
-     * Strings found in the buffer for every videos.  Full strings should be specified.
+     * Strings found in the buffer for every video. Full strings should be specified.
      *
      * This list does not include every common buffer string, and this can be added/changed as needed.
      * Words must be entered with the exact casing as found in the buffer.
@@ -190,7 +190,7 @@ public final class KeywordContentFilter extends Filter {
             return sentence;
         }
         final int firstCodePoint = sentence.codePointAt(0);
-        // In some non English languages title case is different than uppercase.
+        // In some non-English languages title case is different from uppercase.
         return new StringBuilder()
                 .appendCodePoint(Character.toTitleCase(firstCodePoint))
                 .append(sentence, Character.charCount(firstCodePoint), sentence.length())
@@ -206,7 +206,7 @@ public final class KeywordContentFilter extends Filter {
         }
 
         final int delimiter = ' ';
-        // Use code points and not characters to handle unicode surrogates.
+        // Use code points and not characters to handle Unicode surrogates.
         int[] codePoints = sentence.codePoints().toArray();
         boolean capitalizeNext = true;
         for (int i = 0, length = codePoints.length; i < length; i++) {
@@ -376,7 +376,7 @@ public final class KeywordContentFilter extends Filter {
         return phrase.substring(1, phrase.length() - 1);
     }
 
-    private synchronized void parseKeywords() { // Must be synchronized since Litho is multi-threaded.
+    private synchronized void parseKeywords() { // Must be synchronized since Litho is multithreaded.
         String rawKeywords = Settings.HIDE_KEYWORD_CONTENT_PHRASES.get();
 
         //noinspection StringEquality
@@ -417,14 +417,14 @@ public final class KeywordContentFilter extends Filter {
 
                 // Common casing that might appear.
                 //
-                // This could be simplified by adding case insensitive search to the prefix search,
+                // This could be simplified by adding case-insensitive search to the prefix search,
                 // which is very simple to add to StringTreSearch for Unicode and ByteTrieSearch for ASCII.
                 //
                 // But to support Unicode with ByteTrieSearch would require major changes because
                 // UTF-8 characters can be different byte lengths, which does
                 // not allow comparing two different byte arrays using simple plain array indexes.
                 //
-                // Instead use all common case variations of the words.
+                // Instead, use all common case variations of the words.
                 String[] phraseVariations = {
                         phrase,
                         phrase.toLowerCase(),
@@ -556,7 +556,7 @@ public final class KeywordContentFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String identifier, String path, byte[] buffer,
+    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (contentIndex != 0 && matchedGroup == startsWithFilter) {
             return false;

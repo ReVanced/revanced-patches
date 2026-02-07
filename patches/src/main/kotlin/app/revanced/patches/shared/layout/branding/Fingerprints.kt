@@ -5,10 +5,27 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.numberOfPresetAppNamesExtensionMethod by gettingFirstMethodDeclaratively {
-    name("numberOfPresetAppNames")
     definingClass(EXTENSION_CLASS_DESCRIPTOR)
+    name("numberOfPresetAppNames")
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("I")
+    parameterTypes()
+}
+
+
+internal val BytecodePatchContext.userProvidedCustomNameExtensionMethod by gettingFirstMethodDeclaratively {
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
+    name("userProvidedCustomName")
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
+    returnType("Z")
+    parameterTypes()
+}
+
+internal val BytecodePatchContext.userProvidedCustomIconExtensionMethod by gettingFirstMethodDeclaratively {
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
+    name("userProvidedCustomIcon")
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
+    returnType("Z")
     parameterTypes()
 }
 

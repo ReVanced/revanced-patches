@@ -74,7 +74,10 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
                     iget-object v1, p0, $onItemClickListenerClassFieldReference
 
                     # Get the container class field.
-                    iget-object v1, v1, $setPlaybackSpeedContainerClassFieldReference  
+                    iget-object v1, v1, $setPlaybackSpeedContainerClassFieldReference 
+                    
+                    # Required cast for 20.49+
+                    check-cast v1, $setPlaybackSpeedContainerClassFieldReferenceClassType
                     
                     # Get the field from its class.
                     iget-object v2, v1, $setPlaybackSpeedClassFieldReference

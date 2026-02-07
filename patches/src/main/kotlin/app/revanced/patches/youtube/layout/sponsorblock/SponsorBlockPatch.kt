@@ -129,10 +129,12 @@ val sponsorBlockPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.43.41",
             "20.14.43",
             "20.21.37",
-            "20.31.40",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -145,7 +147,7 @@ val sponsorBlockPatch = bytecodePatch(
 
         hookBackgroundPlayVideoId(
             EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR +
-                "->setCurrentVideoId(Ljava/lang/String;)V",
+                    "->setCurrentVideoId(Ljava/lang/String;)V",
         )
 
         // Set seekbar draw rectangle.
@@ -157,7 +159,8 @@ val sponsorBlockPatch = bytecodePatch(
                 ) {
                     getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
                 }
-                rectangleFieldName = getInstruction<ReferenceInstruction>(rectangleIndex).reference as FieldReference
+                rectangleFieldName =
+                    getInstruction<ReferenceInstruction>(rectangleIndex).reference as FieldReference
             }
         }
 
@@ -169,11 +172,12 @@ val sponsorBlockPatch = bytecodePatch(
             it.method.apply {
                 // Set seekbar thickness.
                 val thicknessIndex = it[-1]
-                val thicknessRegister = getInstruction<OneRegisterInstruction>(thicknessIndex).registerA
+                val thicknessRegister =
+                    getInstruction<OneRegisterInstruction>(thicknessIndex).registerA
                 addInstruction(
                     thicknessIndex + 1,
                     "invoke-static { v$thicknessRegister }, " +
-                        "$EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSeekbarThickness(I)V",
+                            "$EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSeekbarThickness(I)V",
                 )
 
                 // Find the drawCircle call and draw the segment before it.
@@ -187,8 +191,8 @@ val sponsorBlockPatch = bytecodePatch(
                 addInstruction(
                     drawCircleIndex,
                     "invoke-static { v$canvasInstanceRegister, v$centerYRegister }, " +
-                        "$EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->" +
-                        "drawSegmentTimeBars(Landroid/graphics/Canvas;F)V",
+                            "$EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->" +
+                            "drawSegmentTimeBars(Landroid/graphics/Canvas;F)V",
                 )
 
                 // Set seekbar bounds.
@@ -234,7 +238,8 @@ val sponsorBlockPatch = bytecodePatch(
             val checkCastIndex = it[-1]
 
             it.method.apply {
-                val frameLayoutRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+                val frameLayoutRegister =
+                    getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
                 addInstruction(
                     checkCastIndex + 1,
                     "invoke-static {v$frameLayoutRegister}, $EXTENSION_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/ViewGroup;)V",
@@ -244,7 +249,8 @@ val sponsorBlockPatch = bytecodePatch(
 
         adProgressTextViewVisibilityMethodMatch.let {
             val setVisibilityIndex = it[0]
-            val register = it.method.getInstruction<FiveRegisterInstruction>(setVisibilityIndex).registerD
+            val register =
+                it.method.getInstruction<FiveRegisterInstruction>(setVisibilityIndex).registerD
 
             it.method.addInstructionsAtControlFlowLabel(
                 setVisibilityIndex,

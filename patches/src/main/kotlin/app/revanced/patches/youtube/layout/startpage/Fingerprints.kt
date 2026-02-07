@@ -11,7 +11,7 @@ internal val BytecodePatchContext.intentActionMethod by gettingFirstMethodDeclar
 }
 
 internal val BytecodePatchContext.browseIdMethodMatch by composingFirstMethod {
-    returnType("Lcom/google/android/apps/youtube/app/common/ui/navigation/PaneDescriptor;")
+    returnType("L")
     // parameterTypes() // 20.30 and earlier is no parameters.  20.31+ parameter is L.
     instructions(
         "FEwhat_to_watch"(),

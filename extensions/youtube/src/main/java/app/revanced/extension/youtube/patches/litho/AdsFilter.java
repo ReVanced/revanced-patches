@@ -2,9 +2,13 @@ package app.revanced.extension.youtube.patches.litho;
 
 import static app.revanced.extension.shared.StringRef.str;
 
-import android.app.Instrumentation;
+import android.app.Dialog;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -19,11 +23,17 @@ import app.revanced.extension.youtube.settings.Settings;
 @SuppressWarnings("unused")
 public final class AdsFilter extends Filter {
     // region Fullscreen ad
-    private static volatile long lastTimeClosedFullscreenAd;
-    private static final Instrumentation instrumentation = new Instrumentation();
-    private final StringFilterGroup fullscreenAd;
+    private static final ByteArrayFilterGroup fullscreenAd = new ByteArrayFilterGroup(
+            null,
+            "_interstitial"
+    );
 
     // endregion
+
+    private static final String[] PLAYER_POPUP_AD_PANEL_IDS = {
+            "PAproduct", // Shopping.
+            "jumpahead" // Premium promotion.
+    };
 
     // https://encrypted-tbn0.gstatic.com/shopping?q=abc
     private static final String STORE_BANNER_DOMAIN = "gstatic.com/shopping";
@@ -32,9 +42,10 @@ public final class AdsFilter extends Filter {
 
     private final StringTrieSearch exceptions = new StringTrieSearch();
 
-    private final StringFilterGroup playerShoppingShelf;
-    private final ByteArrayFilterGroup playerShoppingShelfBuffer;
-
+    private final StringFilterGroup promotionBanner;
+    private final ByteArrayFilterGroup promotionBannerBuffer;
+    private final StringFilterGroup buyMovieAd;
+    private final ByteArrayFilterGroup buyMovieAdBuffer;
 
     public AdsFilter() {
         exceptions.addPatterns(
@@ -47,7 +58,6 @@ public final class AdsFilter extends Filter {
 
         // Identifiers.
 
-
         final var carouselAd = new StringFilterGroup(
                 Settings.HIDE_GENERAL_ADS,
                 "carousel_ad"
@@ -55,11 +65,6 @@ public final class AdsFilter extends Filter {
         addIdentifierCallbacks(carouselAd);
 
         // Paths.
-
-        fullscreenAd = new StringFilterGroup(
-                Settings.HIDE_FULLSCREEN_ADS,
-                "_interstitial"
-        );
 
         final var generalAds = new StringFilterGroup(
                 Settings.HIDE_GENERAL_ADS,
@@ -79,11 +84,11 @@ public final class AdsFilter extends Filter {
                 "hero_promo_image",
                 // text_image_button_group_layout, landscape_image_button_group_layout, full_width_square_image_button_group_layout
                 "image_button_group_layout",
+                "landscape_image_carousel_layout",
                 "landscape_image_wide_button_layout",
                 "primetime_promo",
                 "product_details",
                 "square_image_layout",
-                "statement_banner",
                 "text_image_button_layout",
                 "text_image_no_button_layout", // Tablet layout search results.
                 "video_display_button_group_layout",
@@ -91,7 +96,8 @@ public final class AdsFilter extends Filter {
                 "video_display_carousel_buttoned_short_dr_layout",
                 "video_display_full_buttoned_short_dr_layout",
                 "video_display_full_layout",
-                "watch_metadata_app_promo"
+                "watch_metadata_app_promo",
+                "shopping_timely_shelf." // Injection point below hides the empty space.
         );
 
         final var movieAds = new StringFilterGroup(
@@ -102,6 +108,16 @@ public final class AdsFilter extends Filter {
                 "horizontal_movie_shelf",
                 "movie_and_show_upsell_card",
                 "offer_module_root"
+        );
+
+        buyMovieAd = new StringFilterGroup(
+                Settings.HIDE_MOVIES_SECTION,
+                "video_lockup_with_attachment.e"
+        );
+
+        buyMovieAdBuffer =  new ByteArrayFilterGroup(
+                null,
+                "FEstorefront"
         );
 
         final var viewProducts = new StringFilterGroup(
@@ -116,25 +132,21 @@ public final class AdsFilter extends Filter {
                 "shopping_description_shelf.e"
         );
 
-        playerShoppingShelf = new StringFilterGroup(
-                Settings.HIDE_CREATOR_STORE_SHELF,
-                "horizontal_shelf.e"
-        );
-
-        playerShoppingShelfBuffer = new ByteArrayFilterGroup(
-                null,
-                "shopping_item_card_list"
-        );
-
-        final var webLinkPanel = new StringFilterGroup(
-                Settings.HIDE_WEB_SEARCH_RESULTS,
-                "web_link_panel"
-        );
-
         final var merchandise = new StringFilterGroup(
                 Settings.HIDE_MERCHANDISE_BANNERS,
                 "product_carousel",
                 "shopping_carousel.e" // Channel profile shopping shelf.
+        );
+
+        promotionBanner = new StringFilterGroup(
+                Settings.HIDE_YOUTUBE_PREMIUM_PROMOTIONS,
+                "statement_banner"
+        );
+
+        promotionBannerBuffer = new ByteArrayFilterGroup(
+                null,
+                "img/promos/growth/", // Link, https://www.gstatic.com/youtube/img/promos/growth/ is only used for ads.
+                "SPunlimited" // Word associated with Premium, should be unique to differentiate Doodle from ad banner.
         );
 
         final var selfSponsor = new StringFilterGroup(
@@ -143,37 +155,103 @@ public final class AdsFilter extends Filter {
         );
 
         addPathCallbacks(
-                fullscreenAd,
+                buyMovieAd,
                 generalAds,
                 merchandise,
                 movieAds,
-                playerShoppingShelf,
+                promotionBanner,
                 selfSponsor,
                 shoppingLinks,
-                viewProducts,
-                webLinkPanel
+                viewProducts
         );
     }
 
     @Override
-    public boolean isFiltered(String identifier, String path, byte[] buffer,
+    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        if (matchedGroup == playerShoppingShelf) {
-            return contentIndex == 0 && playerShoppingShelfBuffer.check(buffer).isFiltered();
+        if (matchedGroup == buyMovieAd) {
+            return contentIndex == 0 && buyMovieAdBuffer.check(buffer).isFiltered();
         }
 
-        if (exceptions.matches(path)) {
-            return false;
+        if (matchedGroup == promotionBanner) {
+            return contentIndex == 0 && promotionBannerBuffer.check(buffer).isFiltered();
         }
 
-        if (matchedGroup == fullscreenAd) {
-            if (path.contains("|ImageType|")) closeFullscreenAd();
+        return !exceptions.matches(path);
+    }
 
-            // Do not actually filter the fullscreen ad otherwise it will leave a dimmed screen.
-            return false;
+    /**
+     * Injection point.
+     * Called from a different place then the other filters.
+     */
+    public static void closeFullscreenAd(Object customDialog, @Nullable byte[] buffer) {
+        try {
+            if (!Settings.HIDE_FULLSCREEN_ADS.get()) {
+                return;
+            }
+
+            if (buffer == null) {
+                Logger.printDebug(() -> "buffer is null");
+                return;
+            }
+
+            if (fullscreenAd.check(buffer).isFiltered() &&
+                    customDialog instanceof Dialog dialog) {
+                Logger.printDebug(() -> "Closing fullscreen ad");
+
+                Window window = dialog.getWindow();
+
+                if (window != null) {
+                    // Set the dialog size to 0 before closing
+                    // If the dialog is not resized to 0, it will remain visible for about a second before closing
+                    WindowManager.LayoutParams params = window.getAttributes();
+                    params.height = 0;
+                    params.width = 0;
+
+                    // Change the size of dialog to 0
+                    window.setAttributes(params);
+
+                    // Disable dialog's background dim
+                    window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+
+                    // Restore window flags
+                    window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED);
+
+                    // Restore decorView visibility
+                    window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+                }
+
+                // Dismiss dialog
+                dialog.dismiss();
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "closeFullscreenAd failure", ex);
         }
+    }
 
-        return true;
+    /**
+     * Injection point.
+     */
+    public static boolean hideAds() {
+        return Settings.HIDE_GENERAL_ADS.get();
+    }
+
+    /**
+     * Injection point.
+     */
+    public static String hideAds(String osName) {
+        return Settings.HIDE_GENERAL_ADS.get()
+                ? "Android Automotive"
+                : osName;
+    }
+
+    /**
+     * Hide the view, which shows ads in the homepage.
+     *
+     * @param view The view, which shows ads.
+     */
+    public static void hideAdAttributionView(View view) {
+        Utils.hideViewBy0dpUnderCondition(Settings.HIDE_GENERAL_ADS, view);
     }
 
     /**
@@ -191,50 +269,18 @@ public final class AdsFilter extends Filter {
         elementsList.add(protobufList);
     }
 
-
     /**
-     * Hide the view, which shows ads in the homepage.
-     *
-     * @param view The view, which shows ads.
+     * Injection point.
      */
-    public static void hideAdAttributionView(View view) {
-        Utils.hideViewBy0dpUnderCondition(Settings.HIDE_GENERAL_ADS, view);
+    public static boolean hideGetPremiumView() {
+        return Settings.HIDE_YOUTUBE_PREMIUM_PROMOTIONS.get();
     }
 
     /**
-     * Close the fullscreen ad.
-     * <p>
-     * The strategy is to send a back button event to the app to close the fullscreen ad using the back button event.
+     * Injection point.
      */
-    private static void closeFullscreenAd() {
-        final var currentTime = System.currentTimeMillis();
-
-        // Prevent spamming the back button.
-        if (currentTime - lastTimeClosedFullscreenAd < 10000) return;
-        lastTimeClosedFullscreenAd = currentTime;
-
-        Logger.printDebug(() -> "Closing fullscreen ad");
-
-        Utils.runOnMainThreadDelayed(() -> {
-            // Must run off main thread (Odd, but whatever).
-            Utils.runOnBackgroundThread(() -> {
-                try {
-                    instrumentation.sendKeyDownUpSync(KeyEvent.KEYCODE_BACK);
-                } catch (Exception ex) {
-                    // Injecting user events on Android 10+ requires the manifest to include
-                    // INJECT_EVENTS, and it's usage is heavily restricted
-                    // and requires the user to manually approve the permission in the device settings.
-                    //
-                    // And no matter what, permissions cannot be added for root installations
-                    // as manifest changes are ignored for mount installations.
-                    //
-                    // Instead, catch the SecurityException and turn off hide full screen ads
-                    // since this functionality does not work for these devices.
-                    Logger.printInfo(() -> "Could not inject back button event", ex);
-                    Settings.HIDE_FULLSCREEN_ADS.save(false);
-                    Utils.showToastLong(str("revanced_hide_fullscreen_ads_feature_not_available_toast"));
-                }
-            });
-        }, 1000);
+    public static boolean hidePlayerPopupAds(String panelId) {
+        return Settings.HIDE_PLAYER_POPUP_ADS.get()
+                && Utils.containsAny(panelId, PLAYER_POPUP_AD_PANEL_IDS);
     }
 }

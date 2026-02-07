@@ -4,8 +4,10 @@ import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class DisablePlayerPopupPanelsPatch {
-    //Used by app.revanced.patches.youtube.layout.playerpopuppanels.patch.PlayerPopupPanelsPatch
+    /**
+     * Injection point.
+     */
     public static boolean disablePlayerPopupPanels() {
-        return Settings.PLAYER_POPUP_PANELS.get();
+        return Settings.DISABLE_PLAYER_POPUP_PANELS.get();
     }
 }

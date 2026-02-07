@@ -28,10 +28,12 @@ val customPlayerOverlayOpacityPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.43.41",
             "20.14.43",
             "20.21.37",
-            "20.31.40",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -45,12 +47,13 @@ val customPlayerOverlayOpacityPatch = bytecodePatch(
         createPlayerOverviewMethodMatch.let {
             it.method.apply {
                 val viewRegisterIndex = it[-1]
-                val viewRegister = getInstruction<OneRegisterInstruction>(viewRegisterIndex).registerA
+                val viewRegister =
+                    getInstruction<OneRegisterInstruction>(viewRegisterIndex).registerA
 
                 addInstruction(
                     viewRegisterIndex + 1,
                     "invoke-static { v$viewRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->changeOpacity(Landroid/widget/ImageView;)V",
+                            "$EXTENSION_CLASS_DESCRIPTOR->changeOpacity(Landroid/widget/ImageView;)V",
                 )
             }
         }

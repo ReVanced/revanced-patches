@@ -12,7 +12,8 @@ import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.util.findFreeRegister
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/PermanentRepeatPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/music/patches/PermanentRepeatPatch;"
 
 @Suppress("unused")
 val permanentRepeatPatch = bytecodePatch(
@@ -29,6 +30,8 @@ val permanentRepeatPatch = bytecodePatch(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
             "8.10.52",
+            "8.37.56",
+            "8.40.54",
         ),
     )
 

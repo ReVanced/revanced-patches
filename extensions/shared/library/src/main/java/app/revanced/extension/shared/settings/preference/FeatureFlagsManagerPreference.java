@@ -72,7 +72,7 @@ public class FeatureFlagsManagerPreference extends Preference {
      */
     private static final Set<Long> FLAGS_TO_IGNORE = Set.of(
             45386834L, // 'You' tab settings icon.
-            45685201L  // Bold icons. Forcing off interferes with patch changes and YT icons are broken.
+            45532100L  // Cairo flag. Turning this off with all other flags causes the settings menu to be a mix of old/new.
     );
 
     /**
@@ -131,9 +131,10 @@ public class FeatureFlagsManagerPreference extends Preference {
         disabledFlags.removeAll(FLAGS_TO_IGNORE);
 
         if (allKnownFlags.isEmpty() && disabledFlags.isEmpty()) {
-            // String does not need to be localized because it's basically impossible
-            // to reach the settings menu without encountering at least 1 flag.
-            Utils.showToastShort("No feature flags logged yet");
+            // It's impossible to reach the settings menu without reaching at least one flag.
+            // So if theres no flags, then that means the user has just enabled debugging
+            // but has not restarted the app yet.
+            Utils.showToastShort(str("revanced_debug_feature_flags_manager_toast_no_flags"));
             return;
         }
 

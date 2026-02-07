@@ -12,8 +12,10 @@ import com.android.tools.smali.dexlib2.iface.ClassDef
 
 internal const val MINIPLAYER_MODERN_FEATURE_KEY = 45622882L
 
-// In later targets this feature flag does nothing and is dead code.
-internal const val MINIPLAYER_MODERN_FEATURE_LEGACY_KEY = 45630429L
+internal const val MINIPLAYER_MODERN_TYPE_1_FEATURE_KEY = 45623000L
+internal const val MINIPLAYER_MODERN_TYPE_2_FEATURE_KEY = 45623273L
+internal const val MINIPLAYER_MODERN_TYPE_3_FEATURE_KEY = 45623076L
+internal const val MINIPLAYER_MODERN_TYPE_4_FEATURE_KEY = 45674402L
 internal const val MINIPLAYER_DOUBLE_TAP_FEATURE_KEY = 45628823L
 internal const val MINIPLAYER_DRAG_DROP_FEATURE_KEY = 45628752L
 internal const val MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY = 45658112L
@@ -21,11 +23,13 @@ internal const val MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY = 45652224L
 internal const val MINIPLAYER_INITIAL_SIZE_FEATURE_KEY = 45640023L
 internal const val MINIPLAYER_DISABLED_FEATURE_KEY = 45657015L
 internal const val MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY = 45644360L
+// In later targets this feature flag does nothing and is dead code.
+internal const val MINIPLAYER_MODERN_FEATURE_LEGACY_KEY = 45630429L
 
 internal val BytecodePatchContext.miniplayerModernConstructorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        45623000L(), // Magic number found in the constructor.
+        MINIPLAYER_MODERN_TYPE_1_FEATURE_KEY(),
     )
 }
 
@@ -148,8 +152,14 @@ internal val BytecodePatchContext.miniplayerMinimumSizeMethodMatch by composingF
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.DIMEN("miniplayer_max_size"),
-        192L(), // Default miniplayer width constant.
-        128L(), // Default miniplayer height constant.
+        anyOf( // Default miniplayer width constant.
+            192L(),
+            192.0f.toRawBits().toLong()(), // 21.03+
+        ),
+        anyOf( // Default miniplayer height constant.
+            128L(),
+            128.0f.toRawBits().toLong()(), // 21.03+
+        )
     )
 }
 

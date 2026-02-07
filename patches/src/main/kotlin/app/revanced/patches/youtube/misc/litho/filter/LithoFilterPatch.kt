@@ -49,7 +49,7 @@ val lithoFilterPatch = lithoFilterPatch(
     executeBlock = {
         // region A/B test of new Litho native code.
 
-        // Turn off native code that handles litho component names.  If this feature is on then nearly
+        // Turn off native code that handles litho component names. If this feature is on then nearly
         // all litho components have a null name and identifier/path filtering is completely broken.
         //
         // Flag was removed in 20.05. It appears a new flag might be used instead (45660109L),

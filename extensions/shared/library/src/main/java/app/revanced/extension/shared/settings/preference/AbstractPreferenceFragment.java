@@ -208,7 +208,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     private void updatePreferenceScreen(@NonNull PreferenceGroup group,
                                         boolean syncSettingValue,
                                         boolean applySettingToPreference) {
-        // Alternatively this could iterate thru all Settings and check for any matching Preferences,
+        // Alternatively this could iterate through all Settings and check for any matching Preferences,
         // but there are many more Settings than UI preferences so it's more efficient to only check
         // the Preferences.
         for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {

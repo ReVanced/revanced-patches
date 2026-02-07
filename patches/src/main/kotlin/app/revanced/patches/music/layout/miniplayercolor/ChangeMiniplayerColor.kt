@@ -22,7 +22,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/ChangeMiniplayerColorPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/music/patches/ChangeMiniplayerColorPatch;"
 
 @Suppress("unused")
 val changeMiniplayerColorPatch = bytecodePatch(
@@ -40,6 +41,8 @@ val changeMiniplayerColorPatch = bytecodePatch(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
             "8.10.52",
+            "8.37.56",
+            "8.40.54",
         ),
     )
 
@@ -71,10 +74,11 @@ val changeMiniplayerColorPatch = bytecodePatch(
                 miniPlayerConstructorMethodMatch.immutableMethod.indexOfFirstInstructionReversedOrThrow {
                     getReference<MethodReference>()?.name == "getColor"
                 }
-            val iPutIndex = miniPlayerConstructorMethodMatch.immutableMethod.indexOfFirstInstructionOrThrow(
-                colorGreyIndex,
-                Opcode.IPUT,
-            )
+            val iPutIndex =
+                miniPlayerConstructorMethodMatch.immutableMethod.indexOfFirstInstructionOrThrow(
+                    colorGreyIndex,
+                    Opcode.IPUT,
+                )
             val colorMathPlayerIPutReference = miniPlayerConstructorMethodMatch.immutableMethod
                 .getInstruction<ReferenceInstruction>(iPutIndex).reference
 

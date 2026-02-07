@@ -8,7 +8,7 @@ import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
+import app.revanced.patches.youtube.layout.buttons.navigation.navigationBarPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
@@ -50,12 +50,12 @@ context(_: BytecodePatchContext)
 internal fun ClassDef.getInitializeButtonsMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
-    instructions(ResourceType.LAYOUT("image_only_tab"))
+    instructions("FEvideo_picker"())
 }
 
 /**
  * Extension method, used for callback into to other patches.
- * Specifically, [navigationButtonsPatch].
+ * Specifically, [navigationBarPatch].
  */
 internal val BytecodePatchContext.navigationBarHookCallbackMethod by gettingFirstMethodDeclaratively {
     name("navigationTabCreatedCallback")
@@ -76,8 +76,8 @@ internal val BytecodePatchContext.navigationEnumMethod by gettingFirstImmutableM
     "TAB_ACTIVITY",
     "VIDEO_LIBRARY_WHITE",
     "INCOGNITO_CIRCLE",
-    "UNKNOWN", // Required to distinguish from patch extension class.
 ) {
+    definingClass { !startsWith("Lapp/revanced") }
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
 }
 
@@ -125,11 +125,11 @@ internal val BytecodePatchContext.pivotBarConstructorMethod by gettingFirstImmut
 }
 
 internal val BytecodePatchContext.imageEnumConstructorMethodMatch by composingFirstMethod {
+    definingClass { !startsWith("Lapp/revanced") }
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     instructions(
         "TAB_ACTIVITY_CAIRO"(),
-        after(Opcode.INVOKE_DIRECT()),
-        after(Opcode.SPUT_OBJECT()),
+        Opcode.SPUT_OBJECT()
     )
 }
 

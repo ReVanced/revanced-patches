@@ -4,7 +4,32 @@ import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
+internal val BytecodePatchContext.accessibilityIdMethodMatch by composingFirstMethod {
+    instructions(
+        allOf(
+            Opcode.INVOKE_INTERFACE(),
+            method { parameterTypes.isEmpty() && returnType == "Ljava/lang/String;" }
+        ),
+        afterAtMost(5, "primary_image"()),
+    )
+}
+
+internal fun BytecodePatchContext.getAccessibilityTextMethodMatch(accessibilityIdMethod: MethodReference) = firstMethodComposite {
+    returnType("V")
+    custom {
+        // 'public final synthetic' or 'public final bridge synthetic'.
+        AccessFlags.SYNTHETIC.isSet(accessFlags)
+    }
+    instructions(
+        allOf(
+            Opcode.INVOKE_INTERFACE(),
+            method { parameterTypes.isEmpty() && returnType == "Ljava/lang/String;" }
+        ),
+        afterAtMost(5, method { this == accessibilityIdMethod })
+    )
+}
 internal val BytecodePatchContext.lithoFilterInitMethod by gettingFirstMethodDeclaratively {
     definingClass("/LithoFilterPatch;")
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
@@ -38,10 +63,6 @@ internal val BytecodePatchContext.protobufBufferReferenceLegacyMethod by getting
     returnType("V")
     parameterTypes("I", "Ljava/nio/ByteBuffer;")
     opcodes(Opcode.IPUT, Opcode.INVOKE_VIRTUAL, Opcode.MOVE_RESULT, Opcode.SUB_INT_2ADDR)
-}
-
-internal val BytecodePatchContext.componentContextParserMethodMatch by composingFirstMethod {
-    instructions("Number of bits must be positive"())
 }
 
 internal val BytecodePatchContext.emptyComponentMethod by gettingFirstImmutableMethodDeclaratively {

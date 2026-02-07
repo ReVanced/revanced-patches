@@ -28,7 +28,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/shared/spoof/SpoofVideoStreamsPatch;"
 
 private lateinit var buildRequestMethod: MutableMethod
-private var buildRequestMethodUrlRegister = -1
+private var buildRequestMethodURLRegister = -1
 
 internal fun spoofVideoStreamsPatch(
     extensionClassDescriptor: String,
@@ -102,14 +102,14 @@ internal fun spoofVideoStreamsPatch(
             buildRequestMethod = this
 
             val newRequestBuilderIndex = buildRequestMethodMatch[0]
-            buildRequestMethodUrlRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
-            val freeRegister = findFreeRegister(newRequestBuilderIndex, buildRequestMethodUrlRegister)
+            buildRequestMethodURLRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
+            val freeRegister = findFreeRegister(newRequestBuilderIndex, buildRequestMethodURLRegister)
 
             addInstructions(
                 newRequestBuilderIndex,
                 """
                     move-object v$freeRegister, p1
-                    invoke-static { v$buildRequestMethodUrlRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
+                    invoke-static { v$buildRequestMethodURLRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
                 """,
             )
         }
@@ -164,7 +164,7 @@ internal fun spoofVideoStreamsPatch(
                             move-result v0
                             if-eqz v0, :disabled
     
-                            # Get video id.
+                            # Get video ID.
                             iget-object v2, p1, $videoDetailsClass->c:Ljava/lang/String;
                             if-eqz v2, :disabled
     
@@ -202,15 +202,15 @@ internal fun spoofVideoStreamsPatch(
             addInstructions(
                 insertIndex,
                 """
-                    invoke-static { v$buildRequestMethodUrlRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetAttRequest(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v$buildRequestMethodUrlRegister
+                    invoke-static { v$buildRequestMethodURLRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetAttRequest(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$buildRequestMethodURLRegister
                 """,
             )
         }
 
         // endregion
 
-        // region Remove /videoplayback request body to fix playback.
+        // region Remove video playback request body to fix playback.
         // It is assumed, YouTube makes a request with a body tuned for Android.
         // Requesting streams intended for other platforms with a body tuned for Android could be the cause of 400 errors.
         // A proper fix may include modifying the request body to match the platforms expected body.

@@ -17,7 +17,7 @@ class PlayerControlsVisibilityObserverImpl(
 ) : PlayerControlsVisibilityObserver {
 
     /**
-     * id of the direct parent of controls_layout, R.id.youtube_controls_overlay
+     * ID of the direct parent of controls_layout, R.id.youtube_controls_overlay
      */
     private val controlsLayoutParentId =
         Utils.getResourceIdentifier(activity, ResourceType.ID, "youtube_controls_overlay")

@@ -11,7 +11,7 @@ internal val BytecodePatchContext.lithoOnBoundsChangeMethodMatch by composingFir
     returnType("V")
     parameterTypes("Landroid/graphics/Rect;")
 
-    lateinit var methodDefiningClass: String
+    var methodDefiningClass = ""
     custom {
         methodDefiningClass = definingClass
         true
@@ -23,11 +23,7 @@ internal val BytecodePatchContext.lithoOnBoundsChangeMethodMatch by composingFir
             field { type == "Landroid/graphics/Path;" && definingClass == methodDefiningClass },
         ),
         afterAtMost(
-            5,
-            method { returnType == "Z" && name == "isStateful" && definingClass == methodDefiningClass },
-        ),
-        afterAtMost(
-            5,
+            10,
             allOf(
                 Opcode.IGET_OBJECT(),
                 field { type == "Landroid/graphics/Paint;" && definingClass == methodDefiningClass },

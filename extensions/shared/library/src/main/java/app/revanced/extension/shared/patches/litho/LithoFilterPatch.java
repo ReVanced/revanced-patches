@@ -24,11 +24,14 @@ public final class LithoFilterPatch {
     private static final class LithoFilterParameters {
         final String identifier;
         final String path;
+        final String accessibility;
         final byte[] buffer;
 
-        LithoFilterParameters(String lithoIdentifier, String lithoPath, byte[] buffer) {
+        LithoFilterParameters(String lithoIdentifier, String lithoPath,
+                              String accessibility, byte[] buffer) {
             this.identifier = lithoIdentifier;
             this.path = lithoPath;
+            this.accessibility = accessibility;
             this.buffer = buffer;
         }
 
@@ -39,6 +42,11 @@ public final class LithoFilterPatch {
             StringBuilder builder = new StringBuilder(Math.max(100, buffer.length / 2));
             builder.append("ID: ");
             builder.append(identifier);
+            if (!accessibility.isEmpty()) {
+                // AccessibilityId and AccessibilityText are pieces of BufferStrings.
+                builder.append(" Accessibility: ");
+                builder.append(accessibility);
+            }
             builder.append(" Path: ");
             builder.append(path);
             if (YouTubeAndMusicSettings.DEBUG_PROTOBUFFER.get()) {
@@ -122,7 +130,7 @@ public final class LithoFilterPatch {
 
     /**
      * String suffix for components.
-     * Can be any of: ".eml", ".e-b", ".eml-js", "e-js-b"
+     * Can be any of: ".eml", ".eml-fe", ".e-b", ".eml-js", "e-js-b"
      */
     private static final byte[] LITHO_COMPONENT_EXTENSION_BYTES = ".e".getBytes(StandardCharsets.US_ASCII);
 
@@ -132,7 +140,7 @@ public final class LithoFilterPatch {
     private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
 
     /**
-     * Because litho filtering is multi-threaded and the buffer is passed in from a different injection point,
+     * Because litho filtering is multithreaded and the buffer is passed in from a different injection point,
      * the buffer is saved to a ThreadLocal so each calling thread does not interfere with other threads.
      * Used for 20.21 and lower.
      */
@@ -140,7 +148,7 @@ public final class LithoFilterPatch {
 
     /**
      * Identifier to protocol buffer mapping.  Only used for 20.22+.
-     * Thread local is needed because filtering is multi-threaded and each thread can load
+     * Thread local is needed because filtering is multithreaded and each thread can load
      * a different component with the same identifier.
      */
     private static final ThreadLocal<Map<String, byte[]>> identifierToBufferThread = new ThreadLocal<>();
@@ -155,6 +163,7 @@ public final class LithoFilterPatch {
     private static final StringTrieSearch identifierSearchTree = new StringTrieSearch();
 
     static {
+
         for (Filter filter : filters) {
             filterUsingCallbacks(identifierSearchTree, filter,
                     filter.identifierCallbacks, Filter.FilterContentType.IDENTIFIER);
@@ -186,16 +195,13 @@ public final class LithoFilterPatch {
 
                             LithoFilterParameters parameters = (LithoFilterParameters) callbackParameter;
                             final boolean isFiltered = filter.isFiltered(parameters.identifier,
-                                    parameters.path, parameters.buffer, group, type, matchedStartIndex);
+                                    parameters.accessibility, parameters.path, parameters.buffer,
+                                    group, type, matchedStartIndex);
 
                             if (isFiltered && BaseSettings.DEBUG.get()) {
-                                if (type == Filter.FilterContentType.IDENTIFIER) {
-                                    Logger.printDebug(() -> "Filtered " + filterSimpleName
-                                            + " identifier: " + parameters.identifier);
-                                } else {
-                                    Logger.printDebug(() -> "Filtered " + filterSimpleName
-                                            + " path: " + parameters.path);
-                                }
+                                Logger.printDebug(() -> type == Filter.FilterContentType.IDENTIFIER
+                                        ? filterSimpleName + " filtered identifier: " + parameters.identifier
+                                        : filterSimpleName + " filtered path: " + parameters.path);
                             }
 
                             return isFiltered;
@@ -212,7 +218,7 @@ public final class LithoFilterPatch {
 
     /**
      * Helper function that differs from {@link Character#isDigit(char)}
-     * as this only matches ascii and not unicode numbers.
+     * as this only matches ascii and not Unicode numbers.
      */
     private static boolean isAsciiNumber(byte character) {
         return '0' <= character && character <= '9';
@@ -233,12 +239,19 @@ public final class LithoFilterPatch {
             Logger.printDebug(() -> "New buffer: " + builder);
         }
 
+        // The identifier always seems to start very close to the buffer start.
+        // Highest identifier start index ever observed is 50, with most around 30 to 40.
+        // The buffer can be very large with up to 200kb has been observed,
+        // so the search is restricted to only the start.
+        final int maxBufferStartIndex = 500; // 10x expected upper bound.
+
         // Could use Boyer-Moore-Horspool since the string is ASCII and has a limited number of
         // unique characters, but it seems to be slower since the extra overhead of checking the
         // bad character array negates any performance gain of skipping a few extra subsearches.
         int emlIndex = -1;
         final int emlStringLength = LITHO_COMPONENT_EXTENSION_BYTES.length;
-        for (int i = 0, lastStartIndex = buffer.length - emlStringLength; i <= lastStartIndex; i++) {
+        final int lastBufferIndexToCheckFrom = Math.min(maxBufferStartIndex, buffer.length - emlStringLength);
+        for (int i = 0; i < lastBufferIndexToCheckFrom; i++) {
             boolean match = true;
             for (int j = 0; j < emlStringLength; j++) {
                 if (buffer[i + j] != LITHO_COMPONENT_EXTENSION_BYTES[j]) {
@@ -254,6 +267,9 @@ public final class LithoFilterPatch {
 
         if (emlIndex < 0) {
             // Buffer is not used for creating a new litho component.
+            if (DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER) {
+                Logger.printDebug(() -> "Could not find eml index");
+            }
             return;
         }
 
@@ -290,7 +306,9 @@ public final class LithoFilterPatch {
             }
         }
         if (endIndex < 0) {
-            Logger.printException(() -> "Could not find buffer identifier");
+            if (BaseSettings.DEBUG.get()) {
+                Logger.printException(() -> "Debug: Could not find buffer identifier");
+            }
             return;
         }
 
@@ -329,7 +347,8 @@ public final class LithoFilterPatch {
     /**
      * Injection point.
      */
-    public static boolean isFiltered(String identifier, StringBuilder pathBuilder) {
+    public static boolean isFiltered(String identifier, @Nullable String accessibilityId,
+                                     @Nullable String accessibilityText, StringBuilder pathBuilder) {
         try {
             if (identifier.isEmpty() || pathBuilder.length() == 0) {
                 return false;
@@ -340,7 +359,7 @@ public final class LithoFilterPatch {
                 final int pipeIndex = identifier.indexOf('|');
                 if (pipeIndex >= 0) {
                     // If the identifier contains no pipe, then it's not an ".eml" identifier
-                    // and the buffer is not uniquely identified. Typically this only happens
+                    // and the buffer is not uniquely identified. Typically, this only happens
                     // for subcomponents where buffer filtering is not used.
                     String identifierKey = identifier.substring(0, pipeIndex);
 
@@ -357,7 +376,9 @@ public final class LithoFilterPatch {
                             // No buffer is found for some components, such as
                             // shorts_lockup_cell.eml on channel profiles.
                             // For now, just ignore this and filter without a buffer.
-                            Logger.printException(() -> "Could not find global buffer for identifier: " + identifier);
+                            if (BaseSettings.DEBUG.get()) {
+                                Logger.printException(() -> "Debug: Could not find buffer for identifier: " + identifier);
+                            }
                         }
                     }
                 }
@@ -372,7 +393,15 @@ public final class LithoFilterPatch {
             }
 
             String path = pathBuilder.toString();
-            LithoFilterParameters parameter = new LithoFilterParameters(identifier, path, buffer);
+
+            String accessibility = "";
+            if (accessibilityId != null && !accessibilityId.isBlank()) {
+                accessibility = accessibilityId;
+            }
+            if (accessibilityText != null && !accessibilityText.isBlank()) {
+                accessibility = accessibilityId + '|' + accessibilityText;
+            }
+            LithoFilterParameters parameter = new LithoFilterParameters(identifier, path, accessibility, buffer);
             Logger.printDebug(() -> "Searching " + parameter);
 
             return identifierSearchTree.matches(identifier, parameter)

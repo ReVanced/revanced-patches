@@ -20,7 +20,7 @@ import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
-import app.revanced.extension.shared.settings.preference.UrlLinkPreference;
+import app.revanced.extension.shared.settings.preference.URLLinkPreference;
 
 /**
  * Abstract base class for search result items, defining common fields and behavior.
@@ -167,7 +167,7 @@ public abstract class BaseSearchResultItem {
             if (pref instanceof SwitchPreference) return ViewType.SWITCH;
             if (pref instanceof ListPreference) return ViewType.LIST;
             if (pref instanceof ColorPickerPreference) return ViewType.COLOR_PICKER;
-            if (pref instanceof UrlLinkPreference) return ViewType.URL_LINK;
+            if (pref instanceof URLLinkPreference) return ViewType.URL_LINK;
             if ("no_results_placeholder".equals(pref.getKey())) return ViewType.NO_RESULTS;
             return ViewType.REGULAR;
         }

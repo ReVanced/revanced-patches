@@ -53,13 +53,15 @@ private val miniplayerResourcePatch = resourcePatch {
 
         // Only required for exactly 19.16
         if (!is_19_17_or_greater) {
-            ytOutlinePictureInPictureWhite24 = ResourceType.DRAWABLE["yt_outline_picture_in_picture_white_24"]
+            ytOutlinePictureInPictureWhite24 =
+                ResourceType.DRAWABLE["yt_outline_picture_in_picture_white_24"]
             ytOutlineXWhite24 = ResourceType.DRAWABLE["yt_outline_x_white_24"]
         }
     }
 }
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/MiniplayerPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/MiniplayerPatch;"
 
 @Suppress("unused")
 val miniplayerPatch = bytecodePatch(
@@ -75,10 +77,12 @@ val miniplayerPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.43.41",
             "20.14.43",
             "20.21.37",
-            "20.31.40",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -143,7 +147,10 @@ val miniplayerPatch = bytecodePatch(
         }
 
         if (is_19_26_or_greater) {
-            preferences += TextPreference("revanced_miniplayer_width_dip", inputType = InputType.NUMBER)
+            preferences += TextPreference(
+                "revanced_miniplayer_width_dip",
+                inputType = InputType.NUMBER
+            )
         }
 
         preferences += TextPreference("revanced_miniplayer_opacity", inputType = InputType.NUMBER)
@@ -167,7 +174,8 @@ val miniplayerPatch = bytecodePatch(
             )
         }
 
-        fun Method.findReturnIndicesReversed() = findInstructionIndicesReversedOrThrow(Opcode.RETURN)
+        fun Method.findReturnIndicesReversed() =
+            findInstructionIndicesReversedOrThrow(Opcode.RETURN)
 
         /**
          * Adds an override to force legacy tablet miniplayer to be used or not used.
@@ -227,11 +235,12 @@ val miniplayerPatch = bytecodePatch(
         // Parts of the YT code is removed in 20.37+ and the legacy player no longer works.
 
         if (!is_20_37_or_greater) {
-            miniplayerDimensionsCalculatorParentMethod.immutableClassDef.getMiniplayerOverrideNoContextMethod().apply {
-                findReturnIndicesReversed().forEach { index ->
-                    insertLegacyTabletMiniplayerOverride(index)
+            miniplayerDimensionsCalculatorParentMethod.immutableClassDef.getMiniplayerOverrideNoContextMethod()
+                .apply {
+                    findReturnIndicesReversed().forEach { index ->
+                        insertLegacyTabletMiniplayerOverride(index)
+                    }
                 }
-            }
 
             // endregion
 
@@ -265,7 +274,11 @@ val miniplayerPatch = bytecodePatch(
 
                     insertModernMiniplayerTypeOverride(iPutIndex)
                 } else {
-                    findReturnIndicesReversed().forEach { index -> insertModernMiniplayerOverride(index) }
+                    findReturnIndicesReversed().forEach { index ->
+                        insertModernMiniplayerOverride(
+                            index
+                        )
+                    }
                 }
             }
         }
@@ -355,17 +368,23 @@ val miniplayerPatch = bytecodePatch(
         // YT fixed this mistake in 19.17.
         // Fix this, by swapping the drawable resource values with each other.
         if (!is_19_17_or_greater) {
-            miniplayerModernViewParentMethod.immutableClassDef.getMiniplayerModernExpandCloseDrawablesMethod().apply {
-                listOf(
-                    ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
-                    ytOutlineXWhite24 to ytOutlinePictureInPictureWhite24,
-                ).forEach { (originalResource, replacementResource) ->
-                    val imageResourceIndex = indexOfFirstLiteralInstructionOrThrow(originalResource)
-                    val register = getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
+            miniplayerModernViewParentMethod.immutableClassDef.getMiniplayerModernExpandCloseDrawablesMethod()
+                .apply {
+                    listOf(
+                        ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
+                        ytOutlineXWhite24 to ytOutlinePictureInPictureWhite24,
+                    ).forEach { (originalResource, replacementResource) ->
+                        val imageResourceIndex =
+                            indexOfFirstLiteralInstructionOrThrow(originalResource)
+                        val register =
+                            getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
 
-                    replaceInstruction(imageResourceIndex, "const v$register, $replacementResource")
+                        replaceInstruction(
+                            imageResourceIndex,
+                            "const v$register, $replacementResource"
+                        )
+                    }
                 }
-            }
         }
 
         // endregion
@@ -377,7 +396,7 @@ val miniplayerPatch = bytecodePatch(
                 findInstructionIndicesReversedOrThrow {
                     val reference = getReference<MethodReference>()
                     opcode == Opcode.INVOKE_INTERFACE &&
-                        reference?.returnType == "Z" && reference.parameterTypes.isEmpty()
+                            reference?.returnType == "Z" && reference.parameterTypes.isEmpty()
                 }.forEach { index ->
                     val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
@@ -417,11 +436,12 @@ val miniplayerPatch = bytecodePatch(
             }
         }
 
-        miniplayerModernViewParentMethod.immutableClassDef.getMiniplayerModernAddViewListenerMethod().addInstruction(
-            0,
-            "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                "hideMiniplayerSubTexts(Landroid/view/View;)V",
-        )
+        miniplayerModernViewParentMethod.immutableClassDef.getMiniplayerModernAddViewListenerMethod()
+            .addInstruction(
+                0,
+                "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                        "hideMiniplayerSubTexts(Landroid/view/View;)V",
+            )
 
         // Modern 2 has a broken overlay subtitle view that is always present.
         // Modern 2 uses the same overlay controls as the regular video player,

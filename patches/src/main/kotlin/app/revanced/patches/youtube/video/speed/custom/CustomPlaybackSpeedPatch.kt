@@ -17,7 +17,6 @@ import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
-import app.revanced.patches.youtube.interaction.seekbar.customTapAndHoldMethodMatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
@@ -98,13 +97,15 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
                 // Apply changes from last index to first to preserve indexes.
 
                 val originalArrayFetchIndex = it[5]
-                val originalArrayFetchDestination = getInstruction<OneRegisterInstruction>(it[5]).registerA
+                val originalArrayFetchDestination =
+                    getInstruction<OneRegisterInstruction>(it[5]).registerA
                 replaceInstruction(
                     originalArrayFetchIndex,
                     "sget-object v$originalArrayFetchDestination, $playbackSpeedsArrayType",
                 )
 
-                val arrayLengthConstDestination = getInstruction<OneRegisterInstruction>(it[3]).registerA
+                val arrayLengthConstDestination =
+                    getInstruction<OneRegisterInstruction>(it[3]).registerA
                 val newArrayIndex = it[4]
                 addInstructions(
                     newArrayIndex,
@@ -115,7 +116,8 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
                 )
 
                 val sizeCallIndex = it[0] + 1
-                val sizeCallResultRegister = getInstruction<OneRegisterInstruction>(sizeCallIndex).registerA
+                val sizeCallResultRegister =
+                    getInstruction<OneRegisterInstruction>(sizeCallIndex).registerA
                 replaceInstruction(sizeCallIndex, "const/4 v$sizeCallResultRegister, 0x0")
             }
         }
@@ -170,17 +172,19 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         // region Custom tap and hold 2x speed.
 
         if (is_19_47_or_greater) {
-            customTapAndHoldMethodMatch.let {
+            // Function, because it can be the same method as getTapAndHoldHapticsMethodMatch.
+            getTapAndHoldSpeedMethodMatch().let {
                 it.method.apply {
-                    val index = it[0]
-                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+                    val speedIndex = it[-1]
+                    val speedRegister =
+                        getInstruction<OneRegisterInstruction>(speedIndex).registerA
 
                     addInstructions(
-                        index + 1,
+                        speedIndex + 1,
                         """
-                            invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->tapAndHoldSpeed()F
-                            move-result v$register
-                        """,
+                            invoke-static { }, ${EXTENSION_CLASS_DESCRIPTOR}->getTapAndHoldSpeed()F
+                            move-result v$speedRegister
+                        """
                     )
                 }
             }
