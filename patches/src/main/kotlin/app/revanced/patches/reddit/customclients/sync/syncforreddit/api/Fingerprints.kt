@@ -10,11 +10,11 @@ import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
 internal val BytecodePatchContext.getAuthorizationStringMethodMatch by composingFirstMethod {
-    instructions(string { startsWith("authorize.compact?client_id") })
+    instructions(string { contains("authorize.compact?client_id") })
 }
 
 internal val ClassDef.getBearerTokenMethodMatch by ClassDefComposing.composingFirstMethod {
-    instructions(string { startsWith("Basic") })
+    instructions(string { contains("Basic") })
 }
 
 internal val BytecodePatchContext.getUserAgentMethod by gettingFirstMethod(
