@@ -204,14 +204,8 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             )
         }
 
-        if (is_20_39_or_greater) {
-            return@apply Logger.getLogger(this::class.java.name).warning(
-                "20.39+ Navigation tab activity button selected state is not yet fixed.",
-            )
-        }
-
         // Fix YT bug of notification tab missing the filled icon.
-        if (is_19_35_or_greater && !is_20_39_or_greater) { // FIXME: 20.39+ needs this fix.
+        if (is_19_35_or_greater) {
             val cairoNotificationEnumReference =
                 imageEnumConstructorMethodMatch.method.getInstruction(imageEnumConstructorMethodMatch[-1]).reference
 

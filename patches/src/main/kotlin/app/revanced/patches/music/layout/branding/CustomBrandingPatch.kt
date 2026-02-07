@@ -73,6 +73,7 @@ val customBrandingPatch = baseCustomBrandingPatch(
             "com.google.android.apps.youtube.music"(
                 "7.29.52",
                 "8.10.52",
+            "8.46.57"
             ),
         )
     },

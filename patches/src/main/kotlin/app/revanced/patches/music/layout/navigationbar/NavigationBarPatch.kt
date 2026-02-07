@@ -20,6 +20,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import kotlin.toString
 
 internal var text1 = -1L
     private set
@@ -58,6 +59,7 @@ val navigationBarPatch = bytecodePatch(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
             "8.10.52",
+            "8.46.57"
         ),
     )
 
@@ -84,37 +86,35 @@ val navigationBarPatch = bytecodePatch(
         )
 
         tabLayoutTextMethodMatch.method.apply {
-            // Hide navigation labels.
-            val constIndex = indexOfFirstLiteralInstructionOrThrow(text1)
-            val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.CHECK_CAST)
-            val targetParameter = getInstruction<ReferenceInstruction>(targetIndex).reference
-            val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-            if (!targetParameter.toString().endsWith("Landroid/widget/TextView;")) {
-                throw PatchException("Method signature parameter did not match: $targetParameter")
-            }
+            // Set navigation enum and hide navigation buttons.
+            val enumIndex = tabLayoutTextMethodMatch[0] + 2
+            val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA
 
             addInstruction(
-                targetIndex + 1,
-                "invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationLabel(Landroid/widget/TextView;)V",
+                enumIndex + 1,
+                "invoke-static { v$enumRegister }, ${EXTENSION_CLASS_DESCRIPTOR}->setLastAppNavigationEnum(Ljava/lang/Enum;)V"
             )
 
-            // Set navigation enum and hide navigation buttons.
-            val enumIndex = tabLayoutTextMethodMatch[0] + 3
-            val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA
-            val insertEnumIndex = indexOfFirstInstructionOrThrow(Opcode.AND_INT_LIT8) - 2
+            // Hide navigation labels.
+            val constIndex = indexOfFirstLiteralInstructionOrThrow(text1)
+            val labelIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.CHECK_CAST)
+            val targetParameter = getInstruction<ReferenceInstruction>(labelIndex).reference
+            val targetRegister = getInstruction<OneRegisterInstruction>(labelIndex).registerA
+
+            if (!targetParameter.toString().endsWith("Landroid/widget/TextView;"))
+                throw PatchException("Method signature parameter did not match: $targetParameter")
+
+            addInstruction(
+                labelIndex + 1,
+                "invoke-static { v$targetRegister }, ${EXTENSION_CLASS_DESCRIPTOR}->hideNavigationLabel(Landroid/widget/TextView;)V"
+            )
 
             val pivotTabIndex = indexOfGetVisibilityInstruction(this)
             val pivotTabRegister = getInstruction<FiveRegisterInstruction>(pivotTabIndex).registerC
 
             addInstruction(
                 pivotTabIndex,
-                "invoke-static { v$pivotTabRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationButton(Landroid/view/View;)V",
-            )
-
-            addInstruction(
-                insertEnumIndex,
-                "invoke-static { v$enumRegister }, $EXTENSION_CLASS_DESCRIPTOR->setLastAppNavigationEnum(Ljava/lang/Enum;)V",
+                "invoke-static { v$pivotTabRegister }, ${EXTENSION_CLASS_DESCRIPTOR}->hideNavigationButton(Landroid/view/View;)V"
             )
         }
     }

@@ -24,6 +24,7 @@ val seekbarPatch = bytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
+            "20.46.41"
         ),
     )
 }

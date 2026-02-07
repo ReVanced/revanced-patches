@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.boldIconsFeatureFlagMethodMatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.overrideThemeColors
 import app.revanced.patches.shared.misc.settings.preference.*

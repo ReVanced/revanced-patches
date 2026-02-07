@@ -17,7 +17,7 @@ internal val BytecodePatchContext.tabLayoutTextMethodMatch by composingFirstMeth
     opcodes(
         Opcode.IGET,
         Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.MOVE_RESULT_OBJECT, // Get enum.
         Opcode.IF_NEZ,
         Opcode.SGET_OBJECT,
         Opcode.INVOKE_INTERFACE,
