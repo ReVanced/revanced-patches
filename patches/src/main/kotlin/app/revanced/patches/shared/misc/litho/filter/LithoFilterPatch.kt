@@ -31,7 +31,8 @@ lateinit var addLithoFilter: (String) -> Unit
  */
 private var filterCount = 0
 
-internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/patches/litho/LithoFilterPatch;"
+internal const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/shared/patches/litho/LithoFilterPatch;"
 
 /**
  * A patch that allows to filter Litho components based on their identifier or path.
@@ -96,17 +97,24 @@ internal fun lithoFilterPatch(
     apply {
         // Remove dummy filter from extenion static field
         // and add the filters included during patching.
-        lithoFilterMethod.apply {
-            removeInstructions(2, 4) // Remove dummy filter.
+        lithoFilterInitMethod.apply {
+            // Remove the array initialization with the dummy filter.
+            removeInstructions(6)
 
+            addInstructions(
+                0,
+                "new-array v1, v1, [Lapp/revanced/extension/shared/patches/litho/Filter;"
+            )
+
+            // Fill the array with the filters added during patching.
             addLithoFilter = { classDescriptor ->
                 addInstructions(
-                    2,
+                    1,
                     """
-                        new-instance v1, $classDescriptor
-                        invoke-direct { v1 }, $classDescriptor-><init>()V
+                        new-instance v0, $classDescriptor
+                        invoke-direct { v0 }, $classDescriptor-><init>()V
                         const/16 v2, ${filterCount++}
-                        aput-object v1, v0, v2
+                        aput-object v0, v1, v2
                     """,
                 )
             }
@@ -114,7 +122,7 @@ internal fun lithoFilterPatch(
 
         // Tell the extension whether to extract the identifier from the buffer.
         if (getExtractIdentifierFromBuffer()) {
-            lithoFilterMethod.classDef.fields.first { it.name == "EXTRACT_IDENTIFIER_FROM_BUFFER" }
+            lithoFilterInitMethod.classDef.fields.first { it.name == "EXTRACT_IDENTIFIER_FROM_BUFFER" }
                 .initialValue = ImmutableBooleanEncodedValue.forBoolean(true).toMutable()
         }
 
@@ -138,7 +146,7 @@ internal fun lithoFilterPatch(
 
         // Find class and methods to create an empty component.
         val builderMethodDescriptor = emptyComponentMethod.immutableClassDef.methods.single {
-                // The only static method in the class.
+            // The only static method in the class.
                 method ->
             AccessFlags.STATIC.isSet(method.accessFlags)
         }
@@ -203,8 +211,9 @@ internal fun lithoFilterPatch(
     }
 
     afterDependents {
-        // Save the number of filters added.
-        lithoFilterMethod.replaceInstruction(0, "const/16 v0, $filterCount")
+        // Set the array size to the actual filter count of the array
+        // initialized at the beginning of the patch.
+        lithoFilterInitMethod.addInstructions(0, "const/16 v1, $filterCount")
     }
 
     block()
