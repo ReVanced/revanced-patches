@@ -6,7 +6,7 @@ import app.revanced.extension.instagram.misc.followbackindicator.Helper;
 import com.instagram.common.session.UserSession;
 
 @SuppressWarnings("unused")
-public class FollowBackIndicator {
+public class FollowBackIndicatorPatch {
 
     public static void indicator(UserSession userSession, Object profileInfoObject, Object badgeObject){
         try {
@@ -18,7 +18,7 @@ public class FollowBackIndicator {
             if(loggedInUserId.equals(viewingProfileUserId)) return;
 
             Boolean followed_by = Helper.getFollowbackInfo(viewingProfileUserObject);
-            String indicatorText = followed_by ? "User follows you" : "User does not follow you";
+            String indicatorText = followed_by ? "Follows you" : "Does not follow you";
             Helper.setInternalBadgeText(badgeObject,indicatorText);
 
         } catch (Exception ex){

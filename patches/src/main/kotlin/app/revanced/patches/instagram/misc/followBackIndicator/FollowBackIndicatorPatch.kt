@@ -24,7 +24,9 @@ val followBackIndicatorPatch = bytecodePatch(
     use = true,
 ) {
     dependsOn(sharedExtensionPatch)
+
     compatibleWith("com.instagram.android")
+
     execute {
         /**
          * This function replaces a string instruction with a new one.
@@ -49,10 +51,10 @@ val followBackIndicatorPatch = bytecodePatch(
             val invokeStaticMethodReference = getInstruction(moveResultIndex - 1).getReference<MethodReference>()
 
             val methodDefClassName = invokeStaticMethodReference!!.definingClass.removePrefix("L").replace("/", ".").removeSuffix(";")
-            getFollowbackInfoInfoExtension.changeString(0,methodDefClassName)
+            getFollowbackInfoExtensionFingerprint.changeString(0,methodDefClassName)
 
             val methodName = invokeStaticMethodReference.name
-            getFollowbackInfoInfoExtension.changeString(1,methodName)
+            getFollowbackInfoExtensionFingerprint.changeString(1,methodName)
         }
 
         // This constant stores the value of the obfuscated profile info class,
@@ -65,7 +67,7 @@ val followBackIndicatorPatch = bytecodePatch(
             val igetObjectInstruction = instructions.first { it.opcode == Opcode.IGET_OBJECT  }
             val fieldReference = igetObjectInstruction.getReference<FieldReference>()
             val userObjectFieldName = fieldReference!!.name
-            getViewingProfileUserObjectInfoExtension.changeString(0,userObjectFieldName)
+            getViewingProfileUserObjectExtensionFingerprint.changeString(0,userObjectFieldName)
             profileInfoClassName = fieldReference.definingClass
         }
 
@@ -109,7 +111,7 @@ val followBackIndicatorPatch = bytecodePatch(
                     iget-object v$dummyRegistry1, v$userProfilePageRegistry, $userProfilePageElementsClassName->$userSessionFieldName:$userSessionClassName
                     move-object/from16 v$dummyRegistry2, p$profileInfoParameter
                     
-                    invoke-static {v$dummyRegistry1,v$dummyRegistry2, v$internalBadgeRegistry}, ${EXTENSION_CLASS_DESCRIPTOR}FollowBackIndicator;->indicator($userSessionClassName Ljava/lang/Object;Ljava/lang/Object;)V
+                    invoke-static {v$dummyRegistry1,v$dummyRegistry2, v$internalBadgeRegistry}, ${EXTENSION_CLASS_DESCRIPTOR}FollowBackIndicatorPatch;->indicator($userSessionClassName Ljava/lang/Object;Ljava/lang/Object;)V
                     goto :revanced
                 """.trimIndent(),
                 ExternalLabel("revanced", getInstruction(invokeStaticRangeIndex)),

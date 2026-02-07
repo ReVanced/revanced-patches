@@ -3,6 +3,8 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal const val INTERNAL_BADGE_TARGET_STRING = "bindInternalBadges"
+internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/instagram/misc/followbackindicator/"
+internal const val EXTENSION_HELPER_CLASS_DESCRIPTOR = "${EXTENSION_CLASS_DESCRIPTOR}Helper;"
 
 internal val bindInternalBadgeFingerprint = fingerprint {
     strings(INTERNAL_BADGE_TARGET_STRING)
@@ -20,16 +22,13 @@ internal val nametagResultCardViewSetButtonMethodFingerprint = fingerprint {
     }
 }
 
-internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/instagram/misc/followbackindicator/"
-internal const val EXTENSION_HELPER_CLASS_DESCRIPTOR = "${EXTENSION_CLASS_DESCRIPTOR}Helper;"
-
-internal val getFollowbackInfoInfoExtension = fingerprint {
+internal val getFollowbackInfoExtensionFingerprint = fingerprint {
     custom { method, classDef ->
         method.name == "getFollowbackInfo" && classDef.type == EXTENSION_HELPER_CLASS_DESCRIPTOR
     }
 }
 
-internal val getViewingProfileUserObjectInfoExtension = fingerprint {
+internal val getViewingProfileUserObjectExtensionFingerprint = fingerprint {
     custom { method, classDef ->
         method.name == "getViewingProfileUserObject" && classDef.type == EXTENSION_HELPER_CLASS_DESCRIPTOR
     }

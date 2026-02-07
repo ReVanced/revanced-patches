@@ -75,6 +75,4 @@ public class Helper {
         badgeView.setVisibility(View.VISIBLE);
         badgeView.setText(text);
     }
-
-
 }
