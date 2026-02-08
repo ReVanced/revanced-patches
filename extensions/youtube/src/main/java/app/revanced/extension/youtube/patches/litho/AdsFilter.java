@@ -90,7 +90,8 @@ public final class AdsFilter extends Filter {
                 "video_display_carousel_buttoned_short_dr_layout",
                 "video_display_full_buttoned_short_dr_layout",
                 "video_display_full_layout",
-                "watch_metadata_app_promo"
+                "watch_metadata_app_promo",
+                "shopping_timely_shelf."
         );
 
         final var movieAds = new StringFilterGroup(
