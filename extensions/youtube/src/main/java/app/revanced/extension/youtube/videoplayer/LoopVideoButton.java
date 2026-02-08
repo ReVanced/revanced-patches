@@ -31,9 +31,11 @@ public class LoopVideoButton {
                     "revanced_loop_video_button",
                     null,
                     Settings.LOOP_VIDEO_BUTTON::get,
-                    v -> updateButtonAppearance(),
+                    v -> updateButtonAppearance(true),
                     null
             );
+            // Set icon when initializing button.
+            updateButtonAppearance(false);
         } catch (Exception ex) {
             Logger.printException(() -> "initializeButton failure", ex);
         }
@@ -63,19 +65,21 @@ public class LoopVideoButton {
     /**
      * Updates the button's appearance.
      */
-    private static void updateButtonAppearance() {
+    private static void updateButtonAppearance(boolean userClickedButton) {
         if (instance == null) return;
 
         try {
             Utils.verifyOnMainThread();
 
             final boolean currentState = Settings.LOOP_VIDEO.get();
-            final boolean newState = !currentState;
-            Settings.LOOP_VIDEO.save(newState);
+            final boolean newState = userClickedButton != currentState;
 
             instance.setIcon(newState
                     ? LOOP_VIDEO_ON
                     : LOOP_VIDEO_OFF);
+
+            if (!userClickedButton) return;
+            Settings.LOOP_VIDEO.save(newState);
             Utils.showToastShort(str(newState
                     ? "revanced_loop_video_button_toast_on"
                     : "revanced_loop_video_button_toast_off"));
