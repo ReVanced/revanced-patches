@@ -20,8 +20,10 @@ public class ExitFullscreenPatch {
     /**
      * Injection point.
      */
-    public static void endOfVideoReached() {
+    public static void endOfVideoReached(Enum<?> status) {
         try {
+            if (status == null || !"ENDED".equals(status.name())) return;
+
             FullscreenMode mode = Settings.EXIT_FULLSCREEN.get();
             if (mode == FullscreenMode.DISABLED) {
                 return;

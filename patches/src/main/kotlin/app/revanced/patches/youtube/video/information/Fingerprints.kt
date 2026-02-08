@@ -7,7 +7,7 @@ import app.revanced.patches.youtube.shared.videoQualityChangedMethodMatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
-import org.stringtemplate.v4.compiler.Bytecode
+import com.google.common.io.ByteArrayDataOutput
 
 internal val BytecodePatchContext.createVideoPlayerSeekbarMethod by gettingFirstImmutableMethodDeclaratively {
     returnType("V")
@@ -28,12 +28,12 @@ internal val BytecodePatchContext.onPlaybackSpeedItemClickMethod by gettingFirst
 }
 
 internal val BytecodePatchContext.playerControllerSetTimeReferenceMethodMatch by
-    composingFirstMethod("Media progress reported outside media playback: ") {
-        opcodes(
-            Opcode.INVOKE_DIRECT_RANGE,
-            Opcode.IGET_OBJECT,
-        )
-    }
+composingFirstMethod("Media progress reported outside media playback: ") {
+    opcodes(
+        Opcode.INVOKE_DIRECT_RANGE,
+        Opcode.IGET_OBJECT,
+    )
+}
 
 internal val BytecodePatchContext.playVideoCheckVideoStreamingDataResponseMethod by gettingFirstImmutableMethodDeclaratively {
     instructions("playVideo called on player response with no videoStreamingData."())
@@ -115,6 +115,34 @@ internal fun ClassDef.getSeekRelativeMethod() = firstMethodDeclaratively {
         Opcode.INVOKE_VIRTUAL,
     )
 }
+
+internal val BytecodePatchContext.playerStatusEnumMethod by gettingFirstImmutableMethodDeclaratively(
+    "NEW",
+    "PLAYBACK_PENDING",
+    "PLAYBACK_LOADED",
+    "PLAYBACK_INTERRUPTED",
+    "INTERSTITIAL_REQUESTED",
+    "INTERSTITIAL_PLAYING",
+    "VIDEO_PLAYING",
+    "ENDED",
+) {
+    accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
+}
+
+context(context: BytecodePatchContext)
+internal fun ClassDef.getPlayerStatusMethod() =
+    firstMethodDeclaratively {
+        accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+        returnType("V")
+        parameterTypes(context.playerStatusEnumMethod.immutableClassDef.type)
+        instructions(
+            // The opcode for the first index of the method is sget-object.
+            // Even in sufficiently old versions, such as YT 17.34, the opcode for the first index is sget-object.
+            Opcode.SGET_OBJECT(),
+            method { name == "plus" && definingClass == "Lj$/time/Instant;" },
+        )
+    }
+
 
 internal val BytecodePatchContext.videoEndMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)

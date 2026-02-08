@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.loopvideo
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -7,15 +8,13 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.loopvideo.button.loopVideoButtonPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
-import app.revanced.patches.youtube.video.information.videoEndMethod
+import app.revanced.patches.youtube.video.information.playerStatusMethod
 import app.revanced.patches.youtube.video.information.videoInformationPatch
-import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/LoopVideoPatch;"
 
-@Suppress("ObjectPropertyName")
 val loopVideoPatch = bytecodePatch(
     name = "Loop video",
     description = "Adds an option to loop videos and display loop video button in the video player.",
@@ -43,22 +42,22 @@ val loopVideoPatch = bytecodePatch(
             SwitchPreference("revanced_loop_video"),
         )
 
-        videoEndMethod.apply {
-            // Add call to start playback again, but must not allow exit fullscreen patch call
-            // to be reached if the video is looped.
-            val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.INVOKE_VIRTUAL) + 1
+        playerStatusMethod.apply {
+            // Add call to start playback again, but must happen before "Exit fullscreen" patch call.
+            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT)
 
-            addInstructionsAtControlFlowLabel(
+            // Since 'videoInformationPatch' is used as a dependency of this patch,
+            // the loop is implemented through 'VideoInformation.seekTo(0)'.
+            addInstructionsWithLabels(
                 insertIndex,
                 """
-                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->shouldLoopVideo()Z
+                    invoke-static { p1 }, ${EXTENSION_CLASS_DESCRIPTOR}->shouldLoopVideo(Ljava/lang/Enum;)Z
                     move-result v0
                     if-eqz v0, :do_not_loop
-                    invoke-virtual { p0 }, $videoStartPlaybackMethod
                     return-void
                     :do_not_loop
                     nop
-                """,
+                """
             )
         }
     }

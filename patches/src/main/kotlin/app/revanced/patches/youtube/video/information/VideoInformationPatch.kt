@@ -74,7 +74,7 @@ private var speedSelectionValueRegister = -1
 private lateinit var setPlaybackSpeedMethod: MutableMethod
 private var setPlaybackSpeedMethodIndex = -1
 
-internal lateinit var videoEndMethod: MutableMethod
+internal lateinit var playerStatusMethod: MutableMethod
 
 // Used by other patches.
 internal lateinit var setPlaybackSpeedContainerClassFieldReference: FieldReference
@@ -155,8 +155,7 @@ val videoInformationPatch = bytecodePatch(
             }
         }
 
-        videoEndMethod = navigate(videoEndMethodMatch.immutableMethod)
-            .to(videoEndMethodMatch[0]).stop()
+        playerStatusMethod = playerInitMethod.immutableClassDef.getPlayerStatusMethod()
 
         /*
          * Inject call for video ids
