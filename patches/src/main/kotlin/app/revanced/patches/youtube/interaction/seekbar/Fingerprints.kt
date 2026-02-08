@@ -132,15 +132,6 @@ internal val BytecodePatchContext.slideToSeekMethodMatch by composingFirstMethod
     literal { 67108864 }
 }
 
-internal val BytecodePatchContext.fullscreenSeekbarThumbnailsQualityMethod by gettingFirstMethodDeclaratively {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returnType("Z")
-    parameterTypes()
-    instructions(
-        45399684L(), // Video stream seekbar thumbnails feature flag.
-    )
-}
-
 internal val BytecodePatchContext.fullscreenLargeSeekbarFeatureFlagMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
