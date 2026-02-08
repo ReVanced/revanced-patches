@@ -2,6 +2,7 @@
 
 package app.revanced.patches.shared.misc.litho.filter
 
+import app.morphe.util.getFreeRegisterProvider
 import app.revanced.com.android.tools.smali.dexlib2.iface.value.MutableEncodedValue.Companion.toMutable
 import app.revanced.patcher.afterAtMost
 import app.revanced.patcher.allOf
@@ -200,11 +201,6 @@ internal fun lithoFilterPatch(
         componentCreateMethod.apply {
             val insertIndex = componentCreateInsertionIndex()
 
-            val registerProvider = getFreeRegisterProvider(insertIndex, 3)
-            val freeRegister = registerProvider.getFreeRegister()
-            val identifierRegister = registerProvider.getFreeRegister()
-            val pathRegister = registerProvider.getFreeRegister()
-
             // Directly access the class related with the buttonViewModel from this method.
             // This is within 10 lines of insertIndex.
             val buttonViewModelIndex = indexOfFirstInstructionReversedOrThrow(insertIndex) {
@@ -218,17 +214,22 @@ internal fun lithoFilterPatch(
             // This is an index that checks if there is accessibility-related text.
             // This is within 10 lines of buttonViewModelIndex.
             val nullCheckIndex = indexOfFirstInstructionReversedOrThrow(
-                buttonViewModelIndex,
-                Opcode.IF_EQZ
+                buttonViewModelIndex, Opcode.IF_EQZ
             )
 
-            // Find a free register to store the accessibilityId and accessibilityText,
-            // but the 'findFreeRegister' function cannot be used due to the 'if-eqz' branch.
-            // Set checkBranch to false and use the 'findFreeRegister' function.
+            val registerProvider = getFreeRegisterProvider(
+                insertIndex, 3, buttonViewModelRegister
+            )
+            val freeRegister = registerProvider.getFreeRegister()
+            val identifierRegister = registerProvider.getFreeRegister()
+            val pathRegister = registerProvider.getFreeRegister()
+
+            // Find a free register to store the accessibilityId and accessibilityText.
+            // This is before the insertion index.
             val accessibilityRegisterProvider = getFreeRegisterProvider(
                 nullCheckIndex,
                 2,
-                registerProvider.getUsedAndExcludedRegisters()
+                registerProvider.getUsedAndUnAvailableRegisters()
             )
             val accessibilityIdRegister = accessibilityRegisterProvider.getFreeRegister()
             val accessibilityTextRegister = accessibilityRegisterProvider.getFreeRegister()
