@@ -10,7 +10,6 @@ import java.util.logging.Logger
  *
  * @param name The name of the string.
  * @param value The value of the string.
- * @param formatted If the string is formatted. Defaults to `true`.
  */
 class StringResource(
     name: String,

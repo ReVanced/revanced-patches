@@ -56,7 +56,7 @@ public final class PlayerFlyoutMenuItemsFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_HELP,
                         "yt_outline_question_circle_",
-                        "yt_outline_experimental_question_circle_"
+                        "yt_outline_experimental_help_circle_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_LOCK_SCREEN,
@@ -72,40 +72,43 @@ public final class PlayerFlyoutMenuItemsFilter extends Filter {
                         Settings.HIDE_PLAYER_FLYOUT_AUDIO_TRACK,
                         "yt_outline_person_radar_",
                         "yt_outline_experimental_person_radar_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_PLAYER_FLYOUT_ADDITIONAL_SETTINGS,
+                        "yt_outline_gear_",
+                        "yt_outline_experimental_gear_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_PLAYER_FLYOUT_AMBIENT_MODE,
+                        "yt_outline_screen_light_",
+                        "yt_outline_experimental_ambient_mode_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_PLAYER_FLYOUT_LOOP_VIDEO,
+                        "yt_outline_arrow_repeat_1_",
+                        "yt_outline_experimental_repeat1_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_PLAYER_FLYOUT_STABLE_VOLUME,
+                        "volume_stable_",
+                        "yt_outline_experimental_stable_volume_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_PLAYER_FLYOUT_SLEEP_TIMER,
+                        "yt_outline_moon_z_",
+                        "yt_outline_experimental_sleep_timer_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_PLAYER_FLYOUT_WATCH_IN_VR,
+                        "yt_outline_vr_",
+                        "yt_outline_experimental_vr_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_PLAYER_FLYOUT_VIDEO_QUALITY,
+                        "yt_outline_adjust_",
+                        "yt_outline_experimental_adjust_"
                 )
         );
-
-        // All items in the additional menu have the same buffer.
-        // Accessibility strings are present, but oddly the accessibility strings are localized text.
-        // This is a menu inside a menu, so it's not a concern that these cannot be hidden.
-        if (!VersionCheckPatch.IS_20_22_OR_GREATER) {
-            flyoutFilterGroupList.addAll(
-                    new ByteArrayFilterGroup(
-                            Settings.HIDE_PLAYER_FLYOUT_ADDITIONAL_SETTINGS,
-                            "yt_outline_gear_"
-                    ),
-                    new ByteArrayFilterGroup(
-                            Settings.HIDE_PLAYER_FLYOUT_AMBIENT_MODE,
-                            "yt_outline_screen_light_"
-                    ),
-                    new ByteArrayFilterGroup(
-                            Settings.HIDE_PLAYER_FLYOUT_LOOP_VIDEO,
-                            "yt_outline_arrow_repeat_1_"
-                    ),
-                    new ByteArrayFilterGroup(
-                            Settings.HIDE_PLAYER_FLYOUT_STABLE_VOLUME,
-                            "volume_stable_"
-                    ),
-                    new ByteArrayFilterGroup(
-                            Settings.HIDE_PLAYER_FLYOUT_SLEEP_TIMER,
-                            "yt_outline_moon_z_"
-                    ),
-                    new ByteArrayFilterGroup(
-                            Settings.HIDE_PLAYER_FLYOUT_WATCH_IN_VR,
-                            "yt_outline_vr_"
-                    )
-            );
-        }
     }
 
     @Override
