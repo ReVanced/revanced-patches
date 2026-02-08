@@ -1,5 +1,8 @@
 package app.revanced.patches.youtube.layout.shortsplayer
 
+import app.morphe.util.findFreeRegister
+import app.morphe.util.registersUsed
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
@@ -18,6 +21,7 @@ import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateMethod
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -128,16 +132,28 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
                 """
             )
 
-            // Index of PlayerType.isWatchWhileMaximizedOrFullscreen()
-            val index = indexOfFirstInstructionReversedOrThrow(finishIndexFirst, Opcode.MOVE_RESULT)
-            val register = getInstruction<OneRegisterInstruction>(index).registerA
+            // Surround first activity.finish() and return-void with conditional check.
+            val returnVoidIndex = indexOfFirstInstructionOrThrow(
+                finishIndexFirst, Opcode.RETURN_VOID
+            )
+            // Find free register using index after return void (new control flow path added below).
+            val freeRegister = findFreeRegister(
+                returnVoidIndex + 1,
+                // Exclude all registers used by only instruction we will skip over.
+                getInstruction(finishIndexFirst).registersUsed
+            )
 
-            addInstructions(
-                index + 1,
+            addInstructionsAtControlFlowLabel(
+                finishIndexFirst,
                 """
-                    invoke-static { v$register }, ${EXTENSION_CLASS_DESCRIPTOR}->overrideBackPressToExit(Z)Z    
-                    move-result v$register
-                """
+                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->overrideBackPressToExit()Z
+                    move-result v$freeRegister
+                    if-eqz v$freeRegister, :doNotCallActivityFinish
+                """,
+                ExternalLabel(
+                    "doNotCallActivityFinish",
+                    getInstruction(returnVoidIndex + 1)
+                )
             )
         }
     }
