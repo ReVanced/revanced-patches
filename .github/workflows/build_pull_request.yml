@@ -3,8 +3,8 @@ name: Build pull request
 on:
   workflow_dispatch:
     inputs:
-      pr-number:
-        description: "PR number to build"
+      pr:
+        description: "PR to build"
         required: true
   pull_request:
     branches:
@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
-          ref: ${{ inputs.pr-number && format('refs/pull/{0}/merge', inputs.pr-number) }}
+          ref: ${{ inputs.pr && format('refs/pull/{0}/merge', inputs.pr-number) }} || github.ref }}
 
       - name: Setup Java
         uses: actions/setup-java@v5
