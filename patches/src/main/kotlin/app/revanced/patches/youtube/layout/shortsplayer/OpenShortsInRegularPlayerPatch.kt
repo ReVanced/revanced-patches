@@ -20,10 +20,12 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateMethod
 import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
@@ -65,7 +67,7 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
         mainActivityOnCreateMethod.addInstruction(
             0,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                "setMainActivity(Landroid/app/Activity;)V",
+                    "setMainActivity(Landroid/app/Activity;)V",
         )
 
         // Find the obfuscated method name for PlaybackStartDescriptor.videoId()
@@ -80,63 +82,63 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
         }
         val playbackStartVideoIdMethodName = navigate(videoIdStartMethod).to(videoIdIndex).stop().name
 
-        fun extensionInstructions(playbackStartRegister: Int, freeRegister: Int) =
+        shortsPlaybackIntentMethod.addInstructionsWithLabels(
+            0,
             """
-                invoke-virtual { v$playbackStartRegister }, Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;->$playbackStartVideoIdMethodName()Ljava/lang/String;
-                move-result-object v$freeRegister
-                invoke-static { v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->openShort(Ljava/lang/String;)Z
-                move-result v$freeRegister
-                if-eqz v$freeRegister, :disabled
+                move-object/from16 v0, p1
+                
+                invoke-virtual { v0 }, Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;->$playbackStartVideoIdMethodName()Ljava/lang/String;
+                move-result-object v1
+                invoke-static { v1 }, ${EXTENSION_CLASS_DESCRIPTOR}->openShort(Ljava/lang/String;)Z
+                move-result v1
+                if-eqz v1, :disabled
                 return-void
                 
                 :disabled
                 nop
             """
-
-        if (is_19_25_or_greater) {
-            shortsPlaybackIntentMethod.addInstructionsWithLabels(
-                0,
-                """
-                    move-object/from16 v0, p1
-                    ${extensionInstructions(0, 1)}
-                """,
-            )
-        } else {
-            shortsPlaybackIntentLegacyMethodMatch.let {
-                it.method.apply {
-                    val index = it[0]
-                    val playbackStartRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
-                    val insertIndex = index + 2
-                    val freeRegister = findFreeRegister(insertIndex, playbackStartRegister)
-
-                    addInstructionsWithLabels(
-                        insertIndex,
-                        extensionInstructions(playbackStartRegister, freeRegister),
-                    )
-                }
-            }
-        }
+        )
 
         // Fix issue with back button exiting the app instead of minimizing the player.
         // Without this change this issue can be difficult to reproduce, but seems to occur
         // most often with 'open video in regular player' and not open in fullscreen player.
         exitVideoPlayerMethod.apply {
             // Method call for Activity.finish()
-            val finishIndex = indexOfFirstInstructionOrThrow {
+            val finishIndexFirst = indexOfFirstInstructionOrThrow {
                 val reference = getReference<MethodReference>()
                 reference?.name == "finish"
             }
 
+            // Second Activity.finish() call. Has been present since 19.x but started
+            // to interfere with back to exit fullscreen around 20.47.
+            val finishIndexSecond = indexOfFirstInstruction(finishIndexFirst + 1) {
+                val reference = getReference<MethodReference>()
+                reference?.name == "finish"
+            }
+            val getBooleanFieldIndex = indexOfFirstInstructionReversedOrThrow(finishIndexSecond) {
+                opcode == Opcode.IGET_BOOLEAN
+            }
+            val booleanRegister =
+                getInstruction<TwoRegisterInstruction>(getBooleanFieldIndex).registerA
+
+            addInstructions(
+                getBooleanFieldIndex + 1,
+                """
+                    invoke-static { v$booleanRegister }, ${EXTENSION_CLASS_DESCRIPTOR}->overrideBackPressToExit(Z)Z    
+                    move-result v$booleanRegister
+                """
+            )
+
             // Index of PlayerType.isWatchWhileMaximizedOrFullscreen()
-            val index = indexOfFirstInstructionReversedOrThrow(finishIndex, Opcode.MOVE_RESULT)
+            val index = indexOfFirstInstructionReversedOrThrow(finishIndexFirst, Opcode.MOVE_RESULT)
             val register = getInstruction<OneRegisterInstruction>(index).registerA
 
             addInstructions(
                 index + 1,
                 """
-                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->overrideBackPressToExit(Z)Z    
+                    invoke-static { v$register }, ${EXTENSION_CLASS_DESCRIPTOR}->overrideBackPressToExit(Z)Z    
                     move-result v$register
-                """,
+                """
             )
         }
     }

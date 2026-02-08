@@ -64,7 +64,6 @@ val returnYouTubeDislikePatch = bytecodePatch(
             "20.21.37",
             "20.31.42",
             "20.46.41"
-            // 20.40+ does not support yet support the Shorts player.
         ),
     )
 

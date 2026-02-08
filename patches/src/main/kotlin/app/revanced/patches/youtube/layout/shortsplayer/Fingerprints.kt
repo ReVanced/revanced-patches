@@ -52,27 +52,8 @@ internal val BytecodePatchContext.watchPanelVideoIdMethodMatch by composingFirst
     )
 }
 
-// Pre 19.25
-internal val BytecodePatchContext.shortsPlaybackIntentLegacyMethodMatch by composingFirstMethod {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returnType("V")
-    parameterTypes(
-        "L",
-        "Ljava/util/Map;",
-        "J",
-        "Ljava/lang/String;",
-        "Z",
-        "Ljava/util/Map;",
-    )
-    instructions(
-        method { returnType == "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;" },
-        // None of these strings are unique.
-        "com.google.android.apps.youtube.app.endpoint.flags"(),
-        "ReelWatchFragmentArgs"(),
-        "reels_fragment_descriptor"(),
-    )
-}
 
+// 19.25+
 internal val BytecodePatchContext.shortsPlaybackIntentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returnType("V")
