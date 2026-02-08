@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
-import app.morphe.patches.youtube.misc.playservice.is_20_49_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_49_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.shared.videoQualityChangedMethodMatch
 import app.revanced.patches.youtube.video.playerresponse.Hook
@@ -214,18 +214,18 @@ val videoInformationPatch = bytecodePatch(
                 // 'first' accessor for looking up classes, so do it ourself to verify
                 // we're using the expected class type.
                 var fieldReferenceType: ClassDef? = null
-                classDefForEach { def ->
-                    if (def.interfaces.contains(setPlaybackSpeedContainerClassFieldReference.type)) {
+                classDefs.forEach { classDef ->
+                    if (classDef.interfaces.contains(setPlaybackSpeedContainerClassFieldReference.type)) {
                         if (fieldReferenceType != null) {
-                            throw PatchException("Found more than one playback speed interface: $def")
+                            throw PatchException("Found more than one playback speed interface: $classDef")
                         }
-                        fieldReferenceType = def;
+                        fieldReferenceType = classDef;
                     }
                 }
                 setPlaybackSpeedContainerClassFieldReferenceClassType = fieldReferenceType!!;
             } else {
                 setPlaybackSpeedContainerClassFieldReferenceClassType =
-                    classDefBy(setPlaybackSpeedContainerClassFieldReference.type)
+                    classDefs[setPlaybackSpeedContainerClassFieldReference.type]!!
             }
 
             setPlaybackSpeedClassFieldReference = getInstruction<ReferenceInstruction>(

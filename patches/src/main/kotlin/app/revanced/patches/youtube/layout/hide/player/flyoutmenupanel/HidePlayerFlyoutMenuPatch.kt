@@ -8,6 +8,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
+import app.revanced.patches.youtube.misc.playservice.is_20_22_or_greater
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
@@ -38,29 +39,38 @@ val hidePlayerFlyoutMenuItemsPatch = bytecodePatch(
 
         addResources("youtube", "layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch")
 
+        val preferences = mutableSetOf(
+            SwitchPreference("revanced_hide_player_flyout_captions"),
+            SwitchPreference("revanced_hide_player_flyout_listen_with_youtube_music"),
+            SwitchPreference("revanced_hide_player_flyout_help"),
+            SwitchPreference("revanced_hide_player_flyout_speed"),
+            SwitchPreference("revanced_hide_player_flyout_lock_screen"),
+            SwitchPreference(
+                key = "revanced_hide_player_flyout_audio_track",
+                tag = "app.revanced.extension.youtube.settings.preference.HideAudioFlyoutMenuPreference"
+            ),
+            SwitchPreference("revanced_hide_player_flyout_video_quality"),
+            SwitchPreference("revanced_hide_player_flyout_video_quality_footer"),
+        )
+
+        if (!is_20_22_or_greater) {
+            preferences.addAll(
+                listOf(
+                    SwitchPreference("revanced_hide_player_flyout_additional_settings"),
+                    SwitchPreference("revanced_hide_player_flyout_ambient_mode"),
+                    SwitchPreference("revanced_hide_player_flyout_stable_volume"),
+                    SwitchPreference("revanced_hide_player_flyout_loop_video"),
+                    SwitchPreference("revanced_hide_player_flyout_sleep_timer"),
+                    SwitchPreference("revanced_hide_player_flyout_watch_in_vr"),
+                )
+            )
+        }
+
         PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreenPreference(
                 key = "revanced_hide_player_flyout",
-                preferences = setOf(
-                    SwitchPreference("revanced_hide_player_flyout_captions"),
-                    SwitchPreference("revanced_hide_player_flyout_additional_settings"),
-                    SwitchPreference("revanced_hide_player_flyout_loop_video"),
-                    SwitchPreference("revanced_hide_player_flyout_ambient_mode"),
-                    SwitchPreference("revanced_hide_player_flyout_stable_volume"),
-                    SwitchPreference("revanced_hide_player_flyout_listen_with_youtube_music"),
-                    SwitchPreference("revanced_hide_player_flyout_help"),
-                    SwitchPreference("revanced_hide_player_flyout_speed"),
-                    SwitchPreference("revanced_hide_player_flyout_lock_screen"),
-                    SwitchPreference(
-                        key = "revanced_hide_player_flyout_audio_track",
-                        tag = "app.revanced.extension.youtube.settings.preference.HideAudioFlyoutMenuPreference",
-                    ),
-                    SwitchPreference("revanced_hide_player_flyout_watch_in_vr"),
-                    SwitchPreference("revanced_hide_player_flyout_sleep_timer"),
-                    SwitchPreference("revanced_hide_player_flyout_video_quality"),
-                    SwitchPreference("revanced_hide_player_flyout_video_quality_footer"),
-                ),
-            ),
+                preferences = preferences,
+            )
         )
 
         addLithoFilter(filterClassDescriptor)

@@ -428,8 +428,7 @@ private fun Method.findInstructionIndexByOffset(
     // Code has been tested on hundreds of random methods on all instruction indices,
     // but maybe some weird code exists that this has overlooked.
     Logger.getLogger(FreeRegisterProvider.javaClass.name).warning(
-        "Could not find exact instruction offset for method: $this at offset: $targetOffset. " +
-                "Please file a bug report in the Morphe patches repo"
+        "Could not find exact instruction offset for method: $this at offset: $targetOffset. "
     )
     return null
 }
