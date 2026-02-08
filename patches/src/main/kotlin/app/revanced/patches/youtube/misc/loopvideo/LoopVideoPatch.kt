@@ -40,7 +40,7 @@ val loopVideoPatch = bytecodePatch(
     apply {
         addResources("youtube", "misc.loopvideo.loopVideoPatch")
 
-        PreferenceScreen.MISC.addPreferences(
+        PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_loop_video"),
         )
 
