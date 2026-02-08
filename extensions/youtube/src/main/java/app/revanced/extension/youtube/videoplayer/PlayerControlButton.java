@@ -1,5 +1,7 @@
 package app.revanced.extension.youtube.videoplayer;
 
+import android.graphics.drawable.AnimatedVectorDrawable;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
 import android.widget.ImageView;
@@ -56,10 +58,23 @@ public class PlayerControlButton {
         containerRef = new WeakReference<>(containerView);
 
         View button = Utils.getChildViewByResourceName(controlsViewGroup, buttonId);
-        button.setOnClickListener(onClickListener);
+
+        // Wrap click listener to trigger animation.
+        button.setOnClickListener(view -> {
+            animateIcon();
+            if (onClickListener != null) {
+                onClickListener.onClick(view);
+            }
+        });
+
         if (longClickListener != null) {
-            button.setOnLongClickListener(longClickListener);
+            // Wrap long click listener to trigger animation.
+            button.setOnLongClickListener(view -> {
+                animateIcon();
+                return longClickListener.onLongClick(view);
+            });
         }
+
         buttonRef = new WeakReference<>(button);
 
         TextView tempTextOverlay = null;
@@ -80,6 +95,23 @@ public class PlayerControlButton {
             playerTypeChanged(type);
             return Unit.INSTANCE;
         });
+    }
+
+    /**
+     * Animates the button icon if it's an AnimatedVectorDrawable.
+     */
+    public void animateIcon() {
+        try {
+            View button = buttonRef.get();
+            if (button instanceof ImageView imageView) {
+                Drawable drawable = imageView.getDrawable();
+                if (drawable instanceof AnimatedVectorDrawable avd) {
+                    avd.start();
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "animateIcon failure", ex);
+        }
     }
 
     public void setVisibilityNegatedImmediate() {

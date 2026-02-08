@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.shortsplayer
 
-import app.morphe.util.findFreeRegister
-import app.morphe.util.registersUsed
+import app.revanced.util.findFreeRegister
+import app.revanced.util.registersUsed
 import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
@@ -15,20 +15,17 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.youtube.layout.player.fullscreen.openVideosFullscreenHookPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_39_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateMethod
 import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 

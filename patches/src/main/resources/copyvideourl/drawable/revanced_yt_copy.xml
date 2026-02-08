@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
    https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/content_copy/materialsymbolsoutlined/content_copy_wght200gradN25_24px.xml
-   Changes made: Icon has been resized.
+   Changes made: Icon has been resized and animated.
 
 Copyright 2022 Google
 
@@ -17,12 +18,76 @@ Copyright 2022 Google
    limitations under the License.
 -->
 
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-        android:width="24dp"
-        android:height="24dp"
-        android:viewportWidth="24"
-        android:viewportHeight="24">
-    <path
-            android:fillColor="@android:color/white"
-            android:pathData="M9.73481,16.9424 Q9.13812,16.9424,8.72859,16.5425 Q8.3191,16.1426,8.3191,15.5599 L8.3191,5.88248 Q8.3191,5.29979,8.7286,4.89988 Q9.13812,4.5,9.73481,4.5 L16.8843,4.5 Q17.481,4.5,17.8905,4.89988 Q18.3,5.29979,18.3,5.88248 L18.3,15.5599 Q18.3,16.1426,17.8905,16.5425 Q17.481,16.9424,16.8843,16.9424 Z M9.73481,16.1129 L16.8843,16.1129 Q17.0967,16.1129,17.2736,15.9401 Q17.4506,15.7673,17.4506,15.5599 L17.4506,5.88248 Q17.4506,5.6751,17.2736,5.50229 Q17.0966,5.32949,16.8843,5.32949 L9.73481,5.32949 Q9.52248,5.32949,9.34549,5.50229 Q9.16854,5.6751,9.16854,5.88248 L9.16854,15.5599 Q9.16854,15.7673,9.34549,15.9401 Q9.52248,16.1129,9.73481,16.1129 Z M7.11572,19.5 Q6.51902,19.5,6.1095,19.1001 Q5.7,18.7002,5.7,18.1175 L5.7,7.61058 L6.54944,7.61058 L6.54944,18.1175 Q6.54944,18.3249,6.72639,18.4977 Q6.90336,18.6705,7.11572,18.6705 L15.1146,18.6705 L15.1146,19.5 Z M9.16854,16.1129 L9.16854,5.32949 Z"/>
-</vector>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="24"
+            android:viewportHeight="24">
+            <group
+                android:name="icon_group"
+                android:pivotX="12"
+                android:pivotY="12">
+                <path
+                    android:fillColor="@android:color/white"
+                    android:pathData="M9.73481,16.9424 Q9.13812,16.9424,8.72859,16.5425 Q8.3191,16.1426,8.3191,15.5599 L8.3191,5.88248 Q8.3191,5.29979,8.7286,4.89988 Q9.13812,4.5,9.73481,4.5 L16.8843,4.5 Q17.481,4.5,17.8905,4.89988 Q18.3,5.29979,18.3,5.88248 L18.3,15.5599 Q18.3,16.1426,17.8905,16.5425 Q17.481,16.9424,16.8843,16.9424 Z M9.73481,16.1129 L16.8843,16.1129 Q17.0967,16.1129,17.2736,15.9401 Q17.4506,15.7673,17.4506,15.5599 L17.4506,5.88248 Q17.4506,5.6751,17.2736,5.50229 Q17.0966,5.32949,16.8843,5.32949 L9.73481,5.32949 Q9.52248,5.32949,9.34549,5.50229 Q9.16854,5.6751,9.16854,5.88248 L9.16854,15.5599 Q9.16854,15.7673,9.34549,15.9401 Q9.52248,16.1129,9.73481,16.1129 Z M7.11572,19.5 Q6.51902,19.5,6.1095,19.1001 Q5.7,18.7002,5.7,18.1175 L5.7,7.61058 L6.54944,7.61058 L6.54944,18.1175 Q6.54944,18.3249,6.72639,18.4977 Q6.90336,18.6705,7.11572,18.6705 L15.1146,18.6705 L15.1146,19.5 Z M9.16854,16.1129 L9.16854,5.32949 Z"/>
+            </group>
+        </vector>
+    </aapt:attr>
+
+    <target android:name="icon_group">
+        <aapt:attr name="android:animation">
+            <set android:ordering="together">
+                <!-- Scale animation -->
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:duration="150"
+                    android:valueFrom="1.0"
+                    android:valueTo="1.2"
+                    android:interpolator="@android:interpolator/overshoot" />
+
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:duration="150"
+                    android:valueFrom="1.0"
+                    android:valueTo="1.2"
+                    android:interpolator="@android:interpolator/overshoot" />
+
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:duration="150"
+                    android:startOffset="150"
+                    android:valueFrom="1.2"
+                    android:valueTo="1.0"
+                    android:interpolator="@android:interpolator/anticipate_overshoot" />
+
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:duration="150"
+                    android:startOffset="150"
+                    android:valueFrom="1.2"
+                    android:valueTo="1.0"
+                    android:interpolator="@android:interpolator/anticipate_overshoot" />
+
+                <!-- Rotation animation -->
+                <objectAnimator
+                    android:propertyName="rotation"
+                    android:duration="200"
+                    android:valueFrom="0"
+                    android:valueTo="15"
+                    android:interpolator="@android:interpolator/fast_out_slow_in" />
+
+                <objectAnimator
+                    android:propertyName="rotation"
+                    android:duration="200"
+                    android:startOffset="200"
+                    android:valueFrom="15"
+                    android:valueTo="0"
+                    android:interpolator="@android:interpolator/fast_out_slow_in" />
+            </set>
+        </aapt:attr>
+    </target>
+</animated-vector>

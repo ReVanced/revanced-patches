@@ -2,7 +2,7 @@
 
 package app.revanced.patches.shared.misc.litho.filter
 
-import app.morphe.util.getFreeRegisterProvider
+import app.revanced.util.getFreeRegisterProvider
 import app.revanced.com.android.tools.smali.dexlib2.iface.value.MutableEncodedValue.Companion.toMutable
 import app.revanced.patcher.afterAtMost
 import app.revanced.patcher.allOf
@@ -26,8 +26,6 @@ import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFieldFromToString
-import app.revanced.util.getFreeRegisterProvider
-import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode

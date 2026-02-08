@@ -1,15 +1,14 @@
-package app.morphe.util
+package app.revanced.util
 
-import app.morphe.util.FreeRegisterProvider.Companion.conditionalBranchOpcodes
-import app.morphe.util.FreeRegisterProvider.Companion.logFreeRegisterSearch
-import app.morphe.util.FreeRegisterProvider.Companion.returnOpcodes
-import app.morphe.util.FreeRegisterProvider.Companion.switchOpcodes
-import app.morphe.util.FreeRegisterProvider.Companion.unconditionalBranchOpcodes
-import app.morphe.util.FreeRegisterProvider.Companion.writeOpcodes
+import app.revanced.util.FreeRegisterProvider.Companion.conditionalBranchOpcodes
+import app.revanced.util.FreeRegisterProvider.Companion.logFreeRegisterSearch
+import app.revanced.util.FreeRegisterProvider.Companion.returnOpcodes
+import app.revanced.util.FreeRegisterProvider.Companion.switchOpcodes
+import app.revanced.util.FreeRegisterProvider.Companion.unconditionalBranchOpcodes
+import app.revanced.util.FreeRegisterProvider.Companion.writeOpcodes
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.reference
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Format
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.Opcode.*
@@ -509,8 +508,7 @@ private fun Method.findInstructionIndexByOffset(
     // Code has been tested on hundreds of random methods on all instruction indices,
     // but maybe some weird code exists that this has overlooked.
     Logger.getLogger(FreeRegisterProvider.javaClass.name).warning(
-        "Could not find exact instruction offset for method: $this at offset: $targetOffset. " +
-                "Please file a bug report in the Morphe patches repo"
+        "Could not find exact instruction offset for method: $this at offset: $targetOffset. "
     )
     return -1
 }

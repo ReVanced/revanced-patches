@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.videoplayer;
 import static app.revanced.extension.shared.StringRef.str;
 
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
@@ -31,7 +32,11 @@ public class LoopVideoButton {
                     "revanced_loop_video_button",
                     null,
                     Settings.LOOP_VIDEO_BUTTON::get,
-                    v -> updateButtonAppearance(true),
+                    v -> {
+                        // Animate with crossfade.
+                        animateButtonTransition(v);
+                        updateButtonAppearance(true);
+                    },
                     null
             );
             // Set icon when initializing button.
@@ -39,6 +44,38 @@ public class LoopVideoButton {
         } catch (Exception ex) {
             Logger.printException(() -> "initializeButton failure", ex);
         }
+    }
+
+    /**
+     * Animate button transition with fade and scale.
+     */
+    private static void animateButtonTransition(View view) {
+        if (!(view instanceof ImageView imageView)) return;
+
+        // Fade out.
+        imageView.animate()
+                .alpha(0.3f)
+                .scaleX(1.15f)
+                .scaleY(1.15f)
+                .setDuration(100)
+                .withEndAction(() -> {
+                    // Change icon at the middle of animation.
+                    final boolean currentState = Settings.LOOP_VIDEO.get();
+                    final boolean newState = !currentState;
+
+                    if (instance != null) {
+                        instance.setIcon(newState ? LOOP_VIDEO_ON : LOOP_VIDEO_OFF);
+                    }
+
+                    // Fade in.
+                    imageView.animate()
+                            .alpha(1.0f)
+                            .scaleX(1.0f)
+                            .scaleY(1.0f)
+                            .setDuration(100)
+                            .start();
+                })
+                .start();
     }
 
     /**
@@ -74,9 +111,10 @@ public class LoopVideoButton {
             final boolean currentState = Settings.LOOP_VIDEO.get();
             final boolean newState = userClickedButton != currentState;
 
-            instance.setIcon(newState
-                    ? LOOP_VIDEO_ON
-                    : LOOP_VIDEO_OFF);
+            if (!userClickedButton) {
+                // Only set icon without animation during initialization.
+                instance.setIcon(newState ? LOOP_VIDEO_ON : LOOP_VIDEO_OFF);
+            }
 
             if (!userClickedButton) return;
             Settings.LOOP_VIDEO.save(newState);
