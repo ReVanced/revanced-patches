@@ -71,8 +71,7 @@ public class FeatureFlagsManagerPreference extends Preference {
      * Flags to hide from the UI.
      */
     private static final Set<Long> FLAGS_TO_IGNORE = Set.of(
-            45386834L, // 'You' tab settings icon.
-            45685201L  // Bold icons. Forcing off interferes with patch changes and YT icons are broken.
+            45386834L // 'You' tab settings icon.
     );
 
     /**
