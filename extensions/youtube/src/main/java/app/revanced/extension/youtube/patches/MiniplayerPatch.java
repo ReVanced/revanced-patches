@@ -29,7 +29,6 @@ public final class MiniplayerPatch {
     public enum MiniplayerType {
         /**
          * Disabled. When swiped down the miniplayer is immediately closed.
-         * Only available with 19.43+
          */
         DISABLED(false, null),
         /** Unmodified type, and same as un-patched. */

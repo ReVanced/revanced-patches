@@ -84,7 +84,6 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
     ),
     compatibleWithPackages = arrayOf(
         "com.google.android.youtube" to setOf(
-            "19.43.41",
             "20.14.43",
             "20.21.37",
             "20.31.42",

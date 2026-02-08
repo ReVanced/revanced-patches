@@ -28,7 +28,6 @@ val hideVideoActionButtonsPatch = resourcePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.43.41",
             "20.14.43",
             "20.31.42",
             "20.46.41",
