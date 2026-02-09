@@ -24,6 +24,7 @@ val openVideosFullscreenPatch = bytecodePatch(
             "19.47.53",
             "20.14.43",
             "20.21.37",
+            "20.26.46",
             "20.31.42",
             "20.37.48"
         ),

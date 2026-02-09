@@ -156,6 +156,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         "com.google.android.youtube"(
             "20.14.43",
             "20.21.37",
+            "20.26.46",
             // 20.22+ does not yet support hiding Shorts action buttons.
         ),
     )
