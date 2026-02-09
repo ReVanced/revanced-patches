@@ -33,7 +33,7 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.42",
-            "20.46.41"
+            "20.37.48"
         ),
     )
 
