@@ -49,7 +49,7 @@ private const val EXTENSION_PLAYER_INTERFACE =
 private const val EXTENSION_VIDEO_QUALITY_MENU_INTERFACE =
     $$"Lapp/revanced/extension/youtube/patches/VideoInformation$VideoQualityMenuInterface;"
 private const val EXTENSION_VIDEO_QUALITY_INTERFACE =
-    $$"Lapp/morphe/extension/youtube/patches/VideoInformation$VideoQualityInterface;"
+    $$"Lapp/revanced/extension/youtube/patches/VideoInformation$VideoQualityInterface;"
 
 private lateinit var playerInitMethod: MutableMethod
 private var playerInitInsertIndex = -1

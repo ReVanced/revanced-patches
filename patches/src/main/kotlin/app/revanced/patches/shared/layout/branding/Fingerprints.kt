@@ -12,6 +12,23 @@ internal val BytecodePatchContext.numberOfPresetAppNamesExtensionMethod by getti
     parameterTypes()
 }
 
+
+internal val BytecodePatchContext.userProvidedCustomNameExtensionMethod by gettingFirstMethodDeclaratively {
+    name("userProvidedCustomName")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
+    returnType("Z")
+    parameterTypes()
+}
+
+internal val BytecodePatchContext.userProvidedCustomIconExtensionMethod by gettingFirstMethodDeclaratively {
+    name("userProvidedCustomIcon")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
+    returnType("Z")
+    parameterTypes()
+}
+
 // A much simpler method exists that can set the small icon (contains string "414843287017"),
 // but that has limited usage and this one allows changing any part of the notification.
 internal val BytecodePatchContext.notificationMethod by gettingFirstMethodDeclaratively(
