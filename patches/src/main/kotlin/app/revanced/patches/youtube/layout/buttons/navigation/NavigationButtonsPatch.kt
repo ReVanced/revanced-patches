@@ -20,6 +20,7 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import kotlin.collections.plusAssign
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/NavigationButtonsPatch;"
@@ -58,7 +59,9 @@ val navigationButtonsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_notifications_button"),
             SwitchPreference("revanced_switch_create_with_notifications_button"),
             SwitchPreference("revanced_hide_navigation_button_labels"),
-        )
+            SwitchPreference("revanced_narrow_navigation_buttons"),
+
+            )
 
         if (is_19_25_or_greater) {
             preferences += SwitchPreference("revanced_disable_translucent_navigation_bar_light")
@@ -70,9 +73,7 @@ val navigationButtonsPatch = bytecodePatch(
         }
 
         if (is_20_15_or_greater) {
-            PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-                SwitchPreference("revanced_navigation_bar_animations"),
-            )
+            preferences += SwitchPreference("revanced_navigation_bar_animations")
         }
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
@@ -107,7 +108,7 @@ val navigationButtonsPatch = bytecodePatch(
                 addInstruction(
                     setTextIndex,
                     "invoke-static { v$targetRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->hideNavigationButtonLabels(Landroid/widget/TextView;)V",
+                            "$EXTENSION_CLASS_DESCRIPTOR->hideNavigationButtonLabels(Landroid/widget/TextView;)V",
                 )
             }
         }
@@ -146,6 +147,25 @@ val navigationButtonsPatch = bytecodePatch(
                     "$EXTENSION_CLASS_DESCRIPTOR->useAnimatedNavigationButtons(Z)Z",
                 )
             }
+        }
+
+        arrayOf(
+            pivotBarChangedMethodMatch,
+            pivotBarStyleMethodMatch
+        ).forEach { match ->
+            match.method.apply {
+                val targetIndex = match[1] + 1
+                val register = getInstruction<OneRegisterInstruction>(targetIndex - 1).registerA
+
+                addInstructions(
+                    targetIndex,
+                    """
+                        invoke-static { v$register }, ${EXTENSION_CLASS_DESCRIPTOR}->enableNarrowNavigationButton(Z)Z
+                        move-result v$register
+                    """
+                )
+            }
+
         }
     }
 }

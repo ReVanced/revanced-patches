@@ -34,6 +34,28 @@ internal val BytecodePatchContext.animatedNavigationTabsFeatureFlagMethodMatch b
     )
 }
 
+
+internal val BytecodePatchContext.pivotBarStyleMethodMatch by composingFirstMethod {
+    definingClass("/PivotBar;")
+    returnType("V")
+    parameterTypes("L")
+    opcodes(
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT,
+        Opcode.XOR_INT_2ADDR
+    )
+}
+
+internal val BytecodePatchContext.pivotBarChangedMethodMatch by composingFirstMethod {
+    name("onConfigurationChanged")
+    definingClass("/PivotBar;")
+    returnType("V")
+    opcodes(
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT
+    )
+}
+
 internal val BytecodePatchContext.translucentNavigationStatusBarFeatureFlagMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")

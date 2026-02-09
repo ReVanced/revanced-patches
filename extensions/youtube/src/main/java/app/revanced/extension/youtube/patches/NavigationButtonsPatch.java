@@ -38,6 +38,9 @@ public final class NavigationButtonsPatch {
     private static final boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
             = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK.get();
 
+    private static final boolean NARROW_NAVIGATION_BUTTONS
+            = Settings.NARROW_NAVIGATION_BUTTONS.get();
+
     /**
      * Injection point.
      */
@@ -66,6 +69,13 @@ public final class NavigationButtonsPatch {
      */
     public static boolean useAnimatedNavigationButtons(boolean original) {
         return Settings.NAVIGATION_BAR_ANIMATIONS.get();
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean enableNarrowNavigationButton(boolean original) {
+        return NARROW_NAVIGATION_BUTTONS || original;
     }
 
     /**
