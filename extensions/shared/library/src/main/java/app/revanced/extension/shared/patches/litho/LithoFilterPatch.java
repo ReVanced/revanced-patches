@@ -163,6 +163,7 @@ public final class LithoFilterPatch {
     private static final StringTrieSearch identifierSearchTree = new StringTrieSearch();
 
     static {
+
         for (Filter filter : filters) {
             filterUsingCallbacks(identifierSearchTree, filter,
                     filter.identifierCallbacks, Filter.FilterContentType.IDENTIFIER);
@@ -238,12 +239,19 @@ public final class LithoFilterPatch {
             Logger.printDebug(() -> "New buffer: " + builder);
         }
 
+        // The identifier always seems to start very close to the buffer start.
+        // Highest identifier start index ever observed is 50, with most around 30 to 40.
+        // The buffer can be very large with up to 200kb has been observed,
+        // so the search is restricted to only the start.
+        final int maxBufferStartIndex = 500; // 10x expected upper bound.
+
         // Could use Boyer-Moore-Horspool since the string is ASCII and has a limited number of
         // unique characters, but it seems to be slower since the extra overhead of checking the
         // bad character array negates any performance gain of skipping a few extra subsearches.
         int emlIndex = -1;
         final int emlStringLength = LITHO_COMPONENT_EXTENSION_BYTES.length;
-        for (int i = 0, lastStartIndex = buffer.length - emlStringLength; i <= lastStartIndex; i++) {
+        final int lastBufferIndexToCheckFrom = Math.min(maxBufferStartIndex, buffer.length - emlStringLength);
+        for (int i = 0; i < lastBufferIndexToCheckFrom; i++) {
             boolean match = true;
             for (int j = 0; j < emlStringLength; j++) {
                 if (buffer[i + j] != LITHO_COMPONENT_EXTENSION_BYTES[j]) {
@@ -259,6 +267,9 @@ public final class LithoFilterPatch {
 
         if (emlIndex < 0) {
             // Buffer is not used for creating a new litho component.
+            if (DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER) {
+                Logger.printDebug(() -> "Could not find eml index");
+            }
             return;
         }
 
