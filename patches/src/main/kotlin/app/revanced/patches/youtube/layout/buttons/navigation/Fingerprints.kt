@@ -42,13 +42,6 @@ internal val BytecodePatchContext.translucentNavigationStatusBarFeatureFlagMetho
     )
 }
 
-internal val BytecodePatchContext.translucentNavigationStatusBarSecondaryFeatureFlagMethodMatch
-        by composingFirstMethod {
-            accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-            returnType("Z")
-            instructions(45632194L())
-        }
-
 /**
  * YouTube nav buttons.
  */

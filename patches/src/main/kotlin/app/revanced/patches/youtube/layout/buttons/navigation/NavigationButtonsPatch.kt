@@ -117,13 +117,10 @@ val navigationButtonsPatch = bytecodePatch(
 
         // Force on/off translucent effect on status bar and navigation buttons.
         if (is_19_25_or_greater) {
-            arrayOf(
-                translucentNavigationStatusBarFeatureFlagMethodMatch,
-                translucentNavigationStatusBarSecondaryFeatureFlagMethodMatch
-            ).forEach { match ->
-                match.method.insertLiteralOverride(
-                    match[0],
-                    "${EXTENSION_CLASS_DESCRIPTOR}->useTranslucentNavigationStatusBar(Z)Z",
+            translucentNavigationStatusBarFeatureFlagMethodMatch.let {
+                it.method.insertLiteralOverride(
+                    it[0],
+                    "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationStatusBar(Z)Z",
                 )
             }
 
