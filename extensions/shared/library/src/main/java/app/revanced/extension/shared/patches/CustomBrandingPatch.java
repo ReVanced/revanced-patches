@@ -113,8 +113,8 @@ public class CustomBrandingPatch {
      * The total number of app name aliases, including dummy aliases.
      */
     private static int numberOfPresetAppNames() {
-        // Modified during patching.
-        throw new IllegalStateException();
+        // Modified during patching, but requires a default if custom branding is excluded.
+        return 1;
     }
 
 
@@ -124,8 +124,8 @@ public class CustomBrandingPatch {
      * If a custom icon was provided during patching.
      */
     private static boolean userProvidedCustomIcon() {
-        // Modified during patching.
-        throw new IllegalStateException();
+        // Modified during patching, but requires a default if custom branding is excluded.
+        return false;
     }
 
     /**
@@ -134,8 +134,8 @@ public class CustomBrandingPatch {
      * If a custom name was provided during patching.
      */
     private static boolean userProvidedCustomName() {
-        // Modified during patching.
-        throw new IllegalStateException();
+        // Modified during patching, but requires a default if custom branding is excluded..
+        return false;
     }
 
     public static int getDefaultAppNameIndex() {
