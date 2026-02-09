@@ -54,18 +54,9 @@ internal val BytecodePatchContext.showEndscreenCardsParentMethod by gettingFirst
     returnType("[L")
     parameterTypes("L")
     instructions(
-        3L(),
-        after(Opcode.NEW_ARRAY()),
+        Opcode.NEW_ARRAY(),
         afterAtMost(12, 1024L()),
-        afterAtMost(1, 1024L()),
-        afterAtMost(
-            12, anyOf(
-                // 20.x
-                15L(),
-                // 21.x+
-                4L()
-            )
-        ),
+        afterAtMost(12, 1L()),
     )
     custom {
         immutableClassDef.methods.count() == 5
