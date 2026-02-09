@@ -136,14 +136,11 @@ final class VideoActionButtonsFilter extends Filter {
             if (!group.isEnabled()) return false;
         }
 
-        if (VersionCheckPatch.IS_20_22_OR_GREATER) {
-            for (var group : accessibilityButtonsGroupList) {
-                if (!group.isEnabled()) return false;
-            }
-        } else {
-            for (var group : bufferButtonsGroupList) {
-                if (!group.isEnabled()) return false;
-            }
+        var buttonList = VersionCheckPatch.IS_20_22_OR_GREATER
+                ? accessibilityButtonsGroupList
+                : bufferButtonsGroupList;
+        for (var group : buttonList) {
+            if (!group.isEnabled()) return false;
         }
 
         return true;
