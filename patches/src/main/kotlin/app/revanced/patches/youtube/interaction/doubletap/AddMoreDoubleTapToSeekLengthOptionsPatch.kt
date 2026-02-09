@@ -3,8 +3,6 @@ package app.revanced.patches.youtube.interaction.doubletap
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
-import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.removeFromParent
 import org.w3c.dom.Element
@@ -14,9 +12,7 @@ val addMoreDoubleTapToSeekLengthOptionsPatch = resourcePatch(
     name = "Add more double tap to seek length options",
 ) {
     dependsOn(
-        sharedExtensionPatch,
-        settingsPatch,
-        versionCheckPatch
+        sharedExtensionPatch
     )
 
     compatibleWith(

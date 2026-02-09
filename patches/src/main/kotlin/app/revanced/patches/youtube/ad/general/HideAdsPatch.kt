@@ -1,8 +1,11 @@
 package app.revanced.patches.youtube.ad.general
 
+import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.typeReference
 import app.revanced.patcher.extensions.wideLiteral
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -17,17 +20,22 @@ import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fixBackToExitGest
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.findFreeRegister
 import app.revanced.util.forEachInstructionAsSequence
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.injectHideViewCall
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 internal var adAttributionId = -1L
     private set
 internal var fullScreenEngagementAdContainer = -1L
     private set
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/litho/AdsFilter;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/litho/AdsFilter;"
 
 private val hideAdsResourcePatch = resourcePatch {
     dependsOn(
@@ -82,6 +90,73 @@ val hideAdsPatch = bytecodePatch(
     )
 
     apply {
+        // Hide fullscreen ad
+
+        lithoDialogBuilderMethodMatch.let {
+            it.method.apply {
+                // Find the class name of the custom dialog
+                val dialogClass = getInstruction(it[0]).methodReference!!.definingClass
+
+                // The dialog can be closed after dialog.show(),
+                // and it is better to close the dialog after the layout of the dialog has changed
+                val insertIndex = indexOfFirstInstructionReversedOrThrow {
+                    opcode == Opcode.IPUT_OBJECT && typeReference?.type == dialogClass
+                }
+                val insertRegister =
+                    getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+                val freeRegister = findFreeRegister(insertIndex, insertRegister)
+
+                addInstructionsAtControlFlowLabel(
+                    insertIndex,
+                    """
+                        move-object/from16 v$freeRegister, p1
+                        invoke-static { v$insertRegister, v$freeRegister }, ${EXTENSION_CLASS_DESCRIPTOR}->closeFullscreenAd(Ljava/lang/Object;[B)V
+                    """
+                )
+            }
+        }
+
+        // Hide get premium
+
+        getPremiumViewMethodMatch.method.apply {
+            val startIndex = getPremiumViewMethodMatch[0]
+            val measuredWidthRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
+            val measuredHeightInstruction = getInstruction<TwoRegisterInstruction>(startIndex + 1)
+
+            val measuredHeightRegister = measuredHeightInstruction.registerA
+            val tempRegister = measuredHeightInstruction.registerB
+
+            addInstructionsWithLabels(
+                startIndex + 2,
+                """
+                    # Override the internal measurement of the layout with zero values.
+                    invoke-static {}, ${EXTENSION_CLASS_DESCRIPTOR}->hideGetPremiumView()Z
+                    move-result v$tempRegister
+                    if-eqz v$tempRegister, :allow
+                    const/4 v$measuredWidthRegister, 0x0
+                    const/4 v$measuredHeightRegister, 0x0
+                    :allow
+                    nop
+                    # Layout width/height is then passed to a protected class method.
+                """,
+            )
+        }
+
+        // Hide player overlay view. This can be hidden with a regular litho filter
+        // but an empty space remains.
+        playerOverlayTimelyShelfMethod.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static {}, ${EXTENSION_CLASS_DESCRIPTOR}->hideAds()Z
+                move-result v0
+                if-eqz v0, :show
+                return-void
+                :show
+                nop
+            """
+        )
+
+
         // Hide end screen store banner.
 
         fullScreenEngagementAdContainerMethod.apply {
@@ -112,7 +187,12 @@ val hideAdsPatch = bytecodePatch(
             return@forEachInstructionAsSequence insertIndex to viewRegister
 
         }) { method, (insertIndex, viewRegister) ->
-            method.injectHideViewCall(insertIndex, viewRegister, EXTENSION_CLASS_DESCRIPTOR, "hideAdAttributionView")
+            method.injectHideViewCall(
+                insertIndex,
+                viewRegister,
+                EXTENSION_CLASS_DESCRIPTOR,
+                "hideAdAttributionView"
+            )
         }
     }
 }

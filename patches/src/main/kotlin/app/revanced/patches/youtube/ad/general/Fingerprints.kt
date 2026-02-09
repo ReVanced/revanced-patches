@@ -26,6 +26,20 @@ internal fun indexOfAddListInstruction(method: Method) = method.indexOfFirstInst
 }
 
 
+internal val BytecodePatchContext.getPremiumViewMethodMatch by composingFirstMethod {
+    name("onMeasure")
+    definingClass("Lcom/google/android/apps/youtube/app/red/presenter/CompactYpcOfferModuleView;")
+    accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("I", "I")
+    opcodes(
+        Opcode.ADD_INT_2ADDR,
+        Opcode.ADD_INT_2ADDR,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.RETURN_VOID
+    )
+}
+
 internal val BytecodePatchContext.lithoDialogBuilderMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
@@ -35,3 +49,17 @@ internal val BytecodePatchContext.lithoDialogBuilderMethodMatch by composingFirs
         ResourceType.STYLE("SlidingDialogAnimation")
     )
 }
+
+
+internal val BytecodePatchContext.playerOverlayTimelyShelfMethod by gettingFirstMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("Ljava/lang/Object;")
+    instructions(
+        "player_overlay_timely_shelf"(),
+        "innertube_cue_range"(),
+        "Null id"(),
+        "Null onExitActions"()
+    )
+}
+

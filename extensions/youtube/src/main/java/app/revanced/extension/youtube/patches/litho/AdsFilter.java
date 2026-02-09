@@ -92,7 +92,7 @@ public final class AdsFilter extends Filter {
                 "video_display_full_buttoned_short_dr_layout",
                 "video_display_full_layout",
                 "watch_metadata_app_promo",
-                "shopping_timely_shelf."
+                "shopping_timely_shelf." // Injection point below hides the empty space.
         );
 
         final var movieAds = new StringFilterGroup(
@@ -249,6 +249,13 @@ public final class AdsFilter extends Filter {
      */
     public static boolean hideGetPremiumView() {
         return Settings.HIDE_YOUTUBE_PREMIUM_PROMOTIONS.get();
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean hideAds() {
+        return Settings.HIDE_GENERAL_ADS.get();
     }
 
     /**
