@@ -45,7 +45,7 @@ public class ExitFullscreenPatch {
                 // set because the overlay controls are not attached.
                 // To fix this, push the perform click to the back fo the main thread,
                 // and by then the overlay controls will be visible since the video is now finished.
-                Utils.runOnMainThread(() -> {
+                Utils.runOnMainThreadDelayed(() -> {
                     ImageView button = PlayerControlsPatch.fullscreenButtonRef.get();
                     if (button == null) {
                         Logger.printDebug(() -> "Fullscreen button is null, cannot click");
@@ -56,7 +56,7 @@ public class ExitFullscreenPatch {
                         button.performClick();
                         button.setSoundEffectsEnabled(soundEffectsEnabled);
                     }
-                });
+                }, 10);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "endOfVideoReached failure", ex);
