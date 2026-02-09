@@ -1,8 +1,10 @@
 package app.revanced.patches.shared.layout.branding
 
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.rawResourcePatch
 import app.revanced.util.inputStreamFromBundledResource
 import java.nio.file.Files
+import java.util.logging.Logger
 
 /**
  * Copies a branding license text file to the target apk.
@@ -20,6 +22,8 @@ internal val addBrandLicensePatch = rawResourcePatch {
 
         val targetFile = get(brandingLicenseFileName, false).toPath()
 
-        Files.copy(inputFileStream, targetFile)
+        if (Files.exists(targetFile)) Logger.getLogger(this::class.java.name)
+            .warning("Already patched by ReVanced")
+        else Files.copy(inputFileStream, targetFile)
     }
 }
