@@ -39,6 +39,8 @@ public final class AdsFilter extends Filter {
 
     private final StringFilterGroup playerShoppingShelf;
     private final ByteArrayFilterGroup playerShoppingShelfBuffer;
+    private final StringFilterGroup buyMovieAd;
+    private final ByteArrayFilterGroup buyMovieAdBuffer;
 
     public AdsFilter() {
         exceptions.addPatterns(
@@ -77,6 +79,7 @@ public final class AdsFilter extends Filter {
                 "hero_promo_image",
                 // text_image_button_group_layout, landscape_image_button_group_layout, full_width_square_image_button_group_layout
                 "image_button_group_layout",
+                "landscape_image_carousel_layout",
                 "landscape_image_wide_button_layout",
                 "primetime_promo",
                 "product_details",
@@ -102,6 +105,16 @@ public final class AdsFilter extends Filter {
                 "offer_module_root"
         );
 
+        buyMovieAd = new StringFilterGroup(
+                Settings.HIDE_MOVIES_SECTION,
+                "video_lockup_with_attachment.e"
+        );
+
+        buyMovieAdBuffer =  new ByteArrayFilterGroup(
+                null,
+                "FEstorefront"
+        );
+
         final var viewProducts = new StringFilterGroup(
                 Settings.HIDE_VIEW_PRODUCTS_BANNER,
                 "product_item",
@@ -124,11 +137,6 @@ public final class AdsFilter extends Filter {
                 "shopping_item_card_list"
         );
 
-        final var webLinkPanel = new StringFilterGroup(
-                Settings.HIDE_WEB_SEARCH_RESULTS,
-                "web_link_panel"
-        );
-
         final var merchandise = new StringFilterGroup(
                 Settings.HIDE_MERCHANDISE_BANNERS,
                 "product_carousel",
@@ -146,6 +154,7 @@ public final class AdsFilter extends Filter {
         );
 
         addPathCallbacks(
+                buyMovieAd,
                 generalAds,
                 merchandise,
                 movieAds,
@@ -153,8 +162,7 @@ public final class AdsFilter extends Filter {
                 promotionBanner,
                 selfSponsor,
                 shoppingLinks,
-                viewProducts,
-                webLinkPanel
+                viewProducts
         );
     }
 
@@ -163,6 +171,10 @@ public final class AdsFilter extends Filter {
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == playerShoppingShelf) {
             return contentIndex == 0 && playerShoppingShelfBuffer.check(buffer).isFiltered();
+        }
+
+        if (matchedGroup == buyMovieAd) {
+            return contentIndex == 0 && buyMovieAdBuffer.check(buffer).isFiltered();
         }
 
         return !exceptions.matches(path);
