@@ -71,7 +71,8 @@ public class FeatureFlagsManagerPreference extends Preference {
      * Flags to hide from the UI.
      */
     private static final Set<Long> FLAGS_TO_IGNORE = Set.of(
-            45386834L // 'You' tab settings icon.
+            45386834L, // 'You' tab settings icon.
+            45532100L  // Cairo flag. Turning this off with all other flags causes the settings menut o be a mix of old/new.
     );
 
     /**
