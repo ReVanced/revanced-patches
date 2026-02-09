@@ -15,11 +15,11 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.youtube.layout.player.fullscreen.openVideosFullscreenHookPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
-import app.revanced.patches.youtube.misc.playservice.is_20_39_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateMethod
+import app.revanced.patches.youtube.video.information.playbackStartDescriptorToStringMethodMatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -71,24 +71,17 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
                     "setMainActivity(Landroid/app/Activity;)V",
         )
 
-        // Find the obfuscated method name for PlaybackStartDescriptor.videoId()
-        val (videoIdStartMethod, videoIdIndex) = if (is_20_39_or_greater) {
-            watchPanelVideoIdMethodMatch.let {
-                it.immutableMethod to it[-1]
-            }
-        } else {
-            playbackStartFeatureFlagMethodMatch.let {
-                it.immutableMethod to it[0]
-            }
+
+        val playbackStartVideoIdMethod = playbackStartDescriptorToStringMethodMatch.let {
+            navigate(it.method).to(it[1]).original()
         }
-        val playbackStartVideoIdMethodName = navigate(videoIdStartMethod).to(videoIdIndex).stop().name
 
         shortsPlaybackIntentMethod.addInstructionsWithLabels(
             0,
             """
                 move-object/from16 v0, p1
                 
-                invoke-virtual { v0 }, Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;->$playbackStartVideoIdMethodName()Ljava/lang/String;
+                invoke-virtual { v0 }, $playbackStartVideoIdMethod
                 move-result-object v1
                 invoke-static { v1 }, ${EXTENSION_CLASS_DESCRIPTOR}->openShort(Ljava/lang/String;)Z
                 move-result v1

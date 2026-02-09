@@ -45,9 +45,11 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/VideoInformation;"
 private const val EXTENSION_PLAYER_INTERFACE =
-    "Lapp/revanced/extension/youtube/patches/VideoInformation\$PlaybackController;"
+    $$"Lapp/revanced/extension/youtube/patches/VideoInformation$PlaybackController;"
 private const val EXTENSION_VIDEO_QUALITY_MENU_INTERFACE =
-    "Lapp/revanced/extension/youtube/patches/VideoInformation\$VideoQualityMenuInterface;"
+    $$"Lapp/revanced/extension/youtube/patches/VideoInformation$VideoQualityMenuInterface;"
+private const val EXTENSION_VIDEO_QUALITY_INTERFACE =
+    $$"Lapp/morphe/extension/youtube/patches/VideoInformation$VideoQualityInterface;"
 
 private lateinit var playerInitMethod: MutableMethod
 private var playerInitInsertIndex = -1
@@ -189,7 +191,7 @@ val videoInformationPatch = bytecodePatch(
         /*
          * Hook the user playback speed selection.
          */
-        onPlaybackSpeedItemClickMethod.apply {
+        onPlaybackSpeedItemClickParentMethod.immutableClassDef.getOnPlaybackSpeedItemClickMethod().apply {
             val speedSelectionValueInstructionIndex = indexOfFirstInstructionOrThrow(Opcode.IGET)
 
             legacySpeedSelectionInsertMethod = this
@@ -218,10 +220,10 @@ val videoInformationPatch = bytecodePatch(
                         if (fieldReferenceType != null) {
                             throw PatchException("Found more than one playback speed interface: $classDef")
                         }
-                        fieldReferenceType = classDef;
+                        fieldReferenceType = classDef
                     }
                 }
-                setPlaybackSpeedContainerClassFieldReferenceClassType = fieldReferenceType!!;
+                setPlaybackSpeedContainerClassFieldReferenceClassType = fieldReferenceType!!
             } else {
                 setPlaybackSpeedContainerClassFieldReferenceClassType =
                     classDefs[setPlaybackSpeedContainerClassFieldReference.type]!!
@@ -239,7 +241,7 @@ val videoInformationPatch = bytecodePatch(
             setPlaybackSpeedMethodIndex = 0
 
             // Add override playback speed method.
-            onPlaybackSpeedItemClickMethod.classDef.methods.add(
+            classDef.methods.add(
                 ImmutableMethod(
                     definingClass,
                     "overridePlaybackSpeed",
@@ -322,7 +324,10 @@ val videoInformationPatch = bytecodePatch(
             }
         }
 
+        val videoQualityClassType : String
         (if (is_20_19_or_greater) videoQualityMethod else videoQualityLegacyMethod).apply {
+            videoQualityClassType = immutableClassDef.type
+
             // Fix bad data used by YouTube.
             val nameRegister = if (is_20_20_or_greater) "p3" else "p2"
             addInstructions(
@@ -335,6 +340,9 @@ val videoInformationPatch = bytecodePatch(
 
             // Add methods to access obfuscated quality fields.
             classDef.apply {
+                // Add interface and helper methods to allow extension code to call obfuscated methods.
+                interfaces.add(EXTENSION_VIDEO_QUALITY_INTERFACE)
+
                 methods.add(
                     ImmutableMethod(
                         type,
@@ -406,7 +414,7 @@ val videoInformationPatch = bytecodePatch(
                         type,
                         "patch_setQuality",
                         listOf(
-                            ImmutableMethodParameter(YOUTUBE_VIDEO_QUALITY_CLASS_TYPE, null, null),
+                            ImmutableMethodParameter(EXTENSION_VIDEO_QUALITY_INTERFACE, null, null),
                         ),
                         "V",
                         AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
@@ -415,12 +423,13 @@ val videoInformationPatch = bytecodePatch(
                         MutableMethodImplementation(2),
                     ).toMutable().apply {
                         val setQualityMenuIndexMethod = methods.single { method ->
-                            method.parameterTypes.firstOrNull() == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
+                            method.parameterTypes.firstOrNull() == EXTENSION_VIDEO_QUALITY_INTERFACE
                         }
 
                         addInstructions(
                             0,
                             """
+                                check-cast p1, $videoQualityClassType
                                 invoke-virtual { p0, p1 }, $setQualityMenuIndexMethod
                                 return-void
                             """,
@@ -436,7 +445,7 @@ val videoInformationPatch = bytecodePatch(
                     iget-object v0, p0, $onItemClickListenerClassReference
                     iget-object v0, v0, $setQualityFieldReference
                     
-                    invoke-static { p1, v0, p2 }, $EXTENSION_CLASS_DESCRIPTOR->setVideoQuality([$YOUTUBE_VIDEO_QUALITY_CLASS_TYPE${EXTENSION_VIDEO_QUALITY_MENU_INTERFACE}I)I
+                    invoke-static { p1, v0, p2 }, $EXTENSION_CLASS_DESCRIPTOR->setVideoQuality([$EXTENSION_VIDEO_QUALITY_INTERFACE${EXTENSION_VIDEO_QUALITY_MENU_INTERFACE}I)I
                     move-result p2
                 """,
             )

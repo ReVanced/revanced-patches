@@ -35,14 +35,14 @@ internal val BytecodePatchContext.serverSideMaxSpeedFeatureFlagMethod by getting
 internal val BytecodePatchContext.speedArrayGeneratorMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("[L")
-    parameterTypes("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;")
+    parameterTypes("L")
     instructions(
         method { name == "size" && returnType == "I" },
         allOf(Opcode.NEW_INSTANCE(), type("Ljava/text/DecimalFormat;")),
         "0.0#"(),
         7L(),
         Opcode.NEW_ARRAY(),
-        field { definingClass.endsWith("/PlayerConfigModel;") && type == "[F" },
+        field { type == "[F" },
     )
 }
 
@@ -52,8 +52,9 @@ internal val BytecodePatchContext.speedArrayGeneratorMethodMatch by composingFir
 internal val BytecodePatchContext.speedLimiterMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
-    parameterTypes("F", "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;")
+    parameterTypes("F")
     instructions(
+        "setPlaybackRate"(),
         0.25f.toRawBits().toLong()(),
         4.0f.toRawBits().toLong()(),
     )

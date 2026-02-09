@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.shared
 import app.revanced.patcher.ClassDefComposing
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.after
+import app.revanced.patcher.afterAtMost
 import app.revanced.patcher.allOf
 import app.revanced.patcher.composingFirstMethod
 import app.revanced.patcher.custom
@@ -26,7 +27,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal const val YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE = "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
+internal const val YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE =
+    "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
 
 internal val BytecodePatchContext.conversionContextToStringMethod by gettingFirstImmutableMethodDeclaratively(
     ", widthConstraint=",
@@ -61,7 +63,8 @@ internal fun BytecodePatchContext.getLayoutConstructorMethodMatch() = firstMetho
         ResourceType.ID("player_control_next_button_touch_area"),
         method {
             parameterTypes.size == 2 &&
-                parameterTypes.zip(methodParameterTypePrefixes).all { (a, b) -> a.startsWith(b) }
+                    parameterTypes.zip(methodParameterTypePrefixes)
+                        .all { (a, b) -> a.startsWith(b) }
         },
     )
 }
@@ -108,8 +111,8 @@ internal val BytecodePatchContext.rollingNumberTextViewAnimationUpdateMethodMatc
     )
     custom {
         immutableClassDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;" ||
-            immutableClassDef.superclass ==
-            "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
+                immutableClassDef.superclass ==
+                "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
     }
 }
 
@@ -118,9 +121,6 @@ internal val BytecodePatchContext.seekbarMethod by gettingFirstImmutableMethodDe
     instructions("timed_markers_width"())
 }
 
-/**
- * Matches to _mutable_ class found in [seekbarMethod].
- */
 internal fun ClassDef.getSeekbarOnDrawMethodMatch() = firstMethodComposite {
     name("onDraw")
     instructions(
@@ -132,7 +132,7 @@ internal fun ClassDef.getSeekbarOnDrawMethodMatch() = firstMethodComposite {
 internal val BytecodePatchContext.subtitleButtonControllerMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
-    parameterTypes("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;")
+    parameterTypes("L")
     instructions(
         ResourceType.STRING("accessibility_captions_unavailable"),
         ResourceType.STRING("accessibility_captions_button_name"),
@@ -144,8 +144,11 @@ internal val BytecodePatchContext.videoQualityChangedMethodMatch by composingFir
     returnType("L")
     parameterTypes("L")
     instructions(
-        allOf(Opcode.NEW_INSTANCE(), type("Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;")),
-        Opcode.IGET_OBJECT(),
+        allOf(Opcode.IGET(), field { type == "I" }),
+        after(2L()),
+        after(Opcode.IF_NE()),
+        after(Opcode.NEW_INSTANCE()), // Obfuscated VideoQuality.
+        afterAtMost(6, Opcode.IGET_OBJECT()),
         Opcode.CHECK_CAST(),
         after(allOf(Opcode.IGET(), field { type == "I" })), // Video resolution (human-readable).
     )

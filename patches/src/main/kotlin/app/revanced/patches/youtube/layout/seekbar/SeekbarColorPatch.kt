@@ -14,6 +14,7 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_49_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_34_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_21_02_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateMethod
 import app.revanced.util.findInstructionIndicesReversedOrThrow
@@ -208,7 +209,7 @@ val seekbarColorPatch = bytecodePatch(
                     factoryStreamReturnType = it.returnType
                 }
 
-            val lottieAnimationViewSetAnimationStreamMethod = firstMethodDeclaratively {
+            val lottieAnimationViewSetAnimationStreamMethod = firstImmutableMethodDeclaratively {
                 definingClass(lottieAnimationViewSetAnimationIntMethod.immutableClassDef.type)
                 accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
                 parameterTypes(factoryStreamReturnType.toString())
@@ -230,13 +231,17 @@ val seekbarColorPatch = bytecodePatch(
                     null,
                     MutableMethodImplementation(4),
                 ).toMutable().apply {
+                    // 21.02+ method is private. Cannot easily change the access flags to public
+                    // because that breaks unrelated opcode that uses invoke-direct and not invoke-virtual.
+                    val methodOpcode = if (is_21_02_or_greater) "invoke-direct" else "invoke-virtual"
+
                     addInstructions(
                         """
-                            invoke-static { p1, p2 }, $factoryStreamClass->$factoryStreamName(Ljava/io/InputStream;Ljava/lang/String;)$factoryStreamReturnType
-                            move-result-object v0
-                            invoke-virtual { p0, v0}, Lcom/airbnb/lottie/LottieAnimationView;->$setAnimationStreamMethodName($factoryStreamReturnType)V
-                            return-void
-                        """,
+                        invoke-static { p1, p2 }, $factoryStreamClass->$factoryStreamName(Ljava/io/InputStream;Ljava/lang/String;)$factoryStreamReturnType
+                        move-result-object v0
+                        $methodOpcode { p0, v0}, Lcom/airbnb/lottie/LottieAnimationView;->$setAnimationStreamMethodName($factoryStreamReturnType)V
+                        return-void
+                    """
                     )
                 },
             )
