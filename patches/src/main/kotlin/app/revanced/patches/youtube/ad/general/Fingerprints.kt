@@ -2,10 +2,12 @@ package app.revanced.patches.youtube.ad.general
 
 import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversed
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -15,10 +17,21 @@ internal val BytecodePatchContext.fullScreenEngagementAdContainerMethod by getti
     parameterTypes()
     custom {
         containsLiteralInstruction(fullScreenEngagementAdContainer) &&
-            indexOfAddListInstruction(this) >= 0
+                indexOfAddListInstruction(this) >= 0
     }
 }
 
 internal fun indexOfAddListInstruction(method: Method) = method.indexOfFirstInstructionReversed {
     getReference<MethodReference>()?.name == "add"
+}
+
+
+internal val BytecodePatchContext.lithoDialogBuilderMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("[B", "L")
+    instructions(
+        allOf(Opcode.INVOKE_VIRTUAL(), method("show")),
+        ResourceType.STYLE("SlidingDialogAnimation")
+    )
 }

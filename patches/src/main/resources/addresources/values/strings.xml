@@ -524,12 +524,8 @@ Limitations
             <string name="revanced_hide_end_screen_store_banner_summary_on">End screen store banner is hidden</string>
             <string name="revanced_hide_end_screen_store_banner_summary_off">End screen store banner is shown</string>
             <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
-            <string name="revanced_hide_fullscreen_ads_summary_on">"Fullscreen ads are hidden
-
-This feature is only available for older devices"</string>
+            <string name="revanced_hide_fullscreen_ads_summary_on">"Fullscreen ads are hidden</string>
             <string name="revanced_hide_fullscreen_ads_summary_off">Fullscreen ads are shown</string>
-            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-            <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Hide fullscreen ads only works with older devices</string>
             <string name="revanced_hide_general_ads_title">Hide general ads</string>
             <string name="revanced_hide_general_ads_summary_on">General ads are hidden</string>
             <string name="revanced_hide_general_ads_summary_off">General ads are shown</string>
@@ -551,11 +547,11 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_web_search_results_title">Hide web search results</string>
             <string name="revanced_hide_web_search_results_summary_on">Web search results are hidden</string>
             <string name="revanced_hide_web_search_results_summary_off">Web search results are shown</string>
-        </patch>
-        <patch id="ad.getpremium.hideGetPremiumPatch">
-            <string name="revanced_hide_get_premium_title">Hide YouTube Premium promotions</string>
-            <string name="revanced_hide_get_premium_summary_on">YouTube Premium promotions under video player are hidden</string>
-            <string name="revanced_hide_get_premium_summary_off">YouTube Premium promotions under video player are shown</string>
+            <string name="revanced_hide_youtube_premium_promotions_title">Hide YouTube Premium promotions</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_on">"YouTube Premium promotions are hidden
+
+Limitations: YouTube Doodles page is not available"</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_off">YouTube Premium promotions are shown</string>
         </patch>
         <patch id="ad.video.videoAdsPatch">
             <string name="revanced_hide_video_ads_title">Hide video ads</string>

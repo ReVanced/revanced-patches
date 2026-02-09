@@ -2,9 +2,13 @@ package app.revanced.extension.youtube.patches.litho;
 
 import static app.revanced.extension.shared.StringRef.str;
 
-import android.app.Instrumentation;
+import android.app.Dialog;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+
+import androidx.annotation.Nullable;
 
 import java.util.List;
 
@@ -19,9 +23,10 @@ import app.revanced.extension.youtube.settings.Settings;
 @SuppressWarnings("unused")
 public final class AdsFilter extends Filter {
     // region Fullscreen ad
-    private static volatile long lastTimeClosedFullscreenAd;
-    private static final Instrumentation instrumentation = new Instrumentation();
-    private final StringFilterGroup fullscreenAd;
+    private static final ByteArrayFilterGroup fullscreenAd = new ByteArrayFilterGroup(
+            null,
+            "_interstitial"
+    );
 
     // endregion
 
@@ -35,7 +40,6 @@ public final class AdsFilter extends Filter {
     private final StringFilterGroup playerShoppingShelf;
     private final ByteArrayFilterGroup playerShoppingShelfBuffer;
 
-
     public AdsFilter() {
         exceptions.addPatterns(
                 "home_video_with_context", // Don't filter anything in the home page video component.
@@ -47,7 +51,6 @@ public final class AdsFilter extends Filter {
 
         // Identifiers.
 
-
         final var carouselAd = new StringFilterGroup(
                 Settings.HIDE_GENERAL_ADS,
                 "carousel_ad"
@@ -55,11 +58,6 @@ public final class AdsFilter extends Filter {
         addIdentifierCallbacks(carouselAd);
 
         // Paths.
-
-        fullscreenAd = new StringFilterGroup(
-                Settings.HIDE_FULLSCREEN_ADS,
-                "_interstitial"
-        );
 
         final var generalAds = new StringFilterGroup(
                 Settings.HIDE_GENERAL_ADS,
@@ -137,17 +135,22 @@ public final class AdsFilter extends Filter {
                 "shopping_carousel.e" // Channel profile shopping shelf.
         );
 
+        final var promotionBanner = new StringFilterGroup(
+                Settings.HIDE_YOUTUBE_PREMIUM_PROMOTIONS,
+                "statement_banner"
+        );
+
         final var selfSponsor = new StringFilterGroup(
                 Settings.HIDE_SELF_SPONSOR,
                 "cta_shelf_card"
         );
 
         addPathCallbacks(
-                fullscreenAd,
                 generalAds,
                 merchandise,
                 movieAds,
                 playerShoppingShelf,
+                promotionBanner,
                 selfSponsor,
                 shoppingLinks,
                 viewProducts,
@@ -162,18 +165,56 @@ public final class AdsFilter extends Filter {
             return contentIndex == 0 && playerShoppingShelfBuffer.check(buffer).isFiltered();
         }
 
-        if (exceptions.matches(path)) {
-            return false;
+        return !exceptions.matches(path);
+    }
+
+    /**
+     * Injection point.
+     * Called from a different place then the other filters.
+     */
+    public static void closeFullscreenAd(Object customDialog, @Nullable byte[] buffer) {
+        try {
+            if (!Settings.HIDE_FULLSCREEN_ADS.get()) {
+                return;
+            }
+
+            if (buffer == null) {
+                Logger.printDebug(() -> "buffer is null");
+                return;
+            }
+
+            if (fullscreenAd.check(buffer).isFiltered() &&
+                    customDialog instanceof Dialog dialog) {
+                Logger.printDebug(() -> "Closing fullscreen ad");
+
+                Window window = dialog.getWindow();
+
+                if (window != null) {
+                    // Set the dialog size to 0 before closing
+                    // If the dialog is not resized to 0, it will remain visible for about a second before closing
+                    WindowManager.LayoutParams params = window.getAttributes();
+                    params.height = 0;
+                    params.width = 0;
+
+                    // Change the size of dialog to 0
+                    window.setAttributes(params);
+
+                    // Disable dialog's background dim
+                    window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+
+                    // Restore window flags
+                    window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_UNSPECIFIED);
+
+                    // Restore decorView visibility
+                    window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+                }
+
+                // Dismiss dialog
+                dialog.dismiss();
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "closeFullscreenAd failure", ex);
         }
-
-        if (matchedGroup == fullscreenAd) {
-            if (path.contains("|ImageType|")) closeFullscreenAd();
-
-            // Do not actually filter the fullscreen ad otherwise it will leave a dimmed screen.
-            return false;
-        }
-
-        return true;
     }
 
     /**
@@ -191,6 +232,12 @@ public final class AdsFilter extends Filter {
         elementsList.add(protobufList);
     }
 
+    /**
+     * Injection point.
+     */
+    public static boolean hideGetPremiumView() {
+        return Settings.HIDE_YOUTUBE_PREMIUM_PROMOTIONS.get();
+    }
 
     /**
      * Hide the view, which shows ads in the homepage.
@@ -199,42 +246,5 @@ public final class AdsFilter extends Filter {
      */
     public static void hideAdAttributionView(View view) {
         Utils.hideViewBy0dpUnderCondition(Settings.HIDE_GENERAL_ADS, view);
-    }
-
-    /**
-     * Close the fullscreen ad.
-     * <p>
-     * The strategy is to send a back button event to the app to close the fullscreen ad using the back button event.
-     */
-    private static void closeFullscreenAd() {
-        final var currentTime = System.currentTimeMillis();
-
-        // Prevent spamming the back button.
-        if (currentTime - lastTimeClosedFullscreenAd < 10000) return;
-        lastTimeClosedFullscreenAd = currentTime;
-
-        Logger.printDebug(() -> "Closing fullscreen ad");
-
-        Utils.runOnMainThreadDelayed(() -> {
-            // Must run off main thread (Odd, but whatever).
-            Utils.runOnBackgroundThread(() -> {
-                try {
-                    instrumentation.sendKeyDownUpSync(KeyEvent.KEYCODE_BACK);
-                } catch (Exception ex) {
-                    // Injecting user events on Android 10+ requires the manifest to include
-                    // INJECT_EVENTS, and it's usage is heavily restricted
-                    // and requires the user to manually approve the permission in the device settings.
-                    //
-                    // And no matter what, permissions cannot be added for root installations
-                    // as manifest changes are ignored for mount installations.
-                    //
-                    // Instead, catch the SecurityException and turn off hide full screen ads
-                    // since this functionality does not work for these devices.
-                    Logger.printInfo(() -> "Could not inject back button event", ex);
-                    Settings.HIDE_FULLSCREEN_ADS.save(false);
-                    Utils.showToastLong(str("revanced_hide_fullscreen_ads_feature_not_available_toast"));
-                }
-            });
-        }, 1000);
     }
 }

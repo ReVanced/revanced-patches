@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.extensions.wideLiteral
-import app.revanced.patcher.firstMethod
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -14,7 +13,6 @@ import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
-import app.revanced.patches.youtube.ad.getpremium.hideGetPremiumPatch
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fixBackToExitGesturePatch
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -53,6 +51,7 @@ private val hideAdsResourcePatch = resourcePatch {
             SwitchPreference("revanced_hide_shopping_links"),
             SwitchPreference("revanced_hide_view_products_banner"),
             SwitchPreference("revanced_hide_web_search_results"),
+            SwitchPreference("revanced_hide_youtube_premium_promotions")
         )
 
         addLithoFilter("Lapp/revanced/extension/youtube/patches/litho/AdsFilter;")
@@ -68,7 +67,6 @@ val hideAdsPatch = bytecodePatch(
     description = "Adds options to remove general ads.",
 ) {
     dependsOn(
-        hideGetPremiumPatch,
         hideAdsResourcePatch,
         verticalScrollPatch,
         fixBackToExitGesturePatch,
