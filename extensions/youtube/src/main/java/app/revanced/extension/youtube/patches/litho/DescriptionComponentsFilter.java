@@ -16,8 +16,10 @@ public final class DescriptionComponentsFilter extends Filter {
     private final StringFilterGroup macroMarkersCarousel;
     private final ByteArrayFilterGroupList macroMarkersCarouselGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroup horizontalShelf;
-    private final ByteArrayFilterGroup cellVideoAttribute;
+    private final ByteArrayFilterGroupList horizontalShelfGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroup infoCardsSection;
+    private final StringFilterGroup featuredLinksSection;
+    private final StringFilterGroup featuredVideosSection;
     private final StringFilterGroup subscribeButton;
     private final StringFilterGroup aiGeneratedVideoSummarySection;
     private final StringFilterGroup hypePoints;
@@ -47,18 +49,18 @@ public final class DescriptionComponentsFilter extends Filter {
                 "video_attributes_section"
         );
 
-        final StringFilterGroup featuredLinksSection = new StringFilterGroup(
+        featuredLinksSection = new StringFilterGroup(
                 Settings.HIDE_FEATURED_LINKS_SECTION,
                 "media_lockup"
         );
 
-        final StringFilterGroup featuredVideosSection = new StringFilterGroup(
+        featuredVideosSection = new StringFilterGroup(
                 Settings.HIDE_FEATURED_VIDEOS_SECTION,
                 "structured_description_video_lockup"
         );
 
         final StringFilterGroup podcastSection = new StringFilterGroup(
-                Settings.HIDE_PODCAST_SECTION,
+                Settings.HIDE_EXPLORE_PODCAST_SECTION,
                 "playlist_section"
         );
 
@@ -95,28 +97,46 @@ public final class DescriptionComponentsFilter extends Filter {
         macroMarkersCarouselGroupList.addAll(
                 new ByteArrayFilterGroup(
                         Settings.HIDE_CHAPTERS_SECTION,
-                        "chapters_horizontal_shelf"
+                        "chapters_horizontal_shelf",
+                        "auto-chapters",
+                        "description-chapters"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_KEY_CONCEPTS_SECTION,
-                        "learning_concept_macro_markers_carousel_shelf"
+                        "learning_concept_macro_markers_carousel_shelf",
+                        "learning-concept"
                 )
         );
 
         horizontalShelf = new StringFilterGroup(
-                Settings.HIDE_ATTRIBUTES_SECTION,
+                null,
                 "horizontal_shelf.e"
         );
 
-        cellVideoAttribute = new ByteArrayFilterGroup(
-                null,
-                "cell_video_attribute"
+        horizontalShelfGroupList.addAll(
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_ATTRIBUTES_SECTION,
+                        // May no longer work on v20.30+
+                        "cell_video_attribute"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_FEATURED_PLACES_SECTION,
+                        // "maps.google.com"
+                        "yt_fill_star"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_GAMING_SECTION,
+                        "yt_outline_gaming"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_MUSIC_SECTION,
+                        "yt_outline_audio"
+                )
         );
 
         addPathCallbacks(
                 aiGeneratedVideoSummarySection,
                 askSection,
-                attributesSection,
                 featuredLinksSection,
                 featuredVideosSection,
                 horizontalShelf,
@@ -139,7 +159,7 @@ public final class DescriptionComponentsFilter extends Filter {
             return PlayerType.getCurrent().isMaximizedOrFullscreen();
         }
 
-        if (matchedGroup == subscribeButton) {
+        if (matchedGroup == featuredLinksSection || matchedGroup == featuredVideosSection || matchedGroup == subscribeButton) {
             return path.startsWith(INFOCARDS_SECTION_PATH);
         }
 
@@ -150,7 +170,7 @@ public final class DescriptionComponentsFilter extends Filter {
         }
 
         if (matchedGroup == horizontalShelf) {
-            return cellVideoAttribute.check(buffer).isFiltered();
+            return horizontalShelfGroupList.check(buffer).isFiltered();
         }
 
         return true;

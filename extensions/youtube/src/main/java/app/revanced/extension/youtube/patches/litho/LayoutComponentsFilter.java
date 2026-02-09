@@ -281,16 +281,20 @@ public final class LayoutComponentsFilter extends Filter {
         );
         channelProfileGroupList = new StringFilterGroupList();
         channelProfileGroupList.addAll(new StringFilterGroup(
-                        Settings.HIDE_STORE_BUTTON,
-                        "header_store_button"
-                ),
-                new StringFilterGroup(
                         Settings.HIDE_COMMUNITY_BUTTON,
                         "community_button"
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_JOIN_BUTTON,
                         "sponsor_button"
+                ),
+                new StringFilterGroup(
+                        Settings.HIDE_STORE_BUTTON,
+                        "header_store_button"
+                ),
+                new StringFilterGroup(
+                        Settings.HIDE_SUBSCRIBE_BUTTON_IN_CHANNEL_PAGE,
+                        "subscribe_button"
                 )
         );
 

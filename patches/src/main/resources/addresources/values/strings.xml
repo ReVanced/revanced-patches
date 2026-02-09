@@ -280,7 +280,7 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_movies_section_title">Hide movies section</string>
             <string name="revanced_hide_movies_section_summary_on">Movies section is hidden</string>
             <string name="revanced_hide_movies_section_summary_off">Movies section is shown</string>
-            <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
+            <!-- 'Notify me' should be translated using the same localized wording YouTube displays for this button.
                   This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
             <string name="revanced_hide_notify_me_button_title">Hide \'Notify me\' button</string>
             <string name="revanced_hide_notify_me_button_summary_on">Notify me button is hidden</string>
