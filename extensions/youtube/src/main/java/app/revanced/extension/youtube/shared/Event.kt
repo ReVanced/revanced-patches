@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube
+package app.revanced.extension.youtube.shared
 
 import app.revanced.extension.shared.Logger
 import java.util.Collections
