@@ -1719,6 +1719,7 @@ Video playback with AV1 may stutter or drop frames."</string>
             <string name="revanced_custom_branding_name_entry_4" translatable="false">Music</string>
         </patch>
         <patch id="misc.settings.settingsPatch">
+            <!-- In languages where "About" is ambiguous, translate to "About ReVanced" (i.e., About this app). -->
             <string name="revanced_settings_music_screen_0_about_title">About</string>
             <string name="revanced_settings_music_screen_1_ads_title">Ads</string>
             <string name="revanced_settings_music_screen_2_general_title">General</string>
