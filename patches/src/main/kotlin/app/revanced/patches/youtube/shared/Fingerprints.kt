@@ -40,6 +40,14 @@ internal val BytecodePatchContext.conversionContextToStringMethod by gettingFirs
     instructions("ConversionContext{"(String::startsWith)) // Partial string match.
 }
 
+internal val BytecodePatchContext.backgroundPlaybackManagerShortsMethod by gettingFirstMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returnType("Z")
+    parameterTypes("L")
+    instructions(151635310L())
+}
+
+
 internal fun BytecodePatchContext.getLayoutConstructorMethodMatch() = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")

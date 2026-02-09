@@ -72,13 +72,6 @@ internal val BytecodePatchContext.kidsBackgroundPlaybackPolicyControllerMethod b
     literal { 5 }
 }
 
-internal val BytecodePatchContext.backgroundPlaybackManagerShortsMethod by gettingFirstMethodDeclaratively {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returnType("Z")
-    parameterTypes("L")
-    instructions(151635310L())
-}
-
 internal val BytecodePatchContext.shortsBackgroundPlaybackFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")

@@ -14,6 +14,7 @@ import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.backgroundPlaybackManagerShortsMethod
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
