@@ -3,6 +3,9 @@ package app.revanced.patches.shared.misc.debugging
 import app.revanced.patcher.gettingFirstImmutableMethodDeclaratively
 import app.revanced.patcher.firstMethodDeclaratively
 import app.revanced.patcher.accessFlags
+import app.revanced.patcher.custom
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
@@ -14,7 +17,12 @@ internal val BytecodePatchContext.experimentalFeatureFlagParentMethod by getting
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("L")
-    parameterTypes("L", "J", "[B")
+    instructions("Unable to parse proto typed experiment flag: "())
+    custom {
+        // Early targets is: "L", "J", "[B".
+        // Later targets is: "L", "J".
+        parameters.let { (it.size == 2 || it.size == 3) && it[1].type == "J" }
+    }
 }
 
 context(_: BytecodePatchContext)
