@@ -131,9 +131,10 @@ public class FeatureFlagsManagerPreference extends Preference {
         disabledFlags.removeAll(FLAGS_TO_IGNORE);
 
         if (allKnownFlags.isEmpty() && disabledFlags.isEmpty()) {
-            // String does not need to be localized because it's basically impossible
-            // to reach the settings menu without encountering at least 1 flag.
-            Utils.showToastShort("No feature flags logged yet");
+            // It's impossible to reach the settings menu without reaching at least one flag.
+            // So if theres no flags, then that means the user has just enabled debugging
+            // but has not restarted the app yet.
+            Utils.showToastShort(str("revanced_debug_feature_flags_manager_toast_no_flags"));
             return;
         }
 
