@@ -126,7 +126,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
             addInstructionsWithLabels(
                 constIndex,
                 """
-                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideAutoPlayButton()Z
+                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideAutoplayButton()Z
                     move-result v$constRegister
                     if-nez v$constRegister, :hidden
                 """,

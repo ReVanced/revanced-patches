@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.hide.endscreensuggestion
+package app.revanced.patches.youtube.layout.hide.endscreensuggestedvideo
 
 import app.revanced.patcher.*
 import app.revanced.patcher.extensions.instructions

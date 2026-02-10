@@ -19,7 +19,7 @@ public final class HidePlayerOverlayButtonsPatch {
     /**
      * Injection point.
      */
-    public static boolean hideAutoPlayButton() {
+    public static boolean hideAutoplayButton() {
         return HIDE_AUTOPLAY_BUTTON_ENABLED;
     }
 
