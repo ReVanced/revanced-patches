@@ -152,7 +152,8 @@ public final class ShortsFilter extends Filter {
 
         StringFilterGroup reelSoundMetadata = new StringFilterGroup(
                 Settings.HIDE_SHORTS_SOUND_METADATA_LABEL,
-                "reel_sound_metadata"
+                "reel_sound_metadata",
+                "reel_carousel.e"
         );
 
         StringFilterGroup soundButton = new StringFilterGroup(
