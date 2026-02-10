@@ -10,8 +10,8 @@ internal val getSpeedFingerprint = fingerprint {
 }
 
 internal val setSpeedFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("V")
-    parameters("Ljava/lang/String;", "Lcom/ss/android/ugc/aweme/feed/model/Aweme;", "F")
-    strings("enterFrom")
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Ljava/lang/Object;")
+    strings("playback_speed")
+    custom { method, _ -> method.name == "invoke" && method.parameterTypes.isEmpty() }
 }

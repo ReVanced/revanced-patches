@@ -16,6 +16,7 @@ val playbackSpeedPatch = bytecodePatch(
     name = "Playback speed",
     description = "Enables the playback speed option for all videos and " +
         "retains the speed configurations in between videos.",
+    use = false
 ) {
     compatibleWith(
         "com.ss.android.ugc.trill"("36.5.4"),

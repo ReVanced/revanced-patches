@@ -7,11 +7,13 @@ public class ShopFilter implements IFilter {
     private static final String SHOP_INFO = "placeholder_product_id";
     @Override
     public boolean getEnabled() {
-        return Settings.HIDE_SHOP.get();
+        return true;
+        // return Settings.HIDE_SHOP.get();
     }
 
     @Override
     public boolean getFiltered(Aweme item) {
-        return item.getShareUrl().contains(SHOP_INFO);
+        String shareUrl = item.getShareUrl();
+        return shareUrl != null && shareUrl.contains(SHOP_INFO);
     }
 }

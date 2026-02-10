@@ -11,6 +11,9 @@ public class ImageVideoFilter implements IFilter {
 
     @Override
     public boolean getFiltered(Aweme item) {
-        return item.isImage() || item.isPhotoMode();
+        var imageInfos = item.getImageInfos();
+        boolean isImage = imageInfos != null && !imageInfos.isEmpty();
+        boolean isPhotoMode = item.getPhotoModeImageInfo() != null || item.getPhotoModeTextInfo() != null;
+        return isImage || isPhotoMode;
     }
 }

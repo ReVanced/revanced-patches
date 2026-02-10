@@ -26,58 +26,19 @@ val sanitizeShareUrlsPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     compatibleWith(
-        "com.ss.android.ugc.trill"("36.5.4"),
-        "com.zhiliaoapp.musically"("36.5.4"),
+        "com.ss.android.ugc.trill"("43.8.3"),
+        "com.zhiliaoapp.musically"("43.8.3"),
     )
 
     execute {
         urlShorteningFingerprint.method.apply {
-            val invokeIndex = indexOfFirstInstructionOrThrow {
-                val ref = getReference<MethodReference>()
-                ref?.name == "LIZ" && ref.definingClass.startsWith("LX/")
-            }
+            val longUrlRegister = implementation!!.registerCount - 6 + 3
 
-            val moveResultIndex = indexOfFirstInstructionOrThrow(invokeIndex, Opcode.MOVE_RESULT_OBJECT)
-            val urlRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
-
-            // Resolve Observable wrapper classes at runtime
-            val observableWrapperIndex = indexOfFirstInstructionOrThrow(Opcode.NEW_INSTANCE)
-            val observableWrapperClass = getInstruction<ReferenceInstruction>(observableWrapperIndex)
-                .reference.toString()
-
-            val observableFactoryIndex = indexOfFirstInstructionOrThrow {
-                val ref = getReference<MethodReference>()
-                ref?.name == "LJ" && ref.definingClass.startsWith("LX/")
-            }
-            val observableFactoryRef = getInstruction<ReferenceInstruction>(observableFactoryIndex)
-                .reference as MethodReference
-
-            val observableFactoryClass = observableFactoryRef.definingClass
-            val observableInterfaceType = observableFactoryRef.parameterTypes.first()
-            val observableReturnType = observableFactoryRef.returnType
-
-            val wrapperRegister = findFreeRegister(moveResultIndex + 1, urlRegister)
-
-            // Check setting and conditionally sanitize share URL.
-            addInstructionsWithLabels(
-                moveResultIndex + 1,
+            addInstructions(
+                0,
                 """
-                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->shouldSanitize()Z
-                    move-result v$wrapperRegister
-                    if-eqz v$wrapperRegister, :skip_sanitization
-
-                    invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->sanitizeShareUrl(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v$urlRegister
-
-                    # Wrap sanitized URL and return early to bypass ShareExtService
-                    new-instance v$wrapperRegister, $observableWrapperClass
-                    invoke-direct { v$wrapperRegister, v$urlRegister }, $observableWrapperClass-><init>(Ljava/lang/String;)V
-                    invoke-static { v$wrapperRegister }, $observableFactoryClass->LJ($observableInterfaceType)$observableReturnType
-                    move-result-object v$urlRegister
-                    return-object v$urlRegister
-
-                    :skip_sanitization
-                    nop
+                    invoke-static/range { v$longUrlRegister .. v$longUrlRegister }, $EXTENSION_CLASS_DESCRIPTOR->sanitizeShareUrl(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$longUrlRegister
                 """
             )
         }

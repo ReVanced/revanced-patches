@@ -13,7 +13,8 @@ public final class ShareUrlSanitizer {
      * Injection point for setting check.
      */
     public static boolean shouldSanitize() {
-        return BaseSettings.SANITIZE_SHARED_LINKS.get();
+        return true;
+        // return BaseSettings.SANITIZE_SHARED_LINKS.get();
     }
 
     /**

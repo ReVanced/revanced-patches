@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
-import app.revanced.patches.tiktok.misc.settings.settingsPatch
 import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
@@ -25,12 +24,11 @@ val downloadsPatch = bytecodePatch(
 ) {
     dependsOn(
         sharedExtensionPatch,
-        settingsPatch,
     )
 
     compatibleWith(
-        "com.ss.android.ugc.trill"("36.5.4"),
-        "com.zhiliaoapp.musically"("36.5.4"),
+        "com.ss.android.ugc.trill"("43.8.3"),
+        "com.zhiliaoapp.musically"("43.8.3"),
     )
 
     execute {
