@@ -602,12 +602,12 @@ public class SegmentPlaybackController {
                         }
                     }, delayUntilSkip);
                 }
-            }
 
-            // Clear undo range if video time is outside the segment.  Must check last.
-            if (undoAutoSkipRange != null && !undoAutoSkipRange.contains(millis)) {
-                Logger.printDebug(() -> "Clearing undo range as current time is now outside range: " + undoAutoSkipRange);
-                undoAutoSkipRange = null;
+                // Clear undo range if video time is outside the segment.  Must check last.
+                if (undoAutoSkipRange != null && !undoAutoSkipRange.contains(millis)) {
+                    Logger.printDebug(() -> "Clearing undo range as current time is now outside range: " + undoAutoSkipRange);
+                    undoAutoSkipRange = null;
+                }
             }
         } catch (Exception e) {
             Logger.printException(() -> "setVideoTime failure", e);
@@ -629,7 +629,9 @@ public class SegmentPlaybackController {
 
     private static void setSegmentCurrentlyPlaying(@Nullable SponsorSegment segment) {
         if (segment == null) {
-            if (segmentCurrentlyPlaying != null) Logger.printDebug(() -> "Hiding segment: " + segmentCurrentlyPlaying);
+            if (segmentCurrentlyPlaying != null) {
+                Logger.printDebug(() -> "Hiding segment: " + segmentCurrentlyPlaying);
+            }
             segmentCurrentlyPlaying = null;
             skipSegmentButtonEndTime = 0;
             SponsorBlockViewController.hideSkipSegmentButton();
@@ -744,6 +746,15 @@ public class SegmentPlaybackController {
     private static boolean shouldAutoSkipAndUndoSkipNotActive(SponsorSegment segment, long currentVideoTime) {
         return segment.shouldAutoSkip() && (undoAutoSkipRange == null
                 || !undoAutoSkipRange.contains(currentVideoTime));
+    }
+
+    public static boolean currentlyInsideSkippableSegment() {
+        return segmentCurrentlyPlaying != null || !hiddenSkipSegmentsForCurrentVideoTime.isEmpty();
+    }
+
+    public static boolean shouldNotFadeOutPlayerOverlaySkipButton() {
+        // Only fade out overlay if auto hide is enabled and a scheduled button auto hide is not scheduled.
+        return skipSegmentButtonEndTime != 0 || !Settings.SB_AUTO_HIDE_SKIP_BUTTON.get();
     }
 
     private static void showSkippedSegmentToast(SponsorSegment segment) {
@@ -891,7 +902,8 @@ public class SegmentPlaybackController {
      */
     public static void onSkipSegmentClicked(SponsorSegment segment) {
         try {
-            if (segment != highlightSegment && segment != segmentCurrentlyPlaying) {
+            if (segment != highlightSegment && segment != segmentCurrentlyPlaying
+                    && !hiddenSkipSegmentsForCurrentVideoTime.contains(segment)) {
                 Logger.printException(() -> "error: segment not available to skip"); // Should never happen.
                 SponsorBlockViewController.hideSkipSegmentButton();
                 SponsorBlockViewController.hideSkipHighlightButton();
@@ -994,7 +1006,7 @@ public class SegmentPlaybackController {
     @SuppressWarnings("unused")
     public static void drawSegmentTimeBars(final Canvas canvas, final float posY) {
         try {
-            if (segments == null) return;
+            if (segments == null || isAdProgressTextVisible()) return;
             final long videoLength = VideoInformation.getVideoLength();
             if (videoLength <= 0) return;
 
