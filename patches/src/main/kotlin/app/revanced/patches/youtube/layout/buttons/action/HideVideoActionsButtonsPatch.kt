@@ -48,17 +48,8 @@ val hideVideoActionButtonsPatch = resourcePatch(
 
             )
 
-        if (is_20_22_or_greater) {
-            // 20.22+ filtering of the action buttons doesn't work because
-            // the buffer is the same for all buttons.
-            // TODO: Eventually remove this warning.
-            Logger.getLogger(this::class.java.name).warning(
-                "\n!!!" +
-                    "\n!!! Not all player action buttons can be set hidden when patching 20.22+" +
-                    "\n!!! Patch 20.21.37 or lower if you want to hide player action buttons" +
-                    "\n!!!",
-            )
-        } else {
+        // 20.22+ cannot hide all action buttons because of buffer changes.
+        if (!is_20_22_or_greater) {
             preferences.addAll(
                 listOf(
                     SwitchPreference("revanced_hide_hype_button"),

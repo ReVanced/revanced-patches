@@ -8,6 +8,7 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_20_03_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_21_03_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -41,10 +42,16 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             "20.26.46",
             "20.31.42",
             "20.37.48"
+            // This patch is obsolete with 20.03 because YT seems to have
+            // removed resuming Shorts functionality.
+            // TODO: Before adding 20.03+, merge this patch into `Hide Shorts component`
         ),
     )
 
     apply {
+        // 21.03+ seems to no longer have resuming Shorts functionality.
+        if (is_21_03_or_greater) return@apply
+
         addResources("youtube", "layout.startupshortsreset.disableResumingShortsOnStartupPatch")
 
         PreferenceScreen.SHORTS.addPreferences(

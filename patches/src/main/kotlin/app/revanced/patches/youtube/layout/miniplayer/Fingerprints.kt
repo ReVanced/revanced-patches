@@ -148,8 +148,14 @@ internal val BytecodePatchContext.miniplayerMinimumSizeMethodMatch by composingF
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.DIMEN("miniplayer_max_size"),
-        192L(), // Default miniplayer width constant.
-        128L(), // Default miniplayer height constant.
+        anyOf( // Default miniplayer width constant.
+            192L(),
+            192.0f.toRawBits().toLong()(), // 21.03+
+        ),
+        anyOf( // Default miniplayer height constant.
+            128L(),
+            128.0f.toRawBits().toLong()(), // 21.03+
+        )
     )
 }
 

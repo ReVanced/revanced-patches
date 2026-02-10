@@ -95,10 +95,12 @@ internal val BytecodePatchContext.rollingNumberTextViewMethod by gettingFirstMet
 }
 
 internal val BytecodePatchContext.textComponentConstructorMethod by gettingFirstImmutableMethodDeclaratively {
-    accessFlags(AccessFlags.CONSTRUCTOR, AccessFlags.PRIVATE)
-    instructions(
-        "TextComponent"(),
-    )
+    custom {
+        // 20.23+ is public.
+        // 20.22 and lower is private.
+        AccessFlags.CONSTRUCTOR.isSet(accessFlags)
+    }
+    instructions("TextComponent"())
 }
 
 internal val BytecodePatchContext.textComponentDataMethod by gettingFirstImmutableMethodDeclaratively {

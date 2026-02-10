@@ -50,10 +50,6 @@ internal val BytecodePatchContext.protobufBufferReferenceLegacyMethod by getting
     opcodes(Opcode.IPUT, Opcode.INVOKE_VIRTUAL, Opcode.MOVE_RESULT, Opcode.SUB_INT_2ADDR)
 }
 
-internal val BytecodePatchContext.componentContextParserMethodMatch by composingFirstMethod {
-    instructions("Number of bits must be positive"())
-}
-
 internal val BytecodePatchContext.emptyComponentMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
     parameterTypes()

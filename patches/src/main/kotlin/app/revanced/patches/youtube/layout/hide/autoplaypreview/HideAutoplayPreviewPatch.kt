@@ -1,10 +1,11 @@
 package app.revanced.patches.youtube.layout.hide.autoplaypreview
 
 import app.revanced.patcher.extensions.ExternalLabel
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
@@ -41,7 +42,9 @@ val hideAutoplayPreviewPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
+        addResources("youtube", "layout.hide.autoplaypreview.hideAutoplayPreviewPatch")
+
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("morphe_hide_autoplay_preview")
         )

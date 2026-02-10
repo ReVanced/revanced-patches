@@ -9,7 +9,10 @@ import com.android.tools.smali.dexlib2.iface.ClassDef
 
 internal val BytecodePatchContext.componentContextParserMethod by gettingFirstImmutableMethodDeclaratively {
     returnType("L")
-    instructions("Number of bits must be positive"())
+    instructions(
+        "Failed to parse Element proto."(),
+        "Cannot read theme key from model."()
+    )
 }
 
 context(_: BytecodePatchContext)

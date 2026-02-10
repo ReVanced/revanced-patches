@@ -62,7 +62,7 @@ internal fun ClassDef.getSeekMethod() = firstImmutableMethodDeclaratively {
             // 20.xx
             "Attempting to seek during an ad"(),
             // 21.02+
-            "Attempting to seek during an ad or non-seekable video"()
+            "currentPositionMs."()
         )
     )
 }
