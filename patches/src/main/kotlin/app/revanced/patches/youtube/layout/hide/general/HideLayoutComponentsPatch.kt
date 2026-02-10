@@ -12,6 +12,7 @@ import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
+import app.revanced.patches.youtube.misc.playservice.is_20_21_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_26_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -205,7 +206,6 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         SwitchPreference("revanced_hide_movies_section"),
         SwitchPreference("revanced_hide_notify_me_button"),
         SwitchPreference("revanced_hide_playables"),
-        SwitchPreference("revanced_hide_search_suggestions"),
         SwitchPreference("revanced_hide_show_more_button"),
         SwitchPreference("revanced_hide_surveys"),
         SwitchPreference("revanced_hide_ticket_shelf"),
@@ -215,6 +215,12 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         SwitchPreference("revanced_hide_visual_spacer"),
         SwitchPreference("revanced_hide_doodles"),
     )
+
+    if (is_20_21_or_greater) {
+        PreferenceScreen.FEED.addPreferences(
+            SwitchPreference("revanced_hide_search_suggestions")
+        )
+    }
 
     // region Mix playlists
 
@@ -437,20 +443,20 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // Hide search suggestions
 
+    if (is_20_21_or_greater) {
+        searchBoxTypingMethodMatch.let {
+            it.method.apply {
+                val stringRegisterIndex = it.indices[1][0]
 
-    searchBoxTypingMethodMatch.let {
-        it.method.apply {
-            val stringRegisterIndex = it.indices[1][0]
+                val typingStringRegister =
+                    getInstruction<TwoRegisterInstruction>(stringRegisterIndex).registerA
 
-            val typingStringRegister =
-                getInstruction<TwoRegisterInstruction>(stringRegisterIndex).registerA
+                val insertIndex = stringRegisterIndex + 1
+                val freeRegister = findFreeRegister(insertIndex, typingStringRegister)
 
-            val insertIndex = stringRegisterIndex + 1
-            val freeRegister = findFreeRegister(insertIndex, typingStringRegister)
-
-            addInstructionsWithLabels(
-                insertIndex,
-                """
+                addInstructionsWithLabels(
+                    insertIndex,
+                    """
                     invoke-static { v$typingStringRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideSearchSuggestions(Ljava/lang/String;)Z
                     move-result v$freeRegister
                     if-eqz v$freeRegister, :show
@@ -458,7 +464,8 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                     :show
                     nop
                 """
-            )
+                )
+            }
         }
     }
 }
