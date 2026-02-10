@@ -346,8 +346,10 @@
             <string-array name="revanced_splash_screen_animation_style_entries">
                 <item>@string/revanced_splash_screen_animation_style_entry_1</item>
                 <item>@string/revanced_splash_screen_animation_style_entry_2</item>
+                <item>@string/revanced_splash_screen_animation_style_entry_3</item>
             </string-array>
             <string-array name="revanced_splash_screen_animation_style_entry_values">
+                <item>DISABLED</item>
                 <item>FPS_60_ONE_SECOND</item>
                 <item>FPS_60_BLACK_AND_WHITE</item>
             </string-array>

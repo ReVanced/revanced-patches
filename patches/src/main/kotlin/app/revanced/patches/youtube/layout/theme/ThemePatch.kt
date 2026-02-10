@@ -1,5 +1,7 @@
 package app.revanced.patches.youtube.layout.theme
 
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
@@ -20,10 +22,13 @@ import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.seekbar.seekbarColorPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_02_or_greater
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.forEachChildElement
 import app.revanced.util.insertLiteralOverride
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.w3c.dom.Element
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/theme/ThemePatch;"
@@ -211,6 +216,40 @@ val themePatch = baseThemePatch(
                 splashScreenStyleMethodMatch[0],
                 "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I",
             )
+        }
+
+        showSplashScreen1MethodMatch.let {
+            it.method.apply {
+                val index = it[-1]
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index + 1,
+                    """
+                        invoke-static { v$register }, ${EXTENSION_CLASS_DESCRIPTOR}->showSplashScreen(Z)Z
+                        move-result v$register
+                    """
+                )
+            }
+        }
+
+        if (is_20_02_or_greater) {
+            showSplashScreen2MethodMatch.let {
+                val insertIndex = it[1]
+                it.method.apply {
+                    val insertInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
+                    val registerA = insertInstruction.registerA
+                    val registerB = insertInstruction.registerB
+
+                    addInstructions(
+                        insertIndex,
+                        """
+                            invoke-static { v$registerA, v$registerB }, ${EXTENSION_CLASS_DESCRIPTOR}->showSplashScreen(II)I
+                            move-result v$registerA
+                        """
+                    )
+                }
+            }
         }
     },
 )
