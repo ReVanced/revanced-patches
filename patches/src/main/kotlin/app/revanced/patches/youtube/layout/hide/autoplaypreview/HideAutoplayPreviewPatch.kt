@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import kotlin.collections.first
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
-    "Lapp/morphe/extension/youtube/patches/HideAutoplayPreviewPatch;"
+    "Lapp/revanced/extension/youtube/patches/HideAutoplayPreviewPatch;"
 
 @Suppress("unused")
 val hideAutoplayPreviewPatch = bytecodePatch(
@@ -46,7 +46,7 @@ val hideAutoplayPreviewPatch = bytecodePatch(
         addResources("youtube", "layout.hide.autoplaypreview.hideAutoplayPreviewPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("morphe_hide_autoplay_preview")
+            SwitchPreference("revanced_hide_autoplay_preview")
         )
 
         getLayoutConstructorMethodMatch().method.apply {

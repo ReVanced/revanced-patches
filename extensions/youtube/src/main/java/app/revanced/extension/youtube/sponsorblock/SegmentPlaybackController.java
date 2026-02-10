@@ -818,6 +818,13 @@ public class SegmentPlaybackController {
         Objects.requireNonNull(messageToToast);
         Utils.verifyOnMainThread();
 
+        if (PlayerType.getCurrent() == PlayerType.INLINE_MINIMAL) {
+            // Cannot easily show a toast since there is no layout view context.
+            // Probably better to not show a toast here anyway.
+            Logger.printException(() -> "Not showing undo toast for feed playback");
+            return;
+        }
+
         Context currentContext = SponsorBlockViewController.getOverLaysViewGroupContext();
         if (currentContext == null) {
             Logger.printException(() -> "Cannot show toast (context is null): " + messageToToast);

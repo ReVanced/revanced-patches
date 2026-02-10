@@ -99,7 +99,7 @@ public class SponsorBlockViewController {
             // Handles fading in/out with the player overlay.
             skipSponsorPlayerButton = new PlayerControlButton(
                     layout,
-                    "morphe_sb_skip_sponsor_button",
+                    "revanced_sb_skip_sponsor_button",
                     null,
                     () -> canShowViewElements && SegmentPlaybackController.currentlyInsideSkippableSegment(),
                     view -> {
