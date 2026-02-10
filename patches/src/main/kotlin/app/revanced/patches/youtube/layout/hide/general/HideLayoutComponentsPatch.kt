@@ -153,7 +153,10 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                 SwitchPreference("revanced_hide_keyword_content_home"),
                 SwitchPreference("revanced_hide_keyword_content_subscriptions"),
                 SwitchPreference("revanced_hide_keyword_content_search"),
-                TextPreference("revanced_hide_keyword_content_phrases", inputType = InputType.TEXT_MULTI_LINE),
+                TextPreference(
+                    "revanced_hide_keyword_content_phrases",
+                    inputType = InputType.TEXT_MULTI_LINE
+                ),
                 NonInteractivePreference(
                     key = "revanced_hide_keyword_content_about",
                     tag = "app.revanced.extension.shared.settings.preference.BulletPointPreference",
@@ -202,6 +205,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         SwitchPreference("revanced_hide_movies_section"),
         SwitchPreference("revanced_hide_notify_me_button"),
         SwitchPreference("revanced_hide_playables"),
+        SwitchPreference("revanced_hide_search_suggestions"),
         SwitchPreference("revanced_hide_show_more_button"),
         SwitchPreference("revanced_hide_surveys"),
         SwitchPreference("revanced_hide_ticket_shelf"),
@@ -220,12 +224,18 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
             val insertIndex = startIndex + 1
 
             val byteArrayParameter = "p3"
-            val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
-            val returnEmptyComponentInstruction = instructions.last { it.opcode == Opcode.INVOKE_STATIC }
+            val conversionContextRegister =
+                getInstruction<TwoRegisterInstruction>(startIndex).registerA
+            val returnEmptyComponentInstruction =
+                instructions.last { it.opcode == Opcode.INVOKE_STATIC }
             val returnEmptyComponentRegister =
                 (returnEmptyComponentInstruction as FiveRegisterInstruction).registerC
             val freeRegister =
-                findFreeRegister(insertIndex, conversionContextRegister, returnEmptyComponentRegister)
+                findFreeRegister(
+                    insertIndex,
+                    conversionContextRegister,
+                    returnEmptyComponentRegister
+                )
 
             addInstructionsWithLabels(
                 insertIndex,
@@ -273,7 +283,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
             addInstruction(
                 insertIndex,
                 "invoke-static { v$viewRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
-                    "->hideShowMoreButton(Landroid/view/View;)V",
+                        "->hideShowMoreButton(Landroid/view/View;)V",
             )
         }
     }
@@ -289,7 +299,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
             addInstruction(
                 insertIndex,
                 "invoke-static {v$objectRegister}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
-                    "->hideCrowdfundingBox(Landroid/view/View;)V",
+                        "->hideCrowdfundingBox(Landroid/view/View;)V",
             )
         }
     }
@@ -307,7 +317,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
             addInstruction(
                 insertIndex,
                 "invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
-                    "->hideAlbumCard(Landroid/view/View;)V",
+                        "->hideAlbumCard(Landroid/view/View;)V",
             )
         }
     }
@@ -345,7 +355,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
             replaceInstruction(
                 insertIndex,
                 "invoke-static { v$imageViewRegister, v$drawableRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->" +
-                    "setDoodleDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V",
+                        "setDoodleDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V",
             )
         }
     }
@@ -362,10 +372,10 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         val applyDimensionIndex = indexOfFirstInstructionReversedOrThrow {
             val reference = getReference<MethodReference>()
             opcode == Opcode.INVOKE_STATIC &&
-                reference?.definingClass == "Landroid/util/TypedValue;" &&
-                reference.returnType == "F" &&
-                reference.name == "applyDimension" &&
-                reference.parameterTypes == listOf("I", "F", "Landroid/util/DisplayMetrics;")
+                    reference?.definingClass == "Landroid/util/TypedValue;" &&
+                    reference.returnType == "F" &&
+                    reference.name == "applyDimension" &&
+                    reference.parameterTypes == listOf("I", "F", "Landroid/util/DisplayMetrics;")
         }
 
         // A float value is passed which is used to determine subtitle text size.
@@ -422,6 +432,33 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     relatedChipCloudMethodMatch.patch<OneRegisterInstruction>(1) { register ->
         "invoke-static { v$register }, " +
-            "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
+                "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
+    }
+
+    // Hide search suggestions
+
+
+    searchBoxTypingMethodMatch.let {
+        it.method.apply {
+            val stringRegisterIndex = it.indices[1][0]
+
+            val typingStringRegister =
+                getInstruction<TwoRegisterInstruction>(stringRegisterIndex).registerA
+
+            val insertIndex = stringRegisterIndex + 1
+            val freeRegister = findFreeRegister(insertIndex, typingStringRegister)
+
+            addInstructionsWithLabels(
+                insertIndex,
+                """
+                    invoke-static { v$typingStringRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideSearchSuggestions(Ljava/lang/String;)Z
+                    move-result v$freeRegister
+                    if-eqz v$freeRegister, :show
+                    return-void
+                    :show
+                    nop
+                """
+            )
+        }
     }
 }

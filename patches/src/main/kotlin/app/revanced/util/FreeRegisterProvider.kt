@@ -194,21 +194,26 @@ class FreeRegisterProvider internal constructor(
 }
 
 /**
- * Starting from and including the instruction at index [index], finds the next register
- * that is written to and not read from.
+ * Starting from and including the instruction at index [index],
+ * finds the next register that is written to and not read from. If a return instruction
+ * is encountered, then the lowest unused register is returned.
  *
- * This method can return a non 4-bit register, and the calling code may need to temporarily
- * swap register contents if a 4-bit register is required.
+ * This method should work for all situations including inserting at a branch statement,
+ * but this may not work if the index is at or just before a switch statement or if the branch
+ * paths have no common free registers.
  *
- * @param index Inclusive starting index.
+ * If you need multiple free registers, then instead use [Method.getFreeRegisterProvider].
+ *
+ * @param index Index you need a use a free register at.
  * @param registersToExclude Registers to exclude, and consider as used. For most use cases,
  *                           all registers used in injected code should be specified.
  * @return The lowest register number (usually a 4-bit register) that is free at the given index.
  * @throws IllegalArgumentException If no free registers can be found at the given index.
  *                                  This includes unusual method indexes that read from every register
  *                                  before any registers are wrote to, or if a switch statement is
- *                                  encountered before any free registers are found.
- * @see [FreeRegisterProvider]
+ *                                  encountered before any free registers are found, or if the index is
+ *                                  at/before a branch statement and the method has an unusually high
+ *                                  amount of branching where no common free registers exist in both branch paths.
  */
 fun Method.findFreeRegister(
     index: Int,
@@ -225,7 +230,8 @@ fun Method.findFreeRegister(
  * is encountered, then the lowest unused register is returned.
  *
  * This method should work for all situations including inserting at a branch statement,
- * but this may not work if the index is at or just before a switch statement.
+ * but this may not work if the index is at or just before a switch statement or if the branch
+ * paths have no common free registers.
  *
  * If you need multiple free registers, then instead use [Method.getFreeRegisterProvider].
  *
@@ -233,9 +239,12 @@ fun Method.findFreeRegister(
  * @param registersToExclude Registers to exclude, and consider as used. For most use cases,
  *                           all registers used in injected code should be specified.
  * @return The lowest register number (usually a 4-bit register) that is free at the given index.
- * @throws IllegalArgumentException If no free registers exist at the given index, and should only
- *                                  occur if a switch statement is encountered before a free
- *                                  register is found.
+ * @throws IllegalArgumentException If no free registers can be found at the given index.
+ *                                  This includes unusual method indexes that read from every register
+ *                                  before any registers are wrote to, or if a switch statement is
+ *                                  encountered before any free registers are found, or if the index is
+ *                                  at/before a branch statement and the method has an unusually high
+ *                                  amount of branching where no common free registers exist in both branch paths.
  */
 fun Method.findFreeRegister(
     index: Int,

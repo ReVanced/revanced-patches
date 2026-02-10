@@ -146,3 +146,16 @@ internal val BytecodePatchContext.hideViewCountMethodMatch by composingFirstMeth
         Opcode.RETURN_OBJECT,
     )
 }
+
+internal val BytecodePatchContext.searchBoxTypingMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("L")
+    instructions(ResourceType.DIMEN("suggestion_category_divider_height"))
+    instructions(
+        allOf(Opcode.IGET_OBJECT(), field { type == "Ljava/lang/String;"}),
+        afterAtMost(5, method { toString() == "Ljava/lang/String;->isEmpty()Z"}),
+        after(Opcode.MOVE_RESULT()),
+        after(Opcode.IF_NEZ())
+    )
+}

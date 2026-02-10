@@ -288,6 +288,9 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_playables_title">Hide Playables</string>
             <string name="revanced_hide_playables_summary_on">Playables are hidden</string>
             <string name="revanced_hide_playables_summary_off">Playables are shown</string>
+            <string name="revanced_hide_search_suggestions_title">Hide search suggestions</string>
+            <string name="revanced_hide_search_suggestions_summary_on">Search suggestions are hidden</string>
+            <string name="revanced_hide_search_suggestions_summary_off">Search suggestions are shown</string>
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
             <string name="revanced_hide_show_more_button_title">Hide \'Show more\' button</string>
