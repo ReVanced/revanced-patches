@@ -1,9 +1,10 @@
 package com.strava.photos.data;
 
-import com.strava.core.data.MediaDimension;
-import com.strava.core.data.MediaType;
-import com.strava.core.data.RemoteMediaContent;
-import com.strava.core.data.RemoteMediaStatus;
+import com.strava.mediamodels.data.MediaDimension;
+import com.strava.mediamodels.data.MediaType;
+import com.strava.mediamodels.data.RemoteMediaContent;
+import com.strava.mediamodels.data.RemoteMediaStatus;
+
 import java.util.SortedMap;
 
 public abstract class Media implements RemoteMediaContent {

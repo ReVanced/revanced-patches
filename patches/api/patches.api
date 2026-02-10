@@ -232,6 +232,10 @@ public final class app/revanced/patches/finanzonline/detection/root/RootDetectio
 	public static final fun getRootDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/fotmob/ads/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/googlenews/customtabs/EnableCustomTabsPatchKt {
 	public static final fun getEnableCustomTabsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -364,6 +368,10 @@ public final class app/revanced/patches/irplus/ad/RemoveAdsPatchKt {
 	public static final fun getRemoveAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/kleinanzeigen/ads/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/letterboxd/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -472,6 +480,10 @@ public final class app/revanced/patches/music/layout/compactheader/HideCategoryB
 	public static final fun getHideCategoryBar ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/layout/hide/general/HideLayoutComponentsPatchKt {
+	public static final fun getHideLayoutComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/layout/miniplayercolor/ChangeMiniplayerColorKt {
 	public static final fun getChangeMiniplayerColor ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -497,6 +509,10 @@ public final class app/revanced/patches/music/misc/androidauto/BypassCertificate
 	public static final fun getBypassCertificateChecksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/misc/androidauto/UnlockAndroidAutoMediaBrowserPatchKt {
+	public static final fun getUnlockAndroidAutoMediaBrowserPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/misc/backgroundplayback/BackgroundPlaybackPatchKt {
 	public static final fun getBackgroundPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -519,6 +535,10 @@ public final class app/revanced/patches/music/misc/gms/Constants {
 
 public final class app/revanced/patches/music/misc/gms/GmsCoreSupportPatchKt {
 	public static final fun getGmsCoreSupportPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/misc/litho/filter/LithoFilterPatchKt {
+	public static final fun getLithoFilterPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/misc/privacy/SanitizeSharingLinksPatchKt {
@@ -575,6 +595,14 @@ public final class app/revanced/patches/netguard/broadcasts/removerestriction/Re
 
 public final class app/revanced/patches/nfctoolsse/misc/pro/UnlockProPatchKt {
 	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/nothingx/misc/extension/SharedExtensionPatchKt {
+	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/nothingx/misc/logk1token/ShowK1TokenPatchsKt {
+	public static final fun getShowK1TokensPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/nunl/ads/HideAdsPatchKt {
@@ -932,6 +960,10 @@ public final class app/revanced/patches/shared/misc/hex/Replacement {
 	public final fun getReplacementBytesPadded ()[B
 }
 
+public final class app/revanced/patches/shared/misc/litho/filter/LithoFilterPatchKt {
+	public static final fun getAddLithoFilter ()Lkotlin/jvm/functions/Function1;
+}
+
 public final class app/revanced/patches/shared/misc/mapping/ResourceElement {
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
@@ -1210,6 +1242,10 @@ public final class app/revanced/patches/stocard/layout/HideOffersTabPatchKt {
 
 public final class app/revanced/patches/stocard/layout/HideStoryBubblesPatchKt {
 	public static final fun getHideStoryBubblesPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
+public final class app/revanced/patches/strava/distractions/HideDistractionsPatchKt {
+	public static final fun getHideDistractionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/strava/groupkudos/AddGiveGroupKudosButtonToGroupActivityKt {

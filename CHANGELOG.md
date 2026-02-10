@@ -1,3 +1,82 @@
+# [5.50.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.5...v5.50.0-dev.6) (2026-02-06)
+
+
+### Features
+
+* **FotMob:** Add `Hide ads` patch ([#6566](https://github.com/ReVanced/revanced-patches/issues/6566)) ([4b0b737](https://github.com/ReVanced/revanced-patches/commit/4b0b7374f21d13599ef2f1e2f5880e7589b0874e))
+
+# [5.50.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.4...v5.50.0-dev.5) (2026-02-01)
+
+
+### Bug Fixes
+
+* Process strings from Crowdin to strip the app/patch prefixes again ([e566efc](https://github.com/ReVanced/revanced-patches/commit/e566efc51fca45c6284406245a360685a8e90d74))
+
+# [5.50.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.3...v5.50.0-dev.4) (2026-01-27)
+
+
+### Bug Fixes
+
+* **Instagram - Open links externally:** Fix patch by handling >4-bit register ([#6538](https://github.com/ReVanced/revanced-patches/issues/6538)) ([f681a6f](https://github.com/ReVanced/revanced-patches/commit/f681a6ffd45f05a61743e7d272cd68c4b743be42))
+
+# [5.50.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.2...v5.50.0-dev.3) (2026-01-26)
+
+
+### Features
+
+* **Kleinanzeigen:** Add `Hide ads` patch ([#6533](https://github.com/ReVanced/revanced-patches/issues/6533)) ([bd6e544](https://github.com/ReVanced/revanced-patches/commit/bd6e544007d539ac2eb890d9bdcb6850435f96cb))
+
+# [5.50.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.1...v5.50.0-dev.2) (2026-01-25)
+
+
+### Bug Fixes
+
+* **Letterboxd - Hide ads:** Fix patch by returning the correct return type ([#6527](https://github.com/ReVanced/revanced-patches/issues/6527)) ([80c34b9](https://github.com/ReVanced/revanced-patches/commit/80c34b9d74a42018a0cd52b4a584ee71206bf963))
+
+# [5.50.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.49.0-dev.1...v5.50.0-dev.1) (2026-01-25)
+
+
+### Bug Fixes
+
+* **Strava:** Fix `Add media download` patch ([#6526](https://github.com/ReVanced/revanced-patches/issues/6526)) ([dc9e68b](https://github.com/ReVanced/revanced-patches/commit/dc9e68ba574dd9f35cd742cb63193c5d875addde))
+
+
+### Features
+
+* **Nothing X:** Add `Show K1 token(s)` patch ([#6490](https://github.com/ReVanced/revanced-patches/issues/6490)) ([421cb28](https://github.com/ReVanced/revanced-patches/commit/421cb2899ef5c0f100fb8007bae8b89137d0e41c))
+* **Strava:** Add `Hide distractions` patch ([#6479](https://github.com/ReVanced/revanced-patches/issues/6479)) ([66b0852](https://github.com/ReVanced/revanced-patches/commit/66b0852f8fa57c82b09997337a304374883d8ba5))
+* **YouTube Music:** Add `Unlock Android Auto Media Browser` patch ([#6477](https://github.com/ReVanced/revanced-patches/issues/6477)) ([5edd9dc](https://github.com/ReVanced/revanced-patches/commit/5edd9dccae3b1ab4edf19771a771812e3c9ccf80))
+
+# [5.50.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.49.0-dev.1...v5.50.0-dev.1) (2026-01-22)
+
+
+### Features
+
+* **Nothing X:** Add `Show K1 token(s)` patch ([#6490](https://github.com/ReVanced/revanced-patches/issues/6490)) ([421cb28](https://github.com/ReVanced/revanced-patches/commit/421cb2899ef5c0f100fb8007bae8b89137d0e41c))
+* **Strava:** Add `Hide distractions` patch ([#6479](https://github.com/ReVanced/revanced-patches/issues/6479)) ([66b0852](https://github.com/ReVanced/revanced-patches/commit/66b0852f8fa57c82b09997337a304374883d8ba5))
+* **YouTube Music:** Add `Unlock Android Auto Media Browser` patch ([#6477](https://github.com/ReVanced/revanced-patches/issues/6477)) ([5edd9dc](https://github.com/ReVanced/revanced-patches/commit/5edd9dccae3b1ab4edf19771a771812e3c9ccf80))
+
+# [5.50.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.48.0...v5.50.0-dev.1) (2026-01-22)
+
+
+### Features
+
+* **YouTube Music:** Add `Unlock Android Auto Media Browser` patch ([#6477](https://github.com/ReVanced/revanced-patches/issues/6477)) ([89645dc](https://github.com/ReVanced/revanced-patches/commit/89645dcc2e13603b8f2fedb5e16231cb396e5965))
+
+# [5.49.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.48.1-dev.1...v5.49.0-dev.1) (2026-01-22)
+
+
+### Features
+
+* **YouTube Music:** Add `Hide layout components` patch ([#6365](https://github.com/ReVanced/revanced-patches/issues/6365)) ([71ce823](https://github.com/ReVanced/revanced-patches/commit/71ce8230a959dcaf2d8cd5dad1a4f21b88819aa0))
+
+## [5.48.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.48.0...v5.48.1-dev.1) (2026-01-21)
+
+
+### Bug Fixes
+
+* Disable `Prevent screenshot detection` by default ([#6511](https://github.com/ReVanced/revanced-patches/issues/6511)) ([5b5c502](https://github.com/ReVanced/revanced-patches/commit/5b5c50254d533faa0e04d542f4859cbef610713e))
+
 # [5.48.0](https://github.com/ReVanced/revanced-patches/compare/v5.47.0...v5.48.0) (2026-01-19)
 
 
