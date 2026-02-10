@@ -537,10 +537,6 @@ public class Settings extends YouTubeAndMusicSettings {
             SPOOF_VIDEO_STREAMS_CLIENT_TYPE.resetToDefault();
         }
 
-        // RYD requires manually migrating old settings since the lack of
-        // a "revanced_" on the old setting causes duplicate key exceptions during export.
-        Setting.migrateFromOldPreferences(Setting.preferences, RYD_USER_ID, "ryd_user_id");
-
         // Migrate old saved data. Must be done here before the settings can be used by any other code.
         applyOldSbOpacityToColor(SB_CATEGORY_SPONSOR_COLOR, DEPRECATED_SB_CATEGORY_SPONSOR_OPACITY);
         applyOldSbOpacityToColor(SB_CATEGORY_SELF_PROMO_COLOR, DEPRECATED_SB_CATEGORY_SELF_PROMO_OPACITY);

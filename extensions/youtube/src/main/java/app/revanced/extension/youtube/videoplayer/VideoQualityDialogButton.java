@@ -23,7 +23,6 @@ import androidx.annotation.Nullable;
 import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.shared.ui.SheetBottomDialog;
 import app.revanced.extension.youtube.shared.PlayerType;
-import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
