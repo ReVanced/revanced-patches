@@ -35,6 +35,7 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.PlayerControlsVisibility;
 import app.revanced.extension.youtube.shared.PlayerType;
 import app.revanced.extension.youtube.shared.VideoState;
 import app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour;
@@ -400,6 +401,11 @@ public class SegmentPlaybackController {
         return adProgressTextVisibility == View.VISIBLE;
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
+    private static boolean autoSkipIsEnabledAndPlayerOverlayIsActive() {
+        return Settings.SB_AUTO_HIDE_SKIP_BUTTON.get() &&
+                PlayerControlsVisibility.getCurrent() != PlayerControlsVisibility.PLAYER_CONTROLS_VISIBILITY_HIDDEN;
+    }
 
     /**
      * Injection point.
@@ -519,7 +525,11 @@ public class SegmentPlaybackController {
                 Logger.printDebug(() -> "Auto hiding skip button for segment: " + segmentCurrentlyPlaying);
                 skipSegmentButtonEndTime = 0;
                 hiddenSkipSegmentsForCurrentVideoTime.add(foundSegmentCurrentlyPlaying);
-                SponsorBlockViewController.hideSkipSegmentButton();
+                // Do not hide if auto-hide is enabled and player controls are visible.
+                // Skip button will hide when the overlay controls are dismissed.
+                if (!autoSkipIsEnabledAndPlayerOverlayIsActive()) {
+                    SponsorBlockViewController.hideSkipSegmentButton();
+                }
             }
 
             // Schedule a hide, but only if the segment end is near.
@@ -645,7 +655,12 @@ public class SegmentPlaybackController {
             if (hiddenSkipSegmentsForCurrentVideoTime.contains(segment)) {
                 // Playback exited a nested segment and the outer segment skip button was previously hidden.
                 Logger.printDebug(() -> "Ignoring previously auto-hidden segment: " + segment);
-                SponsorBlockViewController.hideSkipSegmentButton();
+                // Must set view segment so overlay controls shows the correct skip button.
+                SponsorBlockViewController.setSkipSegment(segment);
+                // Do not hide skip button if
+                if (!autoSkipIsEnabledAndPlayerOverlayIsActive()) {
+                    SponsorBlockViewController.hideSkipSegmentButton();
+                }
                 return;
             }
             skipSegmentButtonEndTime = System.currentTimeMillis() + getSkipButtonDuration();

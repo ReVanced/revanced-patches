@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
@@ -148,16 +147,31 @@ public class SponsorBlockViewController {
         }
     }
 
-    public static void showSkipHighlightButton(@NonNull SponsorSegment segment) {
+    public static void showSkipHighlightButton(SponsorSegment segment) {
         skipHighlight = Objects.requireNonNull(segment);
         NewSegmentLayout newSegmentLayout = newSegmentLayoutRef.get();
-        // don't show highlight button if create new segment is visible
+        // Don't show highlight button if create new segment is visible.
         final boolean buttonVisibility = newSegmentLayout == null || newSegmentLayout.getVisibility() != View.VISIBLE;
         updateSkipButton(skipHighlightButtonRef.get(), false, segment, buttonVisibility);
     }
-    public static void showSkipSegmentButton(@NonNull SponsorSegment segment) {
+
+    /**
+     * Same as {@link #setSkipSegment(SponsorSegment)} and it forcefully shows the skip button.
+     */
+    public static void showSkipSegmentButton(SponsorSegment segment) {
         skipSegment = Objects.requireNonNull(segment);
         updateSkipButton(skipSponsorButtonRef.get(), true, segment, true);
+    }
+
+    /**
+     * Sets the skip segment and updates the button, but does not forcefully show the skip button.
+     */
+    public static void setSkipSegment(SponsorSegment segment) {
+        skipSegment = Objects.requireNonNull(segment);
+        SkipSponsorButton button = skipSponsorButtonRef.get();
+        if (button != null) {
+            button.updateSkipButtonText(segment);
+        }
     }
 
     public static void hideSkipHighlightButton() {
@@ -221,7 +235,7 @@ public class SponsorBlockViewController {
         }
     }
 
-    private static void playerTypeChanged(@NonNull PlayerType playerType) {
+    private static void playerTypeChanged(PlayerType playerType) {
         try {
             final boolean isWatchFullScreen = playerType == PlayerType.WATCH_WHILE_FULLSCREEN;
             canShowViewElements = (isWatchFullScreen || playerType == PlayerType.WATCH_WHILE_MAXIMIZED);
@@ -252,7 +266,7 @@ public class SponsorBlockViewController {
             setLayoutMargins(button, fullScreen, button.defaultBottomMargin, button.ctaBottomMargin);
         }
     }
-    private static void setLayoutMargins(@NonNull View view, boolean fullScreen,
+    private static void setLayoutMargins(View view, boolean fullScreen,
                                          int defaultBottomMargin, int ctaBottomMargin) {
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) view.getLayoutParams();
         if (params == null) {
