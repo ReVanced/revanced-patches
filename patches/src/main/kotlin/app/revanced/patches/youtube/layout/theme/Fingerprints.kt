@@ -32,6 +32,7 @@ internal val BytecodePatchContext.showSplashScreen1MethodMatch by composingFirst
     returnType("V")
     parameterTypes("Landroid/os/Bundle;")
     instructions(
+        anyOf(Opcode.CONST_4(), Opcode.CONST_16()),
         method {
             returnType == "V" &&
                     parameterTypes.size == 2 &&
@@ -39,8 +40,8 @@ internal val BytecodePatchContext.showSplashScreen1MethodMatch by composingFirst
                     parameterTypes[1] == "Ljava/lang/Runnable;"
 
         },
-        afterAtMost(10, anyOf(Opcode.CONST_4(), Opcode.CONST_16())),
-        afterAtMost(5, Opcode.APUT_OBJECT()),
+        afterAtMost(20, anyOf(Opcode.CONST_4(), Opcode.CONST_16())),
+        afterAtMost(10, Opcode.APUT_OBJECT()),
         afterAtMost(
             5,
             method { returnType == "V" && parameterTypes.size == 1 && parameterTypes[0] == "[L" },
