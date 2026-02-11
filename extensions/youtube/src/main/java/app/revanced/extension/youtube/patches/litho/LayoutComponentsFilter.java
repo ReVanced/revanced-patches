@@ -131,6 +131,7 @@ public final class LayoutComponentsFilter extends Filter {
 
         final var compactBanner = new StringFilterGroup(
                 Settings.HIDE_COMPACT_BANNER,
+                "cell_divider", // Empty padding and a relic from very old YT versions. Not related to compact banner but included here to avoid adding another setting.
                 "compact_banner"
         );
 

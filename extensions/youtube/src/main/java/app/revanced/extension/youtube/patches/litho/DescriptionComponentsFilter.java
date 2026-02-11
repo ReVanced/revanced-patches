@@ -15,6 +15,8 @@ public final class DescriptionComponentsFilter extends Filter {
     private final StringTrieSearch exceptions = new StringTrieSearch();
     private final StringFilterGroup macroMarkersCarousel;
     private final ByteArrayFilterGroupList macroMarkersCarouselGroupList = new ByteArrayFilterGroupList();
+    private final StringFilterGroup playlistSection;
+    private final ByteArrayFilterGroupList playlistSectionGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroup horizontalShelf;
     private final ByteArrayFilterGroupList horizontalShelfGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroup infoCardsSection;
@@ -59,9 +61,23 @@ public final class DescriptionComponentsFilter extends Filter {
                 "structured_description_video_lockup"
         );
 
-        final StringFilterGroup podcastSection = new StringFilterGroup(
-                Settings.HIDE_EXPLORE_PODCAST_SECTION,
-                "playlist_section"
+        playlistSection = new StringFilterGroup(
+                // YT v20.14.43 doesn't use any buffer for Courses and Podcasts.
+                // So this component is also needed.
+                Settings.HIDE_EXPLORE_SECTION,
+                "playlist_section.e"
+        );
+
+        playlistSectionGroupList.addAll(
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_EXPLORE_COURSE_SECTION,
+                        "yt_outline_creator_academy", // For Disable bold icons.
+                        "yt_outline_experimental_graduation_cap"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_EXPLORE_PODCAST_SECTION,
+                        "FEpodcasts_destination"
+                )
         );
 
         final StringFilterGroup transcriptSection = new StringFilterGroup(
@@ -152,7 +168,7 @@ public final class DescriptionComponentsFilter extends Filter {
                 hypePoints,
                 infoCardsSection,
                 macroMarkersCarousel,
-                podcastSection,
+                playlistSection,
                 subscribeButton,
                 transcriptSection
         );
@@ -169,6 +185,10 @@ public final class DescriptionComponentsFilter extends Filter {
 
         if (matchedGroup == featuredLinksSection || matchedGroup == featuredVideosSection || matchedGroup == subscribeButton) {
             return path.startsWith(INFOCARDS_SECTION_PATH);
+        }
+
+        if (matchedGroup == playlistSection) {
+            return contentIndex == 0 && playlistSectionGroupList.check(buffer).isFiltered();
         }
 
         if (exceptions.matches(path)) return false;

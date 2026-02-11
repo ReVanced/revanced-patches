@@ -325,9 +325,6 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_doodles_title">Hide YouTube Doodles</string>
             <string name="revanced_hide_doodles_summary_on">YouTube Doodles animation on the logo is hidden</string>
             <string name="revanced_hide_doodles_summary_off">YouTube Doodles animation on the logo is shown</string>
-            <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles are shown a few days each year.
-
-If a Doodle is currently showing in your region and this hide setting is on, then the filter bar below the search bar will also be hidden."</string>
             <string name="revanced_hide_channel_bar_title">Hide channel bar</string>
             <string name="revanced_hide_channel_bar_summary_on">Channel bar is hidden</string>
             <string name="revanced_hide_channel_bar_summary_off">Channel bar is shown</string>
@@ -386,6 +383,12 @@ If a Doodle is currently showing in your region and this hide setting is on, the
             <string name="revanced_hide_course_progress_section_title">Hide \'Course progress\'</string>
             <string name="revanced_hide_course_progress_section_summary_on">Course progress section is hidden</string>
             <string name="revanced_hide_course_progress_section_summary_off">Course progress section is shown</string>
+            <string name="revanced_hide_explore_section_title">Hide Explore</string>
+            <string name="revanced_hide_explore_section_summary_on">Explore this course and Explore the podcast sections are hidden</string>
+            <string name="revanced_hide_explore_section_summary_off">Explore this course and Explore the podcast sections are shown</string>
+            <string name="revanced_hide_explore_course_section_title">Hide \'Explore this course\'</string>
+            <string name="revanced_hide_explore_course_section_summary_on">Explore this course section is hidden</string>
+            <string name="revanced_hide_explore_course_section_summary_off">Explore this course section is shown</string>
             <string name="revanced_hide_how_this_was_made_section_title">Hide \'How this content was made\'</string>
             <string name="revanced_hide_how_this_was_made_section_summary_on">How this content was made section is hidden</string>
             <string name="revanced_hide_how_this_was_made_section_summary_off">How this content was made section is shown</string>
