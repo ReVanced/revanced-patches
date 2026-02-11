@@ -9,7 +9,8 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/DisablePlayerPopupPanelsPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/DisablePlayerPopupPanelsPatch;"
 
 @Suppress("unused")
 val disablePlayerPopupPanelsPatch = bytecodePatch(
@@ -28,7 +29,8 @@ val disablePlayerPopupPanelsPatch = bytecodePatch(
             "20.21.37",
             "20.26.46",
             "20.31.42",
-            "20.37.48"
+            "20.37.48",
+            "20.40.45"
         ),
     )
 

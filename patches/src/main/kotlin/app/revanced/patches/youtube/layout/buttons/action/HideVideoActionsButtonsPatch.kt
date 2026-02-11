@@ -31,6 +31,8 @@ val hideVideoActionButtonsPatch = resourcePatch(
             "20.14.43",
             "20.31.42",
             "20.37.48",
+            "20.40.45",
+            "20.40.45"
         ),
     )
 

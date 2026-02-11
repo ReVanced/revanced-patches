@@ -31,7 +31,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import org.w3c.dom.Element
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/theme/ThemePatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/theme/ThemePatch;"
 
 val themePatch = baseThemePatch(
     extensionClassDescriptor = EXTENSION_CLASS_DESCRIPTOR,
@@ -162,9 +163,10 @@ val themePatch = baseThemePatch(
             "com.google.android.youtube"(
                 "20.14.43",
                 "20.21.37",
-            "20.26.46",
+                "20.26.46",
                 "20.31.42",
-            "20.37.48"
+                "20.37.48",
+                "20.40.45"
             ),
         )
     },

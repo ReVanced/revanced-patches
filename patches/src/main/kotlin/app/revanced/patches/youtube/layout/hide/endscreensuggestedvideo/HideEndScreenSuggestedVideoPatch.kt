@@ -35,7 +35,8 @@ val hideEndScreenSuggestedVideoPatch = bytecodePatch(
             "20.21.37",
             "20.26.46",
             "20.31.42",
-            "20.37.48"
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -50,18 +51,21 @@ val hideEndScreenSuggestedVideoPatch = bytecodePatch(
             val endScreenMethod = navigate(it.immutableMethod).to(it[-1]).stop()
 
             endScreenMethod.apply {
-                val autoNavStatusMethodName = autoNavConstructorMethod.immutableClassDef.getAutoNavStatusMethod().name
+                val autoNavStatusMethodName =
+                    autoNavConstructorMethod.immutableClassDef.getAutoNavStatusMethod().name
 
                 val invokeIndex = indexOfFirstInstructionOrThrow {
                     val reference = methodReference
                     reference?.name == autoNavStatusMethodName &&
-                        reference.returnType == "Z" &&
-                        reference.parameterTypes.isEmpty()
+                            reference.returnType == "Z" &&
+                            reference.parameterTypes.isEmpty()
                 }
 
-                val iGetObjectIndex = indexOfFirstInstructionReversedOrThrow(invokeIndex, Opcode.IGET_OBJECT)
+                val iGetObjectIndex =
+                    indexOfFirstInstructionReversedOrThrow(invokeIndex, Opcode.IGET_OBJECT)
                 val invokeReference = getInstruction<ReferenceInstruction>(invokeIndex).reference
-                val iGetObjectReference = getInstruction<ReferenceInstruction>(iGetObjectIndex).reference
+                val iGetObjectReference =
+                    getInstruction<ReferenceInstruction>(iGetObjectIndex).reference
                 val opcodeName = getInstruction(invokeIndex).opcode.name
 
                 addInstructionsWithLabels(

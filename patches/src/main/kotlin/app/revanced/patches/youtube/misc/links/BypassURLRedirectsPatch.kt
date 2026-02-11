@@ -14,7 +14,8 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/BypassURLRedirectsPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/BypassURLRedirectsPatch;"
 
 @Suppress("unused")
 val bypassURLRedirectsPatch = bytecodePatch(
@@ -33,7 +34,8 @@ val bypassURLRedirectsPatch = bytecodePatch(
             "20.21.37",
             "20.26.46",
             "20.31.42",
-            "20.37.48"
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -56,12 +58,13 @@ val bypassURLRedirectsPatch = bytecodePatch(
             }
         ).forEach { (match, index) ->
             val insertIndex = match?.get(index) ?: return@forEach
-            val uriStringRegister = match.method.getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+            val uriStringRegister =
+                match.method.getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
             match.method.replaceInstruction(
                 insertIndex,
                 "invoke-static { v$uriStringRegister }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                    "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;",
+                        "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;",
             )
         }
     }

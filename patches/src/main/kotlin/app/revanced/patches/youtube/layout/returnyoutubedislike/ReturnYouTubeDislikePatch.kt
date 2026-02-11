@@ -63,7 +63,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
             "20.21.37",
             "20.26.46",
             "20.31.42",
-            "20.37.48"
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -125,11 +126,12 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // Find the field name of the conversion context.
         val conversionContextClass = conversionContextToStringMethod.immutableClassDef
-        val textComponentConversionContextField = textComponentConstructorMethod.immutableClassDef.fields.find {
-            it.type == conversionContextClass.type ||
-                // 20.41+ uses superclass field type.
-                it.type == conversionContextClass.superclass
-        } ?: throw PatchException("Could not find conversion context field")
+        val textComponentConversionContextField =
+            textComponentConstructorMethod.immutableClassDef.fields.find {
+                it.type == conversionContextClass.type ||
+                        // 20.41+ uses superclass field type.
+                        it.type == conversionContextClass.superclass
+            } ?: throw PatchException("Could not find conversion context field")
 
         val conversionContextPathBuilderField = conversionContextToStringMethod.immutableClassDef
             .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
@@ -145,26 +147,28 @@ val returnYouTubeDislikePatch = bytecodePatch(
             if (is_19_33_or_greater && !is_20_10_or_greater) {
                 val index = indexOfFirstInstructionOrThrow {
                     (opcode == Opcode.INVOKE_STATIC || opcode == Opcode.INVOKE_STATIC_RANGE) &&
-                        methodReference?.returnType == textDataClassType
+                            methodReference?.returnType == textDataClassType
                 }
 
                 insertIndex = indexOfFirstInstructionOrThrow(index) {
                     opcode == Opcode.INVOKE_VIRTUAL &&
-                        methodReference?.parameterTypes?.firstOrNull() == "Ljava/lang/CharSequence;"
+                            methodReference?.parameterTypes?.firstOrNull() == "Ljava/lang/CharSequence;"
                 }
 
-                charSequenceRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+                charSequenceRegister =
+                    getInstruction<FiveRegisterInstruction>(insertIndex).registerD
             } else {
                 insertIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.NEW_INSTANCE &&
-                        typeReference?.type == textDataClassType
+                            typeReference?.type == textDataClassType
                 }
 
                 val charSequenceIndex = indexOfFirstInstructionOrThrow(insertIndex) {
                     opcode == Opcode.IPUT_OBJECT &&
-                        fieldReference?.type == "Ljava/lang/CharSequence;"
+                            fieldReference?.type == "Ljava/lang/CharSequence;"
                 }
-                charSequenceRegister = getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
+                charSequenceRegister =
+                    getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
             }
 
             val conversionContext = findFreeRegister(insertIndex, charSequenceRegister)
@@ -202,8 +206,10 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
                 it.method.apply {
                     val insertIndex = it[1]
-                    val charSequenceRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
-                    val conversionContextPathRegister = findFreeRegister(insertIndex, charSequenceRegister)
+                    val charSequenceRegister =
+                        getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+                    val conversionContextPathRegister =
+                        findFreeRegister(insertIndex, charSequenceRegister)
 
                     addInstructions(
                         insertIndex,
@@ -237,11 +243,16 @@ val returnYouTubeDislikePatch = bytecodePatch(
             val insertIndex = 1
             val dislikesIndex = rollingNumberSetterMethodMatch[-1]
             val charSequenceInstanceRegister = getInstruction<OneRegisterInstruction>(0).registerA
-            val charSequenceFieldReference = getInstruction<ReferenceInstruction>(dislikesIndex).reference
+            val charSequenceFieldReference =
+                getInstruction<ReferenceInstruction>(dislikesIndex).reference
 
             val conversionContextRegister = implementation!!.registerCount - parameters.size + 1
 
-            val freeRegister = findFreeRegister(insertIndex, charSequenceInstanceRegister, conversionContextRegister)
+            val freeRegister = findFreeRegister(
+                insertIndex,
+                charSequenceInstanceRegister,
+                conversionContextRegister
+            )
 
             addInstructions(
                 insertIndex,
@@ -262,7 +273,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
             val endIndex = it[-1]
 
             it.method.apply {
-                val measuredTextWidthRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
+                val measuredTextWidthRegister =
+                    getInstruction<OneRegisterInstruction>(endIndex).registerA
 
                 addInstructions(
                     endIndex + 1,
@@ -305,8 +317,10 @@ val returnYouTubeDislikePatch = bytecodePatch(
                     methodReference?.name == "setText"
                 }
 
-                val textViewRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
-                val textSpanRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerD
+                val textViewRegister =
+                    getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
+                val textSpanRegister =
+                    getInstruction<FiveRegisterInstruction>(setTextIndex).registerD
 
                 addInstructions(
                     setTextIndex,

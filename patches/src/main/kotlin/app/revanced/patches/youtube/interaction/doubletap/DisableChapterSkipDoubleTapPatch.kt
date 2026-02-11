@@ -36,7 +36,8 @@ val disableDoubleTapActionsPatch = bytecodePatch(
             "20.21.37",
             "20.26.46",
             "20.31.42",
-            "20.37.48"
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -79,12 +80,13 @@ val disableDoubleTapActionsPatch = bytecodePatch(
             """,
         )
 
-        doubleTapInfoGetSeekSourceMethod.immutableClassDef.getDoubleTapInfoCtorMethod().addInstructions(
-            0,
-            """
+        doubleTapInfoGetSeekSourceMethod.immutableClassDef.getDoubleTapInfoCtorMethod()
+            .addInstructions(
+                0,
+                """
                 invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->disableDoubleTapChapters(Z)Z
                 move-result p3
             """,
-        )
+            )
     }
 }

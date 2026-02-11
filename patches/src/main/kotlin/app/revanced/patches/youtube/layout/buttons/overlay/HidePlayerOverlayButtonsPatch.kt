@@ -26,7 +26,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 val hidePlayerOverlayButtonsPatch = bytecodePatch(
     name = "Hide player overlay buttons",
     description = "Adds options to hide the player Cast, Autoplay, Captions, Previous & Next buttons, and the player " +
-        "control buttons background.",
+            "control buttons background.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -42,7 +42,8 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
             "20.21.37",
             "20.26.46",
             "20.31.42",
-            "20.37.48"
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -61,12 +62,13 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         getLayoutConstructorMethodMatch().let {
             val insertIndex = it[-1]
-            val viewRegister = it.method.getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+            val viewRegister =
+                it.method.getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
             it.method.addInstruction(
                 insertIndex,
                 "invoke-static { v$viewRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
-                    "->hidePreviousNextButtons(Landroid/view/View;)V",
+                        "->hidePreviousNextButtons(Landroid/view/View;)V",
             )
         }
 
@@ -119,8 +121,8 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
             val gotoIndex = indexOfFirstInstructionOrThrow(constIndex) {
                 val parameterTypes = getReference<MethodReference>()?.parameterTypes
                 opcode == Opcode.INVOKE_VIRTUAL &&
-                    parameterTypes?.size == 2 &&
-                    parameterTypes.first() == "Landroid/view/ViewStub;"
+                        parameterTypes?.size == 2 &&
+                        parameterTypes.first() == "Landroid/view/ViewStub;"
             } + 1
 
             addInstructionsWithLabels(

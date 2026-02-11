@@ -383,8 +383,8 @@ public class SegmentPlaybackController {
 
             Logger.printDebug(() -> {
                 String visibilityMessage = switch (visibility) {
-                    case View.VISIBLE   -> "VISIBLE";
-                    case View.GONE      -> "GONE";
+                    case View.VISIBLE -> "VISIBLE";
+                    case View.GONE -> "GONE";
                     case View.INVISIBLE -> "INVISIBLE";
                     default -> "UNKNOWN";
                 };
@@ -395,6 +395,7 @@ public class SegmentPlaybackController {
 
     /**
      * When a video ad is playing in a regular video player, segments or the Skip button should be hidden.
+     *
      * @return Whether the Ad Progress TextView is visible in the regular video player.
      */
     public static boolean isAdProgressTextVisible() {
@@ -821,7 +822,7 @@ public class SegmentPlaybackController {
         if (PlayerType.getCurrent() == PlayerType.INLINE_MINIMAL) {
             // Cannot easily show a toast since there is no layout view context.
             // Probably better to not show a toast here anyway.
-            Logger.printException(() -> "Not showing undo toast for feed playback");
+            Logger.printDebug(() -> "Not showing undo toast for feed playback");
             return;
         }
 
@@ -869,13 +870,17 @@ public class SegmentPlaybackController {
         fadeIn.setDuration(fadeDurationFast);
         fadeOut.setDuration(fadeDurationFast);
         fadeOut.setAnimationListener(new Animation.AnimationListener() {
-            public void onAnimationStart(Animation animation) { }
+            public void onAnimationStart(Animation animation) {
+            }
+
             public void onAnimationEnd(Animation animation) {
                 if (dialog.isShowing()) {
                     dialog.dismiss();
                 }
             }
-            public void onAnimationRepeat(Animation animation) { }
+
+            public void onAnimationRepeat(Animation animation) {
+            }
         });
 
         mainLayout.setOnClickListener(v -> {

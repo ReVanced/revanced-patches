@@ -27,7 +27,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 val spoofAppVersionPatch = bytecodePatch(
     name = "Spoof app version",
     description = "Adds an option to trick YouTube into thinking you are running an older version of the app. " +
-        "This can be used to restore old UI elements and features.",
+            "This can be used to restore old UI elements and features.",
 ) {
     dependsOn(
         resourceMappingPatch,
@@ -43,7 +43,8 @@ val spoofAppVersionPatch = bytecodePatch(
             "20.21.37",
             "20.26.46",
             "20.31.42",
-            "20.37.48"
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -85,7 +86,8 @@ val spoofAppVersionPatch = bytecodePatch(
          */
         toolBarButtonMethodMatch.let {
             val imageResourceIndex = it[2]
-            val register = it.method.getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
+            val register =
+                it.method.getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
             val jumpIndex = it[-1] + 1
 
             it.method.addInstructionsWithLabels(

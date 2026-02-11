@@ -41,10 +41,11 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             "20.21.37",
             "20.26.46",
             "20.31.42",
-            "20.37.48"
-            // This patch is obsolete with 20.03 because YT seems to have
+            "20.37.48",
+            "20.40.45"
+            // This patch is obsolete with 21.03 because YT seems to have
             // removed resuming Shorts functionality.
-            // TODO: Before adding 20.03+, merge this patch into `Hide Shorts component`
+            // TODO: Before adding 21.03+, merge this patch into `Hide Shorts component`
         ),
     )
 
@@ -77,8 +78,8 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             userWasInShortsLegacyMethod.apply {
                 val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_INTERFACE &&
-                        getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
-                        getReference<MethodReference>()?.name == "isDone"
+                            getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
+                            getReference<MethodReference>()?.name == "isDone"
                 }
                 val freeRegister = findFreeRegister(listenableInstructionIndex)
 

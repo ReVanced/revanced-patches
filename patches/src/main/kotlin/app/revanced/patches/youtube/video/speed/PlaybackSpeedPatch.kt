@@ -18,7 +18,7 @@ internal val settingsMenuVideoSpeedGroup = mutableSetOf<BasePreference>()
 val playbackSpeedPatch = bytecodePatch(
     name = "Playback speed",
     description = "Adds options to customize available playback speeds, set a default playback speed, " +
-        "and show a speed dialog button in the video player.",
+            "and show a speed dialog button in the video player.",
 ) {
     dependsOn(
         customPlaybackSpeedPatch,
@@ -32,7 +32,8 @@ val playbackSpeedPatch = bytecodePatch(
             "20.21.37",
             "20.26.46",
             "20.31.42",
-            "20.37.48"
+            "20.37.48",
+            "20.40.45"
         )
     )
 

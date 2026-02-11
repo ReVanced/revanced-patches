@@ -53,7 +53,10 @@ private val swipeControlsResourcePatch = resourcePatch {
             SwitchPreference("revanced_swipe_save_and_restore_brightness"),
             SwitchPreference("revanced_swipe_lowest_value_enable_auto_brightness"),
             ListPreference("revanced_swipe_overlay_style"),
-            TextPreference("revanced_swipe_overlay_background_opacity", inputType = InputType.NUMBER),
+            TextPreference(
+                "revanced_swipe_overlay_background_opacity",
+                inputType = InputType.NUMBER
+            ),
             TextPreference(
                 "revanced_swipe_overlay_progress_brightness_color",
                 tag = "app.revanced.extension.shared.settings.preference.ColorPickerWithOpacitySliderPreference",
@@ -105,7 +108,8 @@ val swipeControlsPatch = bytecodePatch(
             "20.21.37",
             "20.26.46",
             "20.31.42",
-            "20.37.48"
+            "20.37.48",
+            "20.40.45"
         ),
     )
 

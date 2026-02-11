@@ -51,7 +51,8 @@ val hideInfoCardsPatch = bytecodePatch(
             "20.21.37",
             "20.26.46",
             "20.31.42",
-            "20.37.48"
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -66,13 +67,13 @@ val hideInfoCardsPatch = bytecodePatch(
         infocardsIncognitoParentMethod.immutableClassDef.getInfocardsIncognitoMethod().apply {
             val invokeInstructionIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
-                    ((it as ReferenceInstruction).reference.toString() == "Landroid/view/View;->setVisibility(I)V")
+                        ((it as ReferenceInstruction).reference.toString() == "Landroid/view/View;->setVisibility(I)V")
             }
 
             addInstruction(
                 invokeInstructionIndex,
                 "invoke-static {v${getInstruction<FiveRegisterInstruction>(invokeInstructionIndex).registerC}}," +
-                    " Lapp/revanced/extension/youtube/patches/HideInfoCardsPatch;->hideInfoCardsIncognito(Landroid/view/View;)V",
+                        " Lapp/revanced/extension/youtube/patches/HideInfoCardsPatch;->hideInfoCardsIncognito(Landroid/view/View;)V",
             )
         }
 
@@ -98,7 +99,8 @@ val hideInfoCardsPatch = bytecodePatch(
         }
 
         // Info cards can also appear as Litho components.
-        val filterClassDescriptor = "Lapp/revanced/extension/youtube/patches/litho/HideInfoCardsFilter;"
+        val filterClassDescriptor =
+            "Lapp/revanced/extension/youtube/patches/litho/HideInfoCardsFilter;"
         addLithoFilter(filterClassDescriptor)
     }
 }

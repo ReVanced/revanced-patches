@@ -17,7 +17,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 val bypassImageRegionRestrictionsPatch = bytecodePatch(
     name = "Bypass image region restrictions",
     description = "Adds an option to use a different host for user avatar and channel images " +
-        "and can fix missing images that are blocked in some countries.",
+            "and can fix missing images that are blocked in some countries.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -32,7 +32,8 @@ val bypassImageRegionRestrictionsPatch = bytecodePatch(
             "20.21.37",
             "20.26.46",
             "20.31.42",
-            "20.37.48"
+            "20.37.48",
+            "20.40.45"
         ),
     )
 

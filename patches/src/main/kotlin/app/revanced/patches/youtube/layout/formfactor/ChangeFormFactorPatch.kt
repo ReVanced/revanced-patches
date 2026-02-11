@@ -15,7 +15,8 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ChangeFormFactorPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/ChangeFormFactorPatch;"
 
 @Suppress("unused")
 val changeFormFactorPatch = bytecodePatch(
@@ -35,7 +36,8 @@ val changeFormFactorPatch = bytecodePatch(
             "20.21.37",
             "20.26.46",
             "20.31.42",
-            "20.37.48"
+            "20.37.48",
+            "20.40.45"
         ),
     )
 

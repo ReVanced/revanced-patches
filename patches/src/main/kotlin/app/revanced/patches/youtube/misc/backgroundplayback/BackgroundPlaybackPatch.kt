@@ -49,7 +49,8 @@ val removeBackgroundPlaybackRestrictionsPatch = bytecodePatch(
             "20.21.37",
             "20.26.46",
             "20.31.42",
-            "20.37.48"
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -60,7 +61,8 @@ val removeBackgroundPlaybackRestrictionsPatch = bytecodePatch(
             SwitchPreference("revanced_shorts_disable_background_playback"),
         )
 
-        prefBackgroundAndOfflineCategoryId = ResourceType.STRING["pref_background_and_offline_category"]
+        prefBackgroundAndOfflineCategoryId =
+            ResourceType.STRING["pref_background_and_offline_category"]
 
         arrayOf(
             backgroundPlaybackManagerMethod to "isBackgroundPlaybackAllowed",

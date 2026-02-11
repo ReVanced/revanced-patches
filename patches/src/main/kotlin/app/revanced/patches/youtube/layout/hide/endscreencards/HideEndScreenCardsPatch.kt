@@ -67,7 +67,8 @@ val hideEndScreenCardsPatch = bytecodePatch(
             "20.21.37",
             "20.26.46",
             "20.31.42",
-            "20.37.48"
+            "20.37.48",
+            "20.40.45"
         ),
     )
 
@@ -84,7 +85,7 @@ val hideEndScreenCardsPatch = bytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static { v$viewRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->hideEndScreenCardView(Landroid/view/View;)V",
+                            "$EXTENSION_CLASS_DESCRIPTOR->hideEndScreenCardView(Landroid/view/View;)V",
                 )
             }
         }
