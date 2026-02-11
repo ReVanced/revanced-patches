@@ -122,17 +122,6 @@ public final class NavigationBarPatch {
     }
 
     // Toolbar
-    public static boolean hideCastButton(boolean original) {
-        return !Settings.HIDE_TOOLBAR_CAST_BUTTON.get() && original;
-    }
-
-    public static void hideCastButton(MenuItem menuItem) {
-        if (!Settings.HIDE_TOOLBAR_CAST_BUTTON.get())
-            return;
-
-        menuItem.setVisible(false);
-        menuItem.setEnabled(false);
-    }
 
     public static void hideCreateButton(String enumString, View view) {
         if (!Settings.HIDE_TOOLBAR_CREATE_BUTTON.get())

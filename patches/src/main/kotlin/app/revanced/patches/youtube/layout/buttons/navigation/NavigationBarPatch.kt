@@ -182,7 +182,6 @@ val navigationButtonsPatch = bytecodePatch(
         //
 
         val toolbarPreferences = mutableSetOf(
-            SwitchPreference("revanced_hide_toolbar_cast_button"),
             SwitchPreference("revanced_hide_toolbar_create_button"),
             SwitchPreference("revanced_hide_toolbar_notification_button"),
             SwitchPreference("revanced_hide_toolbar_search_button")

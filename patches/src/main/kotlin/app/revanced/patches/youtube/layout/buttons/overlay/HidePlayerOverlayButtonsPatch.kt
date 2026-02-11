@@ -87,7 +87,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
         if (is_20_28_or_greater) {
             arrayOf(
                 castButtonPlayerFeatureFlagMethodMatch,
-                castButtonActionFeatureFlagMethodMatch,
+                castButtonActionFeatureFlagMethodMatch, // Cast button in the feed.
             ).forEach { match ->
                 match.method.insertLiteralOverride(
                     match[0],
