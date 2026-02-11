@@ -37,7 +37,7 @@ private val disableSplashAnimationPatch = bytecodePatch {
             )
             val checkCastIndex = indexOfFirstInstructionOrThrow(literalIndex) {
                 opcode == Opcode.CHECK_CAST &&
-                    getReference<TypeReference>()?.type == "Lcom/airbnb/lottie/LottieAnimationView;"
+                        getReference<TypeReference>()?.type == "Lcom/airbnb/lottie/LottieAnimationView;"
             }
             val register = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
@@ -73,7 +73,8 @@ val customBrandingPatch = baseCustomBrandingPatch(
             "com.google.android.apps.youtube.music"(
                 "7.29.52",
                 "8.10.52",
-            "8.37.56"
+                "8.37.56",
+                "8.40.54",
             ),
         )
     },
