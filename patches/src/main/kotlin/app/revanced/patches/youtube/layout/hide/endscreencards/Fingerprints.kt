@@ -57,10 +57,7 @@ internal val BytecodePatchContext.showEndscreenCardsMethod by gettingFirstMethod
         afterAtMost(7, allOf(Opcode.INVOKE_VIRTUAL(), method("ordinal"))),
         5L(),
         8L(),
-        9L(),
-        allOf(
-            Opcode.IGET_OBJECT(),
-            field { type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;" }),
+        9L()
     )
     custom {
         immutableClassDef.methods.count() == 5

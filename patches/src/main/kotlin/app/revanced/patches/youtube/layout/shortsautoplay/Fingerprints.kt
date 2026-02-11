@@ -19,7 +19,6 @@ internal val BytecodePatchContext.reelEnumConstructorMethodMatch by composingFir
 
 internal val BytecodePatchContext.reelPlaybackRepeatParentMethod by gettingFirstImmutableMethodDeclaratively {
     returnType("V")
-    parameterTypes("Ljava/lang/String;", "J")
     instructions(
         "Reels[%s] Playback Time: %d ms"(),
     )
