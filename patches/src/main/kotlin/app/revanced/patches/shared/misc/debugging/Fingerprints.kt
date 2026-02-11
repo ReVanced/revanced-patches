@@ -35,16 +35,16 @@ internal val ClassDef.experimentalBooleanFeatureFlagMethodMatch by ClassDefCompo
 
 context(_: BytecodePatchContext)
 internal fun ClassDef.getExperimentalDoubleFeatureFlagMethod() = firstMethodDeclaratively {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("D")
-    parameterTypes("J", "D")
+    parameterTypes("L", "J", "D")
+    custom { AccessFlags.STATIC.isSet(accessFlags) }
 }
 
 context(_: BytecodePatchContext)
 internal fun ClassDef.getExperimentalLongFeatureFlagMethod() = firstMethodDeclaratively {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("J")
-    parameterTypes("J", "J")
+    parameterTypes("L", "J", "J")
+    custom { AccessFlags.STATIC.isSet(accessFlags) }
 }
 
 context(_: BytecodePatchContext)

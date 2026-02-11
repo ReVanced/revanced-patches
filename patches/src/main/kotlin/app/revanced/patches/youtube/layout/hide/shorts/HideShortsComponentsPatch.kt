@@ -171,25 +171,28 @@ val hideShortsComponentsPatch = bytecodePatch(
 
         val id = ResourceType.DIMEN["reel_player_right_pivot_v2_size"]
 
-        forEachInstructionAsSequence({ _, method, instruction, index ->
-            if (instruction.wideLiteral != id) return@forEachInstructionAsSequence null
+        if (!is_21_05_or_greater) {
+            forEachInstructionAsSequence({ _, method, instruction, index ->
+                if (instruction.wideLiteral != id) return@forEachInstructionAsSequence null
 
-            val targetIndex = method.indexOfFirstInstructionOrThrow(index) {
-                methodReference?.name == "getDimensionPixelSize"
-            } + 1
+                val targetIndex = method.indexOfFirstInstructionOrThrow(index) {
+                    methodReference?.name == "getDimensionPixelSize"
+                } + 1
 
-            val sizeRegister = method.getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                val sizeRegister = method.getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-            return@forEachInstructionAsSequence targetIndex to sizeRegister
-        }) { method, (targetIndex, sizeRegister) ->
-            firstMethod(method).addInstructions(
-                targetIndex + 1,
-                """
+                return@forEachInstructionAsSequence targetIndex to sizeRegister
+            }) { method, (targetIndex, sizeRegister) ->
+                firstMethod(method).addInstructions(
+                    targetIndex + 1,
+                    """
                     invoke-static { v$sizeRegister }, $FILTER_CLASS_DESCRIPTOR->getSoundButtonSize(I)I
                     move-result v$sizeRegister
                 """,
-            )
+                )
+            }
         }
+
         // endregion
 
         // region Hide action buttons.

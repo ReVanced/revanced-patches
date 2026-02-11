@@ -27,6 +27,7 @@ import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.hookVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.cloneMutableAndPreserveParameters
 import app.revanced.util.findFreeRegister
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.insertLiteralOverride
@@ -137,58 +138,60 @@ val returnYouTubeDislikePatch = bytecodePatch(
             .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
 
         // Old pre 20.40 and lower hook.
-        textComponentConstructorMethod.immutableClassDef.getTextComponentLookupMethod().apply {
-            // Find the instruction for creating the text data object.
-            val textDataClassType = textComponentDataMethod.immutableClassDef.type
+        // 21.05 clobbers p0 (this) register.
+        // Add additional registers so all parameters including p0 are free to use anywhere in the method.
+        textComponentConstructorMethod.immutableClassDef
+            .getTextComponentLookupMethod()
+            .cloneMutableAndPreserveParameters().apply {
+                // Find the instruction for creating the text data object.
+                val textDataClassType = textComponentDataMethod.immutableClassDef.type
 
-            val insertIndex: Int
-            val charSequenceRegister: Int
+                val insertIndex: Int
+                val charSequenceRegister: Int
 
-            if (is_19_33_or_greater && !is_20_10_or_greater) {
-                val index = indexOfFirstInstructionOrThrow {
-                    (opcode == Opcode.INVOKE_STATIC || opcode == Opcode.INVOKE_STATIC_RANGE) &&
-                            methodReference?.returnType == textDataClassType
+                if (is_19_33_or_greater && !is_20_10_or_greater) {
+                    val index = indexOfFirstInstructionOrThrow {
+                        (opcode == Opcode.INVOKE_STATIC || opcode == Opcode.INVOKE_STATIC_RANGE) &&
+                                methodReference?.returnType == textDataClassType
+                    }
+
+                    insertIndex = indexOfFirstInstructionOrThrow(index) {
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                methodReference?.parameterTypes?.firstOrNull() == "Ljava/lang/CharSequence;"
+                    }
+
+                    charSequenceRegister =
+                        getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+                } else {
+                    insertIndex = indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.NEW_INSTANCE &&
+                                typeReference?.type == textDataClassType
+                    }
+
+                    val charSequenceIndex = indexOfFirstInstructionOrThrow(insertIndex) {
+                        opcode == Opcode.IPUT_OBJECT &&
+                                fieldReference?.type == "Ljava/lang/CharSequence;"
+                    }
+                    charSequenceRegister =
+                        getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
                 }
 
-                insertIndex = indexOfFirstInstructionOrThrow(index) {
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            methodReference?.parameterTypes?.firstOrNull() == "Ljava/lang/CharSequence;"
-                }
+                val conversionContext = findFreeRegister(insertIndex, charSequenceRegister)
 
-                charSequenceRegister =
-                    getInstruction<FiveRegisterInstruction>(insertIndex).registerD
-            } else {
-                insertIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.NEW_INSTANCE &&
-                            typeReference?.type == textDataClassType
-                }
-
-                val charSequenceIndex = indexOfFirstInstructionOrThrow(insertIndex) {
-                    opcode == Opcode.IPUT_OBJECT &&
-                            fieldReference?.type == "Ljava/lang/CharSequence;"
-                }
-                charSequenceRegister =
-                    getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
-            }
-
-            val conversionContext = findFreeRegister(insertIndex, charSequenceRegister)
-
-            addInstructionsAtControlFlowLabel(
-                insertIndex,
-                """
+                addInstructionsAtControlFlowLabel(
+                    insertIndex,
+                    """
                     # Copy conversion context.
                     move-object/from16 v$conversionContext, p0
-                    
                     iget-object v$conversionContext, v$conversionContext, $textComponentConversionContextField
-                    
                     invoke-static { v$conversionContext, v$charSequenceRegister }, $EXTENSION_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
                     move-result-object v$charSequenceRegister
                     
                     :ignore
                     nop
                 """
-            )
-        }
+                )
+            }
 
         // Hook new litho text creation code.
         if (is_20_07_or_greater) {

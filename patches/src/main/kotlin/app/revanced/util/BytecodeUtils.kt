@@ -30,6 +30,9 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 import com.android.tools.smali.dexlib2.immutable.value.*
 import java.util.*
+import kotlin.apply
+import kotlin.collections.remove
+
 /**
  * Find the instruction index used for a toString() StringBuilder write of a given String name.
  *
@@ -657,23 +660,86 @@ private fun MutableMethod.checkReturnType(expectedTypes: Iterable<Class<*>>) {
     }
 }
 
-// From BiliRoamingX:
+/**
+ * Effectively this makes all method parameters registers (including p0) of the cloned method
+ * unchanged for all indexes in the method, and the method parameters can be referenced directly
+ * or used as free registers. Only suitable for static methods with zero parameters.
+ *
+ * **Fingerprint match indexes will be positively offset by [numberOfParameterRegisters]**.
+ */
+context(context: BytecodePatchContext)
+fun Method.cloneMutableAndPreserveParameters(
+    indexZeroInstructionsToAdd: String? = null,
+) = cloneMutableAndPreserveParameters(
+    classDef,
+    indexZeroInstructionsToAdd
+)
+
+/**
+ * Effectively this makes all method parameters registers (including p0) of the cloned method
+ * unchanged for all indexes in the method, and the method parameters can be referenced directly
+ * or used as free registers. Only suitable for static methods with zero parameters.
+ *
+ * **Fingerprint match indexes will be positively offset by [numberOfParameterRegisters]**.
+ */
+fun Method.cloneMutableAndPreserveParameters(
+    mutableClass : MutableClassDef,
+    indexZeroInstructionsToAdd: String? = null,
+) : MutableMethod {
+    check (!AccessFlags.STATIC.isSet(accessFlags) || parameters.isNotEmpty()) {
+        "Static methods have no parameter registers to preserve"
+    }
+
+    val clonedMethod = cloneMutable(
+        additionalRegisters = numberOfParameterRegisters,
+        indexZeroInstructionsToAdd = indexZeroInstructionsToAdd,
+    )
+
+    // Replace existing method with cloned with more registers.
+    mutableClass.methods.apply {
+        remove(this@cloneMutableAndPreserveParameters)
+        add(clonedMethod)
+    }
+
+    return clonedMethod
+}
+
+// Adapted from BiliRoamingX:
 // https://github.com/BiliRoamingX/BiliRoamingX/blob/ae58109f3acdd53ec2d2b3fb439c2a2ef1886221/patches/src/main/kotlin/app/revanced/patches/bilibili/utils/Extenstions.kt#L51
+/***
+ * Additional registers effectively take the place of the pX parameters (p0, p1, p2, etc) before
+ * adding to additional new parameters before p0. Added registers always start at index:
+ * `method.implementation!!.registerCount`
+ *
+ * **Fingerprint match indexes will be positively offset by [numberOfParameterRegisters]**.
+ *
+ * @param indexZeroInstructionsToAdd Instructions to add at the effective index zero,
+ * which is immediately after the required register moves to preserve old registers.
+ */
 fun Method.cloneMutable(
-    registerCount: Int = implementation?.registerCount ?: 0,
     name: String = this.name,
     accessFlags: Int = this.accessFlags,
     parameters: List<MethodParameter> = this.parameters,
-    returnType: String = this.returnType
+    returnType: String = this.returnType,
+    additionalRegisters: Int = 0,
+    indexZeroInstructionsToAdd: String? = null,
 ): MutableMethod {
+    check(additionalRegisters >= 0) {
+        "Additional registers cannot be negative"
+    }
+
+    val implementationExists = implementation != null
+    val oldFirstParameterRegister = if (implementationExists) p0Register else 0
+
     val clonedImplementation = implementation?.let {
         ImmutableMethodImplementation(
-            registerCount,
+            it.registerCount + additionalRegisters,
             it.instructions,
             it.tryBlocks,
             it.debugItems,
         )
     }
+
     return ImmutableMethod(
         definingClass,
         name,
@@ -683,8 +749,102 @@ fun Method.cloneMutable(
         annotations,
         hiddenApiRestrictions,
         clonedImplementation
-    ).toMutable()
+    ).toMutable().apply {
+        var insertIndex = 0
+        val isNotStatic = !AccessFlags.STATIC.isSet(accessFlags)
+        if (implementationExists && additionalRegisters > 0 && (parameters.isNotEmpty() || isNotStatic)) {
+            var destReg = oldFirstParameterRegister
+
+            var parameterCount = parameters.count()
+            if (isNotStatic) parameterCount++
+
+            // Additional registers are added and become the new parameter registers,
+            // but the existing instructions still reference the old registers.
+            // Copy the new parameter registers to the old register locations.
+            for (i in 0 until parameterCount) {
+                val opcode = when {
+                    // p0 of a non-static method is always 'this' object.
+                    i == 0 && isNotStatic -> "move-object/from16"
+
+                    else -> {
+                        val parameter = parameters[if (isNotStatic) i - 1 else i]
+                        when (parameter.type) {
+                            "J", "D" -> "move-wide/from16"
+                            else -> {
+                                if (parameter.type.startsWith('L') ||
+                                    parameter.type.startsWith('[')
+                                ) {
+                                    "move-object/from16"
+                                } else {
+                                    "move/from16"
+                                }
+                            }
+                        }
+                    }
+                }
+
+                addInstructions(insertIndex++, "$opcode v$destReg, p$i")
+
+                // Advance dest register (wide types take 2).
+                destReg += when {
+                    opcode.startsWith("move-wide") -> 2
+                    else -> 1
+                }
+            }
+        }
+
+        if (indexZeroInstructionsToAdd != null) {
+            addInstructionsWithLabels(insertIndex, indexZeroInstructionsToAdd)
+        }
+    }
 }
+
+/**
+ * @return The number of registers for all parameters, including p0.
+ * This includes 2 registers for each wide parameter.
+ */
+val Method.numberOfParameterRegisters: Int
+    get() {
+        var count = 0
+
+        if (!AccessFlags.STATIC.isSet(accessFlags)) {
+            count += 1
+        }
+
+        for (param in parameters) {
+            count += when (param.type) {
+                "J", "D" -> 2   // wide
+                else -> 1       // normal
+            }
+        }
+
+        return count
+    }
+
+/**
+ * @return the actual register number of p0 for this method.
+ * Throws if the method has no implementation.
+ */
+val Method.p0Register: Int
+    get() {
+        val impl = implementation ?: throw IllegalStateException("Method has no implementation: $this")
+        var paramRegs = 0
+
+        // Count explicit parameters (wide types take 2 registers).
+        for (type in this.parameterTypes) {
+            paramRegs += if (type == "J" || type == "D") 2 else 1
+        }
+
+        // Add implicit 'this' for non-static methods.
+        if (!AccessFlags.STATIC.isSet(this.accessFlags)) {
+            paramRegs += 1
+        }
+
+        val totalRegs = impl.registerCount
+
+        return totalRegs - paramRegs
+    }
+
 
 /**
  * Overrides the first instruction of a method with returning the default value for the type (or `void`).

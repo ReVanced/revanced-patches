@@ -16,6 +16,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.returnType
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.cloneMutableAndPreserveParameters
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -108,7 +109,7 @@ val hookClientContextPatch = bytecodePatch(
                     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
                     returnType("V")
                     parameterTypes()
-                }.let {
+                }.cloneMutableAndPreserveParameters().let {
                     it.classDef.methods.add(
                         ImmutableMethod(
                             it.definingClass,
