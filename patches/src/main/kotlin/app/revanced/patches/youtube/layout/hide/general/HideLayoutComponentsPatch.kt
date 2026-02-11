@@ -125,7 +125,8 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                 SwitchPreference("revanced_hide_key_concepts_section"),
                 SwitchPreference("revanced_hide_music_section"),
                 SwitchPreference("revanced_hide_subscribe_button"),
-                SwitchPreference("revanced_hide_transcript_section")
+                SwitchPreference("revanced_hide_transcript_section"),
+                SwitchPreference("revanced_hide_quizzes_section")
             ),
         ),
         PreferenceScreenPreference(

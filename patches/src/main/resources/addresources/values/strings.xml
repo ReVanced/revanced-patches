@@ -416,6 +416,9 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_transcript_section_title">Hide Transcript</string>
             <string name="revanced_hide_transcript_section_summary_on">Transcript section is hidden</string>
             <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
+            <string name="revanced_hide_quizzes_section_title">Hide Quizzes</string>
+            <string name="revanced_hide_quizzes_section_summary_on">Quizzes section is hidden</string>
+            <string name="revanced_hide_quizzes_section_summary_off">Quizzes section is shown</string>
             <string name="revanced_hide_description_components_screen_title">Video description</string>
             <string name="revanced_hide_description_components_screen_summary">Hide or show video description components</string>
 
