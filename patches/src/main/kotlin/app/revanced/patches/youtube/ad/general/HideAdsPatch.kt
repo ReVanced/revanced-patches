@@ -15,7 +15,11 @@ import app.revanced.patches.shared.misc.fix.verticalscroll.verticalScrollPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.misc.contexthook.Endpoint
+import app.revanced.patches.youtube.misc.contexthook.addOSNameHook
+import app.revanced.patches.youtube.misc.contexthook.clientContextHookPatch
 import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
+import app.revanced.patches.youtube.misc.contexthook.hookClientContextPatch
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fixBackToExitGesturePatch
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -43,6 +47,7 @@ private val hideAdsResourcePatch = resourcePatch {
         settingsPatch,
         resourceMappingPatch,
         addResourcesPatch,
+        hookClientContextPatch,
     )
 
     apply {
@@ -193,6 +198,16 @@ val hideAdsPatch = bytecodePatch(
                 viewRegister,
                 EXTENSION_CLASS_DESCRIPTOR,
                 "hideAdAttributionView"
+            )
+        }
+
+        setOf(
+            Endpoint.BROWSE,
+            Endpoint.SEARCH,
+        ).forEach { endpoint ->
+            addOSNameHook(
+                endpoint,
+                "$EXTENSION_CLASS_DESCRIPTOR->hideAds(Ljava/lang/String;)Ljava/lang/String;",
             )
         }
     }

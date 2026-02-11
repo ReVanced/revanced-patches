@@ -48,7 +48,8 @@ enum class Endpoint(
         BytecodePatchContext::reelCreateItemsEndpointConstructorMethod::get,
         BytecodePatchContext::reelItemWatchEndpointConstructorMethod::get,
         BytecodePatchContext::reelWatchSequenceEndpointConstructorMethod::get,
-    );
+    ),
+    SEARCH(BytecodePatchContext::searchRequestBuildParametersMethod::get)
 }
 
 val hookClientContextPatch = bytecodePatch(

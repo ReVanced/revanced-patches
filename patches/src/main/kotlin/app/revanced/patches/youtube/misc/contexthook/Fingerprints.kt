@@ -13,6 +13,7 @@ import app.revanced.patcher.gettingFirstImmutableMethodDeclaratively
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
+import app.revanced.patcher.method
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
@@ -21,6 +22,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
+import com.google.common.io.ByteArrayDataOutput
 
 internal const val CLIENT_INFO_CLASS_DESCRIPTOR =
     $$"Lcom/google/protos/youtube/api/innertube/InnertubeContext$ClientInfo;"
@@ -105,7 +107,9 @@ internal val ClassDef.browseEndpointConstructorMethodMatch by ClassDefComposing.
     )
 }
 
-internal val BytecodePatchContext.browseEndpointParentMethod by gettingFirstImmutableMethodDeclaratively("browseId") {
+internal val BytecodePatchContext.browseEndpointParentMethod by gettingFirstImmutableMethodDeclaratively(
+    "browseId"
+) {
     returnType("Ljava/lang/String;")
 }
 
@@ -135,4 +139,15 @@ internal val BytecodePatchContext.reelWatchSequenceEndpointConstructorMethod by 
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returnType("V")
+}
+
+internal val BytecodePatchContext.searchRequestBuildParametersMethod by gettingFirstImmutableMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("Ljava/lang/String;")
+    parameterTypes()
+    instructions(
+        "searchFormData"(),
+        after(allOf(Opcode.INVOKE_VIRTUAL(), method("toByteArray"))),
+        after(Opcode.MOVE_RESULT_OBJECT())
+    )
 }

@@ -272,6 +272,15 @@ public final class AdsFilter extends Filter {
     }
 
     /**
+     * Injection point.
+     */
+    public static String hideAds(String osName) {
+        return Settings.HIDE_GENERAL_ADS.get()
+                ? "Android Automotive"
+                : osName;
+    }
+
+    /**
      * Hide the view, which shows ads in the homepage.
      *
      * @param view The view, which shows ads.
