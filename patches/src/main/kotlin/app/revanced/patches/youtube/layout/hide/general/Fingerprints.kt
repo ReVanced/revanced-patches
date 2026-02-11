@@ -32,6 +32,27 @@ internal val BytecodePatchContext.hideShowMoreLegacyButtonMethodMatch by composi
     )
 }
 
+internal val BytecodePatchContext.hideSubscribedChannelsBarConstructorMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    instructions(
+        ResourceType.ID("parent_container"),
+        afterAtMost(3, Opcode.MOVE_RESULT_OBJECT()),
+        afterAtMost(
+            5,
+            allOf(Opcode.NEW_INSTANCE(), type($$"Landroid/widget/LinearLayout$LayoutParams;"))
+        )
+    )
+}
+
+internal val ClassDef.hideSubscribedChannelsBarLandscapeMethodMatch by ClassDefComposing.composingFirstMethod {
+    returnType("V")
+    parameterTypes()
+    instructions(
+        ResourceType.DIMEN("parent_view_width_in_wide_mode"),
+        afterAtMost(3, Opcode.MOVE_RESULT()),
+    )
+}
+
 internal val BytecodePatchContext.parseElementFromBufferMethodMatch by composingFirstMethod {
     parameterTypes("L", "L", "[B", "L", "L")
     instructions(

@@ -582,6 +582,22 @@ public final class LayoutComponentsFilter extends Filter {
         }
     }
 
+    /**
+     * Injection point.
+     */
+    public static void hideSubscribedChannelsBar(View view) {
+        Utils.hideViewByRemovingFromParentUnderCondition(Settings.HIDE_SUBSCRIBED_CHANNELS_BAR, view);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static int hideSubscribedChannelsBar(int original) {
+        return Settings.HIDE_SUBSCRIBED_CHANNELS_BAR.get()
+                ? 0
+                : original;
+    }
+
     private static boolean hideShelves() {
         // Horizontal shelves are used for music/game links in video descriptions,
         // such as https://youtube.com/watch?v=W8kI1na3S2M

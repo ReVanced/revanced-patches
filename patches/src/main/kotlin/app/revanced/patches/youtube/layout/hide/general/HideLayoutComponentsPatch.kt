@@ -302,7 +302,43 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // endregion
 
-    // region crowdfunding box
+
+    // region Subscribed channels bar
+
+    // Tablet
+    hideSubscribedChannelsBarConstructorMethodMatch.let {
+        it.method.apply {
+            val index = it[1]
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+            addInstruction(
+                index + 1,
+                "invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
+                        "->hideSubscribedChannelsBar(Landroid/view/View;)V",
+            )
+        }
+    }
+
+    // Phone (landscape mode)
+    hideSubscribedChannelsBarConstructorMethodMatch.immutableClassDef
+        .hideSubscribedChannelsBarLandscapeMethodMatch.let {
+            it.method.apply {
+                val index = it[-1]
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index + 1,
+                    """
+                        invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideSubscribedChannelsBar(I)I
+                        move-result v$register
+                    """
+                )
+            }
+        }
+
+    // endregion
+
+    // region Crowdfunding box
     crowdfundingBoxMethodMatch.let {
         it.method.apply {
             val insertIndex = it[-1]
