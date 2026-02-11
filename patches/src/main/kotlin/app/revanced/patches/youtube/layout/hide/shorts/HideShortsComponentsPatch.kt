@@ -18,6 +18,7 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
+import app.revanced.patches.youtube.misc.engagement.engagementPanelHookPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
@@ -57,6 +58,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
             SwitchPreference("revanced_hide_shorts_home"),
             SwitchPreference("revanced_hide_shorts_search"),
             SwitchPreference("revanced_hide_shorts_subscriptions"),
+            SwitchPreference("revanced_hide_shorts_video_description"),
             SwitchPreference("revanced_hide_shorts_history"),
 
             PreferenceScreenPreference(
@@ -148,6 +150,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         lithoFilterPatch,
         hideShortsComponentsResourcePatch,
         resourceMappingPatch,
+        engagementPanelHookPatch,
         navigationBarHookPatch,
         versionCheckPatch,
     )
