@@ -37,6 +37,7 @@ import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerControlsVisibility;
 import app.revanced.extension.youtube.shared.PlayerType;
+import app.revanced.extension.youtube.shared.ShortsPlayerState;
 import app.revanced.extension.youtube.shared.VideoState;
 import app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory;
@@ -312,7 +313,10 @@ public class SegmentPlaybackController {
             if (videoId == null || !Settings.SB_ENABLED.get()) {
                 return;
             }
-            if (PlayerType.getCurrent().isNoneOrHidden()) {
+            // Cannot use PlayerType to check because on some newer targets
+            // the player type can be updated out of order and incorrectly
+            // is "none" when the regular player is open
+            if (ShortsPlayerState.isOpen()) {
                 Logger.printDebug(() -> "Ignoring Short");
                 return;
             }
