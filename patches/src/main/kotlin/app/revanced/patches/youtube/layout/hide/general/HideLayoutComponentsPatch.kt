@@ -342,7 +342,11 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
     // region Subscribed channels bar
 
     // Tablet
-    hideSubscribedChannelsBarConstructorMethodMatch.let {
+    val methodMatch = if (is_20_21_or_greater)
+        hideSubscribedChannelsBarConstructorMethodMatch
+    else hideSubscribedChannelsBarConstructorLegacyMethodMatch
+
+    methodMatch.let {
         it.method.apply {
             val index = it[1]
             val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -356,21 +360,20 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
     }
 
     // Phone (landscape mode)
-    hideSubscribedChannelsBarConstructorMethodMatch.immutableClassDef
-        .hideSubscribedChannelsBarLandscapeMethodMatch.let {
-            it.method.apply {
-                val index = it[-1]
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
+    methodMatch.immutableClassDef.hideSubscribedChannelsBarLandscapeMethodMatch.let {
+        it.method.apply {
+            val index = it[-1]
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                addInstructions(
-                    index + 1,
-                    """
-                        invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideSubscribedChannelsBar(I)I
-                        move-result v$register
-                    """
-                )
-            }
+            addInstructions(
+                index + 1,
+                """
+                    invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideSubscribedChannelsBar(I)I
+                    move-result v$register
+                """
+            )
         }
+    }
 
     // endregion
 

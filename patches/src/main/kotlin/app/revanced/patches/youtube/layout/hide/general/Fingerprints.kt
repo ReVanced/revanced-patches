@@ -31,11 +31,12 @@ internal val BytecodePatchContext.hideShowMoreButtonSetViewMethodMatch by compos
 }
 
 context(_: BytecodePatchContext)
-internal fun ClassDef.getHideShowMoreButtonGetParentViewMethod() = firstImmutableMethodDeclaratively {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returnType("Landroid/view/View;")
-    parameterTypes()
-}
+internal fun ClassDef.getHideShowMoreButtonGetParentViewMethod() =
+    firstImmutableMethodDeclaratively {
+        accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+        returnType("Landroid/view/View;")
+        parameterTypes()
+    }
 
 context(_: BytecodePatchContext)
 internal fun ClassDef.getHideShowMoreButtonMethod() = firstMethodDeclaratively {
@@ -52,7 +53,26 @@ internal fun ClassDef.getHideShowMoreButtonMethod() = firstMethodDeclaratively {
 }
 
 
+/**
+ * 20.21+
+ */
 internal val BytecodePatchContext.hideSubscribedChannelsBarConstructorMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    instructions(
+        ResourceType.ID("parent_container"),
+        afterAtMost(3, Opcode.MOVE_RESULT_OBJECT()),
+        afterAtMost(
+            5,
+            allOf(Opcode.NEW_INSTANCE(), type($$"Landroid/widget/LinearLayout$LayoutParams;"))
+        )
+    )
+    custom { immutableClassDef.anyField { type == "Landroid/support/v7/widget/RecyclerView;" } }
+}
+
+/**
+ * ~ 20.21
+ */
+internal val BytecodePatchContext.hideSubscribedChannelsBarConstructorLegacyMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.ID("parent_container"),
@@ -69,7 +89,8 @@ internal val ClassDef.hideSubscribedChannelsBarLandscapeMethodMatch by ClassDefC
     parameterTypes()
     instructions(
         ResourceType.DIMEN("parent_view_width_in_wide_mode"),
-        afterAtMost(3, Opcode.MOVE_RESULT()),
+        allOf(Opcode.INVOKE_VIRTUAL(), method("getDimensionPixelSize")),
+        after(Opcode.MOVE_RESULT())
     )
 }
 
