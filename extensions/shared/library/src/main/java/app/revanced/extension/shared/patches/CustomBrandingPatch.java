@@ -62,6 +62,11 @@ public class CustomBrandingPatch {
         // Cannot use static initialization block otherwise cyclic references exist
         // between Settings initialization and this class.
         if (notificationSmallIcon == null) {
+            if (GmsCoreSupport.isPackageNameOriginal()) {
+                Logger.printDebug(() -> "App is root mounted. Not overriding small notification icon");
+                return notificationSmallIcon = 0;
+            }
+
             BrandingTheme branding = BaseSettings.CUSTOM_BRANDING_ICON.get();
             if (branding == BrandingTheme.ORIGINAL) {
                 notificationSmallIcon = 0;
