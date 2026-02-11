@@ -59,6 +59,8 @@ public final class EnableDebuggingPatch {
      */
     public static double isDoubleFeatureFlagEnabled(double value, long flag, double defaultValue) {
         if (LOG_FEATURE_FLAGS && defaultValue != value) {
+            if (DISABLED_FEATURE_FLAGS.contains(flag)) return defaultValue;
+
             if (featureFlags.putIfAbsent(flag, true) == null) {
                 // Align the log outputs to make post processing easier.
                 Logger.printDebug(() -> " double feature is enabled: " + flag
@@ -74,6 +76,8 @@ public final class EnableDebuggingPatch {
      */
     public static long isLongFeatureFlagEnabled(long value, long flag, long defaultValue) {
         if (LOG_FEATURE_FLAGS && defaultValue != value) {
+            if (DISABLED_FEATURE_FLAGS.contains(flag)) return defaultValue;
+
             if (featureFlags.putIfAbsent(flag, true) == null) {
                 Logger.printDebug(() -> "   long feature is enabled: " + flag
                         + " value: " + value + (defaultValue == 0 ? "" : " default: " + defaultValue));
