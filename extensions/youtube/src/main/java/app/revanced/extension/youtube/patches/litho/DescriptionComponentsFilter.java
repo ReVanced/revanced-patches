@@ -74,6 +74,11 @@ public final class DescriptionComponentsFilter extends Filter {
                 "how_this_was_made_section"
         );
 
+        final StringFilterGroup courseProgressSection = new StringFilterGroup(
+                Settings.HIDE_COURSE_PROGRESS_SECTION,
+                "course_progress"
+        );
+
         hypePoints = new StringFilterGroup(
                 Settings.HIDE_HYPE_POINTS,
                 "hype_points_factoid"
@@ -139,6 +144,7 @@ public final class DescriptionComponentsFilter extends Filter {
         addPathCallbacks(
                 aiGeneratedVideoSummarySection,
                 askSection,
+                courseProgressSection,
                 featuredLinksSection,
                 featuredVideosSection,
                 horizontalShelf,

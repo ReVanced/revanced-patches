@@ -104,6 +104,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                 SwitchPreference("revanced_hide_ask_section"),
                 SwitchPreference("revanced_hide_attributes_section"),
                 SwitchPreference("revanced_hide_chapters_section"),
+                SwitchPreference("revanced_hide_course_progress_section"),
                 SwitchPreference("revanced_hide_explore_podcast_section"),
                 SwitchPreference("revanced_hide_featured_links_section"),
                 SwitchPreference("revanced_hide_featured_places_section"),

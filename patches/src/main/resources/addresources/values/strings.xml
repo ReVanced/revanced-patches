@@ -380,6 +380,9 @@ If a Doodle is currently showing in your region and this hide setting is on, the
             <string name="revanced_hide_chapters_section_title">Hide Chapters</string>
             <string name="revanced_hide_chapters_section_summary_on">Chapters section is hidden</string>
             <string name="revanced_hide_chapters_section_summary_off">Chapters section is shown</string>
+            <string name="revanced_hide_course_progress_section_title">Hide \'Course progress\'</string>
+            <string name="revanced_hide_course_progress_section_summary_on">Course progress section is hidden</string>
+            <string name="revanced_hide_course_progress_section_summary_off">Course progress section is shown</string>
             <string name="revanced_hide_how_this_was_made_section_title">Hide \'How this content was made\'</string>
             <string name="revanced_hide_how_this_was_made_section_summary_on">How this content was made section is hidden</string>
             <string name="revanced_hide_how_this_was_made_section_summary_off">How this content was made section is shown</string>
