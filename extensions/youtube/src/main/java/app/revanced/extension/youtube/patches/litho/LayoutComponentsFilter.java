@@ -410,7 +410,9 @@ public final class LayoutComponentsFilter extends Filter {
             return path.startsWith(PAGE_HEADER_PATH);
         }
 
-        if (matchedGroup == communityPosts && NavigationBar.isBackButtonVisible()) {
+        if (matchedGroup == communityPosts
+                && NavigationBar.isBackButtonVisible()
+                && !NavigationBar.isSearchBarActive()) {
             // Allow community posts on channel profile page,
             // or if viewing an individual channel in the feed.
             return false;
