@@ -9,6 +9,7 @@ import app.revanced.patcher.composingFirstMethod
 import app.revanced.patcher.custom
 import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.field
+import app.revanced.patcher.gettingFirstImmutableMethodDeclaratively
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
@@ -104,32 +105,32 @@ internal val ClassDef.browseEndpointConstructorMethodMatch by ClassDefComposing.
     )
 }
 
-internal val BytecodePatchContext.browseEndpointParentMethod by gettingFirstMethodDeclaratively("browseId") {
+internal val BytecodePatchContext.browseEndpointParentMethod by gettingFirstImmutableMethodDeclaratively("browseId") {
     returnType("Ljava/lang/String;")
 }
 
-internal val BytecodePatchContext.guideEndpointConstructorMethod by gettingFirstMethodDeclaratively(
+internal val BytecodePatchContext.guideEndpointConstructorMethod by gettingFirstImmutableMethodDeclaratively(
     "guide"
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returnType("V")
 }
 
-internal val BytecodePatchContext.reelCreateItemsEndpointConstructorMethod by gettingFirstMethodDeclaratively(
+internal val BytecodePatchContext.reelCreateItemsEndpointConstructorMethod by gettingFirstImmutableMethodDeclaratively(
     "reel/create_reel_items"
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returnType("V")
 }
 
-internal val BytecodePatchContext.reelItemWatchEndpointConstructorMethod by gettingFirstMethodDeclaratively(
+internal val BytecodePatchContext.reelItemWatchEndpointConstructorMethod by gettingFirstImmutableMethodDeclaratively(
     "reel/reel_item_watch"
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returnType("V")
 }
 
-internal val BytecodePatchContext.reelWatchSequenceEndpointConstructorMethod by gettingFirstMethodDeclaratively(
+internal val BytecodePatchContext.reelWatchSequenceEndpointConstructorMethod by gettingFirstImmutableMethodDeclaratively(
     "reel/reel_watch_sequence"
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)

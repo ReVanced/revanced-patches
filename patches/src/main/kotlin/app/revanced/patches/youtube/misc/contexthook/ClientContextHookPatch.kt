@@ -20,6 +20,7 @@ import app.revanced.util.findInstructionIndicesReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -33,7 +34,7 @@ private lateinit var messageLiteBuilderMethod: MethodReference
 private lateinit var osNameField: FieldReference
 
 enum class Endpoint(
-    vararg val getEndpointMethods: BytecodePatchContext.() -> MutableMethod,
+    vararg val getEndpointMethods: BytecodePatchContext.() -> Method,
     var instructions: String = "",
 ) {
     BROWSE(

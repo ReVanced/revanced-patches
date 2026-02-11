@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.hide.general
 import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.youtube.layout.searchbar.wideSearchbarLayoutMethod
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode

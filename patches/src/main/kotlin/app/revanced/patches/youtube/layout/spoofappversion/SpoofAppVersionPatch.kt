@@ -18,12 +18,12 @@ import app.revanced.patches.youtube.misc.playservice.is_20_14_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.getToolBarButtonMethodMatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/spoof/SpoofAppVersionPatch;"
 
-@Suppress("ObjectPropertyName")
 val spoofAppVersionPatch = bytecodePatch(
     name = "Spoof app version",
     description = "Adds an option to trick YouTube into thinking you are running an older version of the app. " +
@@ -84,7 +84,8 @@ val spoofAppVersionPatch = bytecodePatch(
          * missing image resources. As a workaround, do not set an image in the
          * toolbar when the enum name is UNKNOWN.
          */
-        toolBarButtonMethodMatch.let {
+        // Method is shared and indexes may no longer be correct.
+        getToolBarButtonMethodMatch().let {
             val imageResourceIndex = it[2]
             val register =
                 it.method.getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA

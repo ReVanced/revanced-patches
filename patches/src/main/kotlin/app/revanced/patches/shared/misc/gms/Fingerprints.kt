@@ -3,6 +3,7 @@ package app.revanced.patches.shared.misc.gms
 import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
 internal val BytecodePatchContext.googlePlayUtilityMethod by gettingFirstMethodDeclarativelyOrNull(
     "This should never happen.",
@@ -22,17 +23,17 @@ internal val BytecodePatchContext.serviceCheckMethod by gettingFirstMethodDeclar
     parameterTypes("L", "I")
 }
 
-internal val BytecodePatchContext.getGmsCoreVendorGroupIdMethod by gettingFirstMethodDeclaratively {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getGmsCoreVendorGroupIdMethod() = firstMethodDeclaratively {
     name("getGmsCoreVendorGroupId")
-    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("Ljava/lang/String;")
     parameterTypes()
 }
 
-internal val BytecodePatchContext.originalPackageNameExtensionMethod by gettingFirstMethodDeclaratively {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getOriginalPackageNameExtensionMethod() = firstMethodDeclaratively {
     name("getOriginalPackageName")
-    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("Ljava/lang/String;")
     parameterTypes()

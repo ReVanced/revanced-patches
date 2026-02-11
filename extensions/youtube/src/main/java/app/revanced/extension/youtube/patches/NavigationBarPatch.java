@@ -4,17 +4,20 @@ import static app.revanced.extension.shared.Utils.hideViewUnderCondition;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 
 import android.os.Build;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import java.util.EnumMap;
 import java.util.Map;
 
+import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
-public final class NavigationButtonsPatch {
+public final class NavigationBarPatch {
 
     private static final Map<NavigationButton, Boolean> shouldHideMap = new EnumMap<>(NavigationButton.class) {
         {
@@ -116,5 +119,98 @@ public final class NavigationButtonsPatch {
         return Utils.isDarkModeEnabled()
                 ? !DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
                 : !DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT;
+    }
+
+    // Toolbar
+    public static boolean hideCastButton(boolean original) {
+        return !Settings.HIDE_TOOLBAR_CAST_BUTTON.get() && original;
+    }
+
+    public static void hideCastButton(MenuItem menuItem) {
+        if (!Settings.HIDE_TOOLBAR_CAST_BUTTON.get())
+            return;
+
+        menuItem.setVisible(false);
+        menuItem.setEnabled(false);
+    }
+
+    public static void hideCreateButton(String enumString, View view) {
+        if (!Settings.HIDE_TOOLBAR_CREATE_BUTTON.get())
+            return;
+
+        hideViewUnderCondition(isCreateButton(enumString), view);
+    }
+
+    public static void hideNotificationButton(String enumString, View view) {
+        if (!Settings.HIDE_TOOLBAR_NOTIFICATION_BUTTON.get())
+            return;
+
+        hideViewUnderCondition(isNotificationButton(enumString), view);
+    }
+
+    public static void hideSearchButton(String enumString, View view) {
+        if (!Settings.HIDE_TOOLBAR_SEARCH_BUTTON.get())
+            return;
+
+        hideViewUnderCondition(isSearchButton(enumString), view);
+    }
+
+    public static void hideSearchButton(MenuItem menuItem, int original) {
+        menuItem.setShowAsAction(
+                Settings.HIDE_TOOLBAR_SEARCH_BUTTON.get()
+                        ? MenuItem.SHOW_AS_ACTION_NEVER
+                        : original
+        );
+    }
+
+    private static boolean isCreateButton(String enumString) {
+        return "CREATION_ENTRY".equals(enumString) // Create button for Phone layout.
+                || "FAB_CAMERA".equals(enumString); // Create button for Tablet layout.
+    }
+
+    private static boolean isNotificationButton(String enumString) {
+        return "TAB_ACTIVITY".equals(enumString) // Notification button.
+                || "TAB_ACTIVITY_CAIRO".equals(enumString); // Notification button (New layout).
+    }
+
+    private static boolean isSearchButton(String enumString) {
+        return "SEARCH".equals(enumString) // Search button.
+                || "SEARCH_CAIRO".equals(enumString) // Search button (New layout).
+                || "SEARCH_BOLD".equals(enumString); // Search button (Shorts).
+    }
+
+    // Wide searchbar
+    private static final Boolean WIDE_SEARCHBAR_ENABLED = Settings.WIDE_SEARCHBAR.get();
+
+    /**
+     * Injection point.
+     */
+    public static boolean enableWideSearchbar(boolean original) {
+        return WIDE_SEARCHBAR_ENABLED || original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setActionBar(View view) {
+        try {
+            if (!WIDE_SEARCHBAR_ENABLED) return;
+
+            View searchBarView = Utils.getChildViewByResourceName(view, "search_bar");
+
+            final int paddingLeft = searchBarView.getPaddingLeft();
+            final int paddingRight = searchBarView.getPaddingRight();
+            final int paddingTop = searchBarView.getPaddingTop();
+            final int paddingBottom = searchBarView.getPaddingBottom();
+            final int paddingStart = Dim.dp8;
+
+            if (Utils.isRightToLeftLocale()) {
+                searchBarView.setPadding(paddingLeft, paddingTop, paddingStart, paddingBottom);
+            } else {
+                searchBarView.setPadding(paddingStart, paddingTop, paddingRight, paddingBottom);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "setActionBar failure", ex);
+        }
     }
 }

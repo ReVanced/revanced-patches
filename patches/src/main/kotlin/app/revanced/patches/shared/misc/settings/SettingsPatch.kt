@@ -1,11 +1,13 @@
 package app.revanced.patches.shared.misc.settings
 
+import app.revanced.patcher.firstImmutableClassDef
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResource
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.extension.EXTENSION_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.layout.branding.addBrandLicensePatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
@@ -32,11 +34,12 @@ fun overrideThemeColors(lightThemeColorString: String?, darkThemeColorString: St
 
 private val settingsColorPatch = bytecodePatch {
     afterDependents {
+        val extensionClassDef = firstImmutableClassDef(EXTENSION_CLASS_DESCRIPTOR)
         if (lightThemeColor != null) {
-            themeLightColorResourceNameMethod.returnEarly(lightThemeColor!!)
+            extensionClassDef.getThemeLightColorResourceNameMethod().returnEarly(lightThemeColor!!)
         }
         if (darkThemeColor != null) {
-            themeDarkColorResourceNameMethod.returnEarly(darkThemeColor!!)
+            extensionClassDef.getThemeDarkColorResourceNameMethod().returnEarly(darkThemeColor!!)
         }
     }
 }

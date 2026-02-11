@@ -153,3 +153,23 @@ internal val BytecodePatchContext.videoQualityChangedMethodMatch by composingFir
         after(allOf(Opcode.IGET(), field { type == "I" })), // Video resolution (human-readable).
     )
 }
+
+
+internal fun BytecodePatchContext.getToolBarButtonMethodMatch() = firstMethodComposite {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    instructions(
+        ResourceType.ID("menu_item_view"),
+        allOf(Opcode.INVOKE_INTERFACE(), method { returnType == "I" }),
+        after(Opcode.MOVE_RESULT()),
+        afterAtMost(6, allOf(Opcode.IGET_OBJECT(), field { type == "Landroid/widget/ImageView;" })),
+        afterAtMost(
+            8,
+            method { name == "getDrawable" && definingClass == "Landroid/content/res/Resources;" }),
+        afterAtMost(
+            4,
+            method { name == "setImageDrawable" && definingClass == "Landroid/widget/ImageView;" }),
+    )
+    // 20.37+ has second parameter of "Landroid/content/Context;"
+    custom { parameterTypes.count() in 1..2 && parameterTypes.first() == "Landroid/view/MenuItem;" }
+}

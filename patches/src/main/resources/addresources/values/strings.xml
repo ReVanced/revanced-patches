@@ -742,7 +742,7 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_hide_save_button_summary_on">Save button is hidden</string>
             <string name="revanced_hide_save_button_summary_off">Save button is shown</string>
         </patch>
-        <patch id="layout.buttons.navigation.navigationButtonsPatch">
+        <patch id="layout.buttons.navigation.navigationBarPatch">
             <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
             <string name="revanced_navigation_buttons_screen_summary">Hide or change navigation bar buttons</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -788,6 +788,20 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_disable_translucent_navigation_bar_dark_title">Disable dark translucent bar</string>
             <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Dark mode navigation bar is opaque</string>
             <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Dark mode navigation bar is opaque or translucent</string>
+            <string name="revanced_toolbar_screen_title">Toolbar</string>
+            <string name="revanced_toolbar_screen_summary">Hide or change toolbar components</string>
+            <string name="revanced_hide_toolbar_cast_button_title">Hide Cast button</string>
+            <string name="revanced_hide_toolbar_cast_button_summary_on">Cast button is hidden</string>
+            <string name="revanced_hide_toolbar_cast_button_summary_off">Cast button is shown</string>
+            <string name="revanced_hide_toolbar_create_button_title">Hide Create button</string>
+            <string name="revanced_hide_toolbar_create_button_summary_on">Create button is hidden</string>
+            <string name="revanced_hide_toolbar_create_button_summary_off">Create button is shown</string>
+            <string name="revanced_hide_toolbar_notification_button_title">Hide Notifications button</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_on">Notifications button is hidden</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_off">Notifications button is shown</string>
+            <string name="revanced_hide_toolbar_search_button_title">Hide Search button</string>
+            <string name="revanced_hide_toolbar_search_button_summary_on">Search button is hidden</string>
+            <string name="revanced_hide_toolbar_search_button_summary_off">Search button is shown.</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <string name="revanced_hide_player_flyout_title">Flyout menu</string>

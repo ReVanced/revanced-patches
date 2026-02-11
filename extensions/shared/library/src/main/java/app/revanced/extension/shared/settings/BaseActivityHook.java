@@ -96,15 +96,15 @@ public abstract class BaseActivityHook extends Activity {
     protected void createToolbar(Activity activity, PreferenceFragment fragment) {
         // Replace dummy placeholder toolbar.
         // This is required to fix submenu title alignment issue with Android ASOP 15+
-        ViewGroup toolBarParent = activity.findViewById(ID_REVANCED_TOOLBAR_PARENT);
-        ViewGroup dummyToolbar = Utils.getChildViewByResourceName(toolBarParent, "revanced_toolbar");
+        ViewGroup toolbarParent = activity.findViewById(ID_REVANCED_TOOLBAR_PARENT);
+        ViewGroup dummyToolbar = Utils.getChildViewByResourceName(toolbarParent, "revanced_toolbar");
         toolbarLayoutParams = dummyToolbar.getLayoutParams();
-        toolBarParent.removeView(dummyToolbar);
+        toolbarParent.removeView(dummyToolbar);
 
         // Sets appropriate system navigation bar color for the activity.
         ToolbarPreferenceFragment.setNavigationBarColor(activity.getWindow());
 
-        Toolbar toolbar = new Toolbar(toolBarParent.getContext());
+        Toolbar toolbar = new Toolbar(toolbarParent.getContext());
         toolbar.setBackgroundColor(getToolbarBackgroundColor());
         toolbar.setNavigationIcon(getNavigationIcon());
         toolbar.setNavigationOnClickListener(getNavigationClickListener(activity));
@@ -121,7 +121,7 @@ public abstract class BaseActivityHook extends Activity {
 
         onPostToolbarSetup(activity, toolbar, fragment);
 
-        toolBarParent.addView(toolbar, 0);
+        toolbarParent.addView(toolbar, 0);
     }
 
     /**

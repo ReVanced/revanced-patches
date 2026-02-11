@@ -3,6 +3,7 @@ package app.revanced.patches.shared.layout.branding
 import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.firstImmutableClassDef
 import app.revanced.patcher.patch.*
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
@@ -117,9 +118,11 @@ internal fun baseCustomBrandingPatch(
                     "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setBranding()V",
                 )
 
-                numberOfPresetAppNamesExtensionMethod.returnEarly(numberOfPresetAppNames)
-                userProvidedCustomNameExtensionMethod.returnEarly(customName != null)
-                userProvidedCustomIconExtensionMethod.returnEarly(customIcon != null)
+                val extensionClassDef = firstImmutableClassDef(EXTENSION_CLASS_DESCRIPTOR)
+
+                extensionClassDef.getNumberOfPresetAppNamesExtensionMethod().returnEarly(numberOfPresetAppNames)
+                extensionClassDef.getUserProvidedCustomNameExtensionMethod().returnEarly(customName != null)
+                extensionClassDef.getUserProvidedCustomIconExtensionMethod().returnEarly(customIcon != null)
 
                 notificationMethod.apply {
                     val getBuilderIndex = if (isYouTubeMusic) {

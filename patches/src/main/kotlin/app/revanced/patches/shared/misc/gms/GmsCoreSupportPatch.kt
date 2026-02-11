@@ -14,6 +14,9 @@ import app.revanced.patcher.patch.ResourcePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
+import app.revanced.patcher.firstClassDef
+import app.revanced.patcher.firstImmutableClassDef
+import app.revanced.patcher.patch.*
 import app.revanced.patches.all.misc.packagename.changePackageNamePatch
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
@@ -168,8 +171,10 @@ fun gmsCoreSupportPatch(
         // Google Play Utility is not present in all apps, so we need to check if it's present.
         googlePlayUtilityMethod?.returnEarly(0)
 
+        val extensionClassDef = firstImmutableClassDef(EXTENSION_CLASS_DESCRIPTOR)
+
         // Set original and patched package names for extension to use.
-        originalPackageNameExtensionMethod.returnEarly(fromPackageName)
+        extensionClassDef.getOriginalPackageNameExtensionMethod().returnEarly(fromPackageName)
 
         // Run GmsCore presence, correct installation and update checks in the main activity.
         getMainActivityOnCreateMethod().addInstruction(
