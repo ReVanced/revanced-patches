@@ -341,10 +341,15 @@ If a Doodle is currently showing in your region and this hide setting is on, the
             <string name="revanced_hide_info_panels_summary_on">Info panels are hidden</string>
             <string name="revanced_hide_info_panels_summary_off">Info panels are shown</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                  This appears in the video player for certain videos. -->
+                   This button usually appears in the video player for certain videos. -->
             <string name="revanced_hide_join_membership_button_title">Hide Join button</string>
             <string name="revanced_hide_join_membership_button_summary_on">Join button is hidden</string>
             <string name="revanced_hide_join_membership_button_summary_off">Join button is shown</string>
+            <!-- 'Live chat replay' should be translated using the same localized wording YouTube displays for the button.
+       This button usually appears in the player overlay for live streamed videos after opening live chat. -->
+            <string name="revanced_hide_live_chat_replay_button_title">Hide \'Live chat replay\' button</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_on">Live chat replay button in player overlay is hidden</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_off">Live chat replay button in player overlay is shown</string>
             <string name="revanced_hide_medical_panels_title">Hide medical panels</string>
             <string name="revanced_hide_medical_panels_summary_on">Medical panels are hidden</string>
             <string name="revanced_hide_medical_panels_summary_off">Medical panels are shown</string>
@@ -706,7 +711,7 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_hide_comments_button_summary_on">Comments button is hidden</string>
             <string name="revanced_hide_comments_button_summary_off">Comments button is shown</string>
             <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually only shows on live streams. -->
+                  This button usually appears on live streamed videos. -->
             <string name="revanced_hide_report_button_title">Hide Report</string>
             <string name="revanced_hide_report_button_summary_on">Report button is hidden</string>
             <string name="revanced_hide_report_button_summary_off">Report button is shown</string>
@@ -719,7 +724,7 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_hide_download_button_summary_on">Download button is hidden</string>
             <string name="revanced_hide_download_button_summary_off">Download button is shown</string>
             <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged-in user. -->
+                  This button usually appears on videos uploaded by the logged-in user. -->
             <string name="revanced_hide_hype_button_title">Hide Hype</string>
             <string name="revanced_hide_hype_button_summary_on">Hype button is hidden</string>
             <string name="revanced_hide_hype_button_summary_off">Hype button is shown</string>
@@ -732,7 +737,7 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_hide_thanks_button_summary_on">Thanks button is hidden</string>
             <string name="revanced_hide_thanks_button_summary_off">Thanks button is shown</string>
             <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button usually appears if the user IP is from a specific region such as the USA or EU. -->
             <string name="revanced_hide_ask_button_title">Hide Ask</string>
             <string name="revanced_hide_ask_button_summary_on">Ask button is hidden</string>
             <string name="revanced_hide_ask_button_summary_off">Ask button is shown</string>

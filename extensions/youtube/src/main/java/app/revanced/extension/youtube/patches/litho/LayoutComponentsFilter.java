@@ -78,6 +78,16 @@ public final class LayoutComponentsFilter extends Filter {
                 "chips_shelf"
         );
 
+        final var liveChatReplay = new StringFilterGroup(
+                Settings.HIDE_LIVE_CHAT_REPLAY_BUTTON,
+                "live_chat_ep_entrypoint.e"
+        );
+
+        addIdentifierCallbacks(
+                chipsShelf,
+                liveChatReplay
+        );
+
         final var visualSpacer = new StringFilterGroup(
                 Settings.HIDE_VISUAL_SPACER,
                 "cell_divider"
@@ -85,6 +95,7 @@ public final class LayoutComponentsFilter extends Filter {
 
         addIdentifierCallbacks(
                 chipsShelf,
+                liveChatReplay,
                 visualSpacer
         );
 
