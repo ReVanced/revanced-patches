@@ -4,6 +4,7 @@ import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableClassDef
 import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableField
 import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
 import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.*
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.BytecodePatchContext
@@ -17,6 +18,7 @@ import com.android.tools.smali.dexlib2.analysis.reflection.util.ReflectionUtils
 import com.android.tools.smali.dexlib2.formatter.DexFormatter
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.MethodParameter
 import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -24,6 +26,8 @@ import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.iface.value.*
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 import com.android.tools.smali.dexlib2.immutable.value.*
 import java.util.*
 /**
@@ -651,6 +655,35 @@ private fun MutableMethod.checkReturnType(expectedTypes: Iterable<Class<*>>) {
     check(expectedTypes.any { returnTypeJava == it.name }) {
         "Actual return type $returnTypeJava is not contained in expected types: $expectedTypes"
     }
+}
+
+// From BiliRoamingX:
+// https://github.com/BiliRoamingX/BiliRoamingX/blob/ae58109f3acdd53ec2d2b3fb439c2a2ef1886221/patches/src/main/kotlin/app/revanced/patches/bilibili/utils/Extenstions.kt#L51
+fun Method.cloneMutable(
+    registerCount: Int = implementation?.registerCount ?: 0,
+    name: String = this.name,
+    accessFlags: Int = this.accessFlags,
+    parameters: List<MethodParameter> = this.parameters,
+    returnType: String = this.returnType
+): MutableMethod {
+    val clonedImplementation = implementation?.let {
+        ImmutableMethodImplementation(
+            registerCount,
+            it.instructions,
+            it.tryBlocks,
+            it.debugItems,
+        )
+    }
+    return ImmutableMethod(
+        definingClass,
+        name,
+        parameters,
+        returnType,
+        accessFlags,
+        annotations,
+        hiddenApiRestrictions,
+        clonedImplementation
+    ).toMutable()
 }
 
 /**

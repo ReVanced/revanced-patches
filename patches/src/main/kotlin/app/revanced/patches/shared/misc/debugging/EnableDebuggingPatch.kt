@@ -1,18 +1,23 @@
 package app.revanced.patches.shared.misc.debugging
 
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.firstMethodDeclaratively
 import app.revanced.patcher.immutableClassDef
+import app.revanced.patcher.instructions
+import app.revanced.patcher.method
+import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.returnType
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.util.*
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/shared/patches/EnableDebuggingPatch;"
@@ -90,63 +95,100 @@ internal fun enableDebuggingPatch(
             ),
         )
 
-        // Hook the methods that look up if a feature flag is active.
-        experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalBooleanFeatureFlagMethod().apply {
-            findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
+        val experimentalBooleanFeatureFlagMethodMatch =
+            experimentalFeatureFlagUtilMethod.immutableClassDef.experimentalBooleanFeatureFlagMethodMatch
+
+        experimentalBooleanFeatureFlagMethodMatch.let {
+            it.method.apply {
+                // In some versions, freeRegister is not available.
+                // The easiest workaround is to copy the method to minimize modifications to the instructions.
+                val helperMethodName = "patch_getBooleanFeatureFlag"
+
+                // Copy the method.
+                val helperMethod = cloneMutable(name = helperMethodName)
+
+                // Add the method.
+                it.classDef.methods.add(helperMethod)
 
                 addInstructions(
-                    index,
+                    0,
                     """
-                        invoke-static { v$register, p1 }, $EXTENSION_CLASS_DESCRIPTOR->isBooleanFeatureFlagEnabled(ZLjava/lang/Long;)Z
-                        move-result v$register
-                    """,
+                        # Invoke the copied method (helper method).
+                        invoke-static {p0, p1, p2, p3}, $helperMethod
+                        move-result p0
+                        
+                        # Convert the flag value to 'Long' format to pass it to the extension.
+                        invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+                        move-result-object p1
+                        
+                        # Redefine boolean in the extension.
+                        invoke-static {p0, p1}, ${EXTENSION_CLASS_DESCRIPTOR}->isBooleanFeatureFlagEnabled(ZLjava/lang/Long;)Z
+                        move-result p0
+                        
+                        # Since the copied method (helper method) has already been invoked, it just returns.
+                        return p0
+                    """
                 )
             }
         }
 
-        experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalDoubleFeatureFlagMethod().apply {
-            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
+        // In some versions, the classes for 'experimentalBooleanFeatureFlagMethod' and
+        // 'experimentalDoubleFeatureFlagMethod, experimentalLongFeatureFlagMethod, experimentalStringFeatureFlagMethod'
+        // are different.
+        // To handle this, rely on a parent methods.
+        val experimentalFeatureFlagParentMethod = firstMethodDeclaratively {
+            accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+            returnType("Z")
+            parameterTypes("J", "Z")
+            instructions(method { this == experimentalBooleanFeatureFlagMethodMatch.method })
+        }
 
-            addInstructions(
-                insertIndex,
-                """
+        experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalDoubleFeatureFlagMethod()
+            .apply {
+                val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
+
+                addInstructions(
+                    insertIndex,
+                    """
                     move-result-wide v0 # Also clobbers v1 (p0) since result is wide.
                     invoke-static/range { v0 .. v5 }, $EXTENSION_CLASS_DESCRIPTOR->isDoubleFeatureFlagEnabled(DJD)D
                     move-result-wide v0
                     return-wide v0
                 """,
-            )
-        }
+                )
+            }
 
-        experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalLongFeatureFlagMethod().apply {
-            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
+        experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalLongFeatureFlagMethod()
+            .apply {
+                val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
 
-            addInstructions(
-                insertIndex,
-                """
+                addInstructions(
+                    insertIndex,
+                    """
                     move-result-wide v0
                     invoke-static/range { v0 .. v5 }, $EXTENSION_CLASS_DESCRIPTOR->isLongFeatureFlagEnabled(JJJ)J
                     move-result-wide v0
                     return-wide v0
                 """,
-            )
-        }
+                )
+            }
 
         if (hookStringFeatureFlag) {
-            experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalStringFeatureFlagMethod().apply {
-                val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT_OBJECT)
+            experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalStringFeatureFlagMethod()
+                .apply {
+                    val insertIndex =
+                        indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT_OBJECT)
 
-                addInstructions(
-                    insertIndex,
-                    """
+                    addInstructions(
+                        insertIndex,
+                        """
                         move-result-object v0
                         invoke-static { v0, p1, p2, p3 }, $EXTENSION_CLASS_DESCRIPTOR->isStringFeatureFlagEnabled(Ljava/lang/String;JLjava/lang/String;)Ljava/lang/String;
                         move-result-object v0
                         return-object v0
                     """,
-                )
-            }
+                    )
+                }
         }
 
         // There exists other experimental accessor methods for byte[]

@@ -5,7 +5,6 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.ClassDef
 
 internal val BytecodePatchContext.layoutCircleMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -48,28 +47,25 @@ internal val BytecodePatchContext.layoutVideoMethodMatch by composingFirstMethod
     literal { layoutVideo }
 }
 
-
-internal val BytecodePatchContext.showEndscreenCardsParentMethod by gettingFirstImmutableMethodDeclaratively {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returnType("[L")
-    parameterTypes("L")
-    instructions(
-        Opcode.NEW_ARRAY(),
-        afterAtMost(12, 1024L()),
-        afterAtMost(12, 1L()),
-    )
-    custom {
-        immutableClassDef.methods.count() == 5
-    }
-}
-
-/**
- * Matches to the class found in [showEndscreenCardsParentMethod].
- */
-context(_: BytecodePatchContext)
-internal fun ClassDef.getShowEndscreenCardsMethod() = firstMethodDeclaratively {
+internal val BytecodePatchContext.showEndscreenCardsMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L")
-    instructions(5L(), 8L(), 9L())
+    instructions(
+        allOf(Opcode.IPUT_OBJECT(), field { type == "Ljava/lang/String;" }),
+        allOf(Opcode.IGET_OBJECT(), field { type == "Ljava/lang/String;" }),
+        afterAtMost(7, allOf(Opcode.INVOKE_VIRTUAL(), method("ordinal"))),
+        5L(),
+        8L(),
+        9L(),
+        allOf(
+            Opcode.IGET_OBJECT(),
+            field { type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;" }),
+    )
+    custom {
+        immutableClassDef.methods.count() == 5
+                // 'public final' or 'final'
+                && AccessFlags.FINAL.isSet(accessFlags)
+    }
 }
+

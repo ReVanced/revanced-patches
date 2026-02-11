@@ -90,8 +90,7 @@ val hideEndScreenCardsPatch = bytecodePatch(
         }
 
         if (is_19_43_or_greater) {
-            showEndscreenCardsParentMethod.immutableClassDef.getShowEndscreenCardsMethod()
-                .addInstructionsWithLabels(
+            showEndscreenCardsMethod.addInstructionsWithLabels(
                 0,
                 """
                     invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideEndScreenCards()Z
