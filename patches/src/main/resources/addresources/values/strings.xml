@@ -275,6 +275,11 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_latest_posts_title">Hide latest posts</string>
             <string name="revanced_hide_latest_posts_summary_on">Latest posts are hidden</string>
             <string name="revanced_hide_latest_posts_summary_off">Latest posts are shown</string>
+            <!-- 'Latest videos' should be translated using the same localized wording YouTube displays for the button.
+                 This button usually appears in the Home feed for refreshing the feed. -->
+            <string name="revanced_hide_latest_videos_button_title">Hide \'Latest videos\' button</string>
+            <string name="revanced_hide_latest_videos_button_summary_on">Latest videos button is hidden</string>
+            <string name="revanced_hide_latest_videos_button_summary_off">Latest videos button is shown</string>
             <string name="revanced_hide_mix_playlists_title">Hide mix playlists</string>
             <string name="revanced_hide_mix_playlists_summary_on">Mix playlists are hidden</string>
             <string name="revanced_hide_mix_playlists_summary_off">Mix playlists are shown</string>
@@ -282,7 +287,7 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_movies_section_summary_on">Movies section is hidden</string>
             <string name="revanced_hide_movies_section_summary_off">Movies section is shown</string>
             <!-- 'Notify me' should be translated using the same localized wording YouTube displays for this button.
-                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
+                  This button usually appears in the Subscriptions feed for future livestreams or unreleased videos. -->
             <string name="revanced_hide_notify_me_button_title">Hide \'Notify me\' button</string>
             <string name="revanced_hide_notify_me_button_summary_on">Notify me button is hidden</string>
             <string name="revanced_hide_notify_me_button_summary_off">Notify me button is shown</string>

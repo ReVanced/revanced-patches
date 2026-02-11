@@ -204,6 +204,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         ),
         SwitchPreference("revanced_hide_image_shelf"),
         SwitchPreference("revanced_hide_latest_posts"),
+        SwitchPreference("revanced_hide_latest_videos_button"),
         SwitchPreference("revanced_hide_mix_playlists"),
         SwitchPreference("revanced_hide_movies_section"),
         SwitchPreference("revanced_hide_notify_me_button"),
@@ -345,6 +346,26 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                         invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
                         move-result v$register
                     """,
+            )
+        }
+    }
+
+    // endregion
+
+    // region Hide latest videos button
+
+    listOf(
+        latestVideosContentPillMethodMatch,
+        latestVideosBarMethodMatch,
+    ).forEach { match ->
+        match.method.apply {
+            val moveIndex = match[-1]
+            val viewRegister = getInstruction<OneRegisterInstruction>(moveIndex).registerA
+
+            addInstruction(
+                moveIndex + 1,
+                "invoke-static { v$viewRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
+                        "->hideLatestVideosButton(Landroid/view/View;)V"
             )
         }
     }

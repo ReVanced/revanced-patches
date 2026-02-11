@@ -502,6 +502,13 @@ public final class LayoutComponentsFilter extends Filter {
     /**
      * Injection point.
      */
+    public static void hideLatestVideosButton(View view) {
+        Utils.hideViewUnderCondition(Settings.HIDE_LATEST_VIDEOS_BUTTON.get(), view);
+    }
+
+    /**
+     * Injection point.
+     */
     public static int hideInFeed(final int height) {
         return Settings.HIDE_FILTER_BAR_FEED_IN_FEED.get()
                 ? 0

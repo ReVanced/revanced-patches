@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.hide.general
 
 import app.revanced.patcher.*
+import app.revanced.patcher.after
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.util.literal
@@ -152,9 +153,35 @@ internal val BytecodePatchContext.searchBoxTypingMethodMatch by composingFirstMe
     parameterTypes("L")
     instructions(ResourceType.DIMEN("suggestion_category_divider_height"))
     instructions(
-        allOf(Opcode.IGET_OBJECT(), field { type == "Ljava/lang/String;"}),
-        afterAtMost(5, method { toString() == "Ljava/lang/String;->isEmpty()Z"}),
+        allOf(Opcode.IGET_OBJECT(), field { type == "Ljava/lang/String;" }),
+        afterAtMost(5, method { toString() == "Ljava/lang/String;->isEmpty()Z" }),
         after(Opcode.MOVE_RESULT()),
         after(Opcode.IF_NEZ())
+    )
+}
+
+internal val BytecodePatchContext.latestVideosContentPillMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("L", "Z")
+    instructions(
+        ResourceType.LAYOUT("content_pill"),
+        method {
+            toString() == "Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;"
+        },
+        after(Opcode.MOVE_RESULT_OBJECT())
+    )
+}
+
+internal val BytecodePatchContext.latestVideosBarMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("L", "Z")
+    instructions(
+        ResourceType.LAYOUT("bar"),
+        method {
+            toString() == "Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;"
+        },
+        after(Opcode.MOVE_RESULT_OBJECT())
     )
 }
