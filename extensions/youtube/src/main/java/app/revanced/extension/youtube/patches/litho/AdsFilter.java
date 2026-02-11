@@ -37,6 +37,8 @@ public final class AdsFilter extends Filter {
 
     private final StringTrieSearch exceptions = new StringTrieSearch();
 
+    private final StringFilterGroup promotionBanner;
+    private final ByteArrayFilterGroup promotionBannerBuffer;
     private final StringFilterGroup playerShoppingShelf;
     private final ByteArrayFilterGroup playerShoppingShelfBuffer;
     private final StringFilterGroup buyMovieAd;
@@ -143,9 +145,16 @@ public final class AdsFilter extends Filter {
                 "shopping_carousel.e" // Channel profile shopping shelf.
         );
 
-        final var promotionBanner = new StringFilterGroup(
+        promotionBanner = new StringFilterGroup(
                 Settings.HIDE_YOUTUBE_PREMIUM_PROMOTIONS,
                 "statement_banner"
+        );
+
+        promotionBannerBuffer = new ByteArrayFilterGroup(
+                null,
+                // YouTube Doodles uses https://www.gstatic.com/youtube/img/promos/ only.
+                // So, https://www.gstatic.com/youtube/img/promos/growth/ should hide the ad.
+                "img/promos/growth/"
         );
 
         final var selfSponsor = new StringFilterGroup(
@@ -175,6 +184,10 @@ public final class AdsFilter extends Filter {
 
         if (matchedGroup == buyMovieAd) {
             return contentIndex == 0 && buyMovieAdBuffer.check(buffer).isFiltered();
+        }
+
+        if (matchedGroup == promotionBanner) {
+            return contentIndex == 0 && promotionBannerBuffer.check(buffer).isFiltered();
         }
 
         return !exceptions.matches(path);

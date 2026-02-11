@@ -568,9 +568,7 @@ Limitations:
             <string name="revanced_hide_view_products_banner_summary_on">View products banner in player overlay is hidden</string>
             <string name="revanced_hide_view_products_banner_summary_off">View products banner in player overlay is shown</string>
             <string name="revanced_hide_youtube_premium_promotions_title">Hide YouTube Premium promotions</string>
-            <string name="revanced_hide_youtube_premium_promotions_summary_on">"YouTube Premium promotions are hidden
-
-Limitations: YouTube Doodles page is not available"</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_on">YouTube Premium promotions are hidden</string>
             <string name="revanced_hide_youtube_premium_promotions_summary_off">YouTube Premium promotions are shown</string>
         </patch>
         <patch id="ad.video.videoAdsPatch">
