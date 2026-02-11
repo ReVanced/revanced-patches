@@ -9,28 +9,48 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-/**
- * 20.26+
- */
-internal val BytecodePatchContext.hideShowMoreButtonMethodMatch by composingFirstMethod {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL, AccessFlags.SYNTHETIC)
+
+internal val BytecodePatchContext.hideShowMoreButtonSetViewMethodMatch by composingFirstMethod {
     returnType("V")
-    parameterTypes("L", "Ljava/lang/Object;")
+
+    var methodDefiningClass = ""
+    custom {
+        methodDefiningClass = definingClass
+        true
+    }
     instructions(
-        ResourceType.LAYOUT("expand_button_down"),
-        method { toString() == "Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;" },
-        after(Opcode.MOVE_RESULT_OBJECT()),
+        ResourceType.ID("link_text_start"),
+        allOf(
+            Opcode.IPUT_OBJECT(),
+            field { type == "Landroid/widget/TextView;" && definingClass == methodDefiningClass }),
+        ResourceType.ID("expand_button_container"),
+        allOf(
+            Opcode.IPUT_OBJECT(),
+            field { type == "Landroid/widget/TextView;" && definingClass == methodDefiningClass })
     )
 }
 
-internal val BytecodePatchContext.hideShowMoreLegacyButtonMethodMatch by composingFirstMethod {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+context(_: BytecodePatchContext)
+internal fun ClassDef.getHideShowMoreButtonGetParentViewMethod() = firstImmutableMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("Landroid/view/View;")
+    parameterTypes()
+}
+
+context(_: BytecodePatchContext)
+internal fun ClassDef.getHideShowMoreButtonMethod() = firstMethodDeclaratively {
+    returnType("V")
+    parameterTypes("L", "Ljava/lang/Object;")
     instructions(
-        ResourceType.LAYOUT("expand_button_down"),
-        method { toString() == "Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;" },
-        Opcode.MOVE_RESULT_OBJECT(),
+        allOf(
+            Opcode.INVOKE_VIRTUAL(),
+            method {
+                toString() == "Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V"
+            }
+        )
     )
 }
+
 
 internal val BytecodePatchContext.hideSubscribedChannelsBarConstructorMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)

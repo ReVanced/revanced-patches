@@ -8,8 +8,11 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.View;
-
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
@@ -18,8 +21,6 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
-import app.revanced.extension.shared.patches.litho.FilterGroupList;
-import app.revanced.extension.shared.patches.litho.FilterGroupList.ByteArrayFilterGroupList;
 import app.revanced.extension.shared.patches.litho.FilterGroupList.StringFilterGroupList;
 import app.revanced.extension.youtube.patches.ChangeHeaderPatch;
 import app.revanced.extension.youtube.settings.Settings;
@@ -567,19 +568,92 @@ public final class LayoutComponentsFilter extends Filter {
         imageView.setImageDrawable(replacement);
     }
 
+    private static final FrameLayout.LayoutParams EMPTY_LAYOUT_PARAMS = new FrameLayout.LayoutParams(0, 0);
     private static final boolean HIDE_SHOW_MORE_BUTTON_ENABLED = Settings.HIDE_SHOW_MORE_BUTTON.get();
+
+    /**
+     * The ShowMoreButton should not always be hidden.
+     * According to the preference summary, only the ShowMoreButton in search results is hidden.
+     * Since the ShowMoreButton should be visible on other pages, such as channels,
+     * the original values of the Views are saved in fields.
+     */
+    private static FrameLayout.LayoutParams cachedLayoutParams;
+    private static int cachedButtonContainerMinimumHeight = -1;
+    private static int cachedPlaceHolderMinimumHeight = -1;
+    private static int cachedRootViewMinimumHeight = -1;
 
     /**
      * Injection point.
      */
-    public static void hideShowMoreButton(View view) {
+    public static void hideShowMoreButton(View view, View buttonContainer, TextView textView) {
         if (HIDE_SHOW_MORE_BUTTON_ENABLED
-                && NavigationBar.isSearchBarActive()
-                // Search bar can be active but behind the player.
-                && !PlayerType.getCurrent().isMaximizedOrFullscreen()) {
-            // FIXME: "Show more" button is visible hidden,
-            //        but an empty space remains that can be clicked.
-            Utils.hideViewByLayoutParams(view);
+                && view instanceof ViewGroup rootView
+                && buttonContainer != null
+                && textView != null
+                && buttonContainer.getLayoutParams() instanceof FrameLayout.LayoutParams lp
+        ) {
+            View placeHolder = rootView.getChildAt(0);
+
+            // For some users, ShowMoreButton has a PlaceHolder ViewGroup (A/B tests).
+            // When a PlaceHolder is present, a different method is used to hide or show the ViewGroup.
+            boolean hasPlaceHolder = placeHolder instanceof FrameLayout;
+
+            // Only in search results, the content description of RootView and the text of TextView match.
+            // Hide ShowMoreButton in search results, but show ShowMoreButton in other pages (e.g. channels).
+            boolean isSearchResults = TextUtils.equals(rootView.getContentDescription(), textView.getText());
+
+            if (hasPlaceHolder) {
+                hideShowMoreButtonWithPlaceHolder(placeHolder, isSearchResults);
+            } else {
+                hideShowMoreButtonWithOutPlaceHolder(buttonContainer, lp, isSearchResults);
+            }
+
+            if (cachedRootViewMinimumHeight == -1) {
+                cachedRootViewMinimumHeight = rootView.getMinimumHeight();
+            }
+
+            if (isSearchResults) {
+                rootView.setMinimumHeight(0);
+                rootView.setVisibility(View.GONE);
+            } else {
+                rootView.setMinimumHeight(cachedRootViewMinimumHeight);
+                rootView.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    private static void hideShowMoreButtonWithPlaceHolder(View placeHolder, boolean isSearchResults) {
+        if (cachedPlaceHolderMinimumHeight == -1) {
+            cachedPlaceHolderMinimumHeight = placeHolder.getMinimumHeight();
+        }
+
+        if (isSearchResults) {
+            placeHolder.setMinimumHeight(0);
+            placeHolder.setVisibility(View.GONE);
+        } else {
+            placeHolder.setMinimumHeight(cachedPlaceHolderMinimumHeight);
+            placeHolder.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private static void hideShowMoreButtonWithOutPlaceHolder(View buttonContainer, FrameLayout.LayoutParams lp,
+                                                             boolean isSearchResults) {
+        if (cachedButtonContainerMinimumHeight == -1) {
+            cachedButtonContainerMinimumHeight = buttonContainer.getMinimumHeight();
+        }
+
+        if (cachedLayoutParams == null) {
+            cachedLayoutParams = lp;
+        }
+
+        if (isSearchResults) {
+            buttonContainer.setMinimumHeight(0);
+            buttonContainer.setLayoutParams(EMPTY_LAYOUT_PARAMS);
+            buttonContainer.setVisibility(View.GONE);
+        } else {
+            buttonContainer.setMinimumHeight(cachedButtonContainerMinimumHeight);
+            buttonContainer.setLayoutParams(cachedLayoutParams);
+            buttonContainer.setVisibility(View.VISIBLE);
         }
     }
 

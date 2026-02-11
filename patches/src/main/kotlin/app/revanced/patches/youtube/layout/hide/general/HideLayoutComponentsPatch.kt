@@ -1,6 +1,8 @@
 package app.revanced.patches.youtube.layout.hide.general
 
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.CompositeMatch
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.resourcePatch
@@ -13,7 +15,6 @@ import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_20_21_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_26_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -21,12 +22,16 @@ import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 internal var albumCardId = -1L
     private set
@@ -105,8 +110,8 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                 SwitchPreference("revanced_hide_attributes_section"),
                 SwitchPreference("revanced_hide_chapters_section"),
                 SwitchPreference("revanced_hide_course_progress_section"),
-                SwitchPreference("revanced_hide_explore_section"),
-                SwitchPreference("revanced_hide_explore_course_section"),
+                SwitchPreference("morphe_hide_explore_section"),
+                SwitchPreference("morphe_hide_explore_course_section"),
                 SwitchPreference("revanced_hide_explore_podcast_section"),
                 SwitchPreference("revanced_hide_featured_links_section"),
                 SwitchPreference("revanced_hide_featured_places_section"),
@@ -288,17 +293,46 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // region Show more button
 
-    (if (is_20_26_or_greater) hideShowMoreButtonMethodMatch else hideShowMoreLegacyButtonMethodMatch).let {
-        it.method.apply {
-            val moveRegisterIndex = it[-1]
-            val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
+    val (textViewField, buttonContainerField) = hideShowMoreButtonSetViewMethodMatch.let {
+        val textViewIndex = it[1]
+        val buttonContainerIndex = it[3]
 
-            val insertIndex = moveRegisterIndex + 1
-            addInstruction(
-                insertIndex,
-                "invoke-static { v$viewRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
-                        "->hideShowMoreButton(Landroid/view/View;)V",
+        Pair(
+            it.method.getInstruction<ReferenceInstruction>(textViewIndex).reference,
+            it.method.getInstruction<ReferenceInstruction>(buttonContainerIndex).reference
+        )
+    }
+
+    val parentViewMethod = hideShowMoreButtonSetViewMethodMatch.immutableClassDef
+        .getHideShowMoreButtonGetParentViewMethod()
+
+    hideShowMoreButtonSetViewMethodMatch.immutableClassDef.getHideShowMoreButtonMethod().apply {
+        val helperMethod = ImmutableMethod(
+            definingClass,
+            "patch_hideShowMoreButton",
+            listOf(),
+            "V",
+            AccessFlags.PRIVATE.value or AccessFlags.FINAL.value,
+            null,
+            null,
+            MutableMethodImplementation(7),
+        ).toMutable().apply {
+            addInstructions(
+                0,
+                """
+                    move-object/from16 v0, p0
+                    invoke-virtual { v0 }, $parentViewMethod
+                    move-result-object v1
+                    iget-object v2, v0, $buttonContainerField
+                    iget-object v3, v0, $textViewField
+                    invoke-static { v1, v2, v3 }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideShowMoreButton(Landroid/view/View;Landroid/view/View;Landroid/widget/TextView;)V
+                    return-void
+                """
             )
+        }.let(classDef.methods::add)
+
+        findInstructionIndicesReversedOrThrow(Opcode.RETURN_VOID).forEach { index ->
+            addInstruction(index, "invoke-direct/range { p0 .. p0 }, $helperMethod")
         }
     }
 
