@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import java.util.List;
+import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.ResourceType;
@@ -280,10 +281,48 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static int getModernMiniplayerOverrideType(int original) {
+        if (CURRENT_TYPE == MINIMAL) {
+            // In newer app targets the minimal player can show the wrong icon if modern 4 is allowed.
+            // Forcing to modern 1 seems to work.
+            return Objects.requireNonNull(MODERN_1.modernPlayerType);
+        }
+
         Integer modernValue = CURRENT_TYPE.modernPlayerType;
         return modernValue == null
                 ? original
                 : modernValue;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean isMiniplayerType1Active(boolean original) {
+        if (CURRENT_TYPE == DEFAULT) return original;
+        return CURRENT_TYPE == MODERN_1;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean isMiniplayerType2Active(boolean original) {
+        if (CURRENT_TYPE == DEFAULT) return original;
+        return CURRENT_TYPE == MODERN_2;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean isMiniplayerType3Active(boolean original) {
+        if (CURRENT_TYPE == DEFAULT) return original;
+        return CURRENT_TYPE == MODERN_3;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean isMiniplayerType4Active(boolean original) {
+        if (CURRENT_TYPE == DEFAULT) return original;
+        return CURRENT_TYPE == MODERN_4;
     }
 
     /**
