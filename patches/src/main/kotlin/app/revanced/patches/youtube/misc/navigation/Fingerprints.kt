@@ -8,7 +8,7 @@ import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
+import app.revanced.patches.youtube.layout.buttons.navigation.navigationBarPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
@@ -55,7 +55,7 @@ internal fun ClassDef.getInitializeButtonsMethod() = firstMethodDeclaratively {
 
 /**
  * Extension method, used for callback into to other patches.
- * Specifically, [navigationButtonsPatch].
+ * Specifically, [navigationBarPatch].
  */
 internal val BytecodePatchContext.navigationBarHookCallbackMethod by gettingFirstMethodDeclaratively {
     name("navigationTabCreatedCallback")
