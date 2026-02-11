@@ -145,6 +145,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         SwitchPreference("revanced_hide_related_videos"),
         SwitchPreference("revanced_hide_subscribers_community_guidelines"),
         SwitchPreference("revanced_hide_timed_reactions"),
+        SwitchPreference("revanced_hide_video_title")
     )
 
     PreferenceScreen.FEED.addPreferences(

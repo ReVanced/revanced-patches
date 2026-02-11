@@ -279,6 +279,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "endorsement_header_footer.e"
         );
 
+        final var videoTitle = new StringFilterGroup(
+                Settings.HIDE_VIDEO_TITLE,
+                "player_overlay_video_heading.e"
+        );
+
         final var webLinkPanel = new StringFilterGroup(
                 Settings.HIDE_WEB_SEARCH_RESULTS,
                 "web_link_panel",
@@ -360,6 +365,7 @@ public final class LayoutComponentsFilter extends Filter {
                 subscriptionsChipBar,
                 surveys,
                 timedReactions,
+                videoTitle,
                 videoRecommendationLabels,
                 webLinkPanel
         );
