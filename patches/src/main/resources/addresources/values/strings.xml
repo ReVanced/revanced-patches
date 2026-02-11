@@ -247,6 +247,9 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
             <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
             <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
+            <string name="revanced_hide_comments_section_in_home_feed_title">Hide comments section in Home feed</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_on">Comments section in Home feed is hidden</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_off">Comments section in Home feed is shown</string>
             <string name="revanced_hide_community_posts_title">Hide community posts</string>
             <string name="revanced_hide_community_posts_summary_on">Community posts are hidden</string>
             <string name="revanced_hide_community_posts_summary_off">Community posts are shown</string>

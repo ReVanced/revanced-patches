@@ -127,6 +127,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                 SwitchPreference("revanced_hide_comments_channel_guidelines"),
                 SwitchPreference("revanced_hide_comments_by_members_header"),
                 SwitchPreference("revanced_hide_comments_section"),
+                SwitchPreference("revanced_hide_comments_section_in_home_feed"),
                 SwitchPreference("revanced_hide_comments_community_guidelines"),
                 SwitchPreference("revanced_hide_comments_create_a_short_button"),
                 SwitchPreference("revanced_hide_comments_emoji_and_timestamp_buttons"),
