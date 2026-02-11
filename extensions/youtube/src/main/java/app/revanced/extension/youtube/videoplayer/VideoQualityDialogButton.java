@@ -3,7 +3,7 @@ package app.revanced.extension.youtube.videoplayer;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.settings.preference.CustomDialogListPreference.*;
 import static app.revanced.extension.youtube.patches.VideoInformation.AUTOMATIC_VIDEO_QUALITY_VALUE;
-import static app.revanced.extension.youtube.patches.VideoInformation.VIDEO_QUALITY_PREMIUM_NAME;
+import static app.revanced.extension.youtube.patches.VideoInformation.isPremiumVideoQuality;
 import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.fadeInDuration;
 import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.getDialogBackgroundColor;
 
@@ -163,7 +163,7 @@ public class VideoQualityDialogButton {
             };
             text.append(qualityText);
 
-            if (quality != null && quality.patch_getQualityName().contains(VIDEO_QUALITY_PREMIUM_NAME)) {
+            if (quality != null && isPremiumVideoQuality(quality)) {
                 // Underline the entire "FHD" text for 1080p Premium.
                 text.setSpan(new UnderlineSpan(), 0, qualityText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             }

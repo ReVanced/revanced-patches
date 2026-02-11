@@ -51,7 +51,7 @@ public final class VideoInformation {
      * Video quality names are the same text for all languages.
      * Premium can be "1080p Premium" or "1080p60 Premium"
      */
-    public static final String VIDEO_QUALITY_PREMIUM_NAME = "Premium";
+    private static final String VIDEO_QUALITY_PREMIUM_NAME = "Premium";
 
     private static final float DEFAULT_YOUTUBE_PLAYBACK_SPEED = 1.0f;
     /**
@@ -578,5 +578,10 @@ public final class VideoInformation {
             Logger.printException(() -> "setVideoQuality failure", ex);
         }
         return originalQualityIndex;
+    }
+
+    public static boolean isPremiumVideoQuality(@NonNull VideoQualityInterface quality) {
+        String qualityName = quality.patch_getQualityName();
+        return qualityName != null && qualityName.contains(VIDEO_QUALITY_PREMIUM_NAME);
     }
 }
