@@ -44,8 +44,10 @@ public final class NavigationButtonsPatch {
     /**
      * Injection point.
      */
-    public static boolean switchCreateWithNotificationButton() {
-        return SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON;
+    public static String switchCreateWithNotificationButton(String osName) {
+        return SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON
+                ? "Android Automotive"
+                : osName;
     }
 
     /**

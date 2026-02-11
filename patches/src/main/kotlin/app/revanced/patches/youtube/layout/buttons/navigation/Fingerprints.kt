@@ -5,14 +5,6 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.addCreateButtonViewMethodMatch by composingFirstMethod {
-    instructions(
-        "Android Wear"(),
-        Opcode.IF_EQZ(),
-        after("Android Automotive"()),
-    )
-}
-
 internal val BytecodePatchContext.createPivotBarMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes(

@@ -9,6 +9,9 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.misc.contexthook.Endpoint
+import app.revanced.patches.youtube.misc.contexthook.addOSNameHook
+import app.revanced.patches.youtube.misc.contexthook.hookClientContextPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.navigation.hookNavigationButtonCreated
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
@@ -36,6 +39,7 @@ val navigationButtonsPatch = bytecodePatch(
         addResourcesPatch,
         navigationBarHookPatch,
         versionCheckPatch,
+        hookClientContextPatch
     )
 
     compatibleWith(
@@ -86,19 +90,10 @@ val navigationButtonsPatch = bytecodePatch(
         )
 
         // Switch create with notifications button.
-        addCreateButtonViewMethodMatch.method.apply {
-            val conditionalCheckIndex = addCreateButtonViewMethodMatch[1]
-            val conditionRegister =
-                getInstruction<OneRegisterInstruction>(conditionalCheckIndex).registerA
-
-            addInstructions(
-                conditionalCheckIndex,
-                """
-                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->switchCreateWithNotificationButton()Z
-                    move-result v$conditionRegister
-                """,
-            )
-        }
+        addOSNameHook(
+            Endpoint.GUIDE,
+            "${EXTENSION_CLASS_DESCRIPTOR}->switchCreateWithNotificationButton(Ljava/lang/String;)Ljava/lang/String;",
+        )
 
         // Hide navigation button labels.
         createPivotBarMethodMatch.let {
