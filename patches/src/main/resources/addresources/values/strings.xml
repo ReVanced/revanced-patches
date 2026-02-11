@@ -238,6 +238,9 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_shorts_disable_background_playback_summary_off">Shorts background play is enabled</string>
         </patch>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
+            <string name="revanced_hide_creator_store_shelf_title">Hide creator store shelf</string>
+            <string name="revanced_hide_creator_store_shelf_summary_on">Creator store shelf under video player is hidden</string>
+            <string name="revanced_hide_creator_store_shelf_summary_off">Creator store shelf under video player is shown</string>
             <string name="revanced_hide_album_cards_title">Hide album cards</string>
             <string name="revanced_hide_album_cards_summary_on">Album cards are hidden</string>
             <string name="revanced_hide_album_cards_summary_off">Album cards are shown</string>
@@ -549,9 +552,6 @@ Limitations:
             <string name="revanced_hide_keyword_toast_invalid_broad">Keyword will hide all videos: %s</string>
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
-            <string name="revanced_hide_creator_store_shelf_title">Hide creator store shelf</string>
-            <string name="revanced_hide_creator_store_shelf_summary_on">Creator store shelf under video player is hidden</string>
-            <string name="revanced_hide_creator_store_shelf_summary_off">Creator store shelf under video player is shown</string>
             <string name="revanced_hide_end_screen_store_banner_title">Hide end screen store banner</string>
             <string name="revanced_hide_end_screen_store_banner_summary_on">End screen store banner is hidden</string>
             <string name="revanced_hide_end_screen_store_banner_summary_off">End screen store banner is shown</string>

@@ -103,6 +103,12 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 ) {
     addResources("youtube", "layout.hide.general.hideLayoutComponentsPatch")
 
+    PreferenceScreen.ADS.addPreferences(
+        // Uses horizontal shelf and a buffer, which requires managing in a single place in the code
+        // to ensure the generic "hide horizontal shelves" doesn't hide when it should show.
+        SwitchPreference("revanced_hide_creator_store_shelf")
+    )
+
     PreferenceScreen.PLAYER.addPreferences(
         PreferenceScreenPreference(
             key = "revanced_hide_description_components_screen",

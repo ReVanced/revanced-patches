@@ -16,8 +16,6 @@ public final class DescriptionComponentsFilter extends Filter {
     private final ByteArrayFilterGroupList macroMarkersCarouselGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroup playlistSection;
     private final ByteArrayFilterGroupList playlistSectionGroupList = new ByteArrayFilterGroupList();
-    private final StringFilterGroup horizontalShelf;
-    private final ByteArrayFilterGroupList horizontalShelfGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroup featuredLinksSection;
     private final StringFilterGroup featuredVideosSection;
     private final StringFilterGroup subscribeButton;
@@ -117,45 +115,12 @@ public final class DescriptionComponentsFilter extends Filter {
                 )
         );
 
-        horizontalShelf = new StringFilterGroup(
-                null,
-                "horizontal_shelf.e"
-        );
-
-        horizontalShelfGroupList.addAll(
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_ATTRIBUTES_SECTION,
-                        // May no longer work on v20.31+, even though the component is still there.
-                        "cell_video_attribute"
-                ),
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_FEATURED_PLACES_SECTION,
-                        "yt_fill_star",
-                        "yt_fill_experimental_star"
-                ),
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_GAMING_SECTION,
-                        "yt_outline_gaming",
-                        "yt_outline_experimental_gaming"
-                ),
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_MUSIC_SECTION,
-                        "yt_outline_audio",
-                        "yt_outline_experimental_audio"
-                ),
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_QUIZZES_SECTION,
-                        "post_base_wrapper_slim"
-                )
-        );
-
         addPathCallbacks(
                 aiGeneratedVideoSummarySection,
                 askSection,
                 courseProgressSection,
                 featuredLinksSection,
                 featuredVideosSection,
-                horizontalShelf,
                 howThisWasMadeSection,
                 hypePoints,
                 infoCardsSection,
@@ -203,10 +168,6 @@ public final class DescriptionComponentsFilter extends Filter {
 
         if (matchedGroup == macroMarkersCarousel) {
             return contentIndex == 0 && macroMarkersCarouselGroupList.check(buffer).isFiltered();
-        }
-
-        if (matchedGroup == horizontalShelf) {
-            return horizontalShelfGroupList.check(buffer).isFiltered();
         }
 
         return true;
