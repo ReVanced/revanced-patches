@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.shared
 
-import app.revanced.patcher.ClassDefComposing
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.after
 import app.revanced.patcher.afterAtMost
@@ -21,7 +20,6 @@ import app.revanced.patcher.opcodes
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
-import app.revanced.patcher.type
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -47,6 +45,23 @@ internal val BytecodePatchContext.backgroundPlaybackManagerShortsMethod by getti
     returnType("Z")
     parameterTypes("L")
     instructions(151635310L())
+}
+
+internal fun BytecodePatchContext.getEngagementPanelControllerMethodMatch() = firstMethodComposite {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
+    returnType("L")
+    parameterTypes("L", "L", "Z", "Z")
+    instructions(
+        "EngagementPanelController: cannot show EngagementPanel before EngagementPanelController.init() has been called."(),
+        method { toString() == "Lj$/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;" },
+        method { toString() == "Lj$/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;" },
+        afterAtMost(4, Opcode.CHECK_CAST()),
+        after(Opcode.IF_EQZ()),
+        after(Opcode.IGET_OBJECT()),
+        45615449L(),
+        method { toString() == "Ljava/util/ArrayDeque;->iterator()Ljava/util/Iterator;" },
+        afterAtMost(10, allOf(Opcode.IGET_OBJECT(), field { type == "Ljava/lang/String;" }))
+    )
 }
 
 

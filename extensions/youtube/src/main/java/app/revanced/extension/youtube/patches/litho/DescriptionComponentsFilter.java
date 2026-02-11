@@ -1,10 +1,10 @@
 package app.revanced.extension.youtube.patches.litho;
 
 import app.revanced.extension.shared.patches.litho.Filter;
-import app.revanced.extension.shared.StringTrieSearch;
+import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.shared.patches.litho.FilterGroup.*;
 import app.revanced.extension.shared.patches.litho.FilterGroupList.ByteArrayFilterGroupList;
-import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.EngagementPanel;
 import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
@@ -12,30 +12,18 @@ public final class DescriptionComponentsFilter extends Filter {
 
     private static final String INFOCARDS_SECTION_PATH = "infocards_section.e";
 
-    private final StringTrieSearch exceptions = new StringTrieSearch();
     private final StringFilterGroup macroMarkersCarousel;
     private final ByteArrayFilterGroupList macroMarkersCarouselGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroup playlistSection;
     private final ByteArrayFilterGroupList playlistSectionGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroup horizontalShelf;
     private final ByteArrayFilterGroupList horizontalShelfGroupList = new ByteArrayFilterGroupList();
-    private final StringFilterGroup infoCardsSection;
     private final StringFilterGroup featuredLinksSection;
     private final StringFilterGroup featuredVideosSection;
     private final StringFilterGroup subscribeButton;
-    private final StringFilterGroup aiGeneratedVideoSummarySection;
-    private final StringFilterGroup hypePoints;
 
     public DescriptionComponentsFilter() {
-        exceptions.addPatterns(
-                "compact_channel",
-                "description",
-                "grid_video",
-                "inline_expander",
-                "metadata"
-        );
-
-        aiGeneratedVideoSummarySection = new StringFilterGroup(
+        final StringFilterGroup aiGeneratedVideoSummarySection = new StringFilterGroup(
                 Settings.HIDE_AI_GENERATED_VIDEO_SUMMARY_SECTION,
                 "cell_expandable_metadata.e"
         );
@@ -64,7 +52,7 @@ public final class DescriptionComponentsFilter extends Filter {
         playlistSection = new StringFilterGroup(
                 // YT v20.14.43 doesn't use any buffer for Courses and Podcasts.
                 // So this component is also needed.
-                Settings.HIDE_EXPLORE_SECTION,
+                null,
                 "playlist_section.e"
         );
 
@@ -95,12 +83,12 @@ public final class DescriptionComponentsFilter extends Filter {
                 "course_progress"
         );
 
-        hypePoints = new StringFilterGroup(
+        final StringFilterGroup hypePoints = new StringFilterGroup(
                 Settings.HIDE_HYPE_POINTS,
                 "hype_points_factoid"
         );
 
-        infoCardsSection = new StringFilterGroup(
+        final StringFilterGroup infoCardsSection = new StringFilterGroup(
                 Settings.HIDE_INFO_CARDS_SECTION,
                 INFOCARDS_SECTION_PATH
         );
@@ -177,10 +165,27 @@ public final class DescriptionComponentsFilter extends Filter {
     @Override
     public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-
-        if (matchedGroup == aiGeneratedVideoSummarySection || matchedGroup == hypePoints) {
-            // Only hide if player is open, in case this component is used somewhere else.
-            return PlayerType.getCurrent().isMaximizedOrFullscreen();
+        // The description panel can be opened in both the regular player and Shorts.
+        // If the description panel is opened in a Shorts, PlayerType is 'HIDDEN',
+        // so 'PlayerType.getCurrent().isMaximizedOrFullscreen()' does not guarantee that the description panel is open.
+        // Instead, use the engagement id to check if the description panel is opened.
+        if (!EngagementPanel.isDescription()
+                // The user can minimize the player while the engagement panel is open.
+                //
+                // In this case, the engagement panel is treated as open.
+                // (If the player is dismissed, the engagement panel is considered closed)
+                //
+                // Therefore, the following exceptions can occur:
+                // 1. The user opened a regular video and opened the description panel.
+                // 2. The 'horizontalShelf' elements were hidden.
+                // 3. The user minimized the player.
+                // 4. The user manually refreshed the library tab without dismissing the player.
+                // 5. Since the engagement panel is treated as open, the history shelf is filtered.
+                //
+                // To handle these exceptions, filtering is not performed even when the player is minimized.
+                || PlayerType.getCurrent() == PlayerType.WATCH_WHILE_MINIMIZED
+        ) {
+            return false;
         }
 
         if (matchedGroup == featuredLinksSection || matchedGroup == featuredVideosSection || matchedGroup == subscribeButton) {
@@ -188,10 +193,9 @@ public final class DescriptionComponentsFilter extends Filter {
         }
 
         if (matchedGroup == playlistSection) {
-            return contentIndex == 0 && playlistSectionGroupList.check(buffer).isFiltered();
+            if (contentIndex != 0) return false;
+            return Settings.HIDE_EXPLORE_SECTION.get() || playlistSectionGroupList.check(buffer).isFiltered();
         }
-
-        if (exceptions.matches(path)) return false;
 
         if (matchedGroup == macroMarkersCarousel) {
             return contentIndex == 0 && macroMarkersCarouselGroupList.check(buffer).isFiltered();

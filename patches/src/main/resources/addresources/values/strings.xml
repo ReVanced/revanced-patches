@@ -247,9 +247,9 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
             <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
             <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
-            <string name="revanced_hide_comments_section_in_home_feed_title">Hide comments section in Home feed</string>
-            <string name="revanced_hide_comments_section_in_home_feed_summary_on">Comments section in Home feed is hidden</string>
-            <string name="revanced_hide_comments_section_in_home_feed_summary_off">Comments section in Home feed is shown</string>
+            <string name="revanced_hide_comments_section_in_home_feed_title">Hide comments section under videos in Home feed</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_on">Comments section under videos in Home feed is hidden</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_off">Comments section under videos in Home feed is shown</string>
             <string name="revanced_hide_community_posts_title">Hide community posts</string>
             <string name="revanced_hide_community_posts_summary_on">Community posts are hidden</string>
             <string name="revanced_hide_community_posts_summary_off">Community posts are shown</string>
@@ -500,15 +500,15 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_view_count_summary_off">View count is shown in feed and search results</string>
             <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
             <string name="revanced_hide_view_count_user_dialog_message">"Limitations:
-• Shorts shelves, channel pages, and search results may still show view counts
-• This feature does not work with automotive form factor"</string>
+• Shorts shelves, channel pages, and search results may still show view counts.
+• This feature does not work with automotive form factor."</string>
             <string name="revanced_hide_upload_time_title">Hide upload time</string>
             <string name="revanced_hide_upload_time_summary_on">Upload time is hidden in feed and search results</string>
             <string name="revanced_hide_upload_time_summary_off">Upload time is shown in feed and search results</string>
             <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
             <string name="revanced_hide_upload_time_user_dialog_message">"Limitations:
-• Shorts shelves, channel pages, and search results may still show upload times
-• This feature does not work with automotive form factor"</string>
+• Shorts shelves, channel pages, and search results may still show upload times.
+• This feature does not work with automotive form factor."</string>
             <string name="revanced_hide_keyword_content_screen_title">Hide keyword content</string>
             <string name="revanced_hide_keyword_content_screen_summary">Hide feed and search videos using keyword filters</string>
             <string name="revanced_hide_keyword_content_home_title">Hide Home videos by keywords</string>
@@ -801,7 +801,9 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_disable_translucent_status_bar_title">Disable translucent status bar</string>
             <string name="revanced_disable_translucent_status_bar_summary_on">Status bar is opaque</string>
             <string name="revanced_disable_translucent_status_bar_summary_off">Status bar is opaque or translucent</string>
-            <string name="revanced_disable_translucent_status_bar_user_dialog_message">On some devices, enabling this feature can change the system navigation bar to transparent.</string>
+            <string name="revanced_disable_translucent_status_bar_user_dialog_message">"Limitations:
+• A black bar may appear at the top of the video player.
+• On some devices, enabling this feature can change the system navigation bar to transparent."</string>
             <string name="revanced_disable_translucent_navigation_bar_light_title">Disable light translucent bar</string>
             <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Light mode navigation bar is opaque</string>
             <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Light mode navigation bar is opaque or translucent</string>
