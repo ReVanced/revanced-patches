@@ -17,11 +17,12 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.contexthook.Endpoint
 import app.revanced.patches.youtube.misc.contexthook.addOSNameHook
-import app.revanced.patches.youtube.misc.contexthook.clientContextHookPatch
 import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.contexthook.hookClientContextPatch
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fixBackToExitGesturePatch
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
+import app.revanced.patches.youtube.misc.playservice.is_20_14_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
@@ -81,6 +82,7 @@ val hideAdsPatch = bytecodePatch(
         hideAdsResourcePatch,
         verticalScrollPatch,
         fixBackToExitGesturePatch,
+        versionCheckPatch
     )
 
     compatibleWith(
@@ -149,17 +151,19 @@ val hideAdsPatch = bytecodePatch(
 
         // Hide player overlay view. This can be hidden with a regular litho filter
         // but an empty space remains.
-        playerOverlayTimelyShelfMethod.addInstructionsWithLabels(
-            0,
-            """
-                invoke-static {}, ${EXTENSION_CLASS_DESCRIPTOR}->hideAds()Z
-                move-result v0
-                if-eqz v0, :show
-                return-void
-                :show
-                nop
-            """
-        )
+        if (is_20_14_or_greater) {
+            playerOverlayTimelyShelfMethod.addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static {}, ${EXTENSION_CLASS_DESCRIPTOR}->hideAds()Z
+                    move-result v0
+                    if-eqz v0, :show
+                    return-void
+                    :show
+                    nop
+                """
+            )
+        }
 
 
         // Hide end screen store banner.
