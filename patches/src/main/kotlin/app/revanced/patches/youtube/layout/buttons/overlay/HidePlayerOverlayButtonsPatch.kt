@@ -51,11 +51,13 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
         addResources("youtube", "layout.buttons.overlay.hidePlayerOverlayButtonsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_player_previous_next_buttons"),
-            SwitchPreference("revanced_hide_cast_button"),
-            SwitchPreference("revanced_hide_captions_button"),
             SwitchPreference("revanced_hide_autoplay_button"),
+            SwitchPreference("revanced_hide_captions_button"),
+            SwitchPreference("revanced_hide_cast_button"),
+            SwitchPreference("revanced_hide_collapse_button"),
+            SwitchPreference("revanced_hide_fullscreen_button"),
             SwitchPreference("revanced_hide_player_control_buttons_background"),
+            SwitchPreference("revanced_hide_player_previous_next_buttons"),
         )
 
         // region Hide player next/previous button.
@@ -134,6 +136,54 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
                 """,
                 ExternalLabel("hidden", getInstruction(gotoIndex)),
             )
+        }
+
+        // endregion
+
+
+        // region Hide collapse button.
+
+        titleAnchorMethodMatch.let {
+            it.method.apply {
+                val titleAnchorIndex = it[-1]
+                val titleAnchorRegister = getInstruction<OneRegisterInstruction>(titleAnchorIndex).registerA
+
+                addInstruction(
+                    titleAnchorIndex + 1,
+                    "invoke-static { v$titleAnchorRegister }, ${EXTENSION_CLASS_DESCRIPTOR}->setTitleAnchorStartMargin(Landroid/view/View;)V"
+                )
+
+                val playerCollapseButtonIndex = it[1]
+                val playerCollapseButtonRegister = getInstruction<OneRegisterInstruction>(playerCollapseButtonIndex).registerA
+
+                addInstruction(
+                    playerCollapseButtonIndex + 1,
+                    "invoke-static { v$playerCollapseButtonRegister }, ${EXTENSION_CLASS_DESCRIPTOR}->hideCollapseButton(Landroid/widget/ImageView;)V"
+                )
+            }
+        }
+
+        // endregion
+
+        // region Hide fullscreen button.
+
+        fullscreenButtonMethodMatch.let {
+            it.method.apply {
+                val castIndex = it[1]
+                val insertIndex = castIndex + 1
+                val insertRegister = getInstruction<OneRegisterInstruction>(castIndex).registerA
+
+                addInstructionsWithLabels(
+                    insertIndex,
+                    """
+                        invoke-static { v$insertRegister }, ${EXTENSION_CLASS_DESCRIPTOR}->hideFullscreenButton(Landroid/widget/ImageView;)Landroid/widget/ImageView;
+                        move-result-object v$insertRegister
+                        if-nez v$insertRegister, :show
+                        return-void
+                    """,
+                    ExternalLabel("show", getInstruction(insertIndex))
+                )
+            }
         }
 
         // endregion

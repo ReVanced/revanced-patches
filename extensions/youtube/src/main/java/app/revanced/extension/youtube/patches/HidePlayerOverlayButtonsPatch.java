@@ -46,6 +46,41 @@ public final class HidePlayerOverlayButtonsPatch {
         imageView.setVisibility(Settings.HIDE_CAPTIONS_BUTTON.get() ? ImageView.GONE : ImageView.VISIBLE);
     }
 
+    /**
+     * Injection point.
+     */
+    public static void hideCollapseButton(ImageView imageView) {
+        if (!Settings.HIDE_COLLAPSE_BUTTON.get()) return;
+
+        // Make the collapse button invisible
+        imageView.setImageResource(android.R.color.transparent);
+        imageView.setImageAlpha(0);
+        imageView.setEnabled(false);
+
+        // Adjust layout params if RelativeLayout
+        var layoutParams = imageView.getLayoutParams();
+        if (layoutParams instanceof android.widget.RelativeLayout.LayoutParams) {
+            android.widget.RelativeLayout.LayoutParams lp = new android.widget.RelativeLayout.LayoutParams(0, 0);
+            imageView.setLayoutParams(lp);
+        } else {
+            Logger.printDebug(() -> "Unknown collapse button layout params: " + layoutParams);
+        }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setTitleAnchorStartMargin(View titleAnchorView) {
+        if (!Settings.HIDE_COLLAPSE_BUTTON.get()) return;
+
+        var layoutParams = titleAnchorView.getLayoutParams();
+        if (layoutParams instanceof android.widget.RelativeLayout.LayoutParams relativeParams) {
+            relativeParams.setMarginStart(0);
+        } else {
+            Logger.printDebug(() -> "Unknown title anchor layout params: " + layoutParams);
+        }
+    }
+
     private static final boolean HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS_ENABLED
             = Settings.HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS.get();
 
@@ -64,11 +99,26 @@ public final class HidePlayerOverlayButtonsPatch {
         }
 
         // Must use a deferred call to main thread to hide the button.
-        // Otherwise the layout crashes if set to hidden now.
+        // Otherwise, the layout crashes if set to hidden now.
         Utils.runOnMainThread(() -> {
             hideView(parentView, PLAYER_CONTROL_PREVIOUS_BUTTON_TOUCH_AREA_ID);
             hideView(parentView, PLAYER_CONTROL_NEXT_BUTTON_TOUCH_AREA_ID);
         });
+    }
+
+    /**
+     * Injection point.
+     */
+    public static ImageView hideFullscreenButton(ImageView imageView) {
+        if (!Settings.HIDE_FULLSCREEN_BUTTON.get()) {
+            return imageView;
+        }
+
+        if (imageView != null) {
+            imageView.setVisibility(View.GONE);
+        }
+
+        return null;
     }
 
     /**
