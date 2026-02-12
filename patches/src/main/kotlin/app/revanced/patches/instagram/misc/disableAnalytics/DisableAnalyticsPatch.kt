@@ -13,11 +13,13 @@ val disableAnalyticsPatch = bytecodePatch(
 
     execute {
         // Returns BOGUS as analytics url.
-        instagramAnalyticsUrlBuilderMethodFingerprint.method.addInstructions(0,
+        instagramAnalyticsUrlBuilderMethodFingerprint.method.addInstructions(
+        	0,
             """
                 const-string v0, "BOGUS"
                 return-object v0
-            """.trimIndent())
+            """
+        )
 
         // Replaces analytics url as BOGUS.
         facebookAnalyticsUrlInitMethodFingerprint.replaceStringWithBogus(TARGET_URL)
