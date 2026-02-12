@@ -453,7 +453,8 @@ public final class LayoutComponentsFilter extends Filter {
 
         if (matchedGroup == communityPosts
                 && NavigationBar.isBackButtonVisible()
-                && !NavigationBar.isSearchBarActive()) {
+                && !NavigationBar.isSearchBarActive()
+                && PlayerType.getCurrent() != PlayerType.WATCH_WHILE_MAXIMIZED) {
             // Allow community posts on channel profile page,
             // or if viewing an individual channel in the feed.
             return false;
