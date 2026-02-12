@@ -8,7 +8,7 @@ val hideOneDriveMigrationPatch = bytecodePatch(
     name = "Hide OneDrive migration",
     description = "Hides the OneDrive migration prompt when opening Microsoft Office Lens.",
 ) {
-    compatibleWith("com.microsoft.office.officelens"("16.0.19628.20008"))
+    compatibleWith("com.microsoft.office.officelens")
 
     execute {
         hasMigratedToOneDriveFingerprint.method.replaceInstructions(
