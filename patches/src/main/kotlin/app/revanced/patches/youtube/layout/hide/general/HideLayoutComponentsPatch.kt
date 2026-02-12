@@ -338,7 +338,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                     return-void
                 """
             )
-        }.let(classDef.methods::add)
+        }.also(classDef.methods::add)
 
         findInstructionIndicesReversedOrThrow(Opcode.RETURN_VOID).forEach { index ->
             addInstruction(index, "invoke-direct/range { p0 .. p0 }, $helperMethod")

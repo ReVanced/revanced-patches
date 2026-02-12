@@ -4,17 +4,32 @@ import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val BytecodePatchContext.accessibilityIdMethodMatch by composingFirstMethod {
     instructions(
         allOf(
-            Opcode.INVOKE_VIRTUAL(),
+            Opcode.INVOKE_INTERFACE(),
             method { parameterTypes.isEmpty() && returnType == "Ljava/lang/String;" }
         ),
         afterAtMost(5, "primary_image"()),
     )
 }
 
+internal fun BytecodePatchContext.getAccessibilityTextMethodMatch(accessibilityIdMethod: MethodReference) = firstMethodComposite {
+    returnType("V")
+    custom {
+        // 'public final synthetic' or 'public final bridge synthetic'.
+        AccessFlags.SYNTHETIC.isSet(accessFlags)
+    }
+    instructions(
+        allOf(
+            Opcode.INVOKE_INTERFACE(),
+            method { parameterTypes.isEmpty() && returnType == "Ljava/lang/String;" }
+        ),
+        afterAtMost(5, method { this == accessibilityIdMethod })
+    )
+}
 internal val BytecodePatchContext.lithoFilterInitMethod by gettingFirstMethodDeclaratively {
     definingClass { endsWith("/LithoFilterPatch;") }
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)

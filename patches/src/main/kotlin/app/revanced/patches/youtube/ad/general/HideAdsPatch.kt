@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.ad.general
 
 import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.fieldReference
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.methodReference
@@ -107,7 +108,7 @@ val hideAdsPatch = bytecodePatch(
                 // The dialog can be closed after dialog.show(),
                 // and it is better to close the dialog after the layout of the dialog has changed
                 val insertIndex = indexOfFirstInstructionReversedOrThrow {
-                    opcode == Opcode.IPUT_OBJECT && typeReference?.type == dialogClass
+                    opcode == Opcode.IPUT_OBJECT && fieldReference?.type == dialogClass
                 }
                 val insertRegister =
                     getInstruction<TwoRegisterInstruction>(insertIndex).registerA

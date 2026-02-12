@@ -177,24 +177,10 @@ internal fun lithoFilterPatch(
 
         // There's a method in the same class that gets the value of 'buttonViewModel.accessibilityText'.
         // As this class is abstract, another method that uses a method call is used.
-        val accessibilityTextMethod =
-            accessibilityIdMethodMatch.immutableClassDef.firstMethodComposite {
-                returnType("V")
-                custom {
-                    // 'public final synthetic' or 'public final bridge synthetic'.
-                    AccessFlags.SYNTHETIC.isSet(accessFlags)
-                }
-                instructions(
-                    allOf(
-                        Opcode.INVOKE_VIRTUAL(),
-                        method { parameterTypes.isEmpty() && returnType == "Ljava/lang/String;" }
-                    ),
-                    afterAtMost(5, method { this == accessibilityIdMethod })
-                )
-            }.let {
-                // Find the method call that gets the value of 'buttonViewModel.accessibilityText'.
-                it.method.getInstruction<ReferenceInstruction>(it[0]).methodReference
-            }
+        val accessibilityTextMethod = getAccessibilityTextMethodMatch(accessibilityIdMethod).let {
+            // Find the method call that gets the value of 'buttonViewModel.accessibilityText'.
+            it.method.getInstruction<ReferenceInstruction>(it[0]).methodReference
+        }
 
         componentCreateMethod.apply {
             val insertIndex = componentCreateInsertionIndex()

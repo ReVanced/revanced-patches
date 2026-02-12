@@ -70,13 +70,9 @@ internal val hidePremiumVideoQualityPatch = bytecodePatch {
             }
 
             instructions(
-                Opcode.IF_NE(),
-                afterAtMost(
-                    2,
-                    allOf(
-                        Opcode.IPUT_OBJECT(),
-                        field { type == videoQualityArrayFieldType && definingClass == methodDefiningClass }
-                    )
+                allOf(
+                    Opcode.IPUT_OBJECT(),
+                    field { type == videoQualityArrayFieldType && definingClass == methodDefiningClass }
                 )
             )
         }

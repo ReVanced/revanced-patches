@@ -149,13 +149,9 @@ internal val BytecodePatchContext.lithoSpannableStringCreationMethodMatch by com
                 toString() == "Landroid/text/SpannableString;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;"
             }
         ),
-
-        afterAtMost(
-            5,
-            method {
-                name == "addOnLayoutChangeListener" && parameterTypes.size == 1 &&
-                        parameterTypes.first() == listOf($$"Landroid/view/View$OnLayoutChangeListener;")
-            }
-        )
+        method {
+            name == "addOnLayoutChangeListener" && parameterTypes.size == 1 &&
+                    parameterTypes.first() == $$"Landroid/view/View$OnLayoutChangeListener;"
+        }
     )
 }

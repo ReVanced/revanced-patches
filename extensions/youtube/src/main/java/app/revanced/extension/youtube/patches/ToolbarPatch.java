@@ -11,7 +11,7 @@ public class ToolbarPatch {
     /**
      * Injection point.
      */
-    public static void hookToolBar(Enum<?> buttonEnum, ImageView imageView) {
+    public static void hookToolbar(Enum<?> buttonEnum, ImageView imageView) {
         final String enumString = buttonEnum.name();
         if (enumString.isEmpty() ||
                 imageView == null ||
@@ -21,13 +21,13 @@ public class ToolbarPatch {
 
         Logger.printDebug(() -> "enumString: " + enumString);
 
-        hookToolBar(enumString, view);
+        hookToolbar(enumString, view);
     }
 
     /**
      * Injection point.
      */
-    private static void hookToolBar(String enumString, View parentView) {
+    private static void hookToolbar(String enumString, View parentView) {
         // Code added by patch.
     }
 }

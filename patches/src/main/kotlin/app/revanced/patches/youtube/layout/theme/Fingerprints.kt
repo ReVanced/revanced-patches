@@ -33,18 +33,21 @@ internal val BytecodePatchContext.showSplashScreen1MethodMatch by composingFirst
     parameterTypes("Landroid/os/Bundle;")
     instructions(
         anyOf(Opcode.CONST_4(), Opcode.CONST_16()),
-        method {
-            returnType == "V" &&
-                    parameterTypes.size == 2 &&
-                    parameterTypes[0] == "L" &&
-                    parameterTypes[1] == "Ljava/lang/Runnable;"
+        afterAtMost(
+            20,
+            method {
+                returnType == "V" &&
+                        parameterTypes.size == 2 &&
+                        parameterTypes[0].startsWith("L") &&
+                        parameterTypes[1] == "Ljava/lang/Runnable;"
 
-        },
-        afterAtMost(20, anyOf(Opcode.CONST_4(), Opcode.CONST_16())),
+
+            },
+        ),
         afterAtMost(10, Opcode.APUT_OBJECT()),
         afterAtMost(
             5,
-            method { returnType == "V" && parameterTypes.size == 1 && parameterTypes[0] == "[L" },
+            method { returnType == "V" && parameterTypes.size == 1 && parameterTypes[0].startsWith("[L") },
         ),
         after(Opcode.IGET_OBJECT()),
         after(method { returnType == "I" && parameterTypes.isEmpty() }),
@@ -65,7 +68,7 @@ internal val BytecodePatchContext.showSplashScreen2MethodMatch by composingFirst
     instructions(
         allOf(
             Opcode.INVOKE_VIRTUAL(),
-            method { returnType == "L" && parameterTypes.size == 1 && parameterTypes[0] == "[L" }
+            method { returnType == "V" && parameterTypes.size == 1 && parameterTypes[0].startsWith("[L") }
         ),
         Opcode.IF_NE(),
         method { toString() == "Landroid/graphics/drawable/AnimatedVectorDrawable;->start()V" }

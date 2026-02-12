@@ -9,7 +9,7 @@ import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
-final class VideoActionButtonsFilter extends Filter {
+public final class VideoActionButtonsFilter extends Filter {
     private static final String COMPACT_CHANNEL_BAR_PATH_PREFIX = "compact_channel_bar.e";
     private static final String VIDEO_ACTION_BAR_PATH_PREFIX = "video_action_bar.e";
     private static final String VIDEO_ACTION_BAR_PATH = "video_action_bar.e";

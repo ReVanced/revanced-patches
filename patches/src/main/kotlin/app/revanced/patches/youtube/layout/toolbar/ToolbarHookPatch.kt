@@ -57,7 +57,7 @@ val toolbarHookPatch = bytecodePatch {
                 insertIndex,
                 """
                     iget-object v$freeRegister, p0, $imageViewReference
-                    invoke-static {v$enumRegister, v$freeRegister}, $EXTENSION_CLASS_DESCRIPTOR->hookToolBar(Ljava/lang/Enum;Landroid/widget/ImageView;)V
+                    invoke-static {v$enumRegister, v$freeRegister}, $EXTENSION_CLASS_DESCRIPTOR->hookToolbar(Ljava/lang/Enum;Landroid/widget/ImageView;)V
                     invoke-interface {v$replaceRegister, v$enumRegister}, $replaceReference
                 """
             )

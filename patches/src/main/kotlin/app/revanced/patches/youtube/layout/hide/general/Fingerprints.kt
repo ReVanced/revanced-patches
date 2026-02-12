@@ -26,7 +26,7 @@ internal val BytecodePatchContext.hideShowMoreButtonSetViewMethodMatch by compos
         ResourceType.ID("expand_button_container"),
         allOf(
             Opcode.IPUT_OBJECT(),
-            field { type == "Landroid/widget/TextView;" && definingClass == methodDefiningClass })
+            field { type == "Landroid/view/View;" && definingClass == methodDefiningClass })
     )
 }
 

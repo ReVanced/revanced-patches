@@ -423,7 +423,7 @@ val videoInformationPatch = bytecodePatch(
                         MutableMethodImplementation(2),
                     ).toMutable().apply {
                         val setQualityMenuIndexMethod = methods.single { method ->
-                            method.parameterTypes.firstOrNull() == EXTENSION_VIDEO_QUALITY_INTERFACE
+                            method.parameterTypes.firstOrNull() == videoQualityClassType
                         }
 
                         addInstructions(

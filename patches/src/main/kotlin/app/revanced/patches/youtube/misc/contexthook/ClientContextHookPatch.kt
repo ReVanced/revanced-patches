@@ -99,7 +99,7 @@ val hookClientContextPatch = bytecodePatch(
         }
     }
 
-    finalize {
+    afterDependents {
         val helperMethodName = "patch_setClientContext"
 
         Endpoint.entries.filter {
@@ -143,7 +143,7 @@ val hookClientContextPatch = bytecodePatch(
                    it.findInstructionIndicesReversedOrThrow(Opcode.RETURN_VOID).forEach { index ->
                         it.addInstructionsAtControlFlowLabel(
                             index,
-                            "invoke-direct/range { p0 .. p0 }, $it.definingClass->$helperMethodName()V"
+                            "invoke-direct/range { p0 .. p0 }, ${it.definingClass}->$helperMethodName()V"
                         )
                     }
                 }

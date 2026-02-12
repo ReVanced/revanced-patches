@@ -163,7 +163,9 @@ val hideShortsComponentsPatch = bytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.26.46",
-            // 20.22+ does not yet support hiding Shorts action buttons.
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
         ),
     )
 

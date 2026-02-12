@@ -52,7 +52,7 @@ internal val BytecodePatchContext.speedArrayGeneratorMethodMatch by composingFir
 internal val BytecodePatchContext.speedLimiterMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
-    parameterTypes("F")
+    parameterTypes("F", "L")
     instructions(
         "setPlaybackRate"(),
         0.25f.toRawBits().toLong()(),
