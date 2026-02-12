@@ -23,7 +23,11 @@ public class ViewCountFilter implements IFilter {
 
     @Override
     public boolean getFiltered(Aweme item) {
-        AwemeStatistics statistics = item.getStatistics();
+        AwemeStatistics statistics = item.statistics; 
+        
+        // Fallback to getter if field is null
+        if (statistics == null) statistics = item.getStatistics();
+        
         if (statistics == null) return false;
 
         long playCount = statistics.getPlayCount();

@@ -11,9 +11,17 @@ public class ImageVideoFilter implements IFilter {
 
     @Override
     public boolean getFiltered(Aweme item) {
+        if (item == null) return false;
+
+        int type = item.getAwemeType();
+
+        // 2 = Standard Image, 150 = Photo Mode, 160 = Text Mode
+        if (type == 2 || type == 150 || type == 160) {
+            return true;
+        }
+
+        // Fallback checks
         var imageInfos = item.getImageInfos();
-        boolean isImage = imageInfos != null && !imageInfos.isEmpty();
-        boolean isPhotoMode = item.getPhotoModeImageInfo() != null || item.getPhotoModeTextInfo() != null;
-        return isImage || isPhotoMode;
+        return imageInfos != null && !imageInfos.isEmpty();
     }
 }

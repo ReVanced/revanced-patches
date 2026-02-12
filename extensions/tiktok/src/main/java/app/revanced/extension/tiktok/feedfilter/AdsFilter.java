@@ -2,7 +2,6 @@ package app.revanced.extension.tiktok.feedfilter;
 
 import app.revanced.extension.tiktok.settings.Settings;
 import com.ss.android.ugc.aweme.feed.model.Aweme;
-import com.ss.android.ugc.aweme.commerce.AwemeCommerceStruct;
 
 public class AdsFilter implements IFilter {
     @Override
@@ -13,21 +12,29 @@ public class AdsFilter implements IFilter {
 
     @Override
     public boolean getFiltered(Aweme item) {
-        try {
-            // Standard Ads & Promotional Music
-            if (item.isAd() || item.isWithPromotionalMusic()) {
-                return true;
-            }
+        if (item == null) return false;
 
-            // Paid Partnerships (Branded Content)
-            if (item.mCommerceVideoAuthInfo != null) {
-                if (item.mCommerceVideoAuthInfo.isBrandedContent()) {
-                    return true;
-                }
-            }
-        } catch (Throwable t) {
-            return false;
+        // TikTok's Internal Commercial Types
+        // Verified in AwemeExtKt: 1, 29, 30, 32, 33, 201 are commercial
+        int type = item.getAwemeType();
+        if (type == 1 || type == 29 || type == 30 || type == 32 || type == 33 || type == 201) {
+            return true;
         }
+
+        // Ad Flags (Hard and Soft/Sponsored)
+        if (item.isAd || item.isSoftAd || item.awemeRawAd != null) {
+            return true;
+        }
+
+        // Music Marketing
+        if (item.isWithPromotionalMusic()) return true;
+
+        if (item.mCommerceVideoAuthInfo != null) {
+            // PseudoAds (Spark Ads) and Branded Content
+            return item.mCommerceVideoAuthInfo.isBrandedContent() || 
+                   item.mCommerceVideoAuthInfo.isPseudoAd();
+        }
+
         return false;
     }
 }

@@ -4,7 +4,6 @@ import app.revanced.extension.tiktok.settings.Settings;
 import com.ss.android.ugc.aweme.feed.model.Aweme;
 
 public class ShopFilter implements IFilter {
-    private static final String SHOP_INFO = "placeholder_product_id";
     @Override
     public boolean getEnabled() {
         return true;
@@ -13,7 +12,25 @@ public class ShopFilter implements IFilter {
 
     @Override
     public boolean getFiltered(Aweme item) {
+        if (item == null) return false;
+
+        // Attached Products (TikTok Shop)
+        if (item.productsInfo != null && !item.productsInfo.isEmpty()) {
+            return true;
+        }
+
+        // Simple Promotions (Banner links)
+        if (item.simplePromotions != null && !item.simplePromotions.isEmpty()) {
+            return true;
+        }
+
+        // Shop Ads
+        if (item.shopAdStruct != null) {
+            return true;
+        }
+
+        // Fallback (URL check)
         String shareUrl = item.getShareUrl();
-        return shareUrl != null && shareUrl.contains(SHOP_INFO);
+        return shareUrl != null && shareUrl.contains("placeholder_product_id");
     }
 }

@@ -1,16 +1,17 @@
 package com.ss.android.ugc.aweme.commerce;
 
-import java.io.Serializable;
-
-public class AwemeCommerceStruct implements Serializable {
-    public long brandedContentType;
-    public long brandOrganicType;
-
+import com.ss.android.ugc.aweme.feed.model.AwemeRawAd;
+public class AwemeCommerceStruct {
+    
     public boolean isBrandedContent() {
-        return this.brandedContentType > 0;
+        throw new UnsupportedOperationException("Stub");
     }
 
-    public boolean isBrandOrganicContent() {
-        return this.brandOrganicType > 0;
+    public boolean isPseudoAd() {
+        throw new UnsupportedOperationException("Stub");
+    }
+    
+    public AwemeRawAd getPseudoAdData() {
+        throw new UnsupportedOperationException("Stub");
     }
 }

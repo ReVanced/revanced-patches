@@ -9,8 +9,17 @@ public class StoryFilter implements IFilter {
         return Settings.HIDE_STORY.get();
     }
 
-    @Override
     public boolean getFiltered(Aweme item) {
-        return item.getIsTikTokStory();
+        if (item == null) return false;
+
+        if (item.isTikTokStory) return true;
+        
+        // Type 40 = Standard Story, 11 = Legacy/Region Story
+        int type = item.getAwemeType();
+        if (type == 40 || type == 11 || item.isTikTokStory) {
+            return true;
+        }
+
+        return false;
     }
 }

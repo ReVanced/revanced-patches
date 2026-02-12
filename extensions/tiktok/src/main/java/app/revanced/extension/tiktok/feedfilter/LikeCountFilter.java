@@ -24,7 +24,10 @@ public final class LikeCountFilter implements IFilter {
 
     @Override
     public boolean getFiltered(Aweme item) {
-        AwemeStatistics statistics = item.getStatistics();
+        AwemeStatistics statistics = item.statistics;
+        
+        if (statistics == null) statistics = item.getStatistics();
+        
         if (statistics == null) return false;
 
         long likeCount = statistics.getDiggCount();
