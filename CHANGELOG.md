@@ -1,3 +1,17 @@
+# [5.50.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.6...v5.50.0-dev.7) (2026-02-12)
+
+
+### Bug Fixes
+
+* **Instagram:** Make `Change link sharing domain` and `Sanitize sharing links` work with latest versions again ([#6518](https://github.com/ReVanced/revanced-patches/issues/6518)) ([85a9079](https://github.com/ReVanced/revanced-patches/commit/85a9079c25760d0329e518e379eeefe3beeea143))
+
+
+### Features
+
+* **Instagram:** Add `Disable analytics` patch ([#6531](https://github.com/ReVanced/revanced-patches/issues/6531)) ([ad92864](https://github.com/ReVanced/revanced-patches/commit/ad92864483a21d7eae7952c8f8429cde3d44e848))
+* **Kleinanzeigen:** Add `Hide PUR` patch  ([#6558](https://github.com/ReVanced/revanced-patches/issues/6558)) ([4958ecf](https://github.com/ReVanced/revanced-patches/commit/4958ecf10c880e9e7f15dd2e58ebaefbf49e417a))
+* **Microsoft Lens:** Remove migration to OneDrive ([#6551](https://github.com/ReVanced/revanced-patches/issues/6551)) ([e389632](https://github.com/ReVanced/revanced-patches/commit/e389632afd52403aba26b6981d098b93cea45e00))
+
 # [5.50.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.5...v5.50.0-dev.6) (2026-02-06)
 
 
