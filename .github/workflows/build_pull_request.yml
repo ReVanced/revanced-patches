@@ -2,6 +2,10 @@ name: Build pull request
 
 on:
   workflow_dispatch:
+    inputs:
+      pr:
+        description: "PR to build"
+        required: true
   pull_request:
     branches:
       - dev
@@ -10,9 +14,14 @@ jobs:
   release:
     name: Build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.pr && format('refs/pull/{0}/merge', inputs.pr) || github.ref }}
 
       - name: Setup Java
         uses: actions/setup-java@v5
