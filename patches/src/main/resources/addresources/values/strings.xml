@@ -568,7 +568,7 @@ Limitations:
             <string name="revanced_hide_end_screen_store_banner_summary_on">End screen store banner is hidden</string>
             <string name="revanced_hide_end_screen_store_banner_summary_off">End screen store banner is shown</string>
             <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
-            <string name="revanced_hide_fullscreen_ads_summary_on">"Fullscreen ads are hidden</string>
+            <string name="revanced_hide_fullscreen_ads_summary_on">Fullscreen ads are hidden</string>
             <string name="revanced_hide_fullscreen_ads_summary_off">Fullscreen ads are shown</string>
             <string name="revanced_hide_general_ads_title">Hide general ads</string>
             <string name="revanced_hide_general_ads_summary_on">General ads are hidden</string>
