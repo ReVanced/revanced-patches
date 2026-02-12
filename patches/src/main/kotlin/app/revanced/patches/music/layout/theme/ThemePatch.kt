@@ -17,12 +17,14 @@ val themePatch = baseThemePatch(
         dependsOn(
             sharedExtensionPatch,
             baseThemeResourcePatch(
-                darkColorNames = THEME_DEFAULT_DARK_COLOR_NAMES + setOf(
-                    "yt_black_pure",
-                    "yt_black_pure_opacity80",
-                    "ytm_color_grey_12",
-                    "material_grey_800"
-                )
+                getDarkColorNames = {
+                    THEME_DEFAULT_DARK_COLOR_NAMES + setOf(
+                        "yt_black_pure",
+                        "yt_black_pure_opacity80",
+                        "ytm_color_grey_12",
+                        "material_grey_800"
+                    )
+                }
             )
         )
 

@@ -1,20 +1,26 @@
 package app.revanced.patches.shared.layout.theme
 
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.BytecodePatchBuilder
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.stringOption
 import app.revanced.util.childElementsSequence
 import java.util.*
 
-internal const val THEME_COLOR_OPTION_DESCRIPTION = "Can be a hex color (#RRGGBB) or a color resource reference."
+internal const val THEME_COLOR_OPTION_DESCRIPTION =
+    "Can be a hex color (#RRGGBB) or a color resource reference."
 
 internal val THEME_DEFAULT_DARK_COLOR_NAMES = setOf(
-    "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98",
-    "yt_black2", "yt_black3", "yt_black4", "yt_status_bar_background_dark",
-    "material_grey_850"
+    "yt_black0", "yt_black1", "yt_black2", "yt_black3", "yt_black4",
+    "yt_black1_opacity95", "yt_black1_opacity98",
+    "yt_status_bar_background_dark", "material_grey_850",
 )
 
 internal val THEME_DEFAULT_LIGHT_COLOR_NAMES = setOf(
-    "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98",
-    "yt_white2", "yt_white3", "yt_white4"
+    "yt_white1", "yt_white2", "yt_white3", "yt_white4",
+    "yt_white1_opacity95", "yt_white1_opacity98",
 )
 
 /**
@@ -94,8 +100,8 @@ internal fun baseThemePatch(
 }
 
 internal fun baseThemeResourcePatch(
-    darkColorNames: Set<String> = THEME_DEFAULT_DARK_COLOR_NAMES,
-    lightColorNames: Set<String> = THEME_DEFAULT_LIGHT_COLOR_NAMES,
+    getDarkColorNames: () -> Set<String> = { THEME_DEFAULT_DARK_COLOR_NAMES },
+    getLightColorNames: () -> Set<String> = { THEME_DEFAULT_LIGHT_COLOR_NAMES },
     lightColorReplacement: (() -> String)? = null
 ) = resourcePatch {
     apply {
@@ -113,6 +119,9 @@ internal fun baseThemeResourcePatch(
 
         document("res/values/colors.xml").use { document ->
             val resourcesNode = document.getElementsByTagName("resources").item(0)
+
+            val darkColorNames = getDarkColorNames()
+            val lightColorNames = getLightColorNames()
 
             resourcesNode.childElementsSequence().forEach { node ->
                 val name = node.getAttribute("name")

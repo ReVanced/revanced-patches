@@ -1,13 +1,16 @@
 package app.revanced.patches.youtube.layout.theme
 
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.getInstruction
+
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.layout.theme.THEME_COLOR_OPTION_DESCRIPTION
+import app.revanced.patches.shared.layout.theme.THEME_DEFAULT_DARK_COLOR_NAMES
+import app.revanced.patches.shared.layout.theme.THEME_DEFAULT_LIGHT_COLOR_NAMES
 import app.revanced.patches.shared.layout.theme.baseThemePatch
 import app.revanced.patches.shared.layout.theme.baseThemeResourcePatch
 import app.revanced.patches.shared.layout.theme.darkThemeBackgroundColorOption
@@ -23,6 +26,8 @@ import app.revanced.patches.youtube.layout.seekbar.seekbarColorPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_02_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_21_06_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.forEachChildElement
@@ -153,8 +158,32 @@ val themePatch = baseThemePatch(
             settingsPatch,
             addResourcesPatch,
             seekbarColorPatch,
+            versionCheckPatch,
             baseThemeResourcePatch(
                 lightColorReplacement = { lightThemeBackgroundColor!! },
+                getDarkColorNames = {
+                    THEME_DEFAULT_DARK_COLOR_NAMES + if (is_21_06_or_greater)
+                        setOf(
+                            // yt_ref_color_constants_baseline_black_black0
+                            "yt_sys_color_baseline_dark_menu_background",
+                            // yt_ref_color_constants_baseline_black_black1
+                            "yt_sys_color_baseline_dark_static_black",
+                            "yt_sys_color_baseline_dark_raised_background",
+                            // yt_ref_color_constants_baseline_black_black3
+                            "yt_sys_color_baseline_dark_base_background",
+                            "yt_sys_color_baseline_dark_static_black",
+                            "yt_sys_color_baseline_light_inverted_background",
+                            "yt_sys_color_baseline_light_static_black",
+                        ) else emptySet()
+                },
+                getLightColorNames = {
+                    THEME_DEFAULT_LIGHT_COLOR_NAMES + if (is_21_06_or_greater)
+                        setOf(
+                            "yt_sys_color_baseline_light_base_background",
+                            "yt_sys_color_baseline_light_raised_background"
+                        )
+                    else emptySet()
+                }
             ),
             themeResourcePatch,
         )
