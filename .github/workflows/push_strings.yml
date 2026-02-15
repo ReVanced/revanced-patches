@@ -16,10 +16,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Preprocess strings
+      - name: Process strings
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./gradlew clean preprocessCrowdinStrings
+          ORG_GRADLE_PROJECT_githubPackagesUsername: ${{ github.actor }}
+          ORG_GRADLE_PROJECT_githubPackagesPassword: ${{ secrets.GITHUB_TOKEN }}
+        run: ./gradlew processStringsForCrowdin
 
       - name: Push strings
         uses: crowdin/github-action@v2

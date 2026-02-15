@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -26,12 +26,12 @@ Second \"item\" text"</string>
   <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
   </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
-  <string name="revanced_check_environment_failed_title">Provjere nisu uspjele</string>
+  <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_failed_title">Provjere nisu uspjele</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
-  <string name="revanced_settings_save">Sačuvaj</string>
+  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_save">Sačuvaj</string>
   <!-- Settings about dialog. -->
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
@@ -48,13 +48,14 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   </patch>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
@@ -70,7 +71,6 @@ Second \"item\" text"</string>
   <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
   <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
   <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
@@ -230,6 +230,8 @@ Second \"item\" text"</string>
   <patch id="misc.loopvideo.loopVideoPatch">
   </patch>
   <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  </patch>
+  <patch id="misc.audiofocus.pauseOnAudioInterruptPatch">
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   </patch>

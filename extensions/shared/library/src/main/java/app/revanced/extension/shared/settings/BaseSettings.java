@@ -28,6 +28,8 @@ public class BaseSettings {
     public static final BooleanSetting SETTINGS_SEARCH_HISTORY = new BooleanSetting("revanced_settings_search_history", TRUE, true);
     public static final StringSetting SETTINGS_SEARCH_ENTRIES = new StringSetting("revanced_settings_search_entries", "");
 
+    public static final BooleanSetting GMS_CORE_CHECK_UPDATES = new BooleanSetting("revanced_gms_core_check_updates", true, true);
+
     //
     // Settings shared by YouTube and YouTube Music.
     //

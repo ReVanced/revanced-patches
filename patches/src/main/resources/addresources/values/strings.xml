@@ -101,23 +101,31 @@ To translate new languages or improve the existing translations, visit translate
                  and changes made here must also be made there. -->
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
-            <string name="microg_settings_title">GmsCore Settings</string>
-            <string name="microg_settings_summary">Settings for GmsCore</string>
+            <string name="revanced_gms_core_screen_title">GmsCore</string>
+            <string name="revanced_gms_core_screen_summary">Settings related to GmsCore</string>
+            <string name="revanced_gms_core_check_updates_title">Check for GmsCore updates</string>
+            <string name="revanced_gms_core_check_updates_summary_on">Checking for updates is enabled</string>
+            <string name="revanced_gms_core_check_updates_summary_off">Checking for updates is disabled</string>
+            <string name="revanced_gms_core_settings_title">Open GmsCore Settings</string>
+            <string name="revanced_gms_core_settings_summary">Settings of GmsCore</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-            <string name="gms_core_toast_not_installed_message">MicroG GmsCore is not installed. Install it.</string>
-            <string name="gms_core_dialog_title">Action needed</string>
-            <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore does not have permission to run in the background.
+            <string name="revanced_gms_core_toast_not_installed_message">MicroG GmsCore is not installed. Install it.</string>
+            <string name="revanced_gms_core_dialog_title">Action needed</string>
+            <string name="revanced_gms_core_toast_update_check_failed_message">Failed to check for MicroG GmsCore updates</string>
+            <string name="revanced_gms_core_update_available_message">A new version (%s) of MicroG GmsCore is available. Currently, you are using version %s.</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore does not have permission to run in the background.
 
 Follow the \"Don\'t kill my app\" guide for your phone, and apply the instructions to your MicroG installation.
 
 This is required for the app to work."</string>
-            <string name="gms_core_dialog_open_website_text">Open website</string>
-            <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCore battery optimizations must be disabled to prevent issues.
+            <string name="revanced_gms_core_dialog_open_website_text">Open website</string>
+            <string name="revanced_gms_core_dialog_cancel_text">Cancel</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCore battery optimizations must be disabled to prevent issues.
 
 Disabling battery optimizations for MicroG will not negatively affect battery usage.
 
 Tap the continue button and allow optimization changes."</string>
-            <string name="gms_core_dialog_continue_text">Continue</string>
+            <string name="revanced_gms_core_dialog_continue_text">Continue</string>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <string name="revanced_spoof_video_streams_screen_title">Spoof video streams</string>
@@ -173,6 +181,14 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_debug_feature_flags_manager_toast_saved">Flags saved</string>
             <string name="revanced_debug_feature_flags_manager_toast_reset">Flags reset</string>
             <string name="revanced_debug_feature_flags_manager_toast_copied">Flags copied to clipboard</string>
+            <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
+            <string name="revanced_debug_protobuffer_summary_on">Debug logs include proto buffer</string>
+            <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include proto buffer</string>
+            <string name="revanced_debug_protobuffer_user_dialog_message">"Enabling this setting will log additional layout data, including on-screen text for some UI components.
+
+This can help identify components when creating custom filters.
+
+However, enabling this will also log some user data such as your IP address."</string>
         </patch>
         <patch id="misc.privacy.sanitizeSharingLinksPatch">
             <string name="revanced_sanitize_sharing_links_title">Sanitize sharing links</string>
@@ -181,6 +197,17 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_replace_music_with_youtube_title">Change share links to youtube.com</string>
             <string name="revanced_replace_music_with_youtube_summary_on">Shared links use youtube.com</string>
             <string name="revanced_replace_music_with_youtube_summary_off">Shared links use music.youtube.com</string>
+        </patch>
+        <patch id="layout.hide.general.hideLayoutComponentsPatch">
+            <string name="revanced_custom_filter_screen_title">Custom filter</string>
+            <string name="revanced_custom_filter_screen_summary">Hide components using custom filters</string>
+            <string name="revanced_custom_filter_title">Enable custom filter</string>
+            <string name="revanced_custom_filter_summary_on">Custom filter is enabled</string>
+            <string name="revanced_custom_filter_summary_off">Custom filter is disabled</string>
+            <string name="revanced_custom_filter_strings_title">Custom filter</string>
+            <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+            <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter separated by new line</string>
+            <string name="revanced_custom_filter_toast_invalid_syntax">Invalid custom filter: %s</string>
         </patch>
     </app>
     <app id="youtube">
@@ -205,16 +232,6 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_shorts_disable_background_playback_title">Disable Shorts background play</string>
             <string name="revanced_shorts_disable_background_playback_summary_on">Shorts background play is disabled</string>
             <string name="revanced_shorts_disable_background_playback_summary_off">Shorts background play is enabled</string>
-        </patch>
-        <patch id="misc.debugging.enableDebuggingPatch">
-            <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
-            <string name="revanced_debug_protobuffer_summary_on">Debug logs include proto buffer</string>
-            <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include proto buffer</string>
-            <string name="revanced_debug_protobuffer_user_dialog_message">"Enabling this setting will log additional layout data, including on-screen text for some UI components.
-
-This can help identify components when creating custom filters.
-
-However, enabling this will also log some user data such as your IP address."</string>
         </patch>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <string name="revanced_hide_album_cards_title">Hide album cards</string>
@@ -446,15 +463,6 @@ If a Doodle is currently showing in your region and this hide setting is on, the
             <string name="revanced_hide_comments_thanks_button_title">Hide Thanks button</string>
             <string name="revanced_hide_comments_thanks_button_summary_on">Thanks button is hidden</string>
             <string name="revanced_hide_comments_thanks_button_summary_off">Thanks button is shown</string>
-            <string name="revanced_custom_filter_screen_title">Custom filter</string>
-            <string name="revanced_custom_filter_screen_summary">Hide components using custom filters</string>
-            <string name="revanced_custom_filter_title">Enable custom filter</string>
-            <string name="revanced_custom_filter_summary_on">Custom filter is enabled</string>
-            <string name="revanced_custom_filter_summary_off">Custom filter is disabled</string>
-            <string name="revanced_custom_filter_strings_title">Custom filter</string>
-            <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-            <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter separated by new line</string>
-            <string name="revanced_custom_filter_toast_invalid_syntax">Invalid custom filter: %s</string>
             <string name="revanced_hide_view_count_title">Hide view count</string>
             <string name="revanced_hide_view_count_summary_on">View count is hidden in feed and search results</string>
             <string name="revanced_hide_view_count_summary_off">View count is shown in feed and search results</string>

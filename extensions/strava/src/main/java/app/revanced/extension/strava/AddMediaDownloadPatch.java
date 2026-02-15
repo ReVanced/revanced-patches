@@ -10,7 +10,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.webkit.MimeTypeMap;
 
-import com.strava.core.data.MediaType;
+import com.strava.mediamodels.data.MediaType;
 import com.strava.photos.data.Media;
 
 import okhttp3.*;
