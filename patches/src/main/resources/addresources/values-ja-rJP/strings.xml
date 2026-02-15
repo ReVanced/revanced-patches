@@ -19,20 +19,21 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="layout.branding.baseCustomBrandingPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="layout.branding.baseCustomBrandingPatch"> -->
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_name_title">アプリ名</string>
   <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_name_entry_5">カスタム</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_title">アプリアイコン</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_1">オリジナル</string>
+  <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_2">ReVanced</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_3">ReVanced（シンプル）</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_4">ReVanced（ロゴ拡大）</string>
   <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_5">カスタム</string>
-  </patch>
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_failed_title">チェックに失敗しました</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_dialog_open_official_source_button">公式サイトを開く</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_dialog_ignore_button">無視</string>
@@ -42,14 +43,15 @@ Second \"item\" text"</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_not_near_patch_time">10 分以上前にパッチが適用されている</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_not_near_patch_time_days">%s 日前にパッチが適用されている</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_not_near_patch_time_invalid">APK の作成日時データが破損している</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="shared.misc.dns.checkWatchHistoryDomainNameResolutionPatch.revanced_check_watch_history_domain_name_dialog_title">ReVanced からのお知らせ</string>
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
+  <string name="shared.misc.dns.checkWatchHistoryDomainNameResolutionPatch.revanced_check_watch_history_domain_name_dialog_title">ReVanced からの通知</string>
   <string name="shared.misc.dns.checkWatchHistoryDomainNameResolutionPatch.revanced_check_watch_history_domain_name_dialog_message">再生履歴が保存されていません。&lt;br&gt;&lt;br&gt;これはおそらく、DNS 広告ブロッカーまたはネットワーク プロキシが原因です。&lt;br&gt;&lt;br&gt;この問題を解決するには、&lt;b&gt;s.youtube.com&lt;/b&gt; をホワイトリストに追加するか、すべての DNS ブロッカーとプロキシをオフにしてください。</string>
   <string name="shared.misc.dns.checkWatchHistoryDomainNameResolutionPatch.revanced_check_watch_history_domain_name_dialog_ignore">今後表示しない</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_submenu_title">設定</string>
+  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_title">ReVanced</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_confirm_user_dialog_title">続行してもよろしいですか？</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_save">保存</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_reset">リセット</string>
@@ -98,8 +100,8 @@ Second \"item\" text"</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_about_links_header">公式リンク</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="shared.misc.gms.gmsCoreSupportResourcePatch.microg_settings_title">GmsCore 設定</string>
   <string name="shared.misc.gms.gmsCoreSupportResourcePatch.microg_settings_summary">GmsCore の設定</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -117,10 +119,12 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
 
 [続行] をタップして「電池の最適化」を無効にしてください。"</string>
   <string name="shared.misc.gms.gmsCoreSupportResourcePatch.gms_core_dialog_continue_text">続行</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_title">動画ストリームを偽装</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_summary">動画再生の失敗を回避するために、クライアントの動画ストリームを偽装します</string>
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_title">動画ストリームを偽装</string>
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_summary">動画の再生に失敗しないために、クライアントの動画ストリームを偽装します</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_title">動画ストリームを偽装</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_summary_on">"動画ストリームは偽装されます
 
@@ -130,15 +134,15 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
 再生に失敗する可能性があります"</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_user_dialog_message">この設定を無効にすると、動画の再生に失敗するようになる可能性があります。</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_client_type_title">デフォルトのクライアント</string>
-  </patch>
-  <patch id="misc.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.audio.forceOriginalAudioPatch"> -->
   <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_title">オリジナルの音声を強制的に使用</string>
   <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックは使用されません</string>
   <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックが使用される場合があります</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_not_available">この機能を使用するには、[動画ストリームを偽装] のクライアントを Android Studio 以外の任意のクライアントに変更してください</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_screen_title">デバッグ</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_screen_summary">デバッグ オプションを有効または無効にします</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_title">デバッグログを有効化</string>
@@ -170,18 +174,37 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_saved">flag を保存しました</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_reset">flag をリセットしました</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_copied">flag をクリップボードにコピーしました</string>
-  </patch>
-  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">protocol buffer をログに保存</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">デバッグログには protocol buffer が含まれます</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">デバッグログには protocol buffer は含まれません</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"この設定を有効にすると、一部の UI コンポーネントの画面上のテキストを含む、追加のレイアウトデータがログに記録されます。
+
+これは、カスタムフィルターを作成する際にコンポーネントを識別するのに役立ちます。
+
+ただし、これを有効にすると、IP アドレスなどの一部のユーザーデータもログに記録されます。"</string>
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.sanitizeSharingLinksPatch"> -->
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_title">共有リンクを無害化</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_summary_on">共有リンクから追跡パラメータが削除されます</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_summary_off">共有リンクから追跡パラメータは削除されません</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_title">共有リンクを youtube.com に変更</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_on">共有リンクには youtube.com が使用されます</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_off">共有リンクには music.youtube.com が使用されます</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">カスタム フィルタ</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">カスタム フィルタを使用してコンポーネントを非表示にします</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">カスタム フィルタを有効化</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">カスタム フィルタは有効です</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">カスタム フィルタは無効です</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">カスタム フィルタ</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">非表示にするコンポーネントの path builder string のリスト (改行区切り)</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">無効なカスタム フィルタ: %s</string>
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_00_about_title">ReVanced について</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_01_ads_title">広告</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_02_alt_thumbnails_title">代替サムネイル</string>
@@ -191,31 +214,22 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_06_shorts_title">ショート</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_07_seekbar_title">シークバー</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_08_swipe_controls_title">スワイプ コントロール</string>
+  <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_09_return_youtube_dislike_title">Return YouTube Dislike</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_11_misc_title">その他</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_12_video_title">動画</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_restore_old_settings_menus_title">古い設定メニューを復元</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_restore_old_settings_menus_summary_on">古いスタイルの設定メニューが表示されます</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_restore_old_settings_menus_summary_off">新しいスタイルの設定メニューが表示されます</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_title">ショートのバックグラウンド再生を無効化</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_on">ショート動画のバックグラウンド再生は無効です</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_off">ショート動画のバックグラウンド再生は有効です</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">protocol buffer をログに保存</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">デバッグログには protocol buffer が含まれます</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">デバッグログには protocol buffer は含まれません</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"この設定を有効にすると、一部の UI コンポーネントの画面上のテキストを含む、追加のレイアウトデータがログに記録されます。
-
-これは、カスタムフィルターを作成する際にコンポーネントを識別するのに役立ちます。
-
-ただし、これを有効にすると、IP アドレスなどの一部のユーザーデータもログに記録されます。"</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_title">アルバムカードを非表示</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_summary_on">アーティストの概要欄の下部にあるアルバムカードは表示されません</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_summary_off">アーティストの概要欄の下部にあるアルバムカードは表示されます</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_summary_on">アーティストの概要欄下のアルバムカードは表示されません</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_summary_off">アーティストの概要欄下のアルバムカードは表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_artist_cards_title">アーティスト カードを非表示</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_artist_cards_summary_on">アーティスト カードは表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_artist_cards_summary_off">アーティスト カードは表示されます</string>
@@ -286,9 +300,9 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_doodles_title">YouTube Doodle を非表示</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_doodles_summary_on">ロゴの YouTube Doodle アニメーションは表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_doodles_summary_off">ロゴの YouTube Doodle アニメーションは表示されます</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_doodles_user_dialog_message">"YouTube Doodle は、年に数日、祝日や記念日などの特別な日に表示されます。
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_doodles_user_dialog_message">"YouTube Doodle は年に数日表示されます。
 
-あなたの地域で Doodle が表示されているとき、この設定をオンにすると検索結果にフィルタバーが表示されなくなります。"</string>
+あなたの地域で Doodle が表示されているときにこの設定をオンにすると、検索結果にフィルタバーが表示されなくなります。"</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_channel_bar_title">チャンネルバーを非表示</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_channel_bar_summary_on">チャンネルバーは表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_channel_bar_summary_off">チャンネルバーは表示されます</string>
@@ -296,8 +310,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_channel_watermark_summary_on">チャンネルの透かしは表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_channel_watermark_summary_off">チャンネルの透かしは表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_crowdfunding_box_title">クラウドファンディング欄を非表示</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_crowdfunding_box_summary_on">プレーヤーと概要欄の間にあるクラウドファンディング ボックスは表示されません</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_crowdfunding_box_summary_off">プレーヤーと概要欄の間にあるクラウドファンディング ボックスは表示されます</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_crowdfunding_box_summary_on">クラウドファンディング欄はプレーヤーと概要欄の間に表示されません</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_crowdfunding_box_summary_off">クラウドファンディング欄はプレーヤーと概要欄の間に表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_emergency_box_title">緊急ボックスを非表示</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_emergency_box_summary_on">緊急ボックスは表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_emergency_box_summary_off">緊急ボックスは表示されます</string>
@@ -316,11 +330,11 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_quick_actions_summary_on">全画面表示モードのクイック アクションは表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_quick_actions_summary_off">全画面表示モードのクイック アクションは表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_related_videos_title">関連動画を非表示</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_related_videos_summary_on">クイック アクション内の関連動画は表示されません</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_related_videos_summary_off">クイック アクション内の関連動画は表示されます</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_related_videos_summary_on">クイック アクション内の関連動画 (その他の動画) は表示されません</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_related_videos_summary_off">クイック アクション内の関連動画 (その他の動画) は表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_subscribers_community_guidelines_title">チャンネル登録者のガイドラインを非表示</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_subscribers_community_guidelines_summary_on">登録チャンネルのコミュニティ ガイドラインは非表示です</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_subscribers_community_guidelines_summary_off">登録チャンネルのコミュニティ ガイドラインは表示されます</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_subscribers_community_guidelines_summary_on">チャンネル登録者のコミュニティ ガイドラインは表示されません</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_subscribers_community_guidelines_summary_off">チャンネル登録者のコミュニティ ガイドラインは表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_timed_reactions_title">Timed Reaction を非表示</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_timed_reactions_summary_on">Timed reaction は表示されません\n\nライブ配信のチャット欄に常駐するハート マーク ボタンが非表示になります</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_timed_reactions_summary_off">Timed reaction は表示されます\n\nライブ配信のチャット欄にハート マーク ボタンが常駐します</string>
@@ -330,9 +344,9 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_ask_section_title">「質問する」を非表示</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_ask_section_summary_on">「質問する」セクションは表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_ask_section_summary_off">「質問する」セクションは表示されます</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_attributes_section_title">付随情報を非表示</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_attributes_section_summary_on">注目の場所 / ゲーム / 音楽 / 人物セクションは表示されません</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_attributes_section_summary_off">注目の場所 / ゲーム / 音楽 / 人物セクションは表示されます</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_attributes_section_title">関連情報を非表示</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_attributes_section_summary_on">注目の場所 / ゲーム / 音楽 / 言及されている人物セクションは表示されません</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_attributes_section_summary_off">注目の場所 / ゲーム / 音楽 / 言及されている人物セクションは表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_chapters_section_title">チャプターを非表示</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_chapters_section_summary_on">チャプター セクションは表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_chapters_section_summary_off">チャプター セクションは表示されます</string>
@@ -346,11 +360,11 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_podcast_section_summary_on">「ポッドキャストを検索」セクションは表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_podcast_section_summary_off">「ポッドキャストを検索」セクションは表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_featured_links_section_title">おすすめリンクを非表示</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_featured_links_section_summary_on">情報カード内のおすすめリンク セクションは表示されません</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_featured_links_section_summary_off">情報カード内のおすすめリンク セクションは表示されます</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_featured_links_section_summary_on">情報カード セクション内のおすすめリンク セクションは表示されません</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_featured_links_section_summary_off">情報カード セクション内のおすすめリンク セクションは表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_featured_videos_section_title">おすすめ動画を非表示</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_featured_videos_section_summary_on">情報カード内のおすすめ動画セクションは表示されません</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_featured_videos_section_summary_off">情報カード内のおすすめ動画セクションは表示されます</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_featured_videos_section_summary_on">情報カード セクション内のおすすめ動画セクションは表示されません</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_featured_videos_section_summary_off">情報カード セクション内のおすすめ動画セクションは表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_info_cards_section_title">情報カードを非表示</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_info_cards_section_summary_on">情報カード セクションは表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_info_cards_section_summary_off">情報カード セクションは表示されます</string>
@@ -358,8 +372,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_key_concepts_section_summary_on">主な概念セクションは表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_key_concepts_section_summary_off">主な概念セクションが表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_subscribe_button_title">チャンネル登録ボタンを非表示</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_subscribe_button_summary_on">情報カード内のチャンネル登録ボタンは表示されません</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_subscribe_button_summary_off">情報カード内のチャンネル登録ボタンは表示されます</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_subscribe_button_summary_on">情報カード セクション内のチャンネル登録ボタンは表示されません</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_subscribe_button_summary_off">情報カード セクション内のチャンネル登録ボタンは表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_transcript_section_title">文字起こしを非表示</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_transcript_section_summary_on">文字起こしセクションは表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_transcript_section_summary_off">文字起こしセクションは表示されます</string>
@@ -368,8 +382,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_screen_title">フィルタバー</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_screen_summary">フィード、関連動画、検索結果、および再生履歴でフィルタバーを表示または非表示にします</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_feed_in_feed_title">フィードで非表示</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_feed_in_feed_summary_on">フィードに表示されません</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_feed_in_feed_summary_off">フィードに表示されます</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_feed_in_feed_summary_on">フィードには表示されません</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_feed_in_feed_summary_off">フィードには表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_feed_in_related_videos_title">関連動画で非表示</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_feed_in_related_videos_summary_on">関連動画には表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_feed_in_related_videos_summary_off">関連動画には表示されます</string>
@@ -377,8 +391,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_feed_in_search_summary_on">検索結果には表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_feed_in_search_summary_off">検索結果には表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_feed_in_history_title">再生履歴で非表示</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_feed_in_history_summary_on">再生履歴に表示されません</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_feed_in_history_summary_off">再生履歴に表示されます</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_feed_in_history_summary_on">再生履歴には表示されません</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_filter_bar_feed_in_history_summary_off">再生履歴には表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_channel_screen_title">チャンネル ページ</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_channel_screen_summary">チャンネル ページのコンポーネントを表示または非表示にします</string>
   <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
@@ -413,8 +427,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_ai_chat_summary_summary_on">AI による「チャットの要約」は表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_ai_chat_summary_summary_off">AI による「チャットの要約」は表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_ai_summary_title">AI によるコメントの要約を非表示</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_ai_summary_summary_on">AI によるコメントの要約は表示されません</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_ai_summary_summary_off">AI によるコメントの要約は表示されます</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_ai_summary_summary_on">AI によるコメントの要約は表示されません\n\nコメント欄のヘッダーにはトピックボタンは表示されません</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_ai_summary_summary_off">AI によるコメントの要約は表示されます\n\nコメント欄のヘッダーにはトピックボタンが表示されます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_channel_guidelines_title">チャンネルのガイドラインを非表示</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_channel_guidelines_summary_on">チャンネルのガイドラインは表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_channel_guidelines_summary_off">チャンネルのガイドラインは表示されます</string>
@@ -439,15 +453,6 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_title">Thanks ボタンを非表示</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_on">Thanks ボタンは表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_off">Thanks ボタンは表示されます</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">カスタム フィルタ</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">カスタム フィルタを使用してコンポーネントを非表示にします</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">カスタム フィルタを有効化</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">カスタム フィルタは有効です</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">カスタム フィルタは無効です</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">カスタム フィルタ</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">非表示にするコンポーネントの path builder string のリスト (改行区切り)</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">無効なカスタム フィルタ: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_title">視聴回数を非表示</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_on">視聴回数はフィードおよび検索結果の動画のタイトル下に表示されません</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_off">視聴回数はフィードおよび検索結果の動画のタイトル下に表示されます</string>
@@ -463,7 +468,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
 • ショート欄、チャンネル ページ、検索結果では、引き続き公開日時が表示される場合がある
 • この機能は Automotive レイアウトでは動作しない"</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_screen_title">キーワードでコンテンツを非表示</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_screen_summary">キーワード フィルタを使用してフィード、検索結果に表示される動画を非表示にします</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_screen_summary">キーワード フィルタを使用してフィード、検索結果に表示される動画を除外します</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_home_title">ホームの動画をキーワードで非表示</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_home_summary_on">ホームタブの動画はキーワードでフィルタリングされます</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_home_summary_off">ホームタブの動画はキーワードでフィルタリングされません</string>
@@ -476,32 +481,32 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_phrases_title">キーワード</string>
   <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_phrases_summary">"キーワードとなる単語やフレーズのリスト (改行区切り)
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_phrases_summary">"除外するためのキーワードとなる単語やフレーズのリスト (改行区切り)
 
-動画のタイトルまたはチャンネル名にキーワードが含まれる動画が非表示の対象になります
+キーワードには、除外したい動画のチャンネル名もしくはタイトルの一部を指定することができます
 
-単語の途中に大文字が含まれている場合は、大文字と小文字を区別して入力する必要があります (例: iPhone、TikTok、LeBlanc)"</string>
+単語の途中に大文字が含まれる場合は、大文字のまま入力する必要があります (例: iPhone、TikTok、LeBlanc)"</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_about_title">キーワード フィルタリングについて</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_about_summary">"ホーム / 登録チャンネル / 検索結果でキーワードに合致する動画を非表示にします
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_about_summary">"ホーム / 登録チャンネル / 検索結果でキーワードに合致する動画を除外します
 
 制限事項
-• ショート動画はチャンネル名の合致では非表示にできない
+• ショート動画はチャンネル名の合致では除外できない
 • 一部の UI コンポーネントが残ってしまう場合がある
-• キーワードを検索したとき、結果が表示されない場合がある"</string>
+• キーワードで検索したとき、結果が表示されない場合がある"</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_about_whole_words_title">単語全体で合致</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_about_whole_words_summary">キーワードを二重引用符で囲むことで、動画のタイトルやチャンネル名に含まれる単語の一部分とキーワードが合致しないようにできます&lt;br&gt;&lt;br&gt;例えば、&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt;は、次の動画を非表示にします:&lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;しかし、次の動画は非表示にしません:&lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_about_whole_words_summary">キーワードを二重引用符で囲むことで、動画のタイトルやチャンネル名に含まれる単語の一部分とキーワードが合致しないようにできます&lt;br&gt;&lt;br&gt;例えば、&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt;は、次の動画を除外します:&lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;しかし、次の動画は除外しません:&lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_toast_invalid_common">使用できないキーワード: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_toast_invalid_common_whole_word_required">二重引用符が必要なキーワード: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_toast_invalid_conflicting">矛盾する宣言があるキーワード: %s</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_toast_invalid_length">短すぎるキーワード: %s</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_toast_invalid_broad">全ての動画を除外するキーワード: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_toast_invalid_length">短すぎて引用符が必要なキーワード: %s</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_toast_invalid_broad">全動画を除外するキーワード: %s</string>
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_creator_store_shelf_title">クリエイターのストア欄を非表示</string>
-  <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_creator_store_shelf_summary_on">動画プレーヤー下にあるクリエイターのストア欄は表示されません</string>
-  <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_creator_store_shelf_summary_off">動画プレーヤー下にあるクリエイターのストア欄は表示されます</string>
+  <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_creator_store_shelf_summary_on">動画プレーヤー下のクリエイターのストア欄は表示されません</string>
+  <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_creator_store_shelf_summary_off">動画プレーヤー下のクリエイターのストア欄は表示されます</string>
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_end_screen_store_banner_title">終了画面のストアバナーを非表示</string>
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_end_screen_store_banner_summary_on">終了画面のストアバナーは表示されません</string>
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_end_screen_store_banner_summary_off">終了画面のストアバナーは表示されます</string>
@@ -533,18 +538,18 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_web_search_results_title">ウェブ検索結果を非表示</string>
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_web_search_results_summary_on">ウェブ検索結果は表示されません</string>
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_web_search_results_summary_off">ウェブ検索結果は表示されます</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="youtube.ad.getpremium.hideGetPremiumPatch.revanced_hide_get_premium_title">YouTube Premium の広告を非表示</string>
-  <string name="youtube.ad.getpremium.hideGetPremiumPatch.revanced_hide_get_premium_summary_on">プレーヤー下の YouTube Premium の広告は表示されません</string>
-  <string name="youtube.ad.getpremium.hideGetPremiumPatch.revanced_hide_get_premium_summary_off">プレーヤー下の YouTube Premium の広告は表示されます</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <string name="youtube.ad.getpremium.hideGetPremiumPatch.revanced_hide_get_premium_summary_on">動画プレーヤー下の YouTube Premium の広告は表示されません</string>
+  <string name="youtube.ad.getpremium.hideGetPremiumPatch.revanced_hide_get_premium_summary_off">動画プレーヤー下の YouTube Premium の広告は表示されます</string>
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="youtube.ad.video.videoAdsPatch.revanced_hide_video_ads_title">動画広告を非表示</string>
   <string name="youtube.ad.video.videoAdsPatch.revanced_hide_video_ads_summary_on">動画広告は表示されません</string>
   <string name="youtube.ad.video.videoAdsPatch.revanced_hide_video_ads_summary_off">動画広告は表示されます</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_share_copy_url_success">URL をクリップボードにコピーしました</string>
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_share_copy_url_timestamp_success">タイムスタンプ付きの URL がコピーされました</string>
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_copy_video_url_title">「動画の URL をコピー」ボタンを表示</string>
@@ -553,24 +558,24 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_copy_video_url_timestamp_title">「タイムスタンプ付き URL をコピー」ボタンを表示</string>
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_copy_video_url_timestamp_summary_on">「タイムスタンプ付きURLをコピー」ボタンがプレーヤー オーバーレイに表示されます。タップするとタイムスタンプ付きの動画の URL が、長押しするとタイムスタンプなしの URL がそれぞれコピーされます</string>
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_copy_video_url_timestamp_summary_off">「タイムスタンプ付きURLをコピー」ボタンはプレーヤー オーバーレイに表示されません</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="youtube.interaction.dialog.removeViewerDiscretionDialogPatch.revanced_remove_viewer_discretion_dialog_title">「ご自身の責任」ダイアログを削除</string>
   <string name="youtube.interaction.dialog.removeViewerDiscretionDialogPatch.revanced_remove_viewer_discretion_dialog_summary_on">ダイアログは削除されます</string>
   <string name="youtube.interaction.dialog.removeViewerDiscretionDialogPatch.revanced_remove_viewer_discretion_dialog_summary_off">ダイアログは表示されます</string>
   <string name="youtube.interaction.dialog.removeViewerDiscretionDialogPatch.revanced_remove_viewer_discretion_dialog_user_dialog_message">この機能によって年齢制限が回避される訳ではありません。自動的に承認するだけです。</string>
-  </patch>
-  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch"> -->
   <string name="youtube.layout.hide.signintotv.disableSignInToTvPopupPatch.revanced_disable_signin_to_tv_popup_title">「テレビでログイン」ポップアップを無効化</string>
   <string name="youtube.layout.hide.signintotv.disableSignInToTvPopupPatch.revanced_disable_signin_to_tv_popup_summary_on">「テレビでログイン」ポップアップは無効です</string>
   <string name="youtube.layout.hide.signintotv.disableSignInToTvPopupPatch.revanced_disable_signin_to_tv_popup_summary_off">「テレビでログイン」ポップアップは有効です</string>
-  </patch>
-  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.doubletap.disableDoubleTapActionsPatch"> -->
   <string name="youtube.interaction.doubletap.disableDoubleTapActionsPatch.revanced_disable_chapter_skip_double_tap_title">ダブルタップ時のチャプター スキップを無効化</string>
   <string name="youtube.interaction.doubletap.disableDoubleTapActionsPatch.revanced_disable_chapter_skip_double_tap_summary_on">ダブルタップしたときに、次または前のチャプターへスキップしてしまうことはありません</string>
   <string name="youtube.interaction.doubletap.disableDoubleTapActionsPatch.revanced_disable_chapter_skip_double_tap_summary_off">ダブルタップしたときに、たまに次または前のチャプターへスキップしてしまうことがあります</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_screen_title">外部ダウンロード</string>
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_screen_summary">外部ダウンローダーの設定</string>
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_title">外部ダウンロード ボタンを表示</string>
@@ -581,7 +586,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_action_button_summary_on">オフライン ボタンは外部ダウンローダーを呼び出します</string>
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_action_button_summary_off">オフライン ボタンはアプリ内のダウンローダーを呼び出します</string>
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_name_title">外部ダウンローダーのパッケージ名</string>
-  <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_name_summary">インストールされている外部ダウンローダー アプリのパッケージ名</string>
+  <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_name_summary">インストール済みの外部ダウンローダー アプリのパッケージ名</string>
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_other_item_hint">パッケージ名を入力してください</string>
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_other_item">その他</string>
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_not_found_title">アプリがインストールされていません</string>
@@ -590,42 +595,42 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
 
 パッケージ名が正しいこと、アプリがインストールされていることを確認してください"</string>
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_empty_warning">パッケージ名は空欄にはできません</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="youtube.interaction.seekbar.disablePreciseSeekingGesturePatch.revanced_disable_precise_seeking_gesture_title">精密シーク ジェスチャーを無効化</string>
   <string name="youtube.interaction.seekbar.disablePreciseSeekingGesturePatch.revanced_disable_precise_seeking_gesture_summary_on">精密シーク ジェスチャーは無効です。シークバーを上へスワイプしても、「再生位置の細かい調整」モードにはなりません</string>
   <string name="youtube.interaction.seekbar.disablePreciseSeekingGesturePatch.revanced_disable_precise_seeking_gesture_summary_off">精密シーク ジェスチャーは有効です。シークバーを上へスワイプすると、「再生位置の細かい調整」モードになります</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="youtube.interaction.seekbar.enableSeekbarTappingPatch.revanced_seekbar_tapping_title">タップによるシークを有効化</string>
   <string name="youtube.interaction.seekbar.enableSeekbarTappingPatch.revanced_seekbar_tapping_summary_on">タップによるシークは有効です。シークバーをタップすると、タップした位置に移動します</string>
   <string name="youtube.interaction.seekbar.enableSeekbarTappingPatch.revanced_seekbar_tapping_summary_off">タップによるシークは無効です。シークバーをタップしても、タップした位置に移動しません</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_brightness_title">明るさジェスチャーを有効化</string>
-  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_brightness_summary_on">"全画面表示中の明るさジェスチャーは有効です
+  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_brightness_summary_on">"全画面表示モードの明るさジェスチャーは有効です
 
 画面左側を縦にスワイプして明るさを調節します"</string>
-  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_brightness_summary_off">全画面表示中の明るさジェスチャーは無効です</string>
+  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_brightness_summary_off">全画面表示モードの明るさジェスチャーは無効です</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_volume_title">音量ジェスチャーを有効化</string>
-  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_volume_summary_on">"全画面表示中の音量ジェスチャーは有効です
+  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_volume_summary_on">"全画面表示モードの音量ジェスチャーは有効です
 
 画面右側を縦にスワイプして音量を調節します"</string>
-  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_volume_summary_off">全画面表示中の音量ジェスチャーは無効です</string>
+  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_volume_summary_off">全画面表示モードの音量ジェスチャーは無効です</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_press_to_engage_title">長押しスワイプ ジェスチャーを有効化</string>
-  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_press_to_engage_summary_on">長押しスワイプは有効です\n\n画面を長押ししてから縦にスワイプすると、明るさ / 音量ジェスチャーとして認識されます</string>
-  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_press_to_engage_summary_off">長押しスワイプは無効です\n\n画面を縦にスワイプすると、明るさ / 音量ジェスチャーとして認識されます</string>
+  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_press_to_engage_summary_on">長押しスワイプは有効です\n\n明るさ / 音量ジェスチャーの開始には、画面の長押しが必要です</string>
+  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_press_to_engage_summary_off">長押しスワイプは無効です\n\n明るさ / 音量ジェスチャーの開始には、画面の長押しは必要ありません</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_haptic_feedback_title">触覚フィードバックを有効化</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_haptic_feedback_summary_on">触覚フィードバックは有効です</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_haptic_feedback_summary_off">触覚フィードバックは無効です</string>
-  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_save_and_restore_brightness_title">明るさを保存＆復元</string>
+  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_save_and_restore_brightness_title">明るさを保存 &amp; 復元</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_save_and_restore_brightness_summary_on">全画面表示を終了 / 開始するときに明るさを保存 / 復元します</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_save_and_restore_brightness_summary_off">全画面表示を終了 / 開始するときに明るさを保存 / 復元しません</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_lowest_value_enable_auto_brightness_title">明るさジェスチャーの自動調節を有効化</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_lowest_value_enable_auto_brightness_summary_on">ジェスチャーで明るさを最小値まで下げると、明るさが自動で調節されます</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_lowest_value_enable_auto_brightness_summary_off">ジェスチャーで明るさを最小値まで下げても、明るさは自動で調節されません</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">自動</string>
-  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_overlay_timeout_title">オーバーレイのタイムアウト</string>
+  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_overlay_timeout_title">オーバーレイの表示時間</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_overlay_timeout_summary">スワイプ オーバーレイが表示される時間 (ミリ秒)</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_overlay_background_opacity_title">オーバーレイの背景の透明度</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_overlay_background_opacity_summary">透明度の範囲は 0-100 で、0 が透明です</string>
@@ -638,7 +643,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_text_overlay_size_summary">スワイプ オーバーレイのテキストサイズ (1-30)</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_text_overlay_size_invalid_toast">テキストサイズの範囲は 1-30 です</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_threshold_title">スワイプのしきい値</string>
-  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_threshold_summary">スワイプと判定される最小のスワイプ距離</string>
+  <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_threshold_summary">ジェスチャーと判定される最小のスワイプ距離</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_volume_sensitivity_title">音量ジェスチャーのスワイプ感度</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_volume_sensitivity_summary">スワイプによる音量の変化量</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_overlay_style_title">オーバーレイのスタイル</string>
@@ -652,13 +657,13 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_change_video_title">スワイプによる動画の切り替えを有効化</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_change_video_summary_on">全画面表示中に左 / 右にスワイプすると、前 / 次の動画に切り替わります</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_change_video_summary_off">全画面表示中に左 / 右にスワイプしても、前 / 次の動画に切り替わりません</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="youtube.layout.autocaptions.autoCaptionsPatch.revanced_disable_auto_captions_title">自動字幕表示を無効化</string>
   <string name="youtube.layout.autocaptions.autoCaptionsPatch.revanced_disable_auto_captions_summary_on">自動字幕表示は無効です\n\n字幕がオフの状態で動画を開きます</string>
   <string name="youtube.layout.autocaptions.autoCaptionsPatch.revanced_disable_auto_captions_summary_off">自動字幕表示は有効です\n\n字幕がオンの状態で動画を開く場合があります</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_buttons_screen_title">アクション ボタン</string>
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_buttons_screen_summary">プレーヤー画面下のボタンを表示または非表示にします</string>
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_disable_like_subscribe_glow_title">高評価とチャンネル登録のエフェクトを無効化</string>
@@ -672,9 +677,9 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_share_button_summary_on">共有ボタンは表示されません</string>
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_share_button_summary_off">共有ボタンは表示されます</string>
   <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
-  <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_stop_ads_button_title">「広告を停止」を非表示</string>
-  <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_stop_ads_button_summary_on">「広告を停止」ボタンは表示されません</string>
-  <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_stop_ads_button_summary_off">「広告を停止」ボタンは表示されます</string>
+  <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_stop_ads_button_title">「広告の停止」ボタンを非表示</string>
+  <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_stop_ads_button_summary_on">「広告の停止」ボタンは表示されません</string>
+  <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_stop_ads_button_summary_off">「広告の停止」ボタンは表示されます</string>
   <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_comments_button_title">コメントボタンを非表示</string>
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_comments_button_summary_on">コメントボタンは表示されません</string>
@@ -720,10 +725,10 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_shop_button_summary_off">購入ボタンは表示されます</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_save_button_title">保存ボタンを非表示</string>
-  <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_save_button_summary_on">「保存」ボタンは表示されません</string>
-  <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_save_button_summary_off">「保存」ボタンは表示されます</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_save_button_summary_on">保存ボタンは表示されません</string>
+  <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_save_button_summary_off">保存ボタンは表示されます</string>
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_navigation_buttons_screen_title">ナビゲーション ボタン</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_navigation_buttons_screen_summary">ナビゲーション バーのボタンを変更または非表示にします</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -736,20 +741,20 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_shorts_button_summary_off">ショートボタンは表示されます</string>
   <!-- 'Create' has no display name. Translate normally. -->
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_create_button_title">「作成」を非表示</string>
-  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_create_button_summary_on">作成ボタンは非表示です</string>
+  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_create_button_summary_on">作成ボタンは表示されません</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_create_button_summary_off">作成ボタンは表示されます</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_subscriptions_button_title">「登録チャンネル」を非表示</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_subscriptions_button_summary_on">登録チャンネル ボタンは表示されません</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_subscriptions_button_summary_off">登録チャンネル ボタンは表示されます</string>
-  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_notifications_button_title">通知を非表示</string>
+  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_notifications_button_title">「通知」を非表示</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_notifications_button_summary_on">通知ボタンは表示されません</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_notifications_button_summary_off">通知ボタンは表示されます</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_switch_create_with_notifications_button_title">「作成」と「通知」を入れ替え</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_switch_create_with_notifications_button_summary_on">"作成ボタンと通知ボタンが入れ替わります
 
-注: これにより、動画広告も強制的に非表示になります"</string>
+注: この設定を有効にすることにより、動画広告も強制的に非表示になります"</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_switch_create_with_notifications_button_summary_off">作成ボタンと通知ボタンは入れ替わりません</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_switch_create_with_notifications_button_user_dialog_message">"この設定を無効にすると、ショート動画の広告ブロックも無効になります。
 
@@ -760,15 +765,15 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_status_bar_title">半透明ステータスバーを無効化</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_status_bar_summary_on">ステータスバーは常に透けません</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_status_bar_summary_off">ステータスバーは状況に応じて透けます</string>
-  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_status_bar_user_dialog_message">一部のデバイスでは、この機能を有効にすると、システムのナビゲーション バーが半透明になりアプリ内のコンポーネントに重なってしまう可能性があります。</string>
-  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_light_title">ライトモード時の半透明バーを無効化</string>
-  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_light_summary_on">ライトモード時にはナビゲーション バーは透けません</string>
-  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_light_summary_off">ライトモード時にはナビゲーション バーが状況に応じて透けます</string>
-  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_dark_title">ダークモード時の半透明バーを無効化</string>
-  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_dark_summary_on">ダークモード時にはナビゲーション バーは透けません</string>
-  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_dark_summary_off">ダークモード時にはナビゲーション バーが状況に応じて透けます</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_status_bar_user_dialog_message">一部のデバイスでは、この機能を有効にすると、システムのナビゲーション バーが半透明になりアプリ内のコンポーネントに重なってしまう場合があります。</string>
+  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_light_title">ライトモードの半透明バーを無効化</string>
+  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_light_summary_on">ライトモードではナビゲーション バーは透けません</string>
+  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_light_summary_off">ライトモードではナビゲーション バーが状況に応じて透けます</string>
+  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_dark_title">ダークモードの半透明バーを無効化</string>
+  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_dark_summary_on">ダークモードではナビゲーション バーは透けません</string>
+  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_dark_summary_off">ダークモードではナビゲーション バーが状況に応じて透けます</string>
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_title">フライアウト メニュー</string>
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_summary">プレーヤー オーバーレイの歯車アイコンボタンから呼び出されるフライアウト メニューの項目を表示または非表示にします</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -818,7 +823,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
                   'Android No SDK' must be kept untranslated. -->
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_audio_track_not_available">"「音声トラック」は表示されません
 
-「音声トラック」を表示するには、[動画ストリームを偽装] を [Android No SDK] に変更してください"</string>
+「音声トラック」を表示するには、[動画ストリームを偽装] を「Android No SDK」に変更してください"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_watch_in_vr_title">「VR で見る」を非表示</string>
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_watch_in_vr_summary_on">「VR で見る」は表示されません</string>
@@ -829,8 +834,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_video_quality_footer_title">画質メニューの脚注を非表示</string>
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_video_quality_footer_summary_on">画質メニューの脚注は表示されません</string>
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_video_quality_footer_summary_off">画質メニューの脚注は表示されます</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_autoplay_button_title">自動再生ボタンを非表示</string>
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_autoplay_button_summary_on">自動再生ボタンはプレーヤー オーバーレイに表示されません</string>
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_autoplay_button_summary_off">自動再生ボタンはプレーヤー オーバーレイに表示されます</string>
@@ -847,37 +852,37 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_player_previous_next_buttons_title">前の動画ボタンと次の動画ボタンを非表示</string>
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_player_previous_next_buttons_summary_on">前の動画ボタンと次の動画ボタンは表示されません</string>
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_player_previous_next_buttons_summary_off">前の動画ボタンと次の動画ボタンは表示されます</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch"> -->
   <string name="youtube.layout.hide.endscreencards.hideEndScreenCardsResourcePatch.revanced_hide_endscreen_cards_title">終了画面カードを非表示</string>
   <string name="youtube.layout.hide.endscreencards.hideEndScreenCardsResourcePatch.revanced_hide_endscreen_cards_summary_on">終了画面カードは表示されません</string>
   <string name="youtube.layout.hide.endscreencards.hideEndScreenCardsResourcePatch.revanced_hide_endscreen_cards_summary_off">終了画面カードは表示されます</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="youtube.layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch.revanced_disable_fullscreen_ambient_mode_title">全画面表示中のアンビエント モードを無効化</string>
   <string name="youtube.layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch.revanced_disable_fullscreen_ambient_mode_summary_on">全画面表示中のアンビエント モードは無効です</string>
   <string name="youtube.layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch.revanced_disable_fullscreen_ambient_mode_summary_off">全画面表示中のアンビエント モードは有効です</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="youtube.layout.hide.infocards.hideInfocardsResourcePatch.revanced_hide_info_cards_title">情報カードを非表示</string>
   <string name="youtube.layout.hide.infocards.hideInfocardsResourcePatch.revanced_hide_info_cards_summary_on">情報カードはプレーヤー画面に表示されません</string>
   <string name="youtube.layout.hide.infocards.hideInfocardsResourcePatch.revanced_hide_info_cards_summary_off">情報カードはプレーヤー画面に表示されます</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="youtube.layout.hide.rollingnumber.disableRollingNumberAnimationPatch.revanced_disable_rolling_number_animations_title">数字の回転アニメーションを無効化</string>
   <string name="youtube.layout.hide.rollingnumber.disableRollingNumberAnimationPatch.revanced_disable_rolling_number_animations_summary_on">数字の回転アニメーションは無効です</string>
   <string name="youtube.layout.hide.rollingnumber.disableRollingNumberAnimationPatch.revanced_disable_rolling_number_animations_summary_off">数字の回転アニメーションは有効です</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_title">プレーヤーのシークバーを非表示</string>
   <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_summary_on">動画プレーヤーのシークバーは表示されません</string>
   <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_summary_off">動画プレーヤーのシークバーは表示されます</string>
   <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
   <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_thumbnail_title">サムネイルのシークバーを非表示</string>
-  <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_thumbnail_summary_on">フィードや再生履歴などに表示される動画のサムネイルのシークバーは表示されません</string>
-  <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_thumbnail_summary_off">フィードや再生履歴などに表示される動画のサムネイルのシークバーは表示されます</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_thumbnail_summary_on">フィードや再生履歴などの動画のサムネイルのシークバーは表示されません</string>
+  <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_thumbnail_summary_off">フィードや再生履歴などの動画のサムネイルのシークバーは表示されます</string>
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="youtube.layout.hide.shorts.hideShortsComponentsResourcePatch.revanced_shorts_player_screen_title">ショート プレーヤー</string>
   <string name="youtube.layout.hide.shorts.hideShortsComponentsResourcePatch.revanced_shorts_player_screen_summary">ショート プレーヤーのコンポーネントを表示または非表示にします</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
@@ -996,48 +1001,48 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.hide.shorts.hideShortsComponentsResourcePatch.revanced_hide_shorts_navigation_bar_title">ナビゲーション バーを非表示</string>
   <string name="youtube.layout.hide.shorts.hideShortsComponentsResourcePatch.revanced_hide_shorts_navigation_bar_summary_on">ナビゲーション バーは表示されません</string>
   <string name="youtube.layout.hide.shorts.hideShortsComponentsResourcePatch.revanced_hide_shorts_navigation_bar_summary_off">ナビゲーション バーは表示されます</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="youtube.layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch.revanced_end_screen_suggested_video_title">終了画面の「関連動画」を非表示</string>
   <string name="youtube.layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch.revanced_end_screen_suggested_video_summary_on">"終了画面の「関連動画」は表示されませんが、自動再生がオンの場合は関連動画が自動で再生されます
 
 自動再生の設定は YouTube の設定で変更できます:
 [設定] &gt; [再生] &gt; [次の動画を自動再生]"</string>
   <string name="youtube.layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch.revanced_end_screen_suggested_video_summary_off">終了画面の「関連動画」は表示されます</string>
-  </patch>
-  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch"> -->
   <string name="youtube.layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch.revanced_hide_related_videos_overlay_title">関連動画オーバーレイを非表示</string>
   <string name="youtube.layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch.revanced_hide_related_videos_overlay_summary_on">全画面表示モードの関連動画オーバーレイは表示されません</string>
   <string name="youtube.layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch.revanced_hide_related_videos_overlay_summary_off">全画面表示モードの関連動画オーバーレイは表示されます</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="youtube.layout.hide.time.hideTimestampPatch.revanced_hide_timestamp_title">動画のタイムスタンプを非表示</string>
   <string name="youtube.layout.hide.time.hideTimestampPatch.revanced_hide_timestamp_summary_on">動画の現在位置を示すタイムスタンプは表示されません</string>
   <string name="youtube.layout.hide.time.hideTimestampPatch.revanced_hide_timestamp_summary_off">動画の現在位置を示すタイムスタンプは表示されます</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="youtube.layout.panels.popup.playerPopupPanelsPatch.revanced_hide_player_popup_panels_title">プレーヤー ポップアップ パネルを非表示</string>
   <string name="youtube.layout.panels.popup.playerPopupPanelsPatch.revanced_hide_player_popup_panels_summary_on">プレーヤー ポップアップ パネルは表示されません\n\nプレイリストやライブ配信のチャット欄などを閉じた状態で動画を開きます</string>
   <string name="youtube.layout.panels.popup.playerPopupPanelsPatch.revanced_hide_player_popup_panels_summary_off">プレーヤー ポップアップ パネルは表示されます\n\nプレイリストやライブ配信のチャット欄などを展開した状態で動画を開きます</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="youtube.layout.player.fullscreen.exitFullscreenPatch.revanced_exit_fullscreen_title">再生終了時に全画面表示を解除</string>
   <string name="youtube.layout.player.fullscreen.exitFullscreenPatch.revanced_exit_fullscreen_entry_1">無効</string>
   <string name="youtube.layout.player.fullscreen.exitFullscreenPatch.revanced_exit_fullscreen_entry_2">縦画面</string>
   <string name="youtube.layout.player.fullscreen.exitFullscreenPatch.revanced_exit_fullscreen_entry_3">横画面</string>
-  <string name="youtube.layout.player.fullscreen.exitFullscreenPatch.revanced_exit_fullscreen_entry_4">縦画面および横画面</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="youtube.layout.player.fullscreen.exitFullscreenPatch.revanced_exit_fullscreen_entry_4">縦画面 &amp; 横画面</string>
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="youtube.layout.player.fullscreen.openVideosFullscreen.revanced_open_videos_fullscreen_portrait_title">縦画面の全画面表示で動画を開く</string>
   <string name="youtube.layout.player.fullscreen.openVideosFullscreen.revanced_open_videos_fullscreen_portrait_summary_on">縦画面の全画面表示で動画を開きます</string>
   <string name="youtube.layout.player.fullscreen.openVideosFullscreen.revanced_open_videos_fullscreen_portrait_summary_off">通常表示で動画を開きます</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="youtube.layout.player.overlay.customPlayerOverlayOpacityResourcePatch.revanced_player_overlay_opacity_title">プレーヤー オーバーレイの透明度</string>
   <string name="youtube.layout.player.overlay.customPlayerOverlayOpacityResourcePatch.revanced_player_overlay_opacity_summary">透明度の範囲は 0-100 で、0 が透明です</string>
   <string name="youtube.layout.player.overlay.customPlayerOverlayOpacityResourcePatch.revanced_player_overlay_opacity_invalid_toast">プレーヤー: 透明度の範囲は 0-100 です</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_failure_connection_timeout">低評価数表示は一時的に利用できません (API タイムアウト)</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_failure_connection_status_code">低評価数表示は利用できません (status %d)</string>
@@ -1047,6 +1052,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Return YouTube Dislike: 投票するには、再読み込みが必要です</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_video_likes_hidden_by_video_owner">非公開</string>
+  <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_title">Return YouTube Dislike</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_summary_on">低評価数は表示されます</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_summary_off">低評価数は表示されません</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_shorts_title">ショート動画の低評価数を表示</string>
@@ -1067,6 +1073,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_title">API 利用不可時にトーストを表示</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike が利用できない場合にトースト通知が表示されます</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike が利用できない場合にトースト通知は表示されません</string>
+  <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_attribution_summary">データは Return YouTube Dislike API によって提供されています。詳細は、ここをタップしてください</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_statistics_category_title">このデバイスの ReturnYouTubeDislike API 統計情報</string>
@@ -1085,18 +1092,18 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">クライアントのレート制限には遭遇していません</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">クライアントのレート制限に %d 回遭遇しました</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_statistics_millisecond_text">%d ミリ秒</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="youtube.layout.searchbar.wideSearchbarPatch.revanced_wide_searchbar_title">ワイド検索バーを有効化</string>
   <string name="youtube.layout.searchbar.wideSearchbarPatch.revanced_wide_searchbar_summary_on">ワイド検索バーは有効です</string>
   <string name="youtube.layout.searchbar.wideSearchbarPatch.revanced_wide_searchbar_summary_off">ワイド検索バーは無効です</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_title">高画質サムネイルを有効化</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_summary_on">シークバー サムネイルは高画質です</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_summary_off">シークバー サムネイルは中画質です</string>
-  <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_legacy_summary_on">プレーヤー画面全体表示のサムネイルは高画質です</string>
-  <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_legacy_summary_off">プレーヤー画面全体表示のサムネイルは中画質です</string>
+  <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_legacy_summary_on">プレーヤー画面全体表示のシークバー サムネイルは高画質です</string>
+  <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_legacy_summary_off">プレーヤー画面全体表示のシークバー サムネイルは中画質です</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_dialog_message">"この機能を有効にすると、シークバー サムネイルを保持していないライブ配信でもシークバー サムネイルが表示されるようになります。
 
 シークバー サムネイルは、再生中の動画と同じ画質になります。
@@ -1105,8 +1112,9 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_restore_old_seekbar_thumbnails_title">古いシークバー サムネイルを復元</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_restore_old_seekbar_thumbnails_summary_on">シーク中のサムネイルはシークバーの上に表示されます</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_restore_old_seekbar_thumbnails_summary_off">シーク中のサムネイルはプレーヤー画面全体に表示されます</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_settings_screen_10_sponsorblock_title">SponsorBlock</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_enable_sb">SponsorBlock を有効化</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_enable_sb_sum">SponsorBlock は、ユーザーからの情報提供により YouTube 動画のわずらわしい部分をスキップする機能です</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_appearance_category">外観</string>
@@ -1268,7 +1276,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_new_segment_choose_category">セグメントのカテゴリを選択してください</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_new_segment_disabled_category">カテゴリが「無効」に設定されています。送信するには、設定を変更してください。</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_new_segment_title">新しいセグメント </string>
-  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_new_segment_mark_time_as_question">%s を新しいセグメント (SponsorBlock) の開始位置 / 終了位置に設定しますか？</string>
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_new_segment_mark_time_as_question">%s を SponsorBlock の新しいセグメントの開始位置 / 終了位置に設定しますか？</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_new_segment_mark_start">開始位置</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_new_segment_mark_end">終了位置</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_new_segment_now">現在の再生位置</string>
@@ -1315,13 +1323,15 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_color_opacity_label">透明度:</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_color_dot_label">色:</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_title">SponsorBlock について</string>
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_api_title">sponsor.ajay.app</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_api_summary">データは SponsorBlock API によって提供されています。詳細を確認するまたは他のプラットフォーム版をダウンロードするには、ここをタップしてください</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
-  <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_title">レイアウト フォーム ファクター</string>
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
+  <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_title">レイアウトの種類</string>
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_entry_1">デフォルト</string>
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_entry_2">スマートフォン</string>
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_entry_3">タブレット</string>
+  <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_entry_4">Automotive</string>
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_user_dialog_message">"以下の変更を伴います:
 
 タブレット レイアウト
@@ -1330,8 +1340,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
 Automotive レイアウト
 • ショート動画を通常のプレーヤーで開く
 • フィードがトピックやチャンネルごとに分類された形で表示される"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_title">アプリのバージョンを偽装</string>
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_summary_on">アプリのバージョンは偽装されています</string>
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_summary_off">アプリのバージョンは偽装されていません</string>
@@ -1339,14 +1349,14 @@ Automotive レイアウト
 
 アプリの外観と機能が変化しますが、予期せぬ副作用が発生する可能性があります。
 
-再び偽装を無効にする場合には、UI のバグを防ぐためにアプリデータを消去することをお勧めします。"</string>
+再び偽装を無効にする場合には、UI の不具合を防ぐためにアプリデータを消去することを推奨します。"</string>
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_target_title">アプリバージョンの偽装先</string>
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_target_entry_1">20.13.41 - アクション ボタンの文字表示を復元</string>
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_target_entry_2">20.05.46 - 文字起こし機能を復元</string>
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_target_entry_3">19.35.36 - ショート プレーヤーの古いアイコンを復元</string>
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_target_entry_4">19.01.34 - 古いナビゲーション アイコンを復元</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_title">スタート画面を変更</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_default">デフォルト</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_all_subscriptions">すべての登録チャンネル</string>
@@ -1366,6 +1376,7 @@ Automotive レイアウト
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_playlists">再生リスト</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_search">検索</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_shopping">ショッピング</string>
+  <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_shorts">ショート</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_sports">スポーツ</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_subscriptions">登録チャンネル</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_trending">急上昇</string>
@@ -1377,33 +1388,33 @@ Automotive レイアウト
 
 制限事項: ツールバーの [戻る] ボタンが機能しない可能性があります"</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_always_summary_off">スタート画面の変更はアプリの起動時にのみ適用されます</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="youtube.layout.startupshortsreset.disableResumingShortsOnStartupPatch.revanced_disable_resuming_shorts_player_title">ショート プレーヤーの再開を無効化</string>
-  <string name="youtube.layout.startupshortsreset.disableResumingShortsOnStartupPatch.revanced_disable_resuming_shorts_player_summary_on">アプリ起動時にショート プレーヤーは再開されません</string>
-  <string name="youtube.layout.startupshortsreset.disableResumingShortsOnStartupPatch.revanced_disable_resuming_shorts_player_summary_off">アプリ起動時にショート プレーヤーが再開されます</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
-  <string name="youtube.layout.shortsplayer.shortsPlayerTypePatch.revanced_shorts_player_type_title">ショート動画を開くプレーヤー</string>
+  <string name="youtube.layout.startupshortsreset.disableResumingShortsOnStartupPatch.revanced_disable_resuming_shorts_player_summary_on">ショート プレーヤーはアプリ起動時に再開されません</string>
+  <string name="youtube.layout.startupshortsreset.disableResumingShortsOnStartupPatch.revanced_disable_resuming_shorts_player_summary_off">ショート プレーヤーはアプリ起動時に再開されます</string>
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
+  <string name="youtube.layout.shortsplayer.shortsPlayerTypePatch.revanced_shorts_player_type_title">ショートを開くプレーヤー</string>
   <string name="youtube.layout.shortsplayer.shortsPlayerTypePatch.revanced_shorts_player_type_shorts">ショート プレーヤー</string>
   <string name="youtube.layout.shortsplayer.shortsPlayerTypePatch.revanced_shorts_player_type_regular_player">通常のプレーヤー</string>
   <string name="youtube.layout.shortsplayer.shortsPlayerTypePatch.revanced_shorts_player_type_regular_player_fullscreen">通常のプレーヤー (全画面)</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_title">ショート動画の自動再生</string>
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_summary_on">ショート動画は自動再生されます</string>
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_summary_off">ショート動画はループ再生されます</string>
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_background_title">ショート動画の自動再生 (バックグラウンド)</string>
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_background_summary_on">バックグラウンドのショート動画は自動再生されます</string>
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_background_summary_off">バックグラウンドのショート動画はループ再生されます</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_screen_title">ミニプレーヤー</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_screen_summary">アプリ内に表示される小さな画面のプレーヤーのスタイルを変更します</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_title">ミニプレーヤーの種類</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_entry_0">無効</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_entry_1">デフォルト</string>
-  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_entry_2">旧タイプ (横長)</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_entry_2">旧タイプ（横長）</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_entry_3">タブレット</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_entry_4">新タイプ 1</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_entry_5">新タイプ 2</string>
@@ -1431,6 +1442,11 @@ Automotive レイアウト
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_title">オーバーレイ ボタンを非表示</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_summary_on">オーバーレイ ボタンは表示されません</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_summary_off">オーバーレイ ボタンは表示されます</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_legacy_title">展開ボタンと閉じるボタンを非表示</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"ボタンは表示されません
+
+展開するまたは閉じるには、スワイプしてください"</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">展開ボタンと閉じるボタンは表示されます</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_subtext_title">サブテキストを非表示</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_subtext_summary_on">サブテキストは表示されません</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_subtext_summary_off">サブテキストは表示されます</string>
@@ -1443,8 +1459,8 @@ Automotive レイアウト
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_opacity_title">オーバーレイの透明度</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_opacity_summary">透明度の範囲は 0-100 で、0 が透明です</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_opacity_invalid_toast">ミニプレーヤー: 透明度の範囲は 0-100 です</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="youtube.layout.theme.themePatch.revanced_gradient_loading_screen_title">グラデーションの読み込み画面を有効化</string>
   <string name="youtube.layout.theme.themePatch.revanced_gradient_loading_screen_summary_on">画面読み込み時にグラデーションの背景が表示されます</string>
   <string name="youtube.layout.theme.themePatch.revanced_gradient_loading_screen_summary_off">画面読み込み時に通常の背景が表示されます</string>
@@ -1459,25 +1475,30 @@ Automotive レイアウト
   <string name="youtube.layout.theme.themePatch.revanced_seekbar_custom_color_accent_title">シークバーのアクセント カラー</string>
   <string name="youtube.layout.theme.themePatch.revanced_seekbar_custom_color_accent_summary">シークバーのアクセントカラーを編集します</string>
   <string name="youtube.layout.theme.themePatch.revanced_seekbar_custom_color_invalid">シークバーの色の値が無効です</string>
-  </patch>
-  <patch id="layout.branding.customBrandingPatch">
-  </patch>
-  <patch id="layout.branding.changeHeaderPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.branding.customBrandingPatch"> -->
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_2">YouTube ReVanced</string>
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_3">YT ReVanced</string>
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_4">YT</string>
+  <!-- </patch> -->
+  <!-- <patch id="layout.branding.changeHeaderPatch"> -->
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_title">ヘッダーロゴ</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_1">デフォルト</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_2">標準</string>
+  <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_3">Premium</string>
+  <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_4">ReVanced</string>
   <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_5">ReVanced（シンプル）</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_6">カスタム</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="youtube.layout.thumbnails.bypassImageRegionRestrictionsPatch.revanced_bypass_image_region_restrictions_title">画像表示の地域制限を回避</string>
   <string name="youtube.layout.thumbnails.bypassImageRegionRestrictionsPatch.revanced_bypass_image_region_restrictions_summary_on">yt4.ggpht.com から画像を取得します</string>
   <string name="youtube.layout.thumbnails.bypassImageRegionRestrictionsPatch.revanced_bypass_image_region_restrictions_summary_off">"オリジナルの画像ホストから画像を取得します
 
 この機能を有効にすると、一部の地域でブロックされている画像が表示されるようになる可能性があります"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_home_title">ホームタブ</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
@@ -1487,9 +1508,10 @@ Automotive レイアウト
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_player_title">プレーヤーのプレイリスト &amp; 関連動画</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_search_title">検索結果</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_1">オリジナルのサムネイル</string>
-  <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_2">DeArrow &amp; オリジナルのサムネイル</string>
-  <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_3">DeArrow &amp; 静止画サムネイル</string>
+  <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_2">DeArrow &amp; オリジナル</string>
+  <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_3">DeArrow &amp; 静止画</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_4">静止画サムネイル</string>
+  <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_about_summary">"DeArrow は、YouTube 動画のサムネイルをクラウドソーシングで提供する機能です。DeArrow のサムネイルは、YouTube が提供するサムネイルよりも適切なことが多いです。これを有効にすると、動画の URL が API サーバーに送信されますが、他のデータは送信されません。動画に DeArrow サムネイルがない場合は、オリジナルのサムネイルまたは静止画サムネイルが表示されます
 
 詳細については、ここをタップしてください"</string>
@@ -1510,30 +1532,33 @@ Automotive レイアウト
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_error">DeArrow は一時的に利用できません (status code: %s)</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_error_generic">DeArrow は一時的に利用できません</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_title">ReVanced からのお知らせを表示</string>
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_summary_on">アプリの起動時にお知らせが表示されます</string>
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_summary_off">アプリの起動時にお知らせは表示されません</string>
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_enabled_summary">アプリの起動時にお知らせを表示します</string>
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_connection_failed">お知らせの取得に失敗しました</string>
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_dialog_dismiss">閉じる</string>
-  </patch>
-  <patch id="misc.loopvideo.loopVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.loopvideo.loopVideoPatch"> -->
   <string name="youtube.misc.loopvideo.loopVideoPatch.revanced_loop_video_title">動画のループ再生を有効化</string>
   <string name="youtube.misc.loopvideo.loopVideoPatch.revanced_loop_video_summary_on">動画はループ再生されます</string>
   <string name="youtube.misc.loopvideo.loopVideoPatch.revanced_loop_video_summary_off">動画はループ再生されません</string>
-  </patch>
-  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.loopvideo.button.loopVideoButtonPatch"> -->
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_title">動画のループ再生ボタンを表示</string>
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_summary_on">ボタンがプレーヤー オーバーレイに表示されます</string>
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_summary_off">ボタンはプレーヤー オーバーレイに表示されません</string>
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_toast_on">動画のループ再生がオンになっています</string>
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_toast_off">動画のループ再生がオフになっています</string>
-  </patch>
-  <patch id="misc.audiofocus.pauseOnAudioInterruptPatch">
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"> -->
+  <string name="youtube.misc.audiofocus.pauseOnAudioInterruptPatch.revanced_pause_on_audio_interrupt_title">音声割り込み時に一時停止</string>
+  <string name="youtube.misc.audiofocus.pauseOnAudioInterruptPatch.revanced_pause_on_audio_interrupt_summary_on">他の音声が再生されたときに一時停止します(ナビゲーションなど)</string>
+  <string name="youtube.misc.audiofocus.pauseOnAudioInterruptPatch.revanced_pause_on_audio_interrupt_summary_off">他の音声が再生されたときに音量を下げます</string>
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="youtube.misc.dimensions.spoof.spoofDeviceDimensionsPatch.revanced_spoof_device_dimensions_title">デバイスの画面サイズを偽装</string>
   <string name="youtube.misc.dimensions.spoof.spoofDeviceDimensionsPatch.revanced_spoof_device_dimensions_summary_on">"デバイスの画面サイズは偽装されています
 
@@ -1543,8 +1568,8 @@ Automotive レイアウト
 
 この機能を有効にすると、より高画質な映像がアンロックされる可能性があります"</string>
   <string name="youtube.misc.dimensions.spoof.spoofDeviceDimensionsPatch.revanced_spoof_device_dimensions_user_dialog_message">この機能を有効にすると、動画のカクつき、バッテリー寿命の悪化、および予期せぬ副作用を引き起こす可能性があります。</string>
-  </patch>
-  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.hapticfeedback.disableHapticFeedbackPatch"> -->
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_title">触覚フィードバック</string>
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_summary">触覚フィードバックの設定を変更します</string>
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_chapters_title">チャプターの触覚フィードバックを無効化</string>
@@ -1559,21 +1584,21 @@ Automotive レイアウト
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_zoom_title">ズームの触覚フィードバックを無効化</string>
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_zoom_summary_on">ズームの触覚フィードバックは無効です</string>
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_zoom_summary_off">ズームの触覚フィードバックは有効です</string>
-  </patch>
-  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.accountCredentialsInvalidTextPatch"> -->
   <string name="youtube.misc.gms.accountCredentialsInvalidTextPatch.microg_offline_account_login_error">最近アカウントのログイン情報を変更した場合は、MicroG をアンインストールして再インストールしてください。</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="youtube.misc.links.bypassURLRedirectsPatch.revanced_bypass_url_redirects_title">URL リダイレクトを回避</string>
   <string name="youtube.misc.links.bypassURLRedirectsPatch.revanced_bypass_url_redirects_summary_on">YouTube の URL リダイレクトを経由せずにリンク先へ移動します</string>
   <string name="youtube.misc.links.bypassURLRedirectsPatch.revanced_bypass_url_redirects_summary_off">YouTube の URL リダイレクトを経由してリンク先へ移動します</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="youtube.misc.links.openLinksExternallyPatch.revanced_external_browser_title">リンクをブラウザで開く</string>
   <string name="youtube.misc.links.openLinksExternallyPatch.revanced_external_browser_summary_on">外部ブラウザでリンクを開きます</string>
   <string name="youtube.misc.links.openLinksExternallyPatch.revanced_external_browser_summary_off">アプリ内ブラウザでリンクを開きます</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_video_quality_default_entry_1">自動</string>
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_remember_video_quality_last_selected_title">画質の変更を保存</string>
@@ -1593,18 +1618,18 @@ Automotive レイアウト
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_remember_video_quality_toast">デフォルトの画質の変更 (%1$s): %2$s</string>
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_remember_video_quality_toast_shorts">ショートの画質の変更 (%1$s): %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="youtube.video.speed.button.playbackSpeedButtonPatch.revanced_playback_speed_dialog_button_title">再生速度設定ボタンを表示</string>
   <string name="youtube.video.speed.button.playbackSpeedButtonPatch.revanced_playback_speed_dialog_button_summary_on">再生速度設定ボタンがプレーヤー オーバーレイに表示されます。長押しすると、再生速度がデフォルトの値にリセットされます</string>
   <string name="youtube.video.speed.button.playbackSpeedButtonPatch.revanced_playback_speed_dialog_button_summary_off">再生速度設定ボタンはプレーヤー オーバーレイに表示されません</string>
-  </patch>
-  <patch id="video.quality.button.videoQualityDialogButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.button.videoQualityDialogButtonPatch"> -->
   <string name="youtube.video.quality.button.videoQualityDialogButtonPatch.revanced_video_quality_dialog_button_title">画質設定ボタンを表示</string>
   <string name="youtube.video.quality.button.videoQualityDialogButtonPatch.revanced_video_quality_dialog_button_summary_on">画質設定ボタンがプレーヤー オーバーレイに表示されます。長押しすると、画質がデフォルトの値にリセットされます</string>
   <string name="youtube.video.quality.button.videoQualityDialogButtonPatch.revanced_video_quality_dialog_button_summary_off">画質設定ボタンはプレーヤー オーバーレイに表示されません</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_custom_speed_menu_title">カスタム再生速度メニュー</string>
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_custom_speed_menu_summary_on">カスタム再生速度リストが再生速度メニューに表示されます</string>
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_custom_speed_menu_summary_off">デフォルトの再生速度リストが再生速度メニューに表示されます</string>
@@ -1618,8 +1643,8 @@ Automotive レイアウト
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_custom_playback_speeds_auto">自動</string>
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_speed_tap_and_hold_title">長押し倍速再生の速度</string>
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_speed_tap_and_hold_summary">再生速度の範囲は 0-8 で、0 および 8 は含まれません</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_remember_playback_speed_last_selected_title">再生速度の変更を保存</string>
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_remember_playback_speed_last_selected_summary_on">再生速度の変更はすべての動画に適用されます</string>
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_remember_playback_speed_last_selected_summary_off">再生速度の変更は現在の動画にのみ適用されます</string>
@@ -1628,8 +1653,8 @@ Automotive レイアウト
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_remember_playback_speed_last_selected_toast_summary_off">デフォルトの再生速度が変更されたときにトースト通知は表示されません</string>
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_playback_speed_default_title">デフォルトの再生速度</string>
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_remember_playback_speed_toast">デフォルトの再生速度の変更: %s</string>
-  </patch>
-  <patch id="video.codecs.disableVideoCodecsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.codecs.disableVideoCodecsPatch"> -->
   <string name="youtube.video.codecs.disableVideoCodecsPatch.revanced_disable_hdr_video_title">HDR 動画を無効化</string>
   <string name="youtube.video.codecs.disableVideoCodecsPatch.revanced_disable_hdr_video_summary_on">HDR 動画は無効です</string>
   <string name="youtube.video.codecs.disableVideoCodecsPatch.revanced_disable_hdr_video_summary_off">HDR 動画は有効です</string>
@@ -1645,18 +1670,18 @@ Automotive レイアウト
 • 動画再生時に VP9 または AV1 よりも多くの通信量を使用する
 • HDR 動画では AVC が使用されない
 • 一部のデバイスでは AVC を強制できない"</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="youtube.video.quality.advancedVideoQualityMenuPatch.revanced_advanced_video_quality_menu_title">画質の詳細設定メニューを表示</string>
   <string name="youtube.video.quality.advancedVideoQualityMenuPatch.revanced_advanced_video_quality_menu_summary_on">詳細設定メニューが画質メニューとして表示されます</string>
   <string name="youtube.video.quality.advancedVideoQualityMenuPatch.revanced_advanced_video_quality_menu_summary_off">通常の画質メニューが表示されます</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="youtube.interaction.seekbar.enableSlideToSeekPatch.revanced_slide_to_seek_title">スライドによるシークを有効化</string>
   <string name="youtube.interaction.seekbar.enableSlideToSeekPatch.revanced_slide_to_seek_summary_on">スライドによるシークは有効です。プレーヤー画面を左右にスライドすると、前後にシークします</string>
   <string name="youtube.interaction.seekbar.enableSlideToSeekPatch.revanced_slide_to_seek_summary_off">スライドによるシークは無効です。プレーヤー画面を左右にスライドしても、前後にシークしません</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_av1_title">Android VR で AV1 を許可</string>
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_av1_summary_on">"ビデオ コーデックは AVC (H.264)、VP9、AV1 のいずれかになります
 
@@ -1677,29 +1702,32 @@ AV1 での動画再生は、カクつくまたはコマ落ちが発生する場�
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_streaming_data_stats_for_nerds_title">統計情報にクライアントを表示</string>
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_streaming_data_stats_for_nerds_summary_on">統計情報には現在のクライアントが表示されます</string>
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_streaming_data_stats_for_nerds_summary_off">統計情報には現在のクライアントは表示されません</string>
-  </patch>
-  </app>
-  <app id="music">
-  <patch id="layout.branding.customBrandingPatch">
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="music"> -->
+  <!-- <patch id="layout.branding.customBrandingPatch"> -->
+  <string name="music.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_2">YT Music ReVanced</string>
+  <string name="music.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_3">Music ReVanced</string>
+  <string name="music.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_4">Music</string>
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_0_about_title">ReVanced について</string>
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_1_ads_title">広告</string>
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_2_general_title">全般</string>
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_3_player_title">プレーヤー</string>
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_4_misc_title">その他</string>
-  </patch>
-  <patch id="ad.video.hideVideoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.hideVideoAdsPatch"> -->
   <string name="music.ad.video.hideVideoAdsPatch.revanced_music_hide_video_ads_title">動画広告を非表示</string>
   <string name="music.ad.video.hideVideoAdsPatch.revanced_music_hide_video_ads_summary_on">動画広告は表示されません</string>
   <string name="music.ad.video.hideVideoAdsPatch.revanced_music_hide_video_ads_summary_off">動画広告は表示されます</string>
-  </patch>
-  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.permanentrepeat.permanentRepeatPatch"> -->
   <string name="music.interaction.permanentrepeat.permanentRepeatPatch.revanced_music_play_permanent_repeat_title">常時リピートを有効化</string>
   <string name="music.interaction.permanentrepeat.permanentRepeatPatch.revanced_music_play_permanent_repeat_summary_on">常時リピートは有効です\n\nリピート設定が保存され常時適用されます</string>
   <string name="music.interaction.permanentrepeat.permanentRepeatPatch.revanced_music_play_permanent_repeat_summary_off">常時リピートは無効です\n\nリピート設定は保存されず毎回リセットされます</string>
-  </patch>
-  <patch id="layout.buttons.hideButtons">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.hideButtons"> -->
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_cast_button_title">キャストボタンを非表示</string>
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_cast_button_summary_on">キャストボタンはプレーヤー オーバーレイに表示されません</string>
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_cast_button_summary_off">キャストボタンはプレーヤー オーバーレイに表示されます</string>
@@ -1712,18 +1740,18 @@ AV1 での動画再生は、カクつくまたはコマ落ちが発生する場�
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_search_button_title">検索ボタンを非表示</string>
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_search_button_summary_on">検索ボタンは表示されません</string>
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_search_button_summary_off">検索ボタンは表示されます</string>
-  </patch>
-  <patch id="layout.compactheader.hideCategoryBar">
+  <!-- </patch> -->
+  <!-- <patch id="layout.compactheader.hideCategoryBar"> -->
   <string name="music.layout.compactheader.hideCategoryBar.revanced_music_hide_category_bar_title">カテゴリバーを非表示</string>
   <string name="music.layout.compactheader.hideCategoryBar.revanced_music_hide_category_bar_summary_on">カテゴリバーは表示されません</string>
   <string name="music.layout.compactheader.hideCategoryBar.revanced_music_hide_category_bar_summary_off">カテゴリバーは表示されます</string>
-  </patch>
-  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayercolor.changeMiniplayerColor"> -->
   <string name="music.layout.miniplayercolor.changeMiniplayerColor.revanced_music_change_miniplayer_color_title">ミニプレーヤーの色を変更</string>
   <string name="music.layout.miniplayercolor.changeMiniplayerColor.revanced_music_change_miniplayer_color_summary_on">ミニプレーヤーはフルスクリーン プレーヤーと同じ色を使用します</string>
   <string name="music.layout.miniplayercolor.changeMiniplayerColor.revanced_music_change_miniplayer_color_summary_off">ミニプレーヤーはデフォルトの色を使用します</string>
-  </patch>
-  <patch id="layout.navigationbar.navigationBarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.navigationbar.navigationBarPatch"> -->
   <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_navigation_bar_screen_title">ナビゲーション バー</string>
   <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_navigation_bar_screen_summary">ナビゲーション バーのボタンを変更または非表示にします</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
@@ -1752,72 +1780,72 @@ AV1 での動画再生は、カクつくまたはコマ落ちが発生する場�
   <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_hide_navigation_bar_labels_title">ボタンをアイコンのみで表示</string>
   <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_hide_navigation_bar_labels_summary_on">ナビゲーション ボタンはアイコンのみで表示されます</string>
   <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_hide_navigation_bar_labels_summary_off">ナビゲーション ボタンはアイコンと文字で表示されます</string>
-  </patch>
-  <patch id="layout.premium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.premium.hideGetPremiumPatch"> -->
   <string name="music.layout.premium.hideGetPremiumPatch.revanced_music_hide_get_premium_label_title">「Music Premium に登録」ラベルを非表示</string>
   <string name="music.layout.premium.hideGetPremiumPatch.revanced_music_hide_get_premium_label_summary_on">ラベルは表示されません</string>
   <string name="music.layout.premium.hideGetPremiumPatch.revanced_music_hide_get_premium_label_summary_off">ラベルは表示されます</string>
-  </patch>
-  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.upgradebutton.hideUpgradeButtonPatch"> -->
   <string name="music.layout.upgradebutton.hideUpgradeButtonPatch.revanced_music_hide_upgrade_button_title">アップグレード ボタンを非表示</string>
   <string name="music.layout.upgradebutton.hideUpgradeButtonPatch.revanced_music_hide_upgrade_button_summary_on">ボタンは表示されません</string>
   <string name="music.layout.upgradebutton.hideUpgradeButtonPatch.revanced_music_hide_upgrade_button_summary_off">ボタンは表示されます</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
-  <string name="twitch.ad.audio.audioAdsPatch.revanced_block_audio_ads_title">オーディオ広告をブロック</string>
-  <string name="twitch.ad.audio.audioAdsPatch.revanced_block_audio_ads_summary_on">オーディオ広告はブロックされています</string>
-  <string name="twitch.ad.audio.audioAdsPatch.revanced_block_audio_ads_summary_off">オーディオ広告のブロックが解除されました</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
+  <string name="twitch.ad.audio.audioAdsPatch.revanced_block_audio_ads_title">音声広告をブロック</string>
+  <string name="twitch.ad.audio.audioAdsPatch.revanced_block_audio_ads_summary_on">音声広告はブロックされます</string>
+  <string name="twitch.ad.audio.audioAdsPatch.revanced_block_audio_ads_summary_off">音声広告はブロックされません</string>
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_embedded_ads_service_unavailable">%s は利用できません。広告が表示される可能性があります。設定で広告ブロックサービスを変更してみてください。</string>
-  <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_embedded_ads_service_failed">%s エラーが発生しました。広告が表示される可能性があります。設定で広告ブロックサービスを変更してみてください。</string>
+  <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_embedded_ads_service_failed">%s でエラーが発生しました。広告が表示される可能性があります。設定で広告ブロックサービスを変更してみてください。</string>
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_block_embedded_ads_title">埋め込み動画広告をブロック</string>
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_block_embedded_ads_entry_1">無効</string>
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_block_embedded_ads_entry_2">Luminous プロキシ</string>
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_block_embedded_ads_entry_3">PurpleAdBlock プロキシ</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="twitch.ad.video.videoAdsPatch.revanced_block_video_ads_title">動画広告をブロック</string>
   <string name="twitch.ad.video.videoAdsPatch.revanced_block_video_ads_summary_on">動画広告はブロックされます</string>
   <string name="twitch.ad.video.videoAdsPatch.revanced_block_video_ads_summary_off">動画広告はブロックされません</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="twitch.chat.antidelete.showDeletedMessagesPatch.revanced_deleted_msg">メッセージを削除しました</string>
   <string name="twitch.chat.antidelete.showDeletedMessagesPatch.revanced_show_deleted_messages_title">削除されたメッセージの表示方法</string>
   <string name="twitch.chat.antidelete.showDeletedMessagesPatch.revanced_show_deleted_messages_entry_1">削除されたメッセージを表示しない</string>
   <string name="twitch.chat.antidelete.showDeletedMessagesPatch.revanced_show_deleted_messages_entry_2">削除されたメッセージをスポイラー表示で隠して表示する</string>
   <string name="twitch.chat.antidelete.showDeletedMessagesPatch.revanced_show_deleted_messages_entry_3">削除されたメッセージを取り消し線つきで表示する</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="twitch.chat.autoclaim.autoClaimChannelPointsPatch.revanced_auto_claim_channel_points_title">チャンネルポイントの受け取りを自動化</string>
   <string name="twitch.chat.autoclaim.autoClaimChannelPointsPatch.revanced_auto_claim_channel_points_summary_on">チャンネルポイントの受け取りは自動的に行われます</string>
   <string name="twitch.chat.autoclaim.autoClaimChannelPointsPatch.revanced_auto_claim_channel_points_summary_off">チャンネルポイントの受け取りは自動的には行われません</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title'. -->
   <string name="twitch.debug.debugModePatch.revanced_twitch_debug_mode_title">Twitch デバッグモードを有効化</string>
   <string name="twitch.debug.debugModePatch.revanced_twitch_debug_mode_summary_on">Twitch デバッグモードは有効です (非推奨)</string>
   <string name="twitch.debug.debugModePatch.revanced_twitch_debug_mode_summary_off">Twitch デバッグモードは無効です</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
-  <string name="twitch.misc.settings.settingsPatch.revanced_settings">Revanced の設定</string>
-  <string name="twitch.misc.settings.settingsPatch.revanced_about_title">情報</string>
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
+  <string name="twitch.misc.settings.settingsPatch.revanced_settings">ReVanced 設定</string>
+  <string name="twitch.misc.settings.settingsPatch.revanced_about_title">製品情報</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_about_summary">ReVanced について</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_ads_screen_title">広告ブロック</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_ads_screen_summary">広告ブロック設定</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_chat_screen_title">チャット</string>
-  <string name="twitch.misc.settings.settingsPatch.revanced_chat_screen_summary">チャットの設定</string>
+  <string name="twitch.misc.settings.settingsPatch.revanced_chat_screen_summary">チャット設定</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_misc_screen_title">その他</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_misc_screen_summary">その他の設定</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_general_category_title">全般設定</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_other_category_title">その他の設定</string>
-  <string name="twitch.misc.settings.settingsPatch.revanced_client_ads_category_title">クライアント側広告</string>
-  <string name="twitch.misc.settings.settingsPatch.revanced_surestream_ads_category_title">サーバー側 SureStream 広告</string>
+  <string name="twitch.misc.settings.settingsPatch.revanced_client_ads_category_title">クライアントサイド広告</string>
+  <string name="twitch.misc.settings.settingsPatch.revanced_surestream_ads_category_title">サーバーサイド SureStream 広告</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_twitch_debug_title">デバッグログを有効化</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_twitch_debug_summary_on">デバッグログは有効です</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_twitch_debug_summary_off">デバッグログは無効です</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

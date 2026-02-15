@@ -19,41 +19,43 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="layout.branding.baseCustomBrandingPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="layout.branding.baseCustomBrandingPatch"> -->
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_name_title">Ainm an aip</string>
   <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_name_entry_5">Saincheaptha</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_title">Deilbhín aip</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_1">Bunaidh</string>
+  <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_2">ReVanced</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_3">ReVanced Íosmhéid</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_4">ReVanced scálaithe</string>
   <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_5">Saincheaptha</string>
-  </patch>
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_failed_title">Theip ar sheiceálacha</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_dialog_open_official_source_button">Oscailt láithreán gréasáin oifigiúil</string>
-  <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_dialog_ignore_button">Neamhaird</string>
+  <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_dialog_ignore_button">Déan neamhaird de</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_failed_message">&lt;h5&gt;Ní cosúil gur tusa a rinne paiste ar an aip seo.&lt;/h5&gt;&lt;br&gt;B’fhéidir nach bhfeidhmeoidh an aip seo i gceart, &lt;b&gt;agus d’fhéadfadh sé a bheith díobhálach nó fiú contúirteach le húsáid&lt;/b&gt;&lt; br&gt;&lt;br&gt;.Tugann na seiceálacha seo le fios go bhfuil an aip seo patáilte roimh ré nó gur thángthas uirthi ó dhuine eile:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt; &lt;b&gt;Moltar go láidir duit an aip seo a dhíshuiteáil agus í a phaisteáil leat féin&lt;/b&gt; chun a chinntiú go bhfuil tú ag úsáid aip bailíochtaithe agus slán.&lt;p&gt;&lt;br&gt;Mura ndéanann tú aird ar an rabhadh seo, ní thaispeánfar é ach faoi dhó.</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_not_same_patching_device">Paisteáilte ar ghléas eile</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_manager_not_expected_installer">Gan a bheith suiteáilte ag ReVanced Manager</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_not_near_patch_time">Paisteáilte níos mó ná 10 nóiméad ó shin</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_not_near_patch_time_days">Paisteáilte %s lá ó shin</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_not_near_patch_time_invalid">Tá dáta tógála APK truaillithe</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="shared.misc.dns.checkWatchHistoryDomainNameResolutionPatch.revanced_check_watch_history_domain_name_dialog_title">Fógra ReVanced</string>
   <string name="shared.misc.dns.checkWatchHistoryDomainNameResolutionPatch.revanced_check_watch_history_domain_name_dialog_message">Níl do stair faire á sábháil.&lt;br&gt;&lt;br&gt;Is é is dóichí gur seachfhreastalaí fógraí DNS nó seachfhreastalaí líonra is cúis leis seo.&lt;br&gt;&lt;br&gt; Chun é seo a réiteach, déan liosta bán &lt;b&gt;s.youtube.com&lt;/b&gt; nó gach seachfhreastalaí DNS a mhúchadh.</string>
   <string name="shared.misc.dns.checkWatchHistoryDomainNameResolutionPatch.revanced_check_watch_history_domain_name_dialog_ignore">Ná taispeáin arís</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_submenu_title">Socruithe</string>
+  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_title">ReVanced</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_confirm_user_dialog_title">An bhfuil tú cinnte gur mhaith leat dul ar aghaidh?</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_save">Sábháil</string>
-  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_reset">Athshocrú</string>
-  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_reset_color">Dath a athshocrú</string>
+  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_reset">Athshocraigh</string>
+  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_reset_color">Athshocraigh dath</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_color_invalid">Dath neamhbhailí</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_restart_title">Atosú ag teastáil</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_restart_dialog_message">Atosaigh an aip chun go mbeidh an t-athrú seo i bhfeidhm.</string>
@@ -71,16 +73,16 @@ Second \"item\" text"</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_clear_history">Glan stair chuardaigh</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_clear_history_message">An bhfuil tú cinnte gur mhaith leat stair chuardaigh go léir a ghlanadh?</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_tips_title">Leideanna Cuardaigh</string>
-  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_tips_summary">"• Tapáil cosán chun dul chuige
-• Brúigh fada ar shocrú chun dul chuige
-• Brúigh Iontráil chun iarratas cuardaigh a shábháil sa stair
-• Déanann cuardach neamhaird de chásáil agus poncaíocht
-• Tá socruithe tuismitheora le feiceáil os cionn socruithe leanaí díchumasaithe"</string>
+  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_tips_summary">"• Tapáil cosán chun nascleanúint a dhéanamh chuige
+• Brúigh socrú ar feadh i bhfad chun nascleanúint a dhéanamh chuige
+• Brúigh Iontráil chun fiosrúchán cuardaigh a shábháil sa stair
+• Ní dhéanann an cuardach aon aird ar cháslitreacha ná ar phoncaíocht
+• Feictear socruithe tuismitheora os cionn socruithe linbh atá díchumasaithe"</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_empty_history_title">Tá stair an chuardaigh folamh</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_empty_history_summary">Chun stair an chuardaigh a shábháil, clóscríobh iarratas cuardaigh agus brúigh Iontráil</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_history_title">Taispeáin stair cuardaigh na socruithe</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_history_summary_on">Taispeántar stair cuardaigh na socruithe</string>
-  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_history_summary_off">Ní thaispeántar stair cuardaigh na socruithe</string>
+  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_history_summary_off">Ní thaispeántar stair chuardaigh na socruithe</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_show_menu_icons_title">Taispeáin deilbhíní socruithe ReVanced</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_show_menu_icons_summary_on">Taispeántar deilbhíní socruithe</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_show_menu_icons_summary_off">Ní thaispeántar deilbhíní socraithe</string>
@@ -98,8 +100,8 @@ Chun teangacha nua a aistriú nó chun na haistriúcháin atá ann cheana a fhea
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_about_links_header">Naisc oifigiúla</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="shared.misc.gms.gmsCoreSupportResourcePatch.microg_settings_title">Socruithe GmsCore</string>
   <string name="shared.misc.gms.gmsCoreSupportResourcePatch.microg_settings_summary">Socruithe le haghaidh GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -117,8 +119,10 @@ Ní chuirfidh díghníomhachtú optúimíochtaí ceallraí do MicroG isteach ar 
 
 Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="shared.misc.gms.gmsCoreSupportResourcePatch.gms_core_dialog_continue_text">Lean ar aghaidh</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_title">Sruthanna físe bréige</string>
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_summary">Déan sruthanna físe an chliaint a fhalsú chun fadhbanna athsheinm a chosc</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_title">Sruthanna físe bréige</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_summary">Déan sruthanna físe an chliaint a fhalsú chun fadhbanna athsheinm a chosc</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_title">Sruthanna físe bréige</string>
@@ -130,15 +134,15 @@ Mura bhfuil tú i d’úsáideoir YouTube Premium, b’fhéidir nach mbeidh an s
 Seans nach n-oibreoidh an t-athsheinm"</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_user_dialog_message">Má mhúchann tú an socrú seo, d\'fhéadfadh saincheisteanna athsheinm a theacht chun cinn.</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_client_type_title">Cliant réamhshocraithe</string>
-  </patch>
-  <patch id="misc.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.audio.forceOriginalAudioPatch"> -->
   <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_title">Fórsaigh teanga bhunaidh na fuaime</string>
   <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_summary_on">Ag úsáid teanga bhunaidh na fuaime</string>
   <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_summary_off">Ag úsáid fuaim réamhshocraithe</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_not_available">Chun an ghné seo a úsáid, athraigh \'Bréag-sruthanna físeáin\' chuig aon chliant seachas Android Studio</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_screen_title">Dífhabhtú</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_screen_summary">Cumasaigh nó díchumasaigh roghanna dífhabhtú</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_title">Dífhabhtú logáil</string>
@@ -170,48 +174,59 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_saved">Bratacha sábháilte</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_reset">Bratacha athshocraithe</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_copied">Bratacha cóipeáilte chuig an ngearrthaisce</string>
-  </patch>
-  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">Maolán prótacal logála</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">Cuimsíonn logaí dífhabhtaithe maolán</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">Ní chuimsíonn logaí dífhabhtaithe maolán proto</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"Logálfaidh an socrú seo sonraí breise leagain amach, lena n-áirítear téacs ar an scáileán do chomhpháirteanna UI áirithe.
+
+Is féidir leis seo cabhrú le comhpháirteanna a aithint agus scagairí saincheaptha á gcruthú.
+
+Mar sin féin, logálfaidh sé seo roinnt sonraí úsáideora freisin, mar shampla do sheoladh IP."</string>
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.sanitizeSharingLinksPatch"> -->
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_title">Glan na naisc roinnte</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_summary_on">Baintear an paraiméadar fiosrúcháin rianaithe de na naisc roinnte</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_summary_off">Ní bhaintear an paraiméadar fiosrúcháin rianaithe de na naisc roinnte</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_title">Athraigh na naisc comhroinnte go youtube.com</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_on">Úsáideann naisc chomhroinnte youtube.com</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_off">Úsáideann naisc chomhroinnte music.youtube.com</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">Scagaire saincheaptha</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">Folaigh comhpháirteanna ag baint úsáide as scagairí saincheaptha</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">Cumasaigh scagaire saincheaptha</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">Tá scagaire saincheaptha cumasaithe</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">Tá scagaire saincheaptha míchumasaithe</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">Scagaire saincheaptha</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">Liosta de na teaghráin tógálaí cosáin chomhpháirte le scagadh scartha le líne nua</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">Scagaire saincheaptha neamhbhailí: %s</string>
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_00_about_title">Maidir</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_01_ads_title">Fógraí</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_02_alt_thumbnails_title">Mionsamhlacha malartacha</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_03_feed_title">Fotha</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_04_general_title">Ginearálta</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_05_player_title">Seinnteoir</string>
+  <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_07_seekbar_title">Barra Cuardaigh</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_08_swipe_controls_title">Rialuithe Svaidhpeála</string>
+  <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_09_return_youtube_dislike_title">Return YouTube Dislike</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_11_misc_title">Ilchineálach</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_12_video_title">Físeán</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_restore_old_settings_menus_title">Athchóirigh sean-roghchláir socruithe</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_restore_old_settings_menus_summary_on">Taispeántar sean-roghchláir socruithe</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_restore_old_settings_menus_summary_off">Ní thaispeántar sean-roghchláir socruithe</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_title">Díchumasaigh seinnte Cúlra Shorts</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_on">Tá seinm chúlra Shorts díchumasaithe</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_off">Tá seinm chúlra Shorts cumasaithe</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">Maolán prótacal logála</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">Cuimsíonn logaí dífhabhtaithe maolán</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">Ní chuimsíonn logaí dífhabhtaithe maolán proto</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"Logálfaidh an socrú seo sonraí breise leagain amach, lena n-áirítear téacs ar an scáileán do chomhpháirteanna UI áirithe.
-
-Is féidir leis seo cabhrú le comhpháirteanna a aithint agus scagairí saincheaptha á gcruthú.
-
-Mar sin féin, logálfaidh sé seo roinnt sonraí úsáideora freisin, mar shampla do sheoladh IP."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_title">Folaigh cártaí albam</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_summary_on">Tá cártaí albam i bhfolach</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_summary_off">Taispeántar cártaí albam</string>
@@ -437,15 +452,6 @@ Má tá Doodle á thaispeáint faoi láthair i do réigiún agus má tá an tsu�
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_title">Folaigh cnaipe Buíochas</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_on">Tá cnaipe buíochas i bhfolach</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_off">Taispeántar cnaipe buíochas</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">Scagaire saincheaptha</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">Folaigh comhpháirteanna ag baint úsáide as scagairí saincheaptha</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">Cumasaigh scagaire saincheaptha</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">Tá scagaire saincheaptha cumasaithe</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">Tá scagaire saincheaptha míchumasaithe</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">Scagaire saincheaptha</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">Liosta de na teaghráin tógálaí cosáin chomhpháirte le scagadh scartha le líne nua</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">Scagaire saincheaptha neamhbhailí: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_title">Folaigh líon radharcanna</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_on">Tá líon radharcanna i bhfolach sa fhotha agus sna torthaí cuardaigh</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_off">Taispeántar líon radharcanna sa fhotha agus sna torthaí cuardaigh</string>
@@ -495,8 +501,8 @@ Teorainneacha
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_toast_invalid_conflicting">Tá dearbhuithe contrártha ag eochairfhocal: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_toast_invalid_length">Eochairfhocal ró-ghearr, teastaíonn luachana: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_toast_invalid_broad">Folaigh eochairfhocal gach físeán: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_creator_store_shelf_title">Folaigh seilf siopa an chruthaitheora</string>
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_creator_store_shelf_summary_on">Seilf siopa an chruthaitheora faoin imreoir físeáin i bhfolach</string>
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_creator_store_shelf_summary_off">Taispeántar seilf siopa na gcruthaitheoirí faoin seinnteoir físeáin</string>
@@ -531,18 +537,18 @@ Níl an ghné seo ar fáil ach do ghléasanna níos sine"</string>
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_web_search_results_title">Folaigh torthaí cuardaigh gréasáin</string>
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_web_search_results_summary_on">Tá torthaí cuardaigh gréasáin i bhfolach</string>
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_web_search_results_summary_off">Taispeántar torthaí cuardaigh gréasáin</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="youtube.ad.getpremium.hideGetPremiumPatch.revanced_hide_get_premium_title">Folaigh ardú céime YouTube Premium</string>
   <string name="youtube.ad.getpremium.hideGetPremiumPatch.revanced_hide_get_premium_summary_on">Tá cur chun cinn YouTube Premium faoi seinnteoir físe i bhfolach</string>
   <string name="youtube.ad.getpremium.hideGetPremiumPatch.revanced_hide_get_premium_summary_off">Taispeántar ardú céime YouTube Premium faoin seinnteoir físe</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="youtube.ad.video.videoAdsPatch.revanced_hide_video_ads_title">Folaigh fógraí físe</string>
   <string name="youtube.ad.video.videoAdsPatch.revanced_hide_video_ads_summary_on">Tá fógraí físe i bhfolach</string>
   <string name="youtube.ad.video.videoAdsPatch.revanced_hide_video_ads_summary_off">Taispeántar fógraí físe</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_share_copy_url_success">URL cóipeáilte chuig gearr</string>
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_share_copy_url_timestamp_success">URL le stampa ama cóipeáilte</string>
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_copy_video_url_title">Taispeáin an cnaipe cóipeála URL an fhíseáin</string>
@@ -551,24 +557,24 @@ Níl an ghné seo ar fáil ach do ghléasanna níos sine"</string>
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_copy_video_url_timestamp_title">Taispeáin cnaipe URL stampa ama cóipeáil</string>
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_copy_video_url_timestamp_summary_on">Taispeántar cnaipe Cóipeáil URL stampa ama. Tapáil chun URL físeáin a chóipeáil le stampa ama. Tapáil agus coinnigh chun cóipe a dhéanamh gan stampa ama</string>
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_copy_video_url_timestamp_summary_off">Ní thaispeántar cnaipe Cóipeáil URL stampa ama</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="youtube.interaction.dialog.removeViewerDiscretionDialogPatch.revanced_remove_viewer_discretion_dialog_title">Bain dialóg rogha féachana</string>
   <string name="youtube.interaction.dialog.removeViewerDiscretionDialogPatch.revanced_remove_viewer_discretion_dialog_summary_on">Bainfear dialóg</string>
   <string name="youtube.interaction.dialog.removeViewerDiscretionDialogPatch.revanced_remove_viewer_discretion_dialog_summary_off">Taispeánfar dialóg</string>
   <string name="youtube.interaction.dialog.removeViewerDiscretionDialogPatch.revanced_remove_viewer_discretion_dialog_user_dialog_message">Ní sheachnaíonn sé seo an srian aoise. Ní ghlacann sé leis go huathoibríoch.</string>
-  </patch>
-  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch"> -->
   <string name="youtube.layout.hide.signintotv.disableSignInToTvPopupPatch.revanced_disable_signin_to_tv_popup_title">Díchumasaigh an aníos ‘Sínigh Isteach sa Teilifís’</string>
   <string name="youtube.layout.hide.signintotv.disableSignInToTvPopupPatch.revanced_disable_signin_to_tv_popup_summary_on">Tá preab aníos sínithe isteach sa teilifís díchumasaithe</string>
   <string name="youtube.layout.hide.signintotv.disableSignInToTvPopupPatch.revanced_disable_signin_to_tv_popup_summary_off">Tá preab aníos sínithe isteach sa teilifís cumasaithe</string>
-  </patch>
-  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.doubletap.disableDoubleTapActionsPatch"> -->
   <string name="youtube.interaction.doubletap.disableDoubleTapActionsPatch.revanced_disable_chapter_skip_double_tap_title">Díchumasaigh scipeáil caibidle le sconna dúbailte</string>
   <string name="youtube.interaction.doubletap.disableDoubleTapActionsPatch.revanced_disable_chapter_skip_double_tap_summary_on">Ní féidir léim go dtí an chéad chaibidil eile/roimhe seo a spreagadh le tapáil faoi dhó</string>
   <string name="youtube.interaction.doubletap.disableDoubleTapActionsPatch.revanced_disable_chapter_skip_double_tap_summary_off">Is féidir le sconna dúbailte scipeáil chuig an gcéad chaibidil eile/roimhe seo a spreagadh ó am go chéile</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_screen_title">Íosluchtaigh seachtracha</string>
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_screen_summary">Socruithe chun íoslódálaí seachtrach a úsáid</string>
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_title">Taispeáin cnaipe íoslódála seachtrach</string>
@@ -586,18 +592,18 @@ Níl an ghné seo ar fáil ach do ghléasanna níos sine"</string>
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_not_installed_warning">Níl %s suiteáilte. Suiteáil é le do thoil.</string>
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_package_not_found_warning">"Níorbh fhéidir an aip suiteáilte a aimsiú le hainm an phacáiste: %s\n\nDeimhnigh go bhfuil ainm an phacáiste ceart agus go bhfuil an aip suiteáilte"</string>
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_empty_warning">Ní féidir ainm an phacáiste a fhágáil folamh</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="youtube.interaction.seekbar.disablePreciseSeekingGesturePatch.revanced_disable_precise_seeking_gesture_title">Díchumasaigh comhartha cuardaigh beacht</string>
   <string name="youtube.interaction.seekbar.disablePreciseSeekingGesturePatch.revanced_disable_precise_seeking_gesture_summary_on">Tá gotha ​​cuardaigh chruinn díchumasaithe</string>
   <string name="youtube.interaction.seekbar.disablePreciseSeekingGesturePatch.revanced_disable_precise_seeking_gesture_summary_off">Tá gotha ​​cuardaigh chruinn cumasaithe</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="youtube.interaction.seekbar.enableSeekbarTappingPatch.revanced_seekbar_tapping_title">Cumasaigh tapáil chun cuardach a dhéanamh</string>
   <string name="youtube.interaction.seekbar.enableSeekbarTappingPatch.revanced_seekbar_tapping_summary_on">Tá tapáil chun cuardach cumasaithe</string>
   <string name="youtube.interaction.seekbar.enableSeekbarTappingPatch.revanced_seekbar_tapping_summary_off">Tá tapáil chun cuardach a dhíchumasaithe</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_brightness_title">Cumasaigh gotha ​​gile</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_brightness_summary_on">"Tá swipeáil gile lánscáileáin cumasaithe
 
@@ -648,13 +654,13 @@ Coigeartaigh an toirt trí swipeáil go hingearach ar thaobh na láimhe deise de
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_change_video_title">Cumasaigh svaidhpeáil chun físeáin a athrú</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_change_video_summary_on">Athróidh svaidhpeáil i mód lánscáileáin go dtí an chéad fhíseán eile/roimhe seo</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_change_video_summary_off">Ní athróidh svaidhpeáil i mód lánscáileáin go dtí an chéad fhíseán eile/roimhe seo</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="youtube.layout.autocaptions.autoCaptionsPatch.revanced_disable_auto_captions_title">Díchumasaigh fotheidil uathoibríocha</string>
   <string name="youtube.layout.autocaptions.autoCaptionsPatch.revanced_disable_auto_captions_summary_on">Tá fotheidil uathoibríocha díchumasaithe</string>
   <string name="youtube.layout.autocaptions.autoCaptionsPatch.revanced_disable_auto_captions_summary_off">Tá fotheidil uathoibríocha cumasaithe</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_buttons_screen_title">Cnaipí gníomhaíochta</string>
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_buttons_screen_summary">Folaigh nó taispeáin cnaipí faoi fhíseáin</string>
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_disable_like_subscribe_glow_title">Díchumasaigh lonradh na cnaipí Cosúil / Liostáil</string>
@@ -718,8 +724,8 @@ Coigeartaigh an toirt trí swipeáil go hingearach ar thaobh na láimhe deise de
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_save_button_title">Folaigh Sábháil</string>
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_save_button_summary_on">Tá cnaipe sábhála i bhfolach</string>
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_save_button_summary_off">Taispeántar an cnaipe Sábháil</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_navigation_buttons_screen_title">Cnaipí nascleanúna</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_navigation_buttons_screen_summary">Folaigh nó athraigh cnaipí sa bharra nascleanúna</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -763,8 +769,8 @@ Mura dtagann aon athrú ar an socrú seo, bain triail as mód Incognito a chur a
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_dark_title">Díchumasaigh barra tréshoilseach dorcha</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_dark_summary_on">Tá an barra nascleanúna i mód dorcha teimhneach</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_dark_summary_off">Tá barra nascleanúna mód dorcha teimhneach nó tréshoilseach</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_title">Roghchlár Flyout</string>
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_summary">Folaigh nó taispeáin míreanna roghchlár flyout an imreora</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -825,8 +831,8 @@ Chun roghchlár an rian fuaime a thaispeáint, athraigh 'Sruthanna físeáin bhr
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_video_quality_footer_title">Folaigh buntásc roghchlár cáilíochta físe</string>
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_video_quality_footer_summary_on">Tá buntásc roghchláir cáilíochta físe i bhfolach</string>
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_video_quality_footer_summary_off">Taispeántar buntásc roghchlár cáilíochta físeáin</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_autoplay_button_title">Folaigh an cnaipe Uath-imirt</string>
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_autoplay_button_summary_on">Tá an cnaipe uath-sheinm i bhfolach</string>
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_autoplay_button_summary_off">Taispeántar cnaipe Autoplay</string>
@@ -843,28 +849,28 @@ Chun roghchlár an rian fuaime a thaispeáint, athraigh 'Sruthanna físeáin bhr
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_player_previous_next_buttons_title">Folaigh cnaipí Roimhe Seo &amp; Ar Aghaidh</string>
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_player_previous_next_buttons_summary_on">Tá cnaipí Roimhe Seo &amp; Ar Aghaidh  i bhfolach</string>
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_player_previous_next_buttons_summary_off">Taispeántar cnaipí Roimhe Seo &amp; Ar Aghaidh</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch"> -->
   <string name="youtube.layout.hide.endscreencards.hideEndScreenCardsResourcePatch.revanced_hide_endscreen_cards_title">Folaigh cártaí scáileáin deireadh</string>
   <string name="youtube.layout.hide.endscreencards.hideEndScreenCardsResourcePatch.revanced_hide_endscreen_cards_summary_on">Tá cártaí scáileáin deiridh i bhfolach</string>
   <string name="youtube.layout.hide.endscreencards.hideEndScreenCardsResourcePatch.revanced_hide_endscreen_cards_summary_off">Taispeántar cártaí scáileáin deireadh</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="youtube.layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch.revanced_disable_fullscreen_ambient_mode_title">Díchumasaigh mód comhthimpeallach i lánscáileán</string>
   <string name="youtube.layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch.revanced_disable_fullscreen_ambient_mode_summary_on">Díchumasaíodh mód comhthimpeallach</string>
   <string name="youtube.layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch.revanced_disable_fullscreen_ambient_mode_summary_off">Mód comhthimpeallach cumasaithe</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="youtube.layout.hide.infocards.hideInfocardsResourcePatch.revanced_hide_info_cards_title">Folaigh cártaí faisnéise</string>
   <string name="youtube.layout.hide.infocards.hideInfocardsResourcePatch.revanced_hide_info_cards_summary_on">Tá cártaí faisnéise i bhfolach</string>
   <string name="youtube.layout.hide.infocards.hideInfocardsResourcePatch.revanced_hide_info_cards_summary_off">Taispeántar cártaí faisnéise</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="youtube.layout.hide.rollingnumber.disableRollingNumberAnimationPatch.revanced_disable_rolling_number_animations_title">Díchumasaigh beochana uimhreacha rollta</string>
   <string name="youtube.layout.hide.rollingnumber.disableRollingNumberAnimationPatch.revanced_disable_rolling_number_animations_summary_on">Ní bhíonn uimhreacha rollta beoite</string>
   <string name="youtube.layout.hide.rollingnumber.disableRollingNumberAnimationPatch.revanced_disable_rolling_number_animations_summary_off">Tá uimhreacha rollta beoite</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_title">Folaigh barra cuardaigh an tseinnteora físeáin</string>
   <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_summary_on">Tá barra cuardaigh seinnteoir físe i bhfolach</string>
   <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_summary_off">Taispeántar barra cuardaigh an t-imreoir físeán</string>
@@ -872,8 +878,8 @@ Chun roghchlár an rian fuaime a thaispeáint, athraigh 'Sruthanna físeáin bhr
   <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_thumbnail_title">Folaigh barra cuardaigh mionsamhlacha físeáin</string>
   <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_thumbnail_summary_on">Tá barra cuardaigh mionsamhlacha físeáin i bhfolach</string>
   <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_thumbnail_summary_off">Taispeántar barra cuardaigh mionsamhlacha físe</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="youtube.layout.hide.shorts.hideShortsComponentsResourcePatch.revanced_shorts_player_screen_title">Shorts seinnteoir</string>
   <string name="youtube.layout.hide.shorts.hideShortsComponentsResourcePatch.revanced_shorts_player_screen_summary">Folaigh nó taispeáin comhpháirteanna seinnteora Shorts</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
@@ -992,48 +998,48 @@ Chun roghchlár an rian fuaime a thaispeáint, athraigh 'Sruthanna físeáin bhr
   <string name="youtube.layout.hide.shorts.hideShortsComponentsResourcePatch.revanced_hide_shorts_navigation_bar_title">Folaigh barra nascleanúna</string>
   <string name="youtube.layout.hide.shorts.hideShortsComponentsResourcePatch.revanced_hide_shorts_navigation_bar_summary_on">Tá barra nascleanúna i bhfolach</string>
   <string name="youtube.layout.hide.shorts.hideShortsComponentsResourcePatch.revanced_hide_shorts_navigation_bar_summary_off">Taispeántar barra nascleanúna</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="youtube.layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch.revanced_end_screen_suggested_video_title">Folaigh físeán molta deireadh scáileáin</string>
   <string name="youtube.layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch.revanced_end_screen_suggested_video_summary_on">"Bíonn an físeán molta don scáileán deiridh i bhfolach nuair a bhíonn an t-uathsheinm múchta
 
 Is féidir an t-uathsheinm a athrú i socruithe YouTube:
 Socruithe → Athsheinm → Uathsheinm an chéad fhíseán eile"</string>
   <string name="youtube.layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch.revanced_end_screen_suggested_video_summary_off">Taispeántar físeán molta deireadh scáileáin</string>
-  </patch>
-  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch"> -->
   <string name="youtube.layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch.revanced_hide_related_videos_overlay_title">Folaigh forleagan físeáin ghaolmhara</string>
   <string name="youtube.layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch.revanced_hide_related_videos_overlay_summary_on">Tá forleagan físeáin ghaolmhara i lánscáileán i bhfolach</string>
   <string name="youtube.layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch.revanced_hide_related_videos_overlay_summary_off">Taispeántar forleagan físeáin ghaolmhara i lánscáileán</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="youtube.layout.hide.time.hideTimestampPatch.revanced_hide_timestamp_title">Folaigh stampa ama an fhíseáin</string>
   <string name="youtube.layout.hide.time.hideTimestampPatch.revanced_hide_timestamp_summary_on">Tá stampa ama i bhfolach</string>
   <string name="youtube.layout.hide.time.hideTimestampPatch.revanced_hide_timestamp_summary_off">Taispeántar stampa ama</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="youtube.layout.panels.popup.playerPopupPanelsPatch.revanced_hide_player_popup_panels_title">Folaigh painéil preab aníos imreoir</string>
   <string name="youtube.layout.panels.popup.playerPopupPanelsPatch.revanced_hide_player_popup_panels_summary_on">Tá painéil preab aníos imreoir i bhfolach</string>
   <string name="youtube.layout.panels.popup.playerPopupPanelsPatch.revanced_hide_player_popup_panels_summary_off">Taispeántar painéil preab aníos imreoir</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="youtube.layout.player.fullscreen.exitFullscreenPatch.revanced_exit_fullscreen_title">Scoir an mód lánscáileáin ag deireadh an fhíseáin</string>
   <string name="youtube.layout.player.fullscreen.exitFullscreenPatch.revanced_exit_fullscreen_entry_1">Díchumasaithe</string>
   <string name="youtube.layout.player.fullscreen.exitFullscreenPatch.revanced_exit_fullscreen_entry_2">Portráid</string>
   <string name="youtube.layout.player.fullscreen.exitFullscreenPatch.revanced_exit_fullscreen_entry_3">Tírdhreach</string>
   <string name="youtube.layout.player.fullscreen.exitFullscreenPatch.revanced_exit_fullscreen_entry_4">Portráid agus tírdhreach</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="youtube.layout.player.fullscreen.openVideosFullscreen.revanced_open_videos_fullscreen_portrait_title">Oscail físeáin i bportráid lánscáileáin</string>
   <string name="youtube.layout.player.fullscreen.openVideosFullscreen.revanced_open_videos_fullscreen_portrait_summary_on">Osclaítear físeáin i mód lánscáileáin</string>
   <string name="youtube.layout.player.fullscreen.openVideosFullscreen.revanced_open_videos_fullscreen_portrait_summary_off">Ní osclaítear físeáin i mód lánscáileáin</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="youtube.layout.player.overlay.customPlayerOverlayOpacityResourcePatch.revanced_player_overlay_opacity_title">Teimhneacht fhorleagan imreora</string>
   <string name="youtube.layout.player.overlay.customPlayerOverlayOpacityResourcePatch.revanced_player_overlay_opacity_summary">Luach teimhneachta idir 0-100, áit a seasann 0 do thrédhearcacht</string>
   <string name="youtube.layout.player.overlay.customPlayerOverlayOpacityResourcePatch.revanced_player_overlay_opacity_invalid_toast">Teimhneacht fhorleagan an imreora idir 0-100</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_failure_connection_timeout">Níl dí-mhaith ar fáil faoi láthair (API am istigh)</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_failure_connection_status_code">Níl \'Ní maith liom\' ar fáil (stádas %d)</string>
@@ -1043,6 +1049,7 @@ Socruithe → Athsheinm → Uathsheinm an chéad fhíseán eile"</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Athlódáil físeán vótáil trí Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_video_likes_hidden_by_video_owner">I bhfolach ag an úinéir</string>
+  <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_title">Return YouTube Dislike</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_summary_on">Taispeántar \'Ní maith liom\'</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_summary_off">Ní thaispeántar \'Ní maith liom\'</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_shorts_title">Taispeáin \'ní maith liom\' ar Shorts</string>
@@ -1063,6 +1070,7 @@ Teorainn: B’fhéidir nach dtaispeánfar 'Ní thaitníonn' i mód incognito"</s
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_title">Taispeáin tósta mura bhfuil API ar fáil</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_summary_on">Taispeántar tósta mura bhfuil Return YouTube Dislike ar fáil</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_summary_off">Ní thaispeántar tósta mura bhfuil Return YouTube Dislike ar fáil</string>
+  <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_attribution_summary">Cuirtear sonraí ar fáil ag an Return YouTube Dislike API. Beartaíonn anseo le tuilleadh eolais a fháil</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_statistics_category_title">Staitisticí API ReturnYouTubeDislike an ghléis seo</string>
@@ -1081,16 +1089,18 @@ Teorainn: B’fhéidir nach dtaispeánfar 'Ní thaitníonn' i mód incognito"</s
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Níor aimsíodh aon teorainneacha ráta cliant</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Teorainn ráta cliant a bhíonn le fáil %d uair</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_statistics_millisecond_text">%d milleasoicind</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="youtube.layout.searchbar.wideSearchbarPatch.revanced_wide_searchbar_title">Cumasaigh barra cuardaigh leathan</string>
   <string name="youtube.layout.searchbar.wideSearchbarPatch.revanced_wide_searchbar_summary_on">Tá barra cuardaigh leathan cumasaithe</string>
   <string name="youtube.layout.searchbar.wideSearchbarPatch.revanced_wide_searchbar_summary_off">Tá an barra cuardaigh leathan díchumasaithe</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_title">Cumasaigh mionsamhlacha ardchaighdeáin</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_summary_on">Tá mionsamhlacha Seekbar ardchaighdeáin</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_summary_off">Tá mionsamhlacha Seekbar ar chaighdeán meánach</string>
+  <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Tá mionsamhlacha barra cuardaigh lánscáileáin ardchaighdeáin</string>
+  <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Tá mionsamhlacha barra cuardaigh lánscáileáin ar chaighdeán meánach</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_dialog_message">"Cuirfidh sé seo na miontaispeántais ar ais ar shruth beo nach bhfuil miontaispeántais cuardaigh acu.
 
 Úsáidfidh miontaispeántais cuardaigh an caighdeán céanna leis an bhfíseán reatha.
@@ -1099,8 +1109,9 @@ Oibríonn an ghné seo is fearr le caighdeán físeáin 720p nó níos ísle agu
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_restore_old_seekbar_thumbnails_title">Cuir sean-mionsamhlacha barra cuardaigh ar ais</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_restore_old_seekbar_thumbnails_summary_on">Beidh mionsamhlacha Seekbar le feiceáil os cionn an barra cuardaigh</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_restore_old_seekbar_thumbnails_summary_off">Beidh mionsamhlacha Seekbar le feiceáil ar an scáileán</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_settings_screen_10_sponsorblock_title">SponsorBlock</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_enable_sb">Cumasaigh SponsorBlock</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_enable_sb_sum">Is córas sruthaíodh ó lucht an phobail é SponsorBlock le haghaidh codanna do-áisiúla físeán YouTube a leag thar n-ais</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_appearance_category">Dealramh</string>
@@ -1310,9 +1321,10 @@ Réidh le cur isteach?"</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_color_opacity_label">Teimhneacht:</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_color_dot_label">Dath:</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_title">Maidir</string>
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_api_title">sponsor.ajay.app</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_api_summary">Cuirtear sonraí ar fáil ag API SponsorBlock. Tapáil anseo chun tuilleadh eolais a fháil agus íoslódálacha le haghaidh ardáin eile a fheiceáil</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_title">Fachtóir foirme leagan amach</string>
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_entry_1">Réamhshocrú</string>
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_entry_2">Guthán</string>
@@ -1326,8 +1338,8 @@ Leagan amach táibléid
 Leagan amach gluaisteán
 • Gearrscannáin oscailte sa ghnáth-imreoir
 • Tá an fotha eagraithe de réir topaicí agus bealaí"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_title">Leagan aip bréige</string>
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_summary_on">Leagan bréagach</string>
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_summary_off">Leagan gan bréag</string>
@@ -1341,8 +1353,8 @@ Má mhúchtar é níos déanaí, moltar sonraí na haipe a ghlanadh chun fabhtan
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_target_entry_2">20.05.46 - Athchóirigh feidhmiúlacht an trascríbhinn</string>
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_target_entry_3">19.35.36 - Athchóirigh deilbhíní sean-imreoir Shorts</string>
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_target_entry_4">19.01.34 - Athchóirigh deilbhíní nascleanúna sean</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_title">Athraigh an leathanach tosaigh</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_default">Réamhshocrú</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_all_subscriptions">Gach síntiús</string>
@@ -1362,6 +1374,7 @@ Má mhúchtar é níos déanaí, moltar sonraí na haipe a ghlanadh chun fabhtan
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_playlists">Liostaí seinnte</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_search">Cuardaigh</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_shopping">Siopadóireacht</string>
+  <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_shorts">Shorts</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_sports">Spóirt</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_subscriptions">Síntiúis</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_trending">Ag treocht</string>
@@ -1373,27 +1386,27 @@ Má mhúchtar é níos déanaí, moltar sonraí na haipe a ghlanadh chun fabhtan
 
 Teorainn: Seans nach n-oibreoidh úsáid a bhaint as an gcnaipe cúil ar an mbarra uirlisí"</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_always_summary_off">Ní athraítear an leathanach tosaigh ach amháin ar tosú an aip</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="youtube.layout.startupshortsreset.disableResumingShortsOnStartupPatch.revanced_disable_resuming_shorts_player_title">Díchumasaigh atosú seinnteoir Shorts</string>
   <string name="youtube.layout.startupshortsreset.disableResumingShortsOnStartupPatch.revanced_disable_resuming_shorts_player_summary_on">Ní atosóidh seinnteoir Shorts nuair a thosófar an aip</string>
   <string name="youtube.layout.startupshortsreset.disableResumingShortsOnStartupPatch.revanced_disable_resuming_shorts_player_summary_off">Atosóidh seinnteoir Shorts nuair a thosóidh an aip arís</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="youtube.layout.shortsplayer.shortsPlayerTypePatch.revanced_shorts_player_type_title">Oscail Shorts le</string>
   <string name="youtube.layout.shortsplayer.shortsPlayerTypePatch.revanced_shorts_player_type_shorts">Shorts seinnteoir</string>
   <string name="youtube.layout.shortsplayer.shortsPlayerTypePatch.revanced_shorts_player_type_regular_player">Imreoir rialta</string>
   <string name="youtube.layout.shortsplayer.shortsPlayerTypePatch.revanced_shorts_player_type_regular_player_fullscreen">Lánscáileáin imreoir rialta</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_title">Shorts Uathsheinn</string>
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_summary_on">Seinnfidh Shorts go huathoibríoch</string>
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_summary_off">Déanfaidh Shorts arís</string>
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_background_title">Uathsheinn Shorts Cúlra sheinn</string>
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_background_summary_on">Déanfar súgradh cúlra Shorts go huathoibríoch</string>
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_background_summary_off">Athdhéanfar athsheinm Shorts cúlra sheinn</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_screen_title">Mion seinnteoir</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_screen_summary">Athraigh stíl an imreora íoslaghdaithe in-aip</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_title">Cineál Mion seinnteoir</string>
@@ -1427,6 +1440,11 @@ Is féidir an mini-imreoir a tharraingt amach as an scáileán ar chlé nó ar d
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_title">Folaigh cnaipí forleathana</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_summary_on">Tá cnaipí forleathana i bhfolach</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_summary_off">Taispeántar cnaipí forleathana</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_legacy_title">Folaigh cnaipí leathnaithe agus dúnta</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Tá na cnaipí i bhfolach
+
+Svaip chun leathnú nó dúnadh"</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Taispeántar cnaipí leathnaithe agus dúnta</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_subtext_title">Folaigh fothéacsanna</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_subtext_summary_on">Tá fothéacsanna i bhfolach</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_subtext_summary_off">Taispeántar fothéacsanna</string>
@@ -1439,8 +1457,8 @@ Is féidir an mini-imreoir a tharraingt amach as an scáileán ar chlé nó ar d
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_opacity_title">Trédhearcacht forleagan</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_opacity_summary">Luach trédhearcachta idir 0-100, áit a bhfuil 0 trédhearcach</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_opacity_invalid_toast">Caithfidh teimhneacht forleagan mion-imreoir a bheith idir 0-100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="youtube.layout.theme.themePatch.revanced_gradient_loading_screen_title">Cumasaigh scáileán luchtaithe</string>
   <string name="youtube.layout.theme.themePatch.revanced_gradient_loading_screen_summary_on">Beidh cúlra grádáin ag an scáileán lódála</string>
   <string name="youtube.layout.theme.themePatch.revanced_gradient_loading_screen_summary_off">Beidh cúlra láidir ag scáileán luchtaithe</string>
@@ -1455,25 +1473,30 @@ Is féidir an mini-imreoir a tharraingt amach as an scáileán ar chlé nó ar d
   <string name="youtube.layout.theme.themePatch.revanced_seekbar_custom_color_accent_title">Dath béime saincheaptha an bharra cuardaigh</string>
   <string name="youtube.layout.theme.themePatch.revanced_seekbar_custom_color_accent_summary">Dath béime an bharra cuardaigh</string>
   <string name="youtube.layout.theme.themePatch.revanced_seekbar_custom_color_invalid">Luach datha barra cuardaigh neamhbhailí</string>
-  </patch>
-  <patch id="layout.branding.customBrandingPatch">
-  </patch>
-  <patch id="layout.branding.changeHeaderPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.branding.customBrandingPatch"> -->
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_2">YouTube ReVanced</string>
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_3">YT ReVanced</string>
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_4">YT</string>
+  <!-- </patch> -->
+  <!-- <patch id="layout.branding.changeHeaderPatch"> -->
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_title">Lógó ceanntásca</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_1">Réamhshocrú</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_2">Rialta</string>
+  <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_3">Premium</string>
+  <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_4">ReVanced</string>
   <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_5">ReVanced íosta</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_6">Saincheaptha</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="youtube.layout.thumbnails.bypassImageRegionRestrictionsPatch.revanced_bypass_image_region_restrictions_title">Seachbhóthar srianta réigiún íomhá</string>
   <string name="youtube.layout.thumbnails.bypassImageRegionRestrictionsPatch.revanced_bypass_image_region_restrictions_summary_on">Ag baint úsáide as óstach íomhá yt4.ggpht.com</string>
   <string name="youtube.layout.thumbnails.bypassImageRegionRestrictionsPatch.revanced_bypass_image_region_restrictions_summary_off">"Óstáil íomhá bhunaidh á úsáid
 
 Is féidir le seo íomhánna atá blocáilte i roinnt réigiún a dheisiú"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_home_title">Cluaisín Baile</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
@@ -1486,6 +1509,7 @@ Is féidir le seo íomhánna atá blocáilte i roinnt réigiún a dheisiú"</str
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Mionsamhlacha bunaidh</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Gabhálacha fós</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_4">Gabhann fós</string>
+  <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_about_summary">"Soláthraíonn DeArrow miontaispeántais foinse-phobail do fhíseáin YouTube. Bíonn na miontaispeántais seo níos ábhartha go minic ná na cinn a sholáthraíonn YouTube
 
 Má tá sé cumasaithe, cuirfear URLanna físeán chuig an bhfreastalaí API agus ní sheolfar aon sonraí eile. Má níl aon mhiontaisspeántais DeArrow ag físeán, ansin taispeántar na miontaispeántais bunaidh nó na gafaí fós
@@ -1508,30 +1532,33 @@ Brúigh anseo chun tuilleadh eolais a fháil faoi DeArrow"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_error">Níl DeArrow ar fáil go sealadach (cód stádais: %s)</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_error_generic">Níl DeArrow ar fáil go sealadach</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_title">Taispeáin fógraí ReVanced</string>
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_summary_on">Taispeántar fógraí ar thosú</string>
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_summary_off">Ní thaispeántar fógraí ar thosú</string>
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_enabled_summary">Taispeáin fógraí ar thosú</string>
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_connection_failed">Theip ar nascadh le soláthraí fógraí</string>
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_dialog_dismiss">Díbhe</string>
-  </patch>
-  <patch id="misc.loopvideo.loopVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.loopvideo.loopVideoPatch"> -->
   <string name="youtube.misc.loopvideo.loopVideoPatch.revanced_loop_video_title">Cumasaigh físeán lúbtha</string>
   <string name="youtube.misc.loopvideo.loopVideoPatch.revanced_loop_video_summary_on">Lúbfar an físeán</string>
   <string name="youtube.misc.loopvideo.loopVideoPatch.revanced_loop_video_summary_off">Ní lúbfar an físeán</string>
-  </patch>
-  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.loopvideo.button.loopVideoButtonPatch"> -->
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_title">Taispeáin an cnaipe físeáin lúbtha</string>
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_summary_on">Taispeántar an cnaipe</string>
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_summary_off">Níl an cnaipe ar taispeáint</string>
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_toast_on">Tá físeán lúbtha ar siúl</string>
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_toast_off">Tá físeán lúbtha as siúl</string>
-  </patch>
-  <patch id="misc.audiofocus.pauseOnAudioInterruptPatch">
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"> -->
+  <string name="youtube.misc.audiofocus.pauseOnAudioInterruptPatch.revanced_pause_on_audio_interrupt_title">Sos ar chur isteach fuaime</string>
+  <string name="youtube.misc.audiofocus.pauseOnAudioInterruptPatch.revanced_pause_on_audio_interrupt_summary_on">Cuirtear sos ar an athsheinm nuair a sheinneann fuaim eile (m.sh. loingseoireacht)</string>
+  <string name="youtube.misc.audiofocus.pauseOnAudioInterruptPatch.revanced_pause_on_audio_interrupt_summary_off">Laghdaíonn an toirt nuair a sheinneann fuaim eile</string>
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="youtube.misc.dimensions.spoof.spoofDeviceDimensionsPatch.revanced_spoof_device_dimensions_title">Toisí gléas a fhalsú</string>
   <string name="youtube.misc.dimensions.spoof.spoofDeviceDimensionsPatch.revanced_spoof_device_dimensions_summary_on">"Toisí na ngléasanna falsaithe
 
@@ -1540,8 +1567,8 @@ D’fhéadfadh cáilíochtaí físe níos airde a bheith díghlasáilte ach d’
 
 D’fhéadfadh cáilíochtaí físe níos airde a bheith díghlasáilte ach d’fhéadfadh go mbeadh stad ar athsheinm físe, saol ceallraí níos measa, agus fo-iarsmaí anaithnide agat"</string>
   <string name="youtube.misc.dimensions.spoof.spoofDeviceDimensionsPatch.revanced_spoof_device_dimensions_user_dialog_message">Is féidir go mbeidh stad ar athsheinm físe, saolré na ceallraí níos measa, agus fo-iarsmaí anaithnide mar thoradh air seo.</string>
-  </patch>
-  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.hapticfeedback.disableHapticFeedbackPatch"> -->
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_title">Aiseolas haiptice</string>
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_summary">Athraigh aiseolas haiptice</string>
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_chapters_title">Díchumasaigh haiptice caibidlí</string>
@@ -1556,21 +1583,21 @@ D’fhéadfadh cáilíochtaí físe níos airde a bheith díghlasáilte ach d’
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_zoom_title">Díchumasaigh haiptice súmála</string>
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_zoom_summary_on">Tá haiptice súmála díchumasaithe</string>
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_zoom_summary_off">Tá haiptice súmála cumasaithe</string>
-  </patch>
-  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.accountCredentialsInvalidTextPatch"> -->
   <string name="youtube.misc.gms.accountCredentialsInvalidTextPatch.microg_offline_account_login_error">Má d’athraigh tú sonraí logála isteach do chuntais le déanaí, ansin díshuiteáil agus athshuiteáil MicroG.</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="youtube.misc.links.bypassURLRedirectsPatch.revanced_bypass_url_redirects_title">Seachain atreoruithe URL</string>
   <string name="youtube.misc.links.bypassURLRedirectsPatch.revanced_bypass_url_redirects_summary_on">Déantar atreoruithe URL a sheachaint</string>
   <string name="youtube.misc.links.bypassURLRedirectsPatch.revanced_bypass_url_redirects_summary_off">Ní dhéantar seachaint ar atreoruithe URL</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="youtube.misc.links.openLinksExternallyPatch.revanced_external_browser_title">Oscail naisc sa bhrabhsála</string>
   <string name="youtube.misc.links.openLinksExternallyPatch.revanced_external_browser_summary_on">Ag oscailt naisc sa bhrabhsálaí seachtrach</string>
   <string name="youtube.misc.links.openLinksExternallyPatch.revanced_external_browser_summary_off">Ag oscailt naisc sa bhrabhsálaí in-aip</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_video_quality_default_entry_1">Uathoibríoch</string>
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_remember_video_quality_last_selected_title">Cuimhnigh athruithe ar cháilíocht físe</string>
@@ -1590,18 +1617,18 @@ D’fhéadfadh cáilíochtaí físe níos airde a bheith díghlasáilte ach d’
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_remember_video_quality_toast">Athraíodh cáilíocht réamhshocraithe %1$s go: %2$s</string>
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_remember_video_quality_toast_shorts">Athraíodh cáilíocht Shorts %1$s go: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="youtube.video.speed.button.playbackSpeedButtonPatch.revanced_playback_speed_dialog_button_title">Taispeáin cnaipe dialóg luais</string>
   <string name="youtube.video.speed.button.playbackSpeedButtonPatch.revanced_playback_speed_dialog_button_summary_on">Taispeántar cnaipe dialóige luais. Tapáil agus coinnigh síos chun luas athsheinm a athshocrú go réamhshocrú</string>
   <string name="youtube.video.speed.button.playbackSpeedButtonPatch.revanced_playback_speed_dialog_button_summary_off">Ní thaispeántar cnaipe dialóige luais</string>
-  </patch>
-  <patch id="video.quality.button.videoQualityDialogButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.button.videoQualityDialogButtonPatch"> -->
   <string name="youtube.video.quality.button.videoQualityDialogButtonPatch.revanced_video_quality_dialog_button_title">Taispeáin cnaipe cáilíochta físeáin</string>
   <string name="youtube.video.quality.button.videoQualityDialogButtonPatch.revanced_video_quality_dialog_button_summary_on">Taispeántar cnaipe cáilíochta físe. Tapáil agus coinnigh síos chun an caighdeán a athshocrú go dtí an caighdeán réamhshocraithe</string>
   <string name="youtube.video.quality.button.videoQualityDialogButtonPatch.revanced_video_quality_dialog_button_summary_off">Ní thaispeántar cnaipe cáilíochta físe</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_custom_speed_menu_title">Roghchlár luas athsheinm saincheaptha</string>
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_custom_speed_menu_summary_on">Taispeántar roghchlár luais saincheaptha</string>
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_custom_speed_menu_summary_off">Ní thaispeántar roghchlár luais saincheaptha</string>
@@ -1615,8 +1642,8 @@ D’fhéadfadh cáilíochtaí físe níos airde a bheith díghlasáilte ach d’
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_custom_playback_speeds_auto">Uathoibríoch</string>
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_speed_tap_and_hold_title">Luas saincheaptha tapála agus coinnigh</string>
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_speed_tap_and_hold_summary">Luas athsheinm eatarthu 0-8</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_remember_playback_speed_last_selected_title">Cuimhnigh athruithe ar luas athsheinm</string>
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_remember_playback_speed_last_selected_summary_on">Baineann athruithe luais athsheinm le gach físeáin</string>
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_remember_playback_speed_last_selected_summary_off">Ní bhaineann athruithe luas athsheinm ach leis an bhfíseán reatha</string>
@@ -1625,8 +1652,8 @@ D’fhéadfadh cáilíochtaí físe níos airde a bheith díghlasáilte ach d’
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_remember_playback_speed_last_selected_toast_summary_off">Ní thaispeántar fógra nuair a athraítear an luas athsheinm réamhshocraithe.</string>
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_playback_speed_default_title">Luas athsheinm réamhshocraithe</string>
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_remember_playback_speed_toast">Athraigh luas réamhshocraithe go: %s</string>
-  </patch>
-  <patch id="video.codecs.disableVideoCodecsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.codecs.disableVideoCodecsPatch"> -->
   <string name="youtube.video.codecs.disableVideoCodecsPatch.revanced_disable_hdr_video_title">Díchumasaigh físeán HDR</string>
   <string name="youtube.video.codecs.disableVideoCodecsPatch.revanced_disable_hdr_video_summary_on">Tá físeán HDR díchumasaithe</string>
   <string name="youtube.video.codecs.disableVideoCodecsPatch.revanced_disable_hdr_video_summary_off">Tá físeán HDR cumasaithe</string>
@@ -1642,18 +1669,18 @@ Teorainneacha:
 • Úsáidfidh athsheinm físeáin níos mó sonraí idirlín ná VP9 nó AV1
 • Ní úsáidfidh físeáin HDR AVC
 • Ní féidir le roinnt gléasanna AVC a bhrú"</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="youtube.video.quality.advancedVideoQualityMenuPatch.revanced_advanced_video_quality_menu_title">Taispeáin roghchlár ardcháilíochta físeáin</string>
   <string name="youtube.video.quality.advancedVideoQualityMenuPatch.revanced_advanced_video_quality_menu_summary_on">Taispeántar roghchlár ardcháilíochta físeáin</string>
   <string name="youtube.video.quality.advancedVideoQualityMenuPatch.revanced_advanced_video_quality_menu_summary_off">Ní thaispeántar roghchlár ardcháilíochta físeáin</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="youtube.interaction.seekbar.enableSlideToSeekPatch.revanced_slide_to_seek_title">Cumasaigh sleamhnán a lorg</string>
   <string name="youtube.interaction.seekbar.enableSlideToSeekPatch.revanced_slide_to_seek_summary_on">Tá sleamhnán le lorg cumasaithe</string>
   <string name="youtube.interaction.seekbar.enableSlideToSeekPatch.revanced_slide_to_seek_summary_off">Níl sleamhnán le lorg cumasaithe</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_av1_title">Ceadaigh Android VR AV1</string>
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_av1_summary_on">"Is é an códac físeáin AVC (H.264), VP9, nó AV1
 
@@ -1674,29 +1701,32 @@ D’fhéadfadh sé go mbeadh stad nó go gcaillfí frámaí ag athsheinm físe l
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_streaming_data_stats_for_nerds_title">Taispeáin i Staitisticí do nerds</string>
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_streaming_data_stats_for_nerds_summary_on">Taispeántar cineál an chliaint i Staitisticí do nerds</string>
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_streaming_data_stats_for_nerds_summary_off">Tá an cliant curtha i bhfolach i Staitisticí do nerds</string>
-  </patch>
-  </app>
-  <app id="music">
-  <patch id="layout.branding.customBrandingPatch">
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="music"> -->
+  <!-- <patch id="layout.branding.customBrandingPatch"> -->
+  <string name="music.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_2">YT Music ReVanced</string>
+  <string name="music.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_3">Music ReVanced</string>
+  <string name="music.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_4">Ceol</string>
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_0_about_title">Maidir</string>
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_1_ads_title">Fógraí</string>
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_2_general_title">Ginearálta</string>
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_3_player_title">Seinnteoir</string>
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_4_misc_title">Ilchineálach</string>
-  </patch>
-  <patch id="ad.video.hideVideoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.hideVideoAdsPatch"> -->
   <string name="music.ad.video.hideVideoAdsPatch.revanced_music_hide_video_ads_title">Folaigh fógraí físeáin</string>
   <string name="music.ad.video.hideVideoAdsPatch.revanced_music_hide_video_ads_summary_on">Tá fógraí físeáin i bhfolach</string>
   <string name="music.ad.video.hideVideoAdsPatch.revanced_music_hide_video_ads_summary_off">Taispeántar fógraí físeáin</string>
-  </patch>
-  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.permanentrepeat.permanentRepeatPatch"> -->
   <string name="music.interaction.permanentrepeat.permanentRepeatPatch.revanced_music_play_permanent_repeat_title">Cumasaigh athdhéanamh buan</string>
   <string name="music.interaction.permanentrepeat.permanentRepeatPatch.revanced_music_play_permanent_repeat_summary_on">Tá athrá buan cumasaithe</string>
   <string name="music.interaction.permanentrepeat.permanentRepeatPatch.revanced_music_play_permanent_repeat_summary_off">Tá athrá buan díchumasaithe</string>
-  </patch>
-  <patch id="layout.buttons.hideButtons">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.hideButtons"> -->
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_cast_button_title">Folaigh an cnaipe teilgthe</string>
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_cast_button_summary_on">Tá an cnaipe teilgthe i bhfolach</string>
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_cast_button_summary_off">Taispeántar an cnaipe teilgthe</string>
@@ -1709,18 +1739,18 @@ D’fhéadfadh sé go mbeadh stad nó go gcaillfí frámaí ag athsheinm físe l
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_search_button_title">Folaigh cnaipe cuardaigh</string>
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_search_button_summary_on">Tá cnaipe cuardaigh i bhfolach</string>
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_search_button_summary_off">Taispeántar an cnaipe cuardaigh</string>
-  </patch>
-  <patch id="layout.compactheader.hideCategoryBar">
+  <!-- </patch> -->
+  <!-- <patch id="layout.compactheader.hideCategoryBar"> -->
   <string name="music.layout.compactheader.hideCategoryBar.revanced_music_hide_category_bar_title">Folaigh an barra catagóirí</string>
   <string name="music.layout.compactheader.hideCategoryBar.revanced_music_hide_category_bar_summary_on">Tá an barra catagóirí i bhfolach</string>
   <string name="music.layout.compactheader.hideCategoryBar.revanced_music_hide_category_bar_summary_off">Taispeántar an barra catagóirí</string>
-  </patch>
-  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayercolor.changeMiniplayerColor"> -->
   <string name="music.layout.miniplayercolor.changeMiniplayerColor.revanced_music_change_miniplayer_color_title">Athraigh dath an mhion-imreoir</string>
   <string name="music.layout.miniplayercolor.changeMiniplayerColor.revanced_music_change_miniplayer_color_summary_on">Tá dath an mhion-imreoir ag teacht leis an imreoir lánscáileáin</string>
   <string name="music.layout.miniplayercolor.changeMiniplayerColor.revanced_music_change_miniplayer_color_summary_off">Úsáideann an mion-imreoir an dath réamhshocraithe</string>
-  </patch>
-  <patch id="layout.navigationbar.navigationBarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.navigationbar.navigationBarPatch"> -->
   <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_navigation_bar_screen_title">Barra nascleanúna</string>
   <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_navigation_bar_screen_summary">Folaigh nó athraigh cnaipí an bharra nascleanúna</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
@@ -1749,56 +1779,56 @@ D’fhéadfadh sé go mbeadh stad nó go gcaillfí frámaí ag athsheinm físe l
   <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_hide_navigation_bar_labels_title">Folaigh lipéid cnaipí nascleanúna</string>
   <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_hide_navigation_bar_labels_summary_on">Tá lipéid i bhfolach</string>
   <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_hide_navigation_bar_labels_summary_off">Taispeántar lipéid</string>
-  </patch>
-  <patch id="layout.premium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.premium.hideGetPremiumPatch"> -->
   <string name="music.layout.premium.hideGetPremiumPatch.revanced_music_hide_get_premium_label_title">Folaigh an lipéad \'Faigh Music Premium\'</string>
   <string name="music.layout.premium.hideGetPremiumPatch.revanced_music_hide_get_premium_label_summary_on">Tá an lipéad i bhfolach</string>
   <string name="music.layout.premium.hideGetPremiumPatch.revanced_music_hide_get_premium_label_summary_off">Taispeántar an lipéad</string>
-  </patch>
-  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.upgradebutton.hideUpgradeButtonPatch"> -->
   <string name="music.layout.upgradebutton.hideUpgradeButtonPatch.revanced_music_hide_upgrade_button_title">Folaigh an cnaipe uasghrádaithe</string>
   <string name="music.layout.upgradebutton.hideUpgradeButtonPatch.revanced_music_hide_upgrade_button_summary_on">Tá an cnaipe i bhfolach</string>
   <string name="music.layout.upgradebutton.hideUpgradeButtonPatch.revanced_music_hide_upgrade_button_summary_off">Taispeántar an cnaipe</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="twitch.ad.audio.audioAdsPatch.revanced_block_audio_ads_title">Cuir bac ar fógraí fuaime</string>
   <string name="twitch.ad.audio.audioAdsPatch.revanced_block_audio_ads_summary_on">Cuirtear bac ar fhógraí fuaime</string>
   <string name="twitch.ad.audio.audioAdsPatch.revanced_block_audio_ads_summary_off">Tá fógraí fuaime díbhlocáilte</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_embedded_ads_service_unavailable">%s neamh-infheidhme, d\'fhéadfadh go dtaispeánfadh fógraí. Bain triail as seirbhís blocála fógraí a athrú sna socruithe.</string>
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_embedded_ads_service_failed">Tháinig earráid ar %s, d\'fhéadfadh go dtaispeánfadh fógraí. Bain triail as seirbhís blocála fógraí a athrú sna socruithe.</string>
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_block_embedded_ads_title">Bloc ar fhógraí físe leabaithe</string>
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_block_embedded_ads_entry_1">Díchumasaithe</string>
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_block_embedded_ads_entry_2">Proxy lonrúil</string>
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_block_embedded_ads_entry_3">Seachfhreastalaí PurpleAdBlock</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="twitch.ad.video.videoAdsPatch.revanced_block_video_ads_title">Bloc ar fhógraí físe</string>
   <string name="twitch.ad.video.videoAdsPatch.revanced_block_video_ads_summary_on">Cuirtear bac ar fhógraí físe</string>
   <string name="twitch.ad.video.videoAdsPatch.revanced_block_video_ads_summary_off">Déantar fógraí físe a dhíbhlocáil</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="twitch.chat.antidelete.showDeletedMessagesPatch.revanced_deleted_msg">Teachtaireacht scriosta</string>
   <string name="twitch.chat.antidelete.showDeletedMessagesPatch.revanced_show_deleted_messages_title">Taispeáin teachtaireachtaí scriosta</string>
   <string name="twitch.chat.antidelete.showDeletedMessagesPatch.revanced_show_deleted_messages_entry_1">Ná taispeáin teachtaireachtaí scriosta</string>
   <string name="twitch.chat.antidelete.showDeletedMessagesPatch.revanced_show_deleted_messages_entry_2">Folaigh teachtaireachtaí scriosta taobh thiar a fhalsúa</string>
   <string name="twitch.chat.antidelete.showDeletedMessagesPatch.revanced_show_deleted_messages_entry_3">Taispeáin teachtaireachtaí scriosta mar théacs trasnaithe amach</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="twitch.chat.autoclaim.autoClaimChannelPointsPatch.revanced_auto_claim_channel_points_title">Éiligh Pointí Cainéil go huathoibríoch</string>
   <string name="twitch.chat.autoclaim.autoClaimChannelPointsPatch.revanced_auto_claim_channel_points_summary_on">Éilítear Pointí Cainéal go huathoibríoch</string>
   <string name="twitch.chat.autoclaim.autoClaimChannelPointsPatch.revanced_auto_claim_channel_points_summary_off">Ní éilítear Pointí Cainéal go huathoibríoch</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title'. -->
   <string name="twitch.debug.debugModePatch.revanced_twitch_debug_mode_title">Cumasaigh modh dífhabhtú Twitch</string>
   <string name="twitch.debug.debugModePatch.revanced_twitch_debug_mode_summary_on">Tá modh dífhabhtaithe Twitch cumasaithe (ní mholtar)</string>
   <string name="twitch.debug.debugModePatch.revanced_twitch_debug_mode_summary_off">Tá modh dífhabhtaithe Twitch díchumasaithe</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="twitch.misc.settings.settingsPatch.revanced_settings">Socruithe ReVanced</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_about_title">Maidir</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_about_summary">Maidir ReVanced</string>
@@ -1815,6 +1845,6 @@ D’fhéadfadh sé go mbeadh stad nó go gcaillfí frámaí ag athsheinm físe l
   <string name="twitch.misc.settings.settingsPatch.revanced_twitch_debug_title">Tá logaí dífhabhtú cumasaithe</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_twitch_debug_summary_on">Tá logaí dífhabhtaithe cumasaithe</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_twitch_debug_summary_off">Tá logaí dífhabhtaithe díchumasaithe</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>
