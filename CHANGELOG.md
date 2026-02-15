@@ -1,3 +1,10 @@
+## [5.50.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.50.0...v5.50.1-dev.1) (2026-02-15)
+
+
+### Bug Fixes
+
+* Fix broken release by bumping to v5.50.1 ([d416609](https://github.com/ReVanced/revanced-patches/commit/d4166092571b542925a59328d3d59fbc42eb29e3))
+
 # [5.49.0](https://github.com/ReVanced/revanced-patches/compare/v5.48.0...v5.49.0) (2026-02-15)
 
 
