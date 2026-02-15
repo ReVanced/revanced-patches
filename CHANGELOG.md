@@ -1,3 +1,10 @@
+## [5.50.2](https://github.com/ReVanced/revanced-patches/compare/v5.50.1...v5.50.2) (2026-02-15)
+
+
+### Bug Fixes
+
+* Add missing patch option descriptions ([16e42a7](https://github.com/ReVanced/revanced-patches/commit/16e42a75ecbf51e06432f1f6c96758f8d9bdb771))
+
 ## [5.50.1](https://github.com/ReVanced/revanced-patches/compare/v5.50.0...v5.50.1) (2026-02-15)
 
 
