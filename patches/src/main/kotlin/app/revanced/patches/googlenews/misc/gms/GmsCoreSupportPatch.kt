@@ -27,5 +27,4 @@ private fun gmsCoreSupportResourcePatch(
     toPackageName = REVANCED_MAGAZINES_PACKAGE_NAME,
     spoofedPackageSignature = "24bb24c05e47e0aefa68a58a766179d9b613a666",
     gmsCoreVendorGroupIdOption = gmsCoreVendorGroupIdOption,
-    addStringResources = false,
 )

@@ -101,23 +101,31 @@ To translate new languages or improve the existing translations, visit translate
                  and changes made here must also be made there. -->
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
-            <string name="microg_settings_title">GmsCore Settings</string>
-            <string name="microg_settings_summary">Settings for GmsCore</string>
+            <string name="revanced_gms_core_screen_title">GmsCore</string>
+            <string name="revanced_gms_core_screen_summary">Settings related to GmsCore</string>
+            <string name="revanced_gms_core_check_updates_title">Check for GmsCore updates</string>
+            <string name="revanced_gms_core_check_updates_summary_on">Checking for updates is enabled</string>
+            <string name="revanced_gms_core_check_updates_summary_off">Checking for updates is disabled</string>
+            <string name="revanced_gms_core_settings_title">Open GmsCore Settings</string>
+            <string name="revanced_gms_core_settings_summary">Settings of GmsCore</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-            <string name="gms_core_toast_not_installed_message">MicroG GmsCore is not installed. Install it.</string>
-            <string name="gms_core_dialog_title">Action needed</string>
-            <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore does not have permission to run in the background.
+            <string name="revanced_gms_core_toast_not_installed_message">MicroG GmsCore is not installed. Install it.</string>
+            <string name="revanced_gms_core_dialog_title">Action needed</string>
+            <string name="revanced_gms_core_toast_update_check_failed_message">Failed to check for MicroG GmsCore updates</string>
+            <string name="revanced_gms_core_update_available_message">A new version (%s) of MicroG GmsCore is available. Currently, you are using version %s.</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore does not have permission to run in the background.
 
 Follow the \"Don\'t kill my app\" guide for your phone, and apply the instructions to your MicroG installation.
 
 This is required for the app to work."</string>
-            <string name="gms_core_dialog_open_website_text">Open website</string>
-            <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCore battery optimizations must be disabled to prevent issues.
+            <string name="revanced_gms_core_dialog_open_website_text">Open website</string>
+            <string name="revanced_gms_core_dialog_cancel_text">Cancel</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCore battery optimizations must be disabled to prevent issues.
 
 Disabling battery optimizations for MicroG will not negatively affect battery usage.
 
 Tap the continue button and allow optimization changes."</string>
-            <string name="gms_core_dialog_continue_text">Continue</string>
+            <string name="revanced_gms_core_dialog_continue_text">Continue</string>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <string name="revanced_spoof_video_streams_screen_title">Spoof video streams</string>
