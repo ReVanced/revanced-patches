@@ -170,6 +170,14 @@ Second \"item\" text"</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_saved">Сцягі захаваны</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_reset">Сцягі скінуты</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_copied">Сцягі скапіяваны ў буфер абмену</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">Буфер пратаколу часопіса</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">Журналы адладкі ўключаюць пратабуфер</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">Журналы адладкі не ўключаюць пратабуфер</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"Уключэнне гэтага параметра будзе запісваць дадатковыя даныя макета, у тым ліку тэкст на экране для некаторых кампанентаў інтэрфейсу.
+
+Гэта можа дапамагчы ідэнтыфікаваць кампаненты пры стварэнні карыстацкіх фільтраў.
+
+Аднак уключэнне гэтага параметра таксама будзе запісваць некаторыя даныя карыстальніка, такія як ваш IP-адрас."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_title">Ачысціць спасылкі для абагульвання</string>
@@ -178,6 +186,17 @@ Second \"item\" text"</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_title">Змяніць спасылкі для абагульвання на youtube.com</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_on">Агульныя спасылкі выкарыстоўваюць youtube.com</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_off">Агульныя спасылкі выкарыстоўваюць music.youtube.com</string>
+  </patch>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">Карыстальніцкі фільтр</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">Схавайце кампаненты з дапамогай карыстацкіх фільтраў</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">Уключыць карыстальніцкі фільтр</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">Карыстальніцкі фільтр уключаны</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">Карыстальніцкі фільтр адключаны</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">Карыстальніцкі фільтр</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">Спіс радкоў канструктара шляхоў кампанентаў для фільтрацыі, раздзеленых новым радком</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">Няправільны карыстацкі фільтр: %s</string>
   </patch>
   </app>
   <app id="youtube">
@@ -200,16 +219,6 @@ Second \"item\" text"</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_title">Адключыць прайграванне Shorts у фонавым</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_on">Прайграванне Shorts у фонавым адключана</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_off">Фоновый плейлист Shorts включен</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">Буфер пратаколу часопіса</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">Журналы адладкі ўключаюць пратабуфер</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">Журналы адладкі не ўключаюць пратабуфер</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"Уключэнне гэтага параметра будзе запісваць дадатковыя даныя макета, у тым ліку тэкст на экране для некаторых кампанентаў інтэрфейсу.
-
-Гэта можа дапамагчы ідэнтыфікаваць кампаненты пры стварэнні карыстацкіх фільтраў.
-
-Аднак уключэнне гэтага параметра таксама будзе запісваць некаторыя даныя карыстальніка, такія як ваш IP-адрас."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_title">Схаваць карты альбома</string>
@@ -437,15 +446,6 @@ Second \"item\" text"</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_title">Схаваць кнопку \"Дзякуй\"\"</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_on">Кнопка падзякі схавана</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_off">Паказана кнопка падзякі</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">Карыстальніцкі фільтр</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">Схавайце кампаненты з дапамогай карыстацкіх фільтраў</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">Уключыць карыстальніцкі фільтр</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">Карыстальніцкі фільтр уключаны</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">Карыстальніцкі фільтр адключаны</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">Карыстальніцкі фільтр</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">Спіс радкоў канструктара шляхоў кампанентаў для фільтрацыі, раздзеленых новым радком</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">Няправільны карыстацкі фільтр: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_title">Схаваць колькасць праглядаў</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_on">Колькасць праглядаў схавана ў стужцы і выніках пошуку</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_off">Колькасць праглядаў паказана ў стужцы і выніках пошуку</string>

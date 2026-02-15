@@ -26,6 +26,7 @@ Second \"item\" text"</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_name_entry_5">Մաքսային</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_title">Հավելվածի պատկերակը</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_1">Բնօրինակ</string>
+  <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_2">ReVanced</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_3">ReVanced մինիմալ</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_4">ReVanced սանդղակավորված</string>
@@ -50,6 +51,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_submenu_title">Կարգավորումներ</string>
+  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_title">ReVanced</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_confirm_user_dialog_title">Վստա՞հ եք, որ ցանկանում եք շարունակել:</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_save">Պահպանել</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_reset">Վերականգնել</string>
@@ -170,6 +172,14 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_saved">Դրոշակները պահպանվեցին</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_reset">Դրոշակները զրոյացվեցին</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_copied">Դրոշակները պատճենվեցին սեղմատախտակին</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">Բուֆերի արձանագրությունը մտնել</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">Մարմնացման առաջնորդման մատնանշումները պարունակում են բուֆերի տարր</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">Մարմնացման առաջնորդման մատնանշումները ներառում են բուֆերի տարր</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"Այս կարգավորումը միացնելը կգրանցի լրացուցիչ դասավորության տվյալներ, ներառյալ էկրանի տեքստը որոշ UI բաղադրիչների համար։
+
+Սա կարող է օգնել բացահայտել բաղադրիչները՝ հատուկ զտիչներ ստեղծելիս։
+
+Այնուամենայնիվ, սա միացնելը կգրանցի նաև օգտատիրոջ որոշ տվյալներ, ինչպիսիք են ձեր IP հասցեն:"</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_title">Մաքրել համօգտագործման հղումները</string>
@@ -178,6 +188,17 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_title">Փոխել համօգտագործման հղումները youtube.com-ի</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_on">Համօգտագործվող հղումները օգտագործում են youtube.com</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_off">Համօգտագործվող հղումները օգտագործում են music.youtube.com</string>
+  </patch>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">Պատրաստված լրացուցիչ կարգավորումներ</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">Թաքցնել բաղադրիչները՝ օգտագործելով պատրաստված լրացուցիչ կարգավորումներ</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">Միացնել պատրաստված լրացուցիչ կարգավորումները</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">Պատրաստված լրացուցիչ կարգավորումները միացված են</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">Պատրաստված լրացուցիչ կարգավորումները անջատված են</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">Պատրաստված լրացուցիչ կարգավորումներ</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">Բաղադրիչների ուղիների կառուցողական լարերը, որոնք պետք է լրացուցիչ կարգավորվեն, միմյանցից բաժանված են նոր տողով</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">Անվավեր պատրաստված լրացուցիչ կարգավորումներ։ %s</string>
   </patch>
   </app>
   <app id="youtube">
@@ -200,16 +221,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_title">Անջատել  Shorts-ի  ֆոնային  վերարտադրությունը</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_on">Shorts-ի  ֆոնային  վերարտադրությունը  անջատված  է</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_off">Shorts-ի  ֆոնային  վերարտադրությունը  հնարավոր  է</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">Բուֆերի արձանագրությունը մտնել</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">Մարմնացման առաջնորդման մատնանշումները պարունակում են բուֆերի տարր</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">Մարմնացման առաջնորդման մատնանշումները ներառում են բուֆերի տարր</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"Այս կարգավորումը միացնելը կգրանցի լրացուցիչ դասավորության տվյալներ, ներառյալ էկրանի տեքստը որոշ UI բաղադրիչների համար։
-
-Սա կարող է օգնել բացահայտել բաղադրիչները՝ հատուկ զտիչներ ստեղծելիս։
-
-Այնուամենայնիվ, սա միացնելը կգրանցի նաև օգտատիրոջ որոշ տվյալներ, ինչպիսիք են ձեր IP հասցեն:"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_title">Թաքցնել  ալբոմի  քարտերը</string>
@@ -437,15 +448,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_title">Թաքցնել շնորհակալության կոճակը</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_on">\"Շնորհակալություն\" կոճակը թաքցված է</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_off">\"Շնորհակալություն\" կոճակը երևում է</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">Պատրաստված լրացուցիչ կարգավորումներ</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">Թաքցնել բաղադրիչները՝ օգտագործելով պատրաստված լրացուցիչ կարգավորումներ</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">Միացնել պատրաստված լրացուցիչ կարգավորումները</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">Պատրաստված լրացուցիչ կարգավորումները միացված են</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">Պատրաստված լրացուցիչ կարգավորումները անջատված են</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">Պատրաստված լրացուցիչ կարգավորումներ</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">Բաղադրիչների ուղիների կառուցողական լարերը, որոնք պետք է լրացուցիչ կարգավորվեն, միմյանցից բաժանված են նոր տողով</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">Անվավեր պատրաստված լրացուցիչ կարգավորումներ։ %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_title">Թաքցնել դիտումների քանակը</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_on">Դիտումների քանակը թաքնված է լրահոսում և որոնման արդյունքներում</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_off">Դիտումների քանակը ցուցադրվում է լրահոսում և որոնման արդյունքներում</string>
@@ -1460,6 +1462,7 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="youtube.layout.theme.themePatch.revanced_seekbar_custom_color_invalid">Սխալ seekbar-ի գույնի արժեք</string>
   </patch>
   <patch id="layout.branding.customBrandingPatch">
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_4">YT</string>
   </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_title">Գլխագրի լոգո</string>

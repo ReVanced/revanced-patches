@@ -170,6 +170,14 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_saved">Oznake su sačuvane</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_reset">Oznake su resetovane</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_copied">Oznake su kopirane u privremenu memoriju</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">Evidentiranje bafera protokola</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">Evidencije otklanjanja grešaka sadrže bafer protokola</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">Evidencije otklanjanja grešaka ne sadrže bafer protokola</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"Omogućavanjem ove opcije evidentiraće se dodatni podaci o izgledu, uključujući tekst na ekranu za neke komponente korisničkog interfejsa.
+
+Ovo može pomoći u identifikaciji komponenti prilikom pravljenja prilagođenih filtera.
+
+Međutim, omogućavanje ovoga će takođe evidentirati neke korisničke podatke, kao što je vaša IP adresa."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_title">Očisti deljene linkove</string>
@@ -178,6 +186,17 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_title">Promeni linkove za deljenje na youtube.com</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_on">Deljeni linkovi koriste youtube.com</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_off">Deljeni linkovi koriste music.youtube.com</string>
+  </patch>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">Prilagođeni filter</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">Sakrijte komponente koristeći prilagođene filtere</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">Omogući prilagođeni filter</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">Prilagođeni filter je omogućen</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">Prilagođeni filter je onemogućen</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">Prilagođeni filter</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">Lista stringova za pravljenje putanje komponenti za filtriranje, odvojena novim redom</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">Nevažeći prilagođeni filter: %s</string>
   </patch>
   </app>
   <app id="youtube">
@@ -199,16 +218,6 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_title">Onemogući puštanje Shorts videa u pozadini</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_on">Puštanje Shorts videa u pozadini je onemogućeno</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_off">Puštanje Shorts videa u pozadini je omogućeno</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">Evidentiranje bafera protokola</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">Evidencije otklanjanja grešaka sadrže bafer protokola</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">Evidencije otklanjanja grešaka ne sadrže bafer protokola</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"Omogućavanjem ove opcije evidentiraće se dodatni podaci o izgledu, uključujući tekst na ekranu za neke komponente korisničkog interfejsa.
-
-Ovo može pomoći u identifikaciji komponenti prilikom pravljenja prilagođenih filtera.
-
-Međutim, omogućavanje ovoga će takođe evidentirati neke korisničke podatke, kao što je vaša IP adresa."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_title">Sakrij kartice albuma</string>
@@ -436,15 +445,6 @@ Ako se Doodle trenutno prikazuje u vašem regionu i ova opcija skrivanja je uklj
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_title">Sakrij dugme „Hvala”</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_on">Dugme „Hvala” je skriveno</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_off">Dugme „Hvala” je prikazano</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">Prilagođeni filter</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">Sakrijte komponente koristeći prilagođene filtere</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">Omogući prilagođeni filter</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">Prilagođeni filter je omogućen</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">Prilagođeni filter je onemogućen</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">Prilagođeni filter</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">Lista stringova za pravljenje putanje komponenti za filtriranje, odvojena novim redom</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">Nevažeći prilagođeni filter: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_title">Sakrij broj pregleda</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_on">Broj pregleda je skriven u fidu i rezultatima pretrage</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_off">Broj pregleda je prikazan u fidu i rezultatima pretrage</string>

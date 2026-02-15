@@ -26,7 +26,10 @@ Second \"item\" text"</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_name_entry_5">مخصص</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_title">أيقونة التطبيق</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_1">الأصلية</string>
+  <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_2">ReVanced</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_3">ReVanced minimal</string>
+  <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_4">ReVanced scaled</string>
   <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_5">مخصص</string>
   </patch>
@@ -48,6 +51,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_submenu_title">الإعدادات</string>
+  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_title">ReVanced</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_confirm_user_dialog_title">هل أنت متأكد أنك تريد المتابعة؟</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_save">حفظ</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_reset">إعادة التعيين</string>
@@ -113,12 +117,14 @@ Second \"item\" text"</string>
 
 لن يؤثر تعطيل تحسينات البطارية لـ MicroG سلبًا على استخدام البطارية.
 
-انقر فوق زر الاستمرار واسمح بتغييرات التحسين."</string>
+انقر فوق زر متابعة واسمح بتغييرات التحسين."</string>
   <string name="shared.misc.gms.gmsCoreSupportResourcePatch.gms_core_dialog_continue_text">متابعة</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_title">Spoof Video Streams</string>
-  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_summary">تزييف بثوث الفيديو الخاصة بالعميل لمنع مشكلات التشغيل</string>
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_summary">تزييف تدفقات الفيديو الخاصة بالعميل لمنع حدوث مشكلات أثناء التشغيل</string>
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_title">Spoof Video Streams</string>
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_summary">تزييف تدفقات الفيديو الخاصة بالعميل لمنع حدوث مشكلات أثناء التشغيل</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_title">Spoof Video Streams</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_summary_on">"يتم تزييف تدفقات الفيديو
 
@@ -134,7 +140,7 @@ Second \"item\" text"</string>
   <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
   <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \'Spoof Video Streams إلى أي عميل باستثناء Android Studio</string>
+  <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \'Spoof Video Streams\' إلى أي عميل باستثناء Android Studio</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_screen_title">تصحيح الأخطاء</string>
@@ -160,14 +166,22 @@ Second \"item\" text"</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_logs_clear_buffer_title">مسح سجلات تصحيح الأخطاء</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_logs_clear_buffer_summary">يمسح جميع سجلات تصحيح أخطاء ReVanced المخزنة</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_logs_clear_toast">تم مسح السجلات</string>
-  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_title">مدير Feature Flags</string>
-  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_summary">إدارة Feature Flags المنطقية</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_title">إدارة Feature Flags</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_summary">إدارة Feature Flags الثنائية</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_active_header">Flags نشطة (%d)</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_blocked_header">Flags محظورة (%d)</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_search_hint">البحث عن Flags...</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_saved">تم حفظ Flags</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_reset">تم إعادة تعيين Flags</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_copied">تم نسخ Flags إلى الحافظة</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">سجل بروتوكول التخزين المؤقت</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">تتضمن سجلات التصحيح التخزين المؤقت</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">لا تتضمن سجلات التصحيح التخزين المؤقت</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"سيؤدي تمكين هذا الإعداد إلى تسجيل بيانات تخطيط إضافية، بما في ذلك النص المعروض على الشاشة لبعض مكونات واجهة المستخدم.
+
+يمكن أن يساعد هذا في تحديد المكونات عند إنشاء عوامل تصفية مخصصة.
+
+ومع ذلك، سيؤدي تمكين هذا أيضًا إلى تسجيل بعض بيانات المستخدم مثل عنوان IP الخاص بك."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_title">تطهير روابط المشاركة</string>
@@ -176,6 +190,17 @@ Second \"item\" text"</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_title">تغيير روابط المشاركة إلى youtube.com</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_on">تستخدم روابط المشاركة youtube.com</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_off">تستخدم روابط المشاركة music.youtube.com</string>
+  </patch>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">فلتر مخصص</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">إخفاء المكونات باستخدام فلاتر مخصصة</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">تمكين الفلتر المخصص</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">تم تمكين الفلتر المخصص</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">تم تعطيل الفلتر المخصص</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">فلتر مخصص</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">قائمة سلاسل منشئ مسار المكونات المراد تصفيتها مفصولة بسطر جديد</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">فلتر مخصص غير صالح: %s</string>
   </patch>
   </app>
   <app id="youtube">
@@ -186,8 +211,10 @@ Second \"item\" text"</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_03_feed_title">الموجز</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_04_general_title">عام</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_05_player_title">المشغل</string>
+  <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_07_seekbar_title">شريط تقدم الفيديو</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_08_swipe_controls_title">التحكم عن طريق إيماءة التمرير</string>
+  <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_09_return_youtube_dislike_title">استعادة YouTube Dislike</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_11_misc_title">خيارات متنوعة</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_12_video_title">الفيديو</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_restore_old_settings_menus_title">استعادة قوائم الإعدادات القديمة</string>
@@ -198,16 +225,6 @@ Second \"item\" text"</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_title">تعطيل تشغيل فيديوهات Shorts في الخلفية</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_on">تم تعطيل تشغيل Shorts بالخلفية</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_off">تم تمكين تشغيل Shorts بالخلفية</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">سجل بروتوكول التخزين المؤقت</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">تتضمن سجلات التصحيح التخزين المؤقت</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">لا تتضمن سجلات التصحيح التخزين المؤقت</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"سيؤدي تمكين هذا الإعداد إلى تسجيل بيانات تخطيط إضافية، بما في ذلك النص المعروض على الشاشة لبعض مكونات واجهة المستخدم.
-
-يمكن أن يساعد هذا في تحديد المكونات عند إنشاء عوامل تصفية مخصصة.
-
-ومع ذلك، سيؤدي تمكين هذا أيضًا إلى تسجيل بعض بيانات المستخدم مثل عنوان IP الخاص بك."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_title">إخفاء بطاقات الألبوم</string>
@@ -272,19 +289,19 @@ Second \"item\" text"</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_ticket_shelf_summary_on">تم إخفاء رف التذاكر</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_ticket_shelf_summary_off">يتم عرض رف التذاكر</string>
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_video_recommendation_labels_title">إخفاء تسميات توصيات الفيديو</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_video_recommendation_labels_title">إخفاء تسميات الفيديوهات المقترحة</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_video_recommendation_labels_summary_on">تم إخفاء تسميات \'شاهد المستخدمون أيضًا\' و\'قد يعجبك أيضًا\' في نتائج البحث</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_video_recommendation_labels_summary_off">يتم عرض تسميات \'شاهد المستخدمون أيضًا\' و\'قد يعجبك أيضًا\' في نتائج البحث</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_visual_spacer_title">إخفاء المسافة البادئة المرئية</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_visual_spacer_summary_on">المسافة البادئة المرئية مخفية</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_visual_spacer_summary_off">المسافة البادئة المرئية ظاهرة</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_visual_spacer_summary_on">تم إخفاء المسافة البادئة المرئية</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_visual_spacer_summary_off">يتم عرض المسافة البادئة المرئية</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_doodles_title">إخفاء رسومات YouTube</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_doodles_summary_on">تم إخفاء رسوم Doodles المتحركة على شعار YouTube</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_doodles_summary_off">يتم عرض رسوم Doodles المتحركة على شعار YouTube</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_doodles_user_dialog_message">"تظهر رسومات YouTube Doodles لعدة أيام كل عام.
 
-إذا كانت رسومات Doodles تظهر حاليًا في منطقتك وكان إعداد الإخفاء هذا قيد التشغيل، فسيتم أيضًا إخفاء شريط الفلتر الموجود أسفل شريط البحث."</string>
+إذا كانت رسومات Doodles تظهر حاليًا في منطقتك وكان إعداد الإخفاء هذا قيد التشغيل، فسيتم أيضًا إخفاء شريط التصفية الموجود أسفل شريط البحث."</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_channel_bar_title">إخفاء شريط القناة</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_channel_bar_summary_on">تم إخفاء شريط القناة</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_channel_bar_summary_off">يتم عرض شريط القناة</string>
@@ -435,15 +452,6 @@ Second \"item\" text"</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_title">إخفاء زر شكرًا</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_on">تم إخفاء زر شكرًا</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_off">يتم عرض زر شكرًا</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">فلتر مخصص</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">إخفاء المكونات باستخدام فلاتر مخصصة</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">تمكين الفلتر المخصص</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">تم تمكين الفلتر المخصص</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">تم تعطيل الفلتر المخصص</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">فلتر مخصص</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">قائمة سلاسل منشئ مسار المكونات المراد تصفيتها مفصولة بسطر جديد</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">فلتر مخصص غير صالح: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_title">إخفاء عدد المشاهدات</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_on">تم إخفاء عدد المشاهدات في الموجز ونتائج البحث</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_off">يتم عرض عدد المشاهدات في الموجز ونتائج البحث</string>
@@ -1043,6 +1051,7 @@ Second \"item\" text"</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">أعد تحميل الفيديو للتصويت بـ Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_video_likes_hidden_by_video_owner">مخفي بواسطة المالك</string>
+  <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_title">استعادة YouTube Dislike</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_summary_on">يتم عرض لم يعجبني</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_summary_off">لا يتم عرض لم يعجبني</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_shorts_title">عرض لم يعجني في فيديوهات Shorts</string>
@@ -1063,6 +1072,7 @@ Second \"item\" text"</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_title">عرض ملاحظة إذا كان API غير متاح</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_summary_on">يتم عرض الملاحظة في حالة عدم توفر Return YouTube Dislike</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_summary_off">لا يتم عرض الملاحظة في حالة عدم توفر Return YouTube Dislike</string>
+  <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_attribution_summary">يتم توفير البيانات بواسطة the Return YouTube Dislike API. اضغط هنا لمعرفة المزيد</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_statistics_category_title">إحصائيات واجهة برمجيات ReturnYouTubeDislike لهذا الجهاز</string>
@@ -1091,6 +1101,8 @@ Second \"item\" text"</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_title">تمكين المصغرات عالية الجودة</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_summary_on">مصغرات شريط التقدم عالية الجودة</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_summary_off">مصغرات شريط التقدم متوسطة الجودة</string>
+  <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_legacy_summary_on">مصغرات شريط التقدم بملء الشاشة عالية الجودة</string>
+  <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_legacy_summary_off">مصغرات شريط التقدم بملء الشاشة متوسطة الجودة</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_dialog_message">"سيؤدي هذا أيضا إلى استعادة المصغرات على البث المباشر الذي لا يحتوي على مصغرات شريط التقدم.
 
 مصغرات شريط التقدم سوف تستخدم نفس جودة الفيديو الحالي.
@@ -1101,6 +1113,7 @@ Second \"item\" text"</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_restore_old_seekbar_thumbnails_summary_off">مصغرات شريط التقدم ستظهر في ملء الشاشة</string>
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_settings_screen_10_sponsorblock_title">SponsorBlock</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_enable_sb">تمكين SponsorBlock</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_enable_sb_sum">مانع الرُعَاة هو نظام جماعي لتخطي الأجزاء المزعجة من فيديوهات YouTube</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_appearance_category">المظهر</string>
@@ -1310,6 +1323,7 @@ Second \"item\" text"</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_color_opacity_label">الشفافية:</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_color_dot_label">اللون:</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_title">لمحة</string>
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_api_title">sponsor.ajay.app</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_api_summary">يتم توفير البيانات بواسطة SponsorBlock API. انقر هنا لمعرفة المزيد والتنزيل لمنصات أخرى</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
@@ -1317,6 +1331,7 @@ Second \"item\" text"</string>
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_entry_1">الافتراضي</string>
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_entry_2">الجوّال</string>
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_entry_3">الجهاز اللوحي</string>
+  <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_entry_4">Automotive</string>
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_user_dialog_message">"التغييرات تشمل:
 
 تصميم الجهاز اللوحي
@@ -1361,6 +1376,7 @@ Second \"item\" text"</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_playlists">قوائم التشغيل</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_search">البحث</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_shopping">تسوق</string>
+  <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_shorts">Shorts</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_sports">الرياضة</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_subscriptions">الاشتراكات</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_trending">المحتوى الرائج</string>
@@ -1426,6 +1442,11 @@ Second \"item\" text"</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_title">إخفاء أزرار الواجهة</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_summary_on">تم إخفاء أزرار الواجهة</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_summary_off">يتم عرض أزرار الواجهة</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_legacy_title">إخفاء أزرار التوسيع والإغلاق</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"تم إخفاء الأزرار
+
+مرر للتوسيع أو الإغلاق"</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">يتم عرض أزرار التوسيع والإغلاق</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_subtext_title">إخفاء النصوص الفرعية</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_subtext_summary_on">تم إخفاء النصوص الفرعية</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_subtext_summary_off">يتم عرض النصوص الفرعية</string>
@@ -1456,12 +1477,18 @@ Second \"item\" text"</string>
   <string name="youtube.layout.theme.themePatch.revanced_seekbar_custom_color_invalid">لون شريط التقدم غير صالح</string>
   </patch>
   <patch id="layout.branding.customBrandingPatch">
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_2">YouTube ReVanced</string>
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_3">YT ReVanced</string>
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_4">YT</string>
   </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_title">علامة الشعار</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_1">الافتراضي</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_2">القياسي</string>
+  <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_3">Premium</string>
+  <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_4">ReVanced</string>
   <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
+  <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_5">ReVanced minimal</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_6">مخصص</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1484,6 +1511,7 @@ Second \"item\" text"</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_2">DeArrow &amp; المصغرات الأصلية</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_3">DeArrow &amp; اللقطات الثابتة</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_4">اللقطات الثابتة</string>
+  <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_about_summary">"يوفر DeArrow مصغرات فيديو من مصادر جماعية لفيديوهات YouTube. هذه المصغرات غالبًا ما تكون أكثر صلة من تلك المقدمة من YouTube
 
 إذا تم تفعيلها، سيتم إرسال روابط الفيديو إلى خادم API ولن يتم إرسال أي بيانات أخرى. إذا كان الفيديو لا يحتوي على مصغرات DeArrow، سيتم عرض المقاطع الأصلية أو اللقطات الثابتة

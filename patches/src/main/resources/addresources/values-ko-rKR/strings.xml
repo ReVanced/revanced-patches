@@ -19,37 +19,39 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="layout.branding.baseCustomBrandingPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="layout.branding.baseCustomBrandingPatch"> -->
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_name_title">앱 이름</string>
   <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_name_entry_5">사용자 정의</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_title">앱 아이콘</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_1">원본</string>
+  <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_2">ReVanced</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_3">ReVanced 최소화</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_4">ReVanced 스케일</string>
   <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_5">사용자 정의</string>
-  </patch>
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_failed_title">환경 검사에 실패하였습니다</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_dialog_open_official_source_button">공식 홈페이지 열기</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_dialog_ignore_button">닫기</string>
-  <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_failed_message">&lt;h5&gt;이 앱은 사용자가 패치하지 않은 것 같습니다.&lt;/h5&gt;&lt;br&gt;이 앱은 제대로 작동하지 않을 수 있으며, &lt;b&gt;사용 시 해롭거나 심지어 위험할 수도 있습니다&lt;/b&gt;.&lt;br&gt;&lt;br&gt;이러한 검사는 이 앱이 다른 사람에 의하여 패치되었거나 다른 사람으로부터 받은 것임을 의미합니다:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;검증되고 안전한 앱을 사용하고 있는지 확인하려면 &lt;b&gt;이 앱을 삭제하고 직접 패치하는 것&lt;/b&gt;을 강력히 권장합니다.&lt;p&gt;&lt;br&gt;이 경고는 두 번만 표시됩니다.</string>
+  <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_failed_message">&lt;h5&gt;이 앱은 사용자가 패치하지 않은 것 같습니다.&lt;/h5&gt;&lt;br&gt;이 앱은 제대로 작동하지 않을 수 있으며, &lt;b&gt;사용 시 해롭거나 심지어 위험할 수도 있습니다&lt;/b&gt;.&lt;br&gt;&lt;br&gt;이러한 검사는 이 앱이 다른 사람에 의하여 패치되었거나 다른 사람으로부터 받은 것임을 의미합니다:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;검증되고 안전한 앱을 사용하고 있는지 확인하려면 &lt;b&gt;이 앱을 제거하고 직접 패치하는 것&lt;/b&gt;을 강력히 권장합니다.&lt;p&gt;&lt;br&gt;이 경고는 두 번만 표시됩니다.</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_not_same_patching_device">다른 기기에서 패치되었습니다</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_manager_not_expected_installer">ReVanced Manager에 의해 설치되지 않았습니다</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_not_near_patch_time">10분 이상 전에 패치되었습니다</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_not_near_patch_time_days">%s 일 전에 패치되었습니다</string>
   <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_not_near_patch_time_invalid">APK 빌드 날짜가 손상되었습니다</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="shared.misc.dns.checkWatchHistoryDomainNameResolutionPatch.revanced_check_watch_history_domain_name_dialog_title">ReVanced 알림</string>
   <string name="shared.misc.dns.checkWatchHistoryDomainNameResolutionPatch.revanced_check_watch_history_domain_name_dialog_message">시청 기록이 저장되지 않습니다.&lt;br&gt;&lt;br&gt; DNS 광고 차단기 또는 네트워크 프록시로 인하여 발생한 문제일 가능성이 높습니다.&lt;br&gt;&lt;br&gt; 이 문제를 해결하려면 &lt;b&gt;s.youtube.com&lt;/b&gt;을 허용 목록에서 제외하거나 모든 DNS 차단기 및 프록시를 해제하세요.</string>
   <string name="shared.misc.dns.checkWatchHistoryDomainNameResolutionPatch.revanced_check_watch_history_domain_name_dialog_ignore">다시 보지 않기</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_submenu_title">설정</string>
+  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_title">ReVanced</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_confirm_user_dialog_title">계속하시겠습니까?</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_save">저장</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_reset">초기화</string>
@@ -67,7 +69,7 @@ Second \"item\" text"</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_no_results_title">\'%s\'에 대한 검색 결과가 없습니다</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_no_results_summary">다른 키워드를 검색해 보세요</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_recent_searches">최근 검색어</string>
-  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_remove_message">검색 기록에서 삭제하시겠습니까?</string>
+  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_remove_message">검색 기록에서 제거하시겠습니까?</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_clear_history">검색 기록 지우기</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_clear_history_message">모든 검색 기록을 지우시겠습니까?</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_search_tips_title">검색 팁</string>
@@ -87,7 +89,7 @@ Second \"item\" text"</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_language_title">ReVanced 언어</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_language_user_dialog_message">"일부 언어의 번역이 누락되었거나 완료되지 않았을 수 있습니다.
 
-새로운 언어를 번역하거나 기존 번역을 개선하려면 translate.revanced.app를 방문하세요."</string>
+새 언어를 번역하거나 기존 번역을 개선하려면 translate.revanced.app를 방문하세요."</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_language_DEFAULT">앱 언어</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_pref_import_export_title">가져오기 / 내보내기</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_pref_import_export_summary">ReVanced 설정을 가져오거나 내보낼 수 있습니다</string>
@@ -98,8 +100,8 @@ Second \"item\" text"</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_about_links_header">공식 링크</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="shared.misc.gms.gmsCoreSupportResourcePatch.microg_settings_title">GmsCore 설정</string>
   <string name="shared.misc.gms.gmsCoreSupportResourcePatch.microg_settings_summary">알림 수신을 위한 클라우드 메시징을 설정할 수 있습니다</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -117,28 +119,30 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 
 앱 배터리 최적화를 비활성화(제한 없음)하려면 '계속하기' 버튼을 탭하세요."</string>
   <string name="shared.misc.gms.gmsCoreSupportResourcePatch.gms_core_dialog_continue_text">계속하기</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_title">동영상 스트림 변경하기</string>
-  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_summary">클라이언트 동영상 스트림을 변경하여 재생 문제를 방지할 수 있습니다</string>
-  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_title">동영상 스트림 변경하기</string>
-  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_summary_on">"동영상 스트림를 변경합니다
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_title">동영상 스트림 속이기</string>
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_summary">클라이언트 동영상 스트림을 속여서 재생 문제를 방지할 수 있습니다</string>
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_title">동영상 스트림 속이기</string>
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_summary">클라이언트 동영상 스트림을 속여서 재생 문제를 방지할 수 있습니다</string>
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_title">동영상 스트림 속이기</string>
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_summary_on">"동영상 스트림이 속여집니다
 
 YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니다"</string>
-  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_summary_off">"동영상 스트림을 변경하지 않습니다
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_summary_off">"동영상 스트림이 속여지지 않습니다
 
 재생 문제가 발생할 수 있습니다"</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 재생 문제가 발생할 수 있습니다.</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_client_type_title">기본 클라이언트</string>
-  </patch>
-  <patch id="misc.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.audio.forceOriginalAudioPatch"> -->
   <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_title">원본 오디오 언어 강제로 활성화하기</string>
   <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_summary_on">원본 오디오 언어를 사용 중입니다</string>
   <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_summary_off">기본 오디오 언어를 사용 중입니다</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 변경하기\'에서 기본 클라이언트를 Android Studio를 제외한 다른 클라이언트로 변경하세요</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="shared.misc.audio.forceOriginalAudioPatch.revanced_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 속이기\'에서 기본 클라이언트를 Android Studio를 제외한 다른 클라이언트로 변경하세요</string>
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_screen_title">디버그</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_screen_summary">디버그 옵션을 활성화하거나 비활성화할 수 있습니다</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_title">디버그 로그</string>
@@ -166,52 +170,63 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_summary">부울 기능 플래그를 관리할 수 있습니다</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_active_header">허용된 플래그 (%d)</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_blocked_header">차단된 플래그 (%d)</string>
-  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_search_hint">플래그 검색 ...</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_search_hint">플래그 검색...</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_saved">플래그를 저장하였습니다</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_reset">플래그를 초기화하였습니다</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_copied">플래그를 클립보드에 복사하였습니다</string>
-  </patch>
-  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">로그 프로토콜 버퍼</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">디버그 로그에 프로토콜 버퍼를 포함합니다</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">디버그 로그에 프로토콜 버퍼를 포함하지 않습니다</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"이 설정을 활성화하면 일부 UI 구성 요소에 대한 화면 텍스트를 포함한 추가 레이아웃 데이터가 기록됩니다.
+
+이 설정은 사용자 정의 필터를 만들 경우에 구성 요소를 식별하는 데 도움이 될 수 있습니다.
+
+그러나 이 설정을 활성화하면 IP 주소와 같은 일부 사용자 데이터도 기록됩니다."</string>
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.sanitizeSharingLinksPatch"> -->
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
-  <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_summary_on">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 삭제합니다</string>
-  <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_summary_off">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 삭제하지 않습니다</string>
-  <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_title">공유 링크를 youtube.com으로 변경하기</string>
-  <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_on">공유 링크를 youtube.com으로 사용합니다</string>
-  <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_off">공유 링크를 music.youtube.com으로 사용합니다</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_summary_on">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 제거합니다</string>
+  <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_summary_off">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 제거하지 않습니다</string>
+  <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_title">공유 링크를 \'youtube.com\'으로 변경하기</string>
+  <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_on">공유 링크를 \'youtube.com\'으로 사용합니다</string>
+  <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_off">공유 링크를 \'music.youtube.com\'으로 사용합니다</string>
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">사용자 정의 필터</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">사용자 정의 필터를 사용하여 구성요소를 숨길 수 있습니다</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">사용자 정의 필터 활성화하기</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">사용자 정의 필터를 활성화합니다</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">사용자 정의 필터를 비활성화합니다</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">사용자 정의 필터</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">필터링할 컴포넌트 패스 빌더 문자열을 줄바꿈으로 구분하여 설정합니다</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">잘못된 사용자 정의 필터 값입니다: %s</string>
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_00_about_title">정보</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_01_ads_title">광고</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_02_alt_thumbnails_title">대체 썸네일</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_03_feed_title">피드</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_04_general_title">일반</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_05_player_title">플레이어</string>
+  <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_07_seekbar_title">재생바</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_08_swipe_controls_title">스와이프 제스처</string>
+  <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_09_return_youtube_dislike_title">Return YouTube Dislike</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_11_misc_title">기타</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_12_video_title">동영상</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_restore_old_settings_menus_title">이전 설정 메뉴 복원하기</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_restore_old_settings_menus_summary_on">이전 설정 메뉴를 표시합니다</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_restore_old_settings_menus_summary_off">이전 설정 메뉴를 표시하지 않습니다</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_title">Shorts 백그라운드 재생 비활성화하기</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_on">Shorts 백그라운드 재생을 비활성화합니다</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_off">Shorts 백그라운드 재생을 활성화합니다\n\n알림: Shorts 백그라운드 재생은 PIP 모드를 통해서만 사용할 수 있습니다</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">로그 프로토콜 버퍼</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">디버그 로그에 프로토콜 버퍼를 포함합니다</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">디버그 로그에 프로토콜 버퍼를 포함하지 않습니다</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"이 설정을 활성화하면 일부 UI 구성 요소에 대한 화면 텍스트를 포함한 추가 레이아웃 데이터가 기록됩니다.
-
-이 설정은 사용자 정의 필터를 만들 경우에 구성 요소를 식별하는 데 도움이 될 수 있습니다.
-
-그러나 이 설정을 활성화하면 IP 주소와 같은 일부 사용자 데이터도 기록됩니다."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_title">음악 앨범 카드 숨기기</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_summary_on">검색 결과에서 음악 앨범 카드가 숨겨집니다</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_summary_off">검색 결과에서 음악 앨범 카드가 표시됩니다</string>
@@ -440,15 +455,6 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_title">Thanks 버튼 숨기기</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_on">Thanks 버튼이 숨겨집니다</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_off">Thanks 버튼이 표시됩니다</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">사용자 정의 필터</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">사용자 정의 필터를 사용하여 구성요소를 숨길 수 있습니다</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">사용자 정의 필터 활성화하기</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">사용자 정의 필터를 활성화합니다</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">사용자 정의 필터를 비활성화합니다</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">사용자 정의 필터</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">필터링할 컴포넌트 패스 빌더 문자열을 줄바꿈으로 구분하여 설정합니다</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">잘못된 사용자 정의 필터 값입니다: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_title">조회수 숨기기</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_on">피드 및 검색 결과에서 조회수가 숨겨집니다</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_off">피드 및 검색 결과에서 조회수가 표시됩니다</string>
@@ -490,15 +496,15 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
 • 필터링 키워드를 검색하면 검색 결과가 표시되지 않을 수 있습니다"</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_about_whole_words_title">전체 단어 일치시키기</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_about_whole_words_summary">필터링할 키워드 및 구문을 큰따옴표로 묶으면 동영상 제목과 채널 이름이 부분적으로 일치하지 않도록 방지할 수 있습니다&lt;br&gt;&lt;br&gt;• 예를 들어, &lt;b&gt;\"ai\"&lt;/b&gt;라는 키워드로 &lt;b&gt;AI 커리어 완벽 가이드&lt;/b&gt;라는 동영상을 숨길 수 있지만, &lt;b&gt;생성형AI가 바꿔놓은 세계&lt;/b&gt; 또는 &lt;b&gt;What does fair use mean?&lt;/b&gt;라는 동영상은 숨길 수 없습니다&lt;br&gt;• 그리고 구두점을 단어의 경계로 간주하기 때문에 &lt;b&gt;인공지능(AI)의 원리&lt;/b&gt;라는 동영상은 숨길 수 있습니다. 큰따옴표는 다른 단어 내부의 하위 문자열만 무시합니다 (예: &lt;b&gt;fair&lt;/b&gt;는 숨길 수 없지만, &lt;b&gt;f(ai)r&lt;/b&gt;는 숨김)</string>
+  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_content_about_whole_words_summary">필터링할 키워드 및 구문을 큰따옴표로 묶으면 동영상 제목과 채널 이름이 부분적으로 일치하지 않도록 방지할 수 있습니다&lt;br&gt;&lt;br&gt;예를 들어&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt;는 다음 동영상을 숨김: &lt;b&gt;AI 커리어 완벽 가이드&lt;/b&gt;&lt;br&gt;하지만 다음 동영상을 숨기지 못함: &lt;b&gt;생성형AI가 바꿔놓은 세계&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_toast_invalid_common">키워드를 사용할 수 없습니다: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_toast_invalid_common_whole_word_required">키워드를 사용하려면 따옴표를 추가하세요: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_toast_invalid_conflicting">키워드에 충돌하는 선언이 있습니다: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_toast_invalid_length">키워드가 너무 짧아서 따옴표가 필요합니다: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_keyword_toast_invalid_broad">키워드가 모든 동영상을 숨길 것입니다: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_creator_store_shelf_title">판매자 스토어 선반 숨기기</string>
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_creator_store_shelf_summary_on">판매자(크리에이터명) 스토어 선반이 숨겨집니다</string>
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_creator_store_shelf_summary_off">판매자(크리에이터명) 스토어 선반이 표시됩니다</string>
@@ -533,18 +539,18 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_web_search_results_title">웹 검색 결과 숨기기</string>
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_web_search_results_summary_on">웹 검색 결과가 숨겨집니다</string>
   <string name="youtube.ad.general.hideAdsResourcePatch.revanced_hide_web_search_results_summary_off">웹 검색 결과가 표시됩니다</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="youtube.ad.getpremium.hideGetPremiumPatch.revanced_hide_get_premium_title">YouTube Premium 프로모션 숨기기</string>
   <string name="youtube.ad.getpremium.hideGetPremiumPatch.revanced_hide_get_premium_summary_on">YouTube Premium 프로모션이 숨겨집니다</string>
   <string name="youtube.ad.getpremium.hideGetPremiumPatch.revanced_hide_get_premium_summary_off">YouTube Premium 프로모션이 표시됩니다</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="youtube.ad.video.videoAdsPatch.revanced_hide_video_ads_title">동영상 광고 숨기기</string>
   <string name="youtube.ad.video.videoAdsPatch.revanced_hide_video_ads_summary_on">동영상 광고가 숨겨집니다</string>
   <string name="youtube.ad.video.videoAdsPatch.revanced_hide_video_ads_summary_off">동영상 광고가 표시됩니다</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_share_copy_url_success">URL을 클립보드에 복사하였습니다</string>
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_share_copy_url_timestamp_success">타임스탬프가 표기된 URL을 클립보드에 복사하였습니다</string>
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_copy_video_url_title">동영상 URL 복사 버튼 표시하기</string>
@@ -553,24 +559,24 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_copy_video_url_timestamp_title">타임스탬프 URL 복사 버튼 표시하기</string>
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_copy_video_url_timestamp_summary_on">타임스탬프가 표기된 URL 복사 버튼이 표시됩니다\n\n• 버튼을 탭하여 타임스탬프가 표기된 동영상 URL을 복사할 수 있습니다\n• 길게 탭하면 타임스탬프가 표기되지 않은 동영상 URL이 복사됩니다</string>
   <string name="youtube.interaction.copyvideourl.copyVideoUrlResourcePatch.revanced_copy_video_url_timestamp_summary_off">타임스탬프가 표기된 URL 복사 버튼이 표시되지 않습니다</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
-  <string name="youtube.interaction.dialog.removeViewerDiscretionDialogPatch.revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 삭제하기</string>
-  <string name="youtube.interaction.dialog.removeViewerDiscretionDialogPatch.revanced_remove_viewer_discretion_dialog_summary_on">일부 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 삭제합니다</string>
-  <string name="youtube.interaction.dialog.removeViewerDiscretionDialogPatch.revanced_remove_viewer_discretion_dialog_summary_off">일부 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 삭제하지 않습니다</string>
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
+  <string name="youtube.interaction.dialog.removeViewerDiscretionDialogPatch.revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
+  <string name="youtube.interaction.dialog.removeViewerDiscretionDialogPatch.revanced_remove_viewer_discretion_dialog_summary_on">일부 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다</string>
+  <string name="youtube.interaction.dialog.removeViewerDiscretionDialogPatch.revanced_remove_viewer_discretion_dialog_summary_off">일부 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거하지 않습니다</string>
   <string name="youtube.interaction.dialog.removeViewerDiscretionDialogPatch.revanced_remove_viewer_discretion_dialog_user_dialog_message">이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다.</string>
-  </patch>
-  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch"> -->
   <string name="youtube.layout.hide.signintotv.disableSignInToTvPopupPatch.revanced_disable_signin_to_tv_popup_title">\'TV에 로그인\' 팝업 비활성화하기</string>
   <string name="youtube.layout.hide.signintotv.disableSignInToTvPopupPatch.revanced_disable_signin_to_tv_popup_summary_on">\'TV에 로그인\' 팝업을 비활성화합니다</string>
   <string name="youtube.layout.hide.signintotv.disableSignInToTvPopupPatch.revanced_disable_signin_to_tv_popup_summary_off">\'TV에 로그인\' 팝업을 활성화합니다</string>
-  </patch>
-  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.doubletap.disableDoubleTapActionsPatch"> -->
   <string name="youtube.interaction.doubletap.disableDoubleTapActionsPatch.revanced_disable_chapter_skip_double_tap_title">두 번 탭하여 챕터 건너뛰기 비활성화하기</string>
   <string name="youtube.interaction.doubletap.disableDoubleTapActionsPatch.revanced_disable_chapter_skip_double_tap_summary_on">두 번 탭하여 다음/이전 챕터로 건너뛰기가 절대 트리거될 수 없습니다</string>
   <string name="youtube.interaction.doubletap.disableDoubleTapActionsPatch.revanced_disable_chapter_skip_double_tap_summary_off">두 번 탭하여 다음/이전 챕터로 건너뛰기가 가끔 트리거될 수 있습니다</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_screen_title">외부 다운로드</string>
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_screen_summary">외부 다운로더를 설정할 수 있습니다</string>
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_title">외부 다운로드 버튼 표시하기</string>
@@ -590,18 +596,18 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
 
 패키지 이름이 올바르고 앱이 설치되어 있는지 확인하세요"</string>
   <string name="youtube.interaction.downloads.downloadsResourcePatch.revanced_external_downloader_empty_warning">패키지명은 비워둘 수 없습니다</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="youtube.interaction.seekbar.disablePreciseSeekingGesturePatch.revanced_disable_precise_seeking_gesture_title">세밀한 탐색 제스처 비활성화하기</string>
   <string name="youtube.interaction.seekbar.disablePreciseSeekingGesturePatch.revanced_disable_precise_seeking_gesture_summary_on">세밀한 탐색 제스처를 비활성화합니다</string>
   <string name="youtube.interaction.seekbar.disablePreciseSeekingGesturePatch.revanced_disable_precise_seeking_gesture_summary_off">세밀한 탐색 제스처를 활성화합니다</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="youtube.interaction.seekbar.enableSeekbarTappingPatch.revanced_seekbar_tapping_title">재생바 터치 조작 활성화하기</string>
   <string name="youtube.interaction.seekbar.enableSeekbarTappingPatch.revanced_seekbar_tapping_summary_on">재생바 터치 조작을 활성화합니다</string>
   <string name="youtube.interaction.seekbar.enableSeekbarTappingPatch.revanced_seekbar_tapping_summary_off">재생바 터치 조작을 비활성화합니다</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_brightness_title">스와이프 제스처로 밝기 조절 활성화하기</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_brightness_summary_on">"전체 화면 왼쪽에서 위로/아래로 스와이프하여 밝기 조절합니다"</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_brightness_summary_off">전체 화면 왼쪽에서 위로/아래로 스와이프하여 밝기 조절하지 않습니다</string>
@@ -648,13 +654,13 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_change_video_title">스와이프 제스처로 동영상 전환 비활성화하기</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_change_video_summary_on">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다</string>
   <string name="youtube.interaction.swipecontrols.swipeControlsResourcePatch.revanced_swipe_change_video_summary_off">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="youtube.layout.autocaptions.autoCaptionsPatch.revanced_disable_auto_captions_title">자동 자막 비활성화하기</string>
   <string name="youtube.layout.autocaptions.autoCaptionsPatch.revanced_disable_auto_captions_summary_on">자동 자막을 비활성화합니다</string>
   <string name="youtube.layout.autocaptions.autoCaptionsPatch.revanced_disable_auto_captions_summary_off">자동 자막을 활성화합니다</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_buttons_screen_title">동작 버튼</string>
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_buttons_screen_summary">플레이어 하단에서 동작 버튼을 숨기거나 표시할 수 있습니다</string>
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_disable_like_subscribe_glow_title">빛나는 \'좋아요\' / \'구독\' 비활성화하기</string>
@@ -718,8 +724,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_save_button_title">저장 숨기기</string>
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_save_button_summary_on">저장 버튼이 숨겨집니다</string>
   <string name="youtube.layout.buttons.action.hideButtonsPatch.revanced_hide_save_button_summary_off">저장 버튼이 표시됩니다</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_navigation_buttons_screen_title">하단바 버튼</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_navigation_buttons_screen_summary">하단바에서 버튼을 숨기거나 변경할 수 있습니다</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -751,8 +757,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
 
 이 설정을 변경해도 적용되지 않는다면 시크릿 모드로 전환해 보세요."</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_navigation_button_labels_title">하단바 버튼 라벨 숨기기</string>
-  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_navigation_button_labels_summary_on">라벨이 숨겨집니다</string>
-  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_navigation_button_labels_summary_off">라벨이 표시됩니다</string>
+  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_navigation_button_labels_summary_on">하단바 버튼 라벨이 숨겨집니다</string>
+  <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_hide_navigation_button_labels_summary_off">하단바 버튼 라벨이 표시됩니다</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_status_bar_title">반투명 상태바 비활성화하기</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_status_bar_summary_on">상태바가 불투명합니다</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_status_bar_summary_off">상태바가 불투명하거나 반투명합니다</string>
@@ -763,8 +769,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_dark_title">어두운 반투명 하단바 비활성화하기</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_dark_summary_on">어두운 테마에서 하단바가 불투명합니다</string>
   <string name="youtube.layout.buttons.navigation.navigationButtonsPatch.revanced_disable_translucent_navigation_bar_dark_summary_off">어두운 테마에서 하단바가 불투명하거나 반투명합니다</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_title">메뉴 구성요소</string>
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_summary">플레이어에서 메뉴 구성요소를 숨기거나 표시할 수 있습니다</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -814,7 +820,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
                   'Android No SDK' must be kept untranslated. -->
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_audio_track_not_available">"오디오 트랙 메뉴가 숨겨집니다
 
-오디오 트랙 메뉴를 표시하려면, '동영상 스트림 변경하기'에서 기본 클라이언트를 'Android No SDK'로 변경하세요"</string>
+오디오 트랙 메뉴를 표시하려면, '동영상 스트림 속이기'에서 기본 클라이언트를 'Android No SDK'로 변경하세요"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_watch_in_vr_title">VR로 보기 숨기기</string>
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_watch_in_vr_summary_on">VR로 보기 메뉴가 숨겨집니다</string>
@@ -825,8 +831,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_video_quality_footer_title">동영상 화질 메뉴에서 하단 설명 숨기기</string>
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_video_quality_footer_summary_on">화질 설정 메뉴에서 하단 설명이 숨겨집니다</string>
   <string name="youtube.layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch.revanced_hide_player_flyout_video_quality_footer_summary_off">화질 설정 메뉴에서 하단 설명이 표시됩니다</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_autoplay_button_title">자동재생 버튼 숨기기</string>
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_autoplay_button_summary_on">자동재생 버튼이 숨겨집니다</string>
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_autoplay_button_summary_off">자동재생 버튼이 표시됩니다</string>
@@ -843,28 +849,28 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_player_previous_next_buttons_title">이전 &amp; 다음 버튼 숨기기</string>
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_player_previous_next_buttons_summary_on">이전 &amp; 다음 동영상 버튼이 숨겨집니다</string>
   <string name="youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch.revanced_hide_player_previous_next_buttons_summary_off">이전 &amp; 다음 동영상 버튼이 표시됩니다</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch"> -->
   <string name="youtube.layout.hide.endscreencards.hideEndScreenCardsResourcePatch.revanced_hide_endscreen_cards_title">최종 화면 카드 숨기기</string>
   <string name="youtube.layout.hide.endscreencards.hideEndScreenCardsResourcePatch.revanced_hide_endscreen_cards_summary_on">최종 화면 카드가 숨겨집니다</string>
   <string name="youtube.layout.hide.endscreencards.hideEndScreenCardsResourcePatch.revanced_hide_endscreen_cards_summary_off">최종 화면 카드가 표시됩니다</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="youtube.layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch.revanced_disable_fullscreen_ambient_mode_title">전체 화면 앰비언트 모드 비활성화하기</string>
   <string name="youtube.layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch.revanced_disable_fullscreen_ambient_mode_summary_on">앰비언트 모드를 비활성화합니다</string>
   <string name="youtube.layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch.revanced_disable_fullscreen_ambient_mode_summary_off">앰비언트 모드를 활성화합니다</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="youtube.layout.hide.infocards.hideInfocardsResourcePatch.revanced_hide_info_cards_title">정보 카드 숨기기</string>
   <string name="youtube.layout.hide.infocards.hideInfocardsResourcePatch.revanced_hide_info_cards_summary_on">정보 카드가 숨겨집니다</string>
   <string name="youtube.layout.hide.infocards.hideInfocardsResourcePatch.revanced_hide_info_cards_summary_off">정보 카드가 표시됩니다</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="youtube.layout.hide.rollingnumber.disableRollingNumberAnimationPatch.revanced_disable_rolling_number_animations_title">롤링 넘버 애니메이션 비활성화하기</string>
   <string name="youtube.layout.hide.rollingnumber.disableRollingNumberAnimationPatch.revanced_disable_rolling_number_animations_summary_on">롤링 넘버 애니메이션을 비활성화합니다</string>
   <string name="youtube.layout.hide.rollingnumber.disableRollingNumberAnimationPatch.revanced_disable_rolling_number_animations_summary_off">롤링 넘버 애니메이션을 활성화합니다</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_title">동영상 플레이어 재생바 숨기기</string>
   <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_summary_on">동영상 플레이어 재생바가 숨겨집니다</string>
   <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_summary_off">동영상 플레이어 재생바가 표시됩니다</string>
@@ -872,8 +878,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_thumbnail_title">동영상 썸네일 재생바 숨기기</string>
   <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_thumbnail_summary_on">동영상 썸네일 재생바가 숨겨집니다</string>
   <string name="youtube.layout.hide.seekbar.hideSeekbarPatch.revanced_hide_seekbar_thumbnail_summary_off">동영상 썸네일 재생바가 표시됩니다</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="youtube.layout.hide.shorts.hideShortsComponentsResourcePatch.revanced_shorts_player_screen_title">Shorts 플레이어</string>
   <string name="youtube.layout.hide.shorts.hideShortsComponentsResourcePatch.revanced_shorts_player_screen_summary">Shorts 플레이어에서 구성요소를 숨기거나 표시할 수 있습니다</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
@@ -992,48 +998,48 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.hide.shorts.hideShortsComponentsResourcePatch.revanced_hide_shorts_navigation_bar_title">하단바 숨기기</string>
   <string name="youtube.layout.hide.shorts.hideShortsComponentsResourcePatch.revanced_hide_shorts_navigation_bar_summary_on">하단바가 숨겨집니다</string>
   <string name="youtube.layout.hide.shorts.hideShortsComponentsResourcePatch.revanced_hide_shorts_navigation_bar_summary_off">하단바가 표시됩니다</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="youtube.layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch.revanced_end_screen_suggested_video_title">최종 화면 추천 동영상 숨기기</string>
   <string name="youtube.layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch.revanced_end_screen_suggested_video_summary_on">"자동재생이 꺼져 있을 경우에 최종 화면에서 추천 동영상이 숨겨집니다
 
 자동재생은 YouTube 설정에서 변경할 수 있습니다:
 설정 → 재생 → 다음 동영상 자동재생"</string>
   <string name="youtube.layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch.revanced_end_screen_suggested_video_summary_off">최종 화면에서 추천 동영상이 표시됩니다</string>
-  </patch>
-  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch"> -->
   <string name="youtube.layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch.revanced_hide_related_videos_overlay_title">관련 동영상 오버레이 숨기기</string>
   <string name="youtube.layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch.revanced_hide_related_videos_overlay_summary_on">전체 화면에서 관련 동영상 오버레이가 숨겨집니다</string>
   <string name="youtube.layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch.revanced_hide_related_videos_overlay_summary_off">전체 화면에서 관련 동영상 오버레이가 표시됩니다</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="youtube.layout.hide.time.hideTimestampPatch.revanced_hide_timestamp_title">동영상 타임스탬프 숨기기</string>
   <string name="youtube.layout.hide.time.hideTimestampPatch.revanced_hide_timestamp_summary_on">타임스탬프가 숨겨집니다</string>
   <string name="youtube.layout.hide.time.hideTimestampPatch.revanced_hide_timestamp_summary_off">타임스탬프가 표시됩니다</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="youtube.layout.panels.popup.playerPopupPanelsPatch.revanced_hide_player_popup_panels_title">플레이어 팝업 패널 숨기기</string>
   <string name="youtube.layout.panels.popup.playerPopupPanelsPatch.revanced_hide_player_popup_panels_summary_on">다음 플레이어 팝업 패널이 숨겨집니다:\n실시간 채팅, 재생목록, etc.</string>
   <string name="youtube.layout.panels.popup.playerPopupPanelsPatch.revanced_hide_player_popup_panels_summary_off">다음 플레이어 팝업 패널이 표시됩니다:\n실시간 채팅, 재생목록, etc.</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="youtube.layout.player.fullscreen.exitFullscreenPatch.revanced_exit_fullscreen_title">동영상 종료 시 전체 화면에서 나가기</string>
   <string name="youtube.layout.player.fullscreen.exitFullscreenPatch.revanced_exit_fullscreen_entry_1">사용 안함</string>
   <string name="youtube.layout.player.fullscreen.exitFullscreenPatch.revanced_exit_fullscreen_entry_2">세로 모드</string>
   <string name="youtube.layout.player.fullscreen.exitFullscreenPatch.revanced_exit_fullscreen_entry_3">가로 모드</string>
   <string name="youtube.layout.player.fullscreen.exitFullscreenPatch.revanced_exit_fullscreen_entry_4">세로 및 가로 모드</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="youtube.layout.player.fullscreen.openVideosFullscreen.revanced_open_videos_fullscreen_portrait_title">동영상을 전체 화면 세로 모드로 열기</string>
   <string name="youtube.layout.player.fullscreen.openVideosFullscreen.revanced_open_videos_fullscreen_portrait_summary_on">동영상을 전체 화면으로 엽니다</string>
   <string name="youtube.layout.player.fullscreen.openVideosFullscreen.revanced_open_videos_fullscreen_portrait_summary_off">동영상을 전체 화면으로 열지 않습니다</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="youtube.layout.player.overlay.customPlayerOverlayOpacityResourcePatch.revanced_player_overlay_opacity_title">플레이어 오버레이 불투명도</string>
   <string name="youtube.layout.player.overlay.customPlayerOverlayOpacityResourcePatch.revanced_player_overlay_opacity_summary">불투명도 값을 0-100 사이에서 지정할 수 있습니다 (투명: 0)</string>
   <string name="youtube.layout.player.overlay.customPlayerOverlayOpacityResourcePatch.revanced_player_overlay_opacity_invalid_toast">플레이어 오버레이 불투명도는 0-100 사이여야 합니다</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_failure_connection_timeout">싫어요 수를 일시적으로 표시할 수 없습니다 (API 시간 초과)</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_failure_connection_status_code">싫어요 수를 표시할 수 없습니다 (상태 코드: %d)</string>
@@ -1043,6 +1049,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">ReturnYouTubeDislike를 사용하여 투표하려면 동영상을 다시 불러오세요</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_video_likes_hidden_by_video_owner">소유자에 의해 숨겨짐</string>
+  <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_title">Return YouTube Dislike</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_summary_on">싫어요 수를 표시합니다</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_summary_off">싫어요 수를 표시하지 않습니다</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_shorts_title">Shorts에서 싫어요 수 표시하기</string>
@@ -1064,6 +1071,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_title">API 사용 불가 메시지 표시하기</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike를 사용할 수 없을 경우에 팝업 메시지를 표시합니다</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike를 사용할 수 없을 경우에 팝업 메시지를 표시하지 않습니다</string>
+  <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 탭하세요</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_statistics_category_title">이 기기의 ReturnYouTubeDislike API 사용 통계</string>
@@ -1082,13 +1090,13 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">클라이언트 비율을 제한한 적이 없습니다</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">%d 건의 클라이언트 비율 제한이 발생하였습니다</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_statistics_millisecond_text">%d 밀리초</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="youtube.layout.searchbar.wideSearchbarPatch.revanced_wide_searchbar_title">넓은 검색창 활성화하기</string>
   <string name="youtube.layout.searchbar.wideSearchbarPatch.revanced_wide_searchbar_summary_on">넓은 검색창을 활성화합니다</string>
   <string name="youtube.layout.searchbar.wideSearchbarPatch.revanced_wide_searchbar_summary_off">넓은 검색창을 비활성화합니다</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_title">고화질 재생바 썸네일 활성화하기</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_summary_on">고화질 재생바 썸네일을 활성화합니다</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_summary_off">일반 화질 재생바 썸네일을 활성화합니다</string>
@@ -1102,8 +1110,9 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_restore_old_seekbar_thumbnails_title">이전 재생바 썸네일 복원하기</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_restore_old_seekbar_thumbnails_summary_on">재생바 상단에서 최소화된 썸네일을 표시합니다</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_restore_old_seekbar_thumbnails_summary_off">플레이어에서 전체 화면으로 된 썸네일을 표시합니다</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_settings_screen_10_sponsorblock_title">SponsorBlock</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_enable_sb">SponsorBlock 활성화하기</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_enable_sb_sum">SponsorBlock은 YouTube 동영상의 성가신 부분을 건너뛰기 위한 크라우드소싱 시스템입니다</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_appearance_category">레이아웃</string>
@@ -1140,12 +1149,12 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_general_time_without">건너뛸 구간이 제외된 시간 표시하기</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_general_time_without_sum_on">건너뛸 구간이 제외된 동영상 길이를 재생바에 표시합니다</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_general_time_without_sum_off">건너뛸 구간이 포함된 동영상 길이를 재생바에 표시합니다</string>
-  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_create_segment_category">새로운 구간 추가하기</string>
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_create_segment_category">새 구간 추가하기</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_enable_create_segment">구간 추가 버튼 표시하기</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_enable_create_segment_sum_on">플레이어에서 구간 추가 버튼을 표시합니다</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_enable_create_segment_sum_off">플레이어에서 구간 추가 버튼을 표시하지 않습니다</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_general_adjusting">구간 추가 시 최소 슬라이더 단위 설정</string>
-  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_general_adjusting_sum">새로운 구간 추가 시에 시간 앞으로 버튼 또는 뒤로 버튼을 탭하였을 때 이동하는 최소 시간으로, 단위는 밀리초입니다</string>
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_general_adjusting_sum">새 구간 추가 시에 시간 앞으로 버튼 또는 뒤로 버튼을 탭하였을 때 이동하는 최소 시간으로, 단위는 밀리초입니다</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_general_adjusting_invalid">값은 양수여야 합니다</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_guidelines_preference_title">가이드라인 보기</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_guidelines_preference_sum">구간 제출 시의 주의사항에 대한 내용을 포함하고 있습니다</string>
@@ -1264,7 +1273,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_vote_segment_time_to_from">%1$s ~ %2$s</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_new_segment_choose_category">구간 카테고리를 선택하세요</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_new_segment_disabled_category">이 카테고리는 비활성화되어 있습니다. 제출하려면 설정에서 활성화해야 합니다.</string>
-  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_new_segment_title">새로운 SponsorBlock 구간</string>
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_new_segment_title">새 SponsorBlock 구간</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_new_segment_mark_time_as_question">%s 을 구간의 시작 또는 끝으로 설정하시겠습니까?</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_new_segment_mark_start">시작</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_new_segment_mark_end">끝</string>
@@ -1290,7 +1299,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_stats_title">기록</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_stats_connection_failure">기록을 일시적으로 가져올 수 없습니다 (응답 시간 초과)</string>
-  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_stats_loading">불러오는 중 ...</string>
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_stats_loading">불러오는 중...</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_stats_sb_disabled">SponsorBlock을 비활성화하였습니다</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_stats_username">사용자 이름: &lt;b&gt;%s&lt;/b&gt;</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_stats_username_change">사용자 이름을 변경하려면 여기를 탭하세요</string>
@@ -1312,9 +1321,10 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_color_opacity_label">불투명도:</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_color_dot_label">색상:</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_title">정보</string>
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_api_title">sponsor.ajay.app</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_api_summary">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 탭하세요</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_title">레이아웃 폼 팩터 변경하기</string>
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_entry_1">기본값</string>
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_entry_2">폰</string>
@@ -1328,23 +1338,23 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
 오토모티브 레이아웃
 • Shorts가 일반 플레이어에서 재생됩니다
 • 피드가 주제와 채널별로 구성됩니다"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
-  <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_title">앱 버전 변경하기</string>
-  <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_summary_on">앱 버전을 변경합니다</string>
-  <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_summary_off">앱 버전을 변경하지 않습니다</string>
-  <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_user_dialog_message">"앱 버전을 YouTube 이전 앱 버전으로 변경합니다.
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
+  <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_title">앱 버전 속이기</string>
+  <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_summary_on">앱 버전이 속여집니다</string>
+  <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_summary_off">앱 버전이 속여지지 않습니다</string>
+  <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_user_dialog_message">"앱 버전이 YouTube 이전 앱 버전으로 속여집니다.
 
 이 경우 앱 레이아웃과 기능이 변경되지만 알려지지 않은 부작용이 발생할 수 있습니다.
 
 나중에 이 기능을 비활성화하면 앱 UI 버그를 방지하기 위해 앱 데이터를 지우는 것이 좋습니다."</string>
-  <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_target_title">변경할 앱 버전</string>
+  <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_target_title">속이기에 사용될 앱 버전</string>
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_target_entry_1">20.13.41 - 접히지 않은 동영상 동작바를 복원합니다</string>
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_target_entry_2">20.05.46 - 스크립트 기능을 복원합니다</string>
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_target_entry_3">19.35.36 - 이전 Shorts 플레이어 아이콘을 복원합니다</string>
   <string name="youtube.layout.spoofappversion.spoofAppVersionPatch.revanced_spoof_app_version_target_entry_4">19.01.34 - 이전 하단바 아이콘을 복원합니다</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_title">앱 시작 페이지 변경하기</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_default">기본값</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_all_subscriptions">모든 구독 채널</string>
@@ -1364,6 +1374,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_playlists">재생목록</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_search">검색</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_shopping">쇼핑</string>
+  <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_shorts">Shorts</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_sports">스포츠</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_subscriptions">구독</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_trending">인기 급상승</string>
@@ -1376,27 +1387,27 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
 제한 사항:
 • 툴바에서 '뒤로 가기' 버튼이 작동하지 않을 수 있습니다"</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_always_summary_off">앱 시작 페이지를 앱 시작 시에만 변경합니다</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="youtube.layout.startupshortsreset.disableResumingShortsOnStartupPatch.revanced_disable_resuming_shorts_player_title">앱 시작 시 Shorts 플레이어 비활성화하기</string>
   <string name="youtube.layout.startupshortsreset.disableResumingShortsOnStartupPatch.revanced_disable_resuming_shorts_player_summary_on">앱 시작 시 Shorts 플레이어를 다시 실행하지 않습니다</string>
   <string name="youtube.layout.startupshortsreset.disableResumingShortsOnStartupPatch.revanced_disable_resuming_shorts_player_summary_off">앱 시작 시 Shorts 플레이어를 다시 실행합니다</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="youtube.layout.shortsplayer.shortsPlayerTypePatch.revanced_shorts_player_type_title">Shorts 재생 플레이어 유형</string>
   <string name="youtube.layout.shortsplayer.shortsPlayerTypePatch.revanced_shorts_player_type_shorts">Shorts 플레이어</string>
   <string name="youtube.layout.shortsplayer.shortsPlayerTypePatch.revanced_shorts_player_type_regular_player">일반 플레이어</string>
   <string name="youtube.layout.shortsplayer.shortsPlayerTypePatch.revanced_shorts_player_type_regular_player_fullscreen">일반 플레이어 전체 화면</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_title">Shorts 자동재생</string>
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_summary_on">Shorts가 자동넘김됩니다</string>
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_summary_off">Shorts가 반복재생됩니다</string>
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_background_title">Shorts 백그라운드 재생 자동넘김</string>
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_background_summary_on">Shorts 백그라운드 재생이 자동넘김됩니다</string>
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_background_summary_off">Shorts 백그라운드 재생이 반복재생됩니다</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_screen_title">미니 플레이어</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_screen_summary">앱 내에서 최소화된 플레이어의 스타일을 변경할 수 있습니다</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_title">미니 플레이어 유형</string>
@@ -1447,8 +1458,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_opacity_title">미니 플레이어 오버레이 불투명도</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_opacity_summary">불투명도 값을 0-100 사이에서 지정할 수 있습니다 (투명: 0)</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_opacity_invalid_toast">미니 플레이어 오버레이 불투명도는 0-100 사이여야 합니다</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="youtube.layout.theme.themePatch.revanced_gradient_loading_screen_title">그라데이션 색상 로딩 화면 활성화하기</string>
   <string name="youtube.layout.theme.themePatch.revanced_gradient_loading_screen_summary_on">그라데이션 색상 로딩 화면을 활성화합니다</string>
   <string name="youtube.layout.theme.themePatch.revanced_gradient_loading_screen_summary_off">기본 로딩 화면을 활성화합니다</string>
@@ -1463,25 +1474,30 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.theme.themePatch.revanced_seekbar_custom_color_accent_title">사용자 정의 재생바 보조 색상</string>
   <string name="youtube.layout.theme.themePatch.revanced_seekbar_custom_color_accent_summary">재생바 보조 색상을 지정할 수 있습니다</string>
   <string name="youtube.layout.theme.themePatch.revanced_seekbar_custom_color_invalid">잘못된 재생바 색상입니다</string>
-  </patch>
-  <patch id="layout.branding.customBrandingPatch">
-  </patch>
-  <patch id="layout.branding.changeHeaderPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.branding.customBrandingPatch"> -->
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_2">YouTube ReVanced</string>
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_3">YT ReVanced</string>
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_4">YT</string>
+  <!-- </patch> -->
+  <!-- <patch id="layout.branding.changeHeaderPatch"> -->
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_title">헤더 로고</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_1">기본값</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_2">일반</string>
+  <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_3">Premium</string>
+  <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_4">ReVanced</string>
   <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_5">ReVanced 최소화</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_6">사용자 정의</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="youtube.layout.thumbnails.bypassImageRegionRestrictionsPatch.revanced_bypass_image_region_restrictions_title">이미지 표시 제한 지역 우회하기</string>
-  <string name="youtube.layout.thumbnails.bypassImageRegionRestrictionsPatch.revanced_bypass_image_region_restrictions_summary_on">이미지 호스트로 yt4.ggpht.com를 사용합니다</string>
+  <string name="youtube.layout.thumbnails.bypassImageRegionRestrictionsPatch.revanced_bypass_image_region_restrictions_summary_on">이미지 호스트로 \'yt4.ggpht.com\'를 사용합니다</string>
   <string name="youtube.layout.thumbnails.bypassImageRegionRestrictionsPatch.revanced_bypass_image_region_restrictions_summary_off">"기본 이미지 호스트를 사용합니다
 
 이 기능을 활성화하면 일부 지역에서 차단된 이미지를 수신할 수 있습니다"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_home_title">홈 탭</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
@@ -1494,6 +1510,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_2">DeArrow &amp; 원본 썸네일</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_3">DeArrow &amp; 스틸 컷 썸네일</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_4">스틸 컷 썸네일</string>
+  <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_about_summary">"DeArrow는 YouTube 동영상에 크라우드 소싱된 썸네일을 제공합니다. 이러한 썸네일은 YouTube에서 제공하는 썸네일보다 관련성이 높은 경우가 많습니다
 
 이 설정을 활성화하면 동영상 URL이 API 서버로 전송되며, 다른 데이터는 전송되지 않습니다. 동영상에 DeArrow 썸네일이 없는 경우에는 원본 썸네일 또는 스틸 컷 썸네일이 표시됩니다
@@ -1516,40 +1533,43 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_error">DeArrow를 일시적으로 사용할 수 없습니다 (상태 코드: %s)</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_error_generic">DeArrow를 일시적으로 사용할 수 없습니다</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_title">ReVanced 공지 사항 팝업 표시하기</string>
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_summary_on">앱 시작 시 공지 사항 팝업을 표시합니다</string>
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_summary_off">앱 시작 시 공지 사항 팝업을 표시하지 않습니다</string>
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_enabled_summary">앱 시작 시 공지 사항 팝업을 표시할 수 있습니다</string>
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_connection_failed">공지 사항 제공자와 연결할 수 없습니다</string>
   <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_dialog_dismiss">닫기</string>
-  </patch>
-  <patch id="misc.loopvideo.loopVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.loopvideo.loopVideoPatch"> -->
   <string name="youtube.misc.loopvideo.loopVideoPatch.revanced_loop_video_title">동영상 연속 재생 활성화하기</string>
   <string name="youtube.misc.loopvideo.loopVideoPatch.revanced_loop_video_summary_on">동영상이 연속 재생됩니다</string>
   <string name="youtube.misc.loopvideo.loopVideoPatch.revanced_loop_video_summary_off">동영상이 연속 재생되지 않습니다</string>
-  </patch>
-  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.loopvideo.button.loopVideoButtonPatch"> -->
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_title">동영상 연속 재생 버튼 표시하기</string>
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_summary_on">버튼을 표시합니다</string>
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_summary_off">버튼을 표시하지 않습니다</string>
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_toast_on">동영상 연속 재생이 켜집니다</string>
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_toast_off">동영상 연속 재생이 꺼집니다</string>
-  </patch>
-  <patch id="misc.audiofocus.pauseOnAudioInterruptPatch">
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
-  <string name="youtube.misc.dimensions.spoof.spoofDeviceDimensionsPatch.revanced_spoof_device_dimensions_title">기기 크기 정보 변경하기</string>
-  <string name="youtube.misc.dimensions.spoof.spoofDeviceDimensionsPatch.revanced_spoof_device_dimensions_summary_on">"기기 크기 정보를 변경합니다
+  <!-- </patch> -->
+  <!-- <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"> -->
+  <string name="youtube.misc.audiofocus.pauseOnAudioInterruptPatch.revanced_pause_on_audio_interrupt_title">오디오 인터럽트 시 일시 정지</string>
+  <string name="youtube.misc.audiofocus.pauseOnAudioInterruptPatch.revanced_pause_on_audio_interrupt_summary_on">다른 오디오가 재생될 경우에 재생이 일시 정지됩니다 (예: 네비게이션)</string>
+  <string name="youtube.misc.audiofocus.pauseOnAudioInterruptPatch.revanced_pause_on_audio_interrupt_summary_off">다른 오디오가 재생될 경우에 볼륨이 낮아집니다</string>
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
+  <string name="youtube.misc.dimensions.spoof.spoofDeviceDimensionsPatch.revanced_spoof_device_dimensions_title">기기 크기 정보 속이기</string>
+  <string name="youtube.misc.dimensions.spoof.spoofDeviceDimensionsPatch.revanced_spoof_device_dimensions_summary_on">"기기 크기 정보가 속여집니다
 
 이 설정을 활성화하면 더 높은 동영상 화질 값을 잠금 해제할 수 있지만, 동영상 재생이 끊기거나 배터리 수명이 단축될 수 있으며, 알려지지 않은 부작용도 발생할 수 있습니다"</string>
-  <string name="youtube.misc.dimensions.spoof.spoofDeviceDimensionsPatch.revanced_spoof_device_dimensions_summary_off">"기기 크기 정보를 변경하지 않습니다
+  <string name="youtube.misc.dimensions.spoof.spoofDeviceDimensionsPatch.revanced_spoof_device_dimensions_summary_off">"기기 크기 정보가 속여지지 않습니다
 
 이 설정을 활성화하면 더 높은 동영상 화질 값을 잠금 해제할 수 있습니다"</string>
   <string name="youtube.misc.dimensions.spoof.spoofDeviceDimensionsPatch.revanced_spoof_device_dimensions_user_dialog_message">이 설정을 활성화하면 동영상 재생이 끊기거나 배터리 수명이 단축되고 알려지지 않은 부작용이 발생할 수 있습니다.</string>
-  </patch>
-  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.hapticfeedback.disableHapticFeedbackPatch"> -->
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_title">진동 피드백</string>
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_summary">진동 피드백을 활성화하거나 비활성화할 수 있습니다</string>
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_chapters_title">챕터 진동 피드백 비활성화하기</string>
@@ -1564,21 +1584,21 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_zoom_title">동영상 확대 진동 피드백 비활성화하기</string>
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_zoom_summary_on">동영상 확대 진동 피드백을 비활성화합니다</string>
   <string name="youtube.misc.hapticfeedback.disableHapticFeedbackPatch.revanced_disable_haptic_feedback_zoom_summary_off">동영상 확대 진동 피드백을 활성화합니다</string>
-  </patch>
-  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
-  <string name="youtube.misc.gms.accountCredentialsInvalidTextPatch.microg_offline_account_login_error">최근에 계정 로그인 정보를 변경했다면 MicroG를 삭제하고 다시 설치하세요.</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.accountCredentialsInvalidTextPatch"> -->
+  <string name="youtube.misc.gms.accountCredentialsInvalidTextPatch.microg_offline_account_login_error">최근에 계정 로그인 정보를 변경했다면 MicroG를 제거하고 다시 설치하세요.</string>
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="youtube.misc.links.bypassURLRedirectsPatch.revanced_bypass_url_redirects_title">리다이렉션 없이 링크 바로 열기</string>
   <string name="youtube.misc.links.bypassURLRedirectsPatch.revanced_bypass_url_redirects_summary_on">앱 내에서 외부 링크를 열 경우에 URL 리다이렉션(youtube.com/redirect)을 거치지 않고 연결됩니다</string>
   <string name="youtube.misc.links.bypassURLRedirectsPatch.revanced_bypass_url_redirects_summary_off">앱 내에서 외부 링크를 열 경우에 URL 리다이렉션(youtube.com/redirect)을 거쳐서 연결됩니다</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="youtube.misc.links.openLinksExternallyPatch.revanced_external_browser_title">외부 브라우저 사용하기</string>
   <string name="youtube.misc.links.openLinksExternallyPatch.revanced_external_browser_summary_on">앱 내에서 외부 링크를 열 경우에 외부 브라우저를 사용합니다</string>
   <string name="youtube.misc.links.openLinksExternallyPatch.revanced_external_browser_summary_off">앱 내에서 외부 링크를 열 경우에 내부 브라우저를 사용합니다</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_video_quality_default_entry_1">자동</string>
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_remember_video_quality_last_selected_title">동영상 화질 저장 활성화하기</string>
@@ -1598,18 +1618,18 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_remember_video_quality_toast">%1$s 이용 시 기본 동영상 화질 값을 %2$s 로 변경하였습니다</string>
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_remember_video_quality_toast_shorts">%1$s 이용 시 기본 Shorts 화질 값을 %2$s 로 변경하였습니다</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="youtube.video.speed.button.playbackSpeedButtonPatch.revanced_playback_speed_dialog_button_title">동영상 재생 속도 다이얼로그 버튼 표시하기</string>
   <string name="youtube.video.speed.button.playbackSpeedButtonPatch.revanced_playback_speed_dialog_button_summary_on">속도 다이얼로그 버튼이 표시됩니다\n\n• 버튼을 길게 탭하면 동영상 재생 속도가 기본값으로 초기화됩니다</string>
   <string name="youtube.video.speed.button.playbackSpeedButtonPatch.revanced_playback_speed_dialog_button_summary_off">속도 다이얼로그 버튼이 표시되지 않습니다</string>
-  </patch>
-  <patch id="video.quality.button.videoQualityDialogButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.button.videoQualityDialogButtonPatch"> -->
   <string name="youtube.video.quality.button.videoQualityDialogButtonPatch.revanced_video_quality_dialog_button_title">동영상 화질 버튼 표시하기</string>
   <string name="youtube.video.quality.button.videoQualityDialogButtonPatch.revanced_video_quality_dialog_button_summary_on">동영상 화질 버튼이 표시됩니다\n\n• 버튼을 길게 탭하면 화질이 기본값으로 초기화됩니다</string>
   <string name="youtube.video.quality.button.videoQualityDialogButtonPatch.revanced_video_quality_dialog_button_summary_off">동영상 화질 버튼이 표시되지 않습니다</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_custom_speed_menu_title">사용자 정의 동영상 재생 속도 활성화하기</string>
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_custom_speed_menu_summary_on">사용자 정의 동영상 재생 속도를 활성화합니다</string>
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_custom_speed_menu_summary_off">사용자 정의 동영상 재생 속도를 비활성화합니다</string>
@@ -1623,8 +1643,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_custom_playback_speeds_auto">자동</string>
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_speed_tap_and_hold_title">사용자 정의 길게 탭하여 동영상 재생 속도</string>
   <string name="youtube.video.speed.custom.customPlaybackSpeedPatch.revanced_speed_tap_and_hold_summary">화면을 길게 탭하는 동안에 변경되는 동영상 재생 속도를 0-8 사이에서 지정할 수 있습니다</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_remember_playback_speed_last_selected_title">동영상 재생 속도 저장 활성화하기</string>
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장합니다</string>
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장하지 않습니다</string>
@@ -1633,8 +1653,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_remember_playback_speed_last_selected_toast_summary_off">기본 동영상 재생 속도 값을 변경할 때마다 팝업 메시지를 표시하지 않습니다</string>
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_playback_speed_default_title">기본 동영상 재생 속도</string>
   <string name="youtube.video.speed.remember.rememberPlaybackSpeedPatch.revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s 로 변경하였습니다</string>
-  </patch>
-  <patch id="video.codecs.disableVideoCodecsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.codecs.disableVideoCodecsPatch"> -->
   <string name="youtube.video.codecs.disableVideoCodecsPatch.revanced_disable_hdr_video_title">HDR 동영상 비활성화하기</string>
   <string name="youtube.video.codecs.disableVideoCodecsPatch.revanced_disable_hdr_video_summary_on">HDR 동영상을 비활성화합니다</string>
   <string name="youtube.video.codecs.disableVideoCodecsPatch.revanced_disable_hdr_video_summary_off">HDR 동영상을 활성화합니다</string>
@@ -1650,18 +1670,18 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
 • 동영상을 재생할 경우에 VP9 또는 AV1보다 더 많은 인터넷 데이터가 사용됩니다
 • HDR 동영상에서는 AVC가 사용되지 않습니다
 • 일부 기기에서는 AVC를 강제로 활성화할 수 없습니다"</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="youtube.video.quality.advancedVideoQualityMenuPatch.revanced_advanced_video_quality_menu_title">고급 동영상 화질 설정 메뉴 표시하기</string>
   <string name="youtube.video.quality.advancedVideoQualityMenuPatch.revanced_advanced_video_quality_menu_summary_on">고급 동영상 화질 설정 메뉴를 표시합니다</string>
   <string name="youtube.video.quality.advancedVideoQualityMenuPatch.revanced_advanced_video_quality_menu_summary_off">고급 동영상 화질 설정 메뉴를 표시하지 않습니다</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="youtube.interaction.seekbar.enableSlideToSeekPatch.revanced_slide_to_seek_title">슬라이드하여 탐색 활성화하기</string>
   <string name="youtube.interaction.seekbar.enableSlideToSeekPatch.revanced_slide_to_seek_summary_on">슬라이드하여 탐색을 활성화합니다</string>
   <string name="youtube.interaction.seekbar.enableSlideToSeekPatch.revanced_slide_to_seek_summary_off">슬라이드하여 탐색을 비활성화합니다</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_av1_title">Android VR AV1 허용하기</string>
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_av1_summary_on">"동영상 코덱이 AVC (H.264), VP9 또는 AV1으로 결정됩니다
 
@@ -1670,7 +1690,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_av1_user_dialog_message">"이 설정을 활성화하면, 소프트웨어 AV1 디코딩이 사용될 수 있습니다.
 
 AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있습니다."</string>
-  <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_about_title">변경에 따른 부작용</string>
+  <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_about_title">속이기에 따른 부작용</string>
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_about_experimental">• 실험용 클라이언트이며 언제든지 작동이 중단될 수 있습니다</string>
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_about_playback_failure">• 동영상이 1:00에 멈출 수 있으며, 일부 지역에서는 이용이 불가능할 수 있습니다</string>
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_about_no_audio_tracks">• 오디오 트랙 메뉴가 표시되지 않습니다</string>
@@ -1682,29 +1702,32 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_streaming_data_stats_for_nerds_title">전문 통계에서 표시하기</string>
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_streaming_data_stats_for_nerds_summary_on">동영상 스트림을 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다</string>
   <string name="youtube.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_streaming_data_stats_for_nerds_summary_off">동영상 스트림을 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시되지 않습니다</string>
-  </patch>
-  </app>
-  <app id="music">
-  <patch id="layout.branding.customBrandingPatch">
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="music"> -->
+  <!-- <patch id="layout.branding.customBrandingPatch"> -->
+  <string name="music.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_2">YT Music ReVanced</string>
+  <string name="music.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_3">Music ReVanced</string>
+  <string name="music.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_4">Music</string>
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_0_about_title">정보</string>
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_1_ads_title">광고</string>
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_2_general_title">일반</string>
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_3_player_title">플레이어</string>
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_4_misc_title">기타</string>
-  </patch>
-  <patch id="ad.video.hideVideoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.hideVideoAdsPatch"> -->
   <string name="music.ad.video.hideVideoAdsPatch.revanced_music_hide_video_ads_title">동영상 광고 숨기기</string>
   <string name="music.ad.video.hideVideoAdsPatch.revanced_music_hide_video_ads_summary_on">동영상 광고가 숨겨집니다</string>
   <string name="music.ad.video.hideVideoAdsPatch.revanced_music_hide_video_ads_summary_off">동영상 광고가 표시됩니다</string>
-  </patch>
-  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.permanentrepeat.permanentRepeatPatch"> -->
   <string name="music.interaction.permanentrepeat.permanentRepeatPatch.revanced_music_play_permanent_repeat_title">영구적인 반복 활성화하기</string>
   <string name="music.interaction.permanentrepeat.permanentRepeatPatch.revanced_music_play_permanent_repeat_summary_on">영구적인 반복을 활성화합니다</string>
   <string name="music.interaction.permanentrepeat.permanentRepeatPatch.revanced_music_play_permanent_repeat_summary_off">영구적인 반복을 비활성화합니다</string>
-  </patch>
-  <patch id="layout.buttons.hideButtons">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.hideButtons"> -->
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_cast_button_title">크롬캐스트 버튼 숨기기</string>
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_cast_button_summary_on">크롬캐스트 버튼이 숨겨집니다</string>
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_cast_button_summary_off">크롬캐스트 버튼이 표시됩니다</string>
@@ -1717,18 +1740,18 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_search_button_title">검색 버튼 숨기기</string>
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_search_button_summary_on">검색 버튼이 숨겨집니다</string>
   <string name="music.layout.buttons.hideButtons.revanced_music_hide_search_button_summary_off">검색 버튼이 표시됩니다</string>
-  </patch>
-  <patch id="layout.compactheader.hideCategoryBar">
+  <!-- </patch> -->
+  <!-- <patch id="layout.compactheader.hideCategoryBar"> -->
   <string name="music.layout.compactheader.hideCategoryBar.revanced_music_hide_category_bar_title">카테고리 바 숨기기</string>
   <string name="music.layout.compactheader.hideCategoryBar.revanced_music_hide_category_bar_summary_on">카테고리 바가 숨겨집니다</string>
   <string name="music.layout.compactheader.hideCategoryBar.revanced_music_hide_category_bar_summary_off">카테고리 바가 표시됩니다</string>
-  </patch>
-  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayercolor.changeMiniplayerColor"> -->
   <string name="music.layout.miniplayercolor.changeMiniplayerColor.revanced_music_change_miniplayer_color_title">미니 플레이어 색상 변경하기</string>
   <string name="music.layout.miniplayercolor.changeMiniplayerColor.revanced_music_change_miniplayer_color_summary_on">미니 플레이어 색상이 전체 화면 플레이어와 일치합니다</string>
   <string name="music.layout.miniplayercolor.changeMiniplayerColor.revanced_music_change_miniplayer_color_summary_off">미니 플레이어 색상이 기본 색상입니다</string>
-  </patch>
-  <patch id="layout.navigationbar.navigationBarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.navigationbar.navigationBarPatch"> -->
   <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_navigation_bar_screen_title">하단바</string>
   <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_navigation_bar_screen_summary">하단바에서 버튼을 숨기거나 변경할 수 있습니다</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
@@ -1755,58 +1778,58 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
   <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_hide_navigation_bar_summary_on">하단바가 숨겨집니다</string>
   <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_hide_navigation_bar_summary_off">하단바가 표시됩니다</string>
   <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_hide_navigation_bar_labels_title">하단바 버튼 라벨 숨기기</string>
-  <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_hide_navigation_bar_labels_summary_on">라벨이 숨겨집니다</string>
-  <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_hide_navigation_bar_labels_summary_off">라벨이 표시됩니다</string>
-  </patch>
-  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_hide_navigation_bar_labels_summary_on">하단바 버튼 라벨이 숨겨집니다</string>
+  <string name="music.layout.navigationbar.navigationBarPatch.revanced_music_hide_navigation_bar_labels_summary_off">하단바 버튼 라벨이 표시됩니다</string>
+  <!-- </patch> -->
+  <!-- <patch id="layout.premium.hideGetPremiumPatch"> -->
   <string name="music.layout.premium.hideGetPremiumPatch.revanced_music_hide_get_premium_label_title">Music Premium 가입 라벨 숨기기</string>
   <string name="music.layout.premium.hideGetPremiumPatch.revanced_music_hide_get_premium_label_summary_on">Music Premium 가입 라벨이 숨겨집니다</string>
   <string name="music.layout.premium.hideGetPremiumPatch.revanced_music_hide_get_premium_label_summary_off">Music Premium 가입 라벨이 표시됩니다</string>
-  </patch>
-  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.upgradebutton.hideUpgradeButtonPatch"> -->
   <string name="music.layout.upgradebutton.hideUpgradeButtonPatch.revanced_music_hide_upgrade_button_title">업그레이드 버튼 숨기기</string>
   <string name="music.layout.upgradebutton.hideUpgradeButtonPatch.revanced_music_hide_upgrade_button_summary_on">업그레이드 버튼이 숨겨집니다</string>
   <string name="music.layout.upgradebutton.hideUpgradeButtonPatch.revanced_music_hide_upgrade_button_summary_off">업그레이드 버튼이 표시됩니다</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="twitch.ad.audio.audioAdsPatch.revanced_block_audio_ads_title">음성 광고 차단하기</string>
   <string name="twitch.ad.audio.audioAdsPatch.revanced_block_audio_ads_summary_on">음성 광고를 차단합니다</string>
   <string name="twitch.ad.audio.audioAdsPatch.revanced_block_audio_ads_summary_off">음성 광고를 차단하지 않습니다</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_embedded_ads_service_unavailable">%s 를 차단할 수 없기 때문에 광고가 표시될 것입니다. 설정에서 다른 광고 차단 서비스로 전환해 보세요.</string>
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_embedded_ads_service_failed">%s 에서 오류가 발생했기 때문에 광고가 표시될 것입니다. 설정에서 다른 광고 차단 서비스로 전환해 보세요.</string>
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_block_embedded_ads_title">광고 차단 Proxy 서버 사용하기</string>
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_block_embedded_ads_entry_1">사용 안함</string>
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_block_embedded_ads_entry_2">Luminous Proxy</string>
   <string name="twitch.ad.embedded.embeddedAdsPatch.revanced_block_embedded_ads_entry_3">PurpleAdBlock Proxy</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="twitch.ad.video.videoAdsPatch.revanced_block_video_ads_title">동영상 광고 차단하기</string>
   <string name="twitch.ad.video.videoAdsPatch.revanced_block_video_ads_summary_on">동영상 광고를 차단합니다</string>
   <string name="twitch.ad.video.videoAdsPatch.revanced_block_video_ads_summary_off">동영상 광고를 차단하지 않습니다</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="twitch.chat.antidelete.showDeletedMessagesPatch.revanced_deleted_msg">메시지를 삭제하였습니다</string>
   <string name="twitch.chat.antidelete.showDeletedMessagesPatch.revanced_show_deleted_messages_title">삭제된 메시지 표시하기</string>
   <string name="twitch.chat.antidelete.showDeletedMessagesPatch.revanced_show_deleted_messages_entry_1">삭제된 메시지 표시하지 않기</string>
   <string name="twitch.chat.antidelete.showDeletedMessagesPatch.revanced_show_deleted_messages_entry_2">스포일러 뒤에 삭제된 메시지 숨기기</string>
   <string name="twitch.chat.antidelete.showDeletedMessagesPatch.revanced_show_deleted_messages_entry_3">삭제된 메시지를 줄이 그어진 텍스트로 표시하기</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="twitch.chat.autoclaim.autoClaimChannelPointsPatch.revanced_auto_claim_channel_points_title">채널 포인트 자동 적립하기</string>
   <string name="twitch.chat.autoclaim.autoClaimChannelPointsPatch.revanced_auto_claim_channel_points_summary_on">채널 포인트을 자동으로 적립합니다</string>
   <string name="twitch.chat.autoclaim.autoClaimChannelPointsPatch.revanced_auto_claim_channel_points_summary_off">채널 포인트를 자동으로 적립하지 않습니다</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title'. -->
   <string name="twitch.debug.debugModePatch.revanced_twitch_debug_mode_title">Twitch 디버그 모드 활성화하기</string>
   <string name="twitch.debug.debugModePatch.revanced_twitch_debug_mode_summary_on">Twitch 디버그 모드를 활성화합니다 (추천하지 않음)</string>
   <string name="twitch.debug.debugModePatch.revanced_twitch_debug_mode_summary_off">Twitch 디버그 모드를 비활성화합니다</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="twitch.misc.settings.settingsPatch.revanced_settings">ReVanced 설정</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_about_title">정보</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_about_summary">ReVanced 정보</string>
@@ -1823,6 +1846,6 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
   <string name="twitch.misc.settings.settingsPatch.revanced_twitch_debug_title">디버그 로그</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_twitch_debug_summary_on">디버그 로그를 활성화합니다</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_twitch_debug_summary_off">디버그 로그를 비활성화합니다</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

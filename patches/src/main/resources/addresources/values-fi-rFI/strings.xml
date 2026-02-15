@@ -26,6 +26,7 @@ Second \"item\" text"</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_name_entry_5">Mukautettu</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_title">Sovelluskuvake</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_1">Alkuperäinen</string>
+  <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_2">ReVanced</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_3">ReVanced, minimaalinen</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_4">ReVanced, skaalattu</string>
@@ -50,6 +51,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_submenu_title">Asetukset</string>
+  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_title">ReVanced</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_confirm_user_dialog_title">Haluatko varmasti jatkaa?</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_save">Tallenna</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_reset">Nollaa</string>
@@ -121,6 +123,8 @@ Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_title">Naamioi videovirrat</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_summary">Naamioi asiakasohjelman videovirrat toisto-ongelmien estämiseksi</string>
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_title">Naamioi videovirrat</string>
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_summary">Naamioi asiakasohjelman videovirrat toisto-ongelmien estämiseksi</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_title">Naamioi videovirrat</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_summary_on">"Videovirrat on naamioitu
 
@@ -170,6 +174,14 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_saved">Liput tallennettu</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_reset">Liput nollattu</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_copied">Liput kopioitu leikepöydälle</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">Kirjaa protokollapuskuri</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">Virheenkorjauslokit sisältävät proto-puskurin</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">Virheenkorjauslokit eivät sisällä proto-puskuria</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"Tämän asetuksen käyttöönotto kirjaa lisätietoja asettelusta, mm. joidenkin käyttöliittymän osien näyttötekstiä.
+
+Tämä voi auttaa komponenttien tunnistamisessa, kun luot mukautettuja suodattimia.
+
+Tämän käyttöönotto kirjaa myös joitakin käyttäjätietoja, kuten IP-osoitteesi."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_title">Puhdista jakamislinkit</string>
@@ -178,6 +190,17 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_title">Muuta jakolinkit youtube.com-sivustoksi</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_on">Jaetut linkit käyttävät youtube.com-sivustoa</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_off">Jaetut linkit käyttävät music.youtube.com-sivustoa</string>
+  </patch>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">Mukautettu suodatin</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">Piilota osia mukautetuilla suodattimilla</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">Ota mukautettu suodatin käyttöön</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">Mukautettu suodatin on käytössä</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">Mukautettu suodatin ei ole käytössä</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">Mukautettu suodatin</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">Luettelo komponentin polun rakentajan merkkijonoista suodatettavaksi uudella rivillä erotettuna</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">Virheellinen mukautettu suodatin: %s</string>
   </patch>
   </app>
   <app id="youtube">
@@ -188,9 +211,12 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_03_feed_title">Syöte</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_04_general_title">Yleiset</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_05_player_title">Soitin</string>
+  <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_07_seekbar_title">Etenemispalkki</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_08_swipe_controls_title">Pyyhkäisyohjaus</string>
+  <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_09_return_youtube_dislike_title">Return YouTube Dislike</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_11_misc_title">Sekalaiset</string>
+  <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_12_video_title">Video</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_restore_old_settings_menus_title">Palauta vanhat asetusvalikot</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_restore_old_settings_menus_summary_on">Vanhat asetusvalikot näytetään</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_restore_old_settings_menus_summary_off">Vanhoja asetusvalikoita ei näytetä</string>
@@ -199,16 +225,6 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_title">Poista Shortsien taustatoisto käytöstä</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_on">Shortsien taustatoisto ei ole käytössä</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_off">Shortsien taustatoisto on käytössä</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">Kirjaa protokollapuskuri</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">Virheenkorjauslokit sisältävät proto-puskurin</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">Virheenkorjauslokit eivät sisällä proto-puskuria</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"Tämän asetuksen käyttöönotto kirjaa lisätietoja asettelusta, mm. joidenkin käyttöliittymän osien näyttötekstiä.
-
-Tämä voi auttaa komponenttien tunnistamisessa, kun luot mukautettuja suodattimia.
-
-Tämän käyttöönotto kirjaa myös joitakin käyttäjätietoja, kuten IP-osoitteesi."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_title">Piilota albumikortit</string>
@@ -436,15 +452,6 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_title">Piilota Kiitos-painike</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_on">Kiitos-painike piilotetaan</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_off">Kiitos-painike näytetään</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">Mukautettu suodatin</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">Piilota osia mukautetuilla suodattimilla</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">Ota mukautettu suodatin käyttöön</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">Mukautettu suodatin on käytössä</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">Mukautettu suodatin ei ole käytössä</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">Mukautettu suodatin</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">Luettelo komponentin polun rakentajan merkkijonoista suodatettavaksi uudella rivillä erotettuna</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">Virheellinen mukautettu suodatin: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_title">Piilota katselukerrat</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_on">Katselukerrat piilotetaan syötteessä ja hakutuloksissa</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_off">Katselukerrat näytetään syötteessä ja hakutuloksissa</string>
@@ -1044,6 +1051,7 @@ Asetukset → Toisto → Toista seuraava video automaattisesti"</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Lataa video uudelleen äänestääksesi Return YouTube Dislikellä</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_video_likes_hidden_by_video_owner">Omistajan piilottama</string>
+  <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_title">Return YouTube Dislike</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_summary_on">Ei-tykkäykset näytetään</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_summary_off">Ei-tykkäyksiä ei näytetä</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_shorts_title">Näytä ei-tykkykset Shortseissa</string>
@@ -1064,6 +1072,7 @@ Rajoitus: Ei-tykkäykset eivät välttämättä näy incognito-tilassa"</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_title">Näytä ponnahdusilmoitus, jos API ei ole käytettävissä</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_summary_on">Ponnahdusilmoitus näytetään, jos Return YouTube Dislike ei ole käytettävissä</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_summary_off">Ponnahdusilmoitusta ei näytetä, jos Return YouTube Dislike ei ole käytettävissä</string>
+  <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_attribution_summary">Tiedot ovat peräisin Return YouTube Disliken API:sta. Napauta tästä lukeaksesi lisää</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_statistics_category_title">Tämän laitteen ReturnYouTubeDislike API -tilastot</string>
@@ -1092,6 +1101,8 @@ Rajoitus: Ei-tykkäykset eivät välttämättä näy incognito-tilassa"</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_title">Ota korkealaatuiset pikkukuvat käyttöön</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_summary_on">Etenemispalkin pikkukuvat ovat korkealaatuisia</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_summary_off">Etenemispalkin pikkukuvat ovat keskilaatuisia</string>
+  <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Koko näytön etenemispalkin pikkukuvat ovat korkealaatuisia</string>
+  <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Koko näytön etenemispalkin pikkukuvat ovat keskilaatuisia</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_dialog_message">"Tämä palauttaa myös pienoiskuvat livestriimeissä, joilla ei ole etenemispalkin pikkukuvia.
 
 Etenemispalkin pikkukuvat käyttävät samaa laatua kuin nykyinen video.
@@ -1102,6 +1113,7 @@ Tämä ominaisuus toimii parhaiten, kun videon laatu on 720p tai alhaisempi ja k
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_restore_old_seekbar_thumbnails_summary_off">Etenemispalkin pikkukuvat näkyvät kokoruututilassa</string>
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_settings_screen_10_sponsorblock_title">SponsorBlock</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_enable_sb">Ota SponsorBlock käyttöön</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_enable_sb_sum">SponsorBlock on joukkoistettu järjestelmä, jolla voidaan ohittaa YouTube-videoiden ärsyttäviä osia</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_appearance_category">Ulkoasu</string>
@@ -1311,6 +1323,7 @@ Oletko valmis lähettämään?"</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_color_opacity_label">Läpikuultamattomuus:</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_color_dot_label">Väri:</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_title">Tietoja</string>
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_api_title">sponsor.ajay.app</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_api_summary">Tiedot tarjoaa SponsorBlock API. Napauta tätä saadaksesi lisätietoja ja nähdäksesi lataukset muille alustoille</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
@@ -1362,6 +1375,8 @@ Jos tämä poistetaan myöhemmin käytöstä, on suositeltavaa tyhjentää sovel
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_notifications">Ilmoitukset</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_playlists">Soittolistat</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_search">Haku</string>
+  <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_shopping">Shopping</string>
+  <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_shorts">Shorts</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_sports">Urheilu</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_subscriptions">Tilaukset</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_trending">Nousussa</string>
@@ -1427,6 +1442,11 @@ Minisoitin voidaan vetää pois näytöltä vasemmalle tai oikealle"</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_title">Piilota peittokuvan painikkeet</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_summary_on">Peittokuvan painikkeet piilotetaan</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_summary_off">Peittokuvan painikkeet näytetään</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_legacy_title">Piilota laajenna- ja sulje-painikkeet</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Painikkeet on piilotettu
+
+Pyyhkäise laajentaaksesi tai sulkeaksesi"</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Laajenna- ja sulje-painikkeet näytetään</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_subtext_title">Piilota alatekstit</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_subtext_summary_on">Alatekstit piilotetaan</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_subtext_summary_off">Alatekstit näytetään</string>
@@ -1457,11 +1477,16 @@ Minisoitin voidaan vetää pois näytöltä vasemmalle tai oikealle"</string>
   <string name="youtube.layout.theme.themePatch.revanced_seekbar_custom_color_invalid">Virheellinen etenemispalkin väriarvo</string>
   </patch>
   <patch id="layout.branding.customBrandingPatch">
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_2">YouTube ReVanced</string>
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_3">YT ReVanced</string>
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_4">YT</string>
   </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_title">Ylätunnisteen logo</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_1">Oletus</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_2">Tavallinen</string>
+  <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_3">Premium</string>
+  <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_4">ReVanced</string>
   <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_5">ReVanced, minimaalinen</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_6">Mukautettu</string>
@@ -1486,6 +1511,7 @@ Tämä voi korjata puuttuvat kuvat, jotka on estetty tietyillä alueilla"</strin
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_2">Alkuperäiset ja DeArrow-pikkukuvat</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_3">DeArrow- ja kuvakaappaukset</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_4">Kuvakaappaukset</string>
+  <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_about_summary">"DeArrow tarjoaa YouTube-videoille joukkoistettuja pikkukuvia. Nämä pikkukuvat ovat usein osuvampia kuin YouTuben tarjoamat pikkukuvat.
 
 Jos tämä on käytössä, videoiden URL-osoitteet lähetetään API-palvelimelle, mutta muita tietoja ei lähetetä. Jos videolla ei ole DeArrow- pikkukuvia, näytetään alkuperäisiä pikkukuvia tai kuvakaappauksia.
@@ -1530,6 +1556,9 @@ Napauta tästä saadaksesi lisätietoja DeArrowista"</string>
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_toast_off">Jatkuva toisto ei ole käytössä</string>
   </patch>
   <patch id="misc.audiofocus.pauseOnAudioInterruptPatch">
+  <string name="youtube.misc.audiofocus.pauseOnAudioInterruptPatch.revanced_pause_on_audio_interrupt_title">Keskeytä muun äänen alkaessa</string>
+  <string name="youtube.misc.audiofocus.pauseOnAudioInterruptPatch.revanced_pause_on_audio_interrupt_summary_on">Toisto keskeytyy, kun toistetaan muuta ääntä (esim. navigointi)</string>
+  <string name="youtube.misc.audiofocus.pauseOnAudioInterruptPatch.revanced_pause_on_audio_interrupt_summary_off">Äänenvoimakkuus laskee, kun muuta ääntä toistetaan</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="youtube.misc.dimensions.spoof.spoofDeviceDimensionsPatch.revanced_spoof_device_dimensions_title">Naamioi laitteen mitat</string>
@@ -1678,6 +1707,9 @@ AV1-videon toisto saattaa pätkiä."</string>
   </app>
   <app id="music">
   <patch id="layout.branding.customBrandingPatch">
+  <string name="music.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_2">YT Music ReVanced</string>
+  <string name="music.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_3">Music ReVanced</string>
+  <string name="music.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_4">Music</string>
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_0_about_title">Tietoja</string>
@@ -1804,6 +1836,7 @@ AV1-videon toisto saattaa pätkiä."</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_about_summary">Tietoja ReVancedista</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_ads_screen_title">Mainostenesto</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_ads_screen_summary">Mainostenestoasetukset</string>
+  <string name="twitch.misc.settings.settingsPatch.revanced_chat_screen_title">Chat</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_chat_screen_summary">Chat-asetukset</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_misc_screen_title">Sekalaiset</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_misc_screen_summary">Sekalaiset asetukset</string>

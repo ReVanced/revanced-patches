@@ -170,6 +170,14 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_saved">Nişançılar saxlandı</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_reset">Nişançılar sıfırlandı</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_copied">Nişançılar buferə köçürüldü</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">Bufer protokol jurnalı</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">Sazlama jurnallarına protokol buferi daxildir</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">Sazlama jurnallarına protokol buferi daxil deyil</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"Bu seçimi aktivləşdirmə bəzi UI quruluşları üçün ekran mətni də olmaqla əlavə tərtibat bazasını daxil edəcək.
+
+Bu, xüsusi filtrlər yaradarkən quruluşları müəyyən etməyə kömək edə bilər.
+
+Hər halda, bunu aktivləşdirmə IP ünvanınız kimi bəzi istifadəçi məlumatın da daxil edəcək."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_title">Paylaşım linklərin təmizlə</string>
@@ -178,6 +186,17 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_title">Paylaşma keçidlərini youtube.com-a dəyişdir</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_on">Paylaşılan keçidlər youtube.com istifadə edir</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_off">Paylaşılan keçidlər music.youtube.com istifadə edir</string>
+  </patch>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">Şəxsi filtr</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">Fərdi filtrlər işlədərək elementləri gizlət</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">Fərdi filtri aktivləşdir</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">Fərdi filtr aktivdir</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">Fərdi filtr qeyri-aktivdir</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">Fərdi filtr</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">Yeni sətirlə ayrılmış filtr üçün element yol qurucusu sətirlərinin siyahısı</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">Etibarsız fərdi filtr: %s</string>
   </patch>
   </app>
   <app id="youtube">
@@ -199,16 +218,6 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_title">Shorts arxa plan oynatmasın qapat</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_on">Shorts arxa plan oynatma qapalıdır</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_off">Shorts arxa plan oynatma aktivdir</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">Bufer protokol jurnalı</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">Sazlama jurnallarına protokol buferi daxildir</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">Sazlama jurnallarına protokol buferi daxil deyil</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"Bu seçimi aktivləşdirmə bəzi UI quruluşları üçün ekran mətni də olmaqla əlavə tərtibat bazasını daxil edəcək.
-
-Bu, xüsusi filtrlər yaradarkən quruluşları müəyyən etməyə kömək edə bilər.
-
-Hər halda, bunu aktivləşdirmə IP ünvanınız kimi bəzi istifadəçi məlumatın da daxil edəcək."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_title">Albom kartlarını gizlət</string>
@@ -436,15 +445,6 @@ Hər halda, bunu aktivləşdirmə IP ünvanınız kimi bəzi istifadəçi məlum
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_title">Təşəkkür Düyməsini Gizlət</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_on">Təşəkkür düyməsi gizlidir</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_off">Təşəkkür düyməsi göstərilir</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">Şəxsi filtr</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">Fərdi filtrlər işlədərək elementləri gizlət</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">Fərdi filtri aktivləşdir</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">Fərdi filtr aktivdir</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">Fərdi filtr qeyri-aktivdir</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">Fərdi filtr</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">Yeni sətirlə ayrılmış filtr üçün element yol qurucusu sətirlərinin siyahısı</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">Etibarsız fərdi filtr: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_title">Baxış sayını gizlət</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_on">Baxış sayı axın və axtarış nəticələrində gizlidir</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_off">Baxış sayı axın və axtarış nəticələrində görünür</string>
