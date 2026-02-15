@@ -1,3 +1,10 @@
+# [5.50.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.7...v5.50.0-dev.8) (2026-02-15)
+
+
+### Features
+
+* **GmsCore support:** Reduce amount of necessary changes and add update check ([#6582](https://github.com/ReVanced/revanced-patches/issues/6582)) ([650e6a2](https://github.com/ReVanced/revanced-patches/commit/650e6a271075b57368432cd9d4294fd1ce26cceb))
+
 # [5.50.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.6...v5.50.0-dev.7) (2026-02-12)
 
 
