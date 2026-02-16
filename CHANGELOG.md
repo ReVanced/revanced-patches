@@ -1,3 +1,10 @@
+## [5.50.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.50.2...v5.50.3-dev.1) (2026-02-16)
+
+
+### Bug Fixes
+
+* **GmsCore support:** Rename MicroG GmsCore specific strings as well and rename app specific strings correctly ([c2ac1f0](https://github.com/ReVanced/revanced-patches/commit/c2ac1f04a0ac180555a9d19e7ff41525487fbc6d))
+
 ## [5.50.2](https://github.com/ReVanced/revanced-patches/compare/v5.50.1...v5.50.2) (2026-02-15)
 
 
