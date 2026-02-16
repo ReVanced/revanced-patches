@@ -958,6 +958,9 @@ To show the Audio track menu, change \'Spoof video streams\' to \'Android No SDK
         <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
             <string name="revanced_shorts_player_screen_title">Shorts player</string>
             <string name="revanced_shorts_player_screen_summary">Hide or show Shorts player components</string>
+            <string name="revanced_hide_shorts_channel_title">Hide Shorts in channel page</string>
+            <string name="revanced_hide_shorts_channel_summary_on">Hidden in channel page</string>
+            <string name="revanced_hide_shorts_channel_summary_off">Shown in channel page</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
             <string name="revanced_hide_shorts_home_title">Hide Shorts in Home feed</string>
             <string name="revanced_hide_shorts_home_summary_on">Hidden in Home feed and related videos</string>
