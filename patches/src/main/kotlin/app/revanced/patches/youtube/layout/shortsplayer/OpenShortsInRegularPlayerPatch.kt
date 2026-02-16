@@ -7,6 +7,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -15,12 +16,14 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.youtube.layout.player.fullscreen.openVideosFullscreenHookPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
+import app.revanced.patches.youtube.misc.playservice.is_21_07_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateMethod
 import app.revanced.patches.youtube.video.information.playbackStartDescriptorToStringMethodMatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -98,6 +101,52 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
         // Without this change this issue can be difficult to reproduce, but seems to occur
         // most often with 'open video in regular player' and not open in fullscreen player.
         exitVideoPlayerMethod.apply {
+            // TODO: Check if this logic works for older app targets as well.
+            if (is_21_07_or_greater) {
+                findInstructionIndicesReversedOrThrow {
+                    val methodReference = methodReference
+                    methodReference?.name == "finish" && methodReference.parameterTypes.isEmpty()
+                }.forEach { index ->
+                    val returnIndex = indexOfFirstInstructionOrThrow(
+                        index, Opcode.RETURN_VOID
+                    )
+
+                    if (returnIndex == this.implementation!!.instructions.lastIndex) {
+                        val freeRegister = findFreeRegister(index)
+
+                        // Jumps to last index
+                        addInstructionsAtControlFlowLabel(
+                            index,
+                            """
+                                invoke-static { }, ${EXTENSION_CLASS_DESCRIPTOR}->overrideBackPressToExit()Z
+                                move-result v$freeRegister      
+                                if-eqz v$freeRegister, :doNotCallActivityFinish
+                                return-void   
+                                :doNotCallActivityFinish
+                                nop      
+                            """
+                        )
+                    } else {
+                        // Must check free register after the return index.
+                        val freeRegister = findFreeRegister(returnIndex + 1)
+
+                        addInstructionsAtControlFlowLabel(
+                            index,
+                            """
+                                invoke-static { }, ${EXTENSION_CLASS_DESCRIPTOR}->overrideBackPressToExit()Z
+                                move-result v$freeRegister      
+                                if-eqz v$freeRegister, :doNotCallActivityFinish
+                            """, ExternalLabel(
+                                "doNotCallActivityFinish",
+                                getInstruction(returnIndex + 1)
+                            )
+                        )
+                    }
+                }
+                return@apply
+            }
+
+
             // Method call for Activity.finish()
             val finishIndexFirst = indexOfFirstInstructionOrThrow {
                 val reference = getReference<MethodReference>()

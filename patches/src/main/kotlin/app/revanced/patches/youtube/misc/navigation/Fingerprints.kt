@@ -50,7 +50,7 @@ context(_: BytecodePatchContext)
 internal fun ClassDef.getInitializeButtonsMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
-    instructions(ResourceType.LAYOUT("image_only_tab"))
+    instructions("FEvideo_picker"())
 }
 
 /**
