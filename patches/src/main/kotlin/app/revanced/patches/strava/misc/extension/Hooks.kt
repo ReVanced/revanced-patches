@@ -6,5 +6,5 @@ import app.revanced.patches.shared.misc.extension.extensionHook
 
 internal val applicationOnCreateHook = extensionHook {
     name("onCreate")
-    definingClass { endsWith("/StravaApplication;") }
+    definingClass("/StravaApplication;")
 }

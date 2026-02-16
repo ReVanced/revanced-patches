@@ -7,10 +7,10 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.isVIPEPMethod by gettingFirstMethodDeclaratively {
     name("isVIPEP")
-    definingClass { endsWith("RemoteUser;") }
+    definingClass("RemoteUser;")
 }
 
 internal val BytecodePatchContext.isVIPMethod by gettingFirstMethodDeclaratively {
     name("isVIP")
-    definingClass { endsWith("RemoteUser;") }
+    definingClass("RemoteUser;")
 }

@@ -9,7 +9,7 @@ import app.revanced.patcher.returnType
 
 internal val BytecodePatchContext.googleApiActivityMethod by gettingFirstMethodDeclaratively {
     name("onCreate")
-    definingClass { endsWith("GoogleApiActivity;") }
+    definingClass("GoogleApiActivity;")
     returnType("V")
     parameterTypes("Landroid/os/Bundle;")
 }

@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.brightnessMethod by gettingFirstMethodDeclaratively {
     name("run")
-    definingClass { contains("/ScreenPlugin$") }
+    definingClass("/ScreenPlugin$")
     accessFlags(AccessFlags.PUBLIC)
     returnType("V")
     parameterTypes()

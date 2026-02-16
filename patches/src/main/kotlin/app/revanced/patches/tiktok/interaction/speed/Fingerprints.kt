@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.getSpeedMethod by gettingFirstMethodDeclaratively {
     name("onFeedSpeedSelectedEvent")
-    definingClass { endsWith("/BaseListFragmentPanel;") }
+    definingClass("/BaseListFragmentPanel;")
 }
 
 internal val BytecodePatchContext.setSpeedMethod by gettingFirstMethodDeclaratively("enterFrom") {

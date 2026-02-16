@@ -7,5 +7,5 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.getSkipLimitBehaviorMethod by gettingFirstMethodDeclaratively {
     name("getSkipLimitBehavior")
-    definingClass { endsWith("UserData;") }
+    definingClass("UserData;")
 }

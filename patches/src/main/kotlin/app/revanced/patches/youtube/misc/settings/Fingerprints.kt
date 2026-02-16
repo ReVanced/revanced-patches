@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val BytecodePatchContext.licenseActivityOnCreateMethod by gettingFirstMethodDeclaratively {
     name("onCreate")
-    definingClass { endsWith("/LicenseActivity;") }
+    definingClass("/LicenseActivity;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/os/Bundle;")

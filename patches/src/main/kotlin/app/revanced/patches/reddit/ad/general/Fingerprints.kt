@@ -9,7 +9,7 @@ import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val BytecodePatchContext.adPostMethod by gettingFirstMethodDeclaratively("children") {
-    definingClass { endsWith("Listing;") }
+    definingClass("Listing;")
     returnType("V")
 }
 

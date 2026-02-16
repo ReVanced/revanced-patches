@@ -8,6 +8,6 @@ import app.revanced.patcher.returnType
 
 internal val BytecodePatchContext.hasPremiumIconAccessMethod by gettingFirstMethodDeclaratively {
     name("isPremiumSubscriber")
-    definingClass { endsWith("MyAccount;") }
+    definingClass("MyAccount;")
     returnType("Z")
 }

@@ -21,7 +21,7 @@ val playerTypeHookPatch = bytecodePatch(
 
     apply {
         firstMethodDeclaratively {
-            definingClass { endsWith("/YouTubePlayerOverlaysLayout;") }
+            definingClass("/YouTubePlayerOverlaysLayout;")
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             returnType("V")
             parameterTypes(playerTypeEnumMethod.immutableClassDef.type)

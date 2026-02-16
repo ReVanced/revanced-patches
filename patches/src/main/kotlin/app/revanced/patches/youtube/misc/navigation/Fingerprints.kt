@@ -78,7 +78,7 @@ internal val BytecodePatchContext.navigationEnumMethod by gettingFirstImmutableM
     "INCOGNITO_CIRCLE",
     "UNKNOWN", // Required to distinguish from patch extension class.
 ) {
-    definingClass { !startsWith("Lapp/revanced") }
+    definingClass("Lapp/revanced")
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
 }
 
@@ -126,7 +126,7 @@ internal val BytecodePatchContext.pivotBarConstructorMethod by gettingFirstImmut
 }
 
 internal val BytecodePatchContext.imageEnumConstructorMethodMatch by composingFirstMethod {
-    definingClass { !startsWith("Lapp/revanced") }
+    definingClass("Lapp/revanced")
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     instructions(
         "TAB_ACTIVITY_CAIRO"(),

@@ -7,5 +7,5 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.hideCommentAdsMethod by gettingFirstMethodDeclaratively {
     name("invokeSuspend")
-    definingClass { contains("LoadAdsCombinedCall") }
+    definingClass("LoadAdsCombinedCall")
 }

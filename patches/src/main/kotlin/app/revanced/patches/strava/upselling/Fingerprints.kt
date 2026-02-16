@@ -9,6 +9,6 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val BytecodePatchContext.getModulesMethodMatch by composingFirstMethod {
     name("getModules")
-    definingClass { endsWith("/GenericLayoutEntry;") }
+    definingClass("/GenericLayoutEntry;")
     opcodes(Opcode.IGET_OBJECT)
 }

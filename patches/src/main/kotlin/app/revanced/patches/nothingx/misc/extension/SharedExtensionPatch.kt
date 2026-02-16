@@ -9,6 +9,6 @@ val sharedExtensionPatch = sharedExtensionPatch(
     extensionName = "nothingx",
     extensionHook {
         name("onCreate")
-        definingClass { contains("BaseApplication") }
+        definingClass("BaseApplication")
     },
 )

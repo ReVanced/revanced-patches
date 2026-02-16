@@ -31,7 +31,7 @@ internal fun BytecodePatchContext.getAccessibilityTextMethodMatch(accessibilityI
     )
 }
 internal val BytecodePatchContext.lithoFilterInitMethod by gettingFirstMethodDeclaratively {
-    definingClass { endsWith("/LithoFilterPatch;") }
+    definingClass("/LithoFilterPatch;")
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
 }
 

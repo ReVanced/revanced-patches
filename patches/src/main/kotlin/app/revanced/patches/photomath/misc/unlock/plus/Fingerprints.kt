@@ -10,5 +10,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal val BytecodePatchContext.isPlusUnlockedMethod by gettingFirstMethodDeclaratively("genius") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
-    definingClass { endsWith("/User;") }
+    definingClass("/User;")
 }

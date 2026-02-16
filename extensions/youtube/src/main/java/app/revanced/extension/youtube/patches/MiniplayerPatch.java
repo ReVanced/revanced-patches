@@ -296,38 +296,6 @@ public final class MiniplayerPatch {
     /**
      * Injection point.
      */
-    public static boolean isMiniplayerType1Active(boolean original) {
-        if (CURRENT_TYPE == DEFAULT) return original;
-        return CURRENT_TYPE == MODERN_1;
-    }
-
-    /**
-     * Injection point.
-     */
-    public static boolean isMiniplayerType2Active(boolean original) {
-        if (CURRENT_TYPE == DEFAULT) return original;
-        return CURRENT_TYPE == MODERN_2;
-    }
-
-    /**
-     * Injection point.
-     */
-    public static boolean isMiniplayerType3Active(boolean original) {
-        if (CURRENT_TYPE == DEFAULT) return original;
-        return CURRENT_TYPE == MODERN_3;
-    }
-
-    /**
-     * Injection point.
-     */
-    public static boolean isMiniplayerType4Active(boolean original) {
-        if (CURRENT_TYPE == DEFAULT) return original;
-        return CURRENT_TYPE == MODERN_4;
-    }
-
-    /**
-     * Injection point.
-     */
     public static void adjustMiniplayerOpacity(View view) {
         if (CURRENT_TYPE == MODERN_1) {
             if (view instanceof ImageView imageView) {

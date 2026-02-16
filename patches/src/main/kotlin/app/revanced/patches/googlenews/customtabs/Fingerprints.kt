@@ -9,7 +9,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val BytecodePatchContext.launchCustomTabMethodMatch by composingFirstMethod {
-    definingClass { endsWith("CustomTabsArticleLauncher;") }
+    definingClass("CustomTabsArticleLauncher;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.IPUT_OBJECT,

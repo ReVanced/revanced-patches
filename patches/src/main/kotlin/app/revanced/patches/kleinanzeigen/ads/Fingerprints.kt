@@ -7,5 +7,5 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.getLibertyInitMethod by gettingFirstMethodDeclaratively {
     name("init")
-    definingClass { endsWith("/Liberty;") }
+    definingClass("/Liberty;")
 }

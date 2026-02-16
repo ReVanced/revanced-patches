@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val BytecodePatchContext.getEnterFromMethod by gettingFirstImmutableMethodDeclaratively {
-    definingClass { endsWith("/BaseListFragmentPanel;") }
+    definingClass("/BaseListFragmentPanel;")
     returnType("Ljava/lang/String;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes("Z")
@@ -22,5 +22,5 @@ internal val BytecodePatchContext.getEnterFromMethod by gettingFirstImmutableMet
 }
 
 internal val BytecodePatchContext.onRenderFirstFrameMethod by gettingFirstMethodDeclaratively("method_enable_viewpager_preload_duration") {
-    definingClass { endsWith("/BaseListFragmentPanel;") }
+    definingClass("/BaseListFragmentPanel;")
 }
