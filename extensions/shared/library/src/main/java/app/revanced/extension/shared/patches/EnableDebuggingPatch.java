@@ -41,12 +41,13 @@ public final class EnableDebuggingPatch {
     /**
      * Injection point.
      */
-    public static boolean isBooleanFeatureFlagEnabled(boolean value, Long flag) {
+    public static boolean isBooleanFeatureFlagEnabled(boolean value, long flag) {
         if (LOG_FEATURE_FLAGS && value) {
-            if (DISABLED_FEATURE_FLAGS.contains(flag)) {
+            Long flagObj = flag;
+            if (DISABLED_FEATURE_FLAGS.contains(flagObj)) {
                 return false;
             }
-            if (featureFlags.putIfAbsent(flag, TRUE) == null) {
+            if (featureFlags.putIfAbsent(flagObj, TRUE) == null) {
                 Logger.printDebug(() -> "boolean feature is enabled: " + flag);
             }
         }

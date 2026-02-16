@@ -49,7 +49,7 @@ internal fun ClassDef.getExperimentalLongFeatureFlagMethod() = firstMethodDeclar
 
 context(_: BytecodePatchContext)
 internal fun ClassDef.getExperimentalStringFeatureFlagMethod() = firstMethodDeclaratively {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/String;")
-    parameterTypes("J", "Ljava/lang/String;")
+    parameterTypes("L", "J", "Ljava/lang/String;")
+    custom { AccessFlags.STATIC.isSet(accessFlags) }
 }

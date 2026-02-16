@@ -110,8 +110,9 @@ internal fun enableDebuggingPatch(
 
         experimentalBooleanFeatureFlagMethodMatch.let {
             it.method.apply {
-                // In some versions, freeRegister is not available.
-                // The easiest workaround is to copy the method to minimize modifications to the instructions.
+                // Not enough registers in the method. Clone the method and use the
+                // original method as an intermediate to call extension code.
+
 
                 // Copy the method.
                 val helperMethod = cloneMutable(name = "patch_getBooleanFeatureFlag")
@@ -126,12 +127,8 @@ internal fun enableDebuggingPatch(
                         invoke-static { p0, p1, p2, p3 }, $helperMethod
                         move-result p0
                         
-                        # Convert the flag value to 'Long' format to pass it to the extension.
-                        invoke-static { p1, p2 }, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-                        move-result-object p1
-                        
                         # Redefine boolean in the extension.
-                        invoke-static { p0, p1 }, ${EXTENSION_CLASS_DESCRIPTOR}->isBooleanFeatureFlagEnabled(ZLjava/lang/Long;)Z
+                        invoke-static { p0, p1, p2 }, $EXTENSION_CLASS_DESCRIPTOR->isBooleanFeatureFlagEnabled(ZJ)Z
                         move-result p0
                         
                         # Since the copied method (helper method) has already been invoked, it just returns.
@@ -141,30 +138,12 @@ internal fun enableDebuggingPatch(
             }
         }
 
-        // In some versions, the classes for 'experimentalBooleanFeatureFlagMethod' and
-        // 'experimentalDoubleFeatureFlagMethod, experimentalLongFeatureFlagMethod, experimentalStringFeatureFlagMethod'
-        // are different.
-        // To handle this, rely on a parent methods.
-        val experimentalFeatureFlagParentMethod = firstMethodDeclaratively {
-            accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-            returnType("Z")
-            parameterTypes("J", "Z")
-            instructions(method { this == experimentalBooleanFeatureFlagMethodMatch.method })
-        }
-
         if (hookDoubleFeatureFlag())
-            experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalDoubleFeatureFlagMethod()
-                .apply {
-                    // In some versions, freeRegister is not available.
-                    // The easiest workaround is to copy the method to minimize modifications to the instructions.
-                    if (implementation!!.registerCount < 8) {
-                        throw PatchException("Target method has less than 8 registers")
-                    }
-
-                    // Copy the method.
+        // 21.06+ doesn't have enough registers and needs to also clone.
+            experimentalFeatureFlagUtilMethod.immutableClassDef.getExperimentalDoubleFeatureFlagMethod()
+                .cloneMutableAndPreserveParameters().apply {
                     val helperMethod = cloneMutable(name = "patch_getDoubleFeatureFlag")
 
-                    // Add the method.
                     classDef.methods.add(helperMethod)
 
                     addInstructions(
@@ -188,18 +167,10 @@ internal fun enableDebuggingPatch(
                 }
 
         if (hookLongFeatureFlag())
-            experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalLongFeatureFlagMethod()
-                .apply {
-                    // In some versions, freeRegister is not available.
-                    // The easiest workaround is to copy the method to minimize modifications to the instructions.
-                    if (implementation!!.registerCount < 8) {
-                        throw PatchException("Target method has less than 8 registers")
-                    }
-
-                    // Copy the method.
+            experimentalFeatureFlagUtilMethod.immutableClassDef.getExperimentalLongFeatureFlagMethod()
+                .cloneMutableAndPreserveParameters().apply {
                     val helperMethod = cloneMutable(name = "patch_getLongFeatureFlag")
 
-                    // Add the method.
                     classDef.methods.add(helperMethod)
 
                     addInstructions(
@@ -223,19 +194,23 @@ internal fun enableDebuggingPatch(
                 }
 
         if (hookStringFeatureFlag())
-            experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalStringFeatureFlagMethod()
+            experimentalFeatureFlagUtilMethod.immutableClassDef.getExperimentalStringFeatureFlagMethod()
                 .apply {
-                    val insertIndex =
-                        indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT_OBJECT)
+                    val helperMethod = cloneMutable(name = "patch_getStringFeatureFlag")
+
+                    classDef.methods.add(helperMethod)
 
                     addInstructions(
-                        insertIndex,
+                        0,
                         """
-                    move-result-object v0
-                    invoke-static { v0, p1, p2, p3 }, ${EXTENSION_CLASS_DESCRIPTOR}->isStringFeatureFlagEnabled(Ljava/lang/String;JLjava/lang/String;)Ljava/lang/String;
-                    move-result-object v0
-                    return-object v0
-                """
+                        invoke-static { p0, p1, p2, p3 }, $helperMethod
+                        move-result-object p0
+                        
+                        invoke-static { p0, p1, p2, p3 }, ${EXTENSION_CLASS_DESCRIPTOR}->isStringFeatureFlagEnabled(Ljava/lang/String;JLjava/lang/String;)Ljava/lang/String;
+                        move-result-object p0
+                        
+                        return-object p0
+                    """
                     )
                 }
 
