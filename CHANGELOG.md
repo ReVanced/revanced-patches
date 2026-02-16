@@ -1,3 +1,11 @@
+## [5.50.3-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.50.3-dev.1...v5.50.3-dev.2) (2026-02-16)
+
+
+### Bug Fixes
+
+* **GmsCore support:** Handle GmsCore flavors when checking for updates ([2aa19f5](https://github.com/ReVanced/revanced-patches/commit/2aa19f5995fd050c40b15331a77d58144a5a1f69))
+* Use positional substitutes in strings where multiple are present ([aa8c87f](https://github.com/ReVanced/revanced-patches/commit/aa8c87f8650bd5def5f726f02be5d62d72a3007b))
+
 ## [5.50.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.50.2...v5.50.3-dev.1) (2026-02-16)
 
 
