@@ -3,10 +3,9 @@ package app.revanced.patches.shared.layout.branding
 import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.iface.ClassDef
 
-context(_: BytecodePatchContext)
-internal fun ClassDef.getNumberOfPresetAppNamesExtensionMethod() = firstMethodDeclaratively {
+internal val BytecodePatchContext.numberOfPresetAppNamesExtensionMethod by gettingFirstMethodDeclaratively {
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     name("numberOfPresetAppNames")
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("I")
@@ -14,16 +13,16 @@ internal fun ClassDef.getNumberOfPresetAppNamesExtensionMethod() = firstMethodDe
 }
 
 
-context(_: BytecodePatchContext)
-internal fun ClassDef.getUserProvidedCustomNameExtensionMethod() = firstMethodDeclaratively {
+internal val BytecodePatchContext.userProvidedCustomNameExtensionMethod by gettingFirstMethodDeclaratively {
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     name("userProvidedCustomName")
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("Z")
     parameterTypes()
 }
 
-context(_: BytecodePatchContext)
-internal fun ClassDef.getUserProvidedCustomIconExtensionMethod() = firstMethodDeclaratively {
+internal val BytecodePatchContext.userProvidedCustomIconExtensionMethod by gettingFirstMethodDeclaratively {
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     name("userProvidedCustomIcon")
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("Z")

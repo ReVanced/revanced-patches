@@ -23,17 +23,17 @@ internal val BytecodePatchContext.serviceCheckMethod by gettingFirstMethodDeclar
     parameterTypes("L", "I")
 }
 
-context(_: BytecodePatchContext)
-internal fun ClassDef.getGmsCoreVendorGroupIdMethod() = firstMethodDeclaratively {
+internal val BytecodePatchContext.gmsCoreSupportMethod by gettingFirstMethodDeclaratively {
     name("getGmsCoreVendorGroupId")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("Ljava/lang/String;")
     parameterTypes()
 }
 
-context(_: BytecodePatchContext)
-internal fun ClassDef.getOriginalPackageNameExtensionMethod() = firstMethodDeclaratively {
+internal val BytecodePatchContext.originalPackageNameExtensionMethod by gettingFirstMethodDeclaratively {
     name("getOriginalPackageName")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("Ljava/lang/String;")
     parameterTypes()

@@ -171,10 +171,8 @@ fun gmsCoreSupportPatch(
         // Google Play Utility is not present in all apps, so we need to check if it's present.
         googlePlayUtilityMethod?.returnEarly(0)
 
-        val extensionClassDef = firstImmutableClassDef(EXTENSION_CLASS_DESCRIPTOR)
-
         // Set original and patched package names for extension to use.
-        extensionClassDef.getOriginalPackageNameExtensionMethod().returnEarly(fromPackageName)
+        originalPackageNameExtensionMethod.returnEarly(fromPackageName)
 
         // Run GmsCore presence, correct installation and update checks in the main activity.
         getMainActivityOnCreateMethod().addInstruction(
