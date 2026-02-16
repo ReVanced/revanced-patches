@@ -216,6 +216,18 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         SwitchPreference("revanced_hide_community_posts"),
         SwitchPreference("revanced_hide_compact_banner"),
         SwitchPreference("revanced_hide_expandable_card"),
+        PreferenceCategory(
+            titleKey = null,
+            sorting = PreferenceScreenPreference.Sorting.UNSORTED,
+            tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
+            preferences = setOf(
+                SwitchPreference("revanced_hide_feed_flyout_menu"),
+                TextPreference(
+                    "revanced_hide_feed_flyout_menu_filter_strings",
+                    inputType = InputType.TEXT_MULTI_LINE
+                ),
+            )
+        ),
         SwitchPreference("revanced_hide_floating_microphone_button"),
         SwitchPreference(
             key = "revanced_hide_horizontal_shelves",
@@ -578,4 +590,35 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
             }
         }
     }
+
+    // Hide flyout menu items
+
+    bottomSheetMenuItemBuilderMethodMatch.let {
+        it.method.apply {
+            val index = it[1]
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+            addInstructions(
+                index + 1,
+                """
+                        invoke-static { v$register }, ${LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR}->hideFlyoutMenu(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                        move-result-object v$register      
+                    """
+            )
+        }
+    }
+
+    contextualMenuItemBuilderMethodMatch.let {
+        it.method.apply {
+            val index = it[1]
+            val targetInstruction = getInstruction<FiveRegisterInstruction>(index)
+
+            addInstruction(
+                index + 1,
+                "invoke-static { v${targetInstruction.registerC}, v${targetInstruction.registerD} }, " +
+                        "${LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR}->hideFlyoutMenu(Landroid/widget/TextView;Ljava/lang/CharSequence;)V"
+            )
+        }
+    }
 }
+

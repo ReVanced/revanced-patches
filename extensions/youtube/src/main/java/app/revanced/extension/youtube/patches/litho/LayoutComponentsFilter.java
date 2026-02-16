@@ -17,6 +17,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -50,12 +51,24 @@ public final class LayoutComponentsFilter extends Filter {
             "&list="
     );
 
-    private static final String PAGE_HEADER_PATH = "page_header.e";
+    private static final List<String> flyoutMenuFilterStrings;
+    static {
+        String[] flyoutFilters = Settings.HIDE_FEED_FLYOUT_MENU_FILTER_STRINGS.get().split("\\n");
+        List<String> filters = new ArrayList<>(flyoutFilters.length);
+
+        for (String line : flyoutFilters) {
+            String trimmed = line.trim();
+            if (!trimmed.isEmpty()) {
+                filters.add(trimmed);
+            }
+        }
+
+        flyoutMenuFilterStrings = filters;
+    }
 
     private final StringTrieSearch exceptions = new StringTrieSearch();
     private final StringFilterGroup communityPosts;
     private final StringFilterGroup surveys;
-    private final StringFilterGroup subscribeButton;
     private final StringFilterGroup notifyMe;
     private final StringFilterGroup singleItemInformationPanel;
     private final StringFilterGroup expandableMetadata;
@@ -315,7 +328,7 @@ public final class LayoutComponentsFilter extends Filter {
         channelProfile = new StringFilterGroup(
                 null,
                 "channel_profile.e",
-                PAGE_HEADER_PATH
+                "page_header.e"
         );
         channelProfileGroupList = new StringFilterGroupList();
         channelProfileGroupList.addAll(new StringFilterGroup(
@@ -334,11 +347,6 @@ public final class LayoutComponentsFilter extends Filter {
                         Settings.HIDE_SUBSCRIBE_BUTTON_IN_CHANNEL_PAGE,
                         "subscribe_button"
                 )
-        );
-
-        subscribeButton = new StringFilterGroup(
-                Settings.HIDE_SUBSCRIBE_BUTTON_IN_CHANNEL_PAGE,
-                "subscribe_button"
         );
 
         horizontalShelves = new StringFilterGroup(
@@ -414,7 +422,6 @@ public final class LayoutComponentsFilter extends Filter {
                 relatedVideos,
                 singleItemInformationPanel,
                 subscribedChannelsBar,
-                subscribeButton,
                 subscribersCommunityGuidelines,
                 subscriptionsChipBar,
                 surveys,
@@ -445,10 +452,6 @@ public final class LayoutComponentsFilter extends Filter {
 
         if (matchedGroup == channelProfile) {
             return channelProfileGroupList.check(accessibility).isFiltered();
-        }
-
-        if (matchedGroup == subscribeButton) {
-            return path.startsWith(PAGE_HEADER_PATH);
         }
 
         if (matchedGroup == communityPosts
@@ -829,4 +832,60 @@ public final class LayoutComponentsFilter extends Filter {
     public static boolean hideSearchSuggestions(String typingString) {
         return Settings.HIDE_SEARCH_SUGGESTIONS.get() && typingString.isEmpty();
     }
+
+    /**
+     *
+     * Injection point.
+     *
+     * Hide feed flyout menu for phone
+     *
+     * @param menuTitleCharSequence menu title
+     */
+    @Nullable
+    public static CharSequence hideFlyoutMenu(@Nullable CharSequence menuTitleCharSequence) {
+        if (menuTitleCharSequence == null || !Settings.HIDE_FEED_FLYOUT_MENU.get()
+                || flyoutMenuFilterStrings.isEmpty()) {
+            return menuTitleCharSequence;
+        }
+
+        String menuTitleString = menuTitleCharSequence.toString();
+
+        for (String filter : flyoutMenuFilterStrings) {
+            if (!filter.isEmpty()) {
+                if (menuTitleString.equalsIgnoreCase(filter)) {
+                    return null;
+                }
+            }
+        }
+
+        return menuTitleCharSequence;
+    }
+
+    /**
+     * Injection point.
+     *
+     * hide feed flyout panel for tablet
+     *
+     * @param menuTextView          flyout text view
+     * @param menuTitleCharSequence raw text
+     */
+    public static void hideFlyoutMenu(TextView menuTextView, CharSequence menuTitleCharSequence) {
+        if (menuTitleCharSequence == null || !Settings.HIDE_FEED_FLYOUT_MENU.get()
+                || flyoutMenuFilterStrings.isEmpty()) {
+            return;
+        }
+
+        if (!(menuTextView.getParent() instanceof View parentView)) {
+            return;
+        }
+
+        String menuTitleString = menuTitleCharSequence.toString();
+
+        for (String filter : flyoutMenuFilterStrings) {
+            if (menuTitleString.equalsIgnoreCase(filter) && !filter.isEmpty()) {
+                Utils.hideViewByLayoutParams(parentView);
+            }
+        }
+    }
+
 }

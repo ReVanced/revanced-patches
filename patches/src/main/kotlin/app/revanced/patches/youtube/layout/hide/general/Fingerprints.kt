@@ -247,3 +247,34 @@ internal val BytecodePatchContext.latestVideosBarMethodMatch by composingFirstMe
         after(Opcode.MOVE_RESULT_OBJECT())
     )
 }
+
+
+internal val BytecodePatchContext.bottomSheetMenuItemBuilderMethodMatch by composingFirstMethod {
+    returnType("L")
+    parameterTypes("L")
+    instructions(
+        allOf(
+            Opcode.INVOKE_STATIC(),
+            method {
+                returnType == "Ljava/lang/CharSequence;" &&
+                        parameterTypes.size == 1 && parameterTypes[0].startsWith("L")
+            }
+        ),
+        after(Opcode.MOVE_RESULT_OBJECT()),
+        "Text missing for BottomSheetMenuItem."()
+    )
+}
+
+internal val BytecodePatchContext.contextualMenuItemBuilderMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL, AccessFlags.SYNTHETIC)
+    returnType("V")
+    parameterTypes("L", "L")
+    instructions(
+        allOf(Opcode.CHECK_CAST(), type("Landroid/widget/TextView;")),
+        afterAtMost(
+            5,
+            method { toString() == "Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V" }
+        ),
+        ResourceType.DIMEN("poster_art_width_default"),
+    )
+}

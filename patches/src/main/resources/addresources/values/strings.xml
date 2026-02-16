@@ -407,6 +407,11 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_featured_videos_section_title">Hide Featured videos</string>
             <string name="revanced_hide_featured_videos_section_summary_on">Featured videos section is hidden</string>
             <string name="revanced_hide_featured_videos_section_summary_off">Featured videos section is shown</string>
+            <string name="revanced_hide_feed_flyout_menu_title">Enable feed flyout menu filter</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_on">Feed flyout menu filter is enabled</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_off">Feed flyout menu filter is disabled</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Feed flyout menu filter</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">List of flyout menu names to filter, separated by new lines</string>
             <string name="revanced_hide_gaming_section_title">Hide Gaming</string>
             <string name="revanced_hide_gaming_section_summary_on">Gaming section is hidden</string>
             <string name="revanced_hide_gaming_section_summary_off">Gaming section is shown</string>
