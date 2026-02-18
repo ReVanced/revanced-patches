@@ -22,7 +22,7 @@ internal val BytecodePatchContext.serviceCheckMethod by gettingFirstMethodDeclar
     parameterTypes("L", "I")
 }
 
-internal val BytecodePatchContext.gmsCoreSupportMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.getGmsCoreVendorGroupIdMethod by gettingFirstMethodDeclaratively {
     name("getGmsCoreVendorGroupId")
     definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)

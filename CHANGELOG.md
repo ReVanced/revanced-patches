@@ -1,3 +1,100 @@
+## [5.50.3-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.50.3-dev.1...v5.50.3-dev.2) (2026-02-16)
+
+
+### Bug Fixes
+
+* **GmsCore support:** Handle GmsCore flavors when checking for updates ([2aa19f5](https://github.com/ReVanced/revanced-patches/commit/2aa19f5995fd050c40b15331a77d58144a5a1f69))
+* Use positional substitutes in strings where multiple are present ([aa8c87f](https://github.com/ReVanced/revanced-patches/commit/aa8c87f8650bd5def5f726f02be5d62d72a3007b))
+
+## [5.50.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.50.2...v5.50.3-dev.1) (2026-02-16)
+
+
+### Bug Fixes
+
+* **GmsCore support:** Rename MicroG GmsCore specific strings as well and rename app specific strings correctly ([c2ac1f0](https://github.com/ReVanced/revanced-patches/commit/c2ac1f04a0ac180555a9d19e7ff41525487fbc6d))
+
+## [5.50.2](https://github.com/ReVanced/revanced-patches/compare/v5.50.1...v5.50.2) (2026-02-15)
+
+
+### Bug Fixes
+
+* Add missing patch option descriptions ([16e42a7](https://github.com/ReVanced/revanced-patches/commit/16e42a75ecbf51e06432f1f6c96758f8d9bdb771))
+
+## [5.50.1](https://github.com/ReVanced/revanced-patches/compare/v5.50.0...v5.50.1) (2026-02-15)
+
+
+### Bug Fixes
+
+* Fix broken release by bumping to v5.50.1 ([d416609](https://github.com/ReVanced/revanced-patches/commit/d4166092571b542925a59328d3d59fbc42eb29e3))
+
+## [5.50.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.50.0...v5.50.1-dev.1) (2026-02-15)
+
+
+### Bug Fixes
+
+* Fix broken release by bumping to v5.50.1 ([d416609](https://github.com/ReVanced/revanced-patches/commit/d4166092571b542925a59328d3d59fbc42eb29e3))
+
+# [5.49.0](https://github.com/ReVanced/revanced-patches/compare/v5.48.0...v5.49.0) (2026-02-15)
+
+
+### Bug Fixes
+
+* Disable `Prevent screenshot detection` by default ([#6511](https://github.com/ReVanced/revanced-patches/issues/6511)) ([5b5c502](https://github.com/ReVanced/revanced-patches/commit/5b5c50254d533faa0e04d542f4859cbef610713e))
+* **Instagram - Open links externally:** Fix patch by handling >4-bit register ([#6538](https://github.com/ReVanced/revanced-patches/issues/6538)) ([f681a6f](https://github.com/ReVanced/revanced-patches/commit/f681a6ffd45f05a61743e7d272cd68c4b743be42))
+* **Instagram:** Make `Change link sharing domain` and `Sanitize sharing links` work with latest versions again ([#6518](https://github.com/ReVanced/revanced-patches/issues/6518)) ([85a9079](https://github.com/ReVanced/revanced-patches/commit/85a9079c25760d0329e518e379eeefe3beeea143))
+* **Letterboxd - Hide ads:** Fix patch by returning the correct return type ([#6527](https://github.com/ReVanced/revanced-patches/issues/6527)) ([80c34b9](https://github.com/ReVanced/revanced-patches/commit/80c34b9d74a42018a0cd52b4a584ee71206bf963))
+* Process strings from Crowdin to strip the app/patch prefixes again ([e566efc](https://github.com/ReVanced/revanced-patches/commit/e566efc51fca45c6284406245a360685a8e90d74))
+* **Strava:** Fix `Add media download` patch ([#6526](https://github.com/ReVanced/revanced-patches/issues/6526)) ([dc9e68b](https://github.com/ReVanced/revanced-patches/commit/dc9e68ba574dd9f35cd742cb63193c5d875addde))
+
+
+### Features
+
+* **FotMob:** Add `Hide ads` patch ([#6566](https://github.com/ReVanced/revanced-patches/issues/6566)) ([4b0b737](https://github.com/ReVanced/revanced-patches/commit/4b0b7374f21d13599ef2f1e2f5880e7589b0874e))
+* **GmsCore support:** Reduce amount of necessary changes and add update check ([#6582](https://github.com/ReVanced/revanced-patches/issues/6582)) ([650e6a2](https://github.com/ReVanced/revanced-patches/commit/650e6a271075b57368432cd9d4294fd1ce26cceb))
+* **Instagram:** Add `Disable analytics` patch ([#6531](https://github.com/ReVanced/revanced-patches/issues/6531)) ([ad92864](https://github.com/ReVanced/revanced-patches/commit/ad92864483a21d7eae7952c8f8429cde3d44e848))
+* **Kleinanzeigen:** Add `Hide ads` patch ([#6533](https://github.com/ReVanced/revanced-patches/issues/6533)) ([bd6e544](https://github.com/ReVanced/revanced-patches/commit/bd6e544007d539ac2eb890d9bdcb6850435f96cb))
+* **Kleinanzeigen:** Add `Hide PUR` patch  ([#6558](https://github.com/ReVanced/revanced-patches/issues/6558)) ([4958ecf](https://github.com/ReVanced/revanced-patches/commit/4958ecf10c880e9e7f15dd2e58ebaefbf49e417a))
+* **Microsoft Lens:** Remove migration to OneDrive ([#6551](https://github.com/ReVanced/revanced-patches/issues/6551)) ([e389632](https://github.com/ReVanced/revanced-patches/commit/e389632afd52403aba26b6981d098b93cea45e00))
+* **Nothing X:** Add `Show K1 token(s)` patch ([#6490](https://github.com/ReVanced/revanced-patches/issues/6490)) ([421cb28](https://github.com/ReVanced/revanced-patches/commit/421cb2899ef5c0f100fb8007bae8b89137d0e41c))
+* **Strava:** Add `Hide distractions` patch ([#6479](https://github.com/ReVanced/revanced-patches/issues/6479)) ([66b0852](https://github.com/ReVanced/revanced-patches/commit/66b0852f8fa57c82b09997337a304374883d8ba5))
+* **YouTube Music:** Add `Hide layout components` patch ([#6365](https://github.com/ReVanced/revanced-patches/issues/6365)) ([71ce823](https://github.com/ReVanced/revanced-patches/commit/71ce8230a959dcaf2d8cd5dad1a4f21b88819aa0))
+* **YouTube Music:** Add `Unlock Android Auto Media Browser` patch ([#6477](https://github.com/ReVanced/revanced-patches/issues/6477)) ([5edd9dc](https://github.com/ReVanced/revanced-patches/commit/5edd9dccae3b1ab4edf19771a771812e3c9ccf80))
+
+# [5.50.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.7...v5.50.0-dev.8) (2026-02-15)
+
+
+### Features
+
+* **GmsCore support:** Reduce amount of necessary changes and add update check ([#6582](https://github.com/ReVanced/revanced-patches/issues/6582)) ([650e6a2](https://github.com/ReVanced/revanced-patches/commit/650e6a271075b57368432cd9d4294fd1ce26cceb))
+
+# [5.50.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.6...v5.50.0-dev.7) (2026-02-12)
+
+
+### Bug Fixes
+
+* **Instagram:** Make `Change link sharing domain` and `Sanitize sharing links` work with latest versions again ([#6518](https://github.com/ReVanced/revanced-patches/issues/6518)) ([85a9079](https://github.com/ReVanced/revanced-patches/commit/85a9079c25760d0329e518e379eeefe3beeea143))
+
+
+### Features
+
+* **Instagram:** Add `Disable analytics` patch ([#6531](https://github.com/ReVanced/revanced-patches/issues/6531)) ([ad92864](https://github.com/ReVanced/revanced-patches/commit/ad92864483a21d7eae7952c8f8429cde3d44e848))
+* **Kleinanzeigen:** Add `Hide PUR` patch  ([#6558](https://github.com/ReVanced/revanced-patches/issues/6558)) ([4958ecf](https://github.com/ReVanced/revanced-patches/commit/4958ecf10c880e9e7f15dd2e58ebaefbf49e417a))
+* **Microsoft Lens:** Remove migration to OneDrive ([#6551](https://github.com/ReVanced/revanced-patches/issues/6551)) ([e389632](https://github.com/ReVanced/revanced-patches/commit/e389632afd52403aba26b6981d098b93cea45e00))
+
+# [5.50.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.5...v5.50.0-dev.6) (2026-02-06)
+
+
+### Features
+
+* **FotMob:** Add `Hide ads` patch ([#6566](https://github.com/ReVanced/revanced-patches/issues/6566)) ([4b0b737](https://github.com/ReVanced/revanced-patches/commit/4b0b7374f21d13599ef2f1e2f5880e7589b0874e))
+
+# [5.50.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.4...v5.50.0-dev.5) (2026-02-01)
+
+
+### Bug Fixes
+
+* Process strings from Crowdin to strip the app/patch prefixes again ([e566efc](https://github.com/ReVanced/revanced-patches/commit/e566efc51fca45c6284406245a360685a8e90d74))
+
 # [5.50.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.3...v5.50.0-dev.4) (2026-01-27)
 
 

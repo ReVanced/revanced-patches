@@ -58,6 +58,7 @@ val hideDistractionsPatch = bytecodePatch(
         ),
         "promo" to booleanOption(
             name = "Promotions",
+            description = "Elements that promote features, challenges, clubs, etc.",
             default = true,
             required = true,
         ),
@@ -86,7 +87,8 @@ val hideDistractionsPatch = bytecodePatch(
             required = true,
         ),
         "activityLookback" to booleanOption(
-            name = "Your activity from X years ago",
+            name = "Activity lookback",
+            description = "Your activity from X years ago",
             default = false,
             required = true,
         ),

@@ -3,15 +3,13 @@ revanced-patcher = "22.0.0-local"
 # Tracking https://github.com/google/smali/issues/64.
 #noinspection GradleDependency
 smali = "3.0.8"
-# 8.3.0 causes java verifier error: https://github.com/ReVanced/revanced-patches/issues/2818.
-#noinspection GradleDependency
 agp = "8.2.2"
 annotation = "1.9.1"
 appcompat = "1.7.1"
 okhttp = "5.3.2"
 retrofit = "3.0.0"
 guava = "33.5.0-jre"
-apksig = "8.12.3"
+apksig = "9.0.1"
 
 [libraries]
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }

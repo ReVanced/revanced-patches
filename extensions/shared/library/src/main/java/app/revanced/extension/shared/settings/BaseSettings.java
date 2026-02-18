@@ -39,6 +39,8 @@ public class BaseSettings {
      */
     public static final LongSetting FIRST_TIME_APP_LAUNCHED = new LongSetting("revanced_last_time_app_was_launched", -1L, false, false);
 
+    public static final BooleanSetting GMS_CORE_CHECK_UPDATES = new BooleanSetting("revanced_gms_core_check_updates", true, true);
+
     //
     // Settings shared by YouTube and YouTube Music.
     //
