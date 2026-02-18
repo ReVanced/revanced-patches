@@ -51,19 +51,25 @@ public final class LayoutComponentsFilter extends Filter {
             "&list="
     );
 
-    private static final List<String> flyoutMenuFilterStrings;
+    private static final List<String> flyoutMenuFilterStrings = new ArrayList<>();
+    private static final List<String> channelTabFilterStrings = new ArrayList<>();
+
     static {
         String[] flyoutFilters = Settings.HIDE_FEED_FLYOUT_MENU_FILTER_STRINGS.get().split("\\n");
-        List<String> filters = new ArrayList<>(flyoutFilters.length);
-
         for (String line : flyoutFilters) {
             String trimmed = line.trim();
             if (!trimmed.isEmpty()) {
-                filters.add(trimmed);
+                flyoutMenuFilterStrings.add(trimmed);
             }
         }
 
-        flyoutMenuFilterStrings = filters;
+        String[] channelTabFilters = Settings.HIDE_CHANNEL_TAB_FILTER_STRINGS.get().split("\\n");
+        for (String filter : channelTabFilters) {
+            String trimmed = filter.trim();
+            if (!trimmed.isEmpty()) {
+                channelTabFilterStrings.add(trimmed);
+            }
+        }
     }
 
     private final StringTrieSearch exceptions = new StringTrieSearch();
@@ -489,11 +495,13 @@ public final class LayoutComponentsFilter extends Filter {
             final boolean hideTickets = Settings.HIDE_TICKET_SHELF.get();
             final boolean hidePlayables = Settings.HIDE_PLAYABLES.get();
             final boolean hidePlayerShoppingShelf = Settings.HIDE_CREATOR_STORE_SHELF.get();
-            if (!hideShelves && !hideTickets && !hidePlayables && !hidePlayerShoppingShelf) return false;
+            if (!hideShelves && !hideTickets && !hidePlayables && !hidePlayerShoppingShelf)
+                return false;
 
             if (ticketShelfBuffer.check(buffer).isFiltered()) return hideTickets;
             if (playablesBuffer.check(buffer).isFiltered()) return hidePlayables;
-            if (playerShoppingShelfBuffer.check(buffer).isFiltered()) return hidePlayerShoppingShelf;
+            if (playerShoppingShelfBuffer.check(buffer).isFiltered())
+                return hidePlayerShoppingShelf;
 
             // 20.31+ when exiting fullscreen after watching for a while or when resuming the app,
             // then sometimes the buffer isn't correct and the player shopping shelf is shown.
@@ -836,7 +844,7 @@ public final class LayoutComponentsFilter extends Filter {
     /**
      *
      * Injection point.
-     *
+     * <p>
      * Hide feed flyout menu for phone
      *
      * @param menuTitleCharSequence menu title
@@ -863,7 +871,7 @@ public final class LayoutComponentsFilter extends Filter {
 
     /**
      * Injection point.
-     *
+     * <p>
      * hide feed flyout panel for tablet
      *
      * @param menuTextView          flyout text view
@@ -888,4 +896,30 @@ public final class LayoutComponentsFilter extends Filter {
         }
     }
 
+    /**
+     *
+     * Injection point.
+     * <p>
+     * Rather than simply hiding the channel tab view, completely remove the channel tab from the list.
+     * If a channel tab is removed from the list, users will not be able to open it by swiping.
+     *
+     * @param channelTabText Text assigned to the channel tab, such as "Shorts", "Playlists",
+     *                       "Community", "Store". This text follows the user's language.
+     * @return Whether to remove the channel tab from the list.
+     */
+    public static boolean hideChannelTab(@Nullable String channelTabText) {
+        if (channelTabText == null || !Settings.HIDE_CHANNEL_TAB.get()
+                || channelTabFilterStrings.isEmpty()) {
+            return false;
+        }
+
+        for (String filter : channelTabFilterStrings) {
+            String trimmed = filter.trim();
+            if (!trimmed.isEmpty() && channelTabText.equalsIgnoreCase(trimmed)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

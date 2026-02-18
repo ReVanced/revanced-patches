@@ -201,6 +201,18 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         PreferenceScreenPreference(
             key = "revanced_channel_screen",
             preferences = setOf(
+                PreferenceCategory(
+                    titleKey = null,
+                    sorting = PreferenceScreenPreference.Sorting.UNSORTED,
+                    tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
+                    preferences = setOf(
+                        SwitchPreference("revanced_hide_channel_tab"),
+                        TextPreference(
+                            "revanced_hide_channel_tab_filter_strings",
+                            inputType = InputType.TEXT_MULTI_LINE
+                        ),
+                    )
+                ),
                 SwitchPreference("revanced_hide_community_button"),
                 SwitchPreference("revanced_hide_for_you_shelf"),
                 SwitchPreference("revanced_hide_join_button"),
@@ -256,7 +268,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         )
     }
 
-    // region Mix playlists
+    // region Hide mix playlists
 
     parseElementFromBufferMethodMatch.let {
         it.method.apply {
@@ -295,7 +307,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // endregion
 
-    // region Watermark (legacy code for old versions of YouTube)
+    // region Hide watermark (legacy code for old versions of YouTube)
 
     playerOverlayMethod.immutableClassDef.getShowWatermarkMethod().apply {
         val index = implementation!!.instructions.size - 5
@@ -312,7 +324,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // endregion
 
-    // region Show more button
+    // region Hide Show more button
 
     val (textViewField, buttonContainerField) = hideShowMoreButtonSetViewMethodMatch.let {
         val textViewIndex = it[1]
@@ -360,7 +372,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
     // endregion
 
 
-    // region Subscribed channels bar
+    // region Hide Subscribed channels bar
 
     // Tablet
     val methodMatch = if (is_20_21_or_greater)
@@ -398,7 +410,8 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // endregion
 
-    // region Crowdfunding box
+    // region Hide Crowdfunding box
+
     crowdfundingBoxMethodMatch.let {
         it.method.apply {
             val insertIndex = it[-1]
@@ -414,7 +427,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // endregion
 
-    // region hide album cards
+    // region Hide Album cards
 
     albumCardsMethodMatch.let {
         it.method.apply {
@@ -432,7 +445,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // endregion
 
-    // region hide floating microphone
+    // region Hide Floating microphone
 
     showFloatingMicrophoneButtonMethodMatch.let {
         it.method.apply {
@@ -471,7 +484,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // endregion
 
-    // region 'Yoodles'
+    // region Hide 'Yoodles'
 
     yoodlesImageViewMethod.apply {
         findInstructionIndicesReversedOrThrow {
@@ -490,7 +503,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // endregion
 
-    // region hide view count
+    // region Hide view count
 
     hideViewCountMethodMatch.method.apply {
         val startIndex = hideViewCountMethodMatch[0]
@@ -522,7 +535,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // endregion
 
-    // region hide filter bar
+    // region Hide filter bar
 
     /**
      * Patch a [Method] with a given [instructions].
@@ -563,7 +576,9 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                 "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
     }
 
-    // Hide search suggestions
+    // endregion
+
+    // region Hide search suggestions
 
     if (is_20_21_or_greater) {
         searchBoxTypingMethodMatch.let {
@@ -591,7 +606,9 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         }
     }
 
-    // Hide flyout menu items
+    // endregion
+
+    // region Hide flyout menu items
 
     bottomSheetMenuItemBuilderMethodMatch.let {
         it.method.apply {
@@ -620,5 +637,47 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
             )
         }
     }
+
+    // endregion
+
+    // region Hide channel tab
+
+    channelTabRendererMethod.apply {
+        val iteratorIndex = indexOfFirstInstructionReversedOrThrow {
+            methodReference?.name == "hasNext"
+        }
+
+        val iteratorRegister = getInstruction<FiveRegisterInstruction>(iteratorIndex).registerC
+        val targetIndex = indexOfFirstInstructionReversedOrThrow {
+            val reference = methodReference
+
+            opcode == Opcode.INVOKE_INTERFACE &&
+                    reference?.returnType == channelTabBuilderMethod.returnType &&
+                    reference.parameterTypes == channelTabBuilderMethod.parameterTypes
+        }
+
+        val objectIndex = indexOfFirstInstructionReversedOrThrow(
+            targetIndex,
+            Opcode.IGET_OBJECT
+        )
+        val objectInstruction = getInstruction<TwoRegisterInstruction>(objectIndex)
+        val objectReference = getInstruction<ReferenceInstruction>(objectIndex).reference
+
+        addInstructionsWithLabels(
+            objectIndex + 1,
+            """
+                invoke-static { v${objectInstruction.registerA} }, ${LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR}->hideChannelTab(Ljava/lang/String;)Z
+                move-result v${objectInstruction.registerA}
+                if-eqz v${objectInstruction.registerA}, :ignore
+                invoke-interface { v$iteratorRegister }, Ljava/util/Iterator;->remove()V
+                goto :next_iterator
+                :ignore
+                iget-object v${objectInstruction.registerA}, v${objectInstruction.registerB}, $objectReference
+                """,
+            ExternalLabel("next_iterator", getInstruction(iteratorIndex))
+        )
+    }
+
+    // endregion
 }
 

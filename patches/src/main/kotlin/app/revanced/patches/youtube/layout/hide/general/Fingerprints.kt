@@ -278,3 +278,26 @@ internal val BytecodePatchContext.contextualMenuItemBuilderMethodMatch by compos
         ResourceType.DIMEN("poster_art_width_default"),
     )
 }
+
+internal val BytecodePatchContext.channelTabBuilderMethod by gettingFirstMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("Landroid/view/View;")
+    parameterTypes(
+        "Ljava/lang/CharSequence;",
+        "Ljava/lang/CharSequence;",
+        "Z",
+        "L"
+    )
+}
+
+internal val BytecodePatchContext.channelTabRendererMethod by gettingFirstMethodDeclaratively(
+    "TabRenderer.content contains SectionListRenderer but the tab does not have a section list controller."
+) {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes(
+        "L",
+        "Ljava/util/List;",
+        "I"
+    )
+}

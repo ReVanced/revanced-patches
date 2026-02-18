@@ -411,7 +411,7 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_feed_flyout_menu_summary_on">Feed flyout menu filter is enabled</string>
             <string name="revanced_hide_feed_flyout_menu_summary_off">Feed flyout menu filter is disabled</string>
             <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Feed flyout menu filter</string>
-            <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">List of flyout menu names to filter, separated by new lines</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Enter the flyout menu names to filter by, one per line</string>
             <string name="revanced_hide_gaming_section_title">Hide Gaming</string>
             <string name="revanced_hide_gaming_section_summary_on">Gaming section is hidden</string>
             <string name="revanced_hide_gaming_section_summary_off">Gaming section is shown</string>
@@ -459,6 +459,11 @@ However, enabling this will also log some user data such as your IP address."</s
 
             <string name="revanced_channel_screen_title">Channel page</string>
             <string name="revanced_channel_screen_summary">Hide or show channel page components</string>
+            <string name="revanced_hide_channel_tab_title">Enable channel tab filter</string>
+            <string name="revanced_hide_channel_tab_summary_on">Channel tab filter is enabled</string>
+            <string name="revanced_hide_channel_tab_summary_off">Channel tab filter is disabled</string>
+            <string name="revanced_hide_channel_tab_filter_strings_title">Channel tab filter</string>
+            <string name="revanced_hide_channel_tab_filter_strings_summary">Enter the channel tab names to filter by, one per line</string>
             <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
             <string name="revanced_hide_community_button_title">Hide Community button</string>
             <string name="revanced_hide_community_button_summary_on">Community button is hidden</string>
