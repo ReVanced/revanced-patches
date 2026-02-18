@@ -3,6 +3,7 @@ package app.revanced.patches.all.misc.network
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.debugging.enableAndroidDebuggingPatch
 import app.revanced.util.Utils.trimIndentMultiline
+import app.revanced.util.getNode
 import org.w3c.dom.Element
 import java.io.File
 
@@ -19,11 +20,15 @@ val overrideCertificatePinningPatch = resourcePatch(
 
         // Add android:networkSecurityConfig="@xml/network_security_config" and the "networkSecurityConfig" attribute if it does not exist.
         document("AndroidManifest.xml").use { document ->
-            val applicationNode = document.getElementsByTagName("application").item(0) as Element
-
-            if (!applicationNode.hasAttribute("networkSecurityConfig")) {
-                document.createAttribute("android:networkSecurityConfig")
-                    .apply { value = "@xml/network_security_config" }.let(applicationNode.attributes::setNamedItem)
+            val applicationNode = document.getNode("application") as Element
+            applicationNode.apply {
+                if (!hasAttribute("networkSecurityConfig")) {
+                    attributes.setNamedItem(
+                        document.createAttribute("android:networkSecurityConfig").apply {
+                            value = "@xml/network_security_config"
+                        }
+                    )
+                }
             }
         }
 
