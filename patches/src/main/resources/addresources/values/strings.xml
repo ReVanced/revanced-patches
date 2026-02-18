@@ -606,6 +606,43 @@ This feature is only available for older devices"</string>
 Verify the package name is correct and the app is installed"</string>
             <string name="revanced_external_downloader_empty_warning">The package name cannot be empty</string>
         </patch>
+        <patch id="interaction.transcriptsummarizer.transcriptSummarizerResourcePatch">
+            <string name="revanced_transcript_summarizer_screen_title">Transcript summarizer</string>
+            <string name="revanced_transcript_summarizer_screen_summary">AI-powered video transcript summaries</string>
+            <string name="revanced_summarize_transcript_enabled_title">Enable transcript summarizer</string>
+            <string name="revanced_summarize_transcript_enabled_summary_on">Video transcript summarization is enabled</string>
+            <string name="revanced_summarize_transcript_enabled_summary_off">Video transcript summarization is disabled</string>
+            <string name="revanced_gemini_api_key_title">Gemini API key</string>
+            <string name="revanced_gemini_api_key_summary">Enter your Google Gemini API key</string>
+            <string name="revanced_gemini_api_key_dialog_title">Gemini API Key</string>
+            <string name="revanced_gemini_api_key_invalid_format">Invalid API key format</string>
+            <string name="revanced_gemini_api_key_saved">API key saved successfully</string>
+            <string name="revanced_summarize_show_button_title">Show summarize button</string>
+            <string name="revanced_summarize_show_button_summary_on">Summarize button shown in player</string>
+            <string name="revanced_summarize_show_button_summary_off">Summarize button hidden</string>
+            <string name="revanced_summarize_auto_expand_title">Auto-expand summaries</string>
+            <string name="revanced_summarize_auto_expand_summary_on">Summaries are automatically expanded</string>
+            <string name="revanced_summarize_auto_expand_summary_off">Summaries are collapsed by default</string>
+            <string name="revanced_clear_transcript_cache_title">Clear summary cache</string>
+            <string name="revanced_clear_transcript_cache_summary">%d summaries cached (%s)</string>
+            <string name="revanced_clear_transcript_cache_empty">Cache is empty</string>
+            <string name="revanced_clear_transcript_cache_dialog_title">Clear Cache</string>
+            <string name="revanced_clear_transcript_cache_dialog_message">Clear %d cached summaries? This cannot be undone.</string>
+            <string name="revanced_clear_transcript_cache_clear">Clear</string>
+            <string name="revanced_clear_transcript_cache_success">Cache cleared successfully</string>
+            <string name="revanced_clear_transcript_cache_error">Failed to clear cache</string>
+            <string name="revanced_summarize_no_api_key">Please set your Gemini API key in settings</string>
+            <string name="revanced_summarize_no_video">No video is currently playing</string>
+            <string name="revanced_summarize_already_processing">Already generating summary for this video</string>
+            <string name="revanced_summarize_fetching_transcript">Fetching transcript...</string>
+            <string name="revanced_summarize_generating">Generating summary...</string>
+            <string name="revanced_summarize_no_player_response">Unable to access video data</string>
+            <string name="revanced_summarize_no_transcript">No transcript available for this video</string>
+            <string name="revanced_summarize_api_error">Summarization failed: %s</string>
+            <string name="revanced_summarize_success">Summary generated</string>
+            <string name="revanced_summarize_success_cached">Summary loaded from cache</string>
+            <string name="revanced_summarize_dialog_title">Video Summary</string>
+        </patch>
         <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
             <string name="revanced_disable_precise_seeking_gesture_title">Disable precise seeking gesture</string>
             <string name="revanced_disable_precise_seeking_gesture_summary_on">Precise seeking gesture is disabled</string>

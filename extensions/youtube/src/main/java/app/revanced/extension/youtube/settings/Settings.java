@@ -180,6 +180,12 @@ public class Settings extends YouTubeAndMusicSettings {
     public static final IntegerSetting PLAYER_OVERLAY_OPACITY = new IntegerSetting("revanced_player_overlay_opacity", 100, true);
     public static final BooleanSetting PLAYER_POPUP_PANELS = new BooleanSetting("revanced_hide_player_popup_panels", FALSE);
 
+    // Transcript summarizer
+    public static final BooleanSetting SUMMARIZE_TRANSCRIPT_ENABLED = new BooleanSetting("revanced_summarize_transcript_enabled", FALSE);
+    public static final StringSetting GEMINI_API_KEY = new StringSetting("revanced_gemini_api_key", "", parent(SUMMARIZE_TRANSCRIPT_ENABLED));
+    public static final BooleanSetting SUMMARIZE_AUTO_EXPAND = new BooleanSetting("revanced_summarize_auto_expand", FALSE, parent(SUMMARIZE_TRANSCRIPT_ENABLED));
+    public static final BooleanSetting SUMMARIZE_SHOW_BUTTON = new BooleanSetting("revanced_summarize_show_button", TRUE, parent(SUMMARIZE_TRANSCRIPT_ENABLED));
+
     // Miniplayer
     public static final EnumSetting<MiniplayerType> MINIPLAYER_TYPE = new EnumSetting<>("revanced_miniplayer_type", MiniplayerType.DEFAULT, true);
     public static final BooleanSetting MINIPLAYER_DISABLE_DRAG_AND_DROP = new BooleanSetting("revanced_miniplayer_disable_drag_and_drop", FALSE, true, new MiniplayerAnyModernAvailability());
