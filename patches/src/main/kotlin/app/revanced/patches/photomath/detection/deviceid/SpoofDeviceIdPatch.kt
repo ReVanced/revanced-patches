@@ -6,7 +6,7 @@ import app.revanced.util.returnEarly
 import kotlin.random.Random
 
 @Suppress("unused")
-val getDeviceIdPatch = bytecodePatch(
+val spoofDeviceIDPatch = bytecodePatch(
     name = "Spoof device ID",
     description = "Spoofs device ID to mitigate manual bans by developers.",
 ) {
@@ -14,7 +14,7 @@ val getDeviceIdPatch = bytecodePatch(
 
     compatibleWith("com.microblink.photomath")
 
-    execute {
-        getDeviceIdFingerprint.method.returnEarly(Random.nextLong().toString(16))
+    apply {
+        getDeviceIdMethod.returnEarly(Random.nextLong().toString(16))
     }
 }

@@ -13,7 +13,7 @@ val disableAdFreeBannerPatch = bytecodePatch(
 
     compatibleWith("com.tumblr")
 
-    execute {
+    apply {
         // Disable the "AD_FREE_CTA_BANNER" ("Whether or not to show ad free prompt") feature flag.
         addFeatureFlagOverride("adFreeCtaBanner", "false")
     }

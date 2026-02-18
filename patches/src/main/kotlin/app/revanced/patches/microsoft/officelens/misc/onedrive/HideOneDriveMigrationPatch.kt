@@ -10,8 +10,8 @@ val hideOneDriveMigrationPatch = bytecodePatch(
 ) {
     compatibleWith("com.microsoft.office.officelens")
 
-    execute {
-        hasMigratedToOneDriveFingerprint.method.replaceInstructions(
+    apply {
+        hasMigratedToOneDriveMethod.replaceInstructions(
             0,
             """
                 sget-object v0, Lcom/microsoft/office/officelens/scansMigration/LensMigrationStage;->PreMigration:Lcom/microsoft/office/officelens/scansMigration/LensMigrationStage;

@@ -3,13 +3,15 @@ package app.revanced.extension.youtube.patches.theme;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.theme.BaseThemePatch;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class ThemePatch extends BaseThemePatch {
     public enum SplashScreenAnimationStyle {
-        DEFAULT(0),
+        // 0 int style exists in target app as a fall thru default, but it's value is repurposed to be disabled.
+        DISABLED(0),
         FPS_60_ONE_SECOND(1),
         FPS_60_TWO_SECOND(2),
         FPS_60_FIVE_SECOND(3),
@@ -78,9 +80,27 @@ public class ThemePatch extends BaseThemePatch {
     /**
      * Injection point.
      */
+    public static boolean showSplashScreen(boolean original) {
+        return Settings.SPLASH_SCREEN_ANIMATION_STYLE.get() != SplashScreenAnimationStyle.DISABLED && original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static int showSplashScreen(int i, int i2) {
+        if (Settings.SPLASH_SCREEN_ANIMATION_STYLE.get() != SplashScreenAnimationStyle.DISABLED || i != i2) {
+            return i;
+        }
+        return i - 1;
+    }
+
+    /**
+     * Injection point.
+     */
     public static int getLoadingScreenType(int original) {
         SplashScreenAnimationStyle style = Settings.SPLASH_SCREEN_ANIMATION_STYLE.get();
-        if (style == SplashScreenAnimationStyle.DEFAULT) {
+
+        if (style == SplashScreenAnimationStyle.DISABLED) {
             return original;
         }
 

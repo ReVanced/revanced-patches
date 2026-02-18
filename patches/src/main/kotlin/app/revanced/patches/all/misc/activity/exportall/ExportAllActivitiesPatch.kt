@@ -8,7 +8,7 @@ val exportAllActivitiesPatch = resourcePatch(
     description = "Makes all app activities exportable.",
     use = false,
 ) {
-    execute {
+    apply {
         val exportedFlag = "android:exported"
 
         document("AndroidManifest.xml").use { document ->

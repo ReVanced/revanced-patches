@@ -3,13 +3,12 @@ package app.revanced.extension.youtube.patches.playback.quality;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.NetworkType;
 
-import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
-
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.IntegerSetting;
 import app.revanced.extension.youtube.patches.VideoInformation;
+import app.revanced.extension.youtube.patches.VideoInformation.*;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.ShortsPlayerState;
 
@@ -20,7 +19,6 @@ public class RememberVideoQualityPatch {
     private static final IntegerSetting videoQualityMobile = Settings.VIDEO_QUALITY_DEFAULT_MOBILE;
     private static final IntegerSetting shortsQualityWifi = Settings.SHORTS_QUALITY_DEFAULT_WIFI;
     private static final IntegerSetting shortsQualityMobile = Settings.SHORTS_QUALITY_DEFAULT_MOBILE;
-
 
     public static boolean shouldRememberVideoQuality() {
         BooleanSetting preference = ShortsPlayerState.isOpen()
@@ -75,12 +73,12 @@ public class RememberVideoQualityPatch {
     public static void userChangedShortsQuality(int userSelectedQualityIndex) {
         try {
             if (shouldRememberVideoQuality()) {
-                VideoQuality[] currentQualities = VideoInformation.getCurrentQualities();
+                VideoQualityInterface[] currentQualities = VideoInformation.getCurrentQualities();
                 if (currentQualities == null) {
                     Logger.printDebug(() -> "Cannot save default quality, qualities is null");
                     return;
                 }
-                VideoQuality quality = currentQualities[userSelectedQualityIndex];
+                VideoQualityInterface quality = currentQualities[userSelectedQualityIndex];
                 saveDefaultQuality(quality.patch_getResolution());
             }
         } catch (Exception ex) {

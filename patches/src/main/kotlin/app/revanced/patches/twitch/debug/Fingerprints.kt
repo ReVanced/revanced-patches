@@ -1,21 +1,21 @@
 package app.revanced.patches.twitch.debug
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val isDebugConfigEnabledFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("/BuildConfigUtil;") && method.name == "isDebugConfigEnabled"
-    }
+internal val BytecodePatchContext.isDebugConfigEnabledMethod by gettingFirstMethodDeclaratively {
+    name("isDebugConfigEnabled")
+    definingClass("/BuildConfigUtil;")
 }
 
-internal val isOmVerificationEnabledFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("/BuildConfigUtil;") && method.name == "isOmVerificationEnabled"
-    }
+internal val BytecodePatchContext.isOmVerificationEnabledMethod by gettingFirstMethodDeclaratively {
+    name("isOmVerificationEnabled")
+    definingClass("/BuildConfigUtil;")
 }
 
-internal val shouldShowDebugOptionsFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("/BuildConfigUtil;") && method.name == "shouldShowDebugOptions"
-    }
+internal val BytecodePatchContext.shouldShowDebugOptionsMethod by gettingFirstMethodDeclaratively {
+    name("shouldShowDebugOptions")
+    definingClass("/BuildConfigUtil;")
 }

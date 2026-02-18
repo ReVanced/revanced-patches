@@ -1,11 +1,8 @@
 package app.revanced.patches.tiktok.misc.share
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.shared.PATCH_DESCRIPTION_SANITIZE_SHARING_LINKS
-import app.revanced.patches.shared.PATCH_NAME_SANITIZE_SHARING_LINKS
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
@@ -19,9 +16,9 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/tiktok/share/ShareUrlSanitizer;"
 
 @Suppress("unused")
-val sanitizeShareUrlsPatch = bytecodePatch(
-    name = PATCH_NAME_SANITIZE_SHARING_LINKS,
-    description = PATCH_DESCRIPTION_SANITIZE_SHARING_LINKS,
+val sanitizeSharingLinksPatch = bytecodePatch(
+    name = "Sanitize sharing links",
+    description = "Removes the tracking query parameters from shared links.",
 ) {
     dependsOn(sharedExtensionPatch)
 
@@ -30,11 +27,11 @@ val sanitizeShareUrlsPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("36.5.4"),
     )
 
-    execute {
-        urlShorteningFingerprint.method.apply {
+    apply {
+        urlShorteningMethod.apply {
             val invokeIndex = indexOfFirstInstructionOrThrow {
-                val ref = getReference<MethodReference>()
-                ref?.name == "LIZ" && ref.definingClass.startsWith("LX/")
+                val reference = getReference<MethodReference>()
+                reference?.name == "LIZ" && reference.definingClass.startsWith("LX/")
             }
 
             val moveResultIndex = indexOfFirstInstructionOrThrow(invokeIndex, Opcode.MOVE_RESULT_OBJECT)
@@ -78,7 +75,7 @@ val sanitizeShareUrlsPatch = bytecodePatch(
 
                     :skip_sanitization
                     nop
-                """
+                """,
             )
         }
     }

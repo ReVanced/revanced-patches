@@ -1,28 +1,25 @@
 package app.revanced.patches.com.sbs.ondemand.tv
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 
-internal val shouldShowAdvertisingTVFingerprint = fingerprint {
-    returns("Z")
-    custom { method, classDef ->
-        method.name == "getShouldShowAdvertisingTV" &&
-        classDef.type == "Lcom/sbs/ondemand/common/InMemoryStorage;"
-    }
+val BytecodePatchContext.shouldShowAdvertisingTVMethod by gettingFirstMethodDeclaratively {
+    name("getShouldShowAdvertisingTV")
+    definingClass("Lcom/sbs/ondemand/common/InMemoryStorage;")
+    returnType("Z")
 }
 
-internal val shouldShowPauseAdFingerprint = fingerprint {
-    returns("Z")
-    custom { method, classDef ->
-        method.name == "shouldShowPauseAd" &&
-        classDef.type == "Lcom/sbs/ondemand/player/viewmodels/PauseAdController;"
-    }
+internal val BytecodePatchContext.shouldShowPauseAdMethod by gettingFirstMethodDeclaratively {
+    name("shouldShowPauseAd")
+    definingClass("Lcom/sbs/ondemand/player/viewmodels/PauseAdController;")
+    returnType("Z")
 }
 
-internal val requestAdStreamFingerprint = fingerprint {
-    returns("V")
-    custom { method, classDef ->
-        method.name == "requestAdStream\$player_googleStoreTvRelease" &&
-        classDef.type == "Lcom/sbs/ondemand/player/viewmodels/AdsController;"
-    }
+internal val BytecodePatchContext.requestAdStreamMethod by gettingFirstMethodDeclaratively {
+    name("requestAdStream\$player_googleStoreTvRelease")
+    definingClass("Lcom/sbs/ondemand/player/viewmodels/AdsController;")
+    returnType("V")
 }
-

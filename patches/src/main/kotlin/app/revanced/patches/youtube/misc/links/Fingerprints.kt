@@ -1,68 +1,36 @@
 package app.revanced.patches.youtube.misc.links
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
 
 /**
- * Target 19.33+
+ * 20.36 and lower.
  */
-internal val abUriParserFingerprint = fingerprint {
+internal val BytecodePatchContext.abUriParserLegacyMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/Object")
-    parameters("Ljava/lang/Object")
-    custom { method, _ ->
-        method.findUriParseIndex() >= 0 && method.findWebViewCheckCastIndex() >= 0
-    }
+    returnType("Ljava/lang/Object;")
+    parameterTypes("Ljava/lang/Object;")
+    instructions(
+        "Found entityKey=`"(),
+        "that does not contain a PlaylistVideoEntityId"(String::contains),
+        method { toString() == "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;" },
+    )
 }
 
 /**
- * Target 19.33+
+ * 20.37+
  */
-internal val httpUriParserFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Landroid/net/Uri")
-    parameters("Ljava/lang/String")
-    strings("https", "://", "https:")
-    custom { methodDef, _ ->
-        methodDef.findUriParseIndex() >= 0
-    }
-}
-
-internal val abUriParserLegacyFingerprint = fingerprint {
+internal val BytecodePatchContext.abUriParserMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/Object")
-    parameters("Ljava/lang/Object")
-    opcodes(
-        Opcode.RETURN_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.RETURN_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.RETURN_OBJECT,
-        Opcode.CHECK_CAST,
+    returnType("Ljava/lang/Object;")
+    parameterTypes("Ljava/lang/Object;")
+    instructions(
+        // Method is a switch statement of unrelated code,
+        // and there's no strings or anything unique to match to.
+        method { toString() == "Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;" },
+        method { toString() == "Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;" },
+        method { toString() == "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;" },
+        method { toString() == "Ljava/util/List;->get(I)Ljava/lang/Object;" },
     )
-    custom { methodDef, classDef ->
-        // This method is always called "a" because this kind of class always has a single (non-synthetic) method.
-
-        if (methodDef.name != "a") return@custom false
-
-        val count = classDef.methods.count()
-        count == 2 || count == 3
-    }
-}
-
-internal val httpUriParserLegacyFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Landroid/net/Uri")
-    parameters("Ljava/lang/String")
-    opcodes(
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-    )
-    strings("://")
 }

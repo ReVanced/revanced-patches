@@ -1,51 +1,60 @@
 package app.revanced.patches.youtube.layout.shortsautoplay
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val reelEnumConstructorFingerprint = fingerprint {
+internal val BytecodePatchContext.reelEnumConstructorMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-    opcodes(Opcode.RETURN_VOID)
-    strings(
-        "REEL_LOOP_BEHAVIOR_UNKNOWN",
-        "REEL_LOOP_BEHAVIOR_SINGLE_PLAY",
-        "REEL_LOOP_BEHAVIOR_REPEAT",
-        "REEL_LOOP_BEHAVIOR_END_SCREEN",
+    instructions(
+        "REEL_LOOP_BEHAVIOR_UNKNOWN"(),
+        "REEL_LOOP_BEHAVIOR_SINGLE_PLAY"(),
+        "REEL_LOOP_BEHAVIOR_REPEAT"(),
+        "REEL_LOOP_BEHAVIOR_END_SCREEN"(),
+        Opcode.RETURN_VOID(),
     )
 }
 
-internal val reelPlaybackRepeatFingerprint = fingerprint {
-    returns("V")
-    parameters("L")
-    strings("YoutubePlayerState is in throwing an Error.")
+internal val BytecodePatchContext.reelPlaybackRepeatParentMethod by gettingFirstImmutableMethodDeclaratively {
+    returnType("V")
+    instructions(
+        "Reels[%s] Playback Time: %d ms"(),
+    )
 }
 
-internal val reelPlaybackFingerprint = fingerprint {
+/**
+ * Matches class found in [reelPlaybackRepeatParentMethod].
+ */
+context(_: BytecodePatchContext)
+internal fun ClassDef.getReelPlaybackRepeatMethod() = firstMethodDeclaratively {
+    returnType("V")
+    parameterTypes("L")
+    instructions(method { toString() == "Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z" })
+}
+
+internal val BytecodePatchContext.reelPlaybackMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("J")
-    custom { method, _ ->
-        indexOfMilliSecondsInstruction(method) >= 0 &&
-                indexOfInitializationInstruction(method) >= 0
-    }
+    parameterTypes("J")
+    returnType("V")
+
+    val methodParametersPrefix = listOf("I", "L", "L")
+    instructions(
+        field { definingClass == "Ljava/util/concurrent/TimeUnit;" && name == "MILLISECONDS" },
+        afterAtMost(
+            15,
+            method {
+                name == "<init>" &&
+                    parameterTypes.zip(methodParametersPrefix).all { (a, b) -> a.startsWith(b) }
+            },
+        ),
+        afterAtMost(
+            5,
+            allOf(
+                Opcode.INVOKE_VIRTUAL(),
+                method { returnType == "I" && parameterTypes.count() == 1 && parameterTypes.first().startsWith("L") },
+            ),
+        ),
+    )
 }
-
-private fun indexOfMilliSecondsInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        getReference<FieldReference>()?.name == "MILLISECONDS"
-    }
-
-internal fun indexOfInitializationInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        val reference = getReference<MethodReference>()
-        opcode == Opcode.INVOKE_DIRECT &&
-                reference?.name == "<init>" &&
-                reference.parameterTypes.size == 3 &&
-                reference.parameterTypes.firstOrNull() == "I"
-    }

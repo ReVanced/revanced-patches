@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.layout.premiumicon
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val unlockPremiumIconsPatch = bytecodePatch(
@@ -10,19 +10,7 @@ val unlockPremiumIconsPatch = bytecodePatch(
 ) {
     compatibleWith("com.reddit.frontpage")
 
-    execute {
-        hasPremiumIconAccessFingerprint.method.addInstructions(
-            0,
-            """
-                const/4 v0, 0x1
-                return v0
-            """,
-        )
+    apply {
+        hasPremiumIconAccessMethod.returnEarly(true)
     }
-}
-
-@Deprecated("Patch was renamed", ReplaceWith("unlockPremiumIconsPatch"))
-@Suppress("unused")
-val unlockPremiumIconPatch = bytecodePatch{
-    dependsOn(unlockPremiumIconsPatch)
 }

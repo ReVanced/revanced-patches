@@ -1,7 +1,7 @@
 package app.revanced.extension.youtube.shared
 
 import app.revanced.extension.shared.Logger
-import app.revanced.extension.youtube.Event
+import app.revanced.extension.youtube.shared.Event
 
 /**
  * Shorts player state.

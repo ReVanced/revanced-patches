@@ -10,13 +10,15 @@ val disableSubscriptionSuggestionsPatch = bytecodePatch(
 ) {
     compatibleWith("com.strava")
 
-    dependsOn(hideDistractionsPatch.apply {
-        options["upselling"] = true
-        options["promo"] = false
-        options["followSuggestions"] = false
-        options["challengeSuggestions"] = false
-        options["joinChallenge"] = false
-        options["joinClub"] = false
-        options["activityLookback"] = false
-    })
+    dependsOn(
+        hideDistractionsPatch.apply {
+            options["Upselling"] = true
+            options["Promotions"] = false
+            options["Who to Follow"] = false
+            options["Suggested Challenges"] = false
+            options["Join Challenge"] = false
+            options["Joined a club"] = false
+            options["Your activity from X years ago"] = false
+        },
+    )
 }

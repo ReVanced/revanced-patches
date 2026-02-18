@@ -1,17 +1,19 @@
 package app.revanced.patches.duolingo.ad
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val initializeMonetizationDebugSettingsFingerprint = fingerprint {
+internal val ClassDef.initializeMonetizationDebugSettingsMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
-    // Parameters have not been reliable for fingerprinting between versions.
+    returnType("V")
+    // Parameters have not been reliable for matching between versions.
     opcodes(Opcode.IPUT_BOOLEAN)
 }
 
-internal val monetizationDebugSettingsToStringFingerprint = fingerprint {
-    strings("MonetizationDebugSettings(") // Partial string match.
-    custom { method, _ -> method.name == "toString" }
+internal val BytecodePatchContext.monetizationDebugSettingsToStringMethod by gettingFirstMethodDeclaratively {
+    name("toString")
+    instructions(string("MonetizationDebugSettings(", String::contains))
 }

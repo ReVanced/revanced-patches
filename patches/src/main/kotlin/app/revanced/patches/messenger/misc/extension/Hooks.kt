@@ -1,9 +1,7 @@
 package app.revanced.patches.messenger.misc.extension
 
-import app.revanced.patches.shared.misc.extension.extensionHook
+import app.revanced.patches.shared.misc.extension.activityOnCreateExtensionHook
 
-internal val messengerApplicationOnCreateHook = extensionHook {
-    custom { method, classDef ->
-        method.name == "onCreate" && classDef.endsWith("/MessengerApplication;")
-    }
-}
+internal val messengerApplicationOnCreateHook = activityOnCreateExtensionHook(
+    "/MessengerApplication;"
+)

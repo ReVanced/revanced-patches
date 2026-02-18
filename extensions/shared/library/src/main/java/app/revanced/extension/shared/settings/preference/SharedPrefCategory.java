@@ -36,18 +36,18 @@ public class SharedPrefCategory {
     }
 
     private void saveObjectAsString(@NonNull String key, @Nullable Object value) {
-        preferences.edit().putString(key, (value == null ? null : value.toString())).apply();
+        preferences.edit().putString(key, (value == null ? null : value.toString())).commit();
     }
 
     /**
      * Removes any preference data type that has the specified key.
      */
     public void removeKey(@NonNull String key) {
-        preferences.edit().remove(Objects.requireNonNull(key)).apply();
+        preferences.edit().remove(Objects.requireNonNull(key)).commit();
     }
 
     public void saveBoolean(@NonNull String key, boolean value) {
-        preferences.edit().putBoolean(key, value).apply();
+        preferences.edit().putBoolean(key, value).commit();
     }
 
     /**

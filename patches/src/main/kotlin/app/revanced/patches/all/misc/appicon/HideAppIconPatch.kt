@@ -3,8 +3,8 @@ package app.revanced.patches.all.misc.appicon
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.asSequence
 import app.revanced.util.childElementsSequence
-import java.util.logging.Logger
 import org.w3c.dom.Element
+import java.util.logging.Logger
 
 @Suppress("unused")
 val hideAppIconPatch = resourcePatch(
@@ -12,7 +12,7 @@ val hideAppIconPatch = resourcePatch(
     description = "Hides the app icon from the Android launcher.",
     use = false,
 ) {
-    execute {
+    apply {
         document("AndroidManifest.xml").use { document ->
             var changed = false
 
@@ -26,6 +26,7 @@ val hideAppIconPatch = resourcePatch(
                         "action" -> if (child.getAttribute("android:name") == "android.intent.action.MAIN") {
                             hasMainAction = true
                         }
+
                         "category" -> if (child.getAttribute("android:name") == "android.intent.category.LAUNCHER") {
                             launcherCategory = child
                         }
@@ -45,4 +46,3 @@ val hideAppIconPatch = resourcePatch(
         }
     }
 }
-

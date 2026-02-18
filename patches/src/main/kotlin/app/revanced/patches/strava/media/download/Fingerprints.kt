@@ -1,15 +1,21 @@
 package app.revanced.patches.strava.media.download
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.firstMethodDeclaratively
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val createAndShowFragmentFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getCreateAndShowFragmentMethod() = firstMethodDeclaratively("mediaType") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L")
-    strings("mediaType")
+    returnType("V")
+    parameterTypes("L")
 }
 
-internal val handleMediaActionFingerprint = fingerprint {
-    parameters("Landroid/view/View;", "Lcom/strava/bottomsheet/BottomSheetItem;")
+context(_: BytecodePatchContext)
+internal fun ClassDef.getHandleMediaActionMethod() = firstMethodDeclaratively {
+    parameterTypes("Landroid/view/View;", "Lcom/strava/bottomsheet/BottomSheetItem;")
 }

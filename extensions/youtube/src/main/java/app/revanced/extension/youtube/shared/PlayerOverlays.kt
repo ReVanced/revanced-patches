@@ -2,7 +2,7 @@ package app.revanced.extension.youtube.shared
 
 import android.view.View
 import android.view.ViewGroup
-import app.revanced.extension.youtube.Event
+import app.revanced.extension.youtube.shared.Event
 import app.revanced.extension.youtube.swipecontrols.misc.Rectangle
 
 /**

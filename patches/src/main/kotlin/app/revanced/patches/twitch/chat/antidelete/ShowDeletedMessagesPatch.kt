@@ -1,10 +1,10 @@
 package app.revanced.patches.twitch.chat.antidelete
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
@@ -12,6 +12,7 @@ import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
 
+@Suppress("unused")
 val showDeletedMessagesPatch = bytecodePatch(
     name = "Show deleted messages",
     description = "Shows deleted chat messages behind a clickable spoiler.",
@@ -30,15 +31,15 @@ val showDeletedMessagesPatch = bytecodePatch(
         if-eqz $register, :no_spoiler
     """
 
-    execute {
+    apply {
         addResources("twitch", "chat.antidelete.showDeletedMessagesPatch")
 
         PreferenceScreen.CHAT.GENERAL.addPreferences(
-            ListPreference("revanced_show_deleted_messages")
+            ListPreference("revanced_show_deleted_messages"),
         )
 
         // Spoiler mode: Force set hasModAccess member to true in constructor
-        deletedMessageClickableSpanCtorFingerprint.method.apply {
+        deletedMessageClickableSpanCtorMethod.apply {
             addInstructionsWithLabels(
                 implementation!!.instructions.lastIndex, /* place in front of return-void */
                 """
@@ -51,10 +52,10 @@ val showDeletedMessagesPatch = bytecodePatch(
         }
 
         // Spoiler mode: Disable setHasModAccess setter
-        setHasModAccessFingerprint.method.addInstruction(0, "return-void")
+        setHasModAccessMethod.addInstruction(0, "return-void")
 
         // Cross-out mode: Reformat span of deleted message
-        chatUtilCreateDeletedSpanFingerprint.method.apply {
+        chatUtilCreateDeletedSpanMethod.apply {
             addInstructionsWithLabels(
                 0,
                 """

@@ -303,23 +303,19 @@
                 <item>@string/revanced_spoof_app_version_target_entry_1</item>
                 <item>@string/revanced_spoof_app_version_target_entry_2</item>
                 <item>@string/revanced_spoof_app_version_target_entry_3</item>
-                <item>@string/revanced_spoof_app_version_target_entry_4</item>
             </string-array>
             <string-array name="revanced_spoof_app_version_target_entry_values">
                 <item>20.13.41</item>
                 <item>20.05.46</item>
                 <item>19.35.36</item>
-                <item>19.01.34</item>
             </string-array>
             <string-array name="revanced_spoof_app_version_target_legacy_20_13_entries">
                 <item>@string/revanced_spoof_app_version_target_entry_2</item>
                 <item>@string/revanced_spoof_app_version_target_entry_3</item>
-                <item>@string/revanced_spoof_app_version_target_entry_4</item>
             </string-array>
             <string-array name="revanced_spoof_app_version_target_legacy_20_13_entry_values">
                 <item>20.05.46</item>
                 <item>19.35.36</item>
-                <item>19.01.34</item>
             </string-array>
             <string-array name="revanced_spoof_app_version_target_legacy_19_34_entries">
                 <item>19.01.34</item>
@@ -350,8 +346,10 @@
             <string-array name="revanced_splash_screen_animation_style_entries">
                 <item>@string/revanced_splash_screen_animation_style_entry_1</item>
                 <item>@string/revanced_splash_screen_animation_style_entry_2</item>
+                <item>@string/revanced_splash_screen_animation_style_entry_3</item>
             </string-array>
             <string-array name="revanced_splash_screen_animation_style_entry_values">
+                <item>DISABLED</item>
                 <item>FPS_60_ONE_SECOND</item>
                 <item>FPS_60_BLACK_AND_WHITE</item>
             </string-array>
@@ -375,13 +373,32 @@
                 <item>@string/revanced_miniplayer_type_entry_0</item>
                 <item>@string/revanced_miniplayer_type_entry_1</item>
                 <item>@string/revanced_miniplayer_type_entry_2</item>
-                <item>@string/revanced_miniplayer_type_entry_3</item>
+                <!-- YT legacy tablet code is partially removed in 20.37+ -->
                 <item>@string/revanced_miniplayer_type_entry_4</item>
                 <item>@string/revanced_miniplayer_type_entry_5</item>
                 <item>@string/revanced_miniplayer_type_entry_6</item>
                 <item>@string/revanced_miniplayer_type_entry_7</item>
             </string-array>
             <string-array name="revanced_miniplayer_type_entry_values">
+                <item>DISABLED</item>
+                <item>DEFAULT</item>
+                <item>MINIMAL</item>
+                <item>MODERN_1</item>
+                <item>MODERN_2</item>
+                <item>MODERN_3</item>
+                <item>MODERN_4</item>
+            </string-array>
+            <string-array name="revanced_miniplayer_type_legacy_20_03_entries">
+                <item>@string/revanced_miniplayer_type_entry_0</item>
+                <item>@string/revanced_miniplayer_type_entry_1</item>
+                <item>@string/revanced_miniplayer_type_entry_2</item>
+                <item>@string/revanced_miniplayer_type_entry_3</item>
+                <item>@string/revanced_miniplayer_type_entry_4</item>
+                <item>@string/revanced_miniplayer_type_entry_5</item>
+                <item>@string/revanced_miniplayer_type_entry_6</item>
+                <item>@string/revanced_miniplayer_type_entry_7</item>
+            </string-array>
+            <string-array name="revanced_miniplayer_type_legacy_20_03_entry_values">
                 <item>DISABLED</item>
                 <item>DEFAULT</item>
                 <item>MINIMAL</item>
@@ -567,14 +584,6 @@
 
         </patch>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch">
-            <string-array name="revanced_shorts_player_type_legacy_entries">
-                <item>@string/revanced_shorts_player_type_shorts</item>
-                <item>@string/revanced_shorts_player_type_regular_player</item>
-            </string-array>
-            <string-array name="revanced_shorts_player_type_legacy_entry_values">
-                <item>SHORTS_PLAYER</item>
-                <item>REGULAR_PLAYER</item>
-            </string-array>
             <string-array name="revanced_shorts_player_type_entries">
                 <item>@string/revanced_shorts_player_type_shorts</item>
                 <item>@string/revanced_shorts_player_type_regular_player</item>

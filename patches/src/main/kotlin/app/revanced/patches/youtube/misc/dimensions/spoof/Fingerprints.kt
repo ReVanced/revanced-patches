@@ -1,8 +1,15 @@
 package app.revanced.patches.youtube.misc.dimensions.spoof
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 
-internal val deviceDimensionsModelToStringFingerprint = fingerprint {
-    returns("L")
-    strings("minh.", ";maxh.")
+internal val BytecodePatchContext.deviceDimensionsModelToStringMethod by gettingFirstMethodDeclaratively {
+    returnType("L")
+    instructions(
+        "minh."(),
+        ";maxh."(),
+    )
 }

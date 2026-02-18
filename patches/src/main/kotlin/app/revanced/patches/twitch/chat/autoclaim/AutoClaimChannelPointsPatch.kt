@@ -1,16 +1,17 @@
 package app.revanced.patches.twitch.chat.autoclaim
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
 
+@Suppress("unused")
 val autoClaimChannelPointsPatch = bytecodePatch(
     name = "Auto claim channel points",
     description = "Automatically claim Channel Points.",
@@ -22,14 +23,14 @@ val autoClaimChannelPointsPatch = bytecodePatch(
 
     compatibleWith("tv.twitch.android.app"("16.9.1", "25.3.0"))
 
-    execute {
+    apply {
         addResources("twitch", "chat.autoclaim.autoClaimChannelPointsPatch")
 
         PreferenceScreen.CHAT.GENERAL.addPreferences(
             SwitchPreference("revanced_auto_claim_channel_points"),
         )
 
-        communityPointsButtonViewDelegateFingerprint.method.apply {
+        communityPointsButtonViewDelegateMethod.apply {
             val lastIndex = instructions.lastIndex
             addInstructionsWithLabels(
                 lastIndex, // place in front of return-void

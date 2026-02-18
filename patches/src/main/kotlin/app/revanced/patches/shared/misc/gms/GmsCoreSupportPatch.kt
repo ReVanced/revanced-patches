@@ -1,9 +1,21 @@
 package app.revanced.patches.shared.misc.gms
 
-import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.string
+import app.revanced.patcher.patch.BytecodePatchBuilder
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.patch.Option
+import app.revanced.patcher.patch.Patch
+import app.revanced.patcher.patch.ResourcePatchBuilder
+import app.revanced.patcher.patch.ResourcePatchContext
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.stringOption
+import app.revanced.patcher.firstClassDef
+import app.revanced.patcher.firstImmutableClassDef
 import app.revanced.patcher.patch.*
 import app.revanced.patches.all.misc.packagename.changePackageNamePatch
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
@@ -17,10 +29,7 @@ import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
-import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.net.URI
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/GmsCoreSupport;"
@@ -33,9 +42,9 @@ private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
  *
  * @param fromPackageName The package name of the original app.
  * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
- * @param primeMethodFingerprint The fingerprint of the "prime" method that needs to be patched.
- * @param earlyReturnFingerprints The fingerprints of methods that need to be returned early.
- * @param mainActivityOnCreateFingerprint The fingerprint of the main activity onCreate method.
+ * @param getPrimeMethod The fingerprint of the "prime" method that needs to be patched.
+ * @param getEarlyReturnMethods The methods that need to be returned early.
+ * @param getMainActivityOnCreateMethod The main activity onCreate method.
  * @param extensionPatch The patch responsible for the extension.
  * @param gmsCoreSupportResourcePatchFactory The factory for the corresponding resource patch
  * that is used to patch the resources.
@@ -45,11 +54,11 @@ private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
 fun gmsCoreSupportPatch(
     fromPackageName: String,
     toPackageName: String,
-    primeMethodFingerprint: Fingerprint? = null,
-    earlyReturnFingerprints: Set<Fingerprint> = setOf(),
-    mainActivityOnCreateFingerprint: Fingerprint,
-    extensionPatch: Patch<*>,
-    gmsCoreSupportResourcePatchFactory: (gmsCoreVendorGroupIdOption: Option<String>) -> Patch<*>,
+    getPrimeMethod: (BytecodePatchContext.() -> MutableMethod)? = null,
+    getEarlyReturnMethods: Set<BytecodePatchContext.() -> MutableMethod> = setOf(),
+    getMainActivityOnCreateMethod: (BytecodePatchContext.() -> MutableMethod),
+    extensionPatch: Patch,
+    gmsCoreSupportResourcePatchFactory: (gmsCoreVendorGroupIdOption: Option<String>) -> Patch,
     executeBlock: BytecodePatchContext.() -> Unit = {},
     block: BytecodePatchBuilder.() -> Unit = {},
 ) = bytecodePatch(
@@ -72,40 +81,8 @@ fun gmsCoreSupportPatch(
         extensionPatch,
     )
 
-    execute {
+    apply {
         val gmsCoreVendorGroupId = gmsCoreVendorGroupIdOption.value!!
-
-        fun transformStringReferences(transform: (str: String) -> String?) = classes.forEach {
-            val mutableClass by lazy {
-                proxy(it).mutableClass
-            }
-
-            it.methods.forEach classLoop@{ method ->
-                val implementation = method.implementation ?: return@classLoop
-
-                val mutableMethod by lazy {
-                    mutableClass.methods.first { MethodUtil.methodSignaturesMatch(it, method) }
-                }
-
-                implementation.instructions.forEachIndexed insnLoop@{ index, instruction ->
-                    val string =
-                        ((instruction as? Instruction21c)?.reference as? StringReference)?.string
-                            ?: return@insnLoop
-
-                    // Apply transformation.
-                    val transformedString = transform(string) ?: return@insnLoop
-
-                    mutableMethod.replaceInstruction(
-                        index,
-                        BuilderInstruction21c(
-                            Opcode.CONST_STRING,
-                            instruction.registerA,
-                            ImmutableStringReference(transformedString),
-                        ),
-                    )
-                }
-            }
-        }
 
         fun transformPackages(string: String): String? = when (string) {
             "com.google",
@@ -155,48 +132,57 @@ fun gmsCoreSupportPatch(
             ::transformContentUrlAuthority,
         )
 
-        transformStringReferences transform@{ string ->
-            transformations.forEach { transform ->
-                transform(string)?.let { transformedString -> return@transform transformedString }
-            }
+        forEachInstructionAsSequence({ _, _, instruction, index ->
+            val string = instruction.string ?: return@forEachInstructionAsSequence null
 
-            return@transform null
+            val transformedString = transformations.firstNotNullOfOrNull { it(string) }
+                ?: return@forEachInstructionAsSequence null
+
+            index to transformedString
+        }) { method, (index, transformedString) ->
+            val register = method.getInstruction<OneRegisterInstruction>(index).registerA
+
+            method.replaceInstruction(
+                index,
+                BuilderInstruction21c(
+                    Opcode.CONST_STRING,
+                    register,
+                    ImmutableStringReference(transformedString),
+                ),
+            )
         }
 
         // Specific method that needs to be patched.
-        if (primeMethodFingerprint?.methodOrNull != null) {
-            val primeMethod = primeMethodFingerprint.method
+        if (getPrimeMethod != null) getPrimeMethod().apply {
+            val index = indexOfFirstInstruction { string == fromPackageName }
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-            val index = primeMethod.indexOfFirstInstruction {
-                getReference<StringReference>()?.string == fromPackageName
-            }
-            val register = primeMethod.getInstruction<OneRegisterInstruction>(index).registerA
-
-            primeMethod.replaceInstruction(
+            replaceInstruction(
                 index,
                 "const-string v$register, \"$packageName\"",
             )
         }
 
+
         // Return these methods early to prevent the app from crashing.
-        earlyReturnFingerprints.forEach { it.method.returnEarly() }
-        serviceCheckFingerprint.method.returnEarly()
+        getEarlyReturnMethods.forEach { it().returnEarly() }
+        serviceCheckMethod.returnEarly()
 
         // Google Play Utility is not present in all apps, so we need to check if it's present.
-        googlePlayUtilityFingerprint.methodOrNull?.returnEarly(0)
+        googlePlayUtilityMethod?.returnEarly(0)
 
         // Set original and patched package names for extension to use.
-        originalPackageNameExtensionFingerprint.method.returnEarly(fromPackageName)
+        originalPackageNameExtensionMethod.returnEarly(fromPackageName)
 
-        // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
-        mainActivityOnCreateFingerprint.method.addInstruction(
+        // Run GmsCore presence, correct installation and update checks in the main activity.
+        getMainActivityOnCreateMethod().addInstruction(
             0,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
                     "checkGmsCore(Landroid/app/Activity;)V",
         )
 
         // Change the vendor of GmsCore in the extension.
-        getGmsCoreVendorGroupIdFingerprint.method.returnEarly(gmsCoreVendorGroupId)
+        getGmsCoreVendorGroupIdMethod.returnEarly(gmsCoreVendorGroupId)
 
         executeBlock()
     }
@@ -230,7 +216,7 @@ fun gmsCoreSupportResourcePatch(
 
     val gmsCoreVendorGroupId = gmsCoreVendorGroupIdOption.value!!
 
-    execute {
+    apply {
         addResources("shared", "misc.gms.gmsCoreSupportResourcePatch")
 
         val toPackageName = setOrGetFallbackPackageName(toPackageName)

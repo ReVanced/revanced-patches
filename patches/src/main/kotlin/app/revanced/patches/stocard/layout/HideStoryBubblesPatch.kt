@@ -4,12 +4,10 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.getNode
 
 @Suppress("unused")
-val hideStoryBubblesPatch = resourcePatch(
-    name = "Hide story bubbles",
-) {
+val hideStoryBubblesPatch = resourcePatch("Hide story bubbles") {
     compatibleWith("de.stocard.stocard")
 
-    execute {
+    apply {
         document("res/layout/rv_story_bubbles_list.xml").use { document ->
             document.getNode("androidx.recyclerview.widget.RecyclerView").apply {
                 arrayOf(

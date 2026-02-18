@@ -1,21 +1,13 @@
 package app.revanced.patches.myexpenses.misc.pro
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val unlockProPatch = bytecodePatch(
-    name = "Unlock pro",
-) {
+val unlockProPatch = bytecodePatch("Unlock pro") {
     compatibleWith("org.totschnig.myexpenses"("3.4.9"))
 
-    execute {
-        isEnabledFingerprint.method.addInstructions(
-            0,
-            """
-                const/4 v0, 0x1
-                return v0
-            """,
-        )
+    apply {
+        isEnabledMethod.returnEarly(true)
     }
 }

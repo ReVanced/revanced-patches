@@ -8,10 +8,12 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
+import app.revanced.patches.youtube.misc.playservice.is_20_22_or_greater
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-val hidePlayerFlyoutMenuPatch = bytecodePatch(
+@Suppress("unused")
+val hidePlayerFlyoutMenuItemsPatch = bytecodePatch(
     name = "Hide player flyout menu items",
     description = "Adds options to hide menu items that appear when pressing the gear icon in the video player.",
 ) {
@@ -24,15 +26,18 @@ val hidePlayerFlyoutMenuPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
+        ),
     )
 
-    execute {
-        val filterClassDescriptor = "Lapp/revanced/extension/youtube/patches/components/PlayerFlyoutMenuItemsFilter;"
+    apply {
+        val filterClassDescriptor =
+            "Lapp/revanced/extension/youtube/patches/litho/PlayerFlyoutMenuItemsFilter;"
 
         addResources("youtube", "layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch")
 
@@ -41,10 +46,6 @@ val hidePlayerFlyoutMenuPatch = bytecodePatch(
                 key = "revanced_hide_player_flyout",
                 preferences = setOf(
                     SwitchPreference("revanced_hide_player_flyout_captions"),
-                    SwitchPreference("revanced_hide_player_flyout_additional_settings"),
-                    SwitchPreference("revanced_hide_player_flyout_loop_video"),
-                    SwitchPreference("revanced_hide_player_flyout_ambient_mode"),
-                    SwitchPreference("revanced_hide_player_flyout_stable_volume"),
                     SwitchPreference("revanced_hide_player_flyout_listen_with_youtube_music"),
                     SwitchPreference("revanced_hide_player_flyout_help"),
                     SwitchPreference("revanced_hide_player_flyout_speed"),
@@ -53,12 +54,16 @@ val hidePlayerFlyoutMenuPatch = bytecodePatch(
                         key = "revanced_hide_player_flyout_audio_track",
                         tag = "app.revanced.extension.youtube.settings.preference.HideAudioFlyoutMenuPreference"
                     ),
-                    SwitchPreference("revanced_hide_player_flyout_watch_in_vr"),
-                    SwitchPreference("revanced_hide_player_flyout_sleep_timer"),
                     SwitchPreference("revanced_hide_player_flyout_video_quality"),
                     SwitchPreference("revanced_hide_player_flyout_video_quality_footer"),
+                    SwitchPreference("revanced_hide_player_flyout_additional_settings"),
+                    SwitchPreference("revanced_hide_player_flyout_ambient_mode"),
+                    SwitchPreference("revanced_hide_player_flyout_stable_volume"),
+                    SwitchPreference("revanced_hide_player_flyout_loop_video"),
+                    SwitchPreference("revanced_hide_player_flyout_sleep_timer"),
+                    SwitchPreference("revanced_hide_player_flyout_watch_in_vr"),
                 ),
-            ),
+            )
         )
 
         addLithoFilter(filterClassDescriptor)

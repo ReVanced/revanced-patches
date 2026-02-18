@@ -1,11 +1,10 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.user
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.stringReference
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Suppress("unused")
 val useUserEndpointPatch = bytecodePatch(
@@ -20,22 +19,21 @@ val useUserEndpointPatch = bytecodePatch(
         "com.laurencedawson.reddit_sync.dev",
     )
 
-    execute {
+    apply {
         arrayOf(
-            oAuthFriendRequestFingerprint,
-            oAuthSubredditInfoRequestConstructorFingerprint,
-            oAuthSubredditInfoRequestHelperFingerprint,
-            oAuthUnfriendRequestFingerprint,
-            oAuthUserIdRequestFingerprint,
-            oAuthUserInfoRequestFingerprint,
-        ).map { fingerprint ->
-            fingerprint.stringMatches!!.first().index to fingerprint.method
+            oAuthFriendRequestMethodMatch,
+            oAuthSubredditInfoRequestConstructorMethodMatch,
+            oAuthSubredditInfoRequestHelperMethodMatch,
+            oAuthUnfriendRequestMethodMatch,
+            oAuthUserIdRequestMethodMatch,
+            oAuthUserInfoRequestMethodMatch,
+        ).map { match ->
+            match[0] to match.method
         }.forEach { (userPathStringIndex, method) ->
             val userPathStringInstruction = method.getInstruction<OneRegisterInstruction>(userPathStringIndex)
 
             val userPathStringRegister = userPathStringInstruction.registerA
-            val fixedUserPathString = userPathStringInstruction.getReference<StringReference>()!!
-                .string.replace("u/", "user/")
+            val fixedUserPathString = userPathStringInstruction.stringReference!!.string.replace("u/", "user/")
 
             method.replaceInstruction(
                 userPathStringIndex,

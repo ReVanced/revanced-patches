@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.loopvideo
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -7,13 +8,13 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.loopvideo.button.loopVideoButtonPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
-import app.revanced.patches.youtube.shared.loopVideoFingerprint
-import app.revanced.patches.youtube.shared.loopVideoParentFingerprint
-import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.patches.youtube.video.information.playerStatusMethod
+import app.revanced.patches.youtube.video.information.videoInformationPatch
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/LoopVideoPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/LoopVideoPatch;"
 
 val loopVideoPatch = bytecodePatch(
     name = "Loop video",
@@ -22,36 +23,41 @@ val loopVideoPatch = bytecodePatch(
     dependsOn(
         sharedExtensionPatch,
         addResourcesPatch,
-        loopVideoButtonPatch
+        loopVideoButtonPatch,
+        videoInformationPatch,
     )
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
+        ),
     )
 
-    execute {
+    apply {
         addResources("youtube", "misc.loopvideo.loopVideoPatch")
 
-        PreferenceScreen.MISC.addPreferences(
+        PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_loop_video"),
         )
 
-        loopVideoFingerprint.match(loopVideoParentFingerprint.originalClassDef).method.apply {
-            val playMethod = loopVideoParentFingerprint.method
-            val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_VOID)
+        playerStatusMethod.apply {
+            // Add call to start playback again, but must happen before "Exit fullscreen" patch call.
+            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT)
 
-            addInstructionsAtControlFlowLabel(
+            // Since 'videoInformationPatch' is used as a dependency of this patch,
+            // the loop is implemented through 'VideoInformation.seekTo(0)'.
+            addInstructionsWithLabels(
                 insertIndex,
                 """
-                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->shouldLoopVideo()Z
+                    invoke-static { p1 }, ${EXTENSION_CLASS_DESCRIPTOR}->shouldLoopVideo(Ljava/lang/Enum;)Z
                     move-result v0
                     if-eqz v0, :do_not_loop
-                    invoke-virtual { p0 }, $playMethod
+                    return-void
                     :do_not_loop
                     nop
                 """

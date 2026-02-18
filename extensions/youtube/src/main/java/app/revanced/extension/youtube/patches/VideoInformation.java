@@ -3,15 +3,13 @@ package app.revanced.extension.youtube.patches;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
-
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.youtube.Event;
+import app.revanced.extension.youtube.shared.Event;
 import app.revanced.extension.youtube.shared.ShortsPlayerState;
 import app.revanced.extension.youtube.shared.VideoState;
 
@@ -32,7 +30,16 @@ public final class VideoInformation {
      */
     public interface VideoQualityMenuInterface {
         // Method is added during patching.
-        void patch_setQuality(VideoQuality quality);
+        void patch_setQuality(VideoQualityInterface quality);
+    }
+
+    /**
+     * Interface to use obfuscated methods.
+     */
+    public interface VideoQualityInterface {
+        // Methods are added during patching.
+        String patch_getQualityName();
+        int patch_getResolution();
     }
 
     /**
@@ -44,7 +51,7 @@ public final class VideoInformation {
      * Video quality names are the same text for all languages.
      * Premium can be "1080p Premium" or "1080p60 Premium"
      */
-    public static final String VIDEO_QUALITY_PREMIUM_NAME = "Premium";
+    private static final String VIDEO_QUALITY_PREMIUM_NAME = "Premium";
 
     private static final float DEFAULT_YOUTUBE_PLAYBACK_SPEED = 1.0f;
     /**
@@ -76,14 +83,14 @@ public final class VideoInformation {
      * The available qualities of the current video.
      */
     @Nullable
-    private static VideoQuality[] currentQualities;
+    private static VideoQualityInterface[] currentQualities;
 
     /**
      * The current quality of the video playing.
      * This is always the actual quality even if Automatic quality is active.
      */
     @Nullable
-    private static VideoQuality currentQuality;
+    private static VideoQualityInterface currentQuality;
 
     /**
      * The current VideoQualityMenuInterface, set during setVideoQuality.
@@ -94,15 +101,15 @@ public final class VideoInformation {
     /**
      * Callback for when the current quality changes.
      */
-    public static final Event<VideoQuality> onQualityChange = new Event<>();
+    public static final Event<VideoQualityInterface> onQualityChange = new Event<>();
 
     @Nullable
-    public static VideoQuality[] getCurrentQualities() {
+    public static VideoQualityInterface[] getCurrentQualities() {
         return currentQualities;
     }
 
     @Nullable
-    public static VideoQuality getCurrentQuality() {
+    public static VideoQualityInterface getCurrentQuality() {
         return currentQuality;
     }
 
@@ -450,7 +457,7 @@ public final class VideoInformation {
         qualityNeedsUpdating = true;
     }
 
-    private static void setCurrentQuality(@Nullable VideoQuality quality) {
+    private static void setCurrentQuality(@Nullable VideoQualityInterface quality) {
         Utils.verifyOnMainThread();
         if (currentQuality != quality) {
             Logger.printDebug(() -> "Current quality changed to: " + quality);
@@ -462,7 +469,7 @@ public final class VideoInformation {
     /**
      * Forcefully changes the video quality of the currently playing video.
      */
-    public static void changeQuality(VideoQuality quality) {
+    public static void changeQuality(VideoQualityInterface quality) {
         Utils.verifyOnMainThread();
 
         if (currentMenuInterface == null) {
@@ -501,7 +508,7 @@ public final class VideoInformation {
      * @param qualities Video qualities available, ordered from largest to smallest, with index 0 being the 'automatic' value of -2
      * @param originalQualityIndex quality index to use, as chosen by YouTube
      */
-    public static int setVideoQuality(VideoQuality[] qualities, VideoQualityMenuInterface menu, int originalQualityIndex) {
+    public static int setVideoQuality(VideoQualityInterface[] qualities, VideoQualityMenuInterface menu, int originalQualityIndex) {
         try {
             Utils.verifyOnMainThread();
             currentMenuInterface = menu;
@@ -516,7 +523,7 @@ public final class VideoInformation {
             // On extremely slow internet connections the index can initially be -1
             originalQualityIndex = Math.max(0, originalQualityIndex);
 
-            VideoQuality updatedCurrentQuality = qualities[originalQualityIndex];
+            VideoQualityInterface updatedCurrentQuality = qualities[originalQualityIndex];
             if (updatedCurrentQuality.patch_getResolution() != AUTOMATIC_VIDEO_QUALITY_VALUE
                     && (currentQuality == null || currentQuality != updatedCurrentQuality)) {
                 setCurrentQuality(updatedCurrentQuality);
@@ -538,7 +545,7 @@ public final class VideoInformation {
             // Find the highest quality that is equal to or less than the preferred.
             int i = 0;
             final int lastQualityIndex = qualities.length - 1;
-            for (VideoQuality quality : qualities) {
+            for (VideoQualityInterface quality : qualities) {
                 final int qualityResolution = quality.patch_getResolution();
                 if ((qualityResolution != AUTOMATIC_VIDEO_QUALITY_VALUE && qualityResolution <= preferredQuality)
                         // Use the lowest video quality if the default is lower than all available.
@@ -571,5 +578,10 @@ public final class VideoInformation {
             Logger.printException(() -> "setVideoQuality failure", ex);
         }
         return originalQualityIndex;
+    }
+
+    public static boolean isPremiumVideoQuality(@NonNull VideoQualityInterface quality) {
+        String qualityName = quality.patch_getQualityName();
+        return qualityName != null && qualityName.contains(VIDEO_QUALITY_PREMIUM_NAME);
     }
 }

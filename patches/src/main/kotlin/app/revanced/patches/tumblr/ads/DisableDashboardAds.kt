@@ -13,7 +13,7 @@ val disableDashboardAdsPatch = bytecodePatch(
 
     compatibleWith("com.tumblr")
 
-    execute {
+    apply {
         // The timeline object types are filtered by their name in the TimelineObjectType enum.
         // This is often different from the "object_type" returned in the api (noted in comments here)
         arrayOf(

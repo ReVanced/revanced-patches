@@ -11,7 +11,7 @@ val disableSentryTelemetryPatch = resourcePatch(
     description = "Disables Sentry telemetry. See https://sentry.io/for/android/ for more information.",
     use = false,
 ) {
-    execute {
+    apply {
         fun Element.replaceOrCreate(tagName: String, attributeName: String, attributeValue: String) {
             val childElements = getElementsByTagName(tagName).asSequence().filterIsInstance<Element>()
             val targetChild = childElements.find { childElement ->
@@ -20,10 +20,12 @@ val disableSentryTelemetryPatch = resourcePatch(
             if (targetChild != null) {
                 targetChild.setAttribute("android:value", attributeValue)
             } else {
-                appendChild(ownerDocument.createElement(tagName).apply {
-                    setAttribute("android:name", attributeName)
-                    setAttribute("android:value", attributeValue)
-                })
+                appendChild(
+                    ownerDocument.createElement(tagName).apply {
+                        setAttribute("android:name", attributeName)
+                        setAttribute("android:value", attributeValue)
+                    },
+                )
             }
         }
 

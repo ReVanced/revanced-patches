@@ -1,12 +1,16 @@
 package app.revanced.patches.lightroom.misc.login
 
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.Opcode
 
-internal val isLoggedInFingerprint = fingerprint {
+internal val BytecodePatchContext.isLoggedInMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC, AccessFlags.FINAL)
-    returns("Z")
+    returnType("Z")
     opcodes(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,

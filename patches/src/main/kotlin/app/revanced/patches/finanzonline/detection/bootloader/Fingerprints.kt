@@ -1,13 +1,17 @@
 package app.revanced.patches.finanzonline.detection.bootloader
 
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.Opcode
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.AttestationHelper#isBootStateOk (3.0.1)
-internal val bootStateFingerprint = fingerprint {
+internal val BytecodePatchContext.bootStateMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC)
-    returns("Z")
+    returnType("Z")
     opcodes(
         Opcode.INVOKE_DIRECT,
         Opcode.MOVE_RESULT_OBJECT,
@@ -25,13 +29,18 @@ internal val bootStateFingerprint = fingerprint {
         Opcode.IF_NE,
         Opcode.GOTO,
         Opcode.MOVE,
-        Opcode.RETURN
+        Opcode.RETURN,
     )
 }
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.AttestationHelper#createKey (3.0.1)
-internal val createKeyFingerprint = fingerprint {
+internal val BytecodePatchContext.createKeyMethod by gettingFirstMethodDeclaratively(
+    "attestation",
+    "SHA-256",
+    "random",
+    "EC",
+    "AndroidKeyStore",
+) {
     accessFlags(AccessFlags.PUBLIC)
-    returns("Z")
-    strings("attestation", "SHA-256", "random", "EC", "AndroidKeyStore")
+    returnType("Z")
 }

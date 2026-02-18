@@ -6,16 +6,17 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.settings.PreferenceScreen
-import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
+import kotlin.collections.toTypedArray
 
 internal fun hideLayoutComponentsPatch(
-    lithoFilterPatch: Patch<*>,
-    settingsPatch: Patch<*>,
-    additionalDependencies: Set<Patch<*>> = emptySet(),
+    lithoFilterPatch: Patch,
+    getAddLithoFilter: () -> (String) -> Unit, // Temporal hack until YouTube can use the shared litho filter patch.
+    settingsPatch: Patch,
+    additionalDependencies: Set<Patch> = emptySet(),
     filterClasses: Set<String>,
     vararg compatibleWithPackages: Pair<String, Set<String>?>,
     executeBlock: BytecodePatchContext.() -> Unit = {},
@@ -32,7 +33,7 @@ internal fun hideLayoutComponentsPatch(
 
     compatibleWith(packages = compatibleWithPackages)
 
-    execute {
+    apply {
         addResources("shared", "layout.hide.general.hideLayoutComponentsPatch")
 
         PreferenceScreen.GENERAL.addPreferences(
@@ -45,6 +46,8 @@ internal fun hideLayoutComponentsPatch(
                 ),
             ),
         )
+
+        val addLithoFilter = getAddLithoFilter()
 
         filterClasses.forEach { className ->
             addLithoFilter(className)

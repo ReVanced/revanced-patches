@@ -1,12 +1,63 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val legacyRenderBottomNavigationBarParentFingerprint = fingerprint {
-    parameters(
+internal val BytecodePatchContext.componentContextParserMethod by gettingFirstImmutableMethodDeclaratively {
+    returnType("L")
+    instructions(
+        "Failed to parse Element proto."(),
+        "Cannot read theme key from model."()
+    )
+}
+
+context(_: BytecodePatchContext)
+internal fun ClassDef.getTreeNodeResultListMethod() = firstMethodDeclaratively  {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
+    returnType("Ljava/util/List;")
+    instructions(allOf(Opcode.INVOKE_STATIC(), method("nCopies")))
+}
+
+internal val BytecodePatchContext.shortsBottomBarContainerMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("Landroid/view/View;", "Landroid/os/Bundle;")
+    instructions(
+        "r_pfvc"(),
+        ResourceType.ID("bottom_bar_container"),
+        method("getHeight"),
+        Opcode.MOVE_RESULT(),
+    )
+}
+
+
+context(_: BytecodePatchContext)
+internal fun ClassDef.getRenderBottomNavigationBarMethodMatch() = firstMethodDeclaratively {
+    returnType("V")
+    parameterTypes("Ljava/lang/String;")
+    instructions(
+        Opcode.IGET_OBJECT(),
+        after(Opcode.MONITOR_ENTER()),
+        after(Opcode.IGET_OBJECT()),
+        after(Opcode.IF_EQZ()),
+        after(Opcode.INVOKE_INTERFACE()),
+        Opcode.MONITOR_EXIT(),
+        Opcode.RETURN_VOID(),
+        Opcode.MOVE_EXCEPTION(),
+        Opcode.MONITOR_EXIT(),
+        Opcode.THROW()
+    )
+}
+
+/**
+ * Less than 19.41.
+ */
+internal val BytecodePatchContext.legacyRenderBottomNavigationBarLegacyParentMethod by gettingFirstImmutableMethodDeclaratively {
+    parameterTypes(
         "I",
         "I",
         "L",
@@ -14,41 +65,17 @@ internal val legacyRenderBottomNavigationBarParentFingerprint = fingerprint {
         "J",
         "L",
     )
-    strings("aa")
-}
-
-internal val shortsBottomBarContainerFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Landroid/view/View;", "Landroid/os/Bundle;")
-    strings("r_pfvc")
-    literal { bottomBarContainer }
-}
-
-internal val renderBottomNavigationBarFingerprint = fingerprint {
-    returns("V")
-    parameters("Ljava/lang/String;")
-    opcodes(
-        Opcode.IGET_OBJECT,
-        Opcode.MONITOR_ENTER,
-        Opcode.IGET_OBJECT,
-        Opcode.IF_EQZ,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MONITOR_EXIT,
-        Opcode.RETURN_VOID,
-        Opcode.MOVE_EXCEPTION,
-        Opcode.MONITOR_EXIT,
-        Opcode.THROW,
+    instructions(
+        "aa"(),
     )
 }
 
 /**
- * Identical to [legacyRenderBottomNavigationBarParentFingerprint]
- * except this has an extra parameter.
+ * 19.41 - 20.44
  */
-internal val renderBottomNavigationBarParentFingerprint = fingerprint {
+internal val BytecodePatchContext.renderBottomNavigationBarLegacy1941ParentMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters(
+    parameterTypes(
         "I",
         "I",
         "L", // ReelWatchEndpointOuterClass
@@ -57,38 +84,58 @@ internal val renderBottomNavigationBarParentFingerprint = fingerprint {
         "Ljava/lang/String;",
         "L",
     )
-    strings("aa")
+    instructions(
+        "aa"(),
+    )
 }
 
-internal val setPivotBarVisibilityFingerprint = fingerprint {
+/**
+ * 20.45+
+ */
+internal val BytecodePatchContext.renderBottomNavigationBarParentMethod by gettingFirstImmutableMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("[Ljava/lang/Class;")
+    parameterTypes(
+        "Ljava/lang/Class;",
+        "Ljava/lang/Object;",
+        "I",
+    )
+    instructions(
+        "RPCAC"(),
+    )
+}
+
+internal val ClassDef.setPivotBarVisibilityMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
-    returns("V")
-    parameters("Z")
+    returnType("V")
+    parameterTypes("Z")
     opcodes(
         Opcode.CHECK_CAST,
         Opcode.IF_EQZ,
     )
 }
 
-internal val setPivotBarVisibilityParentFingerprint = fingerprint {
-    parameters("Z")
-    strings("FEnotifications_inbox")
+internal val BytecodePatchContext.setPivotBarVisibilityParentMethod by gettingFirstImmutableMethodDeclaratively {
+    parameterTypes("Z")
+    instructions(
+        "FEnotifications_inbox"(),
+    )
 }
 
-internal val shortsExperimentalPlayerFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.shortsExperimentalPlayerFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
-    literal {
-        45677719L
-    }
+    returnType("Z")
+    parameterTypes()
+    instructions(
+        45677719L(),
+    )
 }
 
-internal val renderNextUIFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.renderNextUIFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
-    literal {
-        45649743L
-    }
+    returnType("Z")
+    parameterTypes()
+    instructions(
+        45649743L(),
+    )
 }

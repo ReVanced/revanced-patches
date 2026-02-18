@@ -1,12 +1,9 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
-import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.returnEarly
@@ -20,29 +17,28 @@ val openVideosFullscreenPatch = bytecodePatch(
         openVideosFullscreenHookPatch,
         settingsPatch,
         addResourcesPatch,
-        versionCheckPatch
     )
 
     compatibleWith(
         "com.google.android.youtube"(
-            "20.07.39",
-            "20.13.41",
+            "19.47.53",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
+        ),
     )
 
-    execute {
-        if (!is_19_46_or_greater) {
-            throw PatchException("'Open videos fullscreen' requires 19.46.42 or greater")
-        }
-
+    apply {
         addResources("youtube", "layout.player.fullscreen.openVideosFullscreen")
 
         PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_open_videos_fullscreen_portrait")
+            SwitchPreference("revanced_open_videos_fullscreen_portrait"),
         )
 
         // Enable the logic for the user Setting to open regular videos fullscreen.
-        openVideosFullscreenHookPatchExtensionFingerprint.method.returnEarly(true)
+        openVideosFullscreenHookPatchExtensionMethod.returnEarly(true)
     }
 }

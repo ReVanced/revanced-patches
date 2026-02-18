@@ -1,9 +1,11 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.annoyances.startup
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val mainActivityOnCreateFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("MainActivity;") && method.name == "onCreate"
-    }
+internal val BytecodePatchContext.mainActivityOnCreateMethod by gettingFirstMethodDeclaratively {
+    name("onCreate")
+    definingClass("MainActivity;")
 }

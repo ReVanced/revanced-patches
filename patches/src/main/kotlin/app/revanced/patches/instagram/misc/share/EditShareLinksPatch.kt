@@ -1,24 +1,22 @@
 package app.revanced.patches.instagram.misc.share
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
-context(BytecodePatchContext)
-internal fun editShareLinksPatch(block: MutableMethod.(index: Int, register: Int) -> Unit) {
-    val fingerprintsToPatch = arrayOf(
-        permalinkResponseJsonParserFingerprint,
-        storyUrlResponseJsonParserFingerprint,
-        profileUrlResponseJsonParserFingerprint,
-        liveUrlResponseJsonParserFingerprint
+internal fun BytecodePatchContext.editShareLinksPatch(block: MutableMethod.(index: Int, register: Int) -> Unit) {
+    val methodsToPatch = arrayOf(
+        permalinkResponseJsonParserMethodMatch,
+        storyUrlResponseJsonParserMethodMatch,
+        profileUrlResponseJsonParserMethodMatch,
+        liveUrlResponseJsonParserMethodMatch,
     )
 
-    fingerprintsToPatch.forEachIndexed { index, fingerprint ->
-
-        fingerprint.method.apply {
+    methodsToPatch.forEachIndexed { index, match ->
+        match.method.apply {
             val putSharingUrlIndex = indexOfFirstInstruction(
                 index,
                 Opcode.IPUT_OBJECT

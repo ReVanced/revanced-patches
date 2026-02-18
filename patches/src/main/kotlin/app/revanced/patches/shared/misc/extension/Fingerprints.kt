@@ -1,13 +1,14 @@
 package app.revanced.patches.shared.misc.extension
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val revancedUtilsPatchesVersionFingerprint = fingerprint {
+internal val BytecodePatchContext.getPatchesReleaseVersionMethod by gettingFirstMethodDeclaratively {
+    name("getPatchesReleaseVersion")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
-    custom { method, _ ->
-        method.name == "getPatchesReleaseVersion" && method.definingClass == EXTENSION_CLASS_DESCRIPTOR
-    }
+    returnType("Ljava/lang/String;")
+    parameterTypes()
 }

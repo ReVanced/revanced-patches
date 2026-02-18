@@ -16,7 +16,7 @@ import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.youtube.patches.components.ReturnYouTubeDislikeFilter;
+import app.revanced.extension.youtube.patches.litho.ReturnYouTubeDislikeFilter;
 import app.revanced.extension.youtube.returnyoutubedislike.ReturnYouTubeDislike;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
@@ -101,6 +101,19 @@ public class ReturnYouTubeDislikePatch {
     /**
      * Injection point.
      *
+     * Logs if new litho text layout is used.
+     */
+    public static boolean useNewLithoTextCreation(boolean useNewLithoTextCreation) {
+        // Don't force flag on/off unless debugging patch hooks,
+        // because forcing off with newer YT targets causes Shorts player to show no buttons,
+        // presumably because the old litho data isn't in the layout data.
+        Logger.printDebug(() -> "useNewLithoTextCreation: " + useNewLithoTextCreation);
+        return useNewLithoTextCreation;
+    }
+
+    /**
+     * Injection point.
+     *
      * For Litho segmented buttons and Litho Shorts player.
      */
     @NonNull
@@ -130,6 +143,10 @@ public class ReturnYouTubeDislikePatch {
             }
 
             String conversionContextString = conversionContext.toString();
+
+            if (Settings.RYD_ENABLED.get()) { // FIXME: Remove this.
+                Logger.printDebug(() -> "RYD conversion context: " + conversionContext);
+            }
 
             if (isRollingNumber && !conversionContextString.contains("video_action_bar.e")) {
                 return original;

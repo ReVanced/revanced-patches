@@ -1,9 +1,9 @@
 package app.revanced.patches.tumblr.timelinefilter
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.removeInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tumblr.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
@@ -23,10 +23,10 @@ val filterTimelineObjectsPatch = bytecodePatch(
 ) {
     dependsOn(sharedExtensionPatch)
 
-    execute {
-        val filterInsertIndex = timelineFilterExtensionFingerprint.patternMatch!!.startIndex
+    apply {
+        val filterInsertIndex = timelineFilterExtensionMethodMatch[0]
 
-        timelineFilterExtensionFingerprint.method.apply {
+        timelineFilterExtensionMethodMatch.method.apply {
             val addInstruction = getInstruction<BuilderInstruction35c>(filterInsertIndex + 1)
 
             val filterListRegister = addInstruction.registerC
@@ -47,11 +47,11 @@ val filterTimelineObjectsPatch = bytecodePatch(
             }
         }
 
-        mapOf(
-            timelineConstructorFingerprint to 1,
-            postsResponseConstructorFingerprint to 2,
-        ).forEach { (fingerprint, timelineObjectsRegister) ->
-            fingerprint.method.addInstructions(
+        arrayOf(
+            timelineConstructorMethod to 1,
+            postsResponseConstructorMethod to 2,
+        ).forEach { (method, timelineObjectsRegister) ->
+            method.addInstructions(
                 0,
                 "invoke-static {p$timelineObjectsRegister}, " +
                     "Lapp/revanced/extension/tumblr/patches/TimelineFilterPatch;->" +
