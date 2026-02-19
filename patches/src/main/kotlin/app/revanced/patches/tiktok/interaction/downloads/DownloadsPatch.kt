@@ -11,6 +11,7 @@ import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.returnEarly
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -35,7 +36,6 @@ val downloadsPatch = bytecodePatch(
         aclCommonShareFingerprint.method.returnEarly(0)
         aclCommonShare2Fingerprint.method.returnEarly(2)
 
-        // Download videos without watermark.
         aclCommonShare3Fingerprint.method.addInstructionsWithLabels(
             0,
             """
@@ -49,7 +49,18 @@ val downloadsPatch = bytecodePatch(
             """,
         )
 
-        // Change the download path patch.
+        awemeGetVideoFingerprint.method.apply {
+            val returnIndex = findInstructionIndicesReversedOrThrow { opcode == Opcode.RETURN_OBJECT }.first()
+            val register = getInstruction<OneRegisterInstruction>(returnIndex).registerA
+
+            addInstructions(
+                returnIndex,
+                """
+                    invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->patchVideoObject(Lcom/ss/android/ugc/aweme/feed/model/Video;)V
+                """
+            )
+        }
+
         downloadUriFingerprint.method.apply {
             findInstructionIndicesReversedOrThrow {
                 getReference<FieldReference>().let {

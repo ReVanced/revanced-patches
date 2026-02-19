@@ -44,3 +44,13 @@ internal val downloadUriFingerprint = fingerprint {
         "video/mp4"
     )
 }
+
+internal val awemeGetVideoFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC)
+    returns("Lcom/ss/android/ugc/aweme/feed/model/Video;")
+    custom { method, classDef ->
+        classDef.endsWith("/Aweme;") &&
+        method.name == "getVideo" &&
+        method.parameterTypes.isEmpty()
+    }
+}
