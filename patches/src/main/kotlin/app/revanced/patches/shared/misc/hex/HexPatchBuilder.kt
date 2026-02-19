@@ -1,13 +1,31 @@
 package app.revanced.patches.shared.misc.hex
 
+import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.rawResourcePatch
 import kotlin.collections.component1
 import kotlin.collections.component2
 import kotlin.math.max
 
-fun hexPatch(ignoreMissingTargetFiles: Boolean = false, block: HexPatchBuilder.() -> Unit) =
-    hexPatch(ignoreMissingTargetFiles, fun(): Set<Replacement> = HexPatchBuilder().apply(block))
+fun hexPatch(ignoreMissingTargetFiles: Boolean = false, block: HexPatchBuilder.() -> Unit): Patch {
+    val replacementsSupplier = HexPatchBuilder().apply(block)
+
+    return rawResourcePatch {
+        apply {
+            replacementsSupplier.apply(block).groupBy { it.targetFilePath }
+                .forEach { (targetFilePath, replacements) ->
+                    val targetFile = get(targetFilePath, true)
+                    if (ignoreMissingTargetFiles && !targetFile.exists()) return@forEach
+
+                    // TODO: Use a file channel to read and write the file instead of reading the whole file into memory,
+                    //  in order to reduce memory usage.
+                    val targetFileBytes = targetFile.readBytes()
+                    replacements.forEach { it.replacePattern(targetFileBytes) }
+                    targetFile.writeBytes(targetFileBytes)
+                }
+        }
+    }
+}
 
 @Suppress("JavaDefaultMethodsNotOverriddenByDelegation")
 class HexPatchBuilder internal constructor(
@@ -35,28 +53,6 @@ class HexPatchBuilder internal constructor(
     }
 }
 
-// The replacements being passed using a function is intended.
-// Previously the replacements were a property of the patch. Getter were being delegated to that property.
-// This late evaluation was being leveraged in app.revanced.patches.all.misc.hex.HexPatch.
-// Without the function, the replacements would be evaluated at the time of patch creation.
-// This isn't possible because the delegated property is not accessible at that time.
-@Deprecated("Use the hexPatch function with the builder parameter instead.")
-fun hexPatch(ignoreMissingTargetFiles: Boolean = false, replacementsSupplier: () -> Set<Replacement>) =
-    rawResourcePatch {
-        apply {
-            replacementsSupplier().groupBy { it.targetFilePath }.forEach { (targetFilePath, replacements) ->
-                val targetFile = get(targetFilePath, true)
-                if (ignoreMissingTargetFiles && !targetFile.exists()) return@forEach
-
-                // TODO: Use a file channel to read and write the file instead of reading the whole file into memory,
-                //  in order to reduce memory usage.
-                val targetFileBytes = targetFile.readBytes()
-                replacements.forEach { it.replacePattern(targetFileBytes) }
-                targetFile.writeBytes(targetFileBytes)
-            }
-        }
-    }
-
 /**
  * Represents a pattern to search for and its replacement pattern in a file.
  *
@@ -70,17 +66,6 @@ class Replacement(
     internal val targetFilePath: String,
 ) {
     val replacementBytesPadded = replacementBytes + ByteArray(bytes.size - replacementBytes.size)
-
-    @Deprecated("Use the constructor with ByteArray parameters instead.")
-    constructor(
-        pattern: String,
-        replacementPattern: String,
-        targetFilePath: String,
-    ) : this(
-        byteArrayOf(pattern),
-        byteArrayOf(replacementPattern),
-        targetFilePath
-    )
 
     /**
      * Replaces the [bytes] with the [replacementBytes] in the [targetFileBytes].
