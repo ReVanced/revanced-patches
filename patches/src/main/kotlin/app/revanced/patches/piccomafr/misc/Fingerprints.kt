@@ -1,11 +1,17 @@
 package app.revanced.patches.piccomafr.misc
 
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
 
-internal val getAndroidIdFingerprint = fingerprint {
+internal val BytecodePatchContext.getAndroidIdMethod by gettingFirstMethodDeclaratively(
+    "context",
+    "android_id"
+) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/String;")
-    parameters("Landroid/content/Context;")
-    strings("context", "android_id")
+    returnType("Ljava/lang/String;")
+    parameterTypes("Landroid/content/Context;")
 }

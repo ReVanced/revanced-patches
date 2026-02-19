@@ -1,19 +1,15 @@
 package app.revanced.patches.youtube.video.videoid
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.video.playerresponse.Hook
 import app.revanced.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
 import app.revanced.patches.youtube.video.playerresponse.playerResponseMethodHookPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
-import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 /**
  * Hooks the new video id when the video changes.
@@ -95,25 +91,21 @@ val videoIdPatch = bytecodePatch(
         playerResponseMethodHookPatch,
     )
 
-    execute {
-        videoIdFingerprint.match(videoIdParentFingerprint.originalClassDef).method.apply {
-            videoIdMethod = this
-            val index = indexOfPlayerResponseModelString()
-            videoIdRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
+    apply {
+        videoIdParentMethodMatch.immutableClassDef.getVideoIdMethodMatch().let {
+            videoIdMethod = it.method
+
+            val index = it[0]
+            videoIdRegister = it.method.getInstruction<OneRegisterInstruction>(index + 1).registerA
             videoIdInsertIndex = index + 2
         }
 
-        videoIdBackgroundPlayFingerprint.method.apply {
-            backgroundPlaybackMethod = this
-            val index = indexOfPlayerResponseModelString()
-            backgroundPlaybackVideoIdRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
+        videoIdBackgroundPlayMethodMatch.let {
+            backgroundPlaybackMethod = it.method
+
+            val index = it[0]
+            backgroundPlaybackVideoIdRegister = it.method.getInstruction<OneRegisterInstruction>(index + 1).registerA
             backgroundPlaybackInsertIndex = index + 2
         }
     }
-}
-
-internal fun Method.indexOfPlayerResponseModelString() = indexOfFirstInstruction {
-    val reference = getReference<MethodReference>()
-    reference?.definingClass == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;" &&
-        reference.returnType == "Ljava/lang/String;"
 }

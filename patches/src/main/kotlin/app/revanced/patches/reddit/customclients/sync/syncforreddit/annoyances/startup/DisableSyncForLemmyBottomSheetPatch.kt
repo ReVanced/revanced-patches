@@ -1,6 +1,7 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.annoyances.startup
 
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
@@ -14,11 +15,9 @@ val disableSyncForLemmyBottomSheetPatch = bytecodePatch(
         "com.laurencedawson.reddit_sync.dev"(), // Version unknown.
     )
 
-    execute {
-        mainActivityOnCreateFingerprint.method.apply {
-            val showBottomSheetIndex = implementation!!.instructions.lastIndex - 1
+    apply {
+        val showBottomSheetIndex = mainActivityOnCreateMethod.instructions.lastIndex - 1
 
-            removeInstruction(showBottomSheetIndex)
-        }
+        mainActivityOnCreateMethod.removeInstruction(showBottomSheetIndex)
     }
 }

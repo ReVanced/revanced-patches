@@ -1,39 +1,39 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.redgifs
 
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.writeRegister
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction11n
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 
-
-internal val createOkHttpClientFingerprint = fingerprint {
+internal val BytecodePatchContext.createOkHttpClientMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("V")
-    parameters()
-    custom { method, classDef ->
-        // There are four functions (each creating a client) defined in this file with very similar fingerprints.
+    returnType("V")
+    parameterTypes()
+    custom {
+        // There are four functions (each creating a client) defined in this file with very similar methods.
         // We're looking for the one that only creates one object (the builder) and sets client options true
         // (thus never reloading the register with a 0).
-        classDef.sourceFile == "OkHttpHelper.java" &&
-        method.instructions.count { it.opcode == Opcode.NEW_INSTANCE } == 1 &&
-        method.indexOfFirstInstruction {
-            opcode == Opcode.CONST_4 && writeRegister == 1 && (this as Instruction11n).narrowLiteral == 0
+        immutableClassDef.sourceFile == "OkHttpHelper.java" && instructions.count {
+            it.opcode == Opcode.NEW_INSTANCE
+        } == 1 && indexOfFirstInstruction {
+            opcode == Opcode.CONST_4 && writeRegister == 1 && (this as NarrowLiteralInstruction).narrowLiteral == 0
         } == -1
     }
 }
 
-internal val getDefaultUserAgentFingerprint = fingerprint {
-    custom { method, classDef ->
-        method.name == "getDefaultUserAgent" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
+internal val BytecodePatchContext.getDefaultUserAgentMethod by gettingFirstMethodDeclaratively {
+    name("getDefaultUserAgent")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
 }
 
-internal val getOriginalUserAgentFingerprint = fingerprint {
+internal val BytecodePatchContext.getOriginalUserAgentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
-    custom { _, classDef -> classDef.sourceFile == "AccountSingleton.java" }
+    returnType { startsWith("Ljava/lang/String;") }
+    parameterTypes()
+    custom { immutableClassDef.sourceFile == "AccountSingleton.java" }
 }

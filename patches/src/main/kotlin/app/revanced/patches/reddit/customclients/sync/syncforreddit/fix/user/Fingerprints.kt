@@ -1,36 +1,40 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.user
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal fun userEndpointFingerprint(source: String, accessFlags: Set<AccessFlags>? = null) = fingerprint {
-    strings("u/")
-    custom { _, classDef -> classDef.sourceFile == source }
-    accessFlags(*accessFlags?.toTypedArray() ?: return@fingerprint)
+internal fun userEndpointMethodMatch(
+    source: String,
+    accessFlags: Set<AccessFlags>? = null,
+) = composingFirstMethod {
+    instructions("u/"(String::contains))
+    custom { immutableClassDef.sourceFile == source }
+    accessFlags(*accessFlags?.toTypedArray() ?: return@composingFirstMethod)
 }
 
-internal val oAuthFriendRequestFingerprint = userEndpointFingerprint(
+internal val BytecodePatchContext.oAuthFriendRequestMethodMatch by userEndpointMethodMatch(
     "OAuthFriendRequest.java",
 )
 
-internal val oAuthUnfriendRequestFingerprint = userEndpointFingerprint(
+internal val BytecodePatchContext.oAuthUnfriendRequestMethodMatch by userEndpointMethodMatch(
     "OAuthUnfriendRequest.java",
 )
 
-internal val oAuthUserIdRequestFingerprint = userEndpointFingerprint(
+internal val BytecodePatchContext.oAuthUserIdRequestMethodMatch by userEndpointMethodMatch(
     "OAuthUserIdRequest.java",
 )
 
-internal val oAuthUserInfoRequestFingerprint = userEndpointFingerprint(
+internal val BytecodePatchContext.oAuthUserInfoRequestMethodMatch by userEndpointMethodMatch(
     "OAuthUserInfoRequest.java",
 )
 
-internal val oAuthSubredditInfoRequestConstructorFingerprint = userEndpointFingerprint(
+internal val BytecodePatchContext.oAuthSubredditInfoRequestConstructorMethodMatch by userEndpointMethodMatch(
     "OAuthSubredditInfoRequest.java",
     setOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
 )
 
-internal val oAuthSubredditInfoRequestHelperFingerprint = userEndpointFingerprint(
+internal val BytecodePatchContext.oAuthSubredditInfoRequestHelperMethodMatch by userEndpointMethodMatch(
     "OAuthSubredditInfoRequest.java",
     setOf(AccessFlags.PRIVATE, AccessFlags.STATIC),
 )

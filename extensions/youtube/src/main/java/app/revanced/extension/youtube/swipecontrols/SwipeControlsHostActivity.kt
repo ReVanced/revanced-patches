@@ -8,6 +8,7 @@ import android.view.MotionEvent
 import android.view.ViewGroup
 import app.revanced.extension.shared.Logger.printDebug
 import app.revanced.extension.shared.Logger.printException
+import app.revanced.extension.youtube.patches.VersionCheckPatch
 import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.shared.PlayerType
 import app.revanced.extension.youtube.swipecontrols.controller.AudioVolumeController
@@ -237,6 +238,8 @@ class SwipeControlsHostActivity : Activity() {
          */
         @Suppress("unused")
         @JvmStatic
-        fun allowSwipeChangeVideo(original: Boolean): Boolean = Settings.SWIPE_CHANGE_VIDEO.get()
+        fun allowSwipeChangeVideo(original: Boolean): Boolean =
+            // Feature can cause crashing if forced in newer targets.
+            !VersionCheckPatch.IS_20_22_OR_GREATER && Settings.SWIPE_CHANGE_VIDEO.get()
     }
 }

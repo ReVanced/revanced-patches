@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.misc.hapticfeedback
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
@@ -26,14 +26,14 @@ val disableHapticFeedbackPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.31.40",
+        ),
     )
 
-    execute {
+    apply {
         addResources("youtube", "misc.hapticfeedback.disableHapticFeedbackPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
@@ -44,28 +44,26 @@ val disableHapticFeedbackPatch = bytecodePatch(
                     SwitchPreference("revanced_disable_haptic_feedback_precise_seeking"),
                     SwitchPreference("revanced_disable_haptic_feedback_seek_undo"),
                     SwitchPreference("revanced_disable_haptic_feedback_zoom"),
-                )
-            )
+                ),
+            ),
         )
 
         arrayOf(
-            markerHapticsFingerprint to "disableChapterVibrate",
-            scrubbingHapticsFingerprint to "disablePreciseSeekingVibrate",
-            seekUndoHapticsFingerprint to "disableSeekUndoVibrate",
-            zoomHapticsFingerprint to "disableZoomVibrate"
-        ).forEach { (fingerprint, methodName) ->
-            fingerprint.method.apply {
-                addInstructionsWithLabels(
-                    0,
-                    """
-                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->$methodName()Z
-                        move-result v0
-                        if-eqz v0, :vibrate
-                        return-void
-                    """,
-                    ExternalLabel("vibrate", getInstruction(0))
-                )
-            }
+            markerHapticsMethod to "disableChapterVibrate",
+            scrubbingHapticsMethod to "disablePreciseSeekingVibrate",
+            seekUndoHapticsMethod to "disableSeekUndoVibrate",
+            zoomHapticsMethod to "disableZoomVibrate",
+        ).forEach { (method, methodName) ->
+            method.addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->$methodName()Z
+                    move-result v0
+                    if-eqz v0, :vibrate
+                    return-void
+                """,
+                ExternalLabel("vibrate", method.getInstruction(0)),
+            )
         }
     }
 }

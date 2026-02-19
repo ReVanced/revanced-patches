@@ -1,13 +1,15 @@
 package app.revanced.patches.shared.misc.checks
 
 import android.os.Build.*
-import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.com.android.tools.smali.dexlib2.iface.value.MutableEncodedValue
+import app.revanced.com.android.tools.smali.dexlib2.iface.value.MutableLongEncodedValue
+import app.revanced.com.android.tools.smali.dexlib2.iface.value.MutableStringEncodedValue
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableClassDef
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.encodedValue.MutableEncodedValue
-import app.revanced.patcher.util.proxy.mutableTypes.encodedValue.MutableLongEncodedValue
-import app.revanced.patcher.util.proxy.mutableTypes.encodedValue.MutableStringEncodedValue
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableLongEncodedValue
@@ -21,8 +23,8 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/shared/checks/CheckEnvironmentPatch;"
 
 fun checkEnvironmentPatch(
-    mainActivityOnCreateFingerprint: Fingerprint,
-    extensionPatch: Patch<*>,
+    getMainActivityOnCreateMethod: BytecodePatchContext.() -> MutableMethod,
+    extensionPatch: Patch,
     vararg compatiblePackages: String,
 ) = bytecodePatch(
     description = "Checks, if the application was patched by, otherwise warns the user.",
@@ -34,24 +36,24 @@ fun checkEnvironmentPatch(
         addResourcesPatch,
     )
 
-    execute {
+    apply {
         addResources("shared", "misc.checks.checkEnvironmentPatch")
 
         fun setPatchInfo() {
-            fun <T : MutableEncodedValue> Fingerprint.setClassFields(vararg fieldNameValues: Pair<String, T>) {
+            fun <T : MutableEncodedValue> MutableClassDef.setClassFields(vararg fieldNameValues: Pair<String, T>) {
                 val fieldNameValueMap = mapOf(*fieldNameValues)
 
-                classDef.fields.forEach { field ->
+                fields.forEach { field ->
                     field.initialValue = fieldNameValueMap[field.name] ?: return@forEach
                 }
             }
 
-            patchInfoFingerprint.setClassFields(
+            patchInfoClassDef.setClassFields(
                 "PATCH_TIME" to System.currentTimeMillis().encoded,
             )
 
             fun setBuildInfo() {
-                patchInfoBuildFingerprint.setClassFields(
+                patchInfoBuildClassDef.setClassFields(
                     "PATCH_BOARD" to BOARD.encodedAndHashed,
                     "PATCH_BOOTLOADER" to BOOTLOADER.encodedAndHashed,
                     "PATCH_BRAND" to BRAND.encodedAndHashed,
@@ -82,7 +84,7 @@ fun checkEnvironmentPatch(
             }
         }
 
-        fun invokeCheck() = mainActivityOnCreateFingerprint.method.addInstruction(
+        fun invokeCheck() = getMainActivityOnCreateMethod().addInstruction(
             0,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->check(Landroid/app/Activity;)V",
         )

@@ -1,6 +1,6 @@
 package app.revanced.patches.swissid.integritycheck
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
 private const val RESULT_METHOD_REFERENCE =
@@ -17,8 +17,8 @@ val removeGooglePlayIntegrityCheckPatch = bytecodePatch(
 ) {
     compatibleWith("com.swisssign.swissid.mobile"("5.2.9"))
 
-    execute {
-        checkIntegrityFingerprint.method.addInstructions(
+    apply {
+        checkIntegrityMethod.addInstructions(
             0,
             """
                 iget-object p1, p0, $RESULT_METHOD_REFERENCE

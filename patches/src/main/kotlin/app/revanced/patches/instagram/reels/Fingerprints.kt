@@ -1,13 +1,14 @@
 package app.revanced.patches.instagram.reels
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val clipsViewPagerImplGetViewAtIndexFingerprint = fingerprint {
-    strings("ClipsViewPagerImpl_getViewAtIndex")
-}
+internal val BytecodePatchContext.clipsViewPagerImplGetViewAtIndexMethod by gettingFirstMethodDeclaratively("ClipsViewPagerImpl_getViewAtIndex")
 
-internal val clipsSwipeRefreshLayoutOnInterceptTouchEventFingerprint  = fingerprint {
-    parameters("Landroid/view/MotionEvent;")
-    custom { _, classDef -> classDef.type == "Linstagram/features/clips/viewer/ui/ClipsSwipeRefreshLayout;" }
+internal val BytecodePatchContext.clipsSwipeRefreshLayoutOnInterceptTouchEventMethod by gettingFirstMethodDeclaratively {
+    parameterTypes("Landroid/view/MotionEvent;")
+    definingClass("Linstagram/features/clips/viewer/ui/ClipsSwipeRefreshLayout;")
 }
 

@@ -1,22 +1,15 @@
 package app.revanced.util
 
-import app.revanced.patcher.FingerprintBuilder
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableClassDef
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableField
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.patcher.*
+import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
-import app.revanced.patcher.util.proxy.mutableTypes.MutableField
-import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.util.InstructionUtils.Companion.branchOpcodes
 import app.revanced.util.InstructionUtils.Companion.returnOpcodes
 import app.revanced.util.InstructionUtils.Companion.writeOpcodes
@@ -25,6 +18,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.Opcode.*
 import com.android.tools.smali.dexlib2.analysis.reflection.util.ReflectionUtils
 import com.android.tools.smali.dexlib2.formatter.DexFormatter
+import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -34,8 +28,8 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.iface.value.*
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.immutable.value.*
-import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.util.*
+import kotlin.collections.ArrayDeque
 
 /**
  * Starting from and including the instruction at index [startIndex],
@@ -94,7 +88,10 @@ fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): In
                 return bestFreeRegisterFound
             }
             // This method is simple and does not follow branching.
-            throw IllegalArgumentException("Encountered a branch statement before a free register could be found")
+            throw IllegalArgumentException(
+                "Encountered a branch statement before " +
+                        "a free register could be found from startIndex: $startIndex",
+            )
         }
 
         if (instruction.isReturnInstruction) {
@@ -111,8 +108,10 @@ fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): In
 
             // Somehow every method register was read from before any register was wrote to.
             // In practice this never occurs.
-            throw IllegalArgumentException("Could not find a free register from startIndex: " +
-                    "$startIndex excluding: $registersToExclude")
+            throw IllegalArgumentException(
+                "Could not find a free register from startIndex: " +
+                        "$startIndex excluding: $registersToExclude",
+            )
         }
     }
 
@@ -139,9 +138,13 @@ internal val Instruction.registersUsed: List<Int>
         }
 
         is ThreeRegisterInstruction -> listOf(registerA, registerB, registerC)
+
         is TwoRegisterInstruction -> listOf(registerA, registerB)
+
         is OneRegisterInstruction -> listOf(registerA)
+
         is RegisterRangeInstruction -> (startRegister until (startRegister + registerCount)).toList()
+
         else -> emptyList()
     }
 
@@ -217,7 +220,8 @@ private fun Method.findInstructionIndexFromToString(fieldName: String): Int {
     val fieldSetOpcode = getInstruction(fieldSetIndex).opcode
     if (fieldSetOpcode == MOVE_RESULT ||
         fieldSetOpcode == MOVE_RESULT_WIDE ||
-        fieldSetOpcode == MOVE_RESULT_OBJECT) {
+        fieldSetOpcode == MOVE_RESULT_OBJECT
+    ) {
         fieldSetIndex--
     }
 
@@ -229,10 +233,10 @@ private fun Method.findInstructionIndexFromToString(fieldName: String): Int {
  *
  * @param fieldName The name of the field to find.  Partial matches are allowed.
  */
-context(BytecodePatchContext)
+context(context: BytecodePatchContext)
 internal fun Method.findMethodFromToString(fieldName: String): MutableMethod {
     val methodUsageIndex = findInstructionIndexFromToString(fieldName)
-    return navigate(this).to(methodUsageIndex).stop()
+    return context.navigate(this).to(methodUsageIndex).stop()
 }
 
 /**
@@ -248,28 +252,16 @@ internal fun Method.findFieldFromToString(fieldName: String): FieldReference {
 /**
  * Adds public [AccessFlags] and removes private and protected flags (if present).
  */
-internal fun Int.toPublicAccessFlags(): Int {
-    return this.or(AccessFlags.PUBLIC.value)
-        .and(AccessFlags.PROTECTED.value.inv())
-        .and(AccessFlags.PRIVATE.value.inv())
-}
-
-/**
- * Find the [MutableMethod] from a given [Method] in a [MutableClass].
- *
- * @param method The [Method] to find.
- * @return The [MutableMethod].
- */
-fun MutableClass.findMutableMethodOf(method: Method) = this.methods.first {
-    MethodUtil.methodSignaturesMatch(it, method)
-}
+internal fun Int.toPublicAccessFlags(): Int = this.or(AccessFlags.PUBLIC.value)
+    .and(AccessFlags.PROTECTED.value.inv())
+    .and(AccessFlags.PRIVATE.value.inv())
 
 /**
  * Apply a transform to all methods of the class.
  *
  * @param transform The transformation function. Accepts a [MutableMethod] and returns a transformed [MutableMethod].
  */
-fun MutableClass.transformMethods(transform: MutableMethod.() -> MutableMethod) {
+fun MutableClassDef.transformMethods(transform: MutableMethod.() -> MutableMethod) {
     val transformedMethods = methods.map { it.transform() }
     methods.clear()
     methods.addAll(transformedMethods)
@@ -293,7 +285,6 @@ fun MutableMethod.injectHideViewCall(
     "invoke-static { v$viewRegister }, $classDescriptor->$targetMethod(Landroid/view/View;)V",
 )
 
-
 /**
  * Inserts instructions at a given index, using the existing control flow label at that index.
  * Inserted instructions can have it's own control flow labels as well.
@@ -310,7 +301,7 @@ fun MutableMethod.injectHideViewCall(
 // TODO: delete this on next major version bump.
 fun MutableMethod.addInstructionsAtControlFlowLabel(
     insertIndex: Int,
-    instructions: String
+    instructions: String,
 ) = addInstructionsAtControlFlowLabel(insertIndex, instructions, *arrayOf<ExternalLabel>())
 
 /**
@@ -329,7 +320,7 @@ fun MutableMethod.addInstructionsAtControlFlowLabel(
 fun MutableMethod.addInstructionsAtControlFlowLabel(
     insertIndex: Int,
     instructions: String,
-    vararg externalLabels: ExternalLabel
+    vararg externalLabels: ExternalLabel,
 ) {
     // Duplicate original instruction and add to +1 index.
     addInstruction(insertIndex + 1, getInstruction(insertIndex))
@@ -355,10 +346,8 @@ fun MutableMethod.addInstructionsAtControlFlowLabel(
  * @throws PatchException if the resource cannot be found.
  * @see [indexOfFirstResourceIdOrThrow], [indexOfFirstLiteralInstructionReversed]
  */
-fun Method.indexOfFirstResourceId(resourceName: String): Int {
-    val resourceId = resourceMappings["id", resourceName]
-    return indexOfFirstLiteralInstruction(resourceId)
-}
+fun Method.indexOfFirstResourceId(resourceName: String): Int =
+    indexOfFirstLiteralInstruction(ResourceType.ID[resourceName])
 
 /**
  * Get the index of the first instruction with the id of the given resource name or throw a [PatchException].
@@ -407,8 +396,7 @@ fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Long): Int {
  * @return the first literal instruction with the value, or -1 if not found.
  * @see indexOfFirstLiteralInstructionOrThrow
  */
-fun Method.indexOfFirstLiteralInstruction(literal: Float) =
-    indexOfFirstLiteralInstruction(literal.toRawBits().toLong())
+fun Method.indexOfFirstLiteralInstruction(literal: Float) = indexOfFirstLiteralInstruction(literal.toRawBits().toLong())
 
 /**
  * Find the index of the first literal instruction with the given float value,
@@ -428,8 +416,7 @@ fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Float): Int {
  * @return the first literal instruction with the value, or -1 if not found.
  * @see indexOfFirstLiteralInstructionOrThrow
  */
-fun Method.indexOfFirstLiteralInstruction(literal: Double) =
-    indexOfFirstLiteralInstruction(literal.toRawBits())
+fun Method.indexOfFirstLiteralInstruction(literal: Double) = indexOfFirstLiteralInstruction(literal.toRawBits())
 
 /**
  * Find the index of the first literal instruction with the given double value,
@@ -536,12 +523,12 @@ fun Method.containsLiteralInstruction(literal: Double) = indexOfFirstLiteralInst
  * @param targetClass the class to start traversing the class hierarchy from.
  * @param callback function that is called for every class in the hierarchy.
  */
-fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClass, callback: MutableClass.() -> Unit) {
+fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClassDef, callback: MutableClassDef.() -> Unit) {
     callback(targetClass)
 
     targetClass.superclass ?: return
 
-    classBy { targetClass.superclass == it.type }?.mutableClass?.let {
+    firstClassDefOrNull(targetClass.superclass!!)?.let {
         traverseClassHierarchy(it, callback)
     }
 }
@@ -753,8 +740,12 @@ fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
  * Suitable for calls to extension code to override boolean and integer values.
  */
 internal fun MutableMethod.insertLiteralOverride(literal: Long, extensionMethodDescriptor: String) {
-    // TODO: make this work with objects and wide values.
     val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
+    insertLiteralOverride(literalIndex, extensionMethodDescriptor)
+}
+
+internal fun MutableMethod.insertLiteralOverride(literalIndex: Int, extensionMethodDescriptor: String) {
+    // TODO: make this work with objects and wide primitive values.
     val index = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT)
     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -769,7 +760,7 @@ internal fun MutableMethod.insertLiteralOverride(literal: Long, extensionMethodD
         """
             $operation, $extensionMethodDescriptor
             move-result v$register
-        """
+        """,
     )
 }
 
@@ -778,61 +769,49 @@ internal fun MutableMethod.insertLiteralOverride(literal: Long, extensionMethodD
  */
 internal fun MutableMethod.insertLiteralOverride(literal: Long, override: Boolean) {
     val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
+    return insertLiteralOverride(literalIndex, override)
+}
+
+/**
+ * Constant value override of the first MOVE_RESULT after the index parameter.
+ */
+internal fun MutableMethod.insertLiteralOverride(literalIndex: Int, override: Boolean) {
     val index = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT)
     val register = getInstruction<OneRegisterInstruction>(index).registerA
     val overrideValue = if (override) "0x1" else "0x0"
 
     addInstruction(
         index + 1,
-        "const v$register, $overrideValue"
+        "const v$register, $overrideValue",
     )
 }
 
 /**
- * Called for _all_ methods with the given literal value.
- * Method indices are iterated from last to first.
+ * Iterates all instructions as sequence in all methods of all classes in the [BytecodePatchContext].
+ *
+ * @param match A function that matches instructions. If a match is found, it returns a value of type [T], otherwise null.
+ * @param transform A function that transforms the matched instruction using the mutable method and the matched value
+ * of type [T].
  */
-fun BytecodePatchContext.forEachLiteralValueInstruction(
-    literal: Long,
-    block: MutableMethod.(matchingIndex: Int) -> Unit,
+fun <T> BytecodePatchContext.forEachInstructionAsSequence(
+    match: (classDef: ClassDef, method: Method, instruction: Instruction, index: Int) -> T?,
+    transform: (MutableMethod, T) -> Unit
 ) {
-    val matchingIndexes = ArrayList<Int>()
+    classDefs.flatMap { classDef ->
+        classDef.methods.mapNotNull { method ->
+            val matches = method.instructionsOrNull?.mapIndexedNotNull { index, instruction ->
+                match(classDef, method, instruction, index)
+            } ?: return@mapNotNull null
 
-    classes.forEach { classDef ->
-        classDef.methods.forEach { method ->
-            method.implementation?.instructions?.let { instructions ->
-                matchingIndexes.clear()
-
-                instructions.forEachIndexed { index, instruction ->
-                    if ((instruction as? WideLiteralInstruction)?.wideLiteral == literal) {
-                        matchingIndexes.add(index)
-                    }
-                }
-
-                if (matchingIndexes.isNotEmpty()) {
-                    val mutableMethod = proxy(classDef).mutableClass.findMutableMethodOf(method)
-
-                    // FIXME: Until patcher V22 is merged, this workaround is needed
-                    //        because if multiple patches modify the same class
-                    //        then after modifying the method indexes of immutable classes
-                    //        are no longer correct.
-                    matchingIndexes.clear()
-                    mutableMethod.instructions.forEachIndexed { index, instruction ->
-                        if ((instruction as? WideLiteralInstruction)?.wideLiteral == literal) {
-                            matchingIndexes.add(index)
-                        }
-                    }
-                    if (matchingIndexes.isEmpty()) return@forEach
-                    // FIXME Remove code above after V22 merge.
-
-                    matchingIndexes.asReversed().forEach { index ->
-                        block.invoke(mutableMethod, index)
-                    }
-                }
-            }
+            if (matches.any()) method to matches else null
         }
-    }
+    }.forEach { (method, matches) ->
 
+        val method = firstMethod(method)
+        val matches = matches.toCollection(ArrayDeque())
+
+        while (!matches.isEmpty()) transform(method, matches.removeLast())
+    }
 }
 
 private fun MutableMethod.checkReturnType(expectedTypes: Iterable<Class<*>>) {
@@ -1231,16 +1210,13 @@ internal fun MutableField.removeFlags(vararg flags: AccessFlags) {
 }
 
 internal fun BytecodePatchContext.addStaticFieldToExtension(
-    className: String,
+    type: String,
     methodName: String,
     fieldName: String,
     objectClass: String,
-    smaliInstructions: String
+    smaliInstructions: String,
 ) {
-    val classDef = classes.find { classDef -> classDef.type == className }
-        ?: throw PatchException("No matching methods found in: $className")
-    val mutableClass = proxy(classDef).mutableClass
-
+    val mutableClass = firstClassDef(type)
     val objectCall = "$mutableClass->$fieldName:$objectClass"
 
     mutableClass.apply {
@@ -1253,30 +1229,28 @@ internal fun BytecodePatchContext.addStaticFieldToExtension(
                     AccessFlags.PUBLIC.value or AccessFlags.STATIC.value,
                     null,
                     annotations,
-                    null
-                ).toMutable()
+                    null,
+                ).toMutable(),
             )
 
             addInstructionsWithLabels(
                 0,
                 """
                     sget-object v0, $objectCall
-                """ + smaliInstructions
+                """ + smaliInstructions,
             )
         }
     }
 }
 
 /**
- * Set the custom condition for this fingerprint to check for a literal value.
+ * Set the custom condition for this predicate to check for a literal value.
  *
  * @param literalSupplier The supplier for the literal value to check for.
  */
-// TODO: add a way for subclasses to also use their own custom fingerprint.
-fun FingerprintBuilder.literal(literalSupplier: () -> Long) {
-    custom { method, _ ->
-        method.containsLiteralInstruction(literalSupplier())
-    }
+@Deprecated("Instead use `literal()`")
+fun MutablePredicateList<Method>.literal(literalSupplier: () -> Long) {
+    custom { containsLiteralInstruction(literalSupplier()) }
 }
 
 private class InstructionUtils {
@@ -1285,12 +1259,16 @@ private class InstructionUtils {
             GOTO, GOTO_16, GOTO_32,
             IF_EQ, IF_NE, IF_LT, IF_GE, IF_GT, IF_LE,
             IF_EQZ, IF_NEZ, IF_LTZ, IF_GEZ, IF_GTZ, IF_LEZ,
-            PACKED_SWITCH_PAYLOAD, SPARSE_SWITCH_PAYLOAD
+            PACKED_SWITCH_PAYLOAD, SPARSE_SWITCH_PAYLOAD,
         )
 
         val returnOpcodes: EnumSet<Opcode> = EnumSet.of(
-            RETURN_VOID, RETURN, RETURN_WIDE, RETURN_OBJECT, RETURN_VOID_NO_BARRIER,
-            THROW
+            RETURN_VOID,
+            RETURN,
+            RETURN_WIDE,
+            RETURN_OBJECT,
+            RETURN_VOID_NO_BARRIER,
+            THROW,
         )
 
         val writeOpcodes: EnumSet<Opcode> = EnumSet.of(

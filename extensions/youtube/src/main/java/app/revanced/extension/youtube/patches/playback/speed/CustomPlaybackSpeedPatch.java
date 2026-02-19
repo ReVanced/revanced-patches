@@ -32,7 +32,7 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.shared.ui.SheetBottomDialog;
 import app.revanced.extension.youtube.patches.VideoInformation;
-import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilter;
+import app.revanced.extension.youtube.patches.litho.PlaybackSpeedMenuFilter;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 import kotlin.Unit;

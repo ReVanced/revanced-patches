@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.video.codecs
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -14,8 +14,7 @@ import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-private const val EXTENSION_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/patches/DisableVideoCodecsPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/DisableVideoCodecsPatch;"
 
 @Suppress("unused")
 val disableVideoCodecsPatch = bytecodePatch(
@@ -36,8 +35,7 @@ val disableVideoCodecsPatch = bytecodePatch(
                 }
 
                 val reference = instruction.getReference<MethodReference>()
-                if (reference?.definingClass =="Landroid/view/Display\$HdrCapabilities;"
-                    && reference.name == "getSupportedHdrTypes") {
+                if (reference?.definingClass == "Landroid/view/Display\$HdrCapabilities;" && reference.name == "getSupportedHdrTypes") {
                     return@filterMap instruction to instructionIndex
                 }
                 return@filterMap null
@@ -49,30 +47,30 @@ val disableVideoCodecsPatch = bytecodePatch(
                 method.replaceInstruction(
                     index,
                     "invoke-static/range { v$register .. v$register }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                            "disableHdrVideo(Landroid/view/Display\$HdrCapabilities;)[I",
+                            $$"disableHdrVideo(Landroid/view/Display$HdrCapabilities;)[I",
                 )
-            }
-        )
+            },
+        ),
     )
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.31.40",
+        ),
     )
 
-    execute {
+    apply {
         addResources("youtube", "video.codecs.disableVideoCodecsPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
             SwitchPreference("revanced_disable_hdr_video"),
-            SwitchPreference("revanced_force_avc_codec")
+            SwitchPreference("revanced_force_avc_codec"),
         )
 
-        vp9CapabilityFingerprint.method.addInstructionsWithLabels(
+        vp9CapabilityMethod.addInstructionsWithLabels(
             0,
             """
                 invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->allowVP9()Z
@@ -81,7 +79,7 @@ val disableVideoCodecsPatch = bytecodePatch(
                 return v0
                 :default
                 nop
-            """
+            """,
         )
     }
 }

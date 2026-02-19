@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.webkit.MimeTypeMap;
 
+import app.revanced.extension.shared.ResourceType;
 import com.strava.mediamodels.data.MediaType;
 import com.strava.photos.data.Media;
 
@@ -166,7 +167,7 @@ public final class AddMediaDownloadPatch {
     }
 
     private static String getString(String name, String fallback) {
-        int id = Utils.getResourceIdentifier(name, "string");
+        int id = Utils.getResourceIdentifier(ResourceType.STRING, name);
         return id != 0
                 ? Utils.getResourceString(id)
                 : fallback;

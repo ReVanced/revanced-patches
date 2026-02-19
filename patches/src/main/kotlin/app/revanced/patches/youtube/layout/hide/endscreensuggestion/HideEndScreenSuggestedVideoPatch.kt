@@ -1,20 +1,20 @@
 package app.revanced.patches.youtube.layout.hide.endscreensuggestion
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HideEndScreenSuggestedVideoPatch;"
@@ -31,34 +31,33 @@ val hideEndScreenSuggestedVideoPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.31.40",
+        ),
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_end_screen_suggested_video"),
         )
 
-        removeOnLayoutChangeListenerFingerprint.let {
-            val endScreenMethod = navigate(it.originalMethod).to(it.patternMatch!!.endIndex).stop()
+        removeOnLayoutChangeListenerMethodMatch.let {
+            val endScreenMethod = navigate(it.immutableMethod).to(it[-1]).stop()
 
             endScreenMethod.apply {
-                val autoNavStatusMethodName = autoNavStatusFingerprint.match(
-                    autoNavConstructorFingerprint.classDef
-                ).originalMethod.name
+                val autoNavStatusMethodName = autoNavConstructorMethod.immutableClassDef.getAutoNavStatusMethod().name
 
                 val invokeIndex = indexOfFirstInstructionOrThrow {
-                    val reference = getReference<MethodReference>()
+                    val reference = methodReference
                     reference?.name == autoNavStatusMethodName &&
-                            reference.returnType == "Z" &&
-                            reference.parameterTypes.isEmpty()
+                        reference.returnType == "Z" &&
+                        reference.parameterTypes.isEmpty()
                 }
+
                 val iGetObjectIndex = indexOfFirstInstructionReversedOrThrow(invokeIndex, Opcode.IGET_OBJECT)
                 val invokeReference = getInstruction<ReferenceInstruction>(invokeIndex).reference
                 val iGetObjectReference = getInstruction<ReferenceInstruction>(iGetObjectIndex).reference
@@ -81,7 +80,7 @@ val hideEndScreenSuggestedVideoPatch = bytecodePatch(
                         if-nez v0, :show_end_screen_recommendation
                         return-void
                     """,
-                    ExternalLabel("show_end_screen_recommendation", getInstruction(0))
+                    ExternalLabel("show_end_screen_recommendation", getInstruction(0)),
                 )
             }
         }

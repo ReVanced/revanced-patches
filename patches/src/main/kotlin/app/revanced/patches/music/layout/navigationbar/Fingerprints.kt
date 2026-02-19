@@ -1,6 +1,7 @@
 package app.revanced.patches.music.layout.navigationbar
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -9,10 +10,10 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val tabLayoutTextFingerprint = fingerprint {
+internal val BytecodePatchContext.tabLayoutTextMethodMatch by composingFirstMethod("FEmusic_search") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L")
+    returnType("V")
+    parameterTypes("L")
     opcodes(
         Opcode.IGET,
         Opcode.INVOKE_STATIC,
@@ -20,17 +21,15 @@ internal val tabLayoutTextFingerprint = fingerprint {
         Opcode.IF_NEZ,
         Opcode.SGET_OBJECT,
         Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT
+        Opcode.MOVE_RESULT,
     )
-    strings("FEmusic_search")
-    custom { method, _ ->
-        method.containsLiteralInstruction(text1)
-                && indexOfGetVisibilityInstruction(method) >= 0
+    custom {
+        containsLiteralInstruction(text1) &&
+            indexOfGetVisibilityInstruction(this) >= 0
     }
 }
 
-internal fun indexOfGetVisibilityInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                getReference<MethodReference>()?.name == "getVisibility"
-    }
+internal fun indexOfGetVisibilityInstruction(method: Method) = method.indexOfFirstInstruction {
+    opcode == Opcode.INVOKE_VIRTUAL &&
+        getReference<MethodReference>()?.name == "getVisibility"
+}

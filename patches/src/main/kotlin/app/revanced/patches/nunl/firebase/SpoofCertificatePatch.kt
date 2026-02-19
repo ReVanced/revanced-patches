@@ -10,9 +10,9 @@ val spoofCertificatePatch = bytecodePatch(
 ) {
     compatibleWith("nl.sanomamedia.android.nu")
 
-    execute {
-        getFingerprintHashForPackageFingerprints.forEach { fingerprint ->
-            fingerprint.method.returnEarly("eae41fc018df2731a9b6ae1ac327da44a288667b")
+    apply {
+        getFingerprintHashForPackageMethods().forEach {
+            it.returnEarly("eae41fc018df2731a9b6ae1ac327da44a288667b")
         }
     }
 }

@@ -1,7 +1,8 @@
 package app.revanced.patches.facebook.ads.story
 
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val hideStoryAdsPatch = bytecodePatch(
@@ -10,12 +11,7 @@ val hideStoryAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.facebook.katana")
 
-    execute {
-        setOf(
-            fetchMoreAdsFingerprint,
-            adsInsertionFingerprint,
-        ).forEach { fingerprint ->
-            fingerprint.method.replaceInstruction(0, "return-void")
-        }
+    apply {
+        setOf(fetchMoreAdsMethod, adsInsertionMethod).forEach(MutableMethod::returnEarly)
     }
 }

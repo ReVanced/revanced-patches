@@ -1,35 +1,41 @@
 package app.revanced.patches.youtube.video.quality
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.composingFirstMethod
+import app.revanced.patcher.firstMethodDeclaratively
+import app.revanced.patcher.gettingFirstImmutableMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val videoQualityItemOnClickParentFingerprint = fingerprint {
-    returns("V")
-    strings("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT")
+internal val BytecodePatchContext.videoQualityItemOnClickParentMethod by gettingFirstImmutableMethodDeclaratively(
+    "VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT",
+) {
+    returnType("V")
 }
 
-/**
- * Resolves to class found in [videoQualityItemOnClickFingerprint].
- */
-internal val videoQualityItemOnClickFingerprint = fingerprint {
-    returns("V")
-    parameters(
+context(_: BytecodePatchContext)
+internal fun ClassDef.getVideoQualityItemOnClickMethod() = firstMethodDeclaratively {
+    name("onItemClick")
+    returnType("V")
+    parameterTypes(
         "Landroid/widget/AdapterView;",
         "Landroid/view/View;",
         "I",
-        "J"
+        "J",
     )
-    custom { method, _ ->
-        method.name == "onItemClick"
-    }
 }
 
-internal val videoQualityMenuOptionsFingerprint = fingerprint {
+internal val BytecodePatchContext.videoQualityMenuOptionsMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.STATIC)
-    returns("[L")
-    parameters("Landroid/content/Context", "L", "L")
+    returnType("[L")
+    parameterTypes("Landroid/content/Context", "L", "L")
     opcodes(
         Opcode.CONST_4, // First instruction of method.
         Opcode.CONST_4,
@@ -40,10 +46,10 @@ internal val videoQualityMenuOptionsFingerprint = fingerprint {
     literal { videoQualityQuickMenuAdvancedMenuDescription }
 }
 
-internal val videoQualityMenuViewInflateFingerprint = fingerprint {
+internal val BytecodePatchContext.videoQualityMenuViewInflateMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters("L", "L", "L")
+    returnType("L")
+    parameterTypes("L", "L", "L")
     opcodes(
         Opcode.INVOKE_SUPER,
         Opcode.CONST,

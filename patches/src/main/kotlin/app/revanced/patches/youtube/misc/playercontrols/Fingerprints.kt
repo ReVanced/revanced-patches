@@ -1,122 +1,128 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.containsLiteralInstruction
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
-import app.revanced.util.indexOfFirstInstructionReversed
-import app.revanced.util.literal
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal fun indexOfFocusableInTouchModeInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        getReference<MethodReference>()?.name == "setFocusableInTouchMode"
-    }
-
-internal fun indexOfTranslationInstruction(method: Method) =
-    method.indexOfFirstInstructionReversed {
-        getReference<MethodReference>()?.name == "setTranslationY"
-    }
-
-internal val playerControlsVisibilityEntityModelFingerprint = fingerprint {
+internal val BytecodePatchContext.playerControlsVisibilityEntityModelMethodMatch by composingFirstMethod {
+    name("getPlayerControlsVisibility")
     accessFlags(AccessFlags.PUBLIC)
-    returns("L")
-    parameters()
+    returnType("L")
+    parameterTypes()
     opcodes(
         Opcode.IGET,
-        Opcode.INVOKE_STATIC
+        Opcode.INVOKE_STATIC,
     )
-    custom { method, _ ->
-        method.name == "getPlayerControlsVisibility"
-    }
 }
 
-internal val youtubeControlsOverlayFingerprint = fingerprint {
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
-    returns("V")
-    parameters()
-    custom { method, _ ->
-        indexOfFocusableInTouchModeInstruction(method) >= 0 &&
-        method.containsLiteralInstruction(inset_overlay_view_layout_id) &&
-                method.containsLiteralInstruction(scrim_overlay_id)
-
-    }
+internal val BytecodePatchContext.youtubeControlsOverlayMethod by gettingFirstImmutableMethodDeclaratively {
+    returnType("V")
+    parameterTypes()
+    instructions(
+        method("setFocusableInTouchMode"),
+        ResourceType.ID("inset_overlay_view_layout"),
+        ResourceType.ID("scrim_overlay"),
+    )
 }
 
-internal val motionEventFingerprint = fingerprint {
-    returns("V")
-    parameters("Landroid/view/MotionEvent;")
-    custom { method, _ ->
-        indexOfTranslationInstruction(method) >= 0
-    }
+internal val ClassDef.motionEventMethodMatch by ClassDefComposing.composingFirstMethod {
+    returnType("V")
+    parameterTypes("Landroid/view/MotionEvent;")
+    instructions(method("setTranslationY"))
 }
 
-internal val playerTopControlsInflateFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
-    literal { controls_layout_stub_id }
-}
-
-internal val playerControlsExtensionHookListenersExistFingerprint = fingerprint {
+internal val BytecodePatchContext.playerControlsExtensionHookListenersExistMethod by gettingFirstMethodDeclaratively {
+    name("fullscreenButtonVisibilityCallbacksExist")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Z")
-    parameters()
-    custom { methodDef, classDef ->
-        methodDef.name == "fullscreenButtonVisibilityCallbacksExist" &&
-                classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
+    returnType("Z")
+    parameterTypes()
 }
 
-internal val playerControlsExtensionHookFingerprint = fingerprint {
+internal val BytecodePatchContext.playerControlsExtensionHookMethod by gettingFirstMethodDeclaratively {
+    name("fullscreenButtonVisibilityChanged")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("V")
-    parameters("Z")
-    custom { methodDef, classDef ->
-        methodDef.name == "fullscreenButtonVisibilityChanged" &&
-            classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
+    returnType("V")
+    parameterTypes("Z")
 }
 
-internal val playerBottomControlsInflateFingerprint = fingerprint {
-    returns("Ljava/lang/Object;")
-    parameters()
-    literal { bottom_ui_container_stub_id }
-}
-
-internal val overlayViewInflateFingerprint = fingerprint {
+internal val BytecodePatchContext.playerTopControlsInflateMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Landroid/view/View;")
-    custom { methodDef, _ ->
-        methodDef.containsLiteralInstruction(fullscreen_button_id) &&
-            methodDef.containsLiteralInstruction(heatseeker_viewstub_id)
-    }
+    returnType("V")
+    parameterTypes()
+    instructions(
+        ResourceType.ID("controls_layout_stub"),
+        method { name == "inflate" && definingClass == "Landroid/view/ViewStub;" },
+        after(Opcode.MOVE_RESULT_OBJECT()),
+    )
+}
+
+internal val BytecodePatchContext.playerBottomControlsInflateMethodMatch by composingFirstMethod {
+    returnType("Ljava/lang/Object;")
+    parameterTypes()
+    instructions(
+        ResourceType.ID("bottom_ui_container_stub"),
+        method { name == "inflate" && definingClass == "Landroid/view/ViewStub;" },
+        after(Opcode.MOVE_RESULT_OBJECT()),
+    )
+}
+
+internal val BytecodePatchContext.overlayViewInflateMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("Landroid/view/View;")
+    instructions(
+        ResourceType.ID("heatseeker_viewstub"),
+        ResourceType.ID("fullscreen_button"),
+        allOf(Opcode.CHECK_CAST(), type("Landroid/widget/ImageView;")),
+    )
 }
 
 /**
- * Resolves to the class found in [playerTopControlsInflateFingerprint].
+ * Resolves to the class found in [playerTopControlsInflateMethodMatch].
  */
-internal val controlsOverlayVisibilityFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getControlsOverlayVisibilityMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
-    returns("V")
-    parameters("Z", "Z")
+    returnType("V")
+    parameterTypes("Z", "Z")
 }
 
-internal val playerBottomControlsExploderFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.playerBottomControlsExploderFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
-    literal { 45643739L }
+    returnType("Z")
+    parameterTypes()
+    instructions(45643739L())
 }
 
-internal val playerTopControlsExperimentalLayoutFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.playerTopControlsExperimentalLayoutFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("I")
-    parameters()
-    literal { 45629424L }
+    returnType("I")
+    parameterTypes()
+    instructions(45629424L())
 }
 
+internal val BytecodePatchContext.playerControlsLargeOverlayButtonsFeatureFlagMethod by gettingFirstMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("Z")
+    parameterTypes()
+    instructions(45709810L())
+}
+
+internal val BytecodePatchContext.playerControlsFullscreenLargeButtonsFeatureFlagMethod by gettingFirstMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("Z")
+    parameterTypes()
+    instructions(45686474L())
+}
+
+internal val BytecodePatchContext.playerControlsButtonStrokeFeatureFlagMethod by gettingFirstMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("Z")
+    parameterTypes()
+    instructions(45713296L())
+}

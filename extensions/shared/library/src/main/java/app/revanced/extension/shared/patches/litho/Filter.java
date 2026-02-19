@@ -1,11 +1,11 @@
 package app.revanced.extension.shared.patches.litho;
 
+import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
+import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
-import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
 
 /**
  * Filters litho based components.
@@ -33,12 +33,12 @@ public abstract class Filter {
      * Identifier callbacks.  Do not add to this instance,
      * and instead use {@link #addIdentifierCallbacks(StringFilterGroup...)}.
      */
-    protected final List<StringFilterGroup> identifierCallbacks = new ArrayList<>();
+    public final List<StringFilterGroup> identifierCallbacks = new ArrayList<>();
     /**
      * Path callbacks. Do not add to this instance,
      * and instead use {@link #addPathCallbacks(StringFilterGroup...)}.
      */
-    protected final List<StringFilterGroup> pathCallbacks = new ArrayList<>();
+    public final List<StringFilterGroup> pathCallbacks = new ArrayList<>();
 
     /**
      * Adds callbacks to {@link #isFiltered(String, String, byte[], StringFilterGroup, FilterContentType, int)}

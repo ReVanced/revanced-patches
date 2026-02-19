@@ -1,24 +1,22 @@
 package app.revanced.patches.twitter.misc.links
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.shared.PATCH_DESCRIPTION_SANITIZE_SHARING_LINKS
-import app.revanced.patches.shared.PATCH_NAME_SANITIZE_SHARING_LINKS
 
 @Suppress("unused")
 val sanitizeSharingLinksPatch = bytecodePatch(
-    name = PATCH_NAME_SANITIZE_SHARING_LINKS,
-    description = PATCH_DESCRIPTION_SANITIZE_SHARING_LINKS,
+    name = "Sanitize sharing links",
+    description = "Removes the tracking query parameters from shared links.",
 ) {
     compatibleWith(
         "com.twitter.android"(
             "10.60.0-release.0",
             "10.86.0-release.0",
-        )
+        ),
     )
 
-    execute {
-        sanitizeSharingLinksFingerprint.method.addInstructions(
+    apply {
+        sanitizeSharingLinksMethod.addInstructions(
             0,
             """
                 # Method takes in a link (string, param 0) and then appends the tracking query params,

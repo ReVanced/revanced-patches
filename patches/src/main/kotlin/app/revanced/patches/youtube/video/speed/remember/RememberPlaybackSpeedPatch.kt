@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.video.speed.remember
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
@@ -24,10 +24,10 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
         settingsPatch,
         addResourcesPatch,
         videoInformationPatch,
-        customPlaybackSpeedPatch
+        customPlaybackSpeedPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "video.speed.remember.rememberPlaybackSpeedPatch")
 
         settingsMenuVideoSpeedGroup.addAll(
@@ -37,11 +37,11 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
                     // Entries and values are set by the extension code based on the actual speeds available.
                     entriesKey = null,
                     entryValuesKey = null,
-                    tag = "app.revanced.extension.youtube.settings.preference.CustomVideoSpeedListPreference"
+                    tag = "app.revanced.extension.youtube.settings.preference.CustomVideoSpeedListPreference",
                 ),
                 SwitchPreference("revanced_remember_playback_speed_last_selected"),
-                SwitchPreference("revanced_remember_playback_speed_last_selected_toast")
-            )
+                SwitchPreference("revanced_remember_playback_speed_last_selected_toast"),
+            ),
         )
 
         onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "newVideoStarted")
@@ -54,7 +54,7 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
         /*
          * Hook the code that is called when the playback speeds are initialized, and sets the playback speed
          */
-        initializePlaybackSpeedValuesFingerprint.method.apply {
+        initializePlaybackSpeedValuesMethod.apply {
             // Infer everything necessary for calling the method setPlaybackSpeed().
             val onItemClickListenerClassFieldReference = getInstruction<ReferenceInstruction>(0).reference
 

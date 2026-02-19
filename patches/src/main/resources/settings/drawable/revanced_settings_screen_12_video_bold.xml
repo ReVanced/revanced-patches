@@ -1,0 +1,25 @@
+<!--
+    Copyright 2022 Google
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <path
+        android:fillColor="?android:attr/textColorPrimary"
+        android:pathData="M21,3L3,3a2,2 0,0 0,-2 2v14a2,2 0,0 0,2 2h18a2,2 0,0 0,2 -2L23,5a2,2 0,0 0,-2 -2ZM3,19L3,5h18v14L3,19ZM10,8a1,1 0,0 0,-1 1v2L7,11L7,9a1,1 0,0 0,-2 0v6a1,1 0,1 0,2 0v-2h2v2a1,1 0,1 0,2 0L11,9a1,1 0,0 0,-1 -1ZM15.5,8L14,8a1,1 0,0 0,-1 1v6a1,1 0,0 0,1 1h1.5a3.5,3.5 0,0 0,3.5 -3.5v-1A3.5,3.5 0,0 0,15.5 8ZM15,14v-4h0.5a1.5,1.5 0,0 1,1.5 1.5v1a1.5,1.5 0,0 1,-1.5 1.5L15,14Z" />
+</vector>

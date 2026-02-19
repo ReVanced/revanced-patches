@@ -1,9 +1,8 @@
 package app.revanced.patches.idaustria.detection.deviceintegrity
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
-
 
 @Suppress("unused")
 val removeDeviceIntegrityChecksPatch = bytecodePatch(
@@ -12,19 +11,17 @@ val removeDeviceIntegrityChecksPatch = bytecodePatch(
 ) {
     compatibleWith("at.gv.oe.app")
 
-    execute {
-        isDeviceRootedFingerprint.method.returnEarly(false)
+    apply {
+        isDeviceRootedMethod.returnEarly(false)
 
-        isDeviceBootloaderOpenFingerprint.method.apply {
-            addInstructions(
-                0,
-                """
-                    const/4 v0, 0x0
-                    invoke-static { v0 }, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
-                    move-result-object v0
-                    return-object v0
-                """
-            )
-        }
+        isDeviceBootloaderOpenMethod.addInstructions(
+            0,
+            """
+                const/4 v0, 0x0
+                invoke-static { v0 }, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
+                move-result-object v0
+                return-object v0
+            """,
+        )
     }
 }

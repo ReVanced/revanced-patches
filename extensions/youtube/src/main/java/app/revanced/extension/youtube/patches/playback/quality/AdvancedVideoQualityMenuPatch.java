@@ -8,7 +8,7 @@ import android.widget.ListView;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.youtube.patches.components.AdvancedVideoQualityMenuFilter;
+import app.revanced.extension.youtube.patches.litho.AdvancedVideoQualityMenuFilter;
 import app.revanced.extension.youtube.settings.Settings;
 
 /**

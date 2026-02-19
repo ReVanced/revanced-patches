@@ -375,13 +375,32 @@
                 <item>@string/revanced_miniplayer_type_entry_0</item>
                 <item>@string/revanced_miniplayer_type_entry_1</item>
                 <item>@string/revanced_miniplayer_type_entry_2</item>
-                <item>@string/revanced_miniplayer_type_entry_3</item>
+                <!-- YT legacy tablet code is partially removed in 20.37+ -->
                 <item>@string/revanced_miniplayer_type_entry_4</item>
                 <item>@string/revanced_miniplayer_type_entry_5</item>
                 <item>@string/revanced_miniplayer_type_entry_6</item>
                 <item>@string/revanced_miniplayer_type_entry_7</item>
             </string-array>
             <string-array name="revanced_miniplayer_type_entry_values">
+                <item>DISABLED</item>
+                <item>DEFAULT</item>
+                <item>MINIMAL</item>
+                <item>MODERN_1</item>
+                <item>MODERN_2</item>
+                <item>MODERN_3</item>
+                <item>MODERN_4</item>
+            </string-array>
+            <string-array name="revanced_miniplayer_type_legacy_20_03_entries">
+                <item>@string/revanced_miniplayer_type_entry_0</item>
+                <item>@string/revanced_miniplayer_type_entry_1</item>
+                <item>@string/revanced_miniplayer_type_entry_2</item>
+                <item>@string/revanced_miniplayer_type_entry_3</item>
+                <item>@string/revanced_miniplayer_type_entry_4</item>
+                <item>@string/revanced_miniplayer_type_entry_5</item>
+                <item>@string/revanced_miniplayer_type_entry_6</item>
+                <item>@string/revanced_miniplayer_type_entry_7</item>
+            </string-array>
+            <string-array name="revanced_miniplayer_type_legacy_20_03_entry_values">
                 <item>DISABLED</item>
                 <item>DEFAULT</item>
                 <item>MINIMAL</item>
@@ -567,14 +586,6 @@
 
         </patch>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch">
-            <string-array name="revanced_shorts_player_type_legacy_entries">
-                <item>@string/revanced_shorts_player_type_shorts</item>
-                <item>@string/revanced_shorts_player_type_regular_player</item>
-            </string-array>
-            <string-array name="revanced_shorts_player_type_legacy_entry_values">
-                <item>SHORTS_PLAYER</item>
-                <item>REGULAR_PLAYER</item>
-            </string-array>
             <string-array name="revanced_shorts_player_type_entries">
                 <item>@string/revanced_shorts_player_type_shorts</item>
                 <item>@string/revanced_shorts_player_type_regular_player</item>

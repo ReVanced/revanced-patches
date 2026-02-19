@@ -1,23 +1,28 @@
 package app.revanced.patches.shared.misc.settings
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstImmutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.extension.EXTENSION_CLASS_DESCRIPTOR
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val themeLightColorResourceNameFingerprint = fingerprint {
+internal val BytecodePatchContext.themeLightColorResourceNameMethod by gettingFirstMethodDeclaratively {
+    name("getThemeLightColorResourceName")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
-    custom { method, classDef ->
-        method.name == "getThemeLightColorResourceName" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
+    returnType("Ljava/lang/String;")
+    parameterTypes()
 }
 
-internal val themeDarkColorResourceNameFingerprint = fingerprint {
+internal val BytecodePatchContext.themeDarkColorResourceNameMethod by gettingFirstMethodDeclaratively {
+    name("getThemeDarkColorResourceName")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
-    custom { method, classDef ->
-        method.name == "getThemeDarkColorResourceName" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
+    returnType("Ljava/lang/String;")
+    parameterTypes()
 }

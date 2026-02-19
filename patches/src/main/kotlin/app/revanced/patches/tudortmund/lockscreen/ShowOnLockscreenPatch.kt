@@ -1,9 +1,9 @@
 package app.revanced.patches.tudortmund.lockscreen
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tudortmund.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.Opcode
@@ -24,8 +24,8 @@ val showOnLockscreenPatch = bytecodePatch(
 
     compatibleWith("de.tudortmund.app")
 
-    execute {
-        brightnessFingerprint.method.apply {
+    apply {
+        brightnessMethod.apply {
             // Find the instruction where the brightness value is loaded into a register
             val brightnessInstruction = instructions.firstNotNullOf { instruction ->
                 if (instruction.opcode != Opcode.IGET_OBJECT) return@firstNotNullOf null

@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/BypassImageRegionRestrictionsPatch;"
 
+@Suppress("unused")
 val bypassImageRegionRestrictionsPatch = bytecodePatch(
     name = "Bypass image region restrictions",
     description = "Adds an option to use a different host for user avatar and channel images " +
@@ -27,14 +28,14 @@ val bypassImageRegionRestrictionsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.31.40",
+        ),
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.thumbnails.bypassImageRegionRestrictionsPatch")
 
         PreferenceScreen.MISC.addPreferences(

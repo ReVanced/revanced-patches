@@ -1,13 +1,8 @@
 package app.revanced.patches.shared.layout.theme
 
-import app.revanced.patcher.patch.BytecodePatchBuilder
-import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patcher.patch.stringOption
+import app.revanced.patcher.patch.*
 import app.revanced.util.childElementsSequence
-import java.util.Locale
+import java.util.*
 
 internal const val THEME_COLOR_OPTION_DESCRIPTION = "Can be a hex color (#RRGGBB) or a color resource reference."
 
@@ -56,7 +51,8 @@ internal fun validateColorName(colorString: String): Boolean {
  * Dark theme color option for YouTube and YT Music Theme patches.
  */
 internal val darkThemeBackgroundColorOption = stringOption(
-    key = "darkThemeBackgroundColor",
+    name = "Dark theme background color",
+    description = THEME_COLOR_OPTION_DESCRIPTION,
     default = "@android:color/black",
     values = mapOf(
         "Pure black" to "@android:color/black",
@@ -69,9 +65,7 @@ internal val darkThemeBackgroundColorOption = stringOption(
         "Dark yellow" to "#282900",
         "Dark orange" to "#291800",
         "Dark red" to "#290000",
-    ),
-    title = "Dark theme background color",
-    description = THEME_COLOR_OPTION_DESCRIPTION
+    )
 )
 
 /**
@@ -92,7 +86,7 @@ internal fun baseThemePatch(
 
     dependsOn(lithoColorHookPatch)
 
-    execute {
+    apply {
         executeBlock()
 
         lithoColorOverrideHook(extensionClassDescriptor, "getValue")
@@ -104,10 +98,9 @@ internal fun baseThemeResourcePatch(
     lightColorNames: Set<String> = THEME_DEFAULT_LIGHT_COLOR_NAMES,
     lightColorReplacement: (() -> String)? = null
 ) = resourcePatch {
-
-    execute {
+    apply {
         // After patch option validators are fixed https://github.com/ReVanced/revanced-patcher/issues/372
-        // This should changed to a patch option validator.
+        // This should be changed to a patch option validator.
         val darkColor by darkThemeBackgroundColorOption
         if (!validateColorName(darkColor!!)) {
             throw PatchException("Invalid dark theme color: $darkColor")

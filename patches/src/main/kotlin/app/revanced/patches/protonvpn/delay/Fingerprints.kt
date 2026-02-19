@@ -1,16 +1,13 @@
 package app.revanced.patches.protonvpn.delay
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-
-internal val longDelayFingerprint = fingerprint {
-    custom { method, _ ->
-        method.name == "getChangeServerLongDelayInSeconds"
-    }
+internal val BytecodePatchContext.longDelayMethod by gettingFirstMethodDeclaratively {
+    name("getChangeServerLongDelayInSeconds")
 }
 
-internal val shortDelayFingerprint = fingerprint {
-    custom { method, _ ->
-        method.name == "getChangeServerShortDelayInSeconds"
-    }
+internal val BytecodePatchContext.shortDelayMethod by gettingFirstMethodDeclaratively {
+    name("getChangeServerShortDelayInSeconds")
 }

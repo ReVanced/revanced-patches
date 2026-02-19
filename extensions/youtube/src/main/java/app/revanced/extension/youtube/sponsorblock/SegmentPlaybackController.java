@@ -24,7 +24,6 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -150,9 +149,9 @@ public class SegmentPlaybackController {
     private static long skipSegmentButtonEndTime;
     @Nullable
     private static String timeWithoutSegments;
-    private static int sponsorBarAbsoluteLeft;
-    private static int sponsorAbsoluteBarRight;
-    private static int sponsorBarThickness;
+    private static int seekbarAbsoluteLeft;
+    private static int seekbarAbsoluteRight;
+    private static int seekbarThickness;
 
     @Nullable
     private static SponsorSegment lastSegmentSkipped;
@@ -908,31 +907,13 @@ public class SegmentPlaybackController {
      * injection point.
      */
     @SuppressWarnings("unused")
-    public static void setSponsorBarRect(Object self) {
-        try {
-            Field field = self.getClass().getDeclaredField("replaceMeWithsetSponsorBarRect");
-            field.setAccessible(true);
-            Rect rect = (Rect) Objects.requireNonNull(field.get(self));
-            setSponsorBarAbsoluteLeft(rect);
-            setSponsorBarAbsoluteRight(rect);
-        } catch (Exception ex) {
-            Logger.printException(() -> "setSponsorBarRect failure", ex);
-        }
-    }
-
-    private static void setSponsorBarAbsoluteLeft(Rect rect) {
-        final int left = rect.left;
-        if (sponsorBarAbsoluteLeft != left) {
-            Logger.printDebug(() -> "setSponsorBarAbsoluteLeft: " + left);
-            sponsorBarAbsoluteLeft = left;
-        }
-    }
-
-    private static void setSponsorBarAbsoluteRight(Rect rect) {
-        final int right = rect.right;
-        if (sponsorAbsoluteBarRight != right) {
-            Logger.printDebug(() -> "setSponsorBarAbsoluteRight: " + right);
-            sponsorAbsoluteBarRight = right;
+    public static void setSeekbarRectangle(Rect seekbarRect) {
+        final int left = seekbarRect.left;
+        final int right = seekbarRect.right;
+        if (seekbarAbsoluteLeft != left || seekbarAbsoluteRight != right) {
+            Logger.printDebug(() -> "setSeekbarRectangle left: " + left + " right: " + right);
+            seekbarAbsoluteLeft = left;
+            seekbarAbsoluteRight = right;
         }
     }
 
@@ -940,8 +921,8 @@ public class SegmentPlaybackController {
      * injection point.
      */
     @SuppressWarnings("unused")
-    public static void setSponsorBarThickness(int thickness) {
-        sponsorBarThickness = thickness;
+    public static void setSeekbarThickness(int thickness) {
+        seekbarThickness = thickness;
     }
 
     /**
@@ -951,8 +932,7 @@ public class SegmentPlaybackController {
     public static String appendTimeWithoutSegments(String totalTime) {
         try {
             if (Settings.SB_ENABLED.get() && Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.get()
-                    && !TextUtils.isEmpty(totalTime) && !TextUtils.isEmpty(timeWithoutSegments)
-                    && !isAdProgressTextVisible()) {
+                    && !TextUtils.isEmpty(totalTime) && !TextUtils.isEmpty(timeWithoutSegments)) {
                 // Force LTR layout, to match the same LTR video time/length layout YouTube uses for all languages
                 return "\u202D" + totalTime + timeWithoutSegments; // u202D = left to right override
             }
@@ -980,6 +960,7 @@ public class SegmentPlaybackController {
                 continue;
             }
             foundNonhighlightSegments = true;
+
             long start = segment.start;
             final long end = segment.end;
             // To prevent nested segments from incorrectly counting additional time,
@@ -1011,17 +992,17 @@ public class SegmentPlaybackController {
      * Injection point.
      */
     @SuppressWarnings("unused")
-    public static void drawSponsorTimeBars(final Canvas canvas, final float posY) {
+    public static void drawSegmentTimeBars(final Canvas canvas, final float posY) {
         try {
-            if (segments == null || isAdProgressTextVisible()) return;
+            if (segments == null) return;
             final long videoLength = VideoInformation.getVideoLength();
             if (videoLength <= 0) return;
 
-            final int thicknessDiv2 = sponsorBarThickness / 2; // rounds down
-            final float top = posY - (sponsorBarThickness - thicknessDiv2);
+            final int thicknessDiv2 = seekbarThickness / 2; // Rounds down.
+            final float top = posY - (seekbarThickness - thicknessDiv2);
             final float bottom = posY + thicknessDiv2;
-            final float videoMillisecondsToPixels = (1f / videoLength) * (sponsorAbsoluteBarRight - sponsorBarAbsoluteLeft);
-            final float leftPadding = sponsorBarAbsoluteLeft;
+            final float videoMillisecondsToPixels = (1f / videoLength) * (seekbarAbsoluteRight - seekbarAbsoluteLeft);
+            final float leftPadding = seekbarAbsoluteLeft;
 
             for (SponsorSegment segment : segments) {
                 final float left = leftPadding + segment.start * videoMillisecondsToPixels;

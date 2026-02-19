@@ -1,19 +1,18 @@
 package app.revanced.patches.youtube.misc.litho.filter
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
-internal val lithoComponentNameUpbFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.lithoComponentNameUpbFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
-    literal { 45631264L }
+    returnType("Z")
+    parameterTypes()
+    instructions(45631264L())
 }
 
-internal val lithoConverterBufferUpbFeatureFlagFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("L")
-    parameters("L")
-    literal { 45419603L }
+internal val BytecodePatchContext.lithoConverterBufferUpbFeatureFlagMethodMatch by composingFirstMethod {
+    returnType("L")
+    instructions(45419603L())
 }

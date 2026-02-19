@@ -1,37 +1,29 @@
 package app.revanced.patches.twitter.misc.links
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val openLinkFingerprint = fingerprint {
-    returns("V")
-    parameters("Landroid/content/Context;", "Landroid/content/Intent;", "Landroid/os/Bundle;")
-}
-
-internal val sanitizeSharingLinksFingerprint = fingerprint {
-    returns("Ljava/lang/String;")
-    strings("<this>", "shareParam", "sessionToken")
-}
+internal val BytecodePatchContext.sanitizeSharingLinksMethod by gettingFirstMethod(
+    "<this>",
+    "shareParam",
+    "sessionToken",
+) { returnType == "Ljava/lang/String;" }
 
 // Returns a shareable link string based on a tweet ID and a username.
-internal val linkBuilderFingerprint = fingerprint {
-    strings("/%1\$s/status/%2\$d")
-}
+internal val BytecodePatchContext.linkBuilderMethod by gettingFirstMethod($$"/%1$s/status/%2$d")
 
 // TODO remove this once changeLinkSharingDomainResourcePatch is restored
 // Returns a shareable link for the "Share via..." dialog.
-internal val linkResourceGetterFingerprint = fingerprint {
+internal val BytecodePatchContext.linkResourceGetterMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("Landroid/content/res/Resources;")
-    custom { _, classDef ->
-        classDef.fields.any { field ->
-            field.type.startsWith("Lcom/twitter/model/core/")
-        }
+    parameterTypes("Landroid/content/res/Resources;")
+    custom {
+        immutableClassDef.anyField { type.startsWith("Lcom/twitter/model/core/") }
     }
 }
 
-internal val linkSharingDomainHelperFingerprint = fingerprint {
-    custom { method, classDef ->
-        method.name == "getShareDomain" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
+internal val BytecodePatchContext.linkSharingDomainHelperMethod by gettingFirstMethodDeclaratively {
+    name("getShareDomain")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
 }

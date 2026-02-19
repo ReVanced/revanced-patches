@@ -1,7 +1,8 @@
 package app.revanced.patches.shared.misc.debugging
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -20,8 +21,8 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
  * Patch shared with YouTube and YT Music.
  */
 internal fun enableDebuggingPatch(
-    sharedExtensionPatch: Patch<*>,
-    settingsPatch: Patch<*>,
+    sharedExtensionPatch: Patch,
+    settingsPatch: Patch,
     vararg compatibleWithPackages: Pair<String, Set<String>>,
     hookStringFeatureFlag: Boolean,
     preferenceScreen: BasePreferenceScreen.Screen,
@@ -36,7 +37,7 @@ internal fun enableDebuggingPatch(
         settingsPatch,
         addResourcesPatch,
         resourcePatch {
-            execute {
+            apply {
                 copyResources(
                     "settings",
                     ResourceGroup(
@@ -49,15 +50,14 @@ internal fun enableDebuggingPatch(
                         "revanced_settings_arrow_left_double.xml",
                         "revanced_settings_arrow_left_one.xml",
                         "revanced_settings_arrow_right_double.xml",
-                        "revanced_settings_arrow_right_one.xml"
-                    )
+                        "revanced_settings_arrow_right_one.xml",
+                    ),
                 )
             }
-        }
+        },
     )
 
-
-    execute {
+    apply {
         addResources("shared", "misc.debugging.enableDebuggingPatch")
 
         val preferences = setOf(
@@ -68,18 +68,18 @@ internal fun enableDebuggingPatch(
             NonInteractivePreference(
                 "revanced_debug_export_logs_to_clipboard",
                 tag = "app.revanced.extension.shared.settings.preference.ExportLogToClipboardPreference",
-                selectable = true
+                selectable = true,
             ),
             NonInteractivePreference(
                 "revanced_debug_logs_clear_buffer",
                 tag = "app.revanced.extension.shared.settings.preference.ClearLogBufferPreference",
-                selectable = true
+                selectable = true,
             ),
             NonInteractivePreference(
                 "revanced_debug_feature_flags_manager",
                 tag = "app.revanced.extension.shared.settings.preference.FeatureFlagsManagerPreference",
-                selectable = true
-            )
+                selectable = true,
+            ),
         )
 
         preferenceScreen.addPreferences(
@@ -87,13 +87,11 @@ internal fun enableDebuggingPatch(
                 key = "revanced_debug_screen",
                 sorting = Sorting.UNSORTED,
                 preferences = preferences,
-            )
+            ),
         )
 
         // Hook the methods that look up if a feature flag is active.
-        experimentalBooleanFeatureFlagFingerprint.match(
-            experimentalFeatureFlagParentFingerprint.originalClassDef
-        ).method.apply {
+        experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalBooleanFeatureFlagMethod().apply {
             findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -102,30 +100,26 @@ internal fun enableDebuggingPatch(
                     """
                         invoke-static { v$register, p1 }, $EXTENSION_CLASS_DESCRIPTOR->isBooleanFeatureFlagEnabled(ZLjava/lang/Long;)Z
                         move-result v$register
-                    """
+                    """,
                 )
             }
         }
 
-        experimentalDoubleFeatureFlagFingerprint.match(
-            experimentalFeatureFlagParentFingerprint.originalClassDef
-        ).method.apply {
+        experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalDoubleFeatureFlagMethod().apply {
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
 
             addInstructions(
                 insertIndex,
                 """
-                    move-result-wide v0     # Also clobbers v1 (p0) since result is wide.
+                    move-result-wide v0 # Also clobbers v1 (p0) since result is wide.
                     invoke-static/range { v0 .. v5 }, $EXTENSION_CLASS_DESCRIPTOR->isDoubleFeatureFlagEnabled(DJD)D
                     move-result-wide v0
                     return-wide v0
-                """
+                """,
             )
         }
 
-        experimentalLongFeatureFlagFingerprint.match(
-            experimentalFeatureFlagParentFingerprint.originalClassDef
-        ).method.apply {
+        experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalLongFeatureFlagMethod().apply {
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
 
             addInstructions(
@@ -135,24 +129,24 @@ internal fun enableDebuggingPatch(
                     invoke-static/range { v0 .. v5 }, $EXTENSION_CLASS_DESCRIPTOR->isLongFeatureFlagEnabled(JJJ)J
                     move-result-wide v0
                     return-wide v0
-                """
+                """,
             )
         }
 
-        if (hookStringFeatureFlag) experimentalStringFeatureFlagFingerprint.match(
-            experimentalFeatureFlagParentFingerprint.originalClassDef
-        ).method.apply {
-            val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT_OBJECT)
+        if (hookStringFeatureFlag) {
+            experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalStringFeatureFlagMethod().apply {
+                val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT_OBJECT)
 
-            addInstructions(
-                insertIndex,
-                """
-                    move-result-object v0
-                    invoke-static { v0, p1, p2, p3 }, $EXTENSION_CLASS_DESCRIPTOR->isStringFeatureFlagEnabled(Ljava/lang/String;JLjava/lang/String;)Ljava/lang/String;
-                    move-result-object v0
-                    return-object v0
-                """
-            )
+                addInstructions(
+                    insertIndex,
+                    """
+                        move-result-object v0
+                        invoke-static { v0, p1, p2, p3 }, $EXTENSION_CLASS_DESCRIPTOR->isStringFeatureFlagEnabled(Ljava/lang/String;JLjava/lang/String;)Ljava/lang/String;
+                        move-result-object v0
+                        return-object v0
+                    """,
+                )
+            }
         }
 
         // There exists other experimental accessor methods for byte[]

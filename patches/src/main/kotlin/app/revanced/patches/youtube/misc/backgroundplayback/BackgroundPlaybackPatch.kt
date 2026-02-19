@@ -1,14 +1,12 @@
 package app.revanced.patches.youtube.misc.backgroundplayback
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
@@ -25,51 +23,47 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 internal var prefBackgroundAndOfflineCategoryId = -1L
     private set
 
-private val backgroundPlaybackResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch, addResourcesPatch)
-
-    execute {
-        prefBackgroundAndOfflineCategoryId = resourceMappings["string", "pref_background_and_offline_category"]
-    }
-}
-
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/BackgroundPlaybackPatch;"
 
-val backgroundPlaybackPatch = bytecodePatch(
+@Suppress("unused")
+val removeBackgroundPlaybackRestrictionsPatch = bytecodePatch(
     name = "Remove background playback restrictions",
     description = "Removes restrictions on background playback, including playing kids videos in the background.",
 ) {
     dependsOn(
-        backgroundPlaybackResourcePatch,
+        resourceMappingPatch,
+        addResourcesPatch,
         sharedExtensionPatch,
         playerTypeHookPatch,
         videoInformationPatch,
         settingsPatch,
-        versionCheckPatch
+        versionCheckPatch,
     )
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.31.40",
+        ),
     )
 
-    execute {
+    apply {
         addResources("youtube", "misc.backgroundplayback.backgroundPlaybackPatch")
 
         PreferenceScreen.SHORTS.addPreferences(
             SwitchPreference("revanced_shorts_disable_background_playback"),
         )
 
+        prefBackgroundAndOfflineCategoryId = ResourceType.STRING["pref_background_and_offline_category"]
+
         arrayOf(
-            backgroundPlaybackManagerFingerprint to "isBackgroundPlaybackAllowed",
-            backgroundPlaybackManagerShortsFingerprint to "isBackgroundShortsPlaybackAllowed",
-        ).forEach { (fingerprint, integrationsMethod) ->
-            fingerprint.method.apply {
+            backgroundPlaybackManagerMethod to "isBackgroundPlaybackAllowed",
+            backgroundPlaybackManagerShortsMethod to "isBackgroundShortsPlaybackAllowed",
+        ).forEach { (method, integrationsMethod) ->
+            method.apply {
                 findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -85,29 +79,32 @@ val backgroundPlaybackPatch = bytecodePatch(
         }
 
         // Enable background playback option in YouTube settings
-        backgroundPlaybackSettingsFingerprint.originalMethod.apply {
+        backgroundPlaybackSettingsMethod.apply {
             val booleanCalls = instructions.withIndex().filter {
                 it.value.getReference<MethodReference>()?.returnType == "Z"
             }
 
             val settingsBooleanIndex = booleanCalls.elementAt(1).index
-            val settingsBooleanMethod by navigate(this).to(settingsBooleanIndex)
+
+            val settingsBooleanMethod = navigate(this).to(settingsBooleanIndex).stop()
 
             settingsBooleanMethod.returnEarly(true)
         }
 
         // Force allowing background play for Shorts.
-        shortsBackgroundPlaybackFeatureFlagFingerprint.method.returnEarly(true)
+        shortsBackgroundPlaybackFeatureFlagMethod.returnEarly(true)
 
         // Force allowing background play for videos labeled for kids.
-        kidsBackgroundPlaybackPolicyControllerFingerprint.method.returnEarly()
+        kidsBackgroundPlaybackPolicyControllerMethod.returnEarly()
 
         // Fix PiP buttons not working after locking/unlocking device screen.
         if (is_19_34_or_greater) {
-            pipInputConsumerFeatureFlagFingerprint.method.insertLiteralOverride(
-                PIP_INPUT_CONSUMER_FEATURE_FLAG,
-                false
-            )
+            pipInputConsumerFeatureFlagMethodMatch.let {
+                it.method.insertLiteralOverride(
+                    it[0],
+                    false,
+                )
+            }
         }
     }
 }

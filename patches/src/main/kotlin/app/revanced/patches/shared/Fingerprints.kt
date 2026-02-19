@@ -1,11 +1,13 @@
 package app.revanced.patches.shared
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val castContextFetchFingerprint = fingerprint {
-    strings("Error fetching CastContext.")
-}
+internal val BytecodePatchContext.castContextFetchMethod by gettingFirstMethodDeclaratively(
+    "Error fetching CastContext."
+)
 
-internal val primeMethodFingerprint = fingerprint {
-    strings("com.google.android.GoogleCamera", "com.android.vending")
-}
+internal val BytecodePatchContext.primeMethod by gettingFirstMethodDeclaratively(
+    "com.android.vending",
+    "com.google.android.GoogleCamera"
+)

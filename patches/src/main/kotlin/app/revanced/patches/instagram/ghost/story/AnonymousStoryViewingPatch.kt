@@ -12,12 +12,12 @@ val anonymousStoryViewingPatch = bytecodePatch(
         Your view will not appear in the story viewers list. 
         Note: Since no data is sent, a story you have already viewed may appear as new on another device.
     """.trimIndentMultiline(),
-    use = false
+    use = false,
 ) {
     compatibleWith("com.instagram.android")
 
-    execute {
+    apply {
         // Prevent the hashmap of the seen media to be filled
-        setMediaSeenHashmapFingerprint.method.returnEarly()
+        setMediaSeenHashmapMethod.returnEarly()
     }
 }

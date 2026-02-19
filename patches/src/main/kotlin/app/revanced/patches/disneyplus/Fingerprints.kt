@@ -1,19 +1,19 @@
-package app.revanced.patches.disneyplus.ads
+package app.revanced.patches.disneyplus
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 
-internal val insertionGetPointsFingerprint = fingerprint {
-    returns("Ljava/util/List")
-    custom { method, _ ->
-        method.name == "getPoints" &&
-            method.definingClass == "Lcom/dss/sdk/internal/media/Insertion;"
-    }
+internal val BytecodePatchContext.insertionGetPointsMethod by gettingFirstMethodDeclaratively {
+    name("getPoints")
+    definingClass("Lcom/dss/sdk/internal/media/Insertion;")
+    returnType("Ljava/util/List")
 }
 
-internal val insertionGetRangesFingerprint = fingerprint {
-    returns("Ljava/util/List")
-    custom { method, _ ->
-        method.name == "getRanges" &&
-            method.definingClass == "Lcom/dss/sdk/internal/media/Insertion;"
-    }
+internal val BytecodePatchContext.insertionGetRangesMethod by gettingFirstMethodDeclaratively {
+    name("getRanges")
+    definingClass("Lcom/dss/sdk/internal/media/Insertion;")
+    returnType("Ljava/util/List")
 }

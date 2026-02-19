@@ -11,7 +11,8 @@ import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-val hidePlayerFlyoutMenuPatch = bytecodePatch(
+@Suppress("unused")
+val hidePlayerFlyoutMenuItemsPatch = bytecodePatch(
     name = "Hide player flyout menu items",
     description = "Adds options to hide menu items that appear when pressing the gear icon in the video player.",
 ) {
@@ -24,15 +25,15 @@ val hidePlayerFlyoutMenuPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.31.40",
+        ),
     )
 
-    execute {
-        val filterClassDescriptor = "Lapp/revanced/extension/youtube/patches/components/PlayerFlyoutMenuItemsFilter;"
+    apply {
+        val filterClassDescriptor = "Lapp/revanced/extension/youtube/patches/litho/PlayerFlyoutMenuItemsFilter;"
 
         addResources("youtube", "layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch")
 
@@ -51,7 +52,7 @@ val hidePlayerFlyoutMenuPatch = bytecodePatch(
                     SwitchPreference("revanced_hide_player_flyout_lock_screen"),
                     SwitchPreference(
                         key = "revanced_hide_player_flyout_audio_track",
-                        tag = "app.revanced.extension.youtube.settings.preference.HideAudioFlyoutMenuPreference"
+                        tag = "app.revanced.extension.youtube.settings.preference.HideAudioFlyoutMenuPreference",
                     ),
                     SwitchPreference("revanced_hide_player_flyout_watch_in_vr"),
                     SwitchPreference("revanced_hide_player_flyout_sleep_timer"),

@@ -1,11 +1,13 @@
 package app.revanced.patches.youtube.misc.imageurlhook
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
+import app.revanced.patcher.classDef
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -29,19 +31,15 @@ val cronetImageUrlHookPatch = bytecodePatch(
 ) {
     dependsOn(sharedExtensionPatch)
 
-    execute {
-        loadImageUrlMethod = messageDigestImageUrlFingerprint
-            .match(messageDigestImageUrlParentFingerprint.originalClassDef).method
+    apply {
 
-        loadImageSuccessCallbackMethod = onSucceededFingerprint
-            .match(onResponseStartedFingerprint.originalClassDef).method
-
-        loadImageErrorCallbackMethod = onFailureFingerprint
-            .match(onResponseStartedFingerprint.originalClassDef).method
+        loadImageUrlMethod = messageDigestImageUrlParentMethod.immutableClassDef.getMessageDigestImageUrlMethod()
+        loadImageSuccessCallbackMethod = onResponseStartedMethod.immutableClassDef.getOnSucceededMethod()
+        loadImageErrorCallbackMethod = onResponseStartedMethod.immutableClassDef.getOnFailureMethod()
 
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.
-        val urlFieldInstruction = requestFingerprint.method.instructions.first {
+        val urlFieldInstruction = requestMethod.instructions.first {
             val reference = it.getReference<FieldReference>()
             it.opcode == Opcode.IPUT_OBJECT && reference?.type == "Ljava/lang/String;"
         } as ReferenceInstruction
@@ -49,7 +47,7 @@ val cronetImageUrlHookPatch = bytecodePatch(
         val urlFieldName = (urlFieldInstruction.reference as FieldReference).name
         val definingClass = CRONET_URL_REQUEST_CLASS_DESCRIPTOR
         val addedMethodName = "getHookedUrl"
-        requestFingerprint.classDef.methods.add(
+        requestMethod.classDef.methods.add(
             ImmutableMethod(
                 definingClass,
                 addedMethodName,

@@ -1,11 +1,12 @@
-package app.revanced.patches.music.utils.fix.fileprovider
+package app.revanced.patches.music.misc.fileprovider
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 
-internal val fileProviderResolverFingerprint = fingerprint {
-    returns("L")
-    strings(
-        "android.support.FILE_PROVIDER_PATHS",
-        "Name must not be empty"
-    )
+internal val BytecodePatchContext.fileProviderResolverMethod by gettingFirstMethodDeclaratively(
+    "android.support.FILE_PROVIDER_PATHS",
+    "Name must not be empty"
+) {
+    returnType("L")
 }

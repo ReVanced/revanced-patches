@@ -1,35 +1,46 @@
 package app.revanced.patches.shared.misc.debugging
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstImmutableMethodDeclaratively
+import app.revanced.patcher.firstMethodDeclaratively
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val experimentalFeatureFlagParentFingerprint = fingerprint {
+internal val BytecodePatchContext.experimentalFeatureFlagParentMethod by gettingFirstImmutableMethodDeclaratively(
+    "Unable to parse proto typed experiment flag: "
+) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("L")
-    parameters("L", "J", "[B")
-    strings("Unable to parse proto typed experiment flag: ")
+    returnType("L")
+    parameterTypes("L", "J", "[B")
 }
 
-internal val experimentalBooleanFeatureFlagFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getExperimentalBooleanFeatureFlagMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Z")
-    parameters("L", "J", "Z")
+    returnType("Z")
+    parameterTypes("L", "J", "Z")
 }
 
-internal val experimentalDoubleFeatureFlagFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getExperimentalDoubleFeatureFlagMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("D")
-    parameters("J", "D")
+    returnType("D")
+    parameterTypes("J", "D")
 }
 
-internal val experimentalLongFeatureFlagFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getExperimentalLongFeatureFlagMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("J")
-    parameters("J", "J")
+    returnType("J")
+    parameterTypes("J", "J")
 }
 
-internal val experimentalStringFeatureFlagFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getExperimentalStringFeatureFlagMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/String;")
-    parameters("J", "Ljava/lang/String;")
+    returnType("Ljava/lang/String;")
+    parameterTypes("J", "Ljava/lang/String;")
 }
