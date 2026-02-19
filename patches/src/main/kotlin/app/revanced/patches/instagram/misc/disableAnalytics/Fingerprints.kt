@@ -1,6 +1,9 @@
 package app.revanced.patches.instagram.misc.disableAnalytics
 
+import app.revanced.patcher.composingFirstMethod
 import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.strings
 
@@ -8,7 +11,9 @@ internal val BytecodePatchContext.instagramAnalyticsUrlBuilderMethod by gettingF
     strings("/logging_client_events")
 }
 
-internal const val TARGET_URL = "https://graph.facebook.com/logging_client_events"
-internal val BytecodePatchContext.facebookAnalyticsUrlInitMethod by gettingFirstMethodDeclaratively {
-    strings("analytics_endpoint", TARGET_URL)
+internal val BytecodePatchContext.facebookAnalyticsUrlInitMethodMatch by composingFirstMethod {
+    instructions(
+        "analytics_endpoint"(),
+        "https://graph.facebook.com/logging_client_events"()
+    )
 }
