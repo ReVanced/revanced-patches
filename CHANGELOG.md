@@ -1,3 +1,10 @@
+## [5.50.3-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.50.3-dev.2...v5.50.3-dev.3) (2026-02-20)
+
+
+### Bug Fixes
+
+* **GmsCore support:** Insert check after necessary context hook ([03e8e3d](https://github.com/ReVanced/revanced-patches/commit/03e8e3d75cb3b03987299885cea5eb615a5cef23))
+
 ## [5.50.3-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.50.3-dev.1...v5.50.3-dev.2) (2026-02-16)
 
 
