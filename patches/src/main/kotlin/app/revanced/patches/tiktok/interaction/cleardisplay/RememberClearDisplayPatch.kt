@@ -16,8 +16,8 @@ val rememberClearDisplayPatch = bytecodePatch(
     description = "Remembers the clear display configurations in between videos.",
 ) {
     compatibleWith(
-        "com.ss.android.ugc.trill"("36.5.4"),
-        "com.zhiliaoapp.musically"("36.5.4"),
+        "com.ss.android.ugc.trill"("43.6.2"),
+        "com.zhiliaoapp.musically"("43.6.2"),
     )
 
     execute {

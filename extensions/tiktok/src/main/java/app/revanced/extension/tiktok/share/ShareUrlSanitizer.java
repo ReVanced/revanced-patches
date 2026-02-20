@@ -24,6 +24,17 @@ public final class ShareUrlSanitizer {
             return url;
         }
 
-        return sanitizer.sanitizeUrlString(url);
+        String sanitized = sanitizer.sanitizeUrlString(url);
+        if (BaseSettings.DEBUG.get() && sanitized != null && !sanitized.equals(url)) {
+            Logger.printInfo(() -> "[ReVanced SanitizeShareUrl] "
+                    + truncate(url) + " -> " + truncate(sanitized));
+        }
+        return sanitized;
+    }
+
+    private static String truncate(String url) {
+        if (url == null) return "null";
+        if (url.length() <= 160) return "\"" + url + "\"";
+        return "\"" + url.substring(0, 160) + "...\"";
     }
 }

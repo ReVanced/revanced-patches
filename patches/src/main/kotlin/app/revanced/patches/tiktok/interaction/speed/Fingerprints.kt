@@ -9,9 +9,11 @@ internal val getSpeedFingerprint = fingerprint {
     }
 }
 
-internal val setSpeedFingerprint = fingerprint {
+internal val speedOptionEnabledFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("V")
-    parameters("Ljava/lang/String;", "Lcom/ss/android/ugc/aweme/feed/model/Aweme;", "F")
-    strings("enterFrom")
+    returns("Z")
+    parameters("Lcom/ss/android/ugc/aweme/feed/model/Aweme;")
+    custom { method, classDef ->
+        classDef.type == "LX/0MbX;" && method.name == "LIZ"
+    }
 }
