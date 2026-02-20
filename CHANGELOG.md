@@ -1,3 +1,25 @@
+## [5.50.3-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.50.3-dev.2...v5.50.3-dev.3) (2026-02-20)
+
+
+### Bug Fixes
+
+* **GmsCore support:** Insert check after necessary context hook ([03e8e3d](https://github.com/ReVanced/revanced-patches/commit/03e8e3d75cb3b03987299885cea5eb615a5cef23))
+
+## [5.50.3-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.50.3-dev.1...v5.50.3-dev.2) (2026-02-16)
+
+
+### Bug Fixes
+
+* **GmsCore support:** Handle GmsCore flavors when checking for updates ([2aa19f5](https://github.com/ReVanced/revanced-patches/commit/2aa19f5995fd050c40b15331a77d58144a5a1f69))
+* Use positional substitutes in strings where multiple are present ([aa8c87f](https://github.com/ReVanced/revanced-patches/commit/aa8c87f8650bd5def5f726f02be5d62d72a3007b))
+
+## [5.50.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.50.2...v5.50.3-dev.1) (2026-02-16)
+
+
+### Bug Fixes
+
+* **GmsCore support:** Rename MicroG GmsCore specific strings as well and rename app specific strings correctly ([c2ac1f0](https://github.com/ReVanced/revanced-patches/commit/c2ac1f04a0ac180555a9d19e7ff41525487fbc6d))
+
 ## [5.50.2](https://github.com/ReVanced/revanced-patches/compare/v5.50.1...v5.50.2) (2026-02-15)
 
 

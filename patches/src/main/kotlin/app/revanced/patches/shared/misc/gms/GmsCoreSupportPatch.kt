@@ -35,7 +35,8 @@ private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
  * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
  * @param primeMethodFingerprint The fingerprint of the "prime" method that needs to be patched.
  * @param earlyReturnFingerprints The fingerprints of methods that need to be returned early.
- * @param mainActivityOnCreateFingerprint The fingerprint of the main activity onCreate method.
+ * @param mainActivityOnCreateFingerprintToInsertIndex The fingerprint of the main activity onCreate method
+ * and a function to get the index to insert the GmsCore check instruction at.
  * @param extensionPatch The patch responsible for the extension.
  * @param gmsCoreSupportResourcePatchFactory The factory for the corresponding resource patch
  * that is used to patch the resources.
@@ -47,7 +48,7 @@ fun gmsCoreSupportPatch(
     toPackageName: String,
     primeMethodFingerprint: Fingerprint? = null,
     earlyReturnFingerprints: Set<Fingerprint> = setOf(),
-    mainActivityOnCreateFingerprint: Fingerprint,
+    mainActivityOnCreateFingerprintToInsertIndex: Pair<Fingerprint, BytecodePatchContext.() -> Int>,
     extensionPatch: Patch<*>,
     gmsCoreSupportResourcePatchFactory: (gmsCoreVendorGroupIdOption: Option<String>) -> Patch<*>,
     executeBlock: BytecodePatchContext.() -> Unit = {},
@@ -55,7 +56,7 @@ fun gmsCoreSupportPatch(
 ) = bytecodePatch(
     name = "GmsCore support",
     description = "Allows the app to work without root by using a different package name when patched " +
-        "using a GmsCore instead of Google Play Services.",
+            "using a GmsCore instead of Google Play Services.",
 ) {
     val gmsCoreVendorGroupIdOption = stringOption(
         key = "gmsCoreVendorGroupId",
@@ -88,8 +89,9 @@ fun gmsCoreSupportPatch(
                 }
 
                 implementation.instructions.forEachIndexed insnLoop@{ index, instruction ->
-                    val string = ((instruction as? Instruction21c)?.reference as? StringReference)?.string
-                        ?: return@insnLoop
+                    val string =
+                        ((instruction as? Instruction21c)?.reference as? StringReference)?.string
+                            ?: return@insnLoop
 
                     // Apply transformation.
                     val transformedString = transform(string) ?: return@insnLoop
@@ -111,7 +113,7 @@ fun gmsCoreSupportPatch(
             "com.google.android.gms",
             in GMS_PERMISSIONS,
             in GMS_AUTHORITIES,
-            -> if (string.startsWith("com.google")) {
+                -> if (string.startsWith("com.google")) {
                 string.replace("com.google", gmsCoreVendorGroupId)
             } else {
                 "$gmsCoreVendorGroupId.$string"
@@ -119,7 +121,7 @@ fun gmsCoreSupportPatch(
 
             in APP_PERMISSIONS,
             in APP_AUTHORITIES,
-            -> "$toPackageName.$string"
+                -> "$toPackageName.$string"
 
             else -> null
         }
@@ -188,11 +190,14 @@ fun gmsCoreSupportPatch(
         originalPackageNameExtensionFingerprint.method.returnEarly(fromPackageName)
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
-        mainActivityOnCreateFingerprint.method.addInstruction(
-            0,
-            "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                "checkGmsCore(Landroid/app/Activity;)V",
-        )
+
+        mainActivityOnCreateFingerprintToInsertIndex.let { (fingerprint, getInsertIndex) ->
+            fingerprint.method.addInstruction(
+                getInsertIndex(),
+                "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                        "checkGmsCore(Landroid/app/Activity;)V",
+            )
+        }
 
         // Change the vendor of GmsCore in the extension.
         getGmsCoreVendorGroupIdFingerprint.method.returnEarly(gmsCoreVendorGroupId)
@@ -232,35 +237,39 @@ fun gmsCoreSupportResourcePatch(
     execute {
         addResources("shared", "misc.gms.gmsCoreSupportResourcePatch")
 
+        val toPackageName = setOrGetFallbackPackageName(toPackageName)
+
         document("AndroidManifest.xml").use { document ->
             document.getElementsByTagName("permission").asSequence().forEach { node ->
-                val nameElement = node.attributes.getNamedItem("android:name")
-                nameElement.textContent = toPackageName + nameElement.textContent
+                node.attributes.getNamedItem("android:name").apply {
+                    APP_PERMISSIONS += textContent
+
+                    textContent = "$toPackageName.$textContent"
+                }
             }
 
             document.getElementsByTagName("uses-permission").asSequence().forEach { node ->
-                val nameElement = node.attributes.getNamedItem("android:name")
-                if (nameElement.textContent in GMS_PERMISSIONS) {
-                    nameElement.textContent.replace("com.google", gmsCoreVendorGroupId)
+                node.attributes.getNamedItem("android:name").apply {
+                    if (textContent in GMS_PERMISSIONS) {
+                        textContent.replace("com.google", gmsCoreVendorGroupId)
+                    } else if (textContent in APP_PERMISSIONS) {
+                        textContent = "$toPackageName.$textContent"
+                    }
                 }
             }
 
             document.getElementsByTagName("provider").asSequence().forEach { node ->
-                val providerElement = node.attributes.getNamedItem("android:authorities")
-
-                providerElement.textContent = providerElement.textContent.split(";")
-                    .joinToString(";") { authority ->
-                        if (authority.startsWith("com.google")) {
-                            authority.replace("com.google", gmsCoreVendorGroupId)
-                        } else {
-                            "$gmsCoreVendorGroupId.$authority"
+                node.attributes.getNamedItem("android:authorities").apply {
+                    textContent = textContent.split(";")
+                        .joinToString(";") { authority ->
+                            APP_AUTHORITIES += authority
+                            "$toPackageName.$authority"
                         }
-                    }
+                }
             }
 
             document.getNode("manifest")
-                .attributes.getNamedItem("package").textContent =
-                setOrGetFallbackPackageName(toPackageName)
+                .attributes.getNamedItem("package").textContent = toPackageName
 
             document.getNode("queries").appendChild(
                 document.createElement("package").apply {
@@ -336,7 +345,7 @@ private object Constants {
     )
 
     val GMS_AUTHORITIES = setOf(
-        "google.android.gms.fileprovider",
+        "com.google.android.gms.fileprovider",
         "com.google.android.gms.auth.accounts",
         "com.google.android.gms.chimera",
         "com.google.android.gms.fonts",
@@ -346,7 +355,11 @@ private object Constants {
         "subscribedfeeds",
     )
 
-    val APP_PERMISSIONS = mutableSetOf<String>()
+    val APP_PERMISSIONS = mutableSetOf(
+        "org.microg.gms.STATUS_BROADCAST",
+        "org.microg.gms.EXTENDED_ACCESS",
+        "org.microg.gms.PROVISION"
+    )
 
     val APP_AUTHORITIES = mutableSetOf<String>()
 }

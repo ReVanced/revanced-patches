@@ -112,7 +112,7 @@ To translate new languages or improve the existing translations, visit translate
             <string name="revanced_gms_core_toast_not_installed_message">MicroG GmsCore is not installed. Install it.</string>
             <string name="revanced_gms_core_dialog_title">Action needed</string>
             <string name="revanced_gms_core_toast_update_check_failed_message">Failed to check for MicroG GmsCore updates</string>
-            <string name="revanced_gms_core_update_available_message">A new version (%s) of MicroG GmsCore is available. Currently, you are using version %s.</string>
+            <string name="revanced_gms_core_update_available_message">A new version (%1$s) of MicroG GmsCore is available. Currently, you are using version %2$s.</string>
             <string name="revanced_gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore does not have permission to run in the background.
 
 Follow the \"Don\'t kill my app\" guide for your phone, and apply the instructions to your MicroG installation.

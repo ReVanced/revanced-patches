@@ -26,7 +26,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     earlyReturnFingerprints = setOf(
         castContextFetchFingerprint,
     ),
-    mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
+    mainActivityOnCreateFingerprintToInsertIndex = mainActivityOnCreateFingerprint to { 0 },
     extensionPatch = sharedExtensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {
