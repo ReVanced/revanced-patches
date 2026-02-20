@@ -25,7 +25,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     earlyReturnFingerprints = setOf(
         castContextFetchFingerprint,
     ),
-    mainActivityOnCreateFingerprint = musicActivityOnCreateFingerprint,
+    mainActivityOnCreateFingerprintToInsertIndex = musicActivityOnCreateFingerprint to { 0 },
     extensionPatch = sharedExtensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {
