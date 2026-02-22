@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 @Suppress("unused")
 val spoofAgeSignalsPatch = bytecodePatch(
     name = "Spoof Age Signals",
-    description = "Spoofs information about the user age.",
+    description = "Spoofs Google Play data about the user age and verification status.",
     use = false,
 ) {
     val ageLower by intOption(
@@ -34,6 +34,13 @@ val spoofAgeSignalsPatch = bytecodePatch(
         validator = { it == null || it > ageLower!! },
     )
 
+    val userStatus by option<UserStatus>(
+        name = "User status",
+        description = "An integer representing the user status.",
+        default = UserStatus.VERIFIED,
+        values = UserStatus.entries.associateBy { it.name },
+    )
+
     apply {
         forEachInstructionAsSequence(
             match = { _, _, instruction, instructionIndex ->
@@ -48,6 +55,7 @@ val spoofAgeSignalsPatch = bytecodePatch(
                 val replacement = when (match) {
                     MethodCall.AgeLower -> ageLower!!
                     MethodCall.AgeUpper -> ageUpper!!
+                    MethodCall.UserStatus -> userStatus!!.value
                 }
 
                 replacement.let { instructionIndex to it }
@@ -78,6 +86,9 @@ private fun transformMethodCall(
     )
 }
 
+/**
+ * See [AgeSignalsResult](https://developer.android.com/google/play/age-signals/reference/com/google/android/play/agesignals/AgeSignalsResult)
+ */
 private enum class MethodCall(
     val reference: MethodReference,
 ) {
@@ -97,5 +108,37 @@ private enum class MethodCall(
             "Ljava/lang/Integer;",
         ),
     ),
+    UserStatus(
+        ImmutableMethodReference(
+            "Lcom/google/android/play/agesignals/AgeSignalsResult;",
+            "userStatus",
+            emptyList(),
+            "Ljava/lang/Integer;",
+        ),
+    ),
 }
 
+/**
+ * All possible user verification statuses.
+ *
+ * See [AgeSignalsVerificationStatus](https://developer.android.com/google/play/age-signals/reference/com/google/android/play/agesignals/model/AgeSignalsVerificationStatus)
+ */
+private enum class UserStatus(val value: Int) {
+    /** The user provided their age, but it hasn't been verified yet */
+    DECLARED(5),
+
+    /** The user is 18+. */
+    VERIFIED(0),
+
+    /** The user's guardian has set the age for him */
+    SUPERVISED(1),
+
+    /** The user's guardian hasn't approved the significant changes yet */
+    SUPERVISED_APPROVAL_PENDING(2),
+
+    /** The user's guardian has denied approval for one or more pending significant changes. */
+    SUPERVISED_APPROVAL_DENIED(3),
+
+    /** The user is not verified or supervised */
+    UNKNOWN(4),
+}
