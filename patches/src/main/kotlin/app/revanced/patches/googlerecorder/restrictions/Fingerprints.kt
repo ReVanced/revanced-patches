@@ -5,6 +5,6 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.onApplicationCreateMethodMatch by composingFirstMethod {
     name("onCreate")
-    definingClass { endsWith("RecorderApplication") }
+    definingClass { endsWith("RecorderApplication;") }
     instructions("com.google.android.feature.PIXEL_2017_EXPERIENCE"())
 }

@@ -15,10 +15,10 @@ internal fun BytecodePatchContext.editShareLinksPatch(block: MutableMethod.(inde
         liveUrlResponseJsonParserMethodMatch,
     )
 
-    methodsToPatch.forEachIndexed { index, match ->
+    methodsToPatch.forEach { match ->
         match.method.apply {
             val putSharingUrlIndex = indexOfFirstInstruction(
-                index,
+                match[0],
                 Opcode.IPUT_OBJECT
             )
             val sharingUrlRegister = getInstruction<TwoRegisterInstruction>(putSharingUrlIndex).registerA

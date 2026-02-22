@@ -25,6 +25,6 @@ internal val BytecodePatchContext.cb11ConstructorMethod by gettingFirstMethodDec
 }
 
 internal val BytecodePatchContext.getBottomBarMethod by gettingFirstMethodDeclaratively {
-    name("getBottombar")
+    name("getBottomBar")
     definingClass { endsWith("HomeMenu;") }
 }

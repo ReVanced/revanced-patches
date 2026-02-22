@@ -13,7 +13,6 @@ internal val BytecodePatchContext.adResolverMethod by gettingFirstMethodDeclarat
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes("L", "L")
-
 }
 
 internal val BytecodePatchContext.whAdViewInjectorMethod by gettingFirstMethodDeclaratively("successfulAdView") {

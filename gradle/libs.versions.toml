@@ -1,5 +1,5 @@
 [versions]
-revanced-patcher = "22.0.0-local"
+revanced-patcher = "22.0.0"
 # Tracking https://github.com/google/smali/issues/64.
 #noinspection GradleDependency
 smali = "3.0.8"
