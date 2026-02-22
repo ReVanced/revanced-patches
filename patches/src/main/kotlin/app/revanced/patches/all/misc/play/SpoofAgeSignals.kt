@@ -43,10 +43,13 @@ val spoofAgeSignalsPatch = bytecodePatch(
 
     apply {
         forEachInstructionAsSequence(
-            match = { _, _, instruction, instructionIndex ->
-                if (instruction !is ReferenceInstruction) return@forEachInstructionAsSequence null
+            match = { classDef, _, instruction, instructionIndex ->
+                // We want to avoid patching the library itself
+                if (classDef.type.startsWith("Lcom/google/android/play/agesignals/")) return@forEachInstructionAsSequence null
 
-                val reference = instruction.reference as? MethodReference ?: return@forEachInstructionAsSequence null
+                // Keep only method calls
+                val reference = (instruction as? ReferenceInstruction)?.reference as? MethodReference
+                    ?: return@forEachInstructionAsSequence null
 
                 val match = MethodCall.entries.firstOrNull { search ->
                     MethodUtil.methodSignaturesMatch(reference, search.reference)
