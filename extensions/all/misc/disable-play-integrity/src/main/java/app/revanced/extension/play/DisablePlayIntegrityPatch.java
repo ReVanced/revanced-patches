@@ -1,4 +1,4 @@
-package app.revanced.extension.playintegrity;
+package app.revanced.extension.play;
 
 import android.content.Context;
 import android.content.Intent;
