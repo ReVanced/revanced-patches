@@ -9,6 +9,7 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPref
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
+import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playercontrols.addBottomControl
 import app.revanced.patches.youtube.misc.playercontrols.initializeBottomControl
 import app.revanced.patches.youtube.misc.playercontrols.injectVisibilityCheckCall
@@ -16,7 +17,6 @@ import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.misc.playercontrols.playerControlsResourcePatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.patches.youtube.video.playerresponse.Hook
 import app.revanced.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
@@ -78,6 +78,7 @@ val transcriptSummarizerPatch = bytecodePatch(
         playerControlsPatch,
         videoInformationPatch,
         playerResponseMethodHookPatch,
+        sharedExtensionPatch,
     )
 
     compatibleWith(
@@ -92,12 +93,6 @@ val transcriptSummarizerPatch = bytecodePatch(
     execute {
         initializeBottomControl(BUTTON_DESCRIPTOR)
         injectVisibilityCheckCall(BUTTON_DESCRIPTOR)
-
-        // Initialize the summarizer when the main activity is created
-        mainActivityOnCreateFingerprint.method.addInstruction(
-            0,
-            "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->initialize()V"
-        )
 
         // Hook player response to extract caption data
         addPlayerResponseMethodHook(

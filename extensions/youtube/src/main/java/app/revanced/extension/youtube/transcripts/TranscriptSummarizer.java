@@ -217,12 +217,4 @@ public class TranscriptSummarizer {
         Logger.printDebug(() -> TAG + " Video changed, resetting state");
         // Don't clear player response - it will be updated by patch
     }
-
-    /**
-     * Initialize the summarizer system.
-     */
-    public static void initialize() {
-        TranscriptSummaryCache.initialize();
-        Logger.printDebug(() -> TAG + " Summarizer initialized");
-    }
 }
