@@ -6,12 +6,22 @@ import app.revanced.patches.googlenews.misc.gms.Constants.MAGAZINES_PACKAGE_NAME
 import app.revanced.patches.googlenews.misc.gms.Constants.REVANCED_MAGAZINES_PACKAGE_NAME
 import app.revanced.patches.shared.misc.gms.gmsCoreSupportPatch
 import app.revanced.patches.shared.misc.gms.gmsCoreSupportResourcePatch
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 val gmsCoreSupportPatch = gmsCoreSupportPatch(
     fromPackageName = MAGAZINES_PACKAGE_NAME,
     toPackageName = REVANCED_MAGAZINES_PACKAGE_NAME,
-    mainActivityOnCreateFingerprintToInsertIndex = magazinesActivityOnCreateFingerprint to { 0 },
+    mainActivityOnCreateFingerprintToInsertIndex = magazinesActivityOnCreateFingerprint to {
+        val getApplicationContextIndex =
+            magazinesActivityOnCreateFingerprint.method.indexOfFirstInstructionOrThrow {
+                getReference<MethodReference>()?.name == "getApplicationContext"
+            }
+
+        getApplicationContextIndex + 2 // Below the move-result-object instruction.
+    },
     extensionPatch = extensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {
