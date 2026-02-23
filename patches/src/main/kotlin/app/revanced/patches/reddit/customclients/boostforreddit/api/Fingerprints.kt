@@ -11,5 +11,5 @@ internal val BytecodePatchContext.buildUserAgentMethod by gettingFirstMethodDecl
 
 internal val BytecodePatchContext.getClientIdMethod by gettingFirstMethodDeclaratively {
     name("getClientId")
-    definingClass { endsWith("Credentials;") }
+    definingClass("Credentials;")
 }

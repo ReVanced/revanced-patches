@@ -7,5 +7,5 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.magazinesActivityOnCreateMethod by gettingFirstMethodDeclaratively {
     name("onCreate")
-    definingClass { endsWith("/StartActivity;") }
+    definingClass("/StartActivity;")
 }

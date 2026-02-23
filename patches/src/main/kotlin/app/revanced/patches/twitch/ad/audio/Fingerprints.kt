@@ -7,5 +7,5 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.audioAdsPresenterPlayMethod by gettingFirstMethodDeclaratively {
     name("playAd")
-    definingClass { endsWith("AudioAdsPlayerPresenter;") }
+    definingClass("AudioAdsPlayerPresenter;")
 }

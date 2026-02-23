@@ -8,7 +8,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.customImageViewLoadMethod by gettingFirstMethodDeclaratively {
-    definingClass { endsWith("CustomImageView;") }
+    definingClass("CustomImageView;")
     accessFlags(AccessFlags.PUBLIC)
     parameterTypes("Ljava/lang/String;", "Z", "Z", "I", "I")
 }

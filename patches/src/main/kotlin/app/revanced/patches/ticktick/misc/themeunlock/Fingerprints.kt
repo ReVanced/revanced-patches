@@ -7,10 +7,10 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.checkLockedThemesMethod by gettingFirstMethodDeclaratively {
     name("isLockedTheme")
-    definingClass { endsWith("Theme;") }
+    definingClass("Theme;")
 }
 
 internal val BytecodePatchContext.setThemeMethod by gettingFirstMethodDeclaratively {
     name("lambda\$updateUserBtn\$1")
-    definingClass { endsWith("ThemePreviewActivity;") }
+    definingClass("ThemePreviewActivity;")
 }

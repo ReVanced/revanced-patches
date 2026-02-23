@@ -7,10 +7,10 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.logInGetUsePasswordMethod by gettingFirstMethodDeclaratively {
     name("getUsePassword")
-    definingClass { endsWith("/RequestOtpLogInNetworkResponse;") }
+    definingClass("/RequestOtpLogInNetworkResponse;")
 }
 
 internal val BytecodePatchContext.emailChangeGetUsePasswordMethod by gettingFirstMethodDeclaratively {
     name("getUsePassword")
-    definingClass { endsWith("/RequestEmailChangeWithOtpOrPasswordResponse;") }
+    definingClass("/RequestEmailChangeWithOtpOrPasswordResponse;")
 }

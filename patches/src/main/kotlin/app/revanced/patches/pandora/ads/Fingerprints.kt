@@ -12,5 +12,5 @@ internal val BytecodePatchContext.getIsAdSupportedMethod by gettingFirstMethodDe
 
 internal val BytecodePatchContext.requestAudioAdMethod by gettingFirstMethodDeclaratively {
     name("requestAudioAdFromAdSDK")
-    definingClass { endsWith("ContentServiceOpsImpl;") }
+    definingClass("ContentServiceOpsImpl;")
 }

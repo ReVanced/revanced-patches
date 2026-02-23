@@ -9,7 +9,7 @@ internal val BytecodePatchContext.userStateSwitchMethod by gettingFirstMethodDec
 }
 
 internal val BytecodePatchContext.cb11ConstructorMethod by gettingFirstMethodDeclaratively {
-    definingClass { endsWith("CB11Details;") }
+    definingClass("CB11Details;")
     parameterTypes(
         "Ljava/lang/String;",
         "Ljava/lang/String;",
@@ -26,5 +26,5 @@ internal val BytecodePatchContext.cb11ConstructorMethod by gettingFirstMethodDec
 
 internal val BytecodePatchContext.getBottomBarMethod by gettingFirstMethodDeclaratively {
     name("getBottomBar")
-    definingClass { endsWith("HomeMenu;") }
+    definingClass("HomeMenu;")
 }

@@ -13,7 +13,7 @@ import app.revanced.patcher.returnType
  */
 internal val BytecodePatchContext.applicationOnCreateMethod by gettingFirstMethodDeclaratively {
     name("onCreate")
-    definingClass { endsWith("BaseApplication;") }
+    definingClass("BaseApplication;")
     returnType("V")
     parameterTypes()
 }

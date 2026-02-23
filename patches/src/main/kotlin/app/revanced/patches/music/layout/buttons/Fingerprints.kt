@@ -46,7 +46,7 @@ internal val BytecodePatchContext.historyMenuItemOfflineTabMethodMatch by compos
 }
 
 internal val BytecodePatchContext.searchActionViewMethod by gettingFirstMethodDeclaratively {
-    definingClass { endsWith("/SearchActionProvider;") }
+    definingClass("/SearchActionProvider;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
     parameterTypes()

@@ -49,7 +49,7 @@ internal val BytecodePatchContext.disableFastForwardLegacyMethodMatch by composi
 }
 
 internal val BytecodePatchContext.disableFastForwardGestureMethodMatch by composingFirstMethod {
-    definingClass { endsWith("/NextGenWatchLayout;") }
+    definingClass("/NextGenWatchLayout;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

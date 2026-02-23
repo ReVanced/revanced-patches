@@ -7,5 +7,5 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.getCanChangeAppIconMethod by gettingFirstMethodDeclaratively {
     name("getCanChangeAppIcon")
-    definingClass { endsWith("SettingsAppIconFragment;") }
+    definingClass("SettingsAppIconFragment;")
 }

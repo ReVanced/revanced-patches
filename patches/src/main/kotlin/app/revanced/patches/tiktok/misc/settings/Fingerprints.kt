@@ -5,12 +5,12 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.addSettingsEntryMethod by gettingFirstMethodDeclaratively {
     name("initUnitManger")
-    definingClass { endsWith("/SettingNewVersionFragment;") }
+    definingClass("/SettingNewVersionFragment;")
 }
 
 internal val BytecodePatchContext.adPersonalizationActivityOnCreateMethod by gettingFirstMethodDeclaratively {
     name("onCreate")
-    definingClass { endsWith("/AdPersonalizationActivity;") }
+    definingClass("/AdPersonalizationActivity;")
 }
 
 internal val BytecodePatchContext.settingsEntryMethod by gettingFirstImmutableMethodDeclaratively(

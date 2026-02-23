@@ -10,13 +10,13 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.isPremiumUseCaseImplMethod by gettingFirstMethodDeclaratively {
     name("doWork")
-    definingClass { endsWith("IsPremiumUseCaseImpl;") }
+    definingClass("IsPremiumUseCaseImpl;")
     accessFlags(AccessFlags.PUBLIC)
 }
 
 internal val BytecodePatchContext.mainActivityNavigateToNativePremiumUpsellMethod by gettingFirstMethodDeclaratively {
     name("navigateToNativePremiumUpsell")
-    definingClass { endsWith("MainActivity;") }
+    definingClass("MainActivity;")
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("V")
 }

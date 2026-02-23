@@ -7,6 +7,6 @@ import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.shareLinkFormatterMethod by gettingFirstMethodDeclaratively {
-    definingClass { startsWith("Lcom/reddit/sharing/") }
+    definingClass("Lcom/reddit/sharing/")
     custom { immutableClassDef.sourceFile == "UrlUtil.kt" }
 }

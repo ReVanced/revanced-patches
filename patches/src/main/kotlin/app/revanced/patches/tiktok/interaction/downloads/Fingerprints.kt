@@ -11,19 +11,19 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.aclCommonShareMethod by gettingFirstMethodDeclaratively {
     name("getCode")
-    definingClass { endsWith("/ACLCommonShare;") }
+    definingClass("/ACLCommonShare;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("I")
 }
 internal val BytecodePatchContext.aclCommonShare2Method by gettingFirstMethodDeclaratively {
     name("getShowType")
-    definingClass { endsWith("/ACLCommonShare;") }
+    definingClass("/ACLCommonShare;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("I")
 }
 internal val BytecodePatchContext.aclCommonShare3Method by gettingFirstMethodDeclaratively {
     name("getTranscode")
-    definingClass { endsWith("/ACLCommonShare;") }
+    definingClass("/ACLCommonShare;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("I")
 }

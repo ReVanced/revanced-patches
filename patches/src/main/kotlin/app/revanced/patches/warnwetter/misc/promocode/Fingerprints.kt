@@ -7,5 +7,5 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.promoCodeUnlockMethod by gettingFirstMethodDeclaratively {
     name("isValid")
-    definingClass { endsWith("PromoTokenVerification;") }
+    definingClass("PromoTokenVerification;")
 }

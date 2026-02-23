@@ -22,5 +22,5 @@ internal val BytecodePatchContext.detectPiracyMethod by gettingFirstMethodDeclar
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID,
     )
-    definingClass { endsWith("ProcessLifeCyleListener;") }
+    definingClass("ProcessLifeCyleListener;")
 }

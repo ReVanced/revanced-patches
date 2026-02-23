@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.setFullScreenBackgroundColorMethod by gettingFirstMethodDeclaratively {
     name("onLayout")
-    definingClass { endsWith("/YouTubePlayerViewNotForReflection;") }
+    definingClass("/YouTubePlayerViewNotForReflection;")
     returnType("V")
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     parameterTypes("Z", "I", "I", "I", "I")

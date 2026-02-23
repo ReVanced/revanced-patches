@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.mediaRouteButtonMethod by gettingFirstMethodDeclaratively {
     name("setVisibility")
-    definingClass { endsWith("/MediaRouteButton;") }
+    definingClass("/MediaRouteButton;")
     parameterTypes("I")
 }
 

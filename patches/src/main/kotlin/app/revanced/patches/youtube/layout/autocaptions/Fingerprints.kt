@@ -21,7 +21,7 @@ internal val BytecodePatchContext.storyboardRendererDecoderRecommendedLevelMetho
 }
 
 internal val BytecodePatchContext.subtitleTrackMethod by gettingFirstMethodDeclaratively("DISABLE_CAPTIONS_OPTION") {
-    definingClass { endsWith("/SubtitleTrack;") }
+    definingClass("/SubtitleTrack;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val BytecodePatchContext.lithoFilterInitMethod by gettingFirstMethodDeclaratively {
-    definingClass { endsWith("/LithoFilterPatch;") }
+    definingClass("/LithoFilterPatch;")
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
 }
 

@@ -7,5 +7,5 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.mainActivityOnCreateMethod by gettingFirstMethodDeclaratively {
     name("onCreate")
-    definingClass { endsWith("MainActivity;") }
+    definingClass("MainActivity;")
 }
