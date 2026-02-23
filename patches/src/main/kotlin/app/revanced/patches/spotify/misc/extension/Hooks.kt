@@ -2,7 +2,8 @@ package app.revanced.patches.spotify.misc.extension
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.string
-import app.revanced.patcher.strings
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patches.shared.misc.extension.activityOnCreateExtensionHook
 import app.revanced.patches.shared.misc.extension.extensionHook
 import app.revanced.util.getReference
@@ -32,8 +33,8 @@ internal val loadOrbitLibraryHook = extensionHook(
         "v$contextRegister"
     },
 ) {
-    strings(
-        "orbit_library_load",
-        "orbit-jni-spotify"
+    instructions(
+        "orbit-jni-spotify"(),
+        "orbit_library_load"()
     )
 }
