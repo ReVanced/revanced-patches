@@ -10,7 +10,7 @@ internal val BytecodePatchContext.checkAdEligibilityLambdaMethod by gettingFirst
     parameterTypes("L")
 }
 
-internal val BytecodePatchContext.contentConfigShowAdsMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.contentConfigShowAdsMethod by gettingFirstMethodDeclarativelyOrNull {
     name("getShowAds")
     definingClass("/ContentConfigData;")
     returnType("Z")

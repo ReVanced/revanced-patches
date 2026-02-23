@@ -14,7 +14,6 @@ import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
 
-@Suppress("ObjectPropertyName")
 val blockVideoAdsPatch = bytecodePatch(
     name = "Block video ads",
     description = "Blocks video ads in streams and VODs.",
@@ -143,7 +142,7 @@ val blockVideoAdsPatch = bytecodePatch(
 
                 // Spoof showAds JSON field.
                 // Late versions of the app don't have the method anymore.
-                contentConfigShowAdsMethod.addInstructions(
+                contentConfigShowAdsMethod?.addInstructions(
                     0,
                     """
                         ${createConditionInstructions("v0")}
