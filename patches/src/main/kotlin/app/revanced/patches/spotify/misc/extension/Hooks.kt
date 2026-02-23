@@ -3,6 +3,7 @@ package app.revanced.patches.spotify.misc.extension
 import app.revanced.patcher.definingClass
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.string
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
 import app.revanced.patcher.name
@@ -24,16 +25,9 @@ private var contextReferenceIndex = -1
 
 internal val loadOrbitLibraryHook = extensionHook(
     getInsertIndex = {
-        // Find the last orbit_library_load string usage
-        var lastIndex = -1
-        instructions.forEachIndexed { index, instruction ->
-            instruction.toString().let {
-                if (it.contains("orbit_library_load") || it.contains("orbit-jni-spotify")) {
-                    lastIndex = index
-                }
-            }
+        indexOfFirstInstruction {
+            "orbit-jni-spotify" in (string ?: return@indexOfFirstInstruction false)
         }
-        lastIndex
     },
     getContextRegister = {
         contextReferenceIndex = indexOfFirstInstruction {
