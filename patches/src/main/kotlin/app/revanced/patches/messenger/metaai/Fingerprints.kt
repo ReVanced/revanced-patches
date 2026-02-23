@@ -11,8 +11,9 @@ internal val BytecodePatchContext.getMobileConfigBoolMethodMatch by composingFir
     custom { "Lcom/facebook/mobileconfig/factory/MobileConfigUnsafeContext;" in immutableClassDef.interfaces }
 }
 
-internal val BytecodePatchContext.metaAIKillSwitchCheckMethodMatch by composingFirstMethod("SearchAiagentImplementationsKillSwitch") {
+internal val BytecodePatchContext.metaAIKillSwitchCheckMethodMatch by composingFirstMethod {
     opcodes(Opcode.CONST_WIDE)
+    instructions("SearchAiagentImplementationsKillSwitch"(String::contains))
 }
 
 internal val BytecodePatchContext.extensionMethodMatch by composingFirstMethod {
