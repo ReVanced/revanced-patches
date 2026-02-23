@@ -111,25 +111,18 @@ fun extensionHook(
  * defined in the app manifest.xml file.
  *
  * @param activityClassType Either the full activity class type such as `Lcom/company/MainActivity;`
- *                          or the 'ends with' string for the activity such as `/MainActivity;`
+ *                          or the 'starts with' or 'ends with' string for the activity such as `/MainActivity;`
  */
-fun activityOnCreateExtensionHook(activityClassType: String): ExtensionHook {
-    if (!activityClassType.endsWith(';')) {
-        throw IllegalArgumentException("Activity class type does not end with semicolon: $activityClassType")
-    }
-
-    val fullClassType = activityClassType.startsWith('L')
-
-    return extensionHook {
+fun activityOnCreateExtensionHook(activityClassType: String) = extensionHook {
         name("onCreate")
-
-        if (fullClassType) {
-            definingClass(activityClassType)
-        } else {
-            definingClass { endsWith(activityClassType) }
-        }
-
+        definingClass(activityClassType)
         returnType("V")
-        parameterTypes("Landroid/os/Bundle;")
+
+        /*
+        * Leaving this out (for now?), because before the refactor many apps
+        * which used a simpler fingerprint checking only method name and classDef name
+        * were refactored to use this instead, which caused their hooks to fail.
+        */
+        // parameterTypes("Landroid/os/Bundle;")
     }
-}
+
