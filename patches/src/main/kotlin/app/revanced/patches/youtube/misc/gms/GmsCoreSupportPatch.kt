@@ -25,7 +25,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     toPackageName = REVANCED_YOUTUBE_PACKAGE_NAME,
     getPrimeMethod = BytecodePatchContext::primeMethod::get,
     getEarlyReturnMethods = setOf(BytecodePatchContext::castContextFetchMethod::get),
-    getMainActivityOnCreateMethod = BytecodePatchContext::mainActivityOnCreateMethod::get,
+    getMainActivityOnCreateMethodToGetInsertIndex = BytecodePatchContext::mainActivityOnCreateMethod::get to { 0 },
     extensionPatch = sharedExtensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {

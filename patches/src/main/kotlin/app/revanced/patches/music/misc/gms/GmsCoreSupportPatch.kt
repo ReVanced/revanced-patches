@@ -23,7 +23,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     toPackageName = REVANCED_MUSIC_PACKAGE_NAME,
     getPrimeMethod = { primeMethod },
     getEarlyReturnMethods = setOf(BytecodePatchContext::castContextFetchMethod::get),
-    getMainActivityOnCreateMethod = { musicActivityOnCreateMethod },
+    getMainActivityOnCreateMethodToGetInsertIndex = BytecodePatchContext::musicActivityOnCreateMethod::get to { 0 },
     extensionPatch = sharedExtensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {

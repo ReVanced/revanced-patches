@@ -41,7 +41,8 @@ private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
  * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
  * @param getPrimeMethod The fingerprint of the "prime" method that needs to be patched.
  * @param getEarlyReturnMethods The methods that need to be returned early.
- * @param getMainActivityOnCreateMethod The main activity onCreate method.
+ * @param getMainActivityOnCreateMethodToGetInsertIndex The main activity onCreate method
+ * and a function to get the index to insert the GmsCore check instruction at.
  * @param extensionPatch The patch responsible for the extension.
  * @param gmsCoreSupportResourcePatchFactory The factory for the corresponding resource patch
  * that is used to patch the resources.
@@ -53,7 +54,7 @@ fun gmsCoreSupportPatch(
     toPackageName: String,
     getPrimeMethod: (BytecodePatchContext.() -> MutableMethod)? = null,
     getEarlyReturnMethods: Set<BytecodePatchContext.() -> MutableMethod> = setOf(),
-    getMainActivityOnCreateMethod: (BytecodePatchContext.() -> MutableMethod),
+    getMainActivityOnCreateMethodToGetInsertIndex: Pair<BytecodePatchContext.() -> MutableMethod, BytecodePatchContext.() -> Int>,
     extensionPatch: Patch,
     gmsCoreSupportResourcePatchFactory: (gmsCoreVendorGroupIdOption: Option<String>) -> Patch,
     executeBlock: BytecodePatchContext.() -> Unit = {},
@@ -172,11 +173,13 @@ fun gmsCoreSupportPatch(
         originalPackageNameExtensionMethod.returnEarly(fromPackageName)
 
         // Run GmsCore presence, correct installation and update checks in the main activity.
-        getMainActivityOnCreateMethod().addInstruction(
-            0,
-            "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                    "checkGmsCore(Landroid/app/Activity;)V",
-        )
+        getMainActivityOnCreateMethodToGetInsertIndex.let { (getMethod, getInsertIndex) ->
+            getMethod().addInstruction(
+                getInsertIndex(),
+                "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                        "checkGmsCore(Landroid/app/Activity;)V",
+            )
+        }
 
         // Change the vendor of GmsCore in the extension.
         getGmsCoreVendorGroupIdMethod.returnEarly(gmsCoreVendorGroupId)

@@ -12,7 +12,7 @@ import app.revanced.patches.shared.misc.gms.gmsCoreSupportResourcePatch
 val gmsCoreSupportPatch = gmsCoreSupportPatch(
     fromPackageName = MAGAZINES_PACKAGE_NAME,
     toPackageName = REVANCED_MAGAZINES_PACKAGE_NAME,
-    getMainActivityOnCreateMethod = BytecodePatchContext::magazinesActivityOnCreateMethod::get,
+    getMainActivityOnCreateMethodToGetInsertIndex = BytecodePatchContext::magazinesActivityOnCreateMethod::get to { 0 },
     extensionPatch = extensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {
