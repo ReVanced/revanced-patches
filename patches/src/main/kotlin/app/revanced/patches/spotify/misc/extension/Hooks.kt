@@ -1,19 +1,12 @@
 package app.revanced.patches.spotify.misc.extension
 
-import app.revanced.patcher.definingClass
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.string
-import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
-import app.revanced.patcher.name
-import app.revanced.patcher.parameterTypes
-import app.revanced.patcher.returnType
+import app.revanced.patcher.strings
 import app.revanced.patches.shared.misc.extension.activityOnCreateExtensionHook
 import app.revanced.patches.shared.misc.extension.extensionHook
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
-import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
@@ -39,8 +32,8 @@ internal val loadOrbitLibraryHook = extensionHook(
         "v$contextRegister"
     },
 ) {
-    instructions(
-        "orbit_library_load"(),
-        "orbit-jni-spotify"()
+    strings(
+        "orbit_library_load",
+        "orbit-jni-spotify"
     )
 }
