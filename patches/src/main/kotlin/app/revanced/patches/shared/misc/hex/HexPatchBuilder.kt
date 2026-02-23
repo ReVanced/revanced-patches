@@ -8,11 +8,9 @@ import kotlin.collections.component2
 import kotlin.math.max
 
 fun hexPatch(ignoreMissingTargetFiles: Boolean = false, block: HexPatchBuilder.() -> Unit): Patch {
-    val replacementsSupplier = HexPatchBuilder().apply(block)
-
     return rawResourcePatch {
         apply {
-            replacementsSupplier.apply(block).groupBy { it.targetFilePath }
+            HexPatchBuilder().apply(block).groupBy { it.targetFilePath }
                 .forEach { (targetFilePath, replacements) ->
                     val targetFile = get(targetFilePath, true)
                     if (ignoreMissingTargetFiles && !targetFile.exists()) return@forEach

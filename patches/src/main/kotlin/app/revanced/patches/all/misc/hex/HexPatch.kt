@@ -3,7 +3,6 @@ package app.revanced.patches.all.misc.hex
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.rawResourcePatch
 import app.revanced.patcher.patch.stringsOption
-import app.revanced.patches.shared.misc.hex.HexPatchBuilder
 import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.util.Utils.trimIndentMultiline
 
@@ -32,17 +31,21 @@ val Hex = rawResourcePatch(
 
     dependsOn(
         hexPatch(
-            block = fun HexPatchBuilder.() {
+            block = {
                 replacements!!.forEach { replacement ->
                     try {
-                        val (pattern, replacementPattern, targetFilePath) = replacement.split("|", limit = 3)
+                        val (pattern, replacementPattern, targetFilePath) = replacement.split(
+                            "|",
+                            limit = 3
+                        )
+
                         pattern asPatternTo replacementPattern inFile targetFilePath
                     } catch (e: Exception) {
                         throw PatchException(
                             "Invalid replacement: $replacement.\n" +
-                                "Every pattern must be followed by a pipe ('|'), " +
-                                "the replacement pattern, another pipe ('|'), " +
-                                "and the path to the file to make the changes in relative to the APK root. ",
+                                    "Every pattern must be followed by a pipe ('|'), " +
+                                    "the replacement pattern, another pipe ('|'), " +
+                                    "and the path to the file to make the changes in relative to the APK root. ",
                         )
                     }
                 }
