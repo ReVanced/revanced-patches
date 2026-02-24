@@ -23,7 +23,11 @@ internal val BytecodePatchContext.createTabsMethod by gettingFirstMethodDeclarat
 internal val BytecodePatchContext.showNotificationMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC)
     returnType("V")
-    instructions(method { MethodUtil.methodSignaturesMatch(this, expectedReference) })
+    instructions(method {
+        definingClass == expectedReference.definingClass
+                && parameterTypes == expectedReference.parameterTypes
+                && returnType == expectedReference.returnType
+    })
 }
 
 internal val expectedReference = ImmutableMethodReference(
