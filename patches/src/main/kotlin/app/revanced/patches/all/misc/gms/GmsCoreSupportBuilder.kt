@@ -24,7 +24,7 @@ import app.revanced.patches.shared.misc.gms.gmsCoreSupportResourcePatch
  *     fromPackageName = PHOTOS_PACKAGE_NAME,
  *     toPackageName = REVANCED_PHOTOS_PACKAGE_NAME,
  *     spoofedPackageSignature = "24bb24c05e47e0aefa68a58a766179d9b613a600",
- *     mainActivityOnCreateFingerprint = homeActivityOnCreateFingerprint,
+ *     mainActivityOnCreateFingerprintToInsertIndex = homeActivityOnCreateFingerprint to { 0 },
  *     extensionPatch = extensionPatch,
  * ) {
  *     compatibleWith(PHOTOS_PACKAGE_NAME)
@@ -53,7 +53,7 @@ import app.revanced.patches.shared.misc.gms.gmsCoreSupportResourcePatch
  *     fromPackageName = MY_APP_PACKAGE,
  *     toPackageName = REVANCED_MY_APP_PACKAGE,
  *     spoofedPackageSignature = "your_app_signature_here",
- *     mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
+ *     mainActivityOnCreateFingerprintToInsertIndex = mainActivityOnCreateFingerprint to { 0 },
  *     extensionPatch = extensionPatch,
  * ) {
  *     compatibleWith(MY_APP_PACKAGE)
@@ -63,7 +63,7 @@ import app.revanced.patches.shared.misc.gms.gmsCoreSupportResourcePatch
  * @param fromPackageName The original package name (e.g., `com.google.android.apps.photos`)
  * @param toPackageName The ReVanced package name (e.g., `app.revanced.android.apps.photos`)
  * @param spoofedPackageSignature The app's original signature for GmsCore authentication
- * @param mainActivityOnCreateFingerprint Fingerprint for the main activity's onCreate method
+ * @param mainActivityOnCreateFingerprintToInsertIndex Pair of fingerprint and function to get insert index
  * @param extensionPatch The app's extension patch
  * @param primeMethodFingerprint (Optional) Fingerprint for the prime method
  * @param earlyReturnFingerprints (Optional) Set of fingerprints for methods that need early returns
@@ -76,7 +76,7 @@ fun gmsCoreSupportBuilder(
     fromPackageName: String,
     toPackageName: String,
     spoofedPackageSignature: String,
-    mainActivityOnCreateFingerprint: Fingerprint,
+    mainActivityOnCreateFingerprintToInsertIndex: Pair<Fingerprint, BytecodePatchContext.() -> Int>,
     extensionPatch: Patch<*>,
     primeMethodFingerprint: Fingerprint? = null,
     earlyReturnFingerprints: Set<Fingerprint> = emptySet(),
@@ -87,7 +87,7 @@ fun gmsCoreSupportBuilder(
     toPackageName = toPackageName,
     primeMethodFingerprint = primeMethodFingerprint,
     earlyReturnFingerprints = earlyReturnFingerprints,
-    mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
+    mainActivityOnCreateFingerprintToInsertIndex = mainActivityOnCreateFingerprintToInsertIndex,
     extensionPatch = extensionPatch,
     gmsCoreSupportResourcePatchFactory = { gmsCoreVendorGroupIdOption ->
         gmsCoreSupportResourcePatch(
