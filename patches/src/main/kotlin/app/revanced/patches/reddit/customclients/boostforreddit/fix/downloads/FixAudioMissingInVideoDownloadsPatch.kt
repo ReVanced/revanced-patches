@@ -18,7 +18,7 @@ val fixMissingAudioInVideoDownloadsPatch = bytecodePatch(
             "/DASH_AUDIO_64.mp4",
         )
 
-        downloadAudioMethodMatch.indices[0].forEachIndexed { index, i ->
+        downloadAudioMethodMatch.indices[0].forEachIndexed { i, index ->
             val replacement = endpointReplacements[i]
             val register = downloadAudioMethodMatch.method.getInstruction<OneRegisterInstruction>(index).registerA
 
