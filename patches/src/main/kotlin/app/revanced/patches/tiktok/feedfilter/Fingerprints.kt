@@ -10,7 +10,7 @@ internal val BytecodePatchContext.feedApiServiceLIZMethod by gettingFirstMethodD
     definingClass("/FeedApiService;")
 }
 
-internal val BytecodePatchContext.followFeedMethod by gettingFirstMethodDeclaratively("getFollowFeedList") {
+internal val BytecodePatchContext.followFeedMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Lcom/ss/android/ugc/aweme/follow/presenter/FollowFeedList;")
     opcodes(
@@ -18,4 +18,5 @@ internal val BytecodePatchContext.followFeedMethod by gettingFirstMethodDeclarat
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_INTERFACE
     )
+    instructions("getFollowFeedList"(String::contains))
 }

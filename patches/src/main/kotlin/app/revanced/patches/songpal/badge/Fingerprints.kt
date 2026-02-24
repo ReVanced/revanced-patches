@@ -4,7 +4,6 @@ import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
-import com.android.tools.smali.dexlib2.util.MethodUtil
 
 // Located @ ub.i0.h#p (9.5.0)
 internal val BytecodePatchContext.createTabsMethod by gettingFirstMethodDeclaratively {
