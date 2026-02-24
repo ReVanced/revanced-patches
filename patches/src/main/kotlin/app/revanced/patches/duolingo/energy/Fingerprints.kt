@@ -17,7 +17,9 @@ internal val BytecodePatchContext.energyConfigToStringMethod by gettingFirstMeth
     parameterTypes()
     returnType("Ljava/lang/String;")
     instructions(
-        string("EnergyConfig(", String::contains),
-        string("maxEnergy=", String::contains),
+        predicates=unorderedAllOf(
+            "EnergyConfig("(String::contains),
+            "maxEnergy="(String::contains),
+        )
     )
 }
