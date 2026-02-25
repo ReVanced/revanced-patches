@@ -292,7 +292,7 @@ public abstract class Setting<T> {
      * <p>
      * This method will be deleted in the future.
      */
-    @SuppressWarnings({"rawtypes", "NewApi"})
+    @SuppressWarnings("rawtypes")
     public static void migrateFromOldPreferences(SharedPrefCategory oldPrefs, Setting setting, String settingKey) {
         if (!oldPrefs.preferences.contains(settingKey)) {
             return; // Nothing to do.

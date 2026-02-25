@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import androidx.annotation.RequiresApi;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
@@ -22,7 +24,8 @@ import app.revanced.extension.shared.ui.Dim;
  * Base class for hooking activities to inject a custom PreferenceFragment with a toolbar.
  * Provides common logic for initializing the activity and setting up the toolbar.
  */
-@SuppressWarnings({"deprecation", "NewApi"})
+@SuppressWarnings("deprecation")
+@RequiresApi(26)
 public abstract class BaseActivityHook extends Activity {
 
     private static final int ID_REVANCED_SETTINGS_FRAGMENTS =
