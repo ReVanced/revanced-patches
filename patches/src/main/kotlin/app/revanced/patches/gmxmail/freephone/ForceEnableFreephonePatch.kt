@@ -3,9 +3,9 @@ package app.revanced.patches.gmxmail.freephone
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 
-val forceFreePhonePatch = bytecodePatch(
-    name = "Force FreePhone",
-    description = "Enable the FreePhone menu also on non eSim hardware in the navigation drawer.",
+val forceEnableFreePhonePatch = bytecodePatch(
+    name = "Force enable FreePhone",
+    description = "Enables the FreePhone menu in the navigation drawer even on devices that don't support eSIM.",
 ) {
     compatibleWith("de.gmx.mobile.android.mail")
 
