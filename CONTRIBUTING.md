@@ -85,7 +85,9 @@ If you encounter a bug while using ReVanced Patches, open an issue using the
 
 ## 🌐 Submitting translations
 
- You can contribute translations at [translate.revanced.app](https://translate.revanced.app).
+You can contribute translations at [translate.revanced.app](https://translate.revanced.app).
+
+For detailed translation guidelines and best practices, see our [Translation Guide](docs/TRANSLATIONS.md).
 
 ## 🧑‍⚖️ Guidelines for requesting or contributing patches
 
