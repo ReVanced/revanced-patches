@@ -67,25 +67,29 @@ This repository contains a collection of ReVanced Patches.
 
 ## ❓ About
 
-Patches are small modifications to Android apps that allow you to change the behavior of or add new features,
-block ads, customize the appearance, and much more.
+Patches are small modifications to Android applications that enable you to customize app behavior, add new features,
+block advertisements, personalize the appearance, and much more. Each patch is designed to enhance your app experience
+while maintaining compatibility and stability.
 
 ## 💪 Features
 
 Some of the features the patches provide are:
 
-* 🚫 **Block ads**: Say goodbye to ads
-* ⭐ **Customize your app**: Personalize the appearance of apps with various layouts and themes
-* 🪄 **Add new features**: Extend the functionality of apps with lots of new features
-* ⚙️ **Miscellaneous and general purpose**: Rename packages, enable debugging, disable screen capture restrictions,
-  export activities, etc.
+* 🚫 **Block ads**: Eliminate intrusive advertisements for a cleaner, distraction-free experience
+* ⭐ **Customize your app**: Personalize the appearance with custom layouts, themes, and color schemes
+* 🪄 **Add new features**: Extend app functionality with additional features and capabilities
+* ⚙️ **Miscellaneous and general purpose**: Advanced options including package renaming, debugging tools, 
+  screen capture control, activity exports, and more
 * ✨ **And much more!**
 
 For a complete list of all available patches, visit [revanced.app/patches](https://revanced.app/patches).
 
 ## 🚀 How to get started
 
-You can use [ReVanced CLI](https://github.com/ReVanced/revanced-cli) or [ReVanced Manager](https://github.com/ReVanced/revanced-manager) to use ReVanced Patches.
+To apply ReVanced Patches to your applications, you can use either:
+
+* **[ReVanced Manager](https://github.com/ReVanced/revanced-manager)** - User-friendly Android application for patching apps directly on your device
+* **[ReVanced CLI](https://github.com/ReVanced/revanced-cli)** - Command-line tool for advanced users and automation
 
 ## 📚 Everything else
 
