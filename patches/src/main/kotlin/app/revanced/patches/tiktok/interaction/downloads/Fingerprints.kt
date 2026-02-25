@@ -54,3 +54,9 @@ internal val awemeGetVideoFingerprint = fingerprint {
         method.parameterTypes.isEmpty()
     }
 }
+
+internal val commentImageWatermarkFingerprint = fingerprint {
+    strings("[tiktok_logo]", "image/jpeg", "is_pending")
+    parameters("Landroid/graphics/Bitmap;")
+    returns("V")
+}

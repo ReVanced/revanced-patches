@@ -14,6 +14,7 @@ import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/tiktok/download/DownloadsPatch;"
@@ -57,6 +58,39 @@ val downloadsPatch = bytecodePatch(
                 returnIndex,
                 """
                     invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->patchVideoObject(Lcom/ss/android/ugc/aweme/feed/model/Video;)V
+                """
+            )
+        }
+
+        commentImageWatermarkFingerprint.method.apply {
+            val drawBitmapIndex = findInstructionIndicesReversedOrThrow {
+                opcode.name == "invoke-virtual" &&
+                this is ReferenceInstruction &&
+                reference.toString().contains("->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V")
+            }.first()
+
+            val drawInstr = getInstruction<FiveRegisterInstruction>(drawBitmapIndex)
+            val canvasReg = drawInstr.registerC
+            val bitmapReg = drawInstr.registerD
+            val xReg = drawInstr.registerE
+            val yReg = drawInstr.registerF
+            val paintReg = drawInstr.registerG
+
+            removeInstructions(drawBitmapIndex, 1)
+
+            addInstructionsWithLabels(
+                drawBitmapIndex,
+                """
+                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->shouldRemoveWatermark()Z
+                    move-result v$xReg
+                    
+                    if-nez v$xReg, :skip_watermark
+                    
+                    const/4 v$xReg, 0x0
+                    invoke-virtual {v$canvasReg, v$bitmapReg, v$xReg, v$yReg, v$paintReg}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+                    
+                    :skip_watermark
+                    nop
                 """
             )
         }
