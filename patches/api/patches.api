@@ -236,8 +236,16 @@ public final class app/revanced/patches/fotmob/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/gmxmail/ads/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/gmxmail/freephone/ForceEnableFreephonePatchKt {
 	public static final fun getForceEnableFreePhonePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/gmxmail/layout/HidePremiumUpgradeButtonKt {
+	public static final fun getHidePremiumUpgradeButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/googlenews/customtabs/EnableCustomTabsPatchKt {
@@ -935,8 +943,8 @@ public final class app/revanced/patches/shared/misc/gms/FingerprintsKt {
 }
 
 public final class app/revanced/patches/shared/misc/gms/GmsCoreSupportPatchKt {
-	public static final fun gmsCoreSupportPatch (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/Fingerprint;Ljava/util/Set;Lapp/revanced/patcher/Fingerprint;Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
-	public static synthetic fun gmsCoreSupportPatch$default (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/Fingerprint;Ljava/util/Set;Lapp/revanced/patcher/Fingerprint;Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun gmsCoreSupportPatch (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/Fingerprint;Ljava/util/Set;Lkotlin/Pair;Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun gmsCoreSupportPatch$default (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/Fingerprint;Ljava/util/Set;Lkotlin/Pair;Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun gmsCoreSupportResourcePatch (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/patch/Option;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/ResourcePatch;
 	public static synthetic fun gmsCoreSupportResourcePatch$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/patch/Option;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/ResourcePatch;
 }
