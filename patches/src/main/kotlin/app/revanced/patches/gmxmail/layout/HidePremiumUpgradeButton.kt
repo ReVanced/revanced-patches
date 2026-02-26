@@ -1,4 +1,4 @@
-package app.revanced.patches.gmxmail.premium
+package app.revanced.patches.gmxmail.layout
 
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
