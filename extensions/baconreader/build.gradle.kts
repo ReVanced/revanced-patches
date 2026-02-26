@@ -3,3 +3,9 @@ dependencies {
     compileOnly(libs.annotation)
     compileOnly(libs.okhttp)
 }
+
+android {
+    defaultConfig {
+        minSdk = 22
+    }
+}

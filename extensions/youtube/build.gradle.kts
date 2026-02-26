@@ -6,6 +6,6 @@ dependencies {
 
 android {
     defaultConfig {
-        minSdk = 23
+        minSdk = 26
     }
 }

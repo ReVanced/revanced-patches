@@ -3,7 +3,6 @@ package app.revanced.extension.youtube.sponsorblock;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -49,7 +48,6 @@ import kotlin.Unit;
  * <p>
  * Class is not thread safe. All methods must be called on the main thread unless otherwise specified.
  */
-@SuppressLint("NewApi")
 public class SegmentPlaybackController {
 
     /**
