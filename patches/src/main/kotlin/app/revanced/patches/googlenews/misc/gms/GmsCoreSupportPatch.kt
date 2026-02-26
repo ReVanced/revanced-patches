@@ -1,5 +1,6 @@
 package app.revanced.patches.googlenews.misc.gms
 
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.Option
 import app.revanced.patches.googlenews.misc.extension.extensionPatch
@@ -7,12 +8,20 @@ import app.revanced.patches.googlenews.misc.gms.Constants.MAGAZINES_PACKAGE_NAME
 import app.revanced.patches.googlenews.misc.gms.Constants.REVANCED_MAGAZINES_PACKAGE_NAME
 import app.revanced.patches.shared.misc.gms.gmsCoreSupportPatch
 import app.revanced.patches.shared.misc.gms.gmsCoreSupportResourcePatch
+import app.revanced.util.indexOfFirstInstructionOrThrow
 
 @Suppress("unused")
 val gmsCoreSupportPatch = gmsCoreSupportPatch(
     fromPackageName = MAGAZINES_PACKAGE_NAME,
     toPackageName = REVANCED_MAGAZINES_PACKAGE_NAME,
-    getMainActivityOnCreateMethodToGetInsertIndex = BytecodePatchContext::magazinesActivityOnCreateMethod::get to { 0 },
+    getMainActivityOnCreateMethodToGetInsertIndex = BytecodePatchContext::magazinesActivityOnCreateMethod::get to {
+        val getApplicationContextIndex =
+            magazinesActivityOnCreateMethod.indexOfFirstInstructionOrThrow {
+                methodReference?.name == "getApplicationContext"
+            }
+
+        getApplicationContextIndex + 2 // Below the move-result-object instruction.
+    },
     extensionPatch = extensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {

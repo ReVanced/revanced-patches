@@ -1,7 +1,9 @@
 package app.revanced.extension.strava;
 
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -26,6 +28,7 @@ import java.util.stream.Stream;
 
 import app.revanced.extension.shared.Utils;
 
+@SuppressLint("NewApi")
 public final class AddMediaDownloadPatch {
     public static final int ACTION_DOWNLOAD = -1;
     public static final int ACTION_OPEN_LINK = -2;
@@ -82,7 +85,7 @@ public final class AddMediaDownloadPatch {
                 } finally {
                     values.clear();
                     values.put(MediaStore.Images.Media.IS_PENDING, 0);
-                    resolver.update(row, values, null, null);
+                    resolver.update(row, values, null);
                 }
                 showInfoToast("yis_2024_local_save_image_success", "✔️");
             } catch (IOException e) {
@@ -148,7 +151,7 @@ public final class AddMediaDownloadPatch {
                 } finally {
                     values.clear();
                     values.put(MediaStore.Video.Media.IS_PENDING, 0);
-                    resolver.update(row, values, null, null);
+                    resolver.update(row, values, null);
                 }
                 showInfoToast("yis_2024_local_save_video_success", "✔️");
             } catch (IOException e) {

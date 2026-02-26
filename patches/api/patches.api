@@ -52,10 +52,6 @@ public final class app/revanced/patches/all/misc/connectivity/location/hide/Hide
 	public static final fun getHideMockLocationPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
-public final class app/revanced/patches/all/misc/connectivity/telephony/sim/spoof/SpoofSimCountryPatchKt {
-	public static final fun getSpoofSimCountryPatch ()Lapp/revanced/patcher/patch/Patch;
-}
-
 public final class app/revanced/patches/all/misc/connectivity/telephony/sim/spoof/SpoofSimProviderPatchKt {
 	public static final fun getSpoofSIMProviderPatch ()Lapp/revanced/patcher/patch/Patch;
 }
@@ -225,6 +221,18 @@ public final class app/revanced/patches/fotmob/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
+public final class app/revanced/patches/gmxmail/ads/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/Patch;
+}
+
+public final class app/revanced/patches/gmxmail/freephone/ForceEnableFreephonePatchKt {
+	public static final fun getForceEnableFreePhonePatch ()Lapp/revanced/patcher/patch/Patch;
+}
+
+public final class app/revanced/patches/gmxmail/layout/HidePremiumUpgradeButtonKt {
+	public static final fun getHidePremiumUpgradeButtonPatch ()Lapp/revanced/patcher/patch/Patch;
+}
+
 public final class app/revanced/patches/googlenews/customtabs/EnableCustomTabsPatchKt {
 	public static final fun getEnableCustomTabsPatch ()Lapp/revanced/patcher/patch/Patch;
 }
@@ -271,10 +279,6 @@ public final class app/revanced/patches/iconpackstudio/misc/pro/UnlockProPatchKt
 
 public final class app/revanced/patches/idaustria/detection/deviceintegrity/RemoveDeviceIntegrityChecksPatchKt {
 	public static final fun getRemoveDeviceIntegrityChecksPatch ()Lapp/revanced/patcher/patch/Patch;
-}
-
-public final class app/revanced/patches/idaustria/detection/root/RootDetectionPatchKt {
-	public static final fun getRootDetectionPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
 public final class app/revanced/patches/idaustria/detection/signature/SpoofSignaturePatchKt {
@@ -475,10 +479,6 @@ public final class app/revanced/patches/music/layout/premium/HideGetPremiumPatch
 
 public final class app/revanced/patches/music/layout/theme/ThemePatchKt {
 	public static final fun getThemePatch ()Lapp/revanced/patcher/patch/Patch;
-}
-
-public final class app/revanced/patches/music/misc/androidauto/BypassCertificateChecksPatchKt {
-	public static final fun getBypassCertificateChecksPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
 public final class app/revanced/patches/music/misc/androidauto/UnlockAndroidAutoMediaBrowserPatchKt {
@@ -878,8 +878,8 @@ public final class app/revanced/patches/shared/misc/fix/verticalscroll/VerticalS
 }
 
 public final class app/revanced/patches/shared/misc/gms/GmsCoreSupportPatchKt {
-	public static final fun gmsCoreSupportPatch (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Ljava/util/Set;Lkotlin/jvm/functions/Function1;Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/Patch;
-	public static synthetic fun gmsCoreSupportPatch$default (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Ljava/util/Set;Lkotlin/jvm/functions/Function1;Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/Patch;
+	public static final fun gmsCoreSupportPatch (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Ljava/util/Set;Lkotlin/Pair;Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/Patch;
+	public static synthetic fun gmsCoreSupportPatch$default (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Ljava/util/Set;Lkotlin/Pair;Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/Patch;
 	public static final fun gmsCoreSupportResourcePatch (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/patch/Option;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/Patch;
 	public static synthetic fun gmsCoreSupportResourcePatch$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/patch/Option;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/Patch;
 }
@@ -907,14 +907,11 @@ public final class app/revanced/patches/shared/misc/hex/HexPatchBuilder : java/u
 }
 
 public final class app/revanced/patches/shared/misc/hex/HexPatchBuilderKt {
-	public static final fun hexPatch (ZLkotlin/jvm/functions/Function0;)Lapp/revanced/patcher/patch/Patch;
 	public static final fun hexPatch (ZLkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/Patch;
-	public static synthetic fun hexPatch$default (ZLkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lapp/revanced/patcher/patch/Patch;
 	public static synthetic fun hexPatch$default (ZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/Patch;
 }
 
 public final class app/revanced/patches/shared/misc/hex/Replacement {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 	public fun <init> ([B[BLjava/lang/String;)V
 	public final fun getReplacementBytesPadded ()[B
 }
@@ -1252,10 +1249,6 @@ public final class app/revanced/patches/strava/quickedit/DisableQuickEditPatchKt
 
 public final class app/revanced/patches/strava/subscription/UnlockSubscriptionPatchKt {
 	public static final fun getUnlockSubscriptionFeaturesPatch ()Lapp/revanced/patcher/patch/Patch;
-}
-
-public final class app/revanced/patches/strava/upselling/DisableSubscriptionSuggestionsPatchKt {
-	public static final fun getDisableSubscriptionSuggestionsPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
 public final class app/revanced/patches/swissid/integritycheck/RemoveGooglePlayIntegrityCheckPatchKt {

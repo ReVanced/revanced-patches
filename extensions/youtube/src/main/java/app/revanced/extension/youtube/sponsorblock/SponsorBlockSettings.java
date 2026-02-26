@@ -26,6 +26,7 @@ import app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory;
 import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
 
+@SuppressWarnings("NewApi")
 public class SponsorBlockSettings {
     /**
      * Minimum length a SB user id must be, as set by SB API.

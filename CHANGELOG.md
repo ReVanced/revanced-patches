@@ -1,3 +1,24 @@
+# [5.51.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.51.0-dev.1...v5.51.0-dev.2) (2026-02-26)
+
+
+### Features
+
+* **GMX Mail:** Add `Hide ads` and `Hide Premium upgrade button` patches ([#6583](https://github.com/ReVanced/revanced-patches/issues/6583)) ([2976ea3](https://github.com/ReVanced/revanced-patches/commit/2976ea3ddd09d26eeedf646f0a1020fa582d0ec0))
+
+# [5.51.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.50.3-dev.4...v5.51.0-dev.1) (2026-02-26)
+
+
+### Features
+
+* **GMX Mail:** Add `Force enable Freephone` patch ([#6650](https://github.com/ReVanced/revanced-patches/issues/6650)) ([997b5d6](https://github.com/ReVanced/revanced-patches/commit/997b5d63d1fc1684bea9e5b265f3aca53ad5fd88))
+
+## [5.50.3-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.50.3-dev.3...v5.50.3-dev.4) (2026-02-23)
+
+
+### Bug Fixes
+
+* **GmsCore support:** Insert check after another missing necessary context hook ([3c0c5a8](https://github.com/ReVanced/revanced-patches/commit/3c0c5a86d8e24b47b1c30bc5a7fe994240014e2d))
+
 ## [5.50.3-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.50.3-dev.2...v5.50.3-dev.3) (2026-02-20)
 
 

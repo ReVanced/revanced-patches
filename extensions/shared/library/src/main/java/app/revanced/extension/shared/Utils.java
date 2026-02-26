@@ -65,6 +65,7 @@ import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.preference.ReVancedAboutPreference;
 import app.revanced.extension.shared.ui.Dim;
 
+@SuppressWarnings("NewApi")
 public class Utils {
 
     @SuppressLint("StaticFieldLeak")

@@ -1,5 +1,7 @@
 package app.revanced.extension.strava;
 
+import android.annotation.SuppressLint;
+
 import com.strava.modularframework.data.Destination;
 import com.strava.modularframework.data.GenericLayoutModule;
 import com.strava.modularframework.data.GenericModuleField;
@@ -19,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@SuppressLint("NewApi")
 public class HideDistractionsPatch {
     public static boolean upselling;
     public static boolean promo;

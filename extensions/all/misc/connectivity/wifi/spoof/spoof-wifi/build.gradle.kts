@@ -1,6 +1,9 @@
 android {
-    defaultConfig {
-        minSdk = 23
+    namespace = "app.revanced.extension"
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
 

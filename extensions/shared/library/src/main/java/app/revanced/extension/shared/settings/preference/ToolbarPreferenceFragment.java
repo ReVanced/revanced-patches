@@ -15,16 +15,15 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseActivityHook;
 import app.revanced.extension.shared.ui.Dim;
+import app.revanced.extension.shared.settings.BaseSettings;
 
-@SuppressWarnings("deprecation")
-@RequiresApi(26)
+@SuppressWarnings({"deprecation", "NewApi"})
 public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
 
     /**

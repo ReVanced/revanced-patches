@@ -4,6 +4,7 @@ import static android.text.Html.FROM_HTML_MODE_COMPACT;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.DialogFragmentOnStartAction;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
@@ -18,7 +19,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 import java.util.Collection;
 
@@ -28,7 +28,6 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.ui.CustomDialog;
 
-@RequiresApi(24)
 abstract class Check {
     private static final int NUMBER_OF_TIMES_TO_IGNORE_WARNING_BEFORE_DISABLING = 2;
 
@@ -77,6 +76,7 @@ abstract class Check {
         BaseSettings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.save(Integer.MAX_VALUE);
     }
 
+    @SuppressLint("NewApi")
     static void issueWarning(Activity activity, Collection<Check> failedChecks) {
         final var reasons = new StringBuilder();
 
