@@ -236,6 +236,10 @@ public final class app/revanced/patches/fotmob/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/gmxmail/freephone/ForceEnableFreephonePatchKt {
+	public static final fun getForceEnableFreePhonePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/googlenews/customtabs/EnableCustomTabsPatchKt {
 	public static final fun getEnableCustomTabsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
