@@ -1,16 +1,26 @@
 package com.ss.android.ugc.aweme.feed.model;
 
+import java.util.List;
+
 //Dummy class
 public class Aweme {
+    public String getAid() {
+        throw new UnsupportedOperationException("Stub");
+    }
+
     public boolean isAd() {
         throw new UnsupportedOperationException("Stub");
     }
 
-    public boolean isLive() {
+    public boolean isLiveReplay() {
         throw new UnsupportedOperationException("Stub");
     }
 
-    public boolean isLiveReplay() {
+    public long getLiveId() {
+        throw new UnsupportedOperationException("Stub");
+    }
+
+    public String getLiveType() {
         throw new UnsupportedOperationException("Stub");
     }
 
@@ -22,11 +32,15 @@ public class Aweme {
         throw new UnsupportedOperationException("Stub");
     }
 
-    public boolean isImage() {
+    public List getImageInfos() {
         throw new UnsupportedOperationException("Stub");
     }
 
-    public boolean isPhotoMode() {
+    public PhotoModeImageInfo getPhotoModeImageInfo() {
+        throw new UnsupportedOperationException("Stub");
+    }
+
+    public PhotoModeTextInfo getPhotoModeTextInfo() {
         throw new UnsupportedOperationException("Stub");
     }
 

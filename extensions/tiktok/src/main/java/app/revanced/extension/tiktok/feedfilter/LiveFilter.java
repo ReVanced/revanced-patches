@@ -11,6 +11,7 @@ public class LiveFilter implements IFilter {
 
     @Override
     public boolean getFiltered(Aweme item) {
-        return item.isLive() || item.isLiveReplay();
+        // TikTok 43.6.2: Aweme no longer exposes isLive(), use liveId/liveType instead.
+        return item.getLiveId() != 0 || item.isLiveReplay() || item.getLiveType() != null;
     }
 }
