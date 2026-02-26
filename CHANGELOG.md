@@ -1,3 +1,10 @@
+# [5.51.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.50.3-dev.4...v5.51.0-dev.1) (2026-02-26)
+
+
+### Features
+
+* **GMX Mail:** Add `Force enable Freephone` patch ([#6650](https://github.com/ReVanced/revanced-patches/issues/6650)) ([997b5d6](https://github.com/ReVanced/revanced-patches/commit/997b5d63d1fc1684bea9e5b265f3aca53ad5fd88))
+
 ## [5.50.3-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.50.3-dev.3...v5.50.3-dev.4) (2026-02-23)
 
 
