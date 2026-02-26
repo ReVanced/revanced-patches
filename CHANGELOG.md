@@ -1,3 +1,10 @@
+# [5.51.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.51.0-dev.1...v5.51.0-dev.2) (2026-02-26)
+
+
+### Features
+
+* **GMX Mail:** Add `Hide ads` and `Hide Premium upgrade button` patches ([#6583](https://github.com/ReVanced/revanced-patches/issues/6583)) ([2976ea3](https://github.com/ReVanced/revanced-patches/commit/2976ea3ddd09d26eeedf646f0a1020fa582d0ec0))
+
 # [5.51.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.50.3-dev.4...v5.51.0-dev.1) (2026-02-26)
 
 
