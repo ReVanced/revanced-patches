@@ -5,12 +5,24 @@ import app.revanced.patches.googlephotos.misc.extension.extensionPatch
 import app.revanced.patches.googlephotos.misc.gms.Constants.PHOTOS_PACKAGE_NAME
 import app.revanced.patches.googlephotos.misc.gms.Constants.REVANCED_PHOTOS_PACKAGE_NAME
 import app.revanced.patches.shared.misc.gms.gmsCoreSupportPatch
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 val gmsCoreSupportPatch = gmsCoreSupportPatch(
     fromPackageName = PHOTOS_PACKAGE_NAME,
     toPackageName = REVANCED_PHOTOS_PACKAGE_NAME,
-    mainActivityOnCreateFingerprint = homeActivityOnCreateFingerprint,
+    mainActivityOnCreateFingerprintToInsertIndex = homeActivityOnCreateFingerprint to {
+        val index = homeActivityOnCreateFingerprint.method.indexOfFirstInstructionOrThrow {
+            getReference<MethodReference>()?.name == "getApplicationContext"
+        }
+
+        // Below the move-result-object instruction,
+        // because the extension patch is used by the GmsCore support patch
+        // which hooks the getApplicationContext call.
+        index + 2
+    },
     extensionPatch = extensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {
@@ -22,7 +34,6 @@ private fun gmsCoreSupportResourcePatch(
 ) = app.revanced.patches.shared.misc.gms.gmsCoreSupportResourcePatch(
     fromPackageName = PHOTOS_PACKAGE_NAME,
     toPackageName = REVANCED_PHOTOS_PACKAGE_NAME,
-    addStringResources = false,
     spoofedPackageSignature = "24bb24c05e47e0aefa68a58a766179d9b613a600",
     gmsCoreVendorGroupIdOption = gmsCoreVendorGroupIdOption,
 )

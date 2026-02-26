@@ -24,7 +24,7 @@ internal val serviceCheckFingerprint = fingerprint {
     strings("Google Play Services not available")
 }
 
-internal val gmsCoreSupportFingerprint = fingerprint {
+internal val getGmsCoreVendorGroupIdFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters()

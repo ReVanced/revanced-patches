@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
-          ref: ${{ inputs.pr && format('refs/pull/{0}/merge', inputs.pr-number) }} || github.ref }}
+          ref: ${{ inputs.pr && format('refs/pull/{0}/merge', inputs.pr) || github.ref }}
 
       - name: Setup Java
         uses: actions/setup-java@v5

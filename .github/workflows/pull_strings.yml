@@ -32,7 +32,7 @@ jobs:
 
       - name: Process strings
         run: |
-          gradlew processStringsFromCrowdin
+          ./gradlew processStringsFromCrowdin
         env:
           ORG_GRADLE_PROJECT_githubPackagesUsername: ${{ github.actor }}
           ORG_GRADLE_PROJECT_githubPackagesPassword: ${{ secrets.GITHUB_TOKEN }}
