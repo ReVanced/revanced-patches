@@ -1,3 +1,13 @@
+# [6.0.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.51.0-dev.2...v6.0.0-dev.1) (2026-02-27)
+
+
+* build(Needs bump)!: Update to ReVanced Patcher v22  ([#6542](https://github.com/ReVanced/revanced-patches/issues/6542)) ([ab2ac36](https://github.com/ReVanced/revanced-patches/commit/ab2ac36e3041cda87b659924ea2b75089f0bdb6e))
+
+
+### BREAKING CHANGES
+
+* Deprecated APIs have been removed, and various APIs now use the updated ReVanced Patcher v22 APIs.
+
 # [5.51.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.51.0-dev.1...v5.51.0-dev.2) (2026-02-26)
 
 
