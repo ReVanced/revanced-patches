@@ -2,24 +2,23 @@
 
 package app.revanced.patches.shared.misc.litho.filter
 
-import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.com.android.tools.smali.dexlib2.iface.value.MutableEncodedValue.Companion.toMutable
+import app.revanced.patcher.classDef
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.removeInstructions
+import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.firstImmutableClassDef
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.findFieldFromToString
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.immutable.value.ImmutableBooleanEncodedValue
 
 /**
  * Used to add a hook point to the extension stub.
@@ -32,20 +31,25 @@ lateinit var addLithoFilter: (String) -> Unit
  */
 private var filterCount = 0
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/patches/litho/LithoFilterPatch;"
+internal const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/shared/patches/litho/LithoFilterPatch;"
 
 /**
  * A patch that allows to filter Litho components based on their identifier or path.
  *
  * @param componentCreateInsertionIndex The index to insert the filtering code in the component create method.
- * @param conversionContextFingerprintToString The fingerprint of the conversion context to string method.
+ * @param insertProtobufHook This method injects a setProtoBuffer call in the protobuf decoding logic.
+ * @param getConversionContextToStringMethod The getter of the conversion context toString method.
+ * @param getExtractIdentifierFromBuffer Whether to extract the identifier from the protobuf buffer.
  * @param executeBlock The additional execution block of the patch.
  * @param block The additional block to build the patch.
  */
 internal fun lithoFilterPatch(
     componentCreateInsertionIndex: Method.() -> Int,
-    conversionContextFingerprintToString: Fingerprint,
+    insertProtobufHook: BytecodePatchContext.() -> Unit,
     executeBlock: BytecodePatchContext.() -> Unit = {},
+    getConversionContextToStringMethod: BytecodePatchContext.() -> Method,
+    getExtractIdentifierFromBuffer: () -> Boolean = { false },
     block: BytecodePatchBuilder.() -> Unit = {},
 ) = bytecodePatch(
     description = "Hooks the method which parses the bytes into a ComponentContext to filter components.",
@@ -90,31 +94,40 @@ internal fun lithoFilterPatch(
      *    }
      * }
      */
-    execute {
+    apply {
         // Remove dummy filter from extenion static field
         // and add the filters included during patching.
-        lithoFilterFingerprint.method.apply {
-            removeInstructions(2, 4) // Remove dummy filter.
+        lithoFilterInitMethod.apply {
+            // Remove the array initialization with the dummy filter.
+            removeInstructions(6)
 
+            addInstructions(
+                0,
+                "new-array v1, v1, [Lapp/revanced/extension/shared/patches/litho/Filter;"
+            )
+
+            // Fill the array with the filters added during patching.
             addLithoFilter = { classDescriptor ->
                 addInstructions(
-                    2,
+                    1,
                     """
-                        new-instance v1, $classDescriptor
-                        invoke-direct { v1 }, $classDescriptor-><init>()V
+                        new-instance v0, $classDescriptor
+                        invoke-direct { v0 }, $classDescriptor-><init>()V
                         const/16 v2, ${filterCount++}
-                        aput-object v1, v0, v2
+                        aput-object v0, v1, v2
                     """,
                 )
             }
         }
 
-        // Add an interceptor to steal the protobuf of our component.
-        protobufBufferReferenceFingerprint.method.addInstruction(
-            0,
-            "invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
-        )
+        // Tell the extension whether to extract the identifier from the buffer.
+        if (getExtractIdentifierFromBuffer()) {
+            lithoFilterInitMethod.classDef.fields.first { it.name == "EXTRACT_IDENTIFIER_FROM_BUFFER" }
+                .initialValue = ImmutableBooleanEncodedValue.forBoolean(true).toMutable()
+        }
 
+        // Add an interceptor to steal the protobuf of our component.
+        insertProtobufHook()
 
         // Hook the method that parses bytes into a ComponentContext.
         // Allow the method to run to completion, and override the
@@ -122,38 +135,29 @@ internal fun lithoFilterPatch(
         // It is important to allow the original code to always run to completion,
         // otherwise high memory usage and poor app performance can occur.
 
+        val conversionContextToStringMethod = getConversionContextToStringMethod()
+
         // Find the identifier/path fields of the conversion context.
-        val conversionContextIdentifierField = componentContextParserFingerprint.let {
-            // Identifier field is loaded just before the string declaration.
-            val index = it.method.indexOfFirstInstructionReversedOrThrow(
-                it.stringMatches!!.first().index
-            ) {
-                // Our instruction reads a String from a field of the ConversionContext class.
-                val reference = getReference<FieldReference>()
-                reference?.definingClass == conversionContextFingerprintToString.originalClassDef.type
-                        && reference.type == "Ljava/lang/String;"
-            }
+        val conversionContextIdentifierField = conversionContextToStringMethod
+            .findFieldFromToString("identifierProperty=")
 
-            it.method.getInstruction<ReferenceInstruction>(index).getReference<FieldReference>()!!
-        }
-
-        val conversionContextPathBuilderField = conversionContextFingerprintToString.originalClassDef
+        val conversionContextPathBuilderField = conversionContextToStringMethod.immutableClassDef
             .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
 
         // Find class and methods to create an empty component.
-        val builderMethodDescriptor = emptyComponentFingerprint.classDef.methods.single {
+        val builderMethodDescriptor = emptyComponentMethod.immutableClassDef.methods.single {
             // The only static method in the class.
                 method ->
             AccessFlags.STATIC.isSet(method.accessFlags)
         }
 
-        val emptyComponentField = classBy {
+        val emptyComponentField = firstImmutableClassDef {
             // Only one field that matches.
-            it.type == builderMethodDescriptor.returnType
-        }!!.immutableClass.fields.single()
+            type == builderMethodDescriptor.returnType
+        }.fields.single()
 
         // Match all component creations methods
-        componentCreateFingerprint.method.apply {
+        componentCreateMethod.apply {
             val insertIndex = componentCreateInsertionIndex()
             val freeRegister = findFreeRegister(insertIndex)
             val identifierRegister = findFreeRegister(insertIndex, freeRegister)
@@ -163,7 +167,11 @@ internal fun lithoFilterPatch(
                 insertIndex,
                 """
                     move-object/from16 v$freeRegister, p2 # ConversionContext parameter
-                    check-cast v$freeRegister, ${conversionContextFingerprintToString.originalClassDef.type} # Check we got the actual ConversionContext
+                    
+                    # In YT 20.41 the field is the abstract superclass.
+                    # Check it's the actual ConversionContext just in case. 
+                    instance-of v$identifierRegister, v$freeRegister, ${conversionContextToStringMethod.immutableClassDef.type}
+                    if-eqz v$identifierRegister, :unfiltered
                     
                     # Get identifier and path from ConversionContext
                     iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
@@ -183,28 +191,29 @@ internal fun lithoFilterPatch(
         
                     :unfiltered
                     nop
-                """
+                """,
             )
         }
 
-        // TODO: Check if needed in music
+        // TODO: Check if needed in music.
         // Change Litho thread executor to 1 thread to fix layout issue in unpatched YouTube.
-        lithoThreadExecutorFingerprint.method.addInstructions(
+        lithoThreadExecutorMethod.addInstructions(
             0,
             """
                 invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->getExecutorCorePoolSize(I)I
                 move-result p1
                 invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->getExecutorMaxThreads(I)I
                 move-result p2
-            """
+            """,
         )
 
         executeBlock()
     }
 
-    finalize {
-        // Save the number of filters added.
-        lithoFilterFingerprint.method.replaceInstruction(0, "const/16 v0, $filterCount")
+    afterDependents {
+        // Set the array size to the actual filter count of the array
+        // initialized at the beginning of the patch.
+        lithoFilterInitMethod.addInstructions(0, "const/16 v1, $filterCount")
     }
 
     block()

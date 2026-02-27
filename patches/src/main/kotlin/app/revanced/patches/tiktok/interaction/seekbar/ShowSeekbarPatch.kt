@@ -1,7 +1,8 @@
 package app.revanced.patches.tiktok.interaction.seekbar
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val showSeekbarPatch = bytecodePatch(
@@ -13,15 +14,9 @@ val showSeekbarPatch = bytecodePatch(
         "com.zhiliaoapp.musically",
     )
 
-    execute {
-        shouldShowSeekBarFingerprint.method.addInstructions(
-            0,
-            """
-                const/4 v0, 0x1
-                return v0
-            """,
-        )
-        setSeekBarShowTypeFingerprint.method.apply {
+    apply {
+        shouldShowSeekBarMethod.returnEarly(true)
+        setSeekBarShowTypeMethod.apply {
             val typeRegister = implementation!!.registerCount - 1
 
             addInstructions(

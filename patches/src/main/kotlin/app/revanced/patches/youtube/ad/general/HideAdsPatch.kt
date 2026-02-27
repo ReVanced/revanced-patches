@@ -1,35 +1,35 @@
 package app.revanced.patches.youtube.ad.general
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.wideLiteral
+import app.revanced.patcher.firstMethod
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.fix.verticalscroll.verticalScrollPatch
-import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.ad.getpremium.hideGetPremiumPatch
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fixBackToExitGesturePatch
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.findMutableMethodOf
+import app.revanced.util.forEachInstructionAsSequence
 import app.revanced.util.injectHideViewCall
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 internal var adAttributionId = -1L
     private set
 internal var fullScreenEngagementAdContainer = -1L
     private set
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/components/AdsFilter;"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/litho/AdsFilter;"
 
 private val hideAdsResourcePatch = resourcePatch {
     dependsOn(
@@ -39,7 +39,7 @@ private val hideAdsResourcePatch = resourcePatch {
         addResourcesPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "ad.general.hideAdsResourcePatch")
 
         PreferenceScreen.ADS.addPreferences(
@@ -55,10 +55,10 @@ private val hideAdsResourcePatch = resourcePatch {
             SwitchPreference("revanced_hide_web_search_results"),
         )
 
-        addLithoFilter("Lapp/revanced/extension/youtube/patches/components/AdsFilter;")
+        addLithoFilter("Lapp/revanced/extension/youtube/patches/litho/AdsFilter;")
 
-        adAttributionId = resourceMappings["id", "ad_attribution"]
-        fullScreenEngagementAdContainer = resourceMappings["id", "fullscreen_engagement_ad_container"]
+        adAttributionId = ResourceType.ID["ad_attribution"]
+        fullScreenEngagementAdContainer = ResourceType.ID["fullscreen_engagement_ad_container"]
     }
 }
 
@@ -76,17 +76,17 @@ val hideAdsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.31.40",
+        ),
     )
 
-    execute {
-        // Hide end screen store banner
+    apply {
+        // Hide end screen store banner.
 
-        fullScreenEngagementAdContainerFingerprint.method.apply {
+        fullScreenEngagementAdContainerMethod.apply {
             val addListIndex = indexOfAddListInstruction(this)
             val addListInstruction = getInstruction<FiveRegisterInstruction>(addListIndex)
             val listRegister = addListInstruction.registerC
@@ -95,47 +95,26 @@ val hideAdsPatch = bytecodePatch(
             replaceInstruction(
                 addListIndex,
                 "invoke-static { v$listRegister, v$objectRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
-                        "->hideEndScreenStoreBanner(Ljava/util/List;Ljava/lang/Object;)V"
+                        "->hideEndScreenStoreBanner(Ljava/util/List;Ljava/lang/Object;)V",
             )
         }
 
-        // Hide ad views
+        // Hide ad views.
 
-        classes.forEach { classDef ->
-            classDef.methods.forEach { method ->
-                with(method.implementation) {
-                    this?.instructions?.forEachIndexed { index, instruction ->
-                        if (instruction.opcode != Opcode.CONST) {
-                            return@forEachIndexed
-                        }
-                        // Instruction to store the id adAttribution into a register
-                        if ((instruction as Instruction31i).wideLiteral != adAttributionId) {
-                            return@forEachIndexed
-                        }
+        forEachInstructionAsSequence({ _, method, instruction, index ->
+            if (instruction.opcode != Opcode.CONST) return@forEachInstructionAsSequence null
+            if (instruction.wideLiteral != adAttributionId) return@forEachInstructionAsSequence null
 
-                        val insertIndex = index + 1
+            val insertIndex = index + 1
 
-                        // Call to get the view with the id adAttribution
-                        with(instructions.elementAt(insertIndex)) {
-                            if (opcode != Opcode.INVOKE_VIRTUAL) {
-                                return@forEachIndexed
-                            }
+            // Call to get the view with the id adAttribution.
+            if (method.instructions.elementAt(insertIndex).opcode != Opcode.INVOKE_VIRTUAL) return@forEachInstructionAsSequence null
+            val viewRegister = method.getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
-                            // Hide the view
-                            val viewRegister = (this as Instruction35c).registerC
-                            proxy(classDef)
-                                .mutableClass
-                                .findMutableMethodOf(method)
-                                .injectHideViewCall(
-                                    insertIndex,
-                                    viewRegister,
-                                    EXTENSION_CLASS_DESCRIPTOR,
-                                    "hideAdAttributionView",
-                                )
-                        }
-                    }
-                }
-            }
+            return@forEachInstructionAsSequence insertIndex to viewRegister
+
+        }) { method, (insertIndex, viewRegister) ->
+            method.injectHideViewCall(insertIndex, viewRegister, EXTENSION_CLASS_DESCRIPTOR, "hideAdAttributionView")
         }
     }
 }

@@ -5,7 +5,7 @@ import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.patches.music.playservice.is_8_05_or_greater
 import app.revanced.patches.music.playservice.versionCheckPatch
-import app.revanced.patches.music.shared.mainActivityOnCreateFingerprint
+import app.revanced.patches.music.shared.mainActivityOnCreateMethod
 import app.revanced.patches.shared.misc.audio.forceOriginalAudioPatch
 
 @Suppress("unused")
@@ -25,7 +25,7 @@ val forceOriginalAudioPatch = forceOriginalAudioPatch(
         )
     },
     fixUseLocalizedAudioTrackFlag = { is_8_05_or_greater },
-    mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
+    getMainActivityOnCreateMethod = { mainActivityOnCreateMethod },
     subclassExtensionClassDescriptor = "Lapp/revanced/extension/music/patches/ForceOriginalAudioPatch;",
     preferenceScreen = PreferenceScreen.MISC,
 )

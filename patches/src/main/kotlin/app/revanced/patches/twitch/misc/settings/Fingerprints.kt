@@ -1,34 +1,28 @@
 package app.revanced.patches.twitch.misc.settings
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val menuGroupsOnClickFingerprint = fingerprint {
+internal val BytecodePatchContext.menuGroupsOnClickMethod by gettingFirstMethodDeclaratively {
+    name { contains("render") }
+    definingClass("/SettingsMenuViewDelegate;")
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L", "L", "L")
-    custom { method, classDef ->
-        classDef.endsWith("/SettingsMenuViewDelegate;") &&
-            method.name.contains("render")
-    }
+    returnType("V")
+    parameterTypes("L", "L", "L")
 }
 
-internal val menuGroupsUpdatedFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("/SettingsMenuPresenter\$Event\$MenuGroupsUpdated;") &&
-            method.name == "<init>"
-    }
+internal val BytecodePatchContext.menuGroupsUpdatedMethod by gettingFirstMethodDeclaratively {
+    name("<init>")
+    definingClass("/SettingsMenuPresenter\$Event\$MenuGroupsUpdated;")
 }
 
-internal val settingsActivityOnCreateFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("/SettingsActivity;") &&
-            method.name == "onCreate"
-    }
+internal val BytecodePatchContext.settingsActivityOnCreateMethod by gettingFirstMethodDeclaratively {
+    name("onCreate")
+    definingClass("/SettingsActivity;")
 }
 
-internal val settingsMenuItemEnumFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("/SettingsMenuItem;") && method.name == "<clinit>"
-    }
+internal val BytecodePatchContext.settingsMenuItemEnumMethod by gettingFirstMethodDeclaratively {
+    name("<clinit>")
+    definingClass("/SettingsMenuItem;")
 }

@@ -1,7 +1,9 @@
 package app.revanced.patches.instagram.hide.explore
 
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.instagram.shared.replaceStringWithBogus
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
 val hideExploreFeedPatch = bytecodePatch(
@@ -11,7 +13,12 @@ val hideExploreFeedPatch = bytecodePatch(
 ) {
     compatibleWith("com.instagram.android")
 
-    execute {
-        exploreResponseJsonParserFingerprint.replaceStringWithBogus(EXPLORE_KEY_TO_BE_HIDDEN)
+    apply {
+        exploreResponseJsonParserMethodMatch.method.apply {
+            val targetStringIndex = exploreResponseJsonParserMethodMatch[0]
+            val targetStringRegister = getInstruction<OneRegisterInstruction>(targetStringIndex).registerA
+
+            replaceInstruction(targetStringIndex, "const-string v$targetStringRegister, \"BOGUS\"")
+        }
     }
 }

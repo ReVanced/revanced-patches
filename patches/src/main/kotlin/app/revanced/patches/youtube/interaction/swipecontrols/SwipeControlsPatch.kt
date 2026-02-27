@@ -1,8 +1,9 @@
 package app.revanced.patches.youtube.interaction.swipecontrols
 
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
+import app.revanced.patcher.classDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
@@ -12,27 +13,35 @@ import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_43_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_22_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_34_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityConstructorFingerprint
+import app.revanced.patches.youtube.shared.mainActivityConstructorMethod
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
-internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/swipecontrols/SwipeControlsHostActivity;"
+internal const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/swipecontrols/SwipeControlsHostActivity;"
 
 private val swipeControlsResourcePatch = resourcePatch {
     dependsOn(
         settingsPatch,
         addResourcesPatch,
+        versionCheckPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "interaction.swipecontrols.swipeControlsResourcePatch")
 
-        if (is_19_43_or_greater) {
+        // If fullscreen swipe is enabled in newer versions the app can crash.
+        // It likely is caused by conflicting experimental flags that are never enabled together.
+        // Flag was completely removed in 20.34+
+        if (is_19_43_or_greater && !is_20_22_or_greater) {
             PreferenceScreen.SWIPE_CONTROLS.addPreferences(
-                SwitchPreference("revanced_swipe_change_video")
+                SwitchPreference("revanced_swipe_change_video"),
             )
         }
 
@@ -45,12 +54,16 @@ private val swipeControlsResourcePatch = resourcePatch {
             SwitchPreference("revanced_swipe_lowest_value_enable_auto_brightness"),
             ListPreference("revanced_swipe_overlay_style"),
             TextPreference("revanced_swipe_overlay_background_opacity", inputType = InputType.NUMBER),
-            TextPreference("revanced_swipe_overlay_progress_brightness_color",
+            TextPreference(
+                "revanced_swipe_overlay_progress_brightness_color",
                 tag = "app.revanced.extension.shared.settings.preference.ColorPickerWithOpacitySliderPreference",
-                inputType = InputType.TEXT_CAP_CHARACTERS),
-            TextPreference("revanced_swipe_overlay_progress_volume_color",
+                inputType = InputType.TEXT_CAP_CHARACTERS,
+            ),
+            TextPreference(
+                "revanced_swipe_overlay_progress_volume_color",
                 tag = "app.revanced.extension.shared.settings.preference.ColorPickerWithOpacitySliderPreference",
-                inputType = InputType.TEXT_CAP_CHARACTERS),
+                inputType = InputType.TEXT_CAP_CHARACTERS,
+            ),
             TextPreference("revanced_swipe_text_overlay_size", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_overlay_timeout", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_threshold", inputType = InputType.NUMBER),
@@ -88,16 +101,16 @@ val swipeControlsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.31.40",
+        ),
     )
 
-    execute {
-        val wrapperClass = swipeControlsHostActivityFingerprint.classDef
-        val targetClass = mainActivityConstructorFingerprint.classDef
+    apply {
+        val wrapperClass = swipeControlsHostActivityMethod.classDef
+        val targetClass = mainActivityConstructorMethod.classDef
 
         // Inject the wrapper class from the extension into the class hierarchy of MainActivity.
         wrapperClass.setSuperClass(targetClass.superclass)
@@ -122,11 +135,13 @@ val swipeControlsPatch = bytecodePatch(
 
         // region patch to enable/disable swipe to change video.
 
-        if (is_19_43_or_greater) {
-            swipeChangeVideoFingerprint.method.insertLiteralOverride(
-                SWIPE_CHANGE_VIDEO_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->allowSwipeChangeVideo(Z)Z"
-            )
+        if (is_19_43_or_greater && !is_20_34_or_greater) {
+            swipeChangeVideoMethodMatch.let {
+                it.method.insertLiteralOverride(
+                    it[-1],
+                    "$EXTENSION_CLASS_DESCRIPTOR->allowSwipeChangeVideo(Z)Z",
+                )
+            }
         }
 
         // endregion

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
+<drawable xmlns:android="http://schemas.android.com/apk/res/android"
+    class="app.revanced.extension.youtube.patches.theme.ReVancedSettingsIconDynamicDrawable" />

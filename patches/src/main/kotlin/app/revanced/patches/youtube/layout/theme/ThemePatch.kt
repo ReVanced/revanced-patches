@@ -33,9 +33,9 @@ val themePatch = baseThemePatch(
 
     block = {
         val lightThemeBackgroundColor by stringOption(
-            key = "lightThemeBackgroundColor",
+            name = "Light theme background color",
             default = "@android:color/white",
-            values =  mapOf(
+            values = mapOf(
                 "White" to "@android:color/white",
                 "Material You" to "@android:color/system_neutral1_50",
                 "Catppuccin (Latte)" to "#E6E9EF",
@@ -46,17 +46,16 @@ val themePatch = baseThemePatch(
                 "Light orange" to "#FFE6CC",
                 "Light red" to "#FFD6D6",
             ),
-            title = "Light theme background color",
-            description = THEME_COLOR_OPTION_DESCRIPTION
+            description = THEME_COLOR_OPTION_DESCRIPTION,
         )
 
         val themeResourcePatch = resourcePatch {
             dependsOn(resourceMappingPatch)
 
-            execute {
+            apply {
                 overrideThemeColors(
                     lightThemeBackgroundColor!!,
-                    darkThemeBackgroundColorOption.value!!
+                    darkThemeBackgroundColorOption.value!!,
                 )
 
                 fun addColorResource(
@@ -73,7 +72,7 @@ val themePatch = baseThemePatch(
                                 setAttribute("name", colorName)
                                 setAttribute("category", "color")
                                 textContent = colorValue
-                            }
+                            },
                         )
                     }
                 }
@@ -83,12 +82,12 @@ val themePatch = baseThemePatch(
                 addColorResource(
                     "res/values/colors.xml",
                     splashBackgroundColorKey,
-                    lightThemeBackgroundColor!!
+                    lightThemeBackgroundColor!!,
                 )
                 addColorResource(
                     "res/values-night/colors.xml",
                     splashBackgroundColorKey,
-                    darkThemeBackgroundColorOption.value!!
+                    darkThemeBackgroundColorOption.value!!,
                 )
 
                 // Edit splash screen files and change the background color.
@@ -98,12 +97,12 @@ val themePatch = baseThemePatch(
                 ).forEach editSplashScreen@{ resourceFileName ->
                     document(resourceFileName).use { document ->
                         document.getElementsByTagName(
-                            "layer-list"
+                            "layer-list",
                         ).item(0).forEachChildElement { node ->
                             if (node.hasAttribute("android:drawable")) {
                                 node.setAttribute(
                                     "android:drawable",
-                                    "@color/$splashBackgroundColorKey"
+                                    "@color/$splashBackgroundColorKey",
                                 )
                                 return@editSplashScreen
                             }
@@ -115,7 +114,7 @@ val themePatch = baseThemePatch(
 
                 // Fix the splash screen dark mode background color.
                 // In 19.32+ the dark mode splash screen is white and fades to black.
-                document("res/values-night-v27/styles.xml").use { document ->
+                document("res/values-night/styles.xml").use { document ->
                     // Create a night mode specific override for the splash screen background.
                     val style = document.createElement("style")
                     style.setAttribute("name", "Theme.YouTube.Home")
@@ -149,18 +148,18 @@ val themePatch = baseThemePatch(
             addResourcesPatch,
             seekbarColorPatch,
             baseThemeResourcePatch(
-                lightColorReplacement = { lightThemeBackgroundColor!! }
+                lightColorReplacement = { lightThemeBackgroundColor!! },
             ),
-            themeResourcePatch
+            themeResourcePatch,
         )
 
         compatibleWith(
             "com.google.android.youtube"(
-                "19.34.42",
-                "20.07.39",
-                "20.13.41",
+                "19.43.41",
                 "20.14.43",
-            )
+                "20.21.37",
+                "20.31.40",
+            ),
         )
     },
 
@@ -168,7 +167,7 @@ val themePatch = baseThemePatch(
         addResources("youtube", "layout.theme.themePatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            SwitchPreference("revanced_gradient_loading_screen")
+            SwitchPreference("revanced_gradient_loading_screen"),
         )
 
         val preferences = mutableSetOf(
@@ -176,13 +175,13 @@ val themePatch = baseThemePatch(
             TextPreference(
                 "revanced_seekbar_custom_color_primary",
                 tag = "app.revanced.extension.shared.settings.preference.ColorPickerPreference",
-                inputType = InputType.TEXT_CAP_CHARACTERS
+                inputType = InputType.TEXT_CAP_CHARACTERS,
             ),
             TextPreference(
                 "revanced_seekbar_custom_color_accent",
                 tag = "app.revanced.extension.shared.settings.preference.ColorPickerPreference",
-                inputType = InputType.TEXT_CAP_CHARACTERS
-            )
+                inputType = InputType.TEXT_CAP_CHARACTERS,
+            ),
         )
 
         PreferenceScreen.SEEKBAR.addPreferences(
@@ -190,27 +189,27 @@ val themePatch = baseThemePatch(
                 titleKey = null,
                 sorting = Sorting.UNSORTED,
                 tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
-                preferences = preferences
-            )
+                preferences = preferences,
+            ),
         )
 
         if (is_19_47_or_greater) {
             PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-                ListPreference("revanced_splash_screen_animation_style")
+                ListPreference("revanced_splash_screen_animation_style"),
             )
         }
 
-        useGradientLoadingScreenFingerprint.method.insertLiteralOverride(
-            GRADIENT_LOADING_SCREEN_AB_CONSTANT,
-            "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z"
+        useGradientLoadingScreenMethodMatch.method.insertLiteralOverride(
+            useGradientLoadingScreenMethodMatch[0],
+            "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z",
         )
 
         if (is_19_47_or_greater) {
             // Lottie splash screen exists in earlier versions, but it may not be always on.
-            splashScreenStyleFingerprint.method.insertLiteralOverride(
-                SPLASH_SCREEN_STYLE_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I"
+            splashScreenStyleMethodMatch.method.insertLiteralOverride(
+                splashScreenStyleMethodMatch[0],
+                "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I",
             )
         }
-    }
+    },
 )

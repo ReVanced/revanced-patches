@@ -1,22 +1,27 @@
 package app.revanced.patches.youtube.interaction.doubletap
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.firstMethodDeclaratively
+import app.revanced.patcher.gettingFirstImmutableMethodDeclaratively
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val seekTypeEnumFingerprint = fingerprint {
+internal val BytecodePatchContext.seekTypeEnumMethod by gettingFirstImmutableMethodDeclaratively(
+    "SEEK_SOURCE_SEEK_TO_NEXT_CHAPTER",
+    "SEEK_SOURCE_SEEK_TO_PREVIOUS_CHAPTER",
+) {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-    strings(
-        "SEEK_SOURCE_SEEK_TO_NEXT_CHAPTER",
-        "SEEK_SOURCE_SEEK_TO_PREVIOUS_CHAPTER"
-    )
 }
 
-internal val doubleTapInfoCtorFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getDoubleTapInfoCtorMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters(
+    parameterTypes(
         "Landroid/view/MotionEvent;",
         "I",
         "Z",
-        "Lj\$/time/Duration;"
+        "Lj$/time/Duration;",
     )
 }

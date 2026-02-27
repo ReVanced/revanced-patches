@@ -10,7 +10,7 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.ebay.kleinanzeigen")
 
-    execute {
-        getLibertyInitFingerprint.method.returnEarly()
+    apply {
+        getLibertyInitMethod.returnEarly()
     }
 }

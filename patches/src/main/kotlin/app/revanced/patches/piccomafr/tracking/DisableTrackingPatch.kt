@@ -1,8 +1,8 @@
 package app.revanced.patches.piccomafr.tracking
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
@@ -33,35 +33,31 @@ val disableTrackingPatch = bytecodePatch(
         ),
     )
 
-    execute {
-        facebookSDKFingerprint.method.apply {
-            instructions.filter { instruction ->
-                instruction.opcode == Opcode.CONST_STRING
-            }.forEach { instruction ->
-                instruction as OneRegisterInstruction
+    apply {
+        facebookSDKMethod.instructions.filter { instruction ->
+            instruction.opcode == Opcode.CONST_STRING
+        }.forEach { instruction ->
+            instruction as OneRegisterInstruction
 
-                replaceInstruction(
-                    instruction.location.index,
-                    "const-string v${instruction.registerA}, \"example.com\"",
-                )
-            }
+            facebookSDKMethod.replaceInstruction(
+                instruction.location.index,
+                "const-string v${instruction.registerA}, \"example.com\"",
+            )
         }
 
-        firebaseInstallFingerprint.method.apply {
-            instructions.filter {
-                it.opcode == Opcode.CONST_STRING
-            }.filter {
-                it.getReference<StringReference>()?.string == "firebaseinstallations.googleapis.com"
-            }.forEach { instruction ->
-                instruction as OneRegisterInstruction
+        firebaseInstallMethod.instructions.filter {
+            it.opcode == Opcode.CONST_STRING
+        }.filter {
+            it.getReference<StringReference>()?.string == "firebaseinstallations.googleapis.com"
+        }.forEach { instruction ->
+            instruction as OneRegisterInstruction
 
-                replaceInstruction(
-                    instruction.location.index,
-                    "const-string v${instruction.registerA}, \"example.com\"",
-                )
-            }
+            firebaseInstallMethod.replaceInstruction(
+                instruction.location.index,
+                "const-string v${instruction.registerA}, \"example.com\"",
+            )
         }
 
-        appMeasurementFingerprint.method.addInstruction(0, "return-void")
+        appMeasurementMethod.addInstruction(0, "return-void")
     }
 }

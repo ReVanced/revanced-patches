@@ -2,18 +2,19 @@ rootProject.name = "revanced-patches"
 
 pluginManagement {
     repositories {
+        mavenLocal()
         gradlePluginPortal()
         google()
         maven {
             name = "githubPackages"
-            url = uri("https://maven.pkg.github.com/revanced/registry")
+            url = uri("https://maven.pkg.github.com/revanced/revanced-patches")
             credentials(PasswordCredentials::class)
         }
     }
 }
 
 plugins {
-    id("app.revanced.patches") version "1.0.0-dev.7"
+    id("app.revanced.patches") version "1.0.0-dev.9"
 }
 
 settings {

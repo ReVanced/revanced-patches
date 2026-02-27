@@ -19,7 +19,7 @@ import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerH
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType;
 import static app.revanced.extension.youtube.patches.OpenShortsInRegularPlayerPatch.ShortsPlayerType;
 import static app.revanced.extension.youtube.patches.SeekbarThumbnailsPatch.SeekbarThumbnailsHighQualityAvailability;
-import static app.revanced.extension.youtube.patches.components.PlayerFlyoutMenuItemsFilter.HideAudioFlyoutMenuAvailability;
+import static app.revanced.extension.youtube.patches.litho.PlayerFlyoutMenuItemsFilter.HideAudioFlyoutMenuAvailability;
 import static app.revanced.extension.youtube.patches.spoof.SpoofVideoStreamsPatch.SpoofClientAv1Availability;
 import static app.revanced.extension.youtube.patches.theme.ThemePatch.SplashScreenAnimationStyle;
 import static app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController.SponsorBlockDuration;
@@ -46,7 +46,7 @@ import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.DeArrow
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.StillImagesAvailability;
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.ThumbnailOption;
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.ThumbnailStillTime;
-import app.revanced.extension.youtube.patches.MiniplayerPatch;
+import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider.SwipeOverlayStyle;
 
@@ -188,7 +188,7 @@ public class Settings extends YouTubeAndMusicSettings {
     public static final BooleanSetting MINIPLAYER_DOUBLE_TAP_ACTION = new BooleanSetting("revanced_miniplayer_double_tap_action", TRUE, true, new MiniplayerAnyModernAvailability());
     public static final BooleanSetting MINIPLAYER_HIDE_OVERLAY_BUTTONS = new BooleanSetting("revanced_miniplayer_hide_overlay_buttons", FALSE, true, new MiniplayerHideOverlayButtonsAvailability());
     public static final BooleanSetting MINIPLAYER_HIDE_SUBTEXT = new BooleanSetting("revanced_miniplayer_hide_subtext", FALSE, true, new MiniplayerHideSubtextsAvailability());
-    public static final BooleanSetting MINIPLAYER_HIDE_REWIND_FORWARD = new BooleanSetting("revanced_miniplayer_hide_rewind_forward", TRUE, true, new MiniplayerPatch.MiniplayerHideRewindOrOverlayOpacityAvailability());
+    public static final BooleanSetting MINIPLAYER_HIDE_REWIND_FORWARD = new BooleanSetting("revanced_miniplayer_hide_rewind_forward", TRUE, true, new MiniplayerHideRewindOrOverlayOpacityAvailability());
     public static final IntegerSetting MINIPLAYER_WIDTH_DIP = new IntegerSetting("revanced_miniplayer_width_dip", 192, true, new MiniplayerAnyModernAvailability());
     public static final IntegerSetting MINIPLAYER_OPACITY = new IntegerSetting("revanced_miniplayer_opacity", 100, true, new MiniplayerHideRewindOrOverlayOpacityAvailability());
 
@@ -284,6 +284,7 @@ public class Settings extends YouTubeAndMusicSettings {
     public static final BooleanSetting HIDE_NOTIFICATIONS_BUTTON = new BooleanSetting("revanced_hide_notifications_button", FALSE, true);
     public static final BooleanSetting SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON = new BooleanSetting("revanced_switch_create_with_notifications_button", TRUE, true,
             "revanced_switch_create_with_notifications_button_user_dialog_message");
+    public static final BooleanSetting NAVIGATION_BAR_ANIMATIONS = new BooleanSetting("revanced_navigation_bar_animations", FALSE);
     public static final BooleanSetting DISABLE_TRANSLUCENT_STATUS_BAR = new BooleanSetting("revanced_disable_translucent_status_bar", FALSE, true,
             "revanced_disable_translucent_status_bar_user_dialog_message");
     public static final BooleanSetting DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT = new BooleanSetting("revanced_disable_translucent_navigation_bar_light", FALSE, true);
@@ -337,6 +338,7 @@ public class Settings extends YouTubeAndMusicSettings {
     public static final BooleanSetting DISABLE_PRECISE_SEEKING_GESTURE = new BooleanSetting("revanced_disable_precise_seeking_gesture", FALSE);
     public static final BooleanSetting HIDE_SEEKBAR = new BooleanSetting("revanced_hide_seekbar", FALSE, true);
     public static final BooleanSetting HIDE_SEEKBAR_THUMBNAIL = new BooleanSetting("revanced_hide_seekbar_thumbnail", FALSE, true);
+    public static final BooleanSetting FULLSCREEN_LARGE_SEEKBAR = new BooleanSetting("revanced_fullscreen_large_seekbar", FALSE);
     public static final BooleanSetting HIDE_TIMESTAMP = new BooleanSetting("revanced_hide_timestamp", FALSE);
     public static final BooleanSetting RESTORE_OLD_SEEKBAR_THUMBNAILS = new BooleanSetting("revanced_restore_old_seekbar_thumbnails", TRUE);
     public static final BooleanSetting SEEKBAR_TAPPING = new BooleanSetting("revanced_seekbar_tapping", FALSE);
@@ -472,6 +474,13 @@ public class Settings extends YouTubeAndMusicSettings {
     static {
         // region Migration
 
+        // 20.37+ YT removed parts of the code for the legacy tablet miniplayer.
+        // This check must remain until the Tablet type is eventually removed.
+        if (VersionCheckPatch.IS_20_37_OR_GREATER && MINIPLAYER_TYPE.get() == MiniplayerType.TABLET) {
+            Logger.printInfo(() -> "Resetting miniplayer tablet type");
+            MINIPLAYER_TYPE.resetToDefault();
+        }
+
         // Migrate renamed change header enums.
         if (HEADER_LOGO.get() == HeaderLogo.REVANCED) {
             HEADER_LOGO.save(HeaderLogo.ROUNDED);
@@ -512,6 +521,14 @@ public class Settings extends YouTubeAndMusicSettings {
             Logger.printInfo(() -> "Resetting spoof app version");
             SPOOF_APP_VERSION_TARGET.resetToDefault();
             SPOOF_APP_VERSION.resetToDefault();
+        }
+
+        if (!BaseSettings.SETTINGS_DISABLE_BOLD_ICONS.get() && SPOOF_APP_VERSION.get()
+                && SPOOF_APP_VERSION_TARGET.get().compareTo("19.35.00") <= 0) {
+            Logger.printInfo(() -> "Temporarily disabling bold icons that don't work with old spoof targets");
+            // Don't save and only temporarily overwrite the value so
+            // if spoofing is turned off the old setting value is used.
+            BooleanSetting.privateSetValue(BaseSettings.SETTINGS_DISABLE_BOLD_ICONS, false);
         }
 
         // VR 1.61 is not selectable in the settings, and it's selected by spoof stream patch if needed.

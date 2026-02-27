@@ -5,7 +5,7 @@ import app.revanced.patches.tumblr.featureflags.addFeatureFlagOverride
 import app.revanced.patches.tumblr.featureflags.overrideFeatureFlagsPatch
 
 @Suppress("unused")
-val disableTumblrTvPatch = bytecodePatch(
+val disableTumblrTVPatch = bytecodePatch(
     name = "Disable Tumblr TV",
     description = "Removes the Tumblr TV navigation button from the bottom navigation bar.",
 ) {
@@ -13,7 +13,7 @@ val disableTumblrTvPatch = bytecodePatch(
 
     compatibleWith("com.tumblr")
 
-    execute {
+    apply {
         addFeatureFlagOverride("tumblrTvMobileNav", "false")
     }
 }

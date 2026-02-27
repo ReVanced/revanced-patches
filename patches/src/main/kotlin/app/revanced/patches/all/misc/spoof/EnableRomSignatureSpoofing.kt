@@ -5,7 +5,6 @@ import app.revanced.patcher.patch.stringOption
 import app.revanced.util.getNode
 import com.android.apksig.ApkVerifier
 import com.android.apksig.apk.ApkFormatException
-import org.w3c.dom.Element
 import java.io.File
 import java.io.IOException
 import java.nio.file.InvalidPathException
@@ -15,15 +14,14 @@ import java.security.cert.CertificateFactory
 import java.util.*
 
 @Suppress("unused")
-val enableRomSignatureSpoofing = resourcePatch(
+val enableROMSignatureSpoofingPatch = resourcePatch(
     name = "Enable ROM signature spoofing",
     description = "Spoofs the signature via the manifest meta-data \"fake-signature\". " +
-            "This patch only works with ROMs that support signature spoofing.",
+        "This patch only works with ROMs that support signature spoofing.",
     use = false,
 ) {
     val signatureOrPath by stringOption(
-        key = "signatureOrApkFilePath",
-        title = "Signature or APK file path",
+        name = "Signature or APK file path",
         validator = validator@{ signature ->
             signature ?: return@validator false
 
@@ -32,13 +30,12 @@ val enableRomSignatureSpoofing = resourcePatch(
         description = "The hex-encoded signature or path to an APK file with the desired signature.",
         required = true,
     )
-    execute {
+    apply {
         document("AndroidManifest.xml").use { document ->
             val permission = document.createElement("uses-permission").apply {
                 setAttribute("android:name", "android.permission.FAKE_PACKAGE_SIGNATURE")
             }
             val manifest = document.getNode("manifest").appendChild(permission)
-
 
             val fakeSignatureMetadata = document.createElement("meta-data").apply {
                 setAttribute("android:name", "fake-signature")
@@ -70,15 +67,17 @@ private fun parseSignature(optionValue: String): String? {
 
         val hexFormat = HexFormat.of()
 
-        val signature = (if (result.isVerifiedUsingV3Scheme) {
-            result.v3SchemeSigners[0].certificate
-        } else if (result.isVerifiedUsingV2Scheme) {
-            result.v2SchemeSigners[0].certificate
-        } else if (result.isVerifiedUsingV1Scheme) {
-            result.v1SchemeSigners[0].certificate
-        } else {
-            return null
-        }).encoded
+        val signature = (
+            if (result.isVerifiedUsingV3Scheme) {
+                result.v3SchemeSigners[0].certificate
+            } else if (result.isVerifiedUsingV2Scheme) {
+                result.v2SchemeSigners[0].certificate
+            } else if (result.isVerifiedUsingV1Scheme) {
+                result.v1SchemeSigners[0].certificate
+            } else {
+                return null
+            }
+            ).encoded
 
         return hexFormat.formatHex(signature)
     } catch (_: IOException) {

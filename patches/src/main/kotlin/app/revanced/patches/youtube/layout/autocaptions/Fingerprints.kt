@@ -1,30 +1,30 @@
 package app.revanced.patches.youtube.layout.autocaptions
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val startVideoInformerFingerprint = fingerprint {
+internal val BytecodePatchContext.startVideoInformerMethod by gettingFirstMethodDeclaratively("pc") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
+    returnType("V")
     opcodes(
         Opcode.INVOKE_INTERFACE,
         Opcode.RETURN_VOID,
     )
-    strings("pc")
 }
 
-internal val storyboardRendererDecoderRecommendedLevelFingerprint = fingerprint {
-    returns("V")
+internal val BytecodePatchContext.storyboardRendererDecoderRecommendedLevelMethod by gettingFirstMethodDeclaratively("#-1#") {
+    returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("L")
-    strings("#-1#")
+    parameterTypes("L")
 }
 
-internal val subtitleTrackFingerprint = fingerprint {
+internal val BytecodePatchContext.subtitleTrackMethod by gettingFirstMethodDeclaratively("DISABLE_CAPTIONS_OPTION") {
+    definingClass("/SubtitleTrack;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
+    returnType("Z")
+    parameterTypes()
     opcodes(
         Opcode.CONST_STRING,
         Opcode.INVOKE_VIRTUAL,
@@ -33,8 +33,4 @@ internal val subtitleTrackFingerprint = fingerprint {
         Opcode.MOVE_RESULT,
         Opcode.RETURN,
     )
-    strings("DISABLE_CAPTIONS_OPTION")
-    custom { _, classDef ->
-        classDef.endsWith("/SubtitleTrack;")
-    }
 }

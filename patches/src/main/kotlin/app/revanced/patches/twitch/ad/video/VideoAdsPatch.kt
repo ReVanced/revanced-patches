@@ -1,10 +1,10 @@
 package app.revanced.patches.twitch.ad.video
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -14,7 +14,7 @@ import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
 
-val videoAdsPatch = bytecodePatch(
+val blockVideoAdsPatch = bytecodePatch(
     name = "Block video ads",
     description = "Blocks video ads in streams and VODs.",
 ) {
@@ -27,7 +27,7 @@ val videoAdsPatch = bytecodePatch(
         addResourcesPatch,
         adPatch(conditionCall, skipLabelName) { createConditionInstructions, blockMethods ->
 
-            execute {
+            apply {
                 addResources("twitch", "ad.video.videoAdsPatch")
 
                 PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(
@@ -111,7 +111,7 @@ val videoAdsPatch = bytecodePatch(
                 )
 
                 // Pretend our player is ineligible for all ads.
-                checkAdEligibilityLambdaFingerprint.method.addInstructionsWithLabels(
+                checkAdEligibilityLambdaMethod.addInstructionsWithLabels(
                     0,
                     """
                         ${createConditionInstructions("v0")}
@@ -122,13 +122,13 @@ val videoAdsPatch = bytecodePatch(
                     """,
                     ExternalLabel(
                         skipLabelName,
-                        checkAdEligibilityLambdaFingerprint.method.getInstruction(0),
+                        checkAdEligibilityLambdaMethod.getInstruction(0),
                     ),
                 )
 
                 val adFormatDeclined =
                     "Ltv/twitch/android/shared/display/ads/theatre/StreamDisplayAdsPresenter\$Action\$AdFormatDeclined;"
-                getReadyToShowAdFingerprint.method.addInstructionsWithLabels(
+                getReadyToShowAdMethod.addInstructionsWithLabels(
                     0,
                     """
                     ${createConditionInstructions("v0")}
@@ -137,12 +137,12 @@ val videoAdsPatch = bytecodePatch(
                     move-result-object p1
                     return-object p1
                 """,
-                    ExternalLabel(skipLabelName, getReadyToShowAdFingerprint.method.getInstruction(0)),
+                    ExternalLabel(skipLabelName, getReadyToShowAdMethod.getInstruction(0)),
                 )
 
                 // Spoof showAds JSON field.
                 // Late versions of the app don't have the method anymore.
-                contentConfigShowAdsFingerprint.methodOrNull?.addInstructions(
+                contentConfigShowAdsMethod?.addInstructions(
                     0,
                     """
                         ${createConditionInstructions("v0")}

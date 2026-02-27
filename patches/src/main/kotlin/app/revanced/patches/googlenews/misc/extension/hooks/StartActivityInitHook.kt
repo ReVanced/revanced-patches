@@ -1,5 +1,11 @@
 package app.revanced.patches.googlenews.misc.extension.hooks
 
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.name
+import app.revanced.patcher.opcodes
 import app.revanced.patches.shared.misc.extension.extensionHook
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -10,19 +16,20 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private var getApplicationContextIndex = -1
 
 internal val startActivityInitHook = extensionHook(
-    insertIndexResolver = { method ->
-        getApplicationContextIndex = method.indexOfFirstInstructionOrThrow {
+    getInsertIndex = {
+        getApplicationContextIndex = indexOfFirstInstructionOrThrow {
             getReference<MethodReference>()?.name == "getApplicationContext"
         }
 
         getApplicationContextIndex + 2 // Below the move-result-object instruction.
     },
-    contextRegisterResolver = { method ->
-        val moveResultInstruction = method.implementation!!.instructions.elementAt(getApplicationContextIndex + 1)
-            as OneRegisterInstruction
+    getContextRegister = {
+        val moveResultInstruction = instructions.elementAt(getApplicationContextIndex + 1) as OneRegisterInstruction
         "v${moveResultInstruction.registerA}"
     },
 ) {
+    name("onCreate")
+    definingClass("/StartActivity;")
     opcodes(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
@@ -35,7 +42,4 @@ internal val startActivityInitHook = extensionHook(
         Opcode.INVOKE_VIRTUAL, // Calls startActivity.getApplicationContext().
         Opcode.MOVE_RESULT_OBJECT,
     )
-    custom { methodDef, classDef ->
-        methodDef.name == "onCreate" && classDef.endsWith("/StartActivity;")
-    }
 }

@@ -5,12 +5,10 @@ import app.revanced.util.childElementsSequence
 import app.revanced.util.getNode
 
 @Suppress("unused")
-val hideOffersTabPatch = resourcePatch(
-    name = "Hide offers tab",
-) {
+val hideOffersTabPatch = resourcePatch("Hide offers tab") {
     compatibleWith("de.stocard.stocard")
 
-    execute {
+    apply {
         document("res/menu/bottom_navigation_menu.xml").use { document ->
             document.getNode("menu").apply {
                 removeChild(

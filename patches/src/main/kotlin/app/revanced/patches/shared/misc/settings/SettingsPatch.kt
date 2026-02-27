@@ -8,7 +8,6 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.layout.branding.addBrandLicensePatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
-import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.util.ResourceGroup
@@ -18,17 +17,8 @@ import app.revanced.util.insertFirst
 import app.revanced.util.returnEarly
 import org.w3c.dom.Node
 
-// TODO: Delete this on next major version bump.
-@Deprecated("Use non deprecated settings patch function",
-    ReplaceWith("settingsPatch(listOf(rootPreference), preferences)")
-)
-fun settingsPatch (
-    rootPreference: Pair<IntentPreference, String>,
-    preferences: Set<BasePreference>,
-) = settingsPatch(listOf(rootPreference), preferences)
-
-private var lightThemeColor : String? = null
-private var darkThemeColor : String? = null
+private var lightThemeColor: String? = null
+private var darkThemeColor: String? = null
 
 /**
  * Sets the default theme colors used in various ReVanced specific settings menus.
@@ -41,12 +31,12 @@ fun overrideThemeColors(lightThemeColorString: String?, darkThemeColorString: St
 }
 
 private val settingsColorPatch = bytecodePatch {
-    finalize {
+    afterDependents {
         if (lightThemeColor != null) {
-            themeLightColorResourceNameFingerprint.method.returnEarly(lightThemeColor!!)
+            themeLightColorResourceNameMethod.returnEarly(lightThemeColor!!)
         }
         if (darkThemeColor != null) {
-            themeDarkColorResourceNameFingerprint.method.returnEarly(darkThemeColor!!)
+            themeDarkColorResourceNameMethod.returnEarly(darkThemeColor!!)
         }
     }
 }
@@ -58,32 +48,47 @@ private val settingsColorPatch = bytecodePatch {
  *                        File names that do not exist are ignored and not processed.
  * @param preferences A set of preferences to add to the ReVanced fragment.
  */
-fun settingsPatch (
+fun settingsPatch(
     rootPreferences: List<Pair<BasePreference, String>>? = null,
     preferences: Set<BasePreference>,
 ) = resourcePatch {
     dependsOn(
         addResourcesPatch,
         settingsColorPatch,
-        addBrandLicensePatch
+        addBrandLicensePatch,
     )
 
-    execute {
+    apply {
         copyResources(
             "settings",
-            ResourceGroup("xml", "revanced_prefs.xml", "revanced_prefs_icons.xml"),
-            ResourceGroup("menu", "revanced_search_menu.xml"),
-            ResourceGroup("drawable",
+            ResourceGroup(
+                "xml",
+                "revanced_prefs.xml",
+                "revanced_prefs_icons.xml",
+                "revanced_prefs_icons_bold.xml",
+            ),
+            ResourceGroup(
+                "menu",
+                "revanced_search_menu.xml",
+            ),
+            ResourceGroup(
+                "drawable",
                 // CustomListPreference resources.
                 "revanced_ic_dialog_alert.xml",
                 // Search resources.
                 "revanced_settings_arrow_time.xml",
+                "revanced_settings_arrow_time_bold.xml",
                 "revanced_settings_custom_checkmark.xml",
+                "revanced_settings_custom_checkmark_bold.xml",
                 "revanced_settings_search_icon.xml",
+                "revanced_settings_search_icon_bold.xml",
                 "revanced_settings_search_remove.xml",
+                "revanced_settings_search_remove_bold.xml",
                 "revanced_settings_toolbar_arrow_left.xml",
+                "revanced_settings_toolbar_arrow_left_bold.xml",
             ),
-            ResourceGroup("layout",
+            ResourceGroup(
+                "layout",
                 "revanced_custom_list_item_checked.xml",
                 // Color picker.
                 "revanced_color_dot_widget.xml",
@@ -97,14 +102,14 @@ fun settingsPatch (
                 "revanced_preference_search_result_list.xml",
                 "revanced_preference_search_result_regular.xml",
                 "revanced_preference_search_result_switch.xml",
-                "revanced_settings_with_toolbar.xml"
-            )
+                "revanced_settings_with_toolbar.xml",
+            ),
         )
 
         addResources("shared", "misc.settings.settingsResourcePatch")
     }
 
-    finalize {
+    afterDependents {
         fun Node.addPreference(preference: BasePreference) {
             preference.serialize(ownerDocument) { resource ->
                 // TODO: Currently, resources can only be added to "values", which may not be the correct place.
@@ -142,20 +147,30 @@ fun settingsPatch (
         // there is no easy way to change to the Android default preference layout
         // after the preference is inflated.
         // Using two different preference files is the simplest and most robust solution.
-        fun removeIconsAndLayout(preferences: Collection<BasePreference>) {
+        fun removeIconsAndLayout(preferences: Collection<BasePreference>, removeAllIconsAndLayout: Boolean) {
             preferences.forEach { preference ->
                 preference.icon = null
-                preference.layout = null
+                if (removeAllIconsAndLayout) {
+                    preference.iconBold = null
+                    preference.layout = null
+                }
 
                 if (preference is PreferenceCategory) {
-                    removeIconsAndLayout(preference.preferences)
-                }
-                if (preference is PreferenceScreenPreference) {
-                    removeIconsAndLayout(preference.preferences)
+                    removeIconsAndLayout(preference.preferences, removeAllIconsAndLayout)
+                } else if (preference is PreferenceScreenPreference) {
+                    removeIconsAndLayout(preference.preferences, removeAllIconsAndLayout)
                 }
             }
         }
-        removeIconsAndLayout(preferences)
+
+        // Bold icons.
+        removeIconsAndLayout(preferences, false)
+        document("res/xml/revanced_prefs_icons_bold.xml").use { document ->
+            val revancedPreferenceScreenNode = document.getNode("PreferenceScreen")
+            preferences.forEach { revancedPreferenceScreenNode.addPreference(it) }
+        }
+
+        removeIconsAndLayout(preferences, true)
 
         document("res/xml/revanced_prefs.xml").use { document ->
             val revancedPreferenceScreenNode = document.getNode("PreferenceScreen")

@@ -1,16 +1,16 @@
 package app.revanced.patches.viber.misc.navbar
-import app.revanced.patcher.fingerprint
+
+import app.revanced.patcher.firstMethodDeclaratively
+import app.revanced.patcher.gettingFirstImmutableMethod
+import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val tabIdClassFingerprint = fingerprint {
-    strings("shouldShowTabId")
-}
+internal val BytecodePatchContext.tabIdClassMethod by gettingFirstImmutableMethod("shouldShowTabId")
 
-context(BytecodePatchContext)
-internal val shouldShowTabIdMethodFingerprint get() = fingerprint {
-    parameters("I", "I")
-    returns("Z")
-    custom { methodDef, classDef ->
-        classDef == tabIdClassFingerprint.classDef
-    }
+context(_: BytecodePatchContext)
+internal fun ClassDef.getShouldShowTabIdMethod() = firstMethodDeclaratively {
+    parameterTypes("I", "I")
+    returnType("Z")
 }

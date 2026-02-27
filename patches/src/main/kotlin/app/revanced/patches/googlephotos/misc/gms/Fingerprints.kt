@@ -1,9 +1,11 @@
 package app.revanced.patches.googlephotos.misc.gms
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val homeActivityOnCreateFingerprint = fingerprint {
-    custom { methodDef, classDef ->
-        methodDef.name == "onCreate" && classDef.endsWith("/HomeActivity;")
-    }
+internal val BytecodePatchContext.homeActivityOnCreateMethod by gettingFirstMethodDeclaratively {
+    name("onCreate")
+    definingClass("/HomeActivity;")
 }

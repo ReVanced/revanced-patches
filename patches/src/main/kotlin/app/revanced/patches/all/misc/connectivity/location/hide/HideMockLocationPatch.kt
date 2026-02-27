@@ -1,8 +1,6 @@
-@file:Suppress("unused")
-
 package app.revanced.patches.all.misc.connectivity.location.hide
 
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.fromMethodReference

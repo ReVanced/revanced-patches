@@ -1,15 +1,16 @@
 package app.revanced.patches.pandora.ads
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val getIsAdSupportedFingerprint = fingerprint {
-    custom { method, classDef ->
-        method.name == "getIsAdSupported" && classDef.endsWith("UserData;")
-    }
+internal val BytecodePatchContext.getIsAdSupportedMethod by gettingFirstMethodDeclaratively {
+    name("getIsAdSupported")
+    definingClass("UserData;")
 }
 
-internal val requestAudioAdFingerprint = fingerprint {
-    custom { method, classDef ->
-        method.name == "requestAudioAdFromAdSDK" && classDef.endsWith("ContentServiceOpsImpl;")
-    }
+internal val BytecodePatchContext.requestAudioAdMethod by gettingFirstMethodDeclaratively {
+    name("requestAudioAdFromAdSDK")
+    definingClass("ContentServiceOpsImpl;")
 }

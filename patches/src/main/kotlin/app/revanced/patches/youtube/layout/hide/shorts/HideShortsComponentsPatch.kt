@@ -1,53 +1,42 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
+import app.revanced.patcher.extensions.wideLiteral
+import app.revanced.patcher.firstMethod
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
+import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_41_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_07_or_greater
-import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
+import app.revanced.patches.youtube.misc.playservice.*
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.findElementByAttributeValueOrThrow
-import app.revanced.util.forEachLiteralValueInstruction
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstruction
-import app.revanced.util.removeFromParent
-import app.revanced.util.returnLate
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-
-internal var bottomBarContainer = -1L
-    private set
-internal var reelPlayerRightPivotV2Size = -1L
-    private set
+import java.util.logging.Logger
 
 internal val hideShortsAppShortcutOption = booleanOption(
-    key = "hideShortsAppShortcut",
+    name = "Hide Shorts app shortcut",
     default = false,
-    title = "Hide Shorts app shortcut",
     description = "Permanently hides the shortcut to open Shorts when long pressing the app icon in your launcher.",
 )
 
 internal val hideShortsWidgetOption = booleanOption(
-    key = "hideShortsWidget",
+    name = "Hide Shorts widget",
     default = false,
-    title = "Hide Shorts widget",
     description = "Permanently hides the launcher widget Shorts button.",
 )
 
@@ -59,11 +48,76 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
         versionCheckPatch,
     )
 
-    execute {
+    apply {
         val hideShortsAppShortcut by hideShortsAppShortcutOption
         val hideShortsWidget by hideShortsWidgetOption
 
         addResources("youtube", "layout.hide.shorts.hideShortsComponentsResourcePatch")
+
+        val preferences = mutableSetOf(
+            // Shorts player components.
+            // Ideally each group should be ordered similar to how they appear in the UI
+
+            // Vertical row of buttons on right side of the screen.
+            SwitchPreference("revanced_hide_shorts_like_fountain"),
+            SwitchPreference("revanced_hide_shorts_like_button"),
+            SwitchPreference("revanced_hide_shorts_dislike_button"),
+        )
+
+        if (is_20_22_or_greater) {
+            // FIXME: The buffer is very different for 20.22+ and these current cannot be hidden.
+            Logger.getLogger(this::class.java.name).warning(
+                "\n!!!" +
+                        "\n!!! Shorts action buttons currently cannot be set hidden when patching 20.22+" +
+                        "\n!!! Patch 20.21.37 or lower if you want to hide Shorts action buttons" +
+                        "\n!!!",
+            )
+        } else {
+            preferences.addAll(
+                listOf(
+                    SwitchPreference("revanced_hide_shorts_comments_button"),
+                    SwitchPreference("revanced_hide_shorts_share_button"),
+                    SwitchPreference("revanced_hide_shorts_remix_button"),
+                    SwitchPreference("revanced_hide_shorts_sound_button"),
+                ),
+            )
+        }
+
+        preferences.addAll(
+            listOf(
+                // Upper and middle area of the player.
+                SwitchPreference("revanced_hide_shorts_join_button"),
+                SwitchPreference("revanced_hide_shorts_subscribe_button"),
+                SwitchPreference("revanced_hide_shorts_paused_overlay_buttons"),
+
+                // Suggested actions.
+                SwitchPreference("revanced_hide_shorts_preview_comment"),
+                SwitchPreference("revanced_hide_shorts_save_sound_button"),
+                SwitchPreference("revanced_hide_shorts_use_sound_button"),
+                SwitchPreference("revanced_hide_shorts_use_template_button"),
+                SwitchPreference("revanced_hide_shorts_upcoming_button"),
+                SwitchPreference("revanced_hide_shorts_effect_button"),
+                SwitchPreference("revanced_hide_shorts_green_screen_button"),
+                SwitchPreference("revanced_hide_shorts_hashtag_button"),
+                SwitchPreference("revanced_hide_shorts_live_preview"),
+                SwitchPreference("revanced_hide_shorts_new_posts_button"),
+                SwitchPreference("revanced_hide_shorts_shop_button"),
+                SwitchPreference("revanced_hide_shorts_tagged_products"),
+                SwitchPreference("revanced_hide_shorts_search_suggestions"),
+                SwitchPreference("revanced_hide_shorts_super_thanks_button"),
+                SwitchPreference("revanced_hide_shorts_stickers"),
+
+                // Bottom of the screen.
+                SwitchPreference("revanced_hide_shorts_auto_dubbed_label"),
+                SwitchPreference("revanced_hide_shorts_location_label"),
+                SwitchPreference("revanced_hide_shorts_channel_bar"),
+                SwitchPreference("revanced_hide_shorts_info_panel"),
+                SwitchPreference("revanced_hide_shorts_full_video_link_label"),
+                SwitchPreference("revanced_hide_shorts_video_title"),
+                SwitchPreference("revanced_hide_shorts_sound_metadata_label"),
+                SwitchPreference("revanced_hide_shorts_navigation_bar"),
+            ),
+        )
 
         PreferenceScreen.SHORTS.addPreferences(
             SwitchPreference("revanced_hide_shorts_home"),
@@ -74,51 +128,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
             PreferenceScreenPreference(
                 key = "revanced_shorts_player_screen",
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,
-                preferences = setOf(
-                    // Shorts player components.
-                    // Ideally each group should be ordered similar to how they appear in the UI
-
-                    // Vertical row of buttons on right side of the screen.
-                    SwitchPreference("revanced_hide_shorts_like_fountain"),
-                    SwitchPreference("revanced_hide_shorts_like_button"),
-                    SwitchPreference("revanced_hide_shorts_dislike_button"),
-                    SwitchPreference("revanced_hide_shorts_comments_button"),
-                    SwitchPreference("revanced_hide_shorts_share_button"),
-                    SwitchPreference("revanced_hide_shorts_remix_button"),
-                    SwitchPreference("revanced_hide_shorts_sound_button"),
-
-                    // Upper and middle area of the player.
-                    SwitchPreference("revanced_hide_shorts_join_button"),
-                    SwitchPreference("revanced_hide_shorts_subscribe_button"),
-                    SwitchPreference("revanced_hide_shorts_paused_overlay_buttons"),
-
-                    // Suggested actions.
-                    SwitchPreference("revanced_hide_shorts_preview_comment"),
-                    SwitchPreference("revanced_hide_shorts_save_sound_button"),
-                    SwitchPreference("revanced_hide_shorts_use_sound_button"),
-                    SwitchPreference("revanced_hide_shorts_use_template_button"),
-                    SwitchPreference("revanced_hide_shorts_upcoming_button"),
-                    SwitchPreference("revanced_hide_shorts_effect_button"),
-                    SwitchPreference("revanced_hide_shorts_green_screen_button"),
-                    SwitchPreference("revanced_hide_shorts_hashtag_button"),
-                    SwitchPreference("revanced_hide_shorts_live_preview"),
-                    SwitchPreference("revanced_hide_shorts_new_posts_button"),
-                    SwitchPreference("revanced_hide_shorts_shop_button"),
-                    SwitchPreference("revanced_hide_shorts_tagged_products"),
-                    SwitchPreference("revanced_hide_shorts_search_suggestions"),
-                    SwitchPreference("revanced_hide_shorts_super_thanks_button"),
-                    SwitchPreference("revanced_hide_shorts_stickers"),
-
-                    // Bottom of the screen.
-                    SwitchPreference("revanced_hide_shorts_auto_dubbed_label"),
-                    SwitchPreference("revanced_hide_shorts_location_label"),
-                    SwitchPreference("revanced_hide_shorts_channel_bar"),
-                    SwitchPreference("revanced_hide_shorts_info_panel"),
-                    SwitchPreference("revanced_hide_shorts_full_video_link_label"),
-                    SwitchPreference("revanced_hide_shorts_video_title"),
-                    SwitchPreference("revanced_hide_shorts_sound_metadata_label"),
-                    SwitchPreference("revanced_hide_shorts_navigation_bar"),
-                ),
+                preferences = preferences,
             ),
         )
 
@@ -144,20 +154,10 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                 shortsItem.removeFromParent()
             }
         }
-
-        bottomBarContainer = resourceMappings[
-            "id",
-            "bottom_bar_container",
-        ]
-
-        reelPlayerRightPivotV2Size = resourceMappings[
-            "dimen",
-            "reel_player_right_pivot_v2_size",
-        ]
     }
 }
 
-private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/components/ShortsFilter;"
+private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/litho/ShortsFilter;"
 
 @Suppress("unused")
 val hideShortsComponentsPatch = bytecodePatch(
@@ -175,34 +175,38 @@ val hideShortsComponentsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
-        )
+            "20.21.37",
+            // 20.22+ does not yet support hiding Shorts action buttons.
+        ),
     )
 
     hideShortsAppShortcutOption()
     hideShortsWidgetOption()
 
-    execute {
+    apply {
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
-        forEachLiteralValueInstruction(
-            reelPlayerRightPivotV2Size,
-        ) { literalInstructionIndex ->
-            val targetIndex = indexOfFirstInstructionOrThrow(literalInstructionIndex) {
-                getReference<MethodReference>()?.name == "getDimensionPixelSize"
+        val id = ResourceType.DIMEN["reel_player_right_pivot_v2_size"]
+
+        forEachInstructionAsSequence({ _, method, instruction, index ->
+            if (instruction.wideLiteral != id) return@forEachInstructionAsSequence null
+
+            val targetIndex = method.indexOfFirstInstructionOrThrow(index) {
+                methodReference?.name == "getDimensionPixelSize"
             } + 1
 
-            val sizeRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+            val sizeRegister = method.getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-            addInstructions(
+            return@forEachInstructionAsSequence targetIndex to sizeRegister
+        }) { method, (targetIndex, sizeRegister) ->
+            firstMethod(method).addInstructions(
                 targetIndex + 1,
                 """
                     invoke-static { v$sizeRegister }, $FILTER_CLASS_DESCRIPTOR->getSoundButtonSize(I)I
                     move-result v$sizeRegister
-                """
+                """,
             )
         }
 
@@ -211,49 +215,46 @@ val hideShortsComponentsPatch = bytecodePatch(
         // region Hide the navigation bar.
 
         // Hook to get the pivotBar view.
-        setPivotBarVisibilityFingerprint.match(
-            setPivotBarVisibilityParentFingerprint.originalClassDef,
-        ).let { result ->
-            result.method.apply {
-                val insertIndex = result.patternMatch!!.endIndex
+        setPivotBarVisibilityParentMethod.immutableClassDef.setPivotBarVisibilityMethodMatch.let { match ->
+            match.method.apply {
+                val insertIndex = match[-1]
                 val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
                 addInstruction(
                     insertIndex,
                     "invoke-static {v$viewRegister}," +
-                        " $FILTER_CLASS_DESCRIPTOR->setNavigationBar(Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;)V",
+                            " $FILTER_CLASS_DESCRIPTOR->setNavigationBar(Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;)V",
                 )
             }
         }
 
         // Hook to hide the shared navigation bar when the Shorts player is opened.
-        renderBottomNavigationBarFingerprint.match(
-            if (is_19_41_or_greater) {
-                renderBottomNavigationBarParentFingerprint
-            } else {
-                legacyRenderBottomNavigationBarParentFingerprint
-            }.originalClassDef,
-        ).method.addInstruction(
-            0,
-            "invoke-static { p1 }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Ljava/lang/String;)V",
-        )
+        (
+                if (is_20_45_or_greater) {
+                    renderBottomNavigationBarParentMethod
+                } else if (is_19_41_or_greater) {
+                    renderBottomNavigationBarLegacy1941ParentMethod
+                } else {
+                    legacyRenderBottomNavigationBarLegacyParentMethod
+                }
+                ).immutableClassDef.getRenderBottomNavigationBarMethodMatch().addInstruction(
+                0,
+                "invoke-static { p1 }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Ljava/lang/String;)V",
+            )
 
         // Hide the bottom bar container of the Shorts player.
-        shortsBottomBarContainerFingerprint.method.apply {
-            val resourceIndex = indexOfFirstLiteralInstruction(bottomBarContainer)
+        shortsBottomBarContainerMethodMatch.let {
+            it.method.apply {
+                val targetIndex = it[-1]
+                val heightRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-            val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
-                getReference<MethodReference>()?.name == "getHeight"
-            } + 1
-
-            val heightRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-            addInstructions(
-                targetIndex + 1,
-                """
-                    invoke-static { v$heightRegister }, $FILTER_CLASS_DESCRIPTOR->getNavigationBarHeight(I)I
-                    move-result v$heightRegister
-                """
-            )
+                addInstructions(
+                    targetIndex + 1,
+                    """
+                        invoke-static { v$heightRegister }, $FILTER_CLASS_DESCRIPTOR->getNavigationBarHeight(I)I
+                        move-result v$heightRegister
+                    """,
+                )
+            }
         }
 
         // endregion
@@ -270,12 +271,12 @@ val hideShortsComponentsPatch = bytecodePatch(
             // Since the buttons are native components and not Litho, it should be possible to
             // fix the RYD Shorts loading delay by asynchronously loading RYD and updating
             // the button text after RYD has loaded.
-            shortsExperimentalPlayerFeatureFlagFingerprint.method.returnLate(false)
+            shortsExperimentalPlayerFeatureFlagMethod.returnLate(false)
 
             // Experimental UI renderer must also be disabled since it requires the
             // experimental Shorts player.  If this is enabled but Shorts player
             // is disabled then the app crashes when the Shorts player is opened.
-            renderNextUIFeatureFlagFingerprint.method.returnLate(false)
+            renderNextUIFeatureFlagMethod.returnLate(false)
         }
 
         // endregion

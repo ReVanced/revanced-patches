@@ -11,11 +11,12 @@ import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
+import kotlin.collections.toTypedArray
 
 internal fun hideLayoutComponentsPatch(
-    lithoFilterPatch: Patch<*>,
-    settingsPatch: Patch<*>,
-    additionalDependencies: Set<Patch<*>> = emptySet(),
+    lithoFilterPatch: Patch,
+    settingsPatch: Patch,
+    additionalDependencies: Set<Patch> = emptySet(),
     filterClasses: Set<String>,
     vararg compatibleWithPackages: Pair<String, Set<String>?>,
     executeBlock: BytecodePatchContext.() -> Unit = {},
@@ -32,7 +33,7 @@ internal fun hideLayoutComponentsPatch(
 
     compatibleWith(packages = compatibleWithPackages)
 
-    execute {
+    apply {
         addResources("shared", "layout.hide.general.hideLayoutComponentsPatch")
 
         PreferenceScreen.GENERAL.addPreferences(
@@ -46,9 +47,7 @@ internal fun hideLayoutComponentsPatch(
             ),
         )
 
-        filterClasses.forEach { className ->
-            addLithoFilter(className)
-        }
+        filterClasses.forEach { className -> addLithoFilter(className) }
 
         executeBlock()
     }

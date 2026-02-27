@@ -14,12 +14,13 @@ import android.util.AttributeSet
 import android.view.HapticFeedbackConstants
 import android.view.View
 import android.widget.RelativeLayout
+import app.revanced.extension.shared.ResourceType
 import app.revanced.extension.shared.StringRef.str
 import app.revanced.extension.shared.Utils
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider
 import app.revanced.extension.youtube.swipecontrols.misc.SwipeControlsOverlay
-import kotlin.math.min
 import kotlin.math.max
+import kotlin.math.min
 import kotlin.math.round
 
 /**
@@ -53,7 +54,7 @@ class SwipeControlsOverlayLayout(
     // Function to retrieve drawable resources by name.
     private fun getDrawable(name: String): Drawable {
         val drawable = resources.getDrawable(
-            Utils.getResourceIdentifier(context, name, "drawable"),
+            Utils.getResourceIdentifier(context, ResourceType.DRAWABLE, name),
             context.theme,
         )
         drawable.setTint(config.overlayTextColor)
@@ -86,7 +87,7 @@ class SwipeControlsOverlayLayout(
 
         // Initialize horizontal progress bar.
         val screenWidth = resources.displayMetrics.widthPixels
-        val layoutWidth = (screenWidth * 4 / 5).toInt() // Cap at ~360dp.
+        val layoutWidth = (screenWidth * 4 / 5) // Cap at ~360dp.
         horizontalProgressView = HorizontalProgressView(
             context,
             config.overlayBackgroundOpacity,
@@ -630,7 +631,7 @@ class VerticalProgressView(
         if (isMinimalStyle) {
             canvas.drawText(displayText, textX, textStartY, textPaint)
         } else {
-            val progressStartY = (iconEndY + padding).toFloat()
+            val progressStartY = (iconEndY + padding)
             val progressEndY = textStartY - textPaint.textSize - padding
             val progressHeight = progressEndY - progressStartY
 

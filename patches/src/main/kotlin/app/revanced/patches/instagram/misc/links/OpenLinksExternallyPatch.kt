@@ -1,7 +1,7 @@
 package app.revanced.patches.instagram.misc.links
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -21,13 +21,14 @@ val openLinksExternallyPatch = bytecodePatch(
 
     compatibleWith("com.instagram.android")
 
-    execute {
-        inAppBrowserFunctionFingerprint.let {
-            val stringMatchIndex = it.stringMatches?.first { match -> match.string == TARGET_STRING }!!.index
+    apply {
+        inAppBrowserFunctionMethodMatch.let {
+            val stringMatchIndex = it[0]
 
             it.method.apply {
                 val urlResultObjIndex = indexOfFirstInstructionOrThrow(
-                    stringMatchIndex, Opcode.MOVE_OBJECT_FROM16
+                    stringMatchIndex,
+                    Opcode.MOVE_OBJECT_FROM16,
                 )
 
                 // Register that contains the url after moving from a higher register.
@@ -39,7 +40,7 @@ val openLinksExternallyPatch = bytecodePatch(
                         invoke-static/range { v$urlRegister .. v$urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->openExternally(Ljava/lang/String;)Z
                         move-result v0
                         return v0
-                    """
+                    """,
                 )
             }
         }

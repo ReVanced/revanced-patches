@@ -1,23 +1,28 @@
 package app.revanced.patches.youtube.misc.hapticfeedback
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val markerHapticsFingerprint = fingerprint {
-    returns("V")
-    strings("Failed to execute markers haptics vibrate.")
+internal val BytecodePatchContext.markerHapticsMethod by gettingFirstMethodDeclaratively(
+    "Failed to execute markers haptics vibrate.",
+) {
+    returnType("V")
 }
 
-internal val scrubbingHapticsFingerprint = fingerprint {
-    returns("V")
-    strings("Failed to haptics vibrate for fine scrubbing.")
+internal val BytecodePatchContext.scrubbingHapticsMethod by gettingFirstMethodDeclaratively(
+    "Failed to haptics vibrate for fine scrubbing.",
+) {
+    returnType("V")
 }
 
-internal val seekUndoHapticsFingerprint = fingerprint {
-    returns("V")
-    strings("Failed to execute seek undo haptics vibrate.")
+internal val BytecodePatchContext.seekUndoHapticsMethod by gettingFirstMethodDeclaratively(
+    "Failed to execute seek undo haptics vibrate.",
+) {
+    returnType("V")
 }
 
-internal val zoomHapticsFingerprint = fingerprint {
-    returns("V")
-    strings("Failed to haptics vibrate for video zoom")
+internal val BytecodePatchContext.zoomHapticsMethod by gettingFirstMethodDeclaratively(
+    "Failed to haptics vibrate for video zoom",
+) {
+    returnType("V")
 }

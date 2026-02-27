@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -32,6 +33,15 @@ public final class HidePlayerOverlayButtonsPatch {
     /**
      * Injection point.
      */
+    public static boolean getCastButtonOverrideV2(boolean original) {
+        if (Settings.HIDE_CAST_BUTTON.get()) return false;
+
+        return original;
+    }
+
+    /**
+     * Injection point.
+     */
     public static void hideCaptionsButton(ImageView imageView) {
         imageView.setVisibility(Settings.HIDE_CAPTIONS_BUTTON.get() ? ImageView.GONE : ImageView.VISIBLE);
     }
@@ -40,10 +50,10 @@ public final class HidePlayerOverlayButtonsPatch {
             = Settings.HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS.get();
 
     private static final int PLAYER_CONTROL_PREVIOUS_BUTTON_TOUCH_AREA_ID = getResourceIdentifierOrThrow(
-            "player_control_previous_button_touch_area", "id");
+            ResourceType.ID, "player_control_previous_button_touch_area");
 
     private static final int PLAYER_CONTROL_NEXT_BUTTON_TOUCH_AREA_ID = getResourceIdentifierOrThrow(
-            "player_control_next_button_touch_area", "id");
+            ResourceType.ID, "player_control_next_button_touch_area");
 
     /**
      * Injection point.

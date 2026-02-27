@@ -1,14 +1,16 @@
 package app.revanced.patches.strava.groupkudos
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.firstMethod
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val initFingerprint = fingerprint {
-    parameters("Lcom/strava/feed/view/modal/GroupTabFragment;" , "Z" , "Landroidx/fragment/app/FragmentManager;")
-    custom { method, _ ->
-        method.name == "<init>"
-    }
+internal val BytecodePatchContext.initMethod by gettingFirstMethodDeclaratively {
+    name("<init>")
+    parameterTypes("Lcom/strava/feed/view/modal/GroupTabFragment;", "Z", "Landroidx/fragment/app/FragmentManager;")
 }
 
-internal val actionHandlerFingerprint = fingerprint {
-    strings("state")
-}
+context(_: BytecodePatchContext)
+internal fun ClassDef.getActionHandlerMethod() = firstMethod("state")

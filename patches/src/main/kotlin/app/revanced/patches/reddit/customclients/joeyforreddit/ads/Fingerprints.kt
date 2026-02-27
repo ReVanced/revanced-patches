@@ -1,10 +1,12 @@
 package app.revanced.patches.reddit.customclients.joeyforreddit.ads
 
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
 
-internal val isAdFreeUserFingerprint = fingerprint {
+internal val BytecodePatchContext.isAdFreeUserMethod by gettingFirstMethodDeclaratively("AD_FREE_USER") {
     accessFlags(AccessFlags.PUBLIC)
-    returns("Z")
-    strings("AD_FREE_USER")
+    returnType("Z")
 }

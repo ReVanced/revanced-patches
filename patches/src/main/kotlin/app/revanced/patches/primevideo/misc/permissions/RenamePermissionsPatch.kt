@@ -7,11 +7,11 @@ import app.revanced.util.getNode
 import org.w3c.dom.Element
 
 @Suppress("unused")
-val renamePermissionsPatch = resourcePatch(
+val renameSharedPermissionsPatch = resourcePatch(
     name = "Rename shared permissions",
     description = "Rename certain permissions shared across Amazon apps. " +
-            "Applying this patch can fix installation errors, but can also break features in certain apps.",
-    use = false
+        "Applying this patch can fix installation errors, but can also break features in certain apps.",
+    use = false,
 ) {
     compatibleWith("com.amazon.avod.thirdpartyclient")
 
@@ -21,10 +21,10 @@ val renamePermissionsPatch = resourcePatch(
         "com.amazon.dcp.sso.permission.account.changed",
         "com.amazon.dcp.sso.permission.AmazonAccountPropertyService.property.changed",
         "com.amazon.identity.permission.CALL_AMAZON_DEVICE_INFORMATION_PROVIDER",
-        "com.amazon.appmanager.preload.permission.READ_PRELOAD_DEVICE_INFO_PROVIDER"
+        "com.amazon.appmanager.preload.permission.READ_PRELOAD_DEVICE_INFO_PROVIDER",
     )
 
-    execute {
+    apply {
         document("AndroidManifest.xml").use { document ->
             val manifest = document.getNode("manifest") as Element
 

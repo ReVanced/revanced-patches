@@ -1,7 +1,7 @@
 package app.revanced.patches.cieid.restrictions.root
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val bypassRootChecksPatch = bytecodePatch(
@@ -10,7 +10,7 @@ val bypassRootChecksPatch = bytecodePatch(
 ) {
     compatibleWith("it.ipzs.cieid")
 
-    execute {
-        checkRootFingerprint.method.addInstruction(1, "return-void")
+    apply {
+        checkRootMethod.returnEarly()
     }
 }

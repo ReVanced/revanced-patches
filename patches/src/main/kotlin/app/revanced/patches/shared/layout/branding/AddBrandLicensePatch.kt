@@ -10,7 +10,7 @@ import java.nio.file.Files
  * This patch must be a dependency for all patches that add ReVanced branding to the target app.
  */
 internal val addBrandLicensePatch = rawResourcePatch {
-    execute {
+    apply {
         val brandingLicenseFileName = "LICENSE_REVANCED.TXT"
 
         val inputFileStream = inputStreamFromBundledResource(

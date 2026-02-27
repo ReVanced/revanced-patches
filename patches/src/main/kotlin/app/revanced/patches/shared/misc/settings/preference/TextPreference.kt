@@ -20,10 +20,11 @@ class TextPreference(
     titleKey: String = "${key}_title",
     summaryKey: String? = "${key}_summary",
     icon: String? = null,
+    iconBold: String? = null,
     layout: String? = null,
     tag: String = "app.revanced.extension.shared.settings.preference.ResettableEditTextPreference",
     val inputType: InputType = InputType.TEXT
-) : BasePreference(key, titleKey, summaryKey, icon, layout, tag) {
+) : BasePreference(key, titleKey, summaryKey, icon, iconBold, layout, tag) {
 
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {

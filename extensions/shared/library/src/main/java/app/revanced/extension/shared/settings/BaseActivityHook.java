@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragment;
 import app.revanced.extension.shared.ui.Dim;
@@ -25,13 +26,13 @@ import app.revanced.extension.shared.ui.Dim;
 public abstract class BaseActivityHook extends Activity {
 
     private static final int ID_REVANCED_SETTINGS_FRAGMENTS =
-            getResourceIdentifierOrThrow("revanced_settings_fragments", "id");
+            getResourceIdentifierOrThrow(ResourceType.ID, "revanced_settings_fragments");
     private static final int ID_REVANCED_TOOLBAR_PARENT =
-            getResourceIdentifierOrThrow("revanced_toolbar_parent", "id");
+            getResourceIdentifierOrThrow(ResourceType.ID, "revanced_toolbar_parent");
     public static final int LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR =
-            getResourceIdentifierOrThrow("revanced_settings_with_toolbar", "layout");
+            getResourceIdentifierOrThrow(ResourceType.LAYOUT, "revanced_settings_with_toolbar");
     private static final int STRING_REVANCED_SETTINGS_TITLE =
-            getResourceIdentifierOrThrow("revanced_settings_title", "string");
+            getResourceIdentifierOrThrow(ResourceType.STRING, "revanced_settings_title");
 
     /**
      * Layout parameters for the toolbar, extracted from the dummy toolbar.
@@ -124,14 +125,16 @@ public abstract class BaseActivityHook extends Activity {
     }
 
     /**
+     * Returns the resource ID for the content view layout.
+     */
+    protected int getContentViewResourceId() {
+        return LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR;
+    }
+
+    /**
      * Customizes the activity's theme.
      */
     protected abstract void customizeActivityTheme(Activity activity);
-
-    /**
-     * Returns the resource ID for the content view layout.
-     */
-    protected abstract int getContentViewResourceId();
 
     /**
      * Returns the background color for the toolbar.

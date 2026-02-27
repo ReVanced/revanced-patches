@@ -7,8 +7,8 @@ import app.revanced.util.returnEarly
 fun disableAdsPatch(block: BytecodePatchBuilder.() -> Unit = {}) = bytecodePatch(
     name = "Disable ads",
 ) {
-    execute {
-        isAdsEnabledFingerprint.method.returnEarly()
+    apply {
+        isAdsEnabledMethod.returnEarly(false)
     }
 
     block()

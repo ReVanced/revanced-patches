@@ -9,7 +9,7 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.mobilefootie.wc2010")
 
-    execute {
-        shouldDisplayAdsMethod.method.returnEarly(false)
+    apply {
+        shouldDisplayAdsMethod.returnEarly(false)
     }
 }

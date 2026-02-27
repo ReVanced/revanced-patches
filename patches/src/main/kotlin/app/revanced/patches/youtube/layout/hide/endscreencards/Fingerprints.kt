@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.hide.endscreencards
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -9,8 +10,10 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-internal val layoutCircleFingerprint = fingerprint {
-    returns("Landroid/view/View;")
+internal val BytecodePatchContext.layoutCircleMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameterTypes()
+    returnType("Landroid/view/View;")
     opcodes(
         Opcode.CONST,
         Opcode.CONST_4,
@@ -21,8 +24,10 @@ internal val layoutCircleFingerprint = fingerprint {
     literal { layoutCircle }
 }
 
-internal val layoutIconFingerprint = fingerprint {
-    returns("Landroid/view/View;")
+internal val BytecodePatchContext.layoutIconMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameterTypes()
+    returnType("Landroid/view/View;")
     opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
@@ -32,8 +37,10 @@ internal val layoutIconFingerprint = fingerprint {
     literal { layoutIcon }
 }
 
-internal val layoutVideoFingerprint = fingerprint {
-    returns("Landroid/view/View;")
+internal val BytecodePatchContext.layoutVideoMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC)
+    parameterTypes()
+    returnType("Landroid/view/View;")
     opcodes(
         Opcode.CONST,
         Opcode.CONST_4,
@@ -44,18 +51,18 @@ internal val layoutVideoFingerprint = fingerprint {
     literal { layoutVideo }
 }
 
-internal val showEndscreenCardsFingerprint = fingerprint {
+internal val BytecodePatchContext.showEndscreenCardsMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L")
-    custom { method, classDef ->
-        classDef.methods.count() == 5
-                && method.containsLiteralInstruction(0)
-                && method.containsLiteralInstruction(5)
-                && method.containsLiteralInstruction(8)
-                && method.indexOfFirstInstruction {
-            val reference = getReference<FieldReference>()
-            reference?.type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
-        } >= 0
+    returnType("V")
+    parameterTypes("L")
+    custom {
+        immutableClassDef.methods.count() == 5 &&
+            containsLiteralInstruction(0) &&
+            containsLiteralInstruction(5) &&
+            containsLiteralInstruction(8) &&
+            indexOfFirstInstruction {
+                val reference = getReference<FieldReference>()
+                reference?.type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
+            } >= 0
     }
 }

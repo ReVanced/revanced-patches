@@ -15,11 +15,11 @@ import app.revanced.util.copyResources
 private val copyVideoUrlResourcePatch = resourcePatch {
     dependsOn(
         settingsPatch,
-        playerControlsResourcePatch,
+        playerControlsPatch,
         addResourcesPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "interaction.copyvideourl.copyVideoUrlResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(
@@ -41,7 +41,7 @@ private val copyVideoUrlResourcePatch = resourcePatch {
 }
 
 @Suppress("unused")
-val copyVideoUrlPatch = bytecodePatch(
+val copyVideoURLPatch = bytecodePatch(
     name = "Copy video URL",
     description = "Adds options to display buttons in the video player to copy video URLs.",
 ) {
@@ -53,14 +53,14 @@ val copyVideoUrlPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.31.40",
+        ),
     )
 
-    execute {
+    apply {
         val extensionPlayerPackage = "Lapp/revanced/extension/youtube/videoplayer"
         val buttonsDescriptors = listOf(
             "$extensionPlayerPackage/CopyVideoUrlButton;",

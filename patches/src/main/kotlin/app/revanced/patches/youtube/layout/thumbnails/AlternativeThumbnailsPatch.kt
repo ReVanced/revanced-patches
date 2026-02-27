@@ -19,6 +19,7 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/AlternativeThumbnailsPatch;"
 
+@Suppress("unused")
 val alternativeThumbnailsPatch = bytecodePatch(
     name = "Alternative thumbnails",
     description = "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
@@ -33,14 +34,14 @@ val alternativeThumbnailsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.31.40",
+        ),
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.thumbnails.alternativeThumbnailsPatch")
 
         val entries = "revanced_alt_thumbnail_options_entries"
@@ -49,27 +50,27 @@ val alternativeThumbnailsPatch = bytecodePatch(
             ListPreference(
                 key = "revanced_alt_thumbnail_home",
                 entriesKey = entries,
-                entryValuesKey = values
+                entryValuesKey = values,
             ),
             ListPreference(
                 key = "revanced_alt_thumbnail_subscription",
                 entriesKey = entries,
-                entryValuesKey = values
+                entryValuesKey = values,
             ),
             ListPreference(
                 key = "revanced_alt_thumbnail_library",
                 entriesKey = entries,
-                entryValuesKey = values
+                entryValuesKey = values,
             ),
             ListPreference(
                 key = "revanced_alt_thumbnail_player",
                 entriesKey = entries,
-                entryValuesKey = values
+                entryValuesKey = values,
             ),
             ListPreference(
                 key = "revanced_alt_thumbnail_search",
                 entriesKey = entries,
-                entryValuesKey = values
+                entryValuesKey = values,
             ),
             NonInteractivePreference(
                 "revanced_alt_thumbnail_dearrow_about",

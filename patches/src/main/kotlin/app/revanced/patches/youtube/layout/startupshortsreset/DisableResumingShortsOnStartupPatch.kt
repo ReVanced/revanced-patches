@@ -1,20 +1,20 @@
 package app.revanced.patches.youtube.layout.startupshortsreset
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.playservice.is_20_02_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_03_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -22,6 +22,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableResumingStartupShortsPlayerPatch;"
 
+@Suppress("unused")
 val disableResumingShortsOnStartupPatch = bytecodePatch(
     name = "Disable resuming Shorts on startup",
     description = "Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched.",
@@ -30,68 +31,64 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
+        versionCheckPatch,
     )
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.31.40",
+        ),
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.startupshortsreset.disableResumingShortsOnStartupPatch")
 
         PreferenceScreen.SHORTS.addPreferences(
             SwitchPreference("revanced_disable_resuming_shorts_player"),
         )
 
-        if (is_20_02_or_greater) {
-            userWasInShortsAlternativeFingerprint.let {
+        if (is_20_03_or_greater) {
+            userWasInShortsAlternativeMethodMatch.let {
                 it.method.apply {
-                    val stringIndex = it.stringMatches!!.first().index
-                    val booleanValueIndex = indexOfFirstInstructionReversedOrThrow(stringIndex) {
-                        opcode == Opcode.INVOKE_VIRTUAL &&
-                                getReference<MethodReference>()?.name == "booleanValue"
-                    }
-                    val booleanValueRegister =
-                        getInstruction<OneRegisterInstruction>(booleanValueIndex + 1).registerA
+                    val insertIndex = it[2] + 1
+                    val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     addInstructions(
-                        booleanValueIndex + 2, """
-                            invoke-static {v$booleanValueRegister}, $EXTENSION_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer(Z)Z
-                            move-result v$booleanValueRegister
-                            """
+                        insertIndex,
+                        """
+                            invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer(Z)Z
+                            move-result v$register
+                        """,
                     )
                 }
             }
         } else {
-            userWasInShortsLegacyFingerprint.method.apply {
+            userWasInShortsLegacyMethod.apply {
                 val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
-                    val reference = getReference<MethodReference>()
                     opcode == Opcode.INVOKE_INTERFACE &&
-                            reference?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
-                            reference.name == "isDone"
+                        getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
+                        getReference<MethodReference>()?.name == "isDone"
                 }
                 val freeRegister = findFreeRegister(listenableInstructionIndex)
 
                 addInstructionsAtControlFlowLabel(
                     listenableInstructionIndex,
                     """
-                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
+                        invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
                         move-result v$freeRegister
-                        if-eqz v$freeRegister, :show
+                        if-eqz v$freeRegister, :show_startup_shorts_player
                         return-void
-                        :show
+                        :show_startup_shorts_player
                         nop
-                    """
+                    """,
                 )
             }
         }
 
-        userWasInShortsConfigFingerprint.method.addInstructions(
+        userWasInShortsConfigMethod.addInstructions(
             0,
             """
                 invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
@@ -101,7 +98,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
                 return v0
                 :show
                 nop
-            """
+            """,
         )
     }
 }

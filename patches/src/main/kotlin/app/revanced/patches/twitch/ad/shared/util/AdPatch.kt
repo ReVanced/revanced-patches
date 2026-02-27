@@ -1,11 +1,12 @@
 package app.revanced.patches.twitch.ad.shared.util
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.firstClassDefOrNull
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 
 fun adPatch(
     conditionCall: String,
@@ -29,10 +30,10 @@ fun adPatch(
         classDefType: String,
         methodNames: Set<String>,
         returnMethod: ReturnMethod,
-    ) = with(classBy { classDefType == it.type }?.mutableClass) {
-        this ?: return false
+    ): Boolean {
+        val classDef = firstClassDefOrNull(classDefType) ?: return false
 
-        methods.filter { it.name in methodNames }.forEach {
+        classDef.methods.filter { it.name in methodNames }.forEach { method ->
             val retInstruction = when (returnMethod.returnType) {
                 'V' -> "return-void"
                 'Z' ->
@@ -44,17 +45,17 @@ fun adPatch(
                 else -> throw NotImplementedError()
             }
 
-            it.addInstructionsWithLabels(
+            method.addInstructionsWithLabels(
                 0,
                 """
                         ${createConditionInstructions("v0")}
                         $retInstruction
                     """,
-                ExternalLabel(skipLabelName, it.getInstruction(0)),
+                ExternalLabel(skipLabelName, method.getInstruction(0)),
             )
         }
 
-        true
+        return true
     }
 
     block(::createConditionInstructions, BytecodePatchContext::blockMethods)

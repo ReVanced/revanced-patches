@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.links
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
@@ -10,6 +10,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
+@Suppress("unused")
 val openLinksExternallyPatch = bytecodePatch(
     name = "Open links externally",
     description = "Adds an option to always open links in your browser instead of the in-app browser.",
@@ -41,14 +42,14 @@ val openLinksExternallyPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.31.40",
+        ),
     )
 
-    execute {
+    apply {
         addResources("youtube", "misc.links.openLinksExternallyPatch")
 
         PreferenceScreen.MISC.addPreferences(

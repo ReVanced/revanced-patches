@@ -1,24 +1,27 @@
 package app.revanced.patches.music.layout.premium
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val hideGetPremiumFingerprint = fingerprint {
+internal val BytecodePatchContext.hideGetPremiumMethodMatch by composingFirstMethod(
+    "FEmusic_history",
+    "FEmusic_offline",
+) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
+    returnType("V")
+    parameterTypes()
     opcodes(
         Opcode.IF_NEZ,
         Opcode.CONST_16,
         Opcode.INVOKE_VIRTUAL,
     )
-    strings("FEmusic_history", "FEmusic_offline")
 }
 
-internal val membershipSettingsFingerprint = fingerprint {
+internal val BytecodePatchContext.membershipSettingsMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/CharSequence;")
+    returnType("Ljava/lang/CharSequence;")
     opcodes(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_INTERFACE,

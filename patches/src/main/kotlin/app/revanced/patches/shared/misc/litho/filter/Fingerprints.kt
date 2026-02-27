@@ -1,58 +1,64 @@
 package app.revanced.patches.shared.misc.litho.filter
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.containsLiteralInstruction
-import app.revanced.util.literal
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val lithoFilterFingerprint = fingerprint {
+internal val BytecodePatchContext.lithoFilterInitMethod by gettingFirstMethodDeclaratively {
+    definingClass("/LithoFilterPatch;")
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-    custom { _, classDef ->
-        classDef.endsWith("/LithoFilterPatch;")
+}
+
+internal val BytecodePatchContext.protobufBufferReferenceMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("[B")
+
+    var methodDefiningClass = ""
+    custom {
+        methodDefiningClass = definingClass
+        true
     }
+
+    instructions(
+        allOf(
+            Opcode.IGET_OBJECT(),
+            field { definingClass == methodDefiningClass && type == "Lcom/google/android/libraries/elements/adl/UpbMessage;" },
+        ),
+        method { definingClass == "Lcom/google/android/libraries/elements/adl/UpbMessage;" && name == "jniDecode" },
+    )
 }
 
 /**
  * Matches a method that use the protobuf of our component.
  */
-internal val protobufBufferReferenceFingerprint = fingerprint {
+internal val BytecodePatchContext.protobufBufferReferenceLegacyMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("I", "Ljava/nio/ByteBuffer;")
-    opcodes(
-        Opcode.IPUT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.SUB_INT_2ADDR,
-    )
+    returnType("V")
+    parameterTypes("I", "Ljava/nio/ByteBuffer;")
+    opcodes(Opcode.IPUT, Opcode.INVOKE_VIRTUAL, Opcode.MOVE_RESULT, Opcode.SUB_INT_2ADDR)
 }
 
-internal val componentContextParserFingerprint = fingerprint {
-    strings("Number of bits must be positive")
+internal val BytecodePatchContext.componentContextParserMethodMatch by composingFirstMethod {
+    instructions("Number of bits must be positive"())
 }
 
-internal val emptyComponentFingerprint = fingerprint {
+internal val BytecodePatchContext.emptyComponentMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
-    parameters()
-    strings("EmptyComponent")
-    custom { _, classDef ->
-        classDef.methods.filter { AccessFlags.STATIC.isSet(it.accessFlags) }.size == 1
-    }
+    parameterTypes()
+    instructions("EmptyComponent"())
+    custom { immutableClassDef.methods.filter { AccessFlags.STATIC.isSet(it.accessFlags) }.size == 1 }
 }
 
-internal val componentCreateFingerprint = fingerprint {
-    strings(
-        "Element missing correct type extension",
-        "Element missing type"
-    )
-}
+internal val BytecodePatchContext.componentCreateMethod by gettingFirstMethod(
+    "Element missing correct type extension",
+    "Element missing type",
+)
 
-internal val lithoThreadExecutorFingerprint = fingerprint {
+internal val BytecodePatchContext.lithoThreadExecutorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("I", "I", "I")
-    custom { method, classDef ->
-        classDef.superclass == "Ljava/util/concurrent/ThreadPoolExecutor;" &&
-                method.containsLiteralInstruction(1L) // 1L = default thread timeout.
-    }
+    parameterTypes("I", "I", "I")
+    instructions(1L()) // 1L = default thread timeout.
+    custom { immutableClassDef.superclass == "Ljava/util/concurrent/ThreadPoolExecutor;" }
 }

@@ -1,7 +1,7 @@
 package app.revanced.patches.music.misc.dns
 
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
-import app.revanced.patches.music.shared.mainActivityOnCreateFingerprint
+import app.revanced.patches.music.shared.mainActivityOnCreateMethod
 import app.revanced.patches.shared.misc.dns.checkWatchHistoryDomainNameResolutionPatch
 
 val checkWatchHistoryDomainNameResolutionPatch = checkWatchHistoryDomainNameResolutionPatch(
@@ -18,5 +18,5 @@ val checkWatchHistoryDomainNameResolutionPatch = checkWatchHistoryDomainNameReso
         )
     },
 
-    mainActivityFingerprint = mainActivityOnCreateFingerprint
+    getMainActivityMethod = { mainActivityOnCreateMethod }
 )

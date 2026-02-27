@@ -1,64 +1,61 @@
 package app.revanced.patches.music.layout.buttons
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.containsLiteralInstruction
+import app.revanced.patcher.*
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val mediaRouteButtonFingerprint = fingerprint {
+internal val BytecodePatchContext.mediaRouteButtonMethod by gettingFirstMethodDeclaratively("MediaRouteButton") {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
-    returns("Z")
-    strings("MediaRouteButton")
+    returnType("Z")
 }
 
-internal val playerOverlayChipFingerprint = fingerprint {
+internal val BytecodePatchContext.playerOverlayChipMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    literal { playerOverlayChip }
+    returnType("L")
+    instructions(playerOverlayChip())
 }
 
-internal val historyMenuItemFingerprint = fingerprint {
+internal val BytecodePatchContext.historyMenuItemMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Landroid/view/Menu;")
+    returnType("V")
+    parameterTypes("Landroid/view/Menu;")
     opcodes(
         Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID
+        Opcode.RETURN_VOID,
     )
     literal { historyMenuItem }
-    custom { _, classDef ->
-        classDef.methods.count() == 5
+    custom {
+        immutableClassDef.methods.count() == 5
     }
 }
 
-internal val historyMenuItemOfflineTabFingerprint = fingerprint {
+internal val BytecodePatchContext.historyMenuItemOfflineTabMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Landroid/view/Menu;")
+    returnType("V")
+    parameterTypes("Landroid/view/Menu;")
     opcodes(
         Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID
+        Opcode.RETURN_VOID,
     )
-    custom { method, _ ->
-        method.containsLiteralInstruction(historyMenuItem) &&
-                method.containsLiteralInstruction(offlineSettingsMenuItem)
-    }
+
+    val match = indexedMatcher(items = unorderedAllOf(historyMenuItem(), offlineSettingsMenuItem()))
+    custom { match(instructions) }
 }
 
-internal val searchActionViewFingerprint = fingerprint {
+internal val BytecodePatchContext.searchActionViewMethod by gettingFirstMethodDeclaratively {
+    definingClass("/SearchActionProvider;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/view/View;")
-    parameters()
+    returnType("Landroid/view/View;")
+    parameterTypes()
     literal { searchButton }
-    custom { _, classDef ->
-        classDef.type.endsWith("/SearchActionProvider;")
-    }
 }
 
-internal val topBarMenuItemImageViewFingerprint = fingerprint {
+internal val BytecodePatchContext.topBarMenuItemImageViewMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/view/View;")
-    parameters()
+    returnType("Landroid/view/View;")
+    parameterTypes()
     literal { topBarMenuItemImageView }
 }

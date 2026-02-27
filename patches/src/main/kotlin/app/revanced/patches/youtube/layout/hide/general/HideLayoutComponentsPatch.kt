@@ -1,29 +1,24 @@
 package app.revanced.patches.youtube.layout.hide.general
 
-import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.Match
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.CompositeMatch
+import app.revanced.patcher.extensions.*
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.shared.layout.hide.general.hideLayoutComponentsPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
-import app.revanced.patches.youtube.misc.playservice.is_20_07_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_09_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_26_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.*
+import app.revanced.util.findFreeRegister
+import app.revanced.util.findInstructionIndicesReversedOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -31,80 +26,43 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-var expandButtonDownId = -1L
+internal var albumCardId = -1L
     private set
-var albumCardId = -1L
+internal var crowdfundingBoxId = -1L
     private set
-var crowdfundingBoxId = -1L
+internal var filterBarHeightId = -1L
     private set
-var youTubeLogo = -1L
+internal var relatedChipCloudMarginId = -1L
     private set
-var filterBarHeightId = -1L
-    private set
-var relatedChipCloudMarginId = -1L
-    private set
-var barContainerHeightId = -1L
-    private set
-var fabButtonId = -1L
+internal var barContainerHeightId = -1L
     private set
 
 private val hideLayoutComponentsResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch)
 
-    execute {
-        expandButtonDownId = resourceMappings[
-            "layout",
-            "expand_button_down",
-        ]
+    apply {
+        albumCardId = ResourceType.LAYOUT["album_card"]
 
-        albumCardId = resourceMappings[
-            "layout",
-            "album_card",
-        ]
+        crowdfundingBoxId = ResourceType.LAYOUT["donation_companion"]
 
-        crowdfundingBoxId = resourceMappings[
-            "layout",
-            "donation_companion",
-        ]
+        relatedChipCloudMarginId = ResourceType.LAYOUT["related_chip_cloud_reduced_margins"]
 
-        youTubeLogo = resourceMappings[
-            "id",
-            "youtube_logo",
-        ]
+        filterBarHeightId = ResourceType.DIMEN["filter_bar_height"]
 
-        relatedChipCloudMarginId = resourceMappings[
-            "layout",
-            "related_chip_cloud_reduced_margins",
-        ]
-
-        filterBarHeightId = resourceMappings[
-            "dimen",
-            "filter_bar_height",
-        ]
-
-        barContainerHeightId = resourceMappings[
-            "dimen",
-            "bar_container_height",
-        ]
-
-        fabButtonId = resourceMappings[
-            "id",
-            "fab",
-        ]
+        barContainerHeightId = ResourceType.DIMEN["bar_container_height"]
     }
 }
 
 private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/patches/components/LayoutComponentsFilter;"
+    "Lapp/revanced/extension/youtube/patches/litho/LayoutComponentsFilter;"
 private const val DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME =
-    "Lapp/revanced/extension/youtube/patches/components/DescriptionComponentsFilter;"
+    "Lapp/revanced/extension/youtube/patches/litho/DescriptionComponentsFilter;"
 private const val COMMENTS_FILTER_CLASS_NAME =
-    "Lapp/revanced/extension/youtube/patches/components/CommentsFilter;"
+    "Lapp/revanced/extension/youtube/patches/litho/CommentsFilter;"
 private const val CUSTOM_FILTER_CLASS_NAME =
-    "Lapp/revanced/extension/shared/patches/components/CustomFilter;"
+    "Lapp/revanced/extension/shared/patches/litho/CustomFilter;"
 private const val KEYWORD_FILTER_CLASS_NAME =
-    "Lapp/revanced/extension/youtube/patches/components/KeywordContentFilter;"
-
+    "Lapp/revanced/extension/youtube/patches/litho/KeywordContentFilter;"
 
 val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
     lithoFilterPatch = lithoFilterPatch,
@@ -112,22 +70,24 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
     additionalDependencies = setOf(
         hideLayoutComponentsResourcePatch,
         navigationBarHookPatch,
+        versionCheckPatch,
+        resourceMappingPatch,
     ),
     filterClasses = setOf(
         LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR,
         DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME,
         COMMENTS_FILTER_CLASS_NAME,
         KEYWORD_FILTER_CLASS_NAME,
-        CUSTOM_FILTER_CLASS_NAME
+        CUSTOM_FILTER_CLASS_NAME,
     ),
     compatibleWithPackages = arrayOf(
         "com.google.android.youtube" to setOf(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
-        )
-    )
+            "20.21.37",
+            "20.31.40",
+        ),
+    ),
 ) {
     addResources("youtube", "layout.hide.general.hideLayoutComponentsPatch")
 
@@ -190,7 +150,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                 TextPreference("revanced_hide_keyword_content_phrases", inputType = InputType.TEXT_MULTI_LINE),
                 NonInteractivePreference(
                     key = "revanced_hide_keyword_content_about",
-                    tag = "app.revanced.extension.shared.settings.preference.BulletPointPreference"
+                    tag = "app.revanced.extension.shared.settings.preference.BulletPointPreference",
                 ),
                 NonInteractivePreference(
                     key = "revanced_hide_keyword_content_about_whole_words",
@@ -228,7 +188,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         SwitchPreference("revanced_hide_floating_microphone_button"),
         SwitchPreference(
             key = "revanced_hide_horizontal_shelves",
-            tag = "app.revanced.extension.shared.settings.preference.BulletPointSwitchPreference"
+            tag = "app.revanced.extension.shared.settings.preference.BulletPointSwitchPreference",
         ),
         SwitchPreference("revanced_hide_image_shelf"),
         SwitchPreference("revanced_hide_latest_posts"),
@@ -248,31 +208,30 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // region Mix playlists
 
-    (if (is_20_09_or_greater) parseElementFromBufferFingerprint
-    else if (is_20_07_or_greater) parseElementFromBufferLegacy2007Fingerprint
-    else parseElementFromBufferLegacy1901Fingerprint).let {
+    parseElementFromBufferMethodMatch.let {
         it.method.apply {
+            val startIndex = it[0]
+            val insertIndex = startIndex + 1
+
             val byteArrayParameter = "p3"
-            val startIndex = it.patternMatch!!.startIndex
             val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
             val returnEmptyComponentInstruction = instructions.last { it.opcode == Opcode.INVOKE_STATIC }
             val returnEmptyComponentRegister =
                 (returnEmptyComponentInstruction as FiveRegisterInstruction).registerC
-            val insertIndex = startIndex + 1
             val freeRegister =
                 findFreeRegister(insertIndex, conversionContextRegister, returnEmptyComponentRegister)
 
             addInstructionsWithLabels(
                 insertIndex,
                 """
-                        invoke-static { v$conversionContextRegister, $byteArrayParameter }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
-                        move-result v$freeRegister 
-                        if-eqz v$freeRegister, :show
-                        move-object v$returnEmptyComponentRegister, p1   # Required for 19.47
-                        goto :return_empty_component
-                        :show
-                        nop
-                    """,
+                    invoke-static { v$conversionContextRegister, $byteArrayParameter }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
+                    move-result v$freeRegister 
+                    if-eqz v$freeRegister, :show
+                    move-object v$returnEmptyComponentRegister, p1   # Required for 19.47
+                    goto :return_empty_component
+                    :show
+                    nop
+                """,
                 ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
             )
         }
@@ -282,9 +241,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // region Watermark (legacy code for old versions of YouTube)
 
-    showWatermarkFingerprint.match(
-        playerOverlayFingerprint.originalClassDef,
-    ).method.apply {
+    playerOverlayMethod.immutableClassDef.getShowWatermarkMethod().apply {
         val index = implementation!!.instructions.size - 5
 
         removeInstruction(index)
@@ -301,30 +258,32 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // region Show more button
 
-    hideShowMoreButtonFingerprint.method.apply {
-        val moveRegisterIndex = hideShowMoreButtonFingerprint.patternMatch!!.endIndex
-        val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
+    (if (is_20_26_or_greater) hideShowMoreButtonMethodMatch else hideShowMoreLegacyButtonMethodMatch).let {
+        it.method.apply {
+            val moveRegisterIndex = it[-1]
+            val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
 
-        val insertIndex = moveRegisterIndex + 1
-        addInstruction(
-            insertIndex,
-            "invoke-static { v$viewRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
+            val insertIndex = moveRegisterIndex + 1
+            addInstruction(
+                insertIndex,
+                "invoke-static { v$viewRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
                     "->hideShowMoreButton(Landroid/view/View;)V",
-        )
+            )
+        }
     }
 
     // endregion
 
     // region crowdfunding box
-    crowdfundingBoxFingerprint.let {
+    crowdfundingBoxMethodMatch.let {
         it.method.apply {
-            val insertIndex = it.patternMatch!!.endIndex
+            val insertIndex = it[-1]
             val objectRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
             addInstruction(
                 insertIndex,
                 "invoke-static {v$objectRegister}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
-                        "->hideCrowdfundingBox(Landroid/view/View;)V",
+                    "->hideCrowdfundingBox(Landroid/view/View;)V",
             )
         }
     }
@@ -333,16 +292,16 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // region hide album cards
 
-    albumCardsFingerprint.let {
+    albumCardsMethodMatch.let {
         it.method.apply {
-            val checkCastAnchorIndex = it.patternMatch!!.endIndex
+            val checkCastAnchorIndex = it[-1]
             val insertIndex = checkCastAnchorIndex + 1
             val register = getInstruction<OneRegisterInstruction>(checkCastAnchorIndex).registerA
 
             addInstruction(
                 insertIndex,
                 "invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
-                        "->hideAlbumCard(Landroid/view/View;)V",
+                    "->hideAlbumCard(Landroid/view/View;)V",
             )
         }
     }
@@ -351,25 +310,26 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // region hide floating microphone
 
-    showFloatingMicrophoneButtonFingerprint.method.apply {
-        val literalIndex = indexOfFirstLiteralInstructionOrThrow(fabButtonId)
-        val booleanIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.IGET_BOOLEAN)
-        val register = getInstruction<TwoRegisterInstruction>(booleanIndex).registerA
+    showFloatingMicrophoneButtonMethodMatch.let {
+        it.method.apply {
+            val index = it[-1]
+            val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
-        addInstructions(
-            booleanIndex + 1,
-            """
-                    invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
-                    move-result v$register
+            addInstructions(
+                index + 1,
                 """
-        )
+                        invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
+                        move-result v$register
+                    """,
+            )
+        }
     }
 
     // endregion
 
     // region 'Yoodles'
 
-    yoodlesImageViewFingerprint.method.apply {
+    yoodlesImageViewMethod.apply {
         findInstructionIndicesReversedOrThrow {
             getReference<MethodReference>()?.name == "setImageDrawable"
         }.forEach { insertIndex ->
@@ -379,41 +339,40 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
             replaceInstruction(
                 insertIndex,
                 "invoke-static { v$imageViewRegister, v$drawableRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->" +
-                        "setDoodleDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V"
+                    "setDoodleDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V",
             )
         }
     }
 
     // endregion
 
-
     // region hide view count
 
-    hideViewCountFingerprint.method.apply {
-        val startIndex = hideViewCountFingerprint.patternMatch!!.startIndex
+    hideViewCountMethodMatch.method.apply {
+        val startIndex = hideViewCountMethodMatch[0]
         var returnStringRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
 
         // Find the instruction where the text dimension is retrieved.
         val applyDimensionIndex = indexOfFirstInstructionReversedOrThrow {
             val reference = getReference<MethodReference>()
             opcode == Opcode.INVOKE_STATIC &&
-                    reference?.definingClass == "Landroid/util/TypedValue;" &&
-                    reference.returnType == "F" &&
-                    reference.name == "applyDimension" &&
-                    reference.parameterTypes == listOf("I", "F", "Landroid/util/DisplayMetrics;")
+                reference?.definingClass == "Landroid/util/TypedValue;" &&
+                reference.returnType == "F" &&
+                reference.name == "applyDimension" &&
+                reference.parameterTypes == listOf("I", "F", "Landroid/util/DisplayMetrics;")
         }
 
         // A float value is passed which is used to determine subtitle text size.
         val floatDimensionRegister = getInstruction<OneRegisterInstruction>(
-            applyDimensionIndex + 1
+            applyDimensionIndex + 1,
         ).registerA
 
         addInstructions(
             applyDimensionIndex - 1,
             """
-                    invoke-static { v$returnStringRegister, v$floatDimensionRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->modifyFeedSubtitleSpan(Landroid/text/SpannableString;F)Landroid/text/SpannableString;
-                    move-result-object v$returnStringRegister
-                """
+                invoke-static { v$returnStringRegister, v$floatDimensionRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->modifyFeedSubtitleSpan(Landroid/text/SpannableString;F)Landroid/text/SpannableString;
+                move-result-object v$returnStringRegister
+            """,
         )
     }
 
@@ -425,40 +384,38 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
      * Patch a [Method] with a given [instructions].
      *
      * @param RegisterInstruction The type of instruction to get the register from.
-     * @param insertIndexOffset The offset to add to the end index of the [Match.patternMatch].
+     * @param insertIndexOffset The offset to add to the end index of the [CompositeMatch.indices].
      * @param hookRegisterOffset The offset to add to the register of the hook.
      * @param instructions The instructions to add with the register as a parameter.
      */
-    fun <RegisterInstruction : OneRegisterInstruction> Fingerprint.patch(
+    fun <RegisterInstruction : OneRegisterInstruction> CompositeMatch.patch(
         insertIndexOffset: Int = 0,
         hookRegisterOffset: Int = 0,
         instructions: (Int) -> String,
     ) = method.apply {
-        val endIndex = patternMatch!!.endIndex
-
+        val endIndex = get(-1)
         val insertIndex = endIndex + insertIndexOffset
-        val register =
-            getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
+        val register = getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
 
         addInstructions(insertIndex, instructions(register))
     }
 
-    filterBarHeightFingerprint.patch<TwoRegisterInstruction> { register ->
+    filterBarHeightMethodMatch.patch<TwoRegisterInstruction> { register ->
         """
-                invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInFeed(I)I
-                move-result v$register
-            """
+            invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInFeed(I)I
+            move-result v$register
+        """
     }
 
-    searchResultsChipBarFingerprint.patch<OneRegisterInstruction>(-1, -2) { register ->
+    searchResultsChipBarMethodMatch.patch<OneRegisterInstruction>(-1, -2) { register ->
         """
-                invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInSearch(I)I
-                move-result v$register
-            """
+            invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInSearch(I)I
+            move-result v$register
+        """
     }
 
-    relatedChipCloudFingerprint.patch<OneRegisterInstruction>(1) { register ->
+    relatedChipCloudMethodMatch.patch<OneRegisterInstruction>(1) { register ->
         "invoke-static { v$register }, " +
-                "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
+            "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
     }
 }

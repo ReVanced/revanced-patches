@@ -1,12 +1,19 @@
 package app.revanced.patches.instagram.misc.disableAnalytics
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.composingFirstMethod
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.strings
 
-internal val instagramAnalyticsUrlBuilderMethodFingerprint = fingerprint {
+internal val BytecodePatchContext.instagramAnalyticsUrlBuilderMethod by gettingFirstMethodDeclaratively {
     strings("/logging_client_events")
 }
 
-internal const val TARGET_URL = "https://graph.facebook.com/logging_client_events"
-internal val facebookAnalyticsUrlInitMethodFingerprint = fingerprint {
-    strings("analytics_endpoint",TARGET_URL)
+internal val BytecodePatchContext.facebookAnalyticsUrlInitMethodMatch by composingFirstMethod {
+    instructions(
+        "analytics_endpoint"(),
+        "https://graph.facebook.com/logging_client_events"()
+    )
 }

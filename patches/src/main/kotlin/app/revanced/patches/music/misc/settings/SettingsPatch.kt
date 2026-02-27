@@ -1,5 +1,6 @@
 package app.revanced.patches.music.misc.settings
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
@@ -8,14 +9,7 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.settings.preference.BasePreference
-import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
-import app.revanced.patches.shared.misc.settings.preference.InputType
-import app.revanced.patches.shared.misc.settings.preference.IntentPreference
-import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
-import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.shared.misc.settings.preference.TextPreference
+import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.settingsPatch
 import app.revanced.patches.youtube.misc.settings.modifyActivityForSettingsInjection
 import app.revanced.util.copyXmlNode
@@ -30,18 +24,18 @@ private val settingsResourcePatch = resourcePatch {
     dependsOn(
         resourceMappingPatch,
         settingsPatch(
-            listOf(
+            rootPreferences = listOf(
                 IntentPreference(
                     titleKey = "revanced_settings_title",
                     summaryKey = null,
                     intent = newIntent("revanced_settings_intent"),
-                ) to "settings_headers",
+                ) to "settings_headers"
             ),
-            preferences
+            preferences = preferences
         )
     )
 
-    execute {
+    apply {
 
         // Set the style for the ReVanced settings to follow the style of the music settings,
         // namely: action bar height, menu item padding and remove horizontal dividers.
@@ -72,7 +66,7 @@ private val settingsResourcePatch = resourcePatch {
 }
 
 val settingsPatch = bytecodePatch(
-    description = "Adds settings for ReVanced to YouTube Music.",
+    description = "Adds settings for ReVanced to YouTube Music."
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -80,7 +74,7 @@ val settingsPatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    execute {
+    apply {
         addResources("music", "misc.settings.settingsPatch")
         addResources("shared", "misc.debugging.enableDebuggingPatch")
 
@@ -107,14 +101,14 @@ val settingsPatch = bytecodePatch(
         )
 
         modifyActivityForSettingsInjection(
-            googleApiActivityFingerprint.classDef,
-            googleApiActivityFingerprint.method,
+            googleApiActivityMethod.classDef,
+            googleApiActivityMethod,
             GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR,
             true
         )
     }
 
-    finalize {
+    afterDependents {
         PreferenceScreen.close()
     }
 }

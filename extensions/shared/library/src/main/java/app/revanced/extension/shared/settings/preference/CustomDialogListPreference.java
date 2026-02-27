@@ -20,6 +20,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.ui.CustomDialog;
 
@@ -30,14 +31,18 @@ import app.revanced.extension.shared.ui.CustomDialog;
 @SuppressWarnings({"unused", "deprecation"})
 public class CustomDialogListPreference extends ListPreference {
 
-    public static final int ID_REVANCED_CHECK_ICON =
-            getResourceIdentifierOrThrow("revanced_check_icon", "id");
-    public static final int ID_REVANCED_CHECK_ICON_PLACEHOLDER =
-            getResourceIdentifierOrThrow("revanced_check_icon_placeholder", "id");
-    public static final int ID_REVANCED_ITEM_TEXT =
-            getResourceIdentifierOrThrow("revanced_item_text", "id");
-    public static final int LAYOUT_REVANCED_CUSTOM_LIST_ITEM_CHECKED =
-            getResourceIdentifierOrThrow("revanced_custom_list_item_checked", "layout");
+    public static final int ID_REVANCED_CHECK_ICON = getResourceIdentifierOrThrow(
+            ResourceType.ID, "revanced_check_icon");
+    public static final int ID_REVANCED_CHECK_ICON_PLACEHOLDER = getResourceIdentifierOrThrow(
+            ResourceType.ID, "revanced_check_icon_placeholder");
+    public static final int ID_REVANCED_ITEM_TEXT = getResourceIdentifierOrThrow(
+            ResourceType.ID, "revanced_item_text");
+    public static final int LAYOUT_REVANCED_CUSTOM_LIST_ITEM_CHECKED = getResourceIdentifierOrThrow(
+            ResourceType.LAYOUT, "revanced_custom_list_item_checked");
+    public static final int DRAWABLE_CHECKMARK = getResourceIdentifierOrThrow(
+            ResourceType.DRAWABLE, "revanced_settings_custom_checkmark");
+    public static final int DRAWABLE_CHECKMARK_BOLD = getResourceIdentifierOrThrow(
+            ResourceType.DRAWABLE, "revanced_settings_custom_checkmark_bold");
 
     private String staticSummary = null;
     private CharSequence[] highlightedEntriesForDialog = null;
@@ -125,9 +130,13 @@ public class CustomDialogListPreference extends ListPreference {
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 view = inflater.inflate(layoutResourceId, parent, false);
                 holder = new SubViewDataContainer();
-                holder.checkIcon = view.findViewById(ID_REVANCED_CHECK_ICON);
                 holder.placeholder = view.findViewById(ID_REVANCED_CHECK_ICON_PLACEHOLDER);
                 holder.itemText = view.findViewById(ID_REVANCED_ITEM_TEXT);
+                holder.checkIcon = view.findViewById(ID_REVANCED_CHECK_ICON);
+                holder.checkIcon.setImageResource(Utils.appIsUsingBoldIcons()
+                        ? DRAWABLE_CHECKMARK_BOLD
+                        : DRAWABLE_CHECKMARK
+                );
                 view.setTag(holder);
             } else {
                 holder = (SubViewDataContainer) view.getTag();

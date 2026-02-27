@@ -1,11 +1,9 @@
 package app.revanced.patches.youtube.ad.video
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val loadVideoAdsFingerprint = fingerprint {
-    strings(
-        "TriggerBundle doesn't have the required metadata specified by the trigger ",
-        "Tried to enter slot with no assigned slotAdapter",
-        "Trying to enter a slot when a slot of same type and physical position is already active. Its status: ",
-    )
-}
+internal val BytecodePatchContext.loadVideoAdsMethod by gettingFirstMethodDeclaratively(
+    "TriggerBundle doesn't have the required metadata specified by the trigger ",
+    "Ping migration no associated ping bindings for activated trigger: ",
+)

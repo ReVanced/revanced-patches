@@ -1,13 +1,15 @@
 package app.revanced.patches.tiktok.shared
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val getEnterFromFingerprint = fingerprint {
-    returns("Ljava/lang/String;")
+internal val BytecodePatchContext.getEnterFromMethod by gettingFirstImmutableMethodDeclaratively {
+    definingClass("/BaseListFragmentPanel;")
+    returnType("Ljava/lang/String;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("Z")
+    parameterTypes("Z")
     opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
@@ -17,14 +19,8 @@ internal val getEnterFromFingerprint = fingerprint {
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.RETURN_OBJECT,
     )
-    custom { methodDef, _ ->
-        methodDef.definingClass.endsWith("/BaseListFragmentPanel;")
-    }
 }
 
-internal val onRenderFirstFrameFingerprint = fingerprint {
-    strings("method_enable_viewpager_preload_duration")
-    custom { _, classDef ->
-        classDef.endsWith("/BaseListFragmentPanel;")
-    }
+internal val BytecodePatchContext.onRenderFirstFrameMethod by gettingFirstMethodDeclaratively("method_enable_viewpager_preload_duration") {
+    definingClass("/BaseListFragmentPanel;")
 }

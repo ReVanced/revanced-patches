@@ -3,19 +3,16 @@ package app.revanced.patches.all.misc.hex
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.rawResourcePatch
 import app.revanced.patcher.patch.stringsOption
-import app.revanced.patches.shared.misc.hex.HexPatchBuilder
 import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.util.Utils.trimIndentMultiline
 
 @Suppress("unused")
-val hexPatch = rawResourcePatch(
-    name = "Hex",
+val Hex = rawResourcePatch(
     description = "Replaces a hexadecimal patterns of bytes of files in an APK.",
     use = false,
 ) {
     val replacements by stringsOption(
-        key = "replacements",
-        title = "Replacements",
+        name = "Replacements",
         description = """
             Hexadecimal patterns to search for and replace with another in a target file.
 
@@ -34,10 +31,14 @@ val hexPatch = rawResourcePatch(
 
     dependsOn(
         hexPatch(
-            block = fun HexPatchBuilder.() {
+            block = {
                 replacements!!.forEach { replacement ->
                     try {
-                        val (pattern, replacementPattern, targetFilePath) = replacement.split("|", limit = 3)
+                        val (pattern, replacementPattern, targetFilePath) = replacement.split(
+                            "|",
+                            limit = 3
+                        )
+
                         pattern asPatternTo replacementPattern inFile targetFilePath
                     } catch (e: Exception) {
                         throw PatchException(
@@ -49,6 +50,6 @@ val hexPatch = rawResourcePatch(
                     }
                 }
             },
-        )
+        ),
     )
 }

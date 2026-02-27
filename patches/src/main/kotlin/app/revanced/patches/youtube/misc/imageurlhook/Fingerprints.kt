@@ -1,64 +1,64 @@
 package app.revanced.patches.youtube.misc.imageurlhook
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val onFailureFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getOnFailureMethod() = firstMethodDeclaratively {
+    name("onFailed")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters(
+    returnType("V")
+    parameterTypes(
         "Lorg/chromium/net/UrlRequest;",
         "Lorg/chromium/net/UrlResponseInfo;",
-        "Lorg/chromium/net/CronetException;"
+        "Lorg/chromium/net/CronetException;",
     )
-    custom { method, _ ->
-        method.name == "onFailed"
-    }
 }
 
-// Acts as a parent fingerprint.
-internal val onResponseStartedFingerprint = fingerprint {
+// Acts as a parent method.
+internal val BytecodePatchContext.onResponseStartedMethod by gettingFirstMethodDeclaratively(
+    "Content-Length",
+    "Content-Type",
+    "identity",
+    "application/x-protobuf",
+) {
+    name("onResponseStarted")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;")
-    strings(
-        "Content-Length",
-        "Content-Type",
-        "identity",
-        "application/x-protobuf",
-    )
-    custom { method, _ ->
-        method.name == "onResponseStarted"
-    }
+    returnType("V")
+    parameterTypes("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;")
 }
 
-internal val onSucceededFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getOnSucceededMethod() = firstMethodDeclaratively {
+    name("onSucceeded")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;")
-    custom { method, _ ->
-        method.name == "onSucceeded"
-    }
+    returnType("V")
+    parameterTypes("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;")
 }
 
 internal const val CRONET_URL_REQUEST_CLASS_DESCRIPTOR = "Lorg/chromium/net/impl/CronetUrlRequest;"
 
-internal val requestFingerprint = fingerprint {
+internal val BytecodePatchContext.requestMethod by gettingFirstMethodDeclaratively {
+    definingClass(CRONET_URL_REQUEST_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
-    custom { _, classDef ->
-        classDef.type == CRONET_URL_REQUEST_CLASS_DESCRIPTOR
-    }
 }
 
-internal val messageDigestImageUrlFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getMessageDigestImageUrlMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("Ljava/lang/String;", "L")
+    parameterTypes("Ljava/lang/String;", "L")
 }
 
-internal val messageDigestImageUrlParentFingerprint = fingerprint {
+internal val BytecodePatchContext.messageDigestImageUrlParentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/String;")
-    parameters()
-    strings("@#&=*+-_.,:!?()/~'%;\$")
+    returnType("Ljava/lang/String;")
+    parameterTypes()
+    instructions(
+        anyOf(
+            string { equals("@#&=*+-_.,:!?()/~'%;$") },
+            string { equals("@#&=*+-_.,:!?()/~'%;$[]") }, // 20.38+
+        ),
+    )
 }

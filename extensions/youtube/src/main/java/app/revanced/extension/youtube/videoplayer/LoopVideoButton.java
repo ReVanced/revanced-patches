@@ -3,8 +3,11 @@ package app.revanced.extension.youtube.videoplayer;
 import static app.revanced.extension.shared.StringRef.str;
 
 import android.view.View;
+
 import androidx.annotation.Nullable;
+
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -14,9 +17,9 @@ public class LoopVideoButton {
     private static PlayerControlButton instance;
 
     private static final int LOOP_VIDEO_ON = Utils.getResourceIdentifierOrThrow(
-            "revanced_loop_video_button_on", "drawable");
+            ResourceType.DRAWABLE, "revanced_loop_video_button_on");
     private static final int LOOP_VIDEO_OFF = Utils.getResourceIdentifierOrThrow(
-            "revanced_loop_video_button_off", "drawable");
+            ResourceType.DRAWABLE,"revanced_loop_video_button_off");
 
     /**
      * Injection point.

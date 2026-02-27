@@ -1,64 +1,97 @@
 package app.revanced.patches.youtube.layout.shortsplayer
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 /**
  * Purpose of this method is not clear, and it's only used to identify
  * the obfuscated name of the videoId() method in PlaybackStartDescriptor.
+ * 20.38 and lower.
  */
-internal val playbackStartFeatureFlagFingerprint = fingerprint {
-    returns("Z")
-    parameters(
-        "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
+internal val BytecodePatchContext.playbackStartFeatureFlagMethodMatch by composingFirstMethod {
+    returnType("Z")
+    parameterTypes("Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;")
+    instructions(
+        method {
+            definingClass == "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;" &&
+                returnType == "Ljava/lang/String;"
+        },
+        45380134L(),
     )
-    literal {
-        45380134L
-    }
+}
+
+/**
+ * Purpose of this method is not entirely clear, and it's only used to identify
+ * the obfuscated name of the videoId() method in PlaybackStartDescriptor.
+ * 20.39+
+ */
+internal val BytecodePatchContext.watchPanelVideoIdMethodMatch by composingFirstMethod {
+    returnType("Ljava/lang/String;")
+    parameterTypes()
+    instructions(
+        allOf(
+            Opcode.IGET_OBJECT(),
+            field { type == "Lcom/google/android/apps/youtube/app/common/player/queue/WatchPanelId;" },
+        ),
+        allOf(
+            Opcode.CHECK_CAST(),
+            type("Lcom/google/android/apps/youtube/app/common/player/queue/DefaultWatchPanelId;"),
+        ),
+        method {
+            definingClass == "Lcom/google/android/apps/youtube/app/common/player/queue/DefaultWatchPanelId;" &&
+                returnType == "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;"
+        },
+        method {
+            definingClass == "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;" &&
+                returnType == "Ljava/lang/String;"
+        },
+
+    )
 }
 
 // Pre 19.25
-internal val shortsPlaybackIntentLegacyFingerprint = fingerprint {
+internal val BytecodePatchContext.shortsPlaybackIntentLegacyMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters(
+    returnType("V")
+    parameterTypes(
         "L",
         "Ljava/util/Map;",
         "J",
         "Ljava/lang/String;",
         "Z",
-        "Ljava/util/Map;"
+        "Ljava/util/Map;",
     )
-    strings(
+    instructions(
+        method { returnType == "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;" },
         // None of these strings are unique.
-        "com.google.android.apps.youtube.app.endpoint.flags",
-        "ReelWatchFragmentArgs",
-        "reels_fragment_descriptor"
+        "com.google.android.apps.youtube.app.endpoint.flags"(),
+        "ReelWatchFragmentArgs"(),
+        "reels_fragment_descriptor"(),
     )
 }
 
-internal val shortsPlaybackIntentFingerprint = fingerprint {
+internal val BytecodePatchContext.shortsPlaybackIntentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
-    returns("V")
-    parameters(
+    returnType("V")
+    parameterTypes(
         "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
         "Ljava/util/Map;",
         "J",
-        "Ljava/lang/String;"
+        "Ljava/lang/String;",
     )
-    strings(
+    instructions(
         // None of these strings are unique.
-        "com.google.android.apps.youtube.app.endpoint.flags",
-        "ReelWatchFragmentArgs",
-        "reels_fragment_descriptor"
+        "com.google.android.apps.youtube.app.endpoint.flags"(),
+        "ReelWatchFragmentArgs"(),
+        "reels_fragment_descriptor"(),
     )
 }
 
-internal val exitVideoPlayerFingerprint = fingerprint {
-    returns("V")
-    parameters()
-    literal {
-        mdx_drawer_layout_id
-    }
+internal val BytecodePatchContext.exitVideoPlayerMethod by gettingFirstMethodDeclaratively {
+    returnType("V")
+    parameterTypes()
+    instructions(ResourceType.ID("mdx_drawer_layout"))
 }

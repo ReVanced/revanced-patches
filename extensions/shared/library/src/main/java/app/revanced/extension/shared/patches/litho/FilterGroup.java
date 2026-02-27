@@ -55,7 +55,7 @@ public abstract class FilterGroup<T> {
     }
 
     protected final BooleanSetting setting;
-    protected final T[] filters;
+    public final T[] filters;
 
     /**
      * Initialize a new filter group.

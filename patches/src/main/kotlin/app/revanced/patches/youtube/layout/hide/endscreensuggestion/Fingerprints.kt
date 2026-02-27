@@ -1,38 +1,38 @@
 package app.revanced.patches.youtube.layout.hide.endscreensuggestion
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.patcher.*
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.methodReference
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val autoNavConstructorFingerprint = fingerprint {
-    returns("V")
+internal val BytecodePatchContext.autoNavConstructorMethod by gettingFirstImmutableMethodDeclaratively("main_app_autonav") {
+    returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    strings("main_app_autonav")
 }
 
-internal val autoNavStatusFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getAutoNavStatusMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
+    returnType("Z")
+    parameterTypes()
 }
 
-internal val removeOnLayoutChangeListenerFingerprint = fingerprint {
+internal val BytecodePatchContext.removeOnLayoutChangeListenerMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
+    returnType("V")
+    parameterTypes()
     opcodes(
         Opcode.IPUT,
-        Opcode.INVOKE_VIRTUAL
+        Opcode.INVOKE_VIRTUAL,
     )
     // This is the only reference present in the entire smali.
-    custom { method, _ ->
-        method.indexOfFirstInstruction {
-            val reference = getReference<MethodReference>()
-            reference?.name == "removeOnLayoutChangeListener" &&
-            reference.definingClass.endsWith("/YouTubePlayerOverlaysLayout;")
-        } >= 0
+    custom {
+        instructions.anyInstruction {
+            val reference = methodReference
+            reference?.name == "removeOnLayoutChangeListener" && reference.definingClass.endsWith("/YouTubePlayerOverlaysLayout;")
+        }
     }
 }

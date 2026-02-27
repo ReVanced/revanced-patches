@@ -1,28 +1,35 @@
 package app.revanced.patches.spotify.layout.theme
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.containsLiteralInstruction
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.firstMethodDeclaratively
+import app.revanced.patcher.gettingFirstImmutableMethod
+import app.revanced.patcher.gettingFirstImmutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethod
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
+import app.revanced.patcher.unorderedAllOf
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val colorSpaceUtilsClassFingerprint = fingerprint {
-    strings("The specified color must be encoded in an RGB color space.") // Partial string match.
+internal val BytecodePatchContext.colorSpaceUtilsClassMethod by gettingFirstImmutableMethodDeclaratively {
+    instructions("The specified color must be encoded in an RGB color space."(String::contains))
 }
 
-internal val convertArgbToRgbaFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getConvertArgbToRgbaMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC, AccessFlags.FINAL)
-    returns("J")
-    parameters("J")
+    returnType("J")
+    parameterTypes("J")
 }
 
-internal val parseLottieJsonFingerprint = fingerprint {
-    strings("Unsupported matte type: ")
-}
+internal val BytecodePatchContext.parseLottieJsonMethod by gettingFirstMethod("Unsupported matte type: ")
 
-internal val parseAnimatedColorFingerprint = fingerprint {
-    parameters("L", "F")
-    returns("Ljava/lang/Object;")
-    custom { method, _ ->
-        method.containsLiteralInstruction(255.0) &&
-                method.containsLiteralInstruction(1.0)
-    }
+internal val BytecodePatchContext.parseAnimatedColorMethod by gettingFirstMethodDeclaratively {
+    parameterTypes("L", "F")
+    returnType("Ljava/lang/Object;")
+    instructions(predicates = unorderedAllOf(255.0.toRawBits()(), 1.0.toRawBits()()))
 }

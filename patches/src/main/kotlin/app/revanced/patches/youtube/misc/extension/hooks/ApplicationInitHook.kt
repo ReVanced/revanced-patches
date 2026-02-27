@@ -1,5 +1,8 @@
 package app.revanced.patches.youtube.misc.extension.hooks
 
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patches.shared.misc.extension.activityOnCreateExtensionHook
 import app.revanced.patches.shared.misc.extension.extensionHook
 import app.revanced.patches.youtube.shared.YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
 
@@ -10,14 +13,12 @@ import app.revanced.patches.youtube.shared.YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
 internal val applicationInitHook = extensionHook {
     // Does _not_ resolve to the YouTube main activity.
     // Required as some hooked code runs before the main activity is launched.
-    strings("Application creation", "Application.onCreate")
+    instructions(
+        "Application.onCreate"(),
+        "Application creation"(),
+    )
 }
 
-internal val applicationInitOnCrateHook = extensionHook {
-    returns("V")
-    parameters("Landroid/os/Bundle;")
-    custom { method, classDef ->
-        method.name == "onCreate" && classDef.type == YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
-    }
-}
-
+internal val applicationInitOnCrateHook = activityOnCreateExtensionHook(
+    YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE,
+)

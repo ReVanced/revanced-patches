@@ -1,8 +1,10 @@
 package app.revanced.patches.youtube.video.speed.remember
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val initializePlaybackSpeedValuesFingerprint = fingerprint {
-    parameters("[L", "I")
-    strings("menu_item_playback_speed")
+internal val BytecodePatchContext.initializePlaybackSpeedValuesMethod by gettingFirstMethodDeclaratively(
+    "menu_item_playback_speed",
+) {
+    parameterTypes("[L", "I")
 }
