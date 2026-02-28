@@ -82,7 +82,7 @@ val navigationBarPatch = bytecodePatch(
             preferences += SwitchPreference("revanced_disable_translucent_navigation_bar_light")
             preferences += SwitchPreference("revanced_disable_translucent_navigation_bar_dark")
 
-            PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            PreferenceScreen.GENERAL.addPreferences(
                 SwitchPreference("revanced_disable_translucent_status_bar")
             )
 
@@ -91,7 +91,7 @@ val navigationBarPatch = bytecodePatch(
             }
         }
 
-        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+        PreferenceScreen.GENERAL.addPreferences(
             PreferenceScreenPreference(
                 key = "revanced_navigation_buttons_screen",
                 sorting = Sorting.UNSORTED,
@@ -189,7 +189,7 @@ val navigationBarPatch = bytecodePatch(
             toolbarPreferences += SwitchPreference("revanced_wide_searchbar")
         }
 
-        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+        PreferenceScreen.GENERAL.addPreferences(
             PreferenceScreenPreference(
                 key = "revanced_toolbar_screen",
                 sorting = Sorting.UNSORTED,

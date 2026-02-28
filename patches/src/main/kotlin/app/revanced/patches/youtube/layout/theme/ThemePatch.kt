@@ -203,7 +203,7 @@ val themePatch = baseThemePatch(
     executeBlock = {
         addResources("youtube", "layout.theme.themePatch")
 
-        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+        PreferenceScreen.GENERAL.addPreferences(
             SwitchPreference("revanced_gradient_loading_screen"),
         )
 
@@ -231,7 +231,7 @@ val themePatch = baseThemePatch(
         )
 
         if (is_19_47_or_greater) {
-            PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            PreferenceScreen.GENERAL.addPreferences(
                 ListPreference("revanced_splash_screen_animation_style"),
             )
         }

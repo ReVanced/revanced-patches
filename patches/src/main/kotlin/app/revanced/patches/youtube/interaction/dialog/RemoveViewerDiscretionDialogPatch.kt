@@ -9,7 +9,6 @@ import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.replaceInstructions
 import app.revanced.patcher.firstMethodDeclaratively
 import app.revanced.patcher.immutableClassDef
-import app.revanced.patcher.instructions
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.returnType
@@ -53,7 +52,7 @@ val removeViewerDiscretionDialogPatch = bytecodePatch(
     apply {
         addResources("youtube", "interaction.dialog.removeViewerDiscretionDialogPatch")
 
-        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+        PreferenceScreen.GENERAL.addPreferences(
             SwitchPreference("revanced_remove_viewer_discretion_dialog"),
         )
 

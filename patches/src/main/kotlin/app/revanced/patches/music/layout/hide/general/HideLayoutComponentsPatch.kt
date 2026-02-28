@@ -3,10 +3,12 @@ package app.revanced.patches.music.layout.hide.general
 import app.revanced.patches.music.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.patches.shared.layout.hide.general.hideLayoutComponentsPatch
+import app.revanced.patches.music.misc.settings.PreferenceScreen
 
 val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
     lithoFilterPatch = lithoFilterPatch,
     settingsPatch = settingsPatch,
+    generalSettingsScreen = PreferenceScreen.GENERAL,
     filterClasses = setOf("Lapp/revanced/extension/shared/patches/litho/CustomFilter;"),
     compatibleWithPackages = arrayOf(
         "com.google.android.apps.youtube.music" to setOf(

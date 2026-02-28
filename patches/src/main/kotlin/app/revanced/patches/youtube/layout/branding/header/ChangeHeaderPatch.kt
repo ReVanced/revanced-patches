@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.branding.header
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.wideLiteral
-import app.revanced.patcher.firstMethod
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -135,7 +134,7 @@ val changeHeaderPatch = resourcePatch(
     apply {
         addResources("youtube", "layout.branding.changeHeaderPatch")
 
-        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+        PreferenceScreen.GENERAL.addPreferences(
             if (custom == null) {
                 ListPreference("revanced_header_logo")
             } else {

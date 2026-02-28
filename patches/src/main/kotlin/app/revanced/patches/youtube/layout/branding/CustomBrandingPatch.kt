@@ -19,7 +19,7 @@ val customBrandingPatch = baseCustomBrandingPatch(
     getMainActivityOnCreate = BytecodePatchContext::mainActivityOnCreateMethod::get,
     mainActivityName = YOUTUBE_MAIN_ACTIVITY_NAME,
     activityAliasNameWithIntents = $$"com.google.android.youtube.app.honeycomb.Shell$HomeActivity",
-    preferenceScreen = PreferenceScreen.GENERAL_LAYOUT,
+    preferenceScreen = PreferenceScreen.GENERAL,
 
     block = {
         dependsOn(sharedExtensionPatch)

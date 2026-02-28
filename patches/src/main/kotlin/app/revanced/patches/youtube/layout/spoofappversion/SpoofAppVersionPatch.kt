@@ -51,7 +51,7 @@ val spoofAppVersionPatch = bytecodePatch(
     apply {
         addResources("youtube", "layout.spoofappversion.spoofAppVersionPatch")
 
-        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+        PreferenceScreen.GENERAL.addPreferences(
             // Group the switch and list preference together, since General menu is sorted by name
             // and the preferences can be scattered apart with non English languages.
             PreferenceCategory(

@@ -5,8 +5,8 @@ import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
+import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -16,6 +16,7 @@ import kotlin.collections.toTypedArray
 internal fun hideLayoutComponentsPatch(
     lithoFilterPatch: Patch,
     settingsPatch: Patch,
+    generalSettingsScreen: BasePreferenceScreen.Screen,
     additionalDependencies: Set<Patch> = emptySet(),
     filterClasses: Set<String>,
     vararg compatibleWithPackages: Pair<String, Set<String>?>,
@@ -36,7 +37,7 @@ internal fun hideLayoutComponentsPatch(
     apply {
         addResources("shared", "layout.hide.general.hideLayoutComponentsPatch")
 
-        PreferenceScreen.GENERAL.addPreferences(
+        generalSettingsScreen.addPreferences(
             PreferenceScreenPreference(
                 key = "revanced_custom_filter_screen",
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,

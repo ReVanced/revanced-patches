@@ -188,16 +188,16 @@ val settingsPatch = bytecodePatch(
         )
 
         if (is_19_34_or_greater) {
-            PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            PreferenceScreen.GENERAL.addPreferences(
                 SwitchPreference("revanced_restore_old_settings_menus"),
             )
         }
 
-        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+        PreferenceScreen.GENERAL.addPreferences(
             SwitchPreference("revanced_settings_search_history"),
         )
 
-        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+        PreferenceScreen.GENERAL.addPreferences(
             if (is_20_31_or_greater) {
                 PreferenceCategory(
                     titleKey = null,
@@ -382,7 +382,7 @@ object PreferenceScreen : BasePreferenceScreen() {
         iconBold = "@drawable/revanced_settings_screen_03_feed_bold",
         layout = "@layout/preference_with_icon",
     )
-    val GENERAL_LAYOUT = Screen(
+    val GENERAL = Screen(
         key = "revanced_settings_screen_04_general",
         summaryKey = null,
         icon = "@drawable/revanced_settings_screen_04_general",

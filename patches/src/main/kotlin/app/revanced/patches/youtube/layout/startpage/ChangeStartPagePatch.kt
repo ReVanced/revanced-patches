@@ -43,7 +43,7 @@ val changeStartPagePatch = bytecodePatch(
     apply {
         addResources("youtube", "layout.startpage.changeStartPagePatch")
 
-        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+        PreferenceScreen.GENERAL.addPreferences(
             PreferenceCategory(
                 titleKey = null,
                 sorting = Sorting.UNSORTED,
