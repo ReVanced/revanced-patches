@@ -1,3 +1,10 @@
+# [6.0.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.8...v6.0.0-dev.9) (2026-02-28)
+
+
+### Bug Fixes
+
+* **YouTube:** Add back missing custom filter by adding the preference to the correct screen ([2a10489](https://github.com/ReVanced/revanced-patches/commit/2a10489a869cbab1ed01502bc6fe9330c4052e06))
+
 # [6.0.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.7...v6.0.0-dev.8) (2026-02-28)
 
 
