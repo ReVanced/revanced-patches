@@ -39,7 +39,7 @@ val disablePlayerPopupPanelsPatch = bytecodePatch(
         addResources("youtube", "layout.panels.popup.playerPopupPanelsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_player_popup_panels"),
+            SwitchPreference("revanced_disable_player_popup_panels"),
         )
 
         getEngagementPanelControllerMethodMatch().method.addInstructionsWithLabels(
