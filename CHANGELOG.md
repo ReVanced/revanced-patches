@@ -1,3 +1,10 @@
+# [6.0.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.5...v6.0.0-dev.6) (2026-02-28)
+
+
+### Bug Fixes
+
+* Move strings to correct patch ([4dfe3fb](https://github.com/ReVanced/revanced-patches/commit/4dfe3fb08812ed572e01e58a8604c1be9e989438))
+
 # [6.0.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.4...v6.0.0-dev.5) (2026-02-28)
 
 
