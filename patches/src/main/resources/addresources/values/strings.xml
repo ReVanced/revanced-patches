@@ -849,6 +849,9 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_hide_toolbar_search_button_title">Hide Search button</string>
             <string name="revanced_hide_toolbar_search_button_summary_on">Search button is hidden</string>
             <string name="revanced_hide_toolbar_search_button_summary_off">Search button is shown.</string>
+            <string name="revanced_wide_searchbar_title">Enable wide search bar</string>
+            <string name="revanced_wide_searchbar_summary_on">Wide search bar is enabled</string>
+            <string name="revanced_wide_searchbar_summary_off">Wide search bar is disabled</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <string name="revanced_hide_player_flyout_title">Flyout menu</string>
@@ -1196,11 +1199,6 @@ Limitation: Dislikes may not appear in incognito mode"</string>
             <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">No client rate limits encountered</string>
             <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Client rate limit encountered %d times</string>
             <string name="revanced_ryd_statistics_millisecond_text">%d milliseconds</string>
-        </patch>
-        <patch id="layout.searchbar.wideSearchbarPatch">
-            <string name="revanced_wide_searchbar_title">Enable wide search bar</string>
-            <string name="revanced_wide_searchbar_summary_on">Wide search bar is enabled</string>
-            <string name="revanced_wide_searchbar_summary_off">Wide search bar is disabled</string>
         </patch>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
             <string name="revanced_settings_screen_10_sponsorblock_title" translatable="false">SponsorBlock</string>
