@@ -373,6 +373,10 @@ public final class app/revanced/patches/kleinanzeigen/hide_pur/HidePurPatchKt {
 	public static final fun getHidePurPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
+public final class app/revanced/patches/jakdojade/ad/DisableAdsPatchKt {
+	public static final fun getDisableAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/letterboxd/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/Patch;
 }
