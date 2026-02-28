@@ -1,3 +1,10 @@
+# [6.0.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.4...v6.0.0-dev.5) (2026-02-28)
+
+
+### Bug Fixes
+
+* **Reddit clients:** Fix patching broken during patcher migration by searching for strings with contains([#6681](https://github.com/ReVanced/revanced-patches/issues/6681)) ([00da402](https://github.com/ReVanced/revanced-patches/commit/00da4027707068f06ee7041b53d1316a7b218d5d))
+
 # [6.0.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.3...v6.0.0-dev.4) (2026-02-27)
 
 
