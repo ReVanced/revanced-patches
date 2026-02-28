@@ -1,3 +1,10 @@
+# [6.0.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.6...v6.0.0-dev.7) (2026-02-28)
+
+
+### Bug Fixes
+
+* Rename string keys correctly ([16e00ab](https://github.com/ReVanced/revanced-patches/commit/16e00ab4c0ff10e58adea40c7de72658788fcd97))
+
 # [6.0.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.5...v6.0.0-dev.6) (2026-02-28)
 
 
