@@ -87,15 +87,11 @@ fun gmsCoreSupportPatch(
             "com.google.android.gms",
             in GMS_PERMISSIONS,
             in GMS_AUTHORITIES,
-                -> if (string.startsWith("com.google")) {
-                string.replace("com.google", gmsCoreVendorGroupId)
-            } else {
-                "$gmsCoreVendorGroupId.$string"
-            }
+                -> string.prefixOrReplace("com.google", gmsCoreVendorGroupId)
 
             in APP_PERMISSIONS,
             in APP_AUTHORITIES,
-                -> "$toPackageName.$string"
+                -> string.prefixOrReplace(fromPackageName, toPackageName)
 
             else -> null
         }
@@ -116,7 +112,17 @@ fun gmsCoreSupportPatch(
                         }
 
                     in APP_AUTHORITIES ->
-                        string.replace(it.authority, "$toPackageName.${it.authority}")
+                        if (it.authority.startsWith(fromPackageName)) {
+                            string.replace(
+                                it.authority,
+                                it.authority.replace(fromPackageName, toPackageName)
+                            )
+                        } else {
+                            string.replace(
+                                it.authority,
+                                "$toPackageName.${it.authority}",
+                            )
+                        }
 
                     else -> null
                 }
@@ -226,7 +232,7 @@ fun gmsCoreSupportResourcePatch(
                 node.attributes.getNamedItem("android:name").apply {
                     APP_PERMISSIONS += textContent
 
-                    textContent = "$toPackageName.$textContent"
+                    textContent = textContent.prefixOrReplace(fromPackageName, toPackageName)
                 }
             }
 
@@ -235,7 +241,7 @@ fun gmsCoreSupportResourcePatch(
                     if (textContent in GMS_PERMISSIONS) {
                         textContent.replace("com.google", gmsCoreVendorGroupId)
                     } else if (textContent in APP_PERMISSIONS) {
-                        textContent = "$toPackageName.$textContent"
+                        textContent = textContent.prefixOrReplace(fromPackageName, toPackageName)
                     }
                 }
             }
@@ -245,7 +251,8 @@ fun gmsCoreSupportResourcePatch(
                     textContent = textContent.split(";")
                         .joinToString(";") { authority ->
                             APP_AUTHORITIES += authority
-                            "$toPackageName.$authority"
+
+                            authority.replace(fromPackageName, toPackageName)
                         }
                 }
             }
@@ -344,4 +351,10 @@ private object Constants {
     )
 
     val APP_AUTHORITIES = mutableSetOf<String>()
+}
+
+fun String.prefixOrReplace(from: String, to: String) = if (startsWith(from)) {
+    replace(from, to)
+} else {
+    "$to.$this"
 }
