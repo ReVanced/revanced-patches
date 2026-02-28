@@ -2,7 +2,6 @@ package app.revanced.patches.reddit.customclients.sync.syncforreddit.api
 
 import app.revanced.patcher.ClassDefComposing
 import app.revanced.patcher.composingFirstMethod
-import app.revanced.patcher.gettingFirstMethod
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
