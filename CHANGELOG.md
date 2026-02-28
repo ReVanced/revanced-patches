@@ -1,3 +1,10 @@
+# [6.0.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.7...v6.0.0-dev.8) (2026-02-28)
+
+
+### Bug Fixes
+
+* **GmsCore support:** Try replacing in strings before prefixing to handle more edge cases ([4d94a41](https://github.com/ReVanced/revanced-patches/commit/4d94a41c46f2d4e1bf33debc95b8aa84a64964bb))
+
 # [6.0.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.6...v6.0.0-dev.7) (2026-02-28)
 
 
