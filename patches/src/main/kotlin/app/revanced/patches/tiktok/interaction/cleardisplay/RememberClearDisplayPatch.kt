@@ -1,12 +1,11 @@
 package app.revanced.patches.tiktok.interaction.cleardisplay
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.tiktok.shared.onRenderFirstFrameFingerprint
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -21,9 +20,14 @@ val rememberClearDisplayPatch = bytecodePatch(
     )
 
     execute {
-        onClearDisplayEventFingerprint.method.let {
-            // region Hook the "Clear display" configuration save event to remember the state of clear display.
+        // kill loggers to prevent db from being constantly logged to
+        // might resolve crashing issue with this patch
+        clearModeLogCoreFingerprint.method.returnEarly()
+        clearModeLogStateFingerprint.method.returnEarly()
+        clearModeLogPlaytimeFingerprint.method.returnEarly()
 
+        onClearDisplayEventFingerprint.method.let {
+            // Hook the "Clear display" configuration save event to remember the state of clear display.
             val isEnabledIndex = it.indexOfFirstInstructionOrThrow(Opcode.IGET_BOOLEAN) + 1
             val isEnabledRegister = it.getInstruction<TwoRegisterInstruction>(isEnabledIndex - 1).registerA
 
@@ -33,38 +37,40 @@ val rememberClearDisplayPatch = bytecodePatch(
                     "Lapp/revanced/extension/tiktok/cleardisplay/RememberClearDisplayPatch;->rememberClearDisplayState(Z)V",
             )
 
-            // endregion
-
-            // region Override the "Clear display" configuration load event to load the state of clear display.
-
             val clearDisplayEventClass = it.parameters[0].type
-            onRenderFirstFrameFingerprint.method.addInstructionsWithLabels(
+            onRenderFirstFrameFingerprint.method.addInstructions(
                 0,
                 """
-                    # Create a new clearDisplayEvent and post it to the EventBus (https://github.com/greenrobot/EventBus)
-
-                    # Clear display type such as 0 = LONG_PRESS, 1 = SCREEN_RECORD etc.
-                    const/4 v1, 0x0
-
-                    # Enter method (Such as "pinch", "swipe_exit", or an empty string (unknown, what it means)).
-                    const-string v2, ""
-
-                    # Name of the clear display type which is equivalent to the clear display type.
-                    const-string v3, "long_press"
-                    
-                     # The state of clear display.
+                    # Get the saved state
                     invoke-static { }, Lapp/revanced/extension/tiktok/cleardisplay/RememberClearDisplayPatch;->getClearDisplayState()Z
-                    move-result v4
-                    if-eqz v4, :clear_display_disabled
+                    move-result v1
+                    
+                    # If false, jump past the event post
+                    if-eqz v1, :clear_display_disabled
 
+                    # Set up the other parameters
+                    # Clear display type: 0 = LONG_PRESS
+                    const/4 v2, 0x0
+                    
+                    # Enter method
+                    const-string v3, ""
+                    
+                    # Name of the clear display type
+                    const-string v4, "long_press"
+
+                    # Create the event
                     new-instance v0, $clearDisplayEventClass
-                    invoke-direct { v0, v1, v2, v3, v4 }, $clearDisplayEventClass-><init>(ILjava/lang/String;Ljava/lang/String;Z)V
+                    
+                    # Call the constructor in order
+                    invoke-direct { v0, v1, v2, v3, v4 }, $clearDisplayEventClass-><init>(ZILjava/lang/String;Ljava/lang/String;)V
+                    
+                    # Post it to the EventBus
                     invoke-virtual { v0 }, $clearDisplayEventClass->post()Lcom/ss/android/ugc/governance/eventbus/IEvent;
-                    """,
-                ExternalLabel("clear_display_disabled", onRenderFirstFrameFingerprint.method.getInstruction(0)),
-            )
 
-            // endregion
+                    :clear_display_disabled
+                    nop
+                """
+            )
         }
     }
 }
