@@ -78,6 +78,7 @@ internal fun enableDebuggingPatch(
         preferences + additionalDebugPreferences
 
         preferences += listOf(
+            SwitchPreference("revanced_debug_protocolbuffer"),
             SwitchPreference("revanced_debug_stacktrace"),
             SwitchPreference("revanced_debug_toast_on_error"),
             NonInteractivePreference(
