@@ -1,26 +1,23 @@
 package app.revanced.patches.willhaben.ads
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val adResolverFingerprint = fingerprint {
+internal val BytecodePatchContext.adResolverMethod by gettingFirstMethodDeclaratively(
+    "Google Ad is invalid ",
+    "Google Native Ad is invalid ",
+    "Criteo Ad is invalid ",
+    "Amazon Ad is invalid ",
+) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters("L", "L")
-    strings(
-        "Google Ad is invalid ",
-        "Google Native Ad is invalid ",
-        "Criteo Ad is invalid ",
-        "Amazon Ad is invalid ",
-    )
+    returnType("L")
+    parameterTypes("L", "L")
 }
 
-internal val whAdViewInjectorFingerprint = fingerprint {
+internal val BytecodePatchContext.whAdViewInjectorMethod by gettingFirstMethodDeclaratively("successfulAdView") {
+    definingClass("Lat/willhaben/advertising/WHAdView;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L", "L", "L", "Z")
-    strings("successfulAdView")
-    custom { _, classDef ->
-        classDef.type == "Lat/willhaben/advertising/WHAdView;"
-    }
+    returnType("V")
+    parameterTypes("L", "L", "L", "Z")
 }

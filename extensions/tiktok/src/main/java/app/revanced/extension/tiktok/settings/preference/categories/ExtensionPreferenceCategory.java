@@ -26,7 +26,7 @@ public class ExtensionPreferenceCategory extends ConditionalPreferenceCategory {
         addPreference(new TogglePreference(context,
                 "Sanitize sharing links",
                 "Remove tracking parameters from shared links.",
-                BaseSettings.SANITIZE_SHARED_LINKS
+                BaseSettings.SANITIZE_SHARING_LINKS
         ));
 
         addPreference(new TogglePreference(context,

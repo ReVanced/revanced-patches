@@ -20,11 +20,15 @@ abstract class BasePreference(
     val titleKey: String? = "${key}_title",
     val summaryKey: String? = "${key}_summary",
     icon: String? = null,
+    iconBold: String? = null,
     layout: String? = null,
     val tag: String
 ) {
 
     var icon: String? = icon
+        internal set
+
+    var iconBold: String? = iconBold
         internal set
 
     var layout: String? = layout
@@ -44,8 +48,9 @@ abstract class BasePreference(
             key?.let { setAttribute("android:key", it) }
             titleKey?.let { setAttribute("android:title", "@string/${titleKey}") }
             summaryKey?.let { addSummary(it) }
-            icon?.let {
-                setAttribute("android:icon", it)
+
+            if (icon != null || iconBold != null) {
+                setAttribute("android:icon",  icon ?: iconBold)
                 setAttribute("app:iconSpaceReserved", "true")
             }
             layout?.let { setAttribute("android:layout", layout) }

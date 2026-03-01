@@ -1,33 +1,46 @@
 package app.revanced.patches.youtube.layout.startupshortsreset
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 /**
- * YouTube 20.02.08 ~
+ * 20.02+
  */
-internal val userWasInShortsAlternativeFingerprint = fingerprint {
-    returns("V")
+internal val BytecodePatchContext.userWasInShortsAlternativeMethodMatch by composingFirstMethod {
+    returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("Ljava/lang/Object;")
-    strings("userIsInShorts: ")
+    parameterTypes("Ljava/lang/Object;")
+    instructions(
+        allOf(Opcode.CHECK_CAST(), type("Ljava/lang/Boolean;")),
+        after(method { toString() == "Ljava/lang/Boolean;->booleanValue()Z" }),
+        after(Opcode.MOVE_RESULT()),
+        // 20.40+ string was merged into another string and is a partial match.
+        afterAtMost(15, "userIsInShorts: "(String::contains)),
+    )
 }
 
-internal val userWasInShortsLegacyFingerprint = fingerprint {
-    returns("V")
+/**
+ * Pre 20.02
+ */
+internal val BytecodePatchContext.userWasInShortsLegacyMethod by gettingFirstMethodDeclaratively {
+    returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("Ljava/lang/Object;")
-    strings("Failed to read user_was_in_shorts proto after successful warmup")
+    parameterTypes("Ljava/lang/Object;")
+    instructions(
+        "Failed to read user_was_in_shorts proto after successful warmup"(),
+    )
 }
 
 /**
  * 18.15.40+
  */
-internal val userWasInShortsConfigFingerprint = fingerprint {
+internal val BytecodePatchContext.userWasInShortsConfigMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    literal {
-        45358360L
-    }
+    returnType("Z")
+    parameterTypes()
+    instructions(
+        45358360L(),
+    )
 }

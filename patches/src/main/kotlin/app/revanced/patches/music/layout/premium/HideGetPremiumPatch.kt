@@ -1,9 +1,9 @@
 package app.revanced.patches.music.layout.premium
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -13,10 +13,11 @@ import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/HideGetPremiumPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/music/patches/HideGetPremiumPatch;"
 
 @Suppress("unused")
-val hideGetPremiumPatch = bytecodePatch(
+val hideGetMusicPremiumPatch = bytecodePatch(
     name = "Hide 'Get Music Premium'",
     description = "Adds an option to hide the \"Get Music Premium\" label in the settings and account menu.",
 ) {
@@ -29,37 +30,41 @@ val hideGetPremiumPatch = bytecodePatch(
     compatibleWith(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
-            "8.10.52"
-        )
+            "8.10.52",
+            "8.37.56",
+            "8.40.54",
+        ),
     )
 
-    execute {
+    apply {
         addResources("music", "layout.premium.hideGetPremiumPatch")
 
         PreferenceScreen.ADS.addPreferences(
             SwitchPreference("revanced_music_hide_get_premium_label"),
         )
 
-        hideGetPremiumFingerprint.method.apply {
-            val insertIndex = hideGetPremiumFingerprint.patternMatch!!.endIndex
+        hideGetPremiumMethodMatch.let {
+            val insertIndex = it[-1]
 
-            val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
-            val getPremiumViewRegister = setVisibilityInstruction.registerC
-            val visibilityRegister = setVisibilityInstruction.registerD
+            it.method.apply {
+                val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
+                val getPremiumViewRegister = setVisibilityInstruction.registerC
+                val visibilityRegister = setVisibilityInstruction.registerD
 
-            replaceInstruction(
-                insertIndex,
-                "const/16 v$visibilityRegister, 0x8",
-            )
+                replaceInstruction(
+                    insertIndex,
+                    "const/16 v$visibilityRegister, 0x8",
+                )
 
-            addInstruction(
-                insertIndex + 1,
-                "invoke-virtual {v$getPremiumViewRegister, v$visibilityRegister}, " +
-                    "Landroid/view/View;->setVisibility(I)V",
-            )
+                addInstruction(
+                    insertIndex + 1,
+                    "invoke-virtual {v$getPremiumViewRegister, v$visibilityRegister}, " +
+                            "Landroid/view/View;->setVisibility(I)V",
+                )
+            }
         }
 
-        membershipSettingsFingerprint.method.addInstructionsWithLabels(
+        membershipSettingsMethod.addInstructionsWithLabels(
             0,
             """
                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->hideGetPremiumLabel()Z
@@ -69,7 +74,7 @@ val hideGetPremiumPatch = bytecodePatch(
                 return-object v0
                 :show
                 nop
-            """
+            """,
         )
     }
 }

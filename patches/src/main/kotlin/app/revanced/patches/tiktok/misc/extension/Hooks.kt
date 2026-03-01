@@ -1,14 +1,14 @@
 package app.revanced.patches.tiktok.misc.extension
 
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.name
+import app.revanced.patcher.parameterTypes
+import app.revanced.patches.shared.misc.extension.activityOnCreateExtensionHook
 import app.revanced.patches.shared.misc.extension.extensionHook
-import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val initHook = extensionHook {
-    custom { method, classDef ->
-        classDef.type == "Lcom/ss/android/ugc/aweme/main/MainActivity;" &&
-                method.name == "onCreate"
-    }
-}
+internal val initHook = activityOnCreateExtensionHook(
+    "Lcom/ss/android/ugc/aweme/main/MainActivity;"
+)
 
 /**
  * In some cases the extension code can be called before
@@ -17,21 +17,17 @@ internal val initHook = extensionHook {
  * This class is called from startup code titled "BPEA RunnableGuardLancet".
  */
 internal val jatoInitHook = extensionHook(
-    contextRegisterResolver = { "p1" }
+    getContextRegister = { "p1" }
 ) {
-    parameters("Landroid/content/Context;")
-    custom { method, classDef ->
-        classDef.type == "Lcom/ss/android/ugc/aweme/legoImp/task/JatoInitTask;" &&
-                method.name == "run"
-    }
+    name("run")
+    definingClass("Lcom/ss/android/ugc/aweme/legoImp/task/JatoInitTask;")
+    parameterTypes("Landroid/content/Context;")
 }
 
 internal val storeRegionInitHook = extensionHook(
-    contextRegisterResolver = { "p1" }
+    getContextRegister = { "p1" }
 ) {
-    parameters("Landroid/content/Context;")
-    custom { method, classDef ->
-        classDef.type == "Lcom/ss/android/ugc/aweme/legoImp/task/StoreRegionInitTask;" &&
-                method.name == "run"
-    }
+    name("run")
+    definingClass("Lcom/ss/android/ugc/aweme/legoImp/task/StoreRegionInitTask;")
+    parameterTypes("Landroid/content/Context;")
 }

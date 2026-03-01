@@ -1,7 +1,11 @@
 package app.revanced.patches.spotify.misc.extension
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val loadOrbitLibraryFingerprint = fingerprint {
-    strings("orbit_library_load", "orbit-jni-spotify")
+internal val BytecodePatchContext.loadOrbitLibraryMethodMatch by composingFirstMethod {
+    instructions(
+        "orbit_library_load"(),
+        "orbit-jni-spotify"(),
+    )
 }

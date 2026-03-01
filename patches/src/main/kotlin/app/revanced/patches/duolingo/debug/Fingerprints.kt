@@ -1,28 +1,27 @@
 package app.revanced.patches.duolingo.debug
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val debugCategoryAllowOnReleaseBuildsFingerprint = fingerprint {
-    returns("Z")
-    parameters()
-    custom { method, classDef ->
-        method.name == "getAllowOnReleaseBuilds" && classDef.type == "Lcom/duolingo/debug/DebugCategory;"
-    }
+internal val BytecodePatchContext.debugCategoryAllowOnReleaseBuildsMethod by gettingFirstMethodDeclaratively {
+    name("getAllowOnReleaseBuilds")
+    definingClass("Lcom/duolingo/debug/DebugCategory;")
+    returnType("Z")
+    parameterTypes()
 }
 
-internal val buildConfigProviderConstructorFingerprint = fingerprint {
+internal val ClassDef.buildConfigProviderConstructorMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters()
+    parameterTypes()
     opcodes(Opcode.CONST_4)
 }
 
-internal val buildConfigProviderToStringFingerprint = fingerprint {
-    parameters()
-    returns("Ljava/lang/String;")
-    strings("BuildConfigProvider(") // Partial string match.
-    custom { method, _ ->
-        method.name == "toString"
-    }
+internal val BytecodePatchContext.buildConfigProviderToStringMethod by gettingFirstMethodDeclaratively {
+    name("toString")
+    parameterTypes()
+    returnType("Ljava/lang/String;")
+    instructions(string("BuildConfigProvider(", String::contains))
 }

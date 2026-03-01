@@ -153,7 +153,7 @@ public class SBRequester {
             segments.add(new SponsorSegment(SegmentCategory.SELF_PROMO, "debug", 8000, 15000, false));
 
             // Test multiple autoskip dialogs rapidly showing.
-            // Only one toast should be shown at anytime.
+            // Only one toast should be shown at any time.
             segments.add(new SponsorSegment(SegmentCategory.INTRO, "debug", 16000, 17000, false));
             segments.add(new SponsorSegment(SegmentCategory.INTRO, "debug", 18000, 19000, false));
             segments.add(new SponsorSegment(SegmentCategory.INTRO, "debug", 20000, 21000, false));
@@ -168,13 +168,13 @@ public class SBRequester {
         Utils.verifyOffMainThread();
 
         try {
-            String privateUserId = SponsorBlockSettings.getSBPrivateUserID();
+            String privateUserID = SponsorBlockSettings.getSBPrivateUserID();
             String start = String.format(Locale.US, TIME_TEMPLATE, startTime / 1000f);
             String end = String.format(Locale.US, TIME_TEMPLATE, endTime / 1000f);
             String duration = String.format(Locale.US, TIME_TEMPLATE, videoLength / 1000f);
 
             HttpURLConnection connection = getConnectionFromRoute(SBRoutes.SUBMIT_SEGMENTS,
-                    privateUserId, videoId, category, start, end, duration);
+                    privateUserID, videoId, category, start, end, duration);
             final int responseCode = connection.getResponseCode();
 
             if (responseCode == HTTP_STATUS_CODE_SUCCESS) {
@@ -317,8 +317,8 @@ public class SBRequester {
     }
 
     public static void runVipCheckInBackgroundIfNeeded() {
-        if (!SponsorBlockSettings.userHasSBPrivateId()) {
-            return; // User cannot be a VIP. User has never voted, created any segments, or has imported a SB user id.
+        if (!SponsorBlockSettings.userHasSBPrivateID()) {
+            return; // User cannot be a VIP. User has never voted, created any segments, or has imported an SB user ID.
         }
         long now = System.currentTimeMillis();
         if (now < (Settings.SB_LAST_VIP_CHECK.get() + TimeUnit.DAYS.toMillis(3))) {

@@ -1,7 +1,7 @@
 package app.revanced.patches.all.misc.build
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
 import app.revanced.util.getReference

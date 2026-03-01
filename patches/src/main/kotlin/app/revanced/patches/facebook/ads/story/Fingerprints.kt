@@ -1,24 +1,24 @@
 package app.revanced.patches.facebook.ads.story
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.iface.value.StringEncodedValue
 
-internal val adsInsertionFingerprint = fieldFingerprint(
-    fieldValue = "AdBucketDataSourceUtil\$attemptAdsInsertion\$1",
+internal val BytecodePatchContext.adsInsertionMethod by runMethod(
+    fieldValue = $$"AdBucketDataSourceUtil$attemptAdsInsertion$1",
 )
 
-internal val fetchMoreAdsFingerprint = fieldFingerprint(
-    fieldValue = "AdBucketDataSourceUtil\$attemptFetchMoreAds\$1",
+internal val BytecodePatchContext.fetchMoreAdsMethod by runMethod(
+    fieldValue = $$"AdBucketDataSourceUtil$attemptFetchMoreAds$1",
 )
 
-internal fun fieldFingerprint(fieldValue: String) = fingerprint {
-    returns("V")
-    parameters()
-    custom { method, classDef ->
-        method.name == "run" &&
-            classDef.fields.any any@{ field ->
-                if (field.name != "__redex_internal_original_name") return@any false
-                (field.initialValue as? StringEncodedValue)?.value == fieldValue
-            }
+internal fun runMethod(fieldValue: String) = gettingFirstMethodDeclaratively {
+    name("run")
+    returnType("V")
+    parameterTypes()
+    custom {
+        immutableClassDef.anyField {
+            name == "__redex_internal_original_name" && (initialValue as? StringEncodedValue)?.value == fieldValue
+        }
     }
 }

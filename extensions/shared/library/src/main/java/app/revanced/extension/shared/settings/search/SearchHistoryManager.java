@@ -24,6 +24,8 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.BulletPointPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
 
@@ -37,25 +39,35 @@ public class SearchHistoryManager {
     private static final int MAX_HISTORY_SIZE = 5;  // Maximum history items stored.
 
     private static final int ID_CLEAR_HISTORY_BUTTON = getResourceIdentifierOrThrow(
-            "clear_history_button", "id");
+            ResourceType.ID, "clear_history_button");
     private static final int ID_HISTORY_TEXT = getResourceIdentifierOrThrow(
-            "history_text", "id");
+            ResourceType.ID, "history_text");
+    private static final int ID_HISTORY_ICON = getResourceIdentifierOrThrow(
+            ResourceType.ID, "history_icon");
     private static final int ID_DELETE_ICON = getResourceIdentifierOrThrow(
-            "delete_icon", "id");
+            ResourceType.ID, "delete_icon");
     private static final int ID_EMPTY_HISTORY_TITLE = getResourceIdentifierOrThrow(
-            "empty_history_title", "id");
+            ResourceType.ID, "empty_history_title");
     private static final int ID_EMPTY_HISTORY_SUMMARY = getResourceIdentifierOrThrow(
-            "empty_history_summary", "id");
+            ResourceType.ID, "empty_history_summary");
     private static final int ID_SEARCH_HISTORY_HEADER = getResourceIdentifierOrThrow(
-            "search_history_header", "id");
+            ResourceType.ID, "search_history_header");
     private static final int ID_SEARCH_TIPS_SUMMARY = getResourceIdentifierOrThrow(
-            "revanced_settings_search_tips_summary", "id");
+            ResourceType.ID, "revanced_settings_search_tips_summary");
     private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_SCREEN = getResourceIdentifierOrThrow(
-            "revanced_preference_search_history_screen", "layout");
+            ResourceType.LAYOUT, "revanced_preference_search_history_screen");
     private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_ITEM = getResourceIdentifierOrThrow(
-            "revanced_preference_search_history_item", "layout");
+            ResourceType.LAYOUT, "revanced_preference_search_history_item");
     private static final int ID_SEARCH_HISTORY_LIST = getResourceIdentifierOrThrow(
-            "search_history_list", "id");
+            ResourceType.ID, "search_history_list");
+    private static final int ID_SEARCH_REMOVE_ICON = getResourceIdentifierOrThrow(
+            ResourceType.DRAWABLE, "revanced_settings_search_remove");
+    private static final int ID_SEARCH_REMOVE_ICON_BOLD = getResourceIdentifierOrThrow(
+            ResourceType.DRAWABLE, "revanced_settings_search_remove_bold");
+    private static final int ID_SEARCH_ARROW_TIME_ICON = getResourceIdentifierOrThrow(
+            ResourceType.DRAWABLE, "revanced_settings_arrow_time");
+    private static final int ID_SEARCH_ARROW_TIME_ICON_BOLD = getResourceIdentifierOrThrow(
+            ResourceType.DRAWABLE, "revanced_settings_arrow_time_bold");
 
     private final Deque<String> searchHistory;
     private final Activity activity;
@@ -97,7 +109,8 @@ public class SearchHistoryManager {
 
         // Inflate search history layout.
         LayoutInflater inflater = LayoutInflater.from(activity);
-        View historyView = inflater.inflate(LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_SCREEN, searchHistoryContainer, false);
+        View historyView = inflater.inflate(LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_SCREEN,
+                searchHistoryContainer, false);
         searchHistoryContainer.addView(historyView, new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.MATCH_PARENT));
@@ -320,17 +333,29 @@ public class SearchHistoryManager {
         public void notifyDataSetChanged() {
             container.removeAllViews();
             for (String query : history) {
-                View view = inflater.inflate(LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_ITEM, container, false);
-
-                TextView historyText = view.findViewById(ID_HISTORY_TEXT);
-                ImageView deleteIcon = view.findViewById(ID_DELETE_ICON);
-
-                historyText.setText(query);
-
+                View view = inflater.inflate(LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_ITEM,
+                        container, false);
                 // Set click listener for main item (select query).
                 view.setOnClickListener(v -> onSelectHistoryItemListener.onSelectHistoryItem(query));
 
+                // Set history icon.
+                ImageView historyIcon = view.findViewById(ID_HISTORY_ICON);
+                historyIcon.setImageResource(Utils.appIsUsingBoldIcons()
+                        ? ID_SEARCH_ARROW_TIME_ICON_BOLD
+                        : ID_SEARCH_ARROW_TIME_ICON
+                );
+
+                TextView historyText = view.findViewById(ID_HISTORY_TEXT);
+                historyText.setText(query);
+
                 // Set click listener for delete icon.
+                ImageView deleteIcon = view.findViewById(ID_DELETE_ICON);
+
+                deleteIcon.setImageResource(Utils.appIsUsingBoldIcons()
+                                ? ID_SEARCH_REMOVE_ICON_BOLD
+                                : ID_SEARCH_REMOVE_ICON
+                );
+
                 deleteIcon.setOnClickListener(v -> createAndShowDialog(
                         query,
                         str("revanced_settings_search_remove_message"),

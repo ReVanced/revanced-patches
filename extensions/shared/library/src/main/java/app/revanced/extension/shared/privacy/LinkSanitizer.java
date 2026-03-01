@@ -24,23 +24,23 @@ public class LinkSanitizer {
                 : List.of(parametersToRemove);
     }
 
-    public String sanitizeUrlString(String url) {
+    public String sanitizeURLString(String url) {
         try {
-            return sanitizeUri(Uri.parse(url)).toString();
+            return sanitizeURI(Uri.parse(url)).toString();
         } catch (Exception ex) {
-            Logger.printException(() -> "sanitizeUrlString failure: " + url, ex);
+            Logger.printException(() -> "sanitizeURLString failure: " + url, ex);
             return url;
         }
     }
 
-    public Uri sanitizeUri(Uri uri) {
+    public Uri sanitizeURI(Uri uri) {
         try {
             String scheme = uri.getScheme();
             if (scheme == null || !(scheme.equals("http") || scheme.equals("https"))) {
                 // Opening YouTube share sheet 'other' option passes the video title as a URI.
                 // Checking !uri.isHierarchical() works for all cases, except if the
                 // video title starts with / and then it's hierarchical but still an invalid URI.
-                Logger.printDebug(() -> "Ignoring uri: " + uri);
+                Logger.printDebug(() -> "Ignoring URI: " + uri);
                 return uri;
             }
 
@@ -56,12 +56,12 @@ public class LinkSanitizer {
                 }
             }
 
-            Uri sanitizedUrl = builder.build();
-            Logger.printInfo(() -> "Sanitized url: " + uri + " to: " + sanitizedUrl);
+            Uri sanitizedURL = builder.build();
+            Logger.printInfo(() -> "Sanitized URL: " + uri + " to: " + sanitizedURL);
 
-            return sanitizedUrl;
+            return sanitizedURL;
         } catch (Exception ex) {
-            Logger.printException(() -> "sanitizeUri failure: " + uri, ex);
+            Logger.printException(() -> "sanitizeURI failure: " + uri, ex);
             return uri;
         }
     }

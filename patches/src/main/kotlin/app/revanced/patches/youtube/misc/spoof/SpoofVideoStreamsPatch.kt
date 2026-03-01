@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.spoof
 
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
@@ -13,11 +14,11 @@ import app.revanced.patches.youtube.misc.playservice.is_20_14_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
+import app.revanced.patches.youtube.shared.mainActivityOnCreateMethod
 
 val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
     extensionClassDescriptor = "Lapp/revanced/extension/youtube/patches/spoof/SpoofVideoStreamsPatch;",
-    mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
+    getMainActivityOnCreateMethod = BytecodePatchContext::mainActivityOnCreateMethod::get,
     fixMediaFetchHotConfig = {
         is_19_34_or_greater
     },
@@ -32,17 +33,19 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
     block = {
         compatibleWith(
             "com.google.android.youtube"(
-                "19.34.42",
-                "20.07.39",
-                "20.13.41",
                 "20.14.43",
-            )
+                "20.21.37",
+                "20.26.46",
+                "20.31.42",
+                "20.37.48",
+                "20.40.45"
+            ),
         )
 
         dependsOn(
             userAgentClientSpoofPatch,
             settingsPatch,
-            versionCheckPatch
+            versionCheckPatch,
         )
     },
 
@@ -60,12 +63,12 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
                         // Requires a key and title but the actual text is chosen at runtime.
                         key = "revanced_spoof_video_streams_about",
                         summaryKey = null,
-                        tag = "app.revanced.extension.youtube.settings.preference.SpoofStreamingDataSideEffectsPreference"
+                        tag = "app.revanced.extension.youtube.settings.preference.SpoofStreamingDataSideEffectsPreference",
                     ),
                     SwitchPreference("revanced_spoof_video_streams_av1"),
                     SwitchPreference("revanced_spoof_streaming_data_stats_for_nerds"),
-                )
-            )
+                ),
+            ),
         )
-    }
+    },
 )

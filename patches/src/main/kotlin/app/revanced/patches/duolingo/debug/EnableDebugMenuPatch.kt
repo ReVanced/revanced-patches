@@ -1,7 +1,9 @@
 package app.revanced.patches.duolingo.debug
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.classDef
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -9,27 +11,20 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 val enableDebugMenuPatch = bytecodePatch(
     name = "Enable debug menu",
-    use = false
+    use = false,
 ) {
     compatibleWith("com.duolingo")
 
-    execute {
+    apply {
         // It seems all categories are allowed on release. Force this on anyway.
-        debugCategoryAllowOnReleaseBuildsFingerprint.method.returnEarly(true)
+        debugCategoryAllowOnReleaseBuildsMethod.returnEarly(true)
 
         // Change build config debug build flag.
-        buildConfigProviderConstructorFingerprint.match(
-            buildConfigProviderToStringFingerprint.classDef
-        ).let {
-            val index = it.patternMatch!!.startIndex
+        buildConfigProviderToStringMethod.immutableClassDef.buildConfigProviderConstructorMethodMatch.let {
+            val index = it[0]
 
-            it.method.apply {
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
-                addInstruction(
-                    index + 1,
-                    "const/4 v$register, 0x1"
-                )
-            }
+            val register = it.method.getInstruction<OneRegisterInstruction>(index).registerA
+            it.method.addInstruction(index + 1, "const/4 v$register, 0x1")
         }
     }
 }

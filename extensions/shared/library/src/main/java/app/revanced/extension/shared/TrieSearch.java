@@ -106,14 +106,18 @@ public abstract class TrieSearch<T> {
          * Elements not contained can collide with elements the array does contain,
          * so must compare the nodes character value.
          *
-         * Alternatively this array could be a sorted and densely packed array,
-         * and lookup is done using binary search.
-         * That would save a small amount of memory because there's no null children entries,
-         * but would give a worst case search of O(nlog(m)) where n is the number of
-         * characters in the searched text and m is the maximum size of the sorted character arrays.
-         * Using a hash table array always gives O(n) search time.
-         * The memory usage here is very small (all Litho filters use ~10KB of memory),
-         * so the more performant hash implementation is chosen.
+         /*
+         * Alternatively, this could be implemented as a sorted, densely packed array
+         * with lookups performed via binary search.
+         * This approach would save a small amount of memory by eliminating null
+         * child entries. However, it would result in a worst-case lookup time of
+         * O(n log m), where:
+         *   - n is the number of characters in the input text, and
+         *   - m is the maximum size of the sorted character arrays.
+         * In contrast, using a hash-based array guarantees O(n) lookup time.
+         * Given that the total memory usage is already very small (all Litho filters
+         * together use approximately 10KB), the hash-based implementation is preferred
+         * for its superior performance.
          */
         @Nullable
         private TrieNode<T>[] children;

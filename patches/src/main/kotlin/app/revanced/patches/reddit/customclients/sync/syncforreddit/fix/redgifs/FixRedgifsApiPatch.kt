@@ -1,8 +1,8 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.redgifs
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.INSTALL_NEW_CLIENT_METHOD
 import app.revanced.patches.reddit.customclients.fixRedgifsApiPatch
 import app.revanced.patches.reddit.customclients.sync.syncforreddit.extension.sharedExtensionPatch
@@ -23,33 +23,30 @@ val fixRedgifsApi = fixRedgifsApiPatch(
         "com.laurencedawson.reddit_sync.dev",
     )
 
-    execute {
+    apply {
         // region Patch Redgifs OkHttp3 client.
 
-        createOkHttpClientFingerprint.method.apply {
-            val index = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.name == "build" && reference.definingClass == "Lokhttp3/OkHttpClient\$Builder;"
-            }
-            val register = getInstruction<FiveRegisterInstruction>(index).registerC
-            replaceInstruction(
-                index,
-                """
-                invoke-static       { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$INSTALL_NEW_CLIENT_METHOD
-                """
-            )
+        val index = createOkHttpClientMethod.indexOfFirstInstructionOrThrow {
+            val reference = getReference<MethodReference>()
+            reference?.name == "build" && reference.definingClass == $$"Lokhttp3/OkHttpClient$Builder;"
         }
+        val register = createOkHttpClientMethod.getInstruction<FiveRegisterInstruction>(index).registerC
 
-        getDefaultUserAgentFingerprint.method.apply {
-            addInstructions(
-                0,
-                """
-                invoke-static { }, ${getOriginalUserAgentFingerprint.method}
-                move-result-object v0
-                return-object v0
-                """
-            )
-        }
+        createOkHttpClientMethod.replaceInstruction(
+            index,
+            """
+            invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$INSTALL_NEW_CLIENT_METHOD
+            """
+        )
+
+        getDefaultUserAgentMethod.addInstructions(
+            0,
+            """
+            invoke-static { }, $getOriginalUserAgentMethod
+            move-result-object v0
+            return-object v0
+            """
+        )
 
         // endregion
     }

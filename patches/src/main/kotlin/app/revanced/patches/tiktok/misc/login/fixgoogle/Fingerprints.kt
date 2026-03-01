@@ -1,22 +1,19 @@
 package app.revanced.patches.tiktok.misc.login.fixgoogle
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val googleAuthAvailableFingerprint = fingerprint {
+internal val BytecodePatchContext.googleAuthAvailableMethod by gettingFirstMethodDeclaratively {
+    definingClass("Lcom/bytedance/lobby/google/GoogleAuth;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
-    custom { method, _ ->
-        method.definingClass == "Lcom/bytedance/lobby/google/GoogleAuth;"
-    }
+    returnType("Z")
+    parameterTypes()
 }
 
-internal val googleOneTapAuthAvailableFingerprint = fingerprint {
+internal val BytecodePatchContext.googleOneTapAuthAvailableMethod by gettingFirstMethodDeclaratively {
+    definingClass("Lcom/bytedance/lobby/google/GoogleOneTapAuth;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
-    custom { method, _ ->
-        method.definingClass == "Lcom/bytedance/lobby/google/GoogleOneTapAuth;"
-    }
+    returnType("Z")
+    parameterTypes()
 }

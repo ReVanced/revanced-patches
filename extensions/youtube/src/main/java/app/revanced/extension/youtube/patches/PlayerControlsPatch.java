@@ -42,7 +42,7 @@ public class PlayerControlsPatch {
 
                         Logger.printDebug(() -> "fullscreen button visibility: "
                                 + (visibility == View.VISIBLE ? "VISIBLE" :
-                                        visibility == View.GONE ? "GONE" : "INVISIBLE"));
+                                visibility == View.GONE ? "GONE" : "INVISIBLE"));
 
                         fullscreenButtonVisibilityChanged(visibility == View.VISIBLE);
                     }

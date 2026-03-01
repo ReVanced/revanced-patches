@@ -1,12 +1,19 @@
 package app.revanced.patches.spotify.misc.lyrics
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.patcher.classDef
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.firstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.method
+import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patcher.returnType
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
@@ -28,9 +35,8 @@ val changeLyricsProviderPatch = bytecodePatch(
     compatibleWith("com.spotify.music")
 
     val lyricsProviderHost by stringOption(
-        key = "lyricsProviderHost",
         default = "lyrics.natanchiodi.fr",
-        title = "Lyrics provider host",
+        name = "Lyrics provider host",
         description = "The domain name or IP address of a custom lyrics provider.",
         required = false,
     ) {
@@ -49,7 +55,7 @@ val changeLyricsProviderPatch = bytecodePatch(
             InetAddress.getByName(host)
         } catch (_: UnknownHostException) {
             Logger.getLogger(this::class.java.name).warning(
-                "Host \"$host\" did not resolve to any domain."
+                "Host \"$host\" did not resolve to any domain.",
             )
         } catch (_: Exception) {
             // Must ignore any kind of exception. Trying to resolve network
@@ -59,9 +65,7 @@ val changeLyricsProviderPatch = bytecodePatch(
         true
     }
 
-    execute {
-        val httpClientBuilderMethod = httpClientBuilderFingerprint.originalMethod
-
+    apply {
         // region Create a modified copy of the HTTP client builder method with the custom lyrics provider host.
 
         val patchedHttpClientBuilderMethod = with(httpClientBuilderMethod) {
@@ -71,7 +75,7 @@ val changeLyricsProviderPatch = bytecodePatch(
             val setUrlBuilderHostIndex = indexOfFirstInstructionReversedOrThrow(invokeBuildUrlIndex) {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == "Lokhttp3/HttpUrl${"$"}Builder;" &&
-                        reference.parameterTypes.firstOrNull() == "Ljava/lang/String;"
+                    reference.parameterTypes.firstOrNull() == "Ljava/lang/String;"
             }
             val hostRegister = getInstruction<FiveRegisterInstruction>(setUrlBuilderHostIndex).registerD
 
@@ -79,11 +83,11 @@ val changeLyricsProviderPatch = bytecodePatch(
                 name = "rv_getCustomLyricsProviderHttpClient"
                 addInstruction(
                     setUrlBuilderHostIndex,
-                    "const-string v$hostRegister, \"$lyricsProviderHost\""
+                    "const-string v$hostRegister, \"$lyricsProviderHost\"",
                 )
 
                 // Add the patched method to the class.
-                httpClientBuilderFingerprint.classDef.methods.add(this)
+                httpClientBuilderMethod.classDef.methods.add(this)
             }
         }
 
@@ -91,7 +95,13 @@ val changeLyricsProviderPatch = bytecodePatch(
 
         // region Replace the call to the HTTP client builder method used exclusively for lyrics by the modified one.
 
-        getLyricsHttpClientFingerprint(httpClientBuilderMethod).method.apply {
+        val getLyricsHttpClientMethod = firstMethodDeclaratively {
+            returnType(httpClientBuilderMethod.returnType)
+            parameterTypes()
+            instructions(method { this == httpClientBuilderMethod })
+        }
+
+        getLyricsHttpClientMethod.apply {
             val getLyricsHttpClientIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>() == httpClientBuilderMethod
             }
@@ -112,9 +122,9 @@ val changeLyricsProviderPatch = bytecodePatch(
                         patchedHttpClientBuilderMethod.definingClass,
                         patchedHttpClientBuilderMethod.name, // Only difference from the original method.
                         patchedHttpClientBuilderMethod.parameters,
-                        patchedHttpClientBuilderMethod.returnType
-                    )
-                )
+                        patchedHttpClientBuilderMethod.returnType,
+                    ),
+                ),
             )
         }
 

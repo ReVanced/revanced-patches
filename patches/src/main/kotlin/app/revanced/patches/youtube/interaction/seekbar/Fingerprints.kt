@@ -1,66 +1,68 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.containsLiteralInstruction
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionReversed
+import app.revanced.patcher.*
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val swipingUpGestureParentFingerprint = fingerprint {
-    returns("Z")
-    parameters()
-    literal { 45379021 }
+internal val BytecodePatchContext.swipingUpGestureParentMethod by gettingFirstImmutableMethodDeclaratively {
+    returnType("Z")
+    parameterTypes()
+    instructions(
+        45379021L(), // Swipe up fullscreen feature flag
+    )
 }
 
 /**
- * Resolves using the class found in [swipingUpGestureParentFingerprint].
+ * Resolves using the class found in [swipingUpGestureParentMethod].
  */
-internal val showSwipingUpGuideFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getShowSwipingUpGuideMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.FINAL)
-    returns("Z")
-    parameters()
-    literal { 1 }
+    returnType("Z")
+    parameterTypes()
+    instructions(1L())
 }
 
 /**
- * Resolves using the class found in [swipingUpGestureParentFingerprint].
+ * Resolves using the class found in [swipingUpGestureParentMethod].
  */
-internal val allowSwipingUpGestureFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getAllowSwipingUpGestureMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L")
+    returnType("V")
+    parameterTypes("L")
 }
 
-internal val disableFastForwardLegacyFingerprint = fingerprint {
-    returns("Z")
-    parameters()
+internal val BytecodePatchContext.disableFastForwardLegacyMethodMatch by composingFirstMethod {
+    returnType("Z")
+    parameterTypes()
     opcodes(Opcode.MOVE_RESULT)
+    // Intent start flag only used in the subscription activity
     literal { 45411330 }
 }
 
-internal val disableFastForwardGestureFingerprint = fingerprint {
+internal val BytecodePatchContext.disableFastForwardGestureMethodMatch by composingFirstMethod {
+    definingClass("/NextGenWatchLayout;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
+    returnType("Z")
+    parameterTypes()
     opcodes(
         Opcode.IF_EQZ,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
     )
-    custom { methodDef, classDef ->
-        methodDef.implementation!!.instructions.count() > 30 &&
-            classDef.type.endsWith("/NextGenWatchLayout;")
-    }
+    custom { instructions.count() > 30 }
 }
 
-internal val onTouchEventHandlerFingerprint = fingerprint {
+internal val BytecodePatchContext.onTouchEventHandlerMethodMatch by composingFirstMethod {
+    name("onTouchEvent")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.PUBLIC)
-    returns("Z")
-    parameters("L")
+    returnType("Z")
+    parameterTypes("L")
     opcodes(
         Opcode.INVOKE_VIRTUAL, // nMethodReference
         Opcode.RETURN,
@@ -77,30 +79,28 @@ internal val onTouchEventHandlerFingerprint = fingerprint {
         Opcode.INVOKE_VIRTUAL,
         Opcode.INVOKE_VIRTUAL, // oMethodReference
     )
-    custom { method, _ -> method.name == "onTouchEvent" }
 }
 
-internal val seekbarTappingFingerprint = fingerprint {
+internal val BytecodePatchContext.tapToSeekMethodMatch by composingFirstMethod {
+    name("onTouchEvent")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters("L")
-    custom { method, _ ->
-        method.name == "onTouchEvent"
-                && method.containsLiteralInstruction(Integer.MAX_VALUE.toLong())
-                && indexOfNewPointInstruction(method) >= 0
-    }
+    returnType("Z")
+    parameterTypes("Landroid/view/MotionEvent;")
+    instructions(
+        Int.MAX_VALUE.toLong()(),
+        allOf(Opcode.NEW_INSTANCE(), type("Landroid/graphics/Point;")),
+        after(method { toString() == "Landroid/graphics/Point;-><init>(II)V" }),
+        after(method { toString() == "Lj$/util/Optional;->of(Ljava/lang/Object;)Lj$/util/Optional;" }),
+        after(Opcode.MOVE_RESULT_OBJECT()),
+        after(allOf(Opcode.IPUT_OBJECT(), field { type == "Lj$/util/Optional;" })),
+        afterAtMost(10, Opcode.INVOKE_VIRTUAL()),
+    )
 }
 
-internal fun indexOfNewPointInstruction(method: Method) = method.indexOfFirstInstructionReversed {
-    val reference = getReference<MethodReference>()
-    reference?.definingClass == "Landroid/graphics/Point;"
-            && reference.name == "<init>"
-}
-
-internal val slideToSeekFingerprint = fingerprint {
+internal val BytecodePatchContext.slideToSeekMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
-    returns("V")
-    parameters("Landroid/view/View;", "F")
+    returnType("V")
+    parameterTypes("Landroid/view/View;", "F")
     opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
@@ -110,9 +110,9 @@ internal val slideToSeekFingerprint = fingerprint {
     literal { 67108864 }
 }
 
-internal val fullscreenSeekbarThumbnailsQualityFingerprint = fingerprint {
+internal val BytecodePatchContext.fullscreenLargeSeekbarFeatureFlagMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
-    literal { 45399684L }
+    returnType("Z")
+    parameterTypes()
+    instructions(45691569L())
 }

@@ -1,11 +1,12 @@
-
 package app.revanced.patches.instagram.hide.explore
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.composingFirstMethod
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal const val EXPLORE_KEY_TO_BE_HIDDEN = "sectional_items"
-
-internal val exploreResponseJsonParserFingerprint = fingerprint {
-    strings(EXPLORE_KEY_TO_BE_HIDDEN, "ExploreTopicalFeedResponse")
-    custom { method, _ -> method.name == "parseFromJson" }
+internal val BytecodePatchContext.exploreResponseJsonParserMethodMatch by composingFirstMethod("ExploreTopicalFeedResponse") {
+    name("parseFromJson")
+    instructions("sectional_items"())
 }

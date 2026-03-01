@@ -1,17 +1,16 @@
 package app.revanced.patches.tiktok.interaction.speed
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val getSpeedFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("/BaseListFragmentPanel;") && method.name == "onFeedSpeedSelectedEvent"
-    }
+internal val BytecodePatchContext.getSpeedMethod by gettingFirstMethodDeclaratively {
+    name("onFeedSpeedSelectedEvent")
+    definingClass("/BaseListFragmentPanel;")
 }
 
-internal val setSpeedFingerprint = fingerprint {
+internal val BytecodePatchContext.setSpeedMethod by gettingFirstMethodDeclaratively("enterFrom") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("V")
-    parameters("Ljava/lang/String;", "Lcom/ss/android/ugc/aweme/feed/model/Aweme;", "F")
-    strings("enterFrom")
+    returnType("V")
+    parameterTypes("Ljava/lang/String;", "Lcom/ss/android/ugc/aweme/feed/model/Aweme;", "F")
 }

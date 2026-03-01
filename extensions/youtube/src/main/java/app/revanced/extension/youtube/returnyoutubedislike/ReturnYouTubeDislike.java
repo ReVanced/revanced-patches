@@ -42,7 +42,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.youtube.returnyoutubedislike.requests.RYDVoteData;
-import app.revanced.extension.youtube.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
+import app.revanced.extension.youtube.returnyoutubedislike.requests.ReturnYouTubeDislikeAPI;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 
@@ -91,7 +91,7 @@ public class ReturnYouTubeDislike {
     private static final char MIDDLE_SEPARATOR_CHARACTER = '◎'; // 'bullseye'
 
     /**
-     * Cached lookup of all video ids.
+     * Cached lookup of all video IDs.
      */
     @GuardedBy("itself")
     private static final Map<String, ReturnYouTubeDislike> fetchCache = new HashMap<>();
@@ -206,8 +206,8 @@ public class ReturnYouTubeDislike {
             return newSpannableWithDislikes(oldSpannable, voteData);
         }
 
-        // Note: Some locales use right to left layout (Arabic, Hebrew, etc).
-        // If making changes to this code, change device settings to a RTL language and verify layout is correct.
+        // Note: Some locales use right to left layout (Arabic, Hebrew, etc.).
+        // If making changes to this code, change device settings to an RTL language and verify layout is correct.
         CharSequence oldLikes = oldSpannable;
 
         // YouTube creators can hide the like count on a video,
@@ -260,7 +260,8 @@ public class ReturnYouTubeDislike {
         // middle separator
         String middleSeparatorString = compactLayout
                 ? "  " + MIDDLE_SEPARATOR_CHARACTER + "  "
-                : "  \u2009" + MIDDLE_SEPARATOR_CHARACTER + "\u2009  "; // u2009 = 'narrow space' character
+                : " \u2009\u2009" + MIDDLE_SEPARATOR_CHARACTER + "\u2009\u2009 "; // u2009 = 'narrow space'
+
         final int shapeInsertionIndex = middleSeparatorString.length() / 2;
         Spannable middleSeparatorSpan = new SpannableString(middleSeparatorString);
         ShapeDrawable shapeDrawable = new ShapeDrawable(new OvalShape());
@@ -418,7 +419,7 @@ public class ReturnYouTubeDislike {
     private ReturnYouTubeDislike(@NonNull String videoId) {
         this.videoId = Objects.requireNonNull(videoId);
         this.timeFetched = System.currentTimeMillis();
-        this.future = Utils.submitOnBackgroundThread(() -> ReturnYouTubeDislikeApi.fetchVotes(videoId));
+        this.future = Utils.submitOnBackgroundThread(() -> ReturnYouTubeDislikeAPI.fetchVotes(videoId));
     }
 
     private boolean isExpired(long now) {
@@ -511,7 +512,7 @@ public class ReturnYouTubeDislike {
             if (votingData == null) {
                 // Method automatically prevents showing multiple toasts if the connection failed.
                 // This call is needed here in case the api call did succeed but took too long.
-                ReturnYouTubeDislikeApi.handleConnectionError(
+                ReturnYouTubeDislikeAPI.handleConnectionError(
                         str("revanced_ryd_failure_connection_timeout"),
                         null, null, Toast.LENGTH_SHORT);
                 Logger.printDebug(() -> "Cannot add dislike to UI (RYD data not available)");
@@ -548,14 +549,15 @@ public class ReturnYouTubeDislike {
                     }
 
                     // Scrolling Shorts does not cause the Spans to be reloaded,
-                    // so there is no need to cache the likes for this situations.
+                    // so there is no need to cache the likes for these situations.
                     Logger.printDebug(() -> "Creating likes span for: " + votingData.videoId);
                     return newSpannableWithLikes(original, votingData);
                 }
 
                 if (originalDislikeSpan != null && replacementLikeDislikeSpan != null
                         && spansHaveEqualTextAndColor(original, originalDislikeSpan)) {
-                    Logger.printDebug(() -> "Replacing span with previously created dislike span of data: " + videoId);
+                    Logger.printDebug(() -> "Replacing span: " + original + " with " +
+                            "previously created dislike span of data: " + videoId);
                     return replacementLikeDislikeSpan;
                 }
 
@@ -599,7 +601,7 @@ public class ReturnYouTubeDislike {
 
             voteSerialExecutor.execute(() -> {
                 try { // Must wrap in try/catch to properly log exceptions.
-                    ReturnYouTubeDislikeApi.sendVote(videoId, vote);
+                    ReturnYouTubeDislikeAPI.sendVote(videoId, vote);
                 } catch (Exception ex) {
                     Logger.printException(() -> "Failed to send vote", ex);
                 }
@@ -673,7 +675,7 @@ class VerticallyCenteredImageSpan extends ImageSpan {
 
     /**
      * @param useOriginalWidth Use the original layout width of the text this span is applied to,
-     * and not the bounds of the Drawable. Drawable is always displayed using it's own bounds,
+     * and not the bounds of the Drawable. Drawable is always displayed using its own bounds,
      * and this setting only affects the layout width of the entire span.
      */
     public VerticallyCenteredImageSpan(Drawable drawable, boolean useOriginalWidth) {

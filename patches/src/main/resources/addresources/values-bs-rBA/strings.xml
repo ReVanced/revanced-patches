@@ -17,293 +17,221 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
--->
-<resources>
-  <app id="shared">
-  <patch id="layout.branding.baseCustomBrandingPatch">
-  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
-  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
-  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
-  </patch>
-  <patch id="misc.checks.checkEnvironmentPatch">
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
-  <!-- Settings about dialog. -->
-  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+--><resources>
+    <app id="shared">
+        <patch id="layout.branding.baseCustomBrandingPatch">
+            <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+            <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+            <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+        </patch>
+        <patch id="misc.checks.checkEnvironmentPatch"/>
+        <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"/>
+        <patch id="misc.settings.settingsResourcePatch">
+            <!-- Settings about dialog. -->
+            <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  </patch>
-  <patch id="misc.audio.forceOriginalAudioPatch">
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  </patch>
-  <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
+        </patch>
+        <patch id="misc.gms.gmsCoreSupportResourcePatch">
+            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+        </patch>
+        <patch id="misc.fix.playback.spoofVideoStreamsPatch"/>
+        <patch id="misc.audio.forceOriginalAudioPatch">
+            <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+        </patch>
+        <patch id="misc.debugging.enableDebuggingPatch"/>
+        <patch id="misc.privacy.sanitizeSharingLinksPatch"/>
+        <patch id="layout.hide.general.hideLayoutComponentsPatch">
+            <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+        </patch>
+    </app>
+    <app id="youtube">
+        <patch id="misc.settings.settingsPatch"/>
+        <patch id="misc.backgroundplayback.backgroundPlaybackPatch"/>
+        <patch id="layout.hide.general.hideLayoutComponentsPatch">
+            <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                   This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
-  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
+            <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
-  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
-  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
-  <!-- 'Join' should be translated using the same localized wording YouTube displays.
+            <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+            <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+            <!-- 'Join' should be translated using the same localized wording YouTube displays.
                   This appears in the video player for certain videos. -->
-  <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
-  <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
-  <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
-  <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
-  <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
-  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
-  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
-  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+            <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
+            <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
+            <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
+            <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
+            <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
+            <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+            <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+            <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
-  </patch>
-  <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
-  </patch>
-  <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
-  <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
-  <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
-  <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
-  <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
-  <!-- 'Report' should be translated with the same localized wording that YouTube displays.
+            <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+        </patch>
+        <patch id="ad.general.hideAdsResourcePatch">
+            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+        </patch>
+        <patch id="ad.getpremium.hideGetPremiumPatch"/>
+        <patch id="ad.video.videoAdsPatch"/>
+        <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"/>
+        <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"/>
+        <patch id="layout.hide.signintotv.disableSignInToTVPopupPatch"/>
+        <patch id="interaction.doubletap.disableDoubleTapActionsPatch"/>
+        <patch id="interaction.downloads.downloadsResourcePatch">
+            <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
+        </patch>
+        <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"/>
+        <patch id="interaction.seekbar.enableSeekbarTappingPatch"/>
+        <patch id="interaction.swipecontrols.swipeControlsResourcePatch"/>
+        <patch id="layout.autocaptions.autoCaptionsPatch"/>
+        <patch id="layout.buttons.action.hideButtonsPatch">
+            <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
+            <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+            <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+            <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
-  <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
-  <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
-  <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
+            <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
+            <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
+            <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged-in user. -->
-  <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
-  <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
-  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+            <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
+            <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
+            <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
                   This button only shows if the user ip is from specific region such as the USA or EU. -->
-  <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
-  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
-  <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
-  <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <!-- 'Create' has no display name. Translate normally. -->
-  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
-  <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
-  <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <!-- 'Ambient mode' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
+            <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+            <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+            <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
+        </patch>
+        <patch id="layout.buttons.navigation.navigationButtonsPatch">
+            <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
+            <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
+            <!-- 'Create' has no display name. Translate normally. -->
+            <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
+            <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
+        </patch>
+        <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+            <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
+            <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
+            <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+            <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
+            <!-- 'Ambient mode' should be translated using the same localized wording YouTube displays for the menu item. -->
+            <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
+            <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
+            <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
+            <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+            <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
+            <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
                   'Android No SDK' must be kept untranslated. -->
-  <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
-  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
-  <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
-  <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
-  <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
-  </patch>
-  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
-  <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
-  <!-- Video likes have been set to hidden by the video uploader. -->
-  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
-  <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
-  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
-  <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <!-- A segment start and end time, such as "02:10 to 03:40". -->
-  <!-- Shown in the settings preferences, and translations can be any text length. -->
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
-  </patch>
-  <patch id="layout.theme.themePatch">
-  </patch>
-  <patch id="layout.branding.customBrandingPatch">
-  </patch>
-  <patch id="layout.branding.changeHeaderPatch">
-  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
-  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (Library) tab. -->
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
-  </patch>
-  <patch id="misc.loopvideo.loopVideoPatch">
-  </patch>
-  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
-  </patch>
-  <patch id="misc.audiofocus.pauseOnAudioInterruptPatch">
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
-  </patch>
-  <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
-  </patch>
-  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
-  <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
-  </patch>
-  <patch id="video.quality.button.videoQualityDialogButtonPatch">
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
-  </patch>
-  <patch id="video.codecs.disableVideoCodecsPatch">
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
-  </patch>
-  </app>
-  <app id="music">
-  <patch id="layout.branding.customBrandingPatch">
-  </patch>
-  <patch id="misc.settings.settingsPatch">
-  </patch>
-  <patch id="ad.video.hideVideoAdsPatch">
-  </patch>
-  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
-  </patch>
-  <patch id="layout.buttons.hideButtons">
-  </patch>
-  <patch id="layout.compactheader.hideCategoryBar">
-  </patch>
-  <patch id="layout.miniplayercolor.changeMiniplayerColor">
-  </patch>
-  <patch id="layout.navigationbar.navigationBarPatch">
-  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  </patch>
-  <patch id="layout.premium.hideGetPremiumPatch">
-  </patch>
-  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
-  </patch>
-  <patch id="debug.debugModePatch">
-  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title'. -->
-  </patch>
-  <patch id="misc.settings.settingsPatch">
-  </patch>
-  </app>
+            <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
+        </patch>
+        <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+            <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+        </patch>
+        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch"/>
+        <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"/>
+        <patch id="layout.hide.infocards.hideInfocardsResourcePatch"/>
+        <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"/>
+        <patch id="layout.hide.seekbar.hideSeekbarPatch">
+            <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
+        </patch>
+        <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+            <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
+            <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+            <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+            <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
+            <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
+        </patch>
+        <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"/>
+        <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch"/>
+        <patch id="layout.hide.time.hideTimestampPatch"/>
+        <patch id="layout.panels.popup.playerPopupPanelsPatch"/>
+        <patch id="layout.player.fullscreen.exitFullscreenPatch"/>
+        <patch id="layout.player.fullscreen.openVideosFullscreen"/>
+        <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"/>
+        <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+            <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
+            <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
+            <!-- Video likes have been set to hidden by the video uploader. -->
+            <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
+            <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
+        </patch>
+        <patch id="layout.searchbar.wideSearchbarPatch"/>
+        <patch id="layout.seekbar.seekbarThumbnailsPatch"/>
+        <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+            <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
+            <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
+            <!-- A segment start and end time, such as "02:10 to 03:40". -->
+            <!-- Shown in the settings preferences, and translations can be any text length. -->
+        </patch>
+        <patch id="layout.formfactor.changeFormFactorPatch"/>
+        <patch id="layout.spoofappversion.spoofAppVersionPatch"/>
+        <patch id="layout.startpage.changeStartPagePatch"/>
+        <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"/>
+        <patch id="layout.shortsplayer.shortsPlayerTypePatch"/>
+        <patch id="layout.shortsautoplay.shortsAutoplayPatch"/>
+        <patch id="layout.miniplayer.miniplayerPatch"/>
+        <patch id="layout.theme.themePatch"/>
+        <patch id="layout.branding.customBrandingPatch"/>
+        <patch id="layout.branding.changeHeaderPatch">
+            <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
+        </patch>
+        <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"/>
+        <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+            <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
+            <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+            <!-- 'You' should be translated using the same localized wording YouTube displays for the You (Library) tab. -->
+            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+        </patch>
+        <patch id="misc.announcements.announcementsPatch"/>
+        <patch id="misc.loopvideo.loopVideoPatch"/>
+        <patch id="misc.loopvideo.button.loopVideoButtonPatch"/>
+        <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"/>
+        <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"/>
+        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch"/>
+        <patch id="misc.gms.accountCredentialsInvalidTextPatch"/>
+        <patch id="misc.links.bypassURLRedirectsPatch"/>
+        <patch id="misc.links.openLinksExternallyPatch"/>
+        <patch id="video.quality.rememberVideoQualityPatch">
+            <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
+        </patch>
+        <patch id="video.speed.button.playbackSpeedButtonPatch"/>
+        <patch id="video.quality.button.videoQualityDialogButtonPatch"/>
+        <patch id="video.speed.custom.customPlaybackSpeedPatch"/>
+        <patch id="video.speed.remember.rememberPlaybackSpeedPatch"/>
+        <patch id="video.codecs.disableVideoCodecsPatch"/>
+        <patch id="video.quality.advancedVideoQualityMenuPatch"/>
+        <patch id="interaction.seekbar.enableSlideToSeekPatch"/>
+        <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+            <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+        </patch>
+    </app>
+    <app id="music">
+        <patch id="layout.branding.customBrandingPatch"/>
+        <patch id="misc.settings.settingsPatch"/>
+        <patch id="ad.video.hideVideoAdsPatch"/>
+        <patch id="interaction.permanentrepeat.permanentRepeatPatch"/>
+        <patch id="layout.buttons.hideButtons"/>
+        <patch id="layout.compactheader.hideCategoryBar"/>
+        <patch id="layout.miniplayercolor.changeMiniplayerColor"/>
+        <patch id="layout.navigationbar.navigationBarPatch">
+            <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+            <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+            <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+            <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+            <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+        </patch>
+        <patch id="layout.premium.hideGetPremiumPatch"/>
+        <patch id="layout.upgradebutton.hideUpgradeButtonPatch"/>
+    </app>
+    <app id="twitch">
+        <patch id="ad.audio.audioAdsPatch"/>
+        <patch id="ad.embedded.embeddedAdsPatch"/>
+        <patch id="ad.video.videoAdsPatch"/>
+        <patch id="chat.antidelete.showDeletedMessagesPatch"/>
+        <patch id="chat.autoclaim.autoClaimChannelPointsPatch"/>
+        <patch id="debug.debugModePatch">
+            <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title'. -->
+        </patch>
+        <patch id="misc.settings.settingsPatch"/>
+    </app>
 </resources>

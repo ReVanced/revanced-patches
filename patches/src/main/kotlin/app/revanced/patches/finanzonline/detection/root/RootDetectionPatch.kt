@@ -1,19 +1,17 @@
 package app.revanced.patches.finanzonline.detection.root
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.shared.PATCH_DESCRIPTION_REMOVE_ROOT_DETECTION
-import app.revanced.patches.shared.PATCH_NAME_REMOVE_ROOT_DETECTION
 
 @Suppress("unused")
-val rootDetectionPatch = bytecodePatch(
-    name = PATCH_NAME_REMOVE_ROOT_DETECTION,
-    description = PATCH_DESCRIPTION_REMOVE_ROOT_DETECTION,
+val removeRootDetectionPatch = bytecodePatch(
+    name = "Remove root detection",
+    description = "Removes the check for root permissions and unlocked bootloader.",
 ) {
     compatibleWith("at.gv.bmf.bmf2go")
 
-    execute {
-        rootDetectionFingerprint.method.addInstructions(
+    apply {
+        rootDetectionMethod.addInstructions(
             0,
             """
                 sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;

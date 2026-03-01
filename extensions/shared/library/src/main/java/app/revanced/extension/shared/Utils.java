@@ -32,7 +32,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -43,8 +47,10 @@ import java.text.Collator;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
@@ -75,6 +81,8 @@ public class Utils {
 
     @Nullable
     private static Boolean isDarkModeEnabled;
+
+    private static boolean appIsUsingBoldIcons;
 
     // Cached Collator instance with its locale.
     @Nullable
@@ -148,12 +156,12 @@ public class Utils {
     /**
      * Hide a view by setting its layout height and width to 1dp.
      *
-     * @param condition The setting to check for hiding the view.
+     * @param setting   The setting to check for hiding the view.
      * @param view      The view to hide.
      */
-    public static void hideViewBy0dpUnderCondition(BooleanSetting condition, View view) {
-        if (hideViewBy0dpUnderCondition(condition.get(), view)) {
-            Logger.printDebug(() -> "View hidden by setting: " + condition);
+    public static void hideViewBy0dpUnderCondition(BooleanSetting setting, View view) {
+        if (hideViewBy0dpUnderCondition(setting.get(), view)) {
+            Logger.printDebug(() -> "View hidden by setting: " + setting);
         }
     }
 
@@ -165,7 +173,7 @@ public class Utils {
      */
     public static boolean hideViewBy0dpUnderCondition(boolean condition, View view) {
         if (condition) {
-            hideViewByLayoutParams(view);
+            hideViewBy0dp(view);
             return true;
         }
 
@@ -173,19 +181,44 @@ public class Utils {
     }
 
     /**
-     * Hide a view by setting its visibility to GONE.
-     *
-     * @param condition The setting to check for hiding the view.
-     * @param view      The view to hide.
+     * Hide a view by setting its layout params to 0x0
+     * @param view The view to hide.
      */
-    public static void hideViewUnderCondition(BooleanSetting condition, View view) {
-        if (hideViewUnderCondition(condition.get(), view)) {
-            Logger.printDebug(() -> "View hidden by setting: " + condition);
+    public static void hideViewBy0dp(View view) {
+        if (view instanceof LinearLayout) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, 0);
+            view.setLayoutParams(layoutParams);
+        } else if (view instanceof FrameLayout) {
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(0, 0);
+            view.setLayoutParams(layoutParams2);
+        } else if (view instanceof RelativeLayout) {
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(0, 0);
+            view.setLayoutParams(layoutParams3);
+        } else if (view instanceof Toolbar) {
+            Toolbar.LayoutParams layoutParams4 = new Toolbar.LayoutParams(0, 0);
+            view.setLayoutParams(layoutParams4);
+        } else {
+            ViewGroup.LayoutParams params = view.getLayoutParams();
+            params.width = 0;
+            params.height = 0;
+            view.setLayoutParams(params);
         }
     }
 
     /**
-     * Hide a view by setting its visibility to GONE.
+     * Hide a view by setting its visibility as GONE.
+     *
+     * @param setting The setting to check for hiding the view.
+     * @param view      The view to hide.
+     */
+    public static void hideViewUnderCondition(BooleanSetting setting, View view) {
+        if (hideViewUnderCondition(setting.get(), view)) {
+            Logger.printDebug(() -> "View hidden by setting: " + setting);
+        }
+    }
+
+    /**
+     * Hide a view by setting its visibility as GONE.
      *
      * @param condition The setting to check for hiding the view.
      * @param view      The view to hide.
@@ -199,14 +232,14 @@ public class Utils {
         return false;
     }
 
-    public static void hideViewByRemovingFromParentUnderCondition(BooleanSetting condition, View view) {
-        if (hideViewByRemovingFromParentUnderCondition(condition.get(), view)) {
-            Logger.printDebug(() -> "View hidden by setting: " + condition);
+    public static void hideViewByRemovingFromParentUnderCondition(BooleanSetting setting, View view) {
+        if (hideViewByRemovingFromParentUnderCondition(setting.get(), view)) {
+            Logger.printDebug(() -> "View hidden by setting: " + setting);
         }
     }
 
-    public static boolean hideViewByRemovingFromParentUnderCondition(boolean setting, View view) {
-        if (setting) {
+    public static boolean hideViewByRemovingFromParentUnderCondition(boolean condition, View view) {
+        if (condition) {
             ViewParent parent = view.getParent();
             if (parent instanceof ViewGroup parentGroup) {
                 parentGroup.removeView(view);
@@ -255,7 +288,7 @@ public class Utils {
             // Could do a thread sleep, but that will trigger an exception if the thread is interrupted.
             meaninglessValue += Long.numberOfLeadingZeros((long) Math.exp(Math.random()));
         }
-        // Return the value, otherwise the compiler or VM might optimize and remove the meaningless time wasting work,
+        // Return the value, otherwise the compiler or VM might optimize and remove the meaningless time-wasting work,
         // leaving an empty loop that hammers on the System.currentTimeMillis native call.
         return meaninglessValue;
     }
@@ -265,10 +298,12 @@ public class Utils {
     }
 
     public static int indexOfFirstFound(String value, String... targets) {
-        for (String string : targets) {
-            if (!string.isEmpty()) {
-                final int indexOf = value.indexOf(string);
-                if (indexOf >= 0) return indexOf;
+        if (isNotEmpty(value)) {
+            for (String string : targets) {
+                if (!string.isEmpty()) {
+                    final int indexOf = value.indexOf(string);
+                    if (indexOf >= 0) return indexOf;
+                }
             }
         }
         return -1;
@@ -278,12 +313,13 @@ public class Utils {
      * @return zero, if the resource is not found.
      */
     @SuppressLint("DiscouragedApi")
-    public static int getResourceIdentifier(Context context, String resourceIdentifierName, @Nullable String type) {
-        return context.getResources().getIdentifier(resourceIdentifierName, type, context.getPackageName());
+    public static int getResourceIdentifier(Context context, @Nullable ResourceType type, String resourceIdentifierName) {
+        return context.getResources().getIdentifier(resourceIdentifierName,
+                type == null ? null : type.value, context.getPackageName());
     }
 
-    public static int getResourceIdentifierOrThrow(Context context, String resourceIdentifierName, @Nullable String type) {
-        final int resourceId = getResourceIdentifier(context, resourceIdentifierName, type);
+    public static int getResourceIdentifierOrThrow(Context context, @Nullable ResourceType type, String resourceIdentifierName) {
+        final int resourceId = getResourceIdentifier(context, type, resourceIdentifierName);
         if (resourceId == 0) {
             throw new Resources.NotFoundException("No resource id exists with name: " + resourceIdentifierName
                     + " type: " + type);
@@ -293,22 +329,18 @@ public class Utils {
 
     /**
      * @return zero, if the resource is not found.
-     * @see #getResourceIdentifierOrThrow(String, String)
+     * @see #getResourceIdentifierOrThrow(ResourceType, String)
      */
-    public static int getResourceIdentifier(String resourceIdentifierName, @Nullable String type) {
-        return getResourceIdentifier(getContext(), resourceIdentifierName, type);
+    public static int getResourceIdentifier(@Nullable ResourceType type, String resourceIdentifierName) {
+        return getResourceIdentifier(getContext(), type, resourceIdentifierName);
     }
 
     /**
-     * @return The resource identifier, or throws an exception if not found.
+     * @return zero, if the resource is not found.
+     * @see #getResourceIdentifier(ResourceType, String)
      */
-    public static int getResourceIdentifierOrThrow(String resourceIdentifierName, @Nullable String type) {
-        final int resourceId = getResourceIdentifier(getContext(), resourceIdentifierName, type);
-        if (resourceId == 0) {
-            throw new Resources.NotFoundException("No resource id exists with name: " + resourceIdentifierName
-                    + " type: " + type);
-        }
-        return resourceId;
+    public static int getResourceIdentifierOrThrow(@Nullable ResourceType type, String resourceIdentifierName) {
+        return getResourceIdentifierOrThrow(getContext(), type, resourceIdentifierName);
     }
 
     public static String getResourceString(int id) throws Resources.NotFoundException {
@@ -316,29 +348,29 @@ public class Utils {
     }
 
     public static int getResourceInteger(String resourceIdentifierName) throws Resources.NotFoundException {
-        return getContext().getResources().getInteger(getResourceIdentifierOrThrow(resourceIdentifierName, "integer"));
+        return getContext().getResources().getInteger(getResourceIdentifierOrThrow(ResourceType.INTEGER, resourceIdentifierName));
     }
 
     public static Animation getResourceAnimation(String resourceIdentifierName) throws Resources.NotFoundException {
-        return AnimationUtils.loadAnimation(getContext(), getResourceIdentifierOrThrow(resourceIdentifierName, "anim"));
+        return AnimationUtils.loadAnimation(getContext(), getResourceIdentifierOrThrow(ResourceType.ANIM, resourceIdentifierName));
     }
 
     @ColorInt
     public static int getResourceColor(String resourceIdentifierName) throws Resources.NotFoundException {
         //noinspection deprecation
-        return getContext().getResources().getColor(getResourceIdentifierOrThrow(resourceIdentifierName, "color"));
+        return getContext().getResources().getColor(getResourceIdentifierOrThrow(ResourceType.COLOR, resourceIdentifierName));
     }
 
     public static int getResourceDimensionPixelSize(String resourceIdentifierName) throws Resources.NotFoundException {
-        return getContext().getResources().getDimensionPixelSize(getResourceIdentifierOrThrow(resourceIdentifierName, "dimen"));
+        return getContext().getResources().getDimensionPixelSize(getResourceIdentifierOrThrow(ResourceType.DIMEN, resourceIdentifierName));
     }
 
     public static float getResourceDimension(String resourceIdentifierName) throws Resources.NotFoundException {
-        return getContext().getResources().getDimension(getResourceIdentifierOrThrow(resourceIdentifierName, "dimen"));
+        return getContext().getResources().getDimension(getResourceIdentifierOrThrow(ResourceType.DIMEN, resourceIdentifierName));
     }
 
     public static String[] getResourceStringArray(String resourceIdentifierName) throws Resources.NotFoundException {
-        return getContext().getResources().getStringArray(getResourceIdentifierOrThrow(resourceIdentifierName, "array"));
+        return getContext().getResources().getStringArray(getResourceIdentifierOrThrow(ResourceType.ARRAY, resourceIdentifierName));
     }
 
     public interface MatchFilter<T> {
@@ -349,7 +381,7 @@ public class Utils {
      * Includes sub children.
      */
     public static <R extends View> R getChildViewByResourceName(View view, String str) {
-        var child = view.findViewById(Utils.getResourceIdentifierOrThrow(str, "id"));
+        var child = view.findViewById(Utils.getResourceIdentifierOrThrow(ResourceType.ID, str));
         //noinspection unchecked
         return (R) child;
     }
@@ -443,6 +475,10 @@ public class Utils {
         clipboard.setPrimaryClip(clip);
     }
 
+    public static boolean isNotEmpty(@Nullable String str) {
+        return str != null && !str.isEmpty();
+    }
+
     public static boolean isTablet() {
         return context.getResources().getConfiguration().smallestScreenWidthDp >= 600;
     }
@@ -451,7 +487,7 @@ public class Utils {
     private static Boolean isRightToLeftTextLayout;
 
     /**
-     * @return If the device language uses right to left text layout (Hebrew, Arabic, etc).
+     * @return If the device language uses right to left text layout (Hebrew, Arabic, etc.).
      *         If this should match any ReVanced language override then instead use
      *         {@link #isRightToLeftLocale(Locale)} with {@link BaseSettings#REVANCED_LANGUAGE}.
      *         This is the default locale of the device, which may differ if
@@ -465,7 +501,7 @@ public class Utils {
     }
 
     /**
-     * @return If the locale uses right to left text layout (Hebrew, Arabic, etc).
+     * @return If the locale uses right to left text layout (Hebrew, Arabic, etc.).
      */
     public static boolean isRightToLeftLocale(Locale locale) {
         String displayLanguage = locale.getDisplayLanguage();
@@ -494,7 +530,7 @@ public class Utils {
 
     /**
      * @return if the text contains at least 1 number character,
-     *         including any unicode numbers such as Arabic.
+     *         including any Unicode numbers such as Arabic.
      */
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public static boolean containsNumber(CharSequence text) {
@@ -807,6 +843,21 @@ public class Utils {
     }
 
     /**
+     * @return If the unpatched app is currently using bold icons.
+     */
+    public static boolean appIsUsingBoldIcons() {
+        return appIsUsingBoldIcons;
+    }
+
+    /**
+     * Controls if ReVanced bold icons are shown in various places.
+     * @param boldIcons If the app is currently using bold icons.
+     */
+    public static void setAppIsUsingBoldIcons(boolean boldIcons) {
+        appIsUsingBoldIcons = boldIcons;
+    }
+
+    /**
      * Sets the theme light color used by the app.
      */
     public static void setThemeLightColor(@ColorInt int color) {
@@ -1111,7 +1162,7 @@ public class Utils {
     }
 
     /**
-     * Uses {@link #adjustColorBrightness(int, float)} depending if light or dark mode is active.
+     * Uses {@link #adjustColorBrightness(int, float)} depending on if light or dark mode is active.
      */
     @ColorInt
     public static int adjustColorBrightness(@ColorInt int baseColor, float lightThemeFactor, float darkThemeFactor) {
@@ -1166,5 +1217,19 @@ public class Utils {
 
     public static float clamp(float value, float lower, float upper) {
         return Math.max(lower, Math.min(value, upper));
+    }
+
+    /**
+     * @param maxSize The maximum number of elements to keep in the map.
+     * @return A {@link LinkedHashMap} that automatically evicts the oldest entry
+     *        when the size exceeds {@code maxSize}.
+     */
+    public static <T, V> Map<T, V> createSizeRestrictedMap(int maxSize) {
+        return new LinkedHashMap<>(2 * maxSize) {
+            @Override
+            protected boolean removeEldestEntry(Entry eldest) {
+                return size() > maxSize;
+            }
+        };
     }
 }

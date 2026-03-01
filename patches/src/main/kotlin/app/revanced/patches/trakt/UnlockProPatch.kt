@@ -1,21 +1,17 @@
 package app.revanced.patches.trakt
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
-val unlockProPatch = bytecodePatch(
-    name = "Unlock pro",
-) {
+val unlockProPatch = bytecodePatch("Unlock pro") {
     compatibleWith("tv.trakt.trakt"("1.1.1"))
 
-    execute {
-        arrayOf(isVIPFingerprint, isVIPEPFingerprint).onEach { fingerprint ->
-            // Resolve both fingerprints on the same class.
-            fingerprint.match(remoteUserFingerprint.originalClassDef)
-        }.forEach { fingerprint ->
-            // Return true for both VIP check methods.
-            fingerprint.method.addInstructions(
+    apply {
+        // Return true for both VIP check methods.
+        arrayOf(isVIPMethod, isVIPEPMethod).forEach { method: MutableMethod ->
+            method.addInstructions(
                 0,
                 """
                     const/4 v0, 0x1

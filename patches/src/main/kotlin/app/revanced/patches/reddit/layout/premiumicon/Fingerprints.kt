@@ -1,10 +1,13 @@
 package app.revanced.patches.reddit.layout.premiumicon
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 
-internal val hasPremiumIconAccessFingerprint = fingerprint {
-    returns("Z")
-    custom { method, classDef ->
-        classDef.endsWith("MyAccount;") && method.name == "isPremiumSubscriber"
-    }
+internal val BytecodePatchContext.hasPremiumIconAccessMethod by gettingFirstMethodDeclaratively {
+    name("isPremiumSubscriber")
+    definingClass("MyAccount;")
+    returnType("Z")
 }

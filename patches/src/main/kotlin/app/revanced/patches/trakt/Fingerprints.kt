@@ -1,25 +1,16 @@
 package app.revanced.patches.trakt
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val isVIPEPFingerprint = fingerprint {
-    custom { method, classDef ->
-        if (!classDef.endsWith("RemoteUser;")) return@custom false
-
-        method.name == "isVIPEP"
-    }
+internal val BytecodePatchContext.isVIPEPMethod by gettingFirstMethodDeclaratively {
+    name("isVIPEP")
+    definingClass("RemoteUser;")
 }
 
-internal val isVIPFingerprint = fingerprint {
-    custom { method, classDef ->
-        if (!classDef.endsWith("RemoteUser;")) return@custom false
-
-        method.name == "isVIP"
-    }
-}
-
-internal val remoteUserFingerprint = fingerprint {
-    custom { _, classDef ->
-        classDef.endsWith("RemoteUser;")
-    }
+internal val BytecodePatchContext.isVIPMethod by gettingFirstMethodDeclaratively {
+    name("isVIP")
+    definingClass("RemoteUser;")
 }

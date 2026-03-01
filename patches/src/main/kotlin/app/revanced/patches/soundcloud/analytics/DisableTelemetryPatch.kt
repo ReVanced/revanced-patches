@@ -1,6 +1,6 @@
 package app.revanced.patches.soundcloud.analytics
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
@@ -10,8 +10,8 @@ val disableTelemetryPatch = bytecodePatch(
 ) {
     compatibleWith("com.soundcloud.android"("2025.05.27-release"))
 
-    execute {
+    apply {
         // Empty the "backend" argument to abort the initializer.
-        createTrackingApiFingerprint.method.addInstruction(0, "const-string p1, \"\"")
+        createTrackingApiMethod.addInstruction(0, "const-string p1, \"\"")
     }
 }

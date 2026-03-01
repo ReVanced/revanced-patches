@@ -96,8 +96,8 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             // Preferences are synced by AbstractPreferenceFragment since keys are set
             // and a Setting exist with the same key.
 
-            // If the user has a private user id, then include a subtext that mentions not to share it.
-            String importExportSummary = SponsorBlockSettings.userHasSBPrivateId()
+            // If the user has a private user ID, then include a subtext that mentions not to share it.
+            String importExportSummary = SponsorBlockSettings.userHasSBPrivateID()
                     ? str("revanced_sb_settings_ie_sum_warning")
                     : str("revanced_sb_settings_ie_sum");
             importExport.setSummary(importExportSummary);
@@ -393,7 +393,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             });
             generalCategory.addPreference(minSegmentDuration);
 
-            EditTextPreference privateUserId = new EditTextPreference(context) {
+            EditTextPreference privateUserID = new EditTextPreference(context) {
                 @Override
                 protected void showDialog(Bundle state) {
                     try {
@@ -442,11 +442,11 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                     }
                 }
             };
-            initializePreference(privateUserId, Settings.SB_PRIVATE_USER_ID,
+            initializePreference(privateUserID, Settings.SB_PRIVATE_USER_ID,
                     "revanced_sb_general_uuid");
-            privateUserId.setOnPreferenceChangeListener((preference1, newValue) -> {
+            privateUserID.setOnPreferenceChangeListener((preference1, newValue) -> {
                 String newUUID = newValue.toString();
-                if (!SponsorBlockSettings.isValidSBUserId(newUUID)) {
+                if (!SponsorBlockSettings.isValidSBUserID(newUUID)) {
                     Utils.showToastLong(str("revanced_sb_general_uuid_invalid"));
                     updateUIDelayed();
                     return false;
@@ -456,7 +456,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 updateUIDelayed();
                 return true;
             });
-            generalCategory.addPreference(privateUserId);
+            generalCategory.addPreference(privateUserID);
 
             Preference apiUrl = new Preference(context);
             initializePreference(apiUrl, Settings.SB_API_URL,

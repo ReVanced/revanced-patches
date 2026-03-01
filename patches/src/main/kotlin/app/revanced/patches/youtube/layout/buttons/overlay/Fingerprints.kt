@@ -1,30 +1,53 @@
 package app.revanced.patches.youtube.layout.buttons.overlay
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.containsLiteralInstruction
-import app.revanced.util.literal
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
-internal val playerControlsPreviousNextOverlayTouchFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    strings("1.0x")
-    custom { methodDef, _ ->
-        methodDef.containsLiteralInstruction(playerControlPreviousButtonTouchArea) &&
-            methodDef.containsLiteralInstruction(playerControlNextButtonTouchArea)
-    }
+internal val BytecodePatchContext.mediaRouteButtonMethod by gettingFirstMethodDeclaratively {
+    name("setVisibility")
+    definingClass("/MediaRouteButton;")
+    parameterTypes("I")
 }
 
-internal val mediaRouteButtonFingerprint = fingerprint {
-    parameters("I")
-    custom { methodDef, _ ->
-        methodDef.definingClass.endsWith("/MediaRouteButton;") && methodDef.name == "setVisibility"
-    }
+internal val BytecodePatchContext.castButtonPlayerFeatureFlagMethodMatch by composingFirstMethod {
+    returnType("Z")
+    instructions(45690091L())
 }
 
-internal val inflateControlsGroupLayoutStubFingerprint = fingerprint {
+internal val BytecodePatchContext.castButtonActionFeatureFlagMethodMatch by composingFirstMethod {
+    returnType("Z")
+    instructions(45690090L())
+}
+
+internal val BytecodePatchContext.inflateControlsGroupLayoutStubMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters()
-    returns("V")
-    literal { controlsButtonGroupLayoutStub }
+    parameterTypes()
+    returnType("V")
+    instructions(
+        ResourceType.ID("youtube_controls_button_group_layout_stub"),
+        method("inflate"),
+    )
+}
+
+internal val BytecodePatchContext.fullscreenButtonMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameterTypes("Landroid/view/View;")
+    returnType("V")
+    instructions(
+        ResourceType.ID("fullscreen_button"),
+        Opcode.CHECK_CAST()
+    )
+}
+
+internal val BytecodePatchContext.titleAnchorMethodMatch by composingFirstMethod {
+    returnType("V")
+    instructions(
+        ResourceType.ID("player_collapse_button"),
+        Opcode.CHECK_CAST(),
+        ResourceType.ID("title_anchor"),
+        Opcode.MOVE_RESULT_OBJECT()
+    )
 }

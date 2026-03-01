@@ -1,43 +1,40 @@
 package app.revanced.patches.shared.misc.gms
 
-import app.revanced.patcher.fingerprint
-import app.revanced.patches.shared.misc.gms.EXTENSION_CLASS_DESCRIPTOR
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-const val GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME = "getGmsCoreVendorGroupId"
-
-internal val googlePlayUtilityFingerprint = fingerprint {
+internal val BytecodePatchContext.googlePlayUtilityMethod by gettingFirstMethodDeclarativelyOrNull(
+    "This should never happen.",
+    "MetadataValueReader",
+    "com.google.android.gms",
+) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("I")
-    parameters("L", "I")
-    strings(
-        "This should never happen.",
-        "MetadataValueReader",
-        "com.google.android.gms",
-    )
+    returnType("I")
+    parameterTypes("L", "I")
 }
 
-internal val serviceCheckFingerprint = fingerprint {
+internal val BytecodePatchContext.serviceCheckMethod by gettingFirstMethodDeclaratively(
+    "Google Play Services not available",
+) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("V")
-    parameters("L", "I")
-    strings("Google Play Services not available")
+    returnType("V")
+    parameterTypes("L", "I")
 }
 
-internal val getGmsCoreVendorGroupIdFingerprint = fingerprint {
+internal val BytecodePatchContext.getGmsCoreVendorGroupIdMethod by gettingFirstMethodDeclaratively {
+    name("getGmsCoreVendorGroupId")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
-    custom { method, classDef ->
-        method.name == "getGmsCoreVendorGroupId" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
+    returnType("Ljava/lang/String;")
+    parameterTypes()
 }
 
-internal val originalPackageNameExtensionFingerprint = fingerprint {
+internal val BytecodePatchContext.originalPackageNameExtensionMethod by gettingFirstMethodDeclaratively {
+    name("getOriginalPackageName")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
-    custom { methodDef, classDef ->
-        methodDef.name == "getOriginalPackageName" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
+    returnType("Ljava/lang/String;")
+    parameterTypes()
 }

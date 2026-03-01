@@ -1,7 +1,7 @@
 package app.revanced.patches.googlephotos.misc.features
 
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringsOption
 import app.revanced.util.getReference
@@ -19,18 +19,16 @@ val spoofFeaturesPatch = bytecodePatch(
     dependsOn(spoofBuildInfoPatch)
 
     val featuresToEnable by stringsOption(
-        key = "featuresToEnable",
         default = listOf(
             "com.google.android.apps.photos.NEXUS_PRELOAD",
             "com.google.android.apps.photos.nexus_preload",
         ),
-        title = "Features to enable",
+        name = "Features to enable",
         description = "Google Pixel exclusive features to enable. Features up to Pixel XL enable the unlimited storage feature.",
         required = true,
     )
 
     val featuresToDisable by stringsOption(
-        key = "featuresToDisable",
         default = listOf(
             "com.google.android.apps.photos.PIXEL_2017_PRELOAD",
             "com.google.android.apps.photos.PIXEL_2018_PRELOAD",
@@ -49,20 +47,20 @@ val spoofFeaturesPatch = bytecodePatch(
             "com.google.android.feature.PIXEL_2025_MIDYEAR_EXPERIENCE",
             "com.google.android.feature.PIXEL_2025_EXPERIENCE",
         ),
-        title = "Features to disable",
+        name = "Features to disable",
         description = "Google Pixel exclusive features to disable." +
             "Features after Pixel XL may have to be disabled for unlimited storage depending on the device.",
         required = true,
     )
 
-    execute {
+    apply {
         @Suppress("NAME_SHADOWING")
         val featuresToEnable = featuresToEnable!!.toSet()
 
         @Suppress("NAME_SHADOWING")
         val featuresToDisable = featuresToDisable!!.toSet()
 
-        initializeFeaturesEnumFingerprint.method.apply {
+        initializeFeaturesEnumMethod.apply {
             instructions.filter { it.opcode == Opcode.CONST_STRING }.forEach {
                 val feature = it.getReference<StringReference>()!!.string
 

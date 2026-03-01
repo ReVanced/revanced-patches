@@ -1,13 +1,14 @@
 package app.revanced.patches.memegenerator.misc.pro
 
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.Opcode
 
-internal val isFreeVersionFingerprint = fingerprint {
+internal val BytecodePatchContext.isFreeVersionMethod by gettingFirstMethodDeclaratively("free") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Ljava/lang/Boolean;")
-    parameters("Landroid/content/Context;")
+    returnType("Ljava/lang/Boolean;")
+    parameterTypes("Landroid/content/Context;")
     opcodes(
         Opcode.SGET,
         Opcode.INVOKE_VIRTUAL,
@@ -17,5 +18,4 @@ internal val isFreeVersionFingerprint = fingerprint {
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ
     )
-    strings("free")
 }

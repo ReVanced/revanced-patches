@@ -1,16 +1,21 @@
 package app.revanced.patches.youtube.layout.hide.relatedvideooverlay
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val relatedEndScreenResultsParentFingerprint = fingerprint {
-    returns("V")
-    literal{ appRelatedEndScreenResults }
+internal val BytecodePatchContext.relatedEndScreenResultsParentMethod by gettingFirstImmutableMethodDeclaratively {
+    returnType("V")
+    instructions(
+        ResourceType.LAYOUT("app_related_endscreen_results"),
+    )
 }
 
-internal val relatedEndScreenResultsFingerprint = fingerprint {
-    returns("V")
-    parameters(
+context(_: BytecodePatchContext)
+internal fun ClassDef.getRelatedEndScreenResultsMethod() = firstMethodDeclaratively {
+    returnType("V")
+    parameterTypes(
         "I",
         "Z",
         "I",

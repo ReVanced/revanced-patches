@@ -10,8 +10,8 @@ val removeDelayPatch = bytecodePatch(
 ) {
     compatibleWith("ch.protonvpn.android")
 
-    execute {
-        longDelayFingerprint.method.returnEarly(0)
-        shortDelayFingerprint.method.returnEarly(0)
+    apply {
+        longDelayMethod.returnEarly(0)
+        shortDelayMethod.returnEarly(0)
     }
 }

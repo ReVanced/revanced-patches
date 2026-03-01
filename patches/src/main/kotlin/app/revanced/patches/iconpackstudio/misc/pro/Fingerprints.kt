@@ -1,8 +1,11 @@
 package app.revanced.patches.iconpackstudio.misc.pro
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 
-internal val checkProFingerprint = fingerprint {
-    returns("Z")
-    custom { _, classDef -> classDef.endsWith("IPSPurchaseRepository;") }
+internal val BytecodePatchContext.checkProMethod by gettingFirstMethodDeclaratively {
+    definingClass("IPSPurchaseRepository;")
+    returnType("Z")
 }

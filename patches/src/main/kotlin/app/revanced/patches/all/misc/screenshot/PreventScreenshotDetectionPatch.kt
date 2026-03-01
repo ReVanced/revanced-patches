@@ -1,6 +1,6 @@
 package app.revanced.patches.all.misc.screenshot
 
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
 import app.revanced.util.getReference
@@ -16,7 +16,7 @@ private val registerScreenCaptureCallbackMethodReference = ImmutableMethodRefere
         "Ljava/util/concurrent/Executor;",
         "Landroid/app/Activity\$ScreenCaptureCallback;",
     ),
-    "V"
+    "V",
 )
 
 private val unregisterScreenCaptureCallbackMethodReference = ImmutableMethodReference(
@@ -25,28 +25,30 @@ private val unregisterScreenCaptureCallbackMethodReference = ImmutableMethodRefe
     listOf(
         "Landroid/app/Activity\$ScreenCaptureCallback;",
     ),
-    "V"
+    "V",
 )
 
 @Suppress("unused")
 val preventScreenshotDetectionPatch = bytecodePatch(
     name = "Prevent screenshot detection",
     description = "Removes the registration of all screen capture callbacks. This prevents the app from detecting screenshots.",
-	use = false
+    use = false,
 ) {
-    dependsOn(transformInstructionsPatch(
-        filterMap = { _, _, instruction, instructionIndex ->
-            if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return@transformInstructionsPatch null
-            
-            val reference = instruction.getReference<MethodReference>() ?: return@transformInstructionsPatch null
+    dependsOn(
+        transformInstructionsPatch(
+            filterMap = { _, _, instruction, instructionIndex ->
+                if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return@transformInstructionsPatch null
 
-			instructionIndex.takeIf {
-				MethodUtil.methodSignaturesMatch(reference, registerScreenCaptureCallbackMethodReference) ||
-					MethodUtil.methodSignaturesMatch(reference, unregisterScreenCaptureCallbackMethodReference)
-			}
-        },
-        transform = { mutableMethod, instructionIndex ->
-            mutableMethod.removeInstruction(instructionIndex)
-        }
-    ))
+                val reference = instruction.getReference<MethodReference>() ?: return@transformInstructionsPatch null
+
+                instructionIndex.takeIf {
+                    MethodUtil.methodSignaturesMatch(reference, registerScreenCaptureCallbackMethodReference) ||
+                        MethodUtil.methodSignaturesMatch(reference, unregisterScreenCaptureCallbackMethodReference)
+                }
+            },
+            transform = { mutableMethod, instructionIndex ->
+                mutableMethod.removeInstruction(instructionIndex)
+            },
+        ),
+    )
 }

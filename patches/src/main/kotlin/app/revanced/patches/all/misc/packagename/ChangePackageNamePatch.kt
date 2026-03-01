@@ -6,7 +6,15 @@ import app.revanced.util.getNode
 import org.w3c.dom.Element
 import java.util.logging.Logger
 
-lateinit var packageNameOption: Option<String>
+private val packageNameOption = stringOption(
+    default = "Default",
+    values = mapOf("Default" to "Default"),
+    name = "Package name",
+    description = "The name of the package to rename the app to.",
+    required = true,
+) {
+    it == "Default" || it!!.matches(Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$"))
+}
 
 /**
  * Set the package name to use.
@@ -26,40 +34,30 @@ fun setOrGetFallbackPackageName(fallbackPackageName: String): String {
     }
 }
 
+@Suppress("ObjectPropertyName")
 val changePackageNamePatch = resourcePatch(
     name = "Change package name",
     description = "Appends \".revanced\" to the package name by default. " +
         "Changing the package name of the app can lead to unexpected issues.",
     use = false,
 ) {
-    packageNameOption = stringOption(
-        key = "packageName",
-        default = "Default",
-        values = mapOf("Default" to "Default"),
-        title = "Package name",
-        description = "The name of the package to rename the app to.",
-        required = true,
-    ) {
-        it == "Default" || it!!.matches(Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$"))
-    }
+    packageNameOption()
 
     val updatePermissions by booleanOption(
-        key = "updatePermissions",
         default = false,
-        title = "Update permissions",
+        name = "Update permissions",
         description = "Update compatibility receiver permissions. " +
             "Enabling this can fix installation errors, but this can also break features in certain apps.",
     )
 
     val updateProviders by booleanOption(
-        key = "updateProviders",
         default = false,
-        title = "Update providers",
+        name = "Update providers",
         description = "Update provider names declared by the app. " +
             "Enabling this can fix installation errors, but this can also break features in certain apps.",
     )
 
-    finalize {
+    afterDependents {
         /**
          * Apps that are confirmed to not work correctly with this patch.
          * This is not an exhaustive list, and is only the apps with
@@ -80,7 +78,7 @@ val changePackageNamePatch = resourcePatch(
             val packageName = manifest.getAttribute("package")
 
             if (incompatibleAppPackages.contains(packageName)) {
-                return@finalize Logger.getLogger(this::class.java.name).severe(
+                return@afterDependents Logger.getLogger(this::class.java.name).severe(
                     "'$packageName' does not work correctly with \"Change package name\"",
                 )
             }

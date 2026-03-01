@@ -1,9 +1,8 @@
 package app.revanced.patches.music.misc.fileprovider
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
-import app.revanced.patches.music.utils.fix.fileprovider.fileProviderResolverFingerprint
 
 internal fun fileProviderPatch(
     youtubePackageName: String,
@@ -11,7 +10,7 @@ internal fun fileProviderPatch(
 ) = bytecodePatch(
     description = "Fixes broken YouTube Music file provider that prevents sharing with specific apps such as Instagram."
 ) {
-    finalize {
+    afterDependents {
         // Must do modification last, so change package name value is correctly set.
         val musicChangedPackageName = setOrGetFallbackPackageName(musicPackageName)
 
@@ -22,7 +21,7 @@ internal fun fileProviderPatch(
         // https://github.com/ReVanced/revanced-patches/issues/55
         //
         // To solve this issue, replace the package name of YouTube with YT Music's package name.
-        fileProviderResolverFingerprint.method.addInstructionsWithLabels(
+        fileProviderResolverMethod.addInstructionsWithLabels(
             0,
             """
                 const-string v0, "com.google.android.youtube.fileprovider"

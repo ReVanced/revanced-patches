@@ -1,7 +1,8 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -22,7 +23,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/
 
 val enableSlideToSeekPatch = bytecodePatch(
     description = "Adds an option to enable slide to seek " +
-        "instead of playing at 2x speed when pressing and holding in the video player."
+        "instead of playing at 2x speed when pressing and holding in the video player.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -31,7 +32,7 @@ val enableSlideToSeekPatch = bytecodePatch(
         versionCheckPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "interaction.seekbar.enableSlideToSeekPatch")
 
         PreferenceScreen.SEEKBAR.addPreferences(
@@ -40,18 +41,18 @@ val enableSlideToSeekPatch = bytecodePatch(
 
         var modifiedMethods = false
 
-        // Restore the behaviour to slide to seek.
+        // Restore the behavior to slide to seek.
 
-        val checkIndex = slideToSeekFingerprint.patternMatch!!.startIndex
-        val checkReference = slideToSeekFingerprint.method.getInstruction(checkIndex)
+        val checkIndex = slideToSeekMethodMatch[0]
+        val checkReference = slideToSeekMethodMatch.method.getInstruction(checkIndex)
             .getReference<MethodReference>()!!
 
         val extensionMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->isSlideToSeekDisabled(Z)Z"
 
         // A/B check method was only called on this class.
-        slideToSeekFingerprint.classDef.methods.forEach { method ->
+        slideToSeekMethodMatch.classDef.methods.forEach { method ->
             method.findInstructionIndicesReversed {
-                opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>() == checkReference
+                opcode == Opcode.INVOKE_VIRTUAL && methodReference == checkReference
             }.forEach { index ->
                 method.apply {
                     val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
@@ -73,9 +74,9 @@ val enableSlideToSeekPatch = bytecodePatch(
 
         // Disable the double speed seek gesture.
         if (is_19_17_or_greater) {
-            disableFastForwardGestureFingerprint.let {
+            disableFastForwardGestureMethodMatch.let {
                 it.method.apply {
-                    val targetIndex = it.patternMatch!!.endIndex
+                    val targetIndex = it[-1]
                     val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(
@@ -88,17 +89,19 @@ val enableSlideToSeekPatch = bytecodePatch(
                 }
             }
         } else {
-            disableFastForwardLegacyFingerprint.method.apply {
-                val insertIndex = disableFastForwardLegacyFingerprint.patternMatch!!.endIndex + 1
-                val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+            disableFastForwardLegacyMethodMatch.let {
+                it.method.apply {
+                    val insertIndex = it[-1] + 1
+                    val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                addInstructions(
-                    insertIndex,
-                    """
-                        invoke-static { v$targetRegister }, $extensionMethodDescriptor
-                        move-result v$targetRegister
-                    """,
-                )
+                    addInstructions(
+                        insertIndex,
+                        """
+                            invoke-static { v$targetRegister }, $extensionMethodDescriptor
+                            move-result v$targetRegister
+                        """,
+                    )
+                }
             }
         }
     }

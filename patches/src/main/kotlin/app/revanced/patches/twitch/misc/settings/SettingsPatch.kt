@@ -1,19 +1,17 @@
 package app.revanced.patches.twitch.misc.settings
 
-import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.patcher.classDef
+import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.BasePreference
-import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
-import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
-import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
-import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.settingsPatch
 import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -50,7 +48,7 @@ val settingsPatch = bytecodePatch(
 
     compatibleWith("tv.twitch.android.app"("16.9.1"))
 
-    execute {
+    apply {
         addResources("twitch", "misc.settings.settingsPatch")
 
         preferences += NonInteractivePreference(
@@ -74,23 +72,22 @@ val settingsPatch = bytecodePatch(
         )
 
         // Hook onCreate to handle fragment creation.
-        val insertIndex = settingsActivityOnCreateFingerprint.method.implementation!!.instructions.size - 2
-        settingsActivityOnCreateFingerprint.method.addInstructionsWithLabels(
-            insertIndex,
-            """
-                invoke-static { p0 }, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingsCreation(Landroidx/appcompat/app/AppCompatActivity;)Z
-                move-result v0
-                if-eqz v0, :no_rv_settings_init
-                return-void
-            """,
-            ExternalLabel(
-                "no_rv_settings_init",
-                settingsActivityOnCreateFingerprint.method.getInstruction(insertIndex),
-            ),
-        )
+        settingsActivityOnCreateMethod.apply {
+            val insertIndex = instructions.size - 2
+            addInstructionsWithLabels(
+                insertIndex,
+                """
+                    invoke-static { p0 }, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingsCreation(Landroidx/appcompat/app/AppCompatActivity;)Z
+                    move-result v0
+                    if-eqz v0, :no_rv_settings_init
+                    return-void
+                """,
+                ExternalLabel("no_rv_settings_init", getInstruction(insertIndex)),
+            )
+        }
 
         // Create new menu item for settings menu.
-        fun Fingerprint.injectMenuItem(
+        fun MutableMethod.injectMenuItem(
             name: String,
             value: Int,
             titleResourceName: String,
@@ -99,7 +96,7 @@ val settingsPatch = bytecodePatch(
             // Add new static enum member field
             classDef.staticFields.add(
                 ImmutableField(
-                    method.definingClass,
+                    definingClass,
                     name,
                     MENU_ITEM_ENUM_CLASS_DESCRIPTOR,
                     AccessFlags.PUBLIC.value or
@@ -113,8 +110,8 @@ val settingsPatch = bytecodePatch(
             )
 
             // Add initializer for the new enum member
-            method.addInstructions(
-                method.implementation!!.instructions.size - 4,
+            addInstructions(
+                instructions.size - 4,
                 """   
                 new-instance        v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR
                 const-string        v1, "$titleResourceName"
@@ -131,7 +128,7 @@ val settingsPatch = bytecodePatch(
             )
         }
 
-        settingsMenuItemEnumFingerprint.injectMenuItem(
+        settingsMenuItemEnumMethod.injectMenuItem(
             REVANCED_SETTINGS_MENU_ITEM_NAME,
             REVANCED_SETTINGS_MENU_ITEM_ID,
             REVANCED_SETTINGS_MENU_ITEM_TITLE_RES,
@@ -139,7 +136,7 @@ val settingsPatch = bytecodePatch(
         )
 
         // Intercept settings menu creation and add new menu item.
-        menuGroupsUpdatedFingerprint.method.addInstructions(
+        menuGroupsUpdatedMethod.addInstructions(
             0,
             """
                 sget-object v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR->$REVANCED_SETTINGS_MENU_ITEM_NAME:$MENU_ITEM_ENUM_CLASS_DESCRIPTOR 
@@ -149,7 +146,7 @@ val settingsPatch = bytecodePatch(
         )
 
         // Intercept onclick events for the settings menu
-        menuGroupsOnClickFingerprint.method.addInstructionsWithLabels(
+        menuGroupsOnClickMethod.addInstructionsWithLabels(
             0,
             """
                 invoke-static {p1}, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingMenuOnClick(Ljava/lang/Enum;)Z
@@ -161,12 +158,12 @@ val settingsPatch = bytecodePatch(
             """,
             ExternalLabel(
                 "no_rv_settings_onclick",
-                menuGroupsOnClickFingerprint.method.getInstruction(0),
+                menuGroupsOnClickMethod.getInstruction(0),
             ),
         )
     }
 
-    finalize {
+    afterDependents {
         PreferenceScreen.close()
     }
 }

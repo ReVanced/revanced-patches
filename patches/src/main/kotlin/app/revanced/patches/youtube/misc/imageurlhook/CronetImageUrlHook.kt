@@ -1,11 +1,13 @@
 package app.revanced.patches.youtube.misc.imageurlhook
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
+import app.revanced.patcher.classDef
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -15,8 +17,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
-private lateinit var loadImageUrlMethod: MutableMethod
-private var loadImageUrlIndex = 0
+private lateinit var loadImageURLMethod: MutableMethod
+private var loadImageURLIndex = 0
 
 private lateinit var loadImageSuccessCallbackMethod: MutableMethod
 private var loadImageSuccessCallbackIndex = 0
@@ -24,24 +26,20 @@ private var loadImageSuccessCallbackIndex = 0
 private lateinit var loadImageErrorCallbackMethod: MutableMethod
 private var loadImageErrorCallbackIndex = 0
 
-val cronetImageUrlHookPatch = bytecodePatch(
-    description = "Hooks Cronet image urls.",
+val cronetImageURLHookPatch = bytecodePatch(
+    description = "Hooks Cronet image URLs.",
 ) {
     dependsOn(sharedExtensionPatch)
 
-    execute {
-        loadImageUrlMethod = messageDigestImageUrlFingerprint
-            .match(messageDigestImageUrlParentFingerprint.originalClassDef).method
+    apply {
 
-        loadImageSuccessCallbackMethod = onSucceededFingerprint
-            .match(onResponseStartedFingerprint.originalClassDef).method
-
-        loadImageErrorCallbackMethod = onFailureFingerprint
-            .match(onResponseStartedFingerprint.originalClassDef).method
+        loadImageURLMethod = messageDigestImageURLParentMethod.immutableClassDef.getMessageDigestImageURLMethod()
+        loadImageSuccessCallbackMethod = onResponseStartedMethod.immutableClassDef.getOnSucceededMethod()
+        loadImageErrorCallbackMethod = onResponseStartedMethod.immutableClassDef.getOnFailureMethod()
 
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.
-        val urlFieldInstruction = requestFingerprint.method.instructions.first {
+        val urlFieldInstruction = requestMethod.instructions.first {
             val reference = it.getReference<FieldReference>()
             it.opcode == Opcode.IPUT_OBJECT && reference?.type == "Ljava/lang/String;"
         } as ReferenceInstruction
@@ -49,7 +47,7 @@ val cronetImageUrlHookPatch = bytecodePatch(
         val urlFieldName = (urlFieldInstruction.reference as FieldReference).name
         val definingClass = CRONET_URL_REQUEST_CLASS_DESCRIPTOR
         val addedMethodName = "getHookedUrl"
-        requestFingerprint.classDef.methods.add(
+        requestMethod.classDef.methods.add(
             ImmutableMethod(
                 definingClass,
                 addedMethodName,
@@ -74,22 +72,22 @@ val cronetImageUrlHookPatch = bytecodePatch(
 /**
  * @param highPriority If the hook should be called before all other hooks.
  */
-fun addImageUrlHook(targetMethodClass: String, highPriority: Boolean = false) {
-    loadImageUrlMethod.addInstructions(
-        if (highPriority) 0 else loadImageUrlIndex,
+fun addImageURLHook(targetMethodClass: String, highPriority: Boolean = false) {
+    loadImageURLMethod.addInstructions(
+        if (highPriority) 0 else loadImageURLIndex,
         """
         invoke-static { p1 }, $targetMethodClass->overrideImageURL(Ljava/lang/String;)Ljava/lang/String;
         move-result-object p1
         """,
     )
-    loadImageUrlIndex += 2
+    loadImageURLIndex += 2
 }
 
 /**
  * If a connection completed, which includes normal 200 responses but also includes
  * status 404 and other error like http responses.
  */
-fun addImageUrlSuccessCallbackHook(targetMethodClass: String) {
+fun addImageURLSuccessCallbackHook(targetMethodClass: String) {
     loadImageSuccessCallbackMethod.addInstruction(
         loadImageSuccessCallbackIndex++,
         "invoke-static { p1, p2 }, $targetMethodClass->handleCronetSuccess(" +
@@ -100,7 +98,7 @@ fun addImageUrlSuccessCallbackHook(targetMethodClass: String) {
 /**
  * If a connection outright failed to complete any connection.
  */
-fun addImageUrlErrorCallbackHook(targetMethodClass: String) {
+fun addImageURLErrorCallbackHook(targetMethodClass: String) {
     loadImageErrorCallbackMethod.addInstruction(
         loadImageErrorCallbackIndex++,
         "invoke-static { p1, p2, p3 }, $targetMethodClass->handleCronetFailure(" +

@@ -18,7 +18,7 @@ val exportInternalDataDocumentsProviderPatch = resourcePatch(
         },
     )
 
-    execute {
+    apply {
         val documentsProviderClass =
             "app.revanced.extension.all.misc.directory.documentsprovider.InternalDataDocumentsProvider"
 
@@ -28,7 +28,7 @@ val exportInternalDataDocumentsProviderPatch = resourcePatch(
                     .asSequence()
                     .any { it.attributes.getNamedItem("android:name")?.nodeValue == documentsProviderClass }
             ) {
-                return@execute
+                return@apply
             }
 
             val authority =

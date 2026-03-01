@@ -1,35 +1,25 @@
 package app.revanced.patches.tiktok.misc.settings
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val addSettingsEntryFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("/SettingNewVersionFragment;") &&
-            method.name == "initUnitManger"
-    }
+internal val BytecodePatchContext.addSettingsEntryMethod by gettingFirstMethodDeclaratively {
+    name("initUnitManger")
+    definingClass("/SettingNewVersionFragment;")
 }
 
-internal val adPersonalizationActivityOnCreateFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("/AdPersonalizationActivity;") &&
-            method.name == "onCreate"
-    }
+internal val BytecodePatchContext.adPersonalizationActivityOnCreateMethod by gettingFirstMethodDeclaratively {
+    name("onCreate")
+    definingClass("/AdPersonalizationActivity;")
 }
 
-internal val settingsEntryFingerprint = fingerprint {
-    strings("pls pass item or extends the EventUnit")
-}
+internal val BytecodePatchContext.settingsEntryMethod by gettingFirstImmutableMethodDeclaratively(
+    "pls pass item or extends the EventUnit",
+)
 
-internal val settingsEntryInfoFingerprint = fingerprint {
-    strings(
-        "ExposeItem(title=",
-        ", icon=",
-    )
-}
+internal val BytecodePatchContext.settingsEntryInfoMethod by gettingFirstImmutableMethod("ExposeItem(title=", ", icon=")
 
-internal val settingsStatusLoadFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("Lapp/revanced/extension/tiktok/settings/SettingsStatus;") &&
-            method.name == "load"
-    }
+internal val BytecodePatchContext.settingsStatusLoadMethod by gettingFirstMethodDeclaratively {
+    name("load")
+    definingClass("Lapp/revanced/extension/tiktok/settings/SettingsStatus;")
 }

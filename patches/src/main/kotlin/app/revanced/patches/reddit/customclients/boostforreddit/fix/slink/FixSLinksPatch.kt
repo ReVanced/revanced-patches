@@ -1,9 +1,9 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.fix.slink
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patches.reddit.customclients.RESOLVE_S_LINK_METHOD
 import app.revanced.patches.reddit.customclients.SET_ACCESS_TOKEN_METHOD
 import app.revanced.patches.reddit.customclients.boostforreddit.misc.extension.sharedExtensionPatch
@@ -17,30 +17,29 @@ val fixSlinksPatch = fixSLinksPatch(
 ) {
     compatibleWith("com.rubenmayayo.reddit")
 
-    execute {
+    apply {
         // region Patch navigation handler.
 
-        handleNavigationFingerprint.method.apply {
-            val urlRegister = "p1"
-            val tempRegister = "v1"
+        val urlRegister = "p1"
+        val tempRegister = "v1"
 
-            addInstructionsWithLabels(
-                0,
-                """
-                    invoke-static { $urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->$RESOLVE_S_LINK_METHOD
-                    move-result $tempRegister
-                    if-eqz $tempRegister, :continue
-                    return $tempRegister
-                """,
-                ExternalLabel("continue", getInstruction(0)),
-            )
-        }
+        handleNavigationMethod.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static { $urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->$RESOLVE_S_LINK_METHOD
+                move-result $tempRegister
+                if-eqz $tempRegister, :continue
+                return $tempRegister
+            """,
+            ExternalLabel("continue", handleNavigationMethod.getInstruction(0)),
+        )
+
 
         // endregion
 
         // region Patch set access token.
 
-        getOAuthAccessTokenFingerprint.method.addInstruction(
+        getOAuthAccessTokenMethod.addInstruction(
             3,
             "invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->$SET_ACCESS_TOKEN_METHOD",
         )

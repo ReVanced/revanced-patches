@@ -11,7 +11,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR_PREFIX =
 private const val EXTENSION_CLASS_DESCRIPTOR = "$EXTENSION_CLASS_DESCRIPTOR_PREFIX;"
 
 @Suppress("unused")
-val spoofWifiPatch = bytecodePatch(
+val spoofWiFiConnectionPatch = bytecodePatch(
     name = "Spoof Wi-Fi connection",
     description = "Spoofs an existing Wi-Fi connection.",
     use = false,

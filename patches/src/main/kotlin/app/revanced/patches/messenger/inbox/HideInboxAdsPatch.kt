@@ -1,6 +1,6 @@
 package app.revanced.patches.messenger.inbox
 
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
@@ -10,7 +10,7 @@ val hideInboxAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.facebook.orca")
 
-    execute {
-        loadInboxAdsFingerprint.method.replaceInstruction(0, "return-void")
+    apply {
+        loadInboxAdsMethod.replaceInstruction(0, "return-void")
     }
 }

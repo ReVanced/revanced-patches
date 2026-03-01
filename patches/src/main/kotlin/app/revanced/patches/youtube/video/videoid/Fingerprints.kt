@@ -1,55 +1,51 @@
 package app.revanced.patches.youtube.video.videoid
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val videoIdFingerprint = fingerprint {
+/**
+ * Matches using the class found in [videoIdParentMethodMatch].
+ */
+context(_: BytecodePatchContext)
+internal fun ClassDef.getVideoIdMethodMatch() = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L")
-    opcodes(
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
+    returnType("V")
+    parameterTypes("L")
+    instructions(
+        allOf(Opcode.INVOKE_INTERFACE(), method { returnType == "Ljava/lang/String;" }),
+        after(Opcode.MOVE_RESULT_OBJECT()), // videoId
+        afterAtMost(6, method { toString() == "Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" }),
+        after(Opcode.RETURN_VOID())
     )
-    custom { method, _ ->
-        method.indexOfPlayerResponseModelString() >= 0
-    }
 }
 
-internal val videoIdBackgroundPlayFingerprint = fingerprint {
+internal val BytecodePatchContext.videoIdBackgroundPlayMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.DECLARED_SYNCHRONIZED, AccessFlags.FINAL, AccessFlags.PUBLIC)
-    returns("V")
-    parameters("L")
-    opcodes(
-        Opcode.IF_EQZ,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IPUT_OBJECT,
-        Opcode.MONITOR_EXIT,
-        Opcode.RETURN_VOID,
-        Opcode.MONITOR_EXIT,
-        Opcode.RETURN_VOID
+    returnType("V")
+    parameterTypes("L")
+    instructions(
+        method { returnType == "Ljava/lang/String;" },
+        Opcode.MOVE_RESULT_OBJECT(),
+        Opcode.IPUT_OBJECT(),
+        Opcode.MONITOR_EXIT(),
+        Opcode.RETURN_VOID(),
+        Opcode.MONITOR_EXIT(),
+        Opcode.RETURN_VOID(),
     )
-    // The target snippet of code is buried in a huge switch block and the target method
-    // has been changed many times by YT which makes identifying it more difficult than usual.
-    custom { method, classDef ->
-        // Access flags changed in 19.36
-        AccessFlags.FINAL.isSet(method.accessFlags) &&
-                AccessFlags.DECLARED_SYNCHRONIZED.isSet(method.accessFlags) &&
-                classDef.methods.count() == 17 &&
-                method.implementation != null &&
-                method.indexOfPlayerResponseModelString() >= 0
+    custom {
+        immutableClassDef.methods.count() == 17 || // 20.39 and lower.
+                immutableClassDef.methods.count() == 16 // 20.40+
     }
-
 }
 
-internal val videoIdParentFingerprint = fingerprint {
+internal val BytecodePatchContext.videoIdParentMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("[L")
-    parameters("L")
-    literal { 524288L }
+    returnType("[L")
+    parameterTypes("L")
+    instructions(
+        524288L(),
+    )
 }

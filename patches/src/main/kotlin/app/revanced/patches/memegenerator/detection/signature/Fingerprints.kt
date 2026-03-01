@@ -1,13 +1,14 @@
 package app.revanced.patches.memegenerator.detection.signature
 
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.Opcode
 
-internal val verifySignatureFingerprint = fingerprint(fuzzyPatternScanThreshold = 2) {
+internal val BytecodePatchContext.verifySignatureMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Z")
-    parameters("Landroid/app/Activity;")
+    returnType("Z")
+    parameterTypes("Landroid/app/Activity;")
     opcodes(
         Opcode.SGET_OBJECT,
         Opcode.IF_NEZ,

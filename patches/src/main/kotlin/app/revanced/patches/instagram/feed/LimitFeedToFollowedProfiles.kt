@@ -1,7 +1,12 @@
 package app.revanced.patches.instagram.feed
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.classDef
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.fieldReference
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.firstMethodDeclaratively
+import app.revanced.patcher.immutableClassDef
+import app.revanced.patcher.name
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
@@ -12,16 +17,16 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/instagram/feed/LimitFeedToFollowedProfiles;"
 
 @Suppress("unused")
-val limitFeedToFollowedProfiles = bytecodePatch(
+val limitFeedToFollowedProfilesPatch = bytecodePatch(
     name = "Limit feed to followed profiles",
     description = "Filters the home feed to display only content from profiles you follow.",
-    use = false
+    use = false,
 ) {
     compatibleWith("com.instagram.android")
 
     dependsOn(sharedExtensionPatch)
 
-    execute {
+    apply {
         /**
          * Since the header field is obfuscated and there is no easy way to identify it among all the class fields,
          * an additional method is fingerprinted.
@@ -29,19 +34,19 @@ val limitFeedToFollowedProfiles = bytecodePatch(
          */
         val mainFeedRequestHeaderFieldName: String
 
-        with(mainFeedHeaderMapFinderFingerprint.method) {
+        mainFeedHeaderMapFinderMethod.apply {
             mainFeedRequestHeaderFieldName = indexOfFirstInstructionOrThrow {
-                getReference<FieldReference>().let { ref ->
-                    ref?.type == "Ljava/util/Map;" &&
-                            ref.definingClass == mainFeedRequestClassFingerprint.classDef.toString()
-
-                }
+                val reference = fieldReference
+                reference?.type == "Ljava/util/Map;" &&
+                    reference.definingClass == mainFeedRequestClassMethod.classDef.type
             }.let { instructionIndex ->
                 getInstruction(instructionIndex).getReference<FieldReference>()!!.name
             }
         }
 
-        initMainFeedRequestFingerprint.method.apply {
+        mainFeedRequestClassMethod.immutableClassDef.firstMethodDeclaratively {
+            name("<init>")
+        }.apply {
             // Finds the instruction where the map is being initialized in the constructor
             val getHeaderIndex = indexOfFirstInstructionOrThrow {
                 getReference<FieldReference>().let {
@@ -57,7 +62,7 @@ val limitFeedToFollowedProfiles = bytecodePatch(
                 """
                     invoke-static { v$paramHeaderRegister }, $EXTENSION_CLASS_DESCRIPTOR->setFollowingHeader(Ljava/util/Map;)Ljava/util/Map;
                     move-result-object v$paramHeaderRegister
-                """
+                """,
             )
         }
     }

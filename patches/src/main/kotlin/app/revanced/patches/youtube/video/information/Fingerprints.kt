@@ -1,47 +1,73 @@
 package app.revanced.patches.youtube.video.information
 
-import app.revanced.patcher.fingerprint
-import app.revanced.patches.youtube.shared.videoQualityChangedFingerprint
-import app.revanced.util.getReference
+import app.revanced.patcher.*
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patches.youtube.shared.videoQualityChangedMethodMatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val createVideoPlayerSeekbarFingerprint = fingerprint {
-    returns("V")
-    strings("timed_markers_width")
+internal val BytecodePatchContext.createVideoPlayerSeekbarMethod by gettingFirstImmutableMethodDeclaratively {
+    returnType("V")
+    instructions("timed_markers_width"())
 }
 
-internal val onPlaybackSpeedItemClickFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L", "L", "I", "J")
-    custom { method, _ ->
-        method.name == "onItemClick" &&
-            method.implementation?.instructions?.find {
-                it.opcode == Opcode.IGET_OBJECT &&
-                    it.getReference<FieldReference>()!!.type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
-            } != null
-    }
-}
 
-internal val playerControllerSetTimeReferenceFingerprint = fingerprint {
-    opcodes(Opcode.INVOKE_DIRECT_RANGE, Opcode.IGET_OBJECT)
-    strings("Media progress reported outside media playback: ")
-}
-
-internal val playerInitFingerprint = fingerprint {
-    strings("playVideo called on player response with no videoStreamingData.")
+internal val BytecodePatchContext.onPlaybackSpeedItemClickParentMethod by gettingFirstImmutableMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returnType("L")
+    parameterTypes("L", "Ljava/lang/String;")
+    instructions(
+        method("getSupportFragmentManager"),
+        after(Opcode.MOVE_RESULT_OBJECT()),
+        after(method { returnType.startsWith("L") && parameterTypes.size == 1 && parameterTypes.first() == "Ljava/lang/String;" }),
+        after(Opcode.MOVE_RESULT_OBJECT()),
+        after(Opcode.IF_EQZ()),
+        after(Opcode.CHECK_CAST())
+    )
+    custom { immutableClassDef.methods.count() == 8 }
 }
 
 /**
- * Matched using class found in [playerInitFingerprint].
+ * Resolves using the method found in [onPlaybackSpeedItemClickParentMethod].
  */
-internal val seekFingerprint = fingerprint {
-    strings("Attempting to seek during an ad")
+
+context(_: BytecodePatchContext)
+internal fun ClassDef.getOnPlaybackSpeedItemClickMethod() = firstMethodDeclaratively {
+    name("onItemClick")
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("L", "L", "I", "J")
 }
 
-internal val videoLengthFingerprint = fingerprint {
+internal val BytecodePatchContext.playerControllerSetTimeReferenceMethodMatch by
+composingFirstMethod("Media progress reported outside media playback: ") {
+    opcodes(
+        Opcode.INVOKE_DIRECT_RANGE,
+        Opcode.IGET_OBJECT,
+    )
+}
+
+internal val BytecodePatchContext.playVideoCheckVideoStreamingDataResponseMethod by gettingFirstImmutableMethodDeclaratively {
+    instructions("playVideo called on player response with no videoStreamingData."())
+}
+
+/**
+ * Matched using class found in [playVideoCheckVideoStreamingDataResponseMethod].
+ */
+internal fun ClassDef.getSeekMethod() = firstImmutableMethodDeclaratively {
+    instructions(
+        anyOf(
+            // 20.xx
+            "Attempting to seek during an ad"(),
+            // 21.02+
+            "currentPositionMs."()
+        )
+    )
+}
+
+internal val ClassDef.videoLengthMethodMatch by ClassDefComposing.composingFirstMethod {
     opcodes(
         Opcode.MOVE_RESULT_WIDE,
         Opcode.CMP_LONG,
@@ -59,101 +85,149 @@ internal val videoLengthFingerprint = fingerprint {
 }
 
 /**
- * Matches using class found in [mdxPlayerDirectorSetVideoStageFingerprint].
+ * Matches using class found in [mdxPlayerDirectorSetVideoStageMethod].
  */
-internal val mdxSeekFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getMdxSeekMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters("J", "L")
+    returnType("Z")
+    parameterTypes("J", "L")
     opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.RETURN,
     )
-    custom { methodDef, _ ->
+    custom {
         // The instruction count is necessary here to avoid matching the relative version
         // of the seek method we're after, which has the same function signature as the
         // regular one, is in the same class, and even has the exact same 3 opcodes pattern.
-        methodDef.implementation!!.instructions.count() == 3
+        instructions.count() == 3
     }
 }
 
-internal val mdxPlayerDirectorSetVideoStageFingerprint = fingerprint {
-    strings("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state ")
+internal val BytecodePatchContext.mdxPlayerDirectorSetVideoStageMethod by gettingFirstImmutableMethodDeclaratively {
+    instructions("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state "())
 }
 
 /**
- * Matches using class found in [mdxPlayerDirectorSetVideoStageFingerprint].
+ * Matches using class found in [mdxPlayerDirectorSetVideoStageMethod].
  */
-internal val mdxSeekRelativeFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getMdxSeekRelativeMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     // Return type is boolean up to 19.39, and void with 19.39+.
-    parameters("J", "L")
+    parameterTypes("J", "L")
     opcodes(
-
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_INTERFACE,
     )
 }
 
 /**
- * Matches using class found in [playerInitFingerprint].
+ * Matches using class found in [playVideoCheckVideoStreamingDataResponseMethod].
  */
-internal val seekRelativeFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getSeekRelativeMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     // Return type is boolean up to 19.39, and void with 19.39+.
-    parameters("J", "L")
+    parameterTypes("J", "L")
     opcodes(
         Opcode.ADD_LONG_2ADDR,
         Opcode.INVOKE_VIRTUAL,
     )
 }
 
+internal val BytecodePatchContext.playerStatusEnumMethod by gettingFirstImmutableMethodDeclaratively(
+    "NEW",
+    "PLAYBACK_PENDING",
+    "PLAYBACK_LOADED",
+    "PLAYBACK_INTERRUPTED",
+    "INTERSTITIAL_REQUESTED",
+    "INTERSTITIAL_PLAYING",
+    "VIDEO_PLAYING",
+    "ENDED",
+) {
+    accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
+}
+
+context(context: BytecodePatchContext)
+internal fun ClassDef.getPlayerStatusMethod() =
+    firstMethodDeclaratively {
+        accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+        returnType("V")
+        parameterTypes(context.playerStatusEnumMethod.immutableClassDef.type)
+        instructions(
+            // The opcode for the first index of the method is sget-object.
+            // Even in sufficiently old versions, such as YT 17.34, the opcode for the first index is sget-object.
+            Opcode.SGET_OBJECT(),
+            method { name == "plus" && definingClass == "Lj$/time/Instant;" },
+        )
+    }
+
 /**
- * Resolves with the class found in [videoQualityChangedFingerprint].
+ * Matches with the class found in [videoQualityChangedMethodMatch].
  */
-internal val playbackSpeedMenuSpeedChangedFingerprint = fingerprint {
+internal val ClassDef.playbackSpeedMenuSpeedChangedMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters("L")
-    opcodes(
-        Opcode.IGET,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.SGET_OBJECT,
-        Opcode.RETURN_OBJECT,
-    )
+    returnType("L")
+    parameterTypes("L")
+    instructions(allOf(Opcode.IGET(), field { type == "F" }))
 }
 
-internal val playbackSpeedClassFingerprint = fingerprint {
+internal val BytecodePatchContext.playbackSpeedClassMethod by gettingFirstMethodDeclaratively(
+    "PLAYBACK_RATE_MENU_BOTTOM_SHEET_FRAGMENT",
+) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("L")
-    parameters("L")
-    opcodes(
-        Opcode.RETURN_OBJECT
-    )
-    strings("PLAYBACK_RATE_MENU_BOTTOM_SHEET_FRAGMENT")
+    returnType("L")
+    parameterTypes("L")
+    opcodes(Opcode.RETURN_OBJECT)
 }
 
-
-internal const val YOUTUBE_VIDEO_QUALITY_CLASS_TYPE = "Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"
-
-internal val videoQualityFingerprint = fingerprint {
+/**
+ * YouTube 20.19 and lower.
+ */
+internal val BytecodePatchContext.videoQualityLegacyMethod by gettingFirstMethodDeclaratively {
+    definingClass("Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters(
+    parameterTypes(
         "I", // Resolution.
         "Ljava/lang/String;", // Human readable resolution: "480p", "1080p Premium", etc
         "Z",
-        "L"
+        "L",
     )
-    custom { _, classDef ->
-        classDef.type == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
-    }
 }
 
-internal val videoQualitySetterFingerprint = fingerprint {
+
+internal val BytecodePatchContext.playbackStartDescriptorToStringMethodMatch by composingFirstMethod {
+    name("toString")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("[L", "I", "Z")
+    returnType("Ljava/lang/String;")
+    instructions(
+        method { toString() == "Ljava/util/Locale;->getDefault()Ljava/util/Locale;" },
+        // First method call after Locale is the video ID.
+        method { returnType == "Ljava/lang/String;" && parameterTypes.isEmpty() },
+        "PlaybackStartDescriptor:"(String::startsWith)
+    )
+}
+
+// Class name is un-obfuscated in targets before 21.01.
+internal val BytecodePatchContext.videoQualityMethod by gettingFirstMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameterTypes(
+        "I", // Resolution.
+        "L",
+        "Ljava/lang/String;", // Human readable resolution: "480p", "1080p Premium", etc
+        "Z",
+        "L",
+    )
+}
+
+internal val BytecodePatchContext.videoQualitySetterMethod by gettingFirstMethodDeclaratively(
+    "menu_item_video_quality",
+) {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("[L", "I", "Z")
     opcodes(
         Opcode.IF_EQZ,
         Opcode.INVOKE_VIRTUAL,
@@ -161,15 +235,15 @@ internal val videoQualitySetterFingerprint = fingerprint {
         Opcode.INVOKE_VIRTUAL,
         Opcode.IPUT_BOOLEAN,
     )
-    strings("menu_item_video_quality")
 }
 
 /**
- * Matches with the class found in [videoQualitySetterFingerprint].
+ * Matches with the class found in [videoQualitySetterMethod].
  */
-internal val setVideoQualityFingerprint = fingerprint {
-    returns("V")
-    parameters("L")
+context(_: BytecodePatchContext)
+internal fun ClassDef.getSetVideoQualityMethod() = firstMethodDeclaratively {
+    returnType("V")
+    parameterTypes("L")
     opcodes(
         Opcode.IGET_OBJECT,
         Opcode.IPUT_OBJECT,

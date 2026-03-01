@@ -6,14 +6,13 @@ import org.w3c.dom.Element
 
 @Suppress("unused")
 internal val addManifestPermissionsPatch = resourcePatch {
-
     val requiredPermissions = listOf(
         "android.permission.READ_PHONE_STATE",
         "android.permission.FOREGROUND_SERVICE_MICROPHONE",
         "android.permission.RECORD_AUDIO",
     )
 
-    execute {
+    apply {
         document("AndroidManifest.xml").use { document ->
             document.getElementsByTagName("manifest").item(0).let { manifestEl ->
 

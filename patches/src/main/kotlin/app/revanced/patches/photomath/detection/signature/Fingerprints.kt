@@ -1,9 +1,13 @@
 package app.revanced.patches.photomath.detection.signature
 
+import app.revanced.patcher.composingFirstMethod
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.Opcode
-import app.revanced.patcher.fingerprint
 
-internal val checkSignatureFingerprint = fingerprint {
+internal val BytecodePatchContext.checkSignatureMethodMatch by composingFirstMethod("SHA") {
     opcodes(
         Opcode.CONST_STRING,
         Opcode.INVOKE_STATIC,
@@ -14,5 +18,4 @@ internal val checkSignatureFingerprint = fingerprint {
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
     )
-    strings("SHA")
 }

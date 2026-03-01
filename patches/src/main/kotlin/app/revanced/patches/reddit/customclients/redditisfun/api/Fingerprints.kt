@@ -1,25 +1,29 @@
 package app.revanced.patches.reddit.customclients.redditisfun.api
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal fun baseClientIdFingerprint(string: String) = fingerprint {
-    strings("yyOCBp.RHJhDKd", string)
+internal val BytecodePatchContext.basicAuthorizationMethodMatch by composingFirstMethod {
+    instructions(
+        "yyOCBp.RHJhDKd"(),
+        "fJOxVwBUyo*=f:<OoejWs:AqmIJ"(), // Encrypted basic authorization string.
+    )
 }
 
-internal val basicAuthorizationFingerprint = baseClientIdFingerprint(
-    string = "fJOxVwBUyo*=f:<OoejWs:AqmIJ", // Encrypted basic authorization string.
-)
+internal val BytecodePatchContext.buildAuthorizationStringMethodMatch by composingFirstMethod {
+    instructions(
+        "yyOCBp.RHJhDKd"(),
+        "client_id"(),
+    )
+}
 
-internal val buildAuthorizationStringFingerprint = baseClientIdFingerprint(
-    string = "client_id",
-)
-
-internal val getUserAgentFingerprint = fingerprint {
+internal val BytecodePatchContext.getUserAgentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
+    returnType("Ljava/lang/String;")
+    parameterTypes()
     opcodes(
         Opcode.NEW_ARRAY,
         Opcode.CONST_4,

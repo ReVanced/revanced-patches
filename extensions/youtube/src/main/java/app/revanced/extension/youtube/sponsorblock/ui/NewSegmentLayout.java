@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.ui.Dim;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockUtils;
@@ -45,8 +46,8 @@ public final class NewSegmentLayout extends FrameLayout {
                             final int defStyleAttr, final int defStyleRes) {
         super(context, attributeSet, defStyleAttr, defStyleRes);
 
-        LayoutInflater.from(context).inflate(
-                getResourceIdentifierOrThrow(context, "revanced_sb_new_segment", "layout"), this, true
+        LayoutInflater.from(context).inflate(getResourceIdentifierOrThrow(context,
+                ResourceType.LAYOUT,  "revanced_sb_new_segment"), this, true
         );
 
         initializeButton(
@@ -105,7 +106,7 @@ public final class NewSegmentLayout extends FrameLayout {
      */
     private void initializeButton(final Context context, final String resourceIdentifierName,
                                   final ButtonOnClickHandlerFunction handler, final String debugMessage) {
-        ImageButton button = findViewById(getResourceIdentifierOrThrow(context, resourceIdentifierName, "id"));
+        ImageButton button = findViewById(getResourceIdentifierOrThrow(context, ResourceType.ID, resourceIdentifierName));
 
         // Add ripple effect
         RippleDrawable rippleDrawable = new RippleDrawable(

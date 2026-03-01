@@ -15,7 +15,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-
 public abstract class BaseFixRedgifsApiPatch implements Interceptor {
     protected static BaseFixRedgifsApiPatch INSTANCE;
     public abstract String getDefaultUserAgent();

@@ -1,8 +1,8 @@
 package app.revanced.patches.reddit.customclients.baconreader.api
 
-import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.CompositeMatch
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 import app.revanced.patches.shared.misc.string.replaceStringPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -11,7 +11,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/au
     dependsOn(
         // Redirects from SSL to WWW domain are bugged causing auth problems.
         // Manually rewrite the URLs to fix this.
-        replaceStringPatch("ssl.reddit.com", "www.reddit.com")
+        replaceStringPatch("ssl.reddit.com", "www.reddit.com"),
     )
 
     compatibleWith(
@@ -21,23 +21,21 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/au
 
     val clientId by clientIdOption
 
-    execute {
-        fun Fingerprint.patch(replacementString: String) {
-            val clientIdIndex = stringMatches!!.first().index
+    apply {
+        fun CompositeMatch.patch(replacementString: String) {
+            val clientIdIndex = get(0)
 
-            method.apply {
-                val clientIdRegister = getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
-                replaceInstruction(
-                    clientIdIndex,
-                    "const-string v$clientIdRegister, \"$replacementString\"",
-                )
-            }
+            val clientIdRegister = method.getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
+            method.replaceInstruction(
+                clientIdIndex,
+                "const-string v$clientIdRegister, \"$replacementString\"",
+            )
         }
 
         // Patch client id in authorization url.
-        getAuthorizationUrlFingerprint.patch("client_id=$clientId")
+        getAuthorizationUrlMethodMatch.patch("client_id=$clientId")
 
         // Patch client id for access token request.
-        requestTokenFingerprint.patch(clientId!!)
+        requestTokenMethodMatch.patch(clientId!!)
     }
 }

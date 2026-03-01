@@ -1,20 +1,20 @@
 package app.revanced.patches.tiktok.misc.spoof.sim
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.firstMethod
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
-import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
-import app.revanced.util.findMutableMethodOf
+import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadMethod
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
-val spoofSimPatch = bytecodePatch(
+val sIMSpoofPatch = bytecodePatch(
     name = "SIM spoof",
     description = "Spoofs the information which is retrieved from the SIM card.",
     use = false,
@@ -29,7 +29,7 @@ val spoofSimPatch = bytecodePatch(
         "com.zhiliaoapp.musically",
     )
 
-    execute {
+    apply {
         val replacements = hashMapOf(
             "getSimCountryIso" to "getCountryIso",
             "getNetworkCountryIso" to "getCountryIso",
@@ -41,7 +41,7 @@ val spoofSimPatch = bytecodePatch(
 
         // Find all api call to check sim information.
         buildMap {
-            classes.forEach { classDef ->
+            classDefs.forEach { classDef ->
                 classDef.methods.let { methods ->
                     buildMap methodList@{
                         methods.forEach methods@{ method ->
@@ -69,30 +69,28 @@ val spoofSimPatch = bytecodePatch(
                 }
             }
         }.forEach { (classDef, methods) ->
-            with(proxy(classDef).mutableClass) {
-                methods.forEach { (method, patches) ->
-                    with(findMutableMethodOf(method)) {
-                        while (!patches.isEmpty()) {
-                            val (index, replacement) = patches.removeLast()
+            methods.forEach { (method, patches) ->
+                with(classDef.firstMethod(method)) {
+                    while (!patches.isEmpty()) {
+                        val (index, replacement) = patches.removeLast()
 
-                            val resultReg = getInstruction<OneRegisterInstruction>(index + 1).registerA
+                        val resultReg = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
-                            // Patch Android API and return fake sim information.
-                            addInstructions(
-                                index + 2,
-                                """
-                                    invoke-static {v$resultReg}, Lapp/revanced/extension/tiktok/spoof/sim/SpoofSimPatch;->$replacement(Ljava/lang/String;)Ljava/lang/String;
-                                    move-result-object v$resultReg
-                                """,
-                            )
-                        }
+                        // Patch Android API and return fake sim information.
+                        addInstructions(
+                            index + 2,
+                            """
+                                invoke-static {v$resultReg}, Lapp/revanced/extension/tiktok/spoof/sim/SpoofSimPatch;->$replacement(Ljava/lang/String;)Ljava/lang/String;
+                                move-result-object v$resultReg
+                            """,
+                        )
                     }
                 }
             }
         }
 
         // Enable patch in settings.
-        settingsStatusLoadFingerprint.method.addInstruction(
+        settingsStatusLoadMethod.addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableSimSpoof()V",
         )

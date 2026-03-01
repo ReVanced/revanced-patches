@@ -29,7 +29,7 @@ public final class RYDVoteData {
     private volatile long likeCount; // Read/write from different threads.
     /**
      * Like count can be hidden by video creator, but RYD still tracks the number
-     * of like/dislikes it received thru it's browser extension and and API.
+     * of like/dislikes it received through its browser extension and API.
      * The raw like/dislikes can be used to calculate a percentage.
      *
      * Raw values can be null, especially for older videos with little to no views.
@@ -74,7 +74,7 @@ public final class RYDVoteData {
     }
 
     /**
-     * Public like count of the video, as reported by YT when RYD last updated it's data.
+     * Public like count of the video, as reported by YT when RYD last updated its data.
      *
      * If the likes were hidden by the video creator, then this returns an
      * estimated likes using the same extrapolation as the dislikes.

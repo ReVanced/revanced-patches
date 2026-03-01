@@ -1,16 +1,13 @@
 package app.revanced.patches.youtube.layout.spoofappversion
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
@@ -21,25 +18,8 @@ import app.revanced.patches.youtube.misc.playservice.is_20_14_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patches.youtube.shared.getToolBarButtonMethodMatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-
-internal var menuItemView = -1L
-    private set
-
-internal val spoofAppVersionResourcePatch = resourcePatch {
-    dependsOn(
-        resourceMappingPatch
-    )
-
-    execute {
-        menuItemView =  resourceMappings["id", "menu_item_view"]
-    }
-}
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/spoof/SpoofAppVersionPatch;"
@@ -47,29 +27,31 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 val spoofAppVersionPatch = bytecodePatch(
     name = "Spoof app version",
     description = "Adds an option to trick YouTube into thinking you are running an older version of the app. " +
-            "This can be used to restore old UI elements and features."
+            "This can be used to restore old UI elements and features.",
 ) {
     dependsOn(
-        spoofAppVersionResourcePatch,
+        resourceMappingPatch,
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-        versionCheckPatch
+        versionCheckPatch,
     )
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
+        ),
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.spoofappversion.spoofAppVersionPatch")
 
-        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+        PreferenceScreen.GENERAL.addPreferences(
             // Group the switch and list preference together, since General menu is sorted by name
             // and the preferences can be scattered apart with non English languages.
             PreferenceCategory(
@@ -83,20 +65,18 @@ val spoofAppVersionPatch = bytecodePatch(
                     } else if (is_19_43_or_greater) {
                         ListPreference(
                             key = "revanced_spoof_app_version_target",
-                            summaryKey = null,
                             entriesKey = "revanced_spoof_app_version_target_legacy_20_13_entries",
-                            entryValuesKey = "revanced_spoof_app_version_target_legacy_20_13_entry_values"
+                            entryValuesKey = "revanced_spoof_app_version_target_legacy_20_13_entry_values",
                         )
                     } else {
                         ListPreference(
                             key = "revanced_spoof_app_version_target",
-                            summaryKey = null,
                             entriesKey = "revanced_spoof_app_version_target_legacy_19_34_entries",
-                            entryValuesKey = "revanced_spoof_app_version_target_legacy_19_34_entry_values"
+                            entryValuesKey = "revanced_spoof_app_version_target_legacy_19_34_entry_values",
                         )
-                    }
-                )
-            )
+                    },
+                ),
+            ),
         )
 
         /**
@@ -104,36 +84,30 @@ val spoofAppVersionPatch = bytecodePatch(
          * missing image resources. As a workaround, do not set an image in the
          * toolbar when the enum name is UNKNOWN.
          */
-        toolBarButtonFingerprint.method.apply {
-            val getDrawableIndex = indexOfGetDrawableInstruction(this)
-            val enumOrdinalIndex = indexOfFirstInstructionReversedOrThrow(getDrawableIndex) {
-                opcode == Opcode.INVOKE_INTERFACE &&
-                        getReference<MethodReference>()?.returnType == "I"
-            }
-            val insertIndex = enumOrdinalIndex + 2
-            val insertRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
-            val jumpIndex = indexOfFirstInstructionOrThrow(insertIndex) {
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                        getReference<MethodReference>()?.name == "setImageDrawable"
-            } + 1
+        // Method is shared and indexes may no longer be correct.
+        getToolBarButtonMethodMatch().let {
+            val imageResourceIndex = it[2]
+            val register =
+                it.method.getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
+            val jumpIndex = it[-1] + 1
 
-            addInstructionsWithLabels(
-                insertIndex,
-                "if-eqz v$insertRegister, :ignore",
-                ExternalLabel("ignore", getInstruction(jumpIndex))
+            it.method.addInstructionsWithLabels(
+                imageResourceIndex + 1,
+                "if-eqz v$register, :ignore",
+                ExternalLabel("ignore", it.method.getInstruction(jumpIndex)),
             )
         }
 
-        spoofAppVersionFingerprint.apply {
-            val startIndex = patternMatch!!.startIndex
-            val buildOverrideNameRegister = method.getInstruction<OneRegisterInstruction>(startIndex).registerA
+        spoofAppVersionMethodMatch.let {
+            val index = it[0]
+            val register = it.method.getInstruction<OneRegisterInstruction>(index).registerA
 
-            method.addInstructions(
-                startIndex + 1,
+            it.method.addInstructions(
+                index + 1,
                 """
-                    invoke-static {v$buildOverrideNameRegister}, $EXTENSION_CLASS_DESCRIPTOR->getYouTubeVersionOverride(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v$buildOverrideNameRegister
-                """
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getYouTubeVersionOverride(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$register
+                """,
             )
         }
     }

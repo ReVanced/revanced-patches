@@ -1,13 +1,14 @@
 package app.revanced.patches.photomath.misc.unlock.plus
 
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
 
-internal val isPlusUnlockedFingerprint = fingerprint{
+internal val BytecodePatchContext.isPlusUnlockedMethod by gettingFirstMethodDeclaratively("genius") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    strings("genius")
-    custom { _, classDef ->
-        classDef.endsWith("/User;")
-    }
+    returnType("Z")
+    definingClass("/User;")
 }

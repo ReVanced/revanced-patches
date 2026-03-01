@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.settings.Settings;
@@ -99,16 +100,6 @@ public final class SeekbarColorPatch {
 
     public static int getSeekbarColor() {
         return customSeekbarColor;
-    }
-
-    /**
-     * injection point.
-     */
-    public static boolean useLotteLaunchSplashScreen(boolean original) {
-        // This method is only used for development purposes to force the old style launch screen.
-        // Forcing this off on some devices can cause unexplained startup crashes,
-        // where the lottie animation is still used even though this condition appears to bypass it.
-        return original; // false = drawable style, true = lottie style.
     }
 
     /**

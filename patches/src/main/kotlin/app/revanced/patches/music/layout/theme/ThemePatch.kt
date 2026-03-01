@@ -17,19 +17,23 @@ val themePatch = baseThemePatch(
         dependsOn(
             sharedExtensionPatch,
             baseThemeResourcePatch(
-                darkColorNames = THEME_DEFAULT_DARK_COLOR_NAMES + setOf(
-                    "yt_black_pure",
-                    "yt_black_pure_opacity80",
-                    "ytm_color_grey_12",
-                    "material_grey_800"
-                )
+                getDarkColorNames = {
+                    THEME_DEFAULT_DARK_COLOR_NAMES + setOf(
+                        "yt_black_pure",
+                        "yt_black_pure_opacity80",
+                        "ytm_color_grey_12",
+                        "material_grey_800"
+                    )
+                }
             )
         )
 
         compatibleWith(
             "com.google.android.apps.youtube.music"(
                 "7.29.52",
-                "8.10.52"
+                "8.10.52",
+                "8.37.56",
+                "8.40.54"
             )
         )
     },

@@ -1,24 +1,18 @@
 package app.revanced.patches.finanzonline.detection.bootloader
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val bootloaderDetectionPatch = bytecodePatch(
+val removeBootloaderDetectionPatch = bytecodePatch(
     name = "Remove bootloader detection",
     description = "Removes the check for an unlocked bootloader.",
 ) {
     compatibleWith("at.gv.bmf.bmf2go")
 
-    execute {
-        setOf(createKeyFingerprint, bootStateFingerprint).forEach { fingerprint ->
-            fingerprint.method.addInstructions(
-                0,
-                """
-                    const/4 v0, 0x1
-                    return v0
-                """,
-            )
+    apply {
+        setOf(createKeyMethod, bootStateMethod).forEach { method ->
+            method.returnEarly(true)
         }
     }
 }

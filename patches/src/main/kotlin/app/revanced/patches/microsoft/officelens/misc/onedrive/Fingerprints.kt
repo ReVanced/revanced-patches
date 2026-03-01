@@ -1,11 +1,11 @@
 package app.revanced.patches.microsoft.officelens.misc.onedrive
 
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val hasMigratedToOneDriveFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("FREManager;") && method.name == "getMigrationStage"
-    }
+internal val BytecodePatchContext.hasMigratedToOneDriveMethod by gettingFirstMethodDeclaratively {
+    name("getMigrationStage")
+    definingClass("FREManager;")
 }

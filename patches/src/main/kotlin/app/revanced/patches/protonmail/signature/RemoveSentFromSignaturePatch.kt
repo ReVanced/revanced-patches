@@ -12,7 +12,7 @@ val removeSentFromSignaturePatch = resourcePatch(
 ) {
     compatibleWith("ch.protonmail.android"("4.15.0"))
 
-    execute {
+    apply {
         val stringResourceFiles = mutableListOf<File>()
 
         get("res").walk().forEach { file ->
@@ -26,7 +26,7 @@ val removeSentFromSignaturePatch = resourcePatch(
             document(filePath.absolutePath).use { document ->
                 var node = document.documentElement.childNodes.findElementByAttributeValue(
                     "name",
-                    "mail_settings_identity_mobile_footer_default_free"
+                    "mail_settings_identity_mobile_footer_default_free",
                 )
 
                 // String is not localized in all languages.

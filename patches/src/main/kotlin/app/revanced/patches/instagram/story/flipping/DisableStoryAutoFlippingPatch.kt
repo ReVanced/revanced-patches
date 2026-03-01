@@ -7,11 +7,11 @@ import app.revanced.util.returnEarly
 val disableStoryAutoFlippingPatch = bytecodePatch(
     name = "Disable story auto flipping",
     description = "Disable stories automatically flipping/skipping after some seconds.",
-    use = false
+    use = false,
 ) {
     compatibleWith("com.instagram.android")
 
-    execute {
-        onStoryTimeoutActionFingerprint.method.returnEarly()
+    apply {
+        onStoryTimeoutActionMethod.returnEarly()
     }
 }

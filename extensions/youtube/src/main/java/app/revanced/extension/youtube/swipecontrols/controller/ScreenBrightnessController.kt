@@ -23,7 +23,7 @@ class ScreenBrightnessController(
         }
 
     /**
-     * is the screen brightness set to device- default?
+     * is the screen brightness set to device-default?
      */
     val isDefaultBrightness
         get() = (rawScreenBrightness == WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE)

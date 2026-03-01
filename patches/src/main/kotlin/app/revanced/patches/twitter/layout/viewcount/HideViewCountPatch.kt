@@ -1,7 +1,7 @@
 package app.revanced.patches.twitter.layout.viewcount
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val hideViewCountPatch = bytecodePatch(
@@ -11,13 +11,7 @@ val hideViewCountPatch = bytecodePatch(
 ) {
     compatibleWith("com.twitter.android")
 
-    execute {
-        viewCountsEnabledFingerprint.method.addInstructions(
-            0,
-            """
-                const/4 v0, 0x0
-                return v0
-            """,
-        )
+    apply {
+        viewCountsEnabledMethod.returnEarly()
     }
 }

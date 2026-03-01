@@ -1,19 +1,13 @@
 package app.revanced.patches.photomath.misc.unlock.bookpoint
 
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 val enableBookpointPatch = bytecodePatch(
     description = "Enables textbook access",
 ) {
 
-    execute {
-        isBookpointEnabledFingerprint.method.replaceInstructions(
-            0,
-            """
-                const/4 v0, 0x1
-                return v0
-            """,
-        )
+    apply {
+        isBookpointEnabledMethod.returnEarly(true) // TODO: CHECK IF THIS IS FINE IN REPLACEMENT OF replaceInstructions
     }
 }

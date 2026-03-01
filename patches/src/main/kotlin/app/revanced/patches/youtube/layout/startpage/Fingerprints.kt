@@ -1,20 +1,21 @@
 package app.revanced.patches.youtube.layout.startpage
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val intentActionFingerprint = fingerprint {
-    parameters("Landroid/content/Intent;")
-    strings("has_handled_intent")
+internal val BytecodePatchContext.intentActionMethod by gettingFirstMethodDeclaratively(
+    "has_handled_intent",
+) {
+    parameterTypes("Landroid/content/Intent;")
 }
 
-internal val browseIdFingerprint = fingerprint {
-    returns("Lcom/google/android/apps/youtube/app/common/ui/navigation/PaneDescriptor;")
-    parameters()
-    opcodes(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.RETURN_OBJECT,
+internal val BytecodePatchContext.browseIdMethodMatch by composingFirstMethod {
+    returnType("L")
+    // parameterTypes() // 20.30 and earlier is no parameters.  20.31+ parameter is L.
+    instructions(
+        "FEwhat_to_watch"(),
+        512L(),
+        allOf(Opcode.IPUT_OBJECT(), field { type == "Ljava/lang/String;" }),
     )
-    strings("FEwhat_to_watch")
 }

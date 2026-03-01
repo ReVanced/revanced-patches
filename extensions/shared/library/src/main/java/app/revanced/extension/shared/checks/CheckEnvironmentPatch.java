@@ -288,8 +288,8 @@ public final class CheckEnvironmentPatch {
                 CheckIsNearPatchTime nearPatchTime = new CheckIsNearPatchTime();
                 Boolean timeCheckPassed = nearPatchTime.check();
                 if (timeCheckPassed && !DEBUG_ALWAYS_SHOW_CHECK_FAILED_DIALOG) {
-                    // Allow installing recently patched apks,
-                    // even if the install source is not Manager or ADB.
+                    // Allow installing recently patched APKs,
+                    // even if the installation source is not Manager or ADB.
                     Check.disableForever();
                     return;
                 } else {

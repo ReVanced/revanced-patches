@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -18,7 +19,7 @@ public final class HidePlayerOverlayButtonsPatch {
     /**
      * Injection point.
      */
-    public static boolean hideAutoPlayButton() {
+    public static boolean hideAutoplayButton() {
         return HIDE_AUTOPLAY_BUTTON_ENABLED;
     }
 
@@ -32,18 +33,62 @@ public final class HidePlayerOverlayButtonsPatch {
     /**
      * Injection point.
      */
+    public static boolean getCastButtonOverrideV2(boolean original) {
+        if (Settings.HIDE_CAST_BUTTON.get()) return false;
+
+        return original;
+    }
+
+    /**
+     * Injection point.
+     */
     public static void hideCaptionsButton(ImageView imageView) {
         imageView.setVisibility(Settings.HIDE_CAPTIONS_BUTTON.get() ? ImageView.GONE : ImageView.VISIBLE);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void hideCollapseButton(ImageView imageView) {
+        if (!Settings.HIDE_COLLAPSE_BUTTON.get()) return;
+
+        // Make the collapse button invisible
+        imageView.setImageResource(android.R.color.transparent);
+        imageView.setImageAlpha(0);
+        imageView.setEnabled(false);
+
+        // Adjust layout params if RelativeLayout
+        var layoutParams = imageView.getLayoutParams();
+        if (layoutParams instanceof android.widget.RelativeLayout.LayoutParams) {
+            android.widget.RelativeLayout.LayoutParams lp = new android.widget.RelativeLayout.LayoutParams(0, 0);
+            imageView.setLayoutParams(lp);
+        } else {
+            Logger.printDebug(() -> "Unknown collapse button layout params: " + layoutParams);
+        }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setTitleAnchorStartMargin(View titleAnchorView) {
+        if (!Settings.HIDE_COLLAPSE_BUTTON.get()) return;
+
+        var layoutParams = titleAnchorView.getLayoutParams();
+        if (layoutParams instanceof android.widget.RelativeLayout.LayoutParams relativeParams) {
+            relativeParams.setMarginStart(0);
+        } else {
+            Logger.printDebug(() -> "Unknown title anchor layout params: " + layoutParams);
+        }
     }
 
     private static final boolean HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS_ENABLED
             = Settings.HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS.get();
 
     private static final int PLAYER_CONTROL_PREVIOUS_BUTTON_TOUCH_AREA_ID = getResourceIdentifierOrThrow(
-            "player_control_previous_button_touch_area", "id");
+            ResourceType.ID, "player_control_previous_button_touch_area");
 
     private static final int PLAYER_CONTROL_NEXT_BUTTON_TOUCH_AREA_ID = getResourceIdentifierOrThrow(
-            "player_control_next_button_touch_area", "id");
+            ResourceType.ID, "player_control_next_button_touch_area");
 
     /**
      * Injection point.
@@ -54,11 +99,26 @@ public final class HidePlayerOverlayButtonsPatch {
         }
 
         // Must use a deferred call to main thread to hide the button.
-        // Otherwise the layout crashes if set to hidden now.
+        // Otherwise, the layout crashes if set to hidden now.
         Utils.runOnMainThread(() -> {
             hideView(parentView, PLAYER_CONTROL_PREVIOUS_BUTTON_TOUCH_AREA_ID);
             hideView(parentView, PLAYER_CONTROL_NEXT_BUTTON_TOUCH_AREA_ID);
         });
+    }
+
+    /**
+     * Injection point.
+     */
+    public static ImageView hideFullscreenButton(ImageView imageView) {
+        if (!Settings.HIDE_FULLSCREEN_BUTTON.get()) {
+            return imageView;
+        }
+
+        if (imageView != null) {
+            imageView.setVisibility(View.GONE);
+        }
+
+        return null;
     }
 
     /**

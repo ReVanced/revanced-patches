@@ -14,11 +14,14 @@ import android.os.PowerManager;
 import android.provider.Settings;
 import android.util.Pair;
 import android.widget.LinearLayout;
+
 import androidx.annotation.Nullable;
+
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.ui.CustomDialog;
+
 import org.json.JSONObject;
 
 import java.net.HttpURLConnection;
@@ -219,11 +222,17 @@ public class GmsCoreSupport {
             Utils.runOnBackgroundThread(() -> {
                 try {
                     PackageManager manager = context.getPackageManager();
-                    String installedVersion = manager.getPackageInfo(packageName, 0).versionName;
+                    var installedVersion = manager.getPackageInfo(packageName, 0).versionName;
 
-                    Logger.printDebug(() -> "Installed GmsCore version: " + installedVersion);
+                    // GmsCore adds suffixes for flavor builds. Remove the suffix for version comparison.
+                    int suffixIndex = installedVersion.indexOf('-');
+                    if (suffixIndex != -1)
+                        installedVersion = installedVersion.substring(0, suffixIndex);
+                    String finalInstalledVersion = installedVersion;
 
-                    String latestVersion = getLatestVersion.get();
+                    Logger.printDebug(() -> "Installed GmsCore version: " + finalInstalledVersion);
+
+                    var latestVersion = getLatestVersion.get();
 
                     if (latestVersion == null || latestVersion.isEmpty()) {
                         Logger.printDebug(() -> "Could not get latest GmsCore version");
@@ -235,7 +244,7 @@ public class GmsCoreSupport {
 
                     // Compare versions
                     if (!installedVersion.equals(latestVersion)) {
-                        Logger.printInfo(() -> "GmsCore update available. Installed: " + installedVersion
+                        Logger.printInfo(() -> "GmsCore update available. Installed: " + finalInstalledVersion
                                 + ", Latest: " + latestVersion);
 
                         showUpdateDialog(context, installedVersion, latestVersion);

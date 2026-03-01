@@ -1,17 +1,14 @@
 package app.revanced.patches.tiktok.misc.login.disablerequirement
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val mandatoryLoginServiceFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("/MandatoryLoginService;") &&
-            method.name == "enableForcedLogin"
-    }
+internal val BytecodePatchContext.mandatoryLoginServiceMethod by gettingFirstMethodDeclaratively {
+    name("enableForcedLogin")
+    definingClass("/MandatoryLoginService;")
 }
 
-internal val mandatoryLoginService2Fingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("/MandatoryLoginService;") &&
-            method.name == "shouldShowForcedLogin"
-    }
+internal val BytecodePatchContext.mandatoryLoginService2Method by gettingFirstMethodDeclaratively {
+    name("shouldShowForcedLogin")
+    definingClass("/MandatoryLoginService;")
 }

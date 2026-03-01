@@ -10,7 +10,7 @@ val removeFreeAccountsLimitPatch = resourcePatch(
 ) {
     compatibleWith("ch.protonmail.android"("4.15.0"))
 
-    execute {
+    apply {
         document("res/values/integers.xml").use { document ->
             document.documentElement.childNodes.findElementByAttributeValueOrThrow(
                 "name",

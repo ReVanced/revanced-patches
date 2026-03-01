@@ -1,9 +1,11 @@
 package app.revanced.patches.pandora.misc
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val skipLimitBehaviorFingerprint = fingerprint {
-    custom { method, classDef ->
-        method.name == "getSkipLimitBehavior" && classDef.endsWith("UserData;")
-    }
+internal val BytecodePatchContext.getSkipLimitBehaviorMethod by gettingFirstMethodDeclaratively {
+    name("getSkipLimitBehavior")
+    definingClass("UserData;")
 }

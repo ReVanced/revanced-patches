@@ -1,6 +1,6 @@
 package app.revanced.patches.twitch.debug
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -9,6 +9,7 @@ import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
 
+@Suppress("ObjectPropertyName")
 val debugModePatch = bytecodePatch(
     name = "Debug mode",
     description = "Enables Twitch's internal debugging mode.",
@@ -22,7 +23,7 @@ val debugModePatch = bytecodePatch(
 
     compatibleWith("tv.twitch.android.app"("16.9.1", "25.3.0"))
 
-    execute {
+    apply {
         addResources("twitch", "debug.debugModePatch")
 
         PreferenceScreen.MISC.OTHER.addPreferences(
@@ -30,11 +31,11 @@ val debugModePatch = bytecodePatch(
         )
 
         listOf(
-            isDebugConfigEnabledFingerprint,
-            isOmVerificationEnabledFingerprint,
-            shouldShowDebugOptionsFingerprint,
-        ).forEach { fingerprint ->
-            fingerprint.method.addInstructions(
+            isDebugConfigEnabledMethod,
+            isOmVerificationEnabledMethod,
+            shouldShowDebugOptionsMethod,
+        ).forEach { method ->
+            method.addInstructions(
                 0,
                 """
                     invoke-static {}, Lapp/revanced/extension/twitch/patches/DebugModePatch;->isDebugModeEnabled()Z

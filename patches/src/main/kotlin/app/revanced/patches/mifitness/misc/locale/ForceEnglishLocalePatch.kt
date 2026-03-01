@@ -1,7 +1,7 @@
 package app.revanced.patches.mifitness.misc.locale
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.mifitness.misc.login.fixLoginPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -15,12 +15,12 @@ val forceEnglishLocalePatch = bytecodePatch(
 
     dependsOn(fixLoginPatch)
 
-    execute {
-        syncBluetoothLanguageFingerprint.method.apply {
-            val resolvePhoneLocaleInstruction = syncBluetoothLanguageFingerprint.patternMatch!!.startIndex
-            val registerIndexToUpdate = getInstruction<OneRegisterInstruction>(resolvePhoneLocaleInstruction).registerA
+    apply {
+        syncBluetoothLanguageMethodMatch.let {
+            val resolvePhoneLocaleInstruction = it[0]
+            val registerIndexToUpdate = it.method.getInstruction<OneRegisterInstruction>(resolvePhoneLocaleInstruction).registerA
 
-            replaceInstruction(
+            it.method.replaceInstruction(
                 resolvePhoneLocaleInstruction,
                 "const-string v$registerIndexToUpdate, \"en_gb\"",
             )
