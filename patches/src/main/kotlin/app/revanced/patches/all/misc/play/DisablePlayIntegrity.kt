@@ -1,4 +1,4 @@
-package app.revanced.patches.all.misc.playintegrity
+package app.revanced.patches.all.misc.play
 
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -9,7 +9,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/playintegrity/DisablePlayIntegrityPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/play/DisablePlayIntegrityPatch;"
 
 private val CONTEXT_BIND_SERVICE_METHOD_REFERENCE = ImmutableMethodReference(
     "Landroid/content/Context;",
