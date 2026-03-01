@@ -333,6 +333,10 @@ public final class app/revanced/patches/instagram/misc/extension/SharedExtension
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
+public final class app/revanced/patches/instagram/misc/followBackIndicator/FollowBackIndicatorPatchKt {
+	public static final fun getFollowBackIndicatorPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/instagram/misc/links/OpenLinksExternallyPatchKt {
 	public static final fun getOpenLinksExternallyPatch ()Lapp/revanced/patcher/patch/Patch;
 }
