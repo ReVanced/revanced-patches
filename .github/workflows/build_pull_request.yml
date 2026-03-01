@@ -39,7 +39,7 @@ jobs:
         run: ./gradlew :patches:buildAndroid --no-daemon
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: revanced-patches
           path: patches/build/libs
