@@ -1,3 +1,10 @@
+# [6.0.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.9...v6.0.0-dev.10) (2026-03-01)
+
+
+### Bug Fixes
+
+* **Enable debugging:** Add missing preference to log protocol buffer ([26d8a9e](https://github.com/ReVanced/revanced-patches/commit/26d8a9e5f891e08fe3c23601e8238de6a301b8df))
+
 # [6.0.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.8...v6.0.0-dev.9) (2026-02-28)
 
 
