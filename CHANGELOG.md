@@ -1,3 +1,10 @@
+# [6.0.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.12...v6.0.0-dev.13) (2026-03-02)
+
+
+### Bug Fixes
+
+* Use custom comparison block for strings in `anyOf` ([56a087d](https://github.com/ReVanced/revanced-patches/commit/56a087dbacf331ccadfe753cbc1ced77e318fc27))
+
 # [6.0.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.11...v6.0.0-dev.12) (2026-03-02)
 
 
