@@ -60,9 +60,9 @@ internal fun ClassDef.getSeekMethod() = firstImmutableMethodDeclaratively {
     instructions(
         anyOf(
             // 20.xx
-            "Attempting to seek during an ad"(),
+            "Attempting to seek during an ad" { equals(it) }, // Must use custom comparison block, otherwise string is added to stringsList for lookup
             // 21.02+
-            "currentPositionMs."()
+            "currentPositionMs." { equals(it) }
         )
     )
 }
