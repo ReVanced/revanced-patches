@@ -7,8 +7,10 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.util.Base64;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 
@@ -39,6 +41,7 @@ public final class CheckEnvironmentPatch {
         ADB((String) null),
         ROOT_MOUNT_ON_APP_STORE("com.android.vending"),
         MANAGER("app.revanced.manager.flutter",
+                "app.revanced.manager.flutter.debug",
                 "app.revanced.manager",
                 "app.revanced.manager.debug");
 
