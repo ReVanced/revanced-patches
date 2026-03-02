@@ -43,3 +43,4 @@ jobs:
         with:
           name: revanced-patches
           path: patches/build/libs
+          archive: false
