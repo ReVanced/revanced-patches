@@ -1,3 +1,15 @@
+# [6.0.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.11...v6.0.0-dev.12) (2026-03-02)
+
+
+### Bug Fixes
+
+* Fix return type check to match method successfully ([0a73452](https://github.com/ReVanced/revanced-patches/commit/0a734528dc4407571ae1dba3e80347bc9f236e3e))
+
+
+### Features
+
+* **Check environment patch:** Support another ReVanced Manager debug variant package name ([e4dea68](https://github.com/ReVanced/revanced-patches/commit/e4dea682c6640ce817d5e30cfddec953fe85436f))
+
 # [6.0.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.10...v6.0.0-dev.11) (2026-03-02)
 
 
