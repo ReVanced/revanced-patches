@@ -37,7 +37,7 @@ internal val BytecodePatchContext.tabLayoutTextMethodMatch by composingFirstMeth
             5,
             allOf(
                 Opcode.INVOKE_STATIC(),
-                method { returnType == "L" && parameterTypes.size == 1 && parameterTypes.first() == "I" })
+                method { returnType.startsWith("L") && parameterTypes.size == 1 && parameterTypes.first() == "I" })
         ),
         after(Opcode.MOVE_RESULT_OBJECT()),
         // Hide navigation buttons.
