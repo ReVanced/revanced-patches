@@ -1,3 +1,10 @@
+# [6.0.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.10...v6.0.0-dev.11) (2026-03-02)
+
+
+### Bug Fixes
+
+* Use correct string key ([9d55d00](https://github.com/ReVanced/revanced-patches/commit/9d55d00ff46a2cd18111a91a98dbc8e3137dd0ed))
+
 # [6.0.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.9...v6.0.0-dev.10) (2026-03-01)
 
 
