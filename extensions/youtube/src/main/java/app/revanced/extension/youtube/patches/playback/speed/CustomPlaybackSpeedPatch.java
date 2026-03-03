@@ -111,7 +111,7 @@ public class CustomPlaybackSpeedPatch {
     /**
      * Injection point.
      */
-    public static float tapAndHoldSpeed() {
+    public static float getTapAndHoldSpeed() {
         return TAP_AND_HOLD_SPEED;
     }
 
