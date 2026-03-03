@@ -1,3 +1,10 @@
+# [6.0.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.13...v6.0.0-dev.14) (2026-03-03)
+
+
+### Bug Fixes
+
+* **YouTube - Playback speed:** Use correct extension method name ([b8b4cfb](https://github.com/ReVanced/revanced-patches/commit/b8b4cfbd016058a158364f4549e7ef6ed4d154e0))
+
 # [6.0.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.12...v6.0.0-dev.13) (2026-03-02)
 
 
