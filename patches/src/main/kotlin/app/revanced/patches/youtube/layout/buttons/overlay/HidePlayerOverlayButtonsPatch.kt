@@ -169,14 +169,16 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         fullscreenButtonMethodMatch.let {
             it.method.apply {
-                val castIndex = it[1]
-                val insertIndex = castIndex + 1
-                val insertRegister = getInstruction<OneRegisterInstruction>(castIndex).registerA
+                // youtube 21.x doesn't cast the fullscreen button to ImageView anymore,
+                // so match on move-result-object after findViewById instead of check-cast
+                val moveResultIndex = it[2]
+                val insertIndex = moveResultIndex + 1
+                val insertRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
 
                 addInstructionsWithLabels(
                     insertIndex,
                     """
-                        invoke-static { v$insertRegister }, ${EXTENSION_CLASS_DESCRIPTOR}->hideFullscreenButton(Landroid/widget/ImageView;)Landroid/widget/ImageView;
+                        invoke-static { v$insertRegister }, ${EXTENSION_CLASS_DESCRIPTOR}->hideFullscreenButton(Landroid/view/View;)Landroid/view/View;
                         move-result-object v$insertRegister
                         if-nez v$insertRegister, :show
                         return-void

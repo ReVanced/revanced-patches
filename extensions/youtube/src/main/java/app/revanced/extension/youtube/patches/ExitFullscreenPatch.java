@@ -1,6 +1,6 @@
 package app.revanced.extension.youtube.patches;
 
-import android.widget.ImageView;
+import android.view.View;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -46,7 +46,7 @@ public class ExitFullscreenPatch {
                 // To fix this, push the perform click to the back fo the main thread,
                 // and by then the overlay controls will be visible since the video is now finished.
                 Utils.runOnMainThreadDelayed(() -> {
-                    ImageView button = PlayerControlsPatch.fullscreenButtonRef.get();
+                    View button = PlayerControlsPatch.fullscreenButtonRef.get();
                     if (button == null) {
                         Logger.printDebug(() -> "Fullscreen button is null, cannot click");
                     } else {

@@ -109,13 +109,13 @@ public final class HidePlayerOverlayButtonsPatch {
     /**
      * Injection point.
      */
-    public static ImageView hideFullscreenButton(ImageView imageView) {
+    public static View hideFullscreenButton(View view) {
         if (!Settings.HIDE_FULLSCREEN_BUTTON.get()) {
-            return imageView;
+            return view;
         }
 
-        if (imageView != null) {
-            imageView.setVisibility(View.GONE);
+        if (view != null) {
+            view.setVisibility(View.GONE);
         }
 
         return null;

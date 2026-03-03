@@ -78,7 +78,7 @@ internal val BytecodePatchContext.overlayViewInflateMethodMatch by composingFirs
     instructions(
         ResourceType.ID("heatseeker_viewstub"),
         ResourceType.ID("fullscreen_button"),
-        allOf(Opcode.CHECK_CAST(), type("Landroid/widget/ImageView;")),
+        Opcode.CHECK_CAST(),
     )
 }
 
