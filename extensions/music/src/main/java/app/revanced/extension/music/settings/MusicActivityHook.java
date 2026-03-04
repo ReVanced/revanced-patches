@@ -8,6 +8,7 @@ import android.preference.PreferenceFragment;
 import android.view.View;
 import android.widget.Toolbar;
 
+import app.revanced.extension.music.patches.VersionCheckPatch;
 import app.revanced.extension.music.settings.preference.MusicPreferenceFragment;
 import app.revanced.extension.music.settings.search.MusicSearchViewController;
 import app.revanced.extension.shared.Logger;
@@ -22,6 +23,24 @@ public class MusicActivityHook extends BaseActivityHook {
 
     @SuppressLint("StaticFieldLeak")
     public static MusicSearchViewController searchViewController;
+
+    /**
+     * How much time has passed since the first launch of the app. Simple check to prevent
+     * forcing bold icons on first launch where the settings menu is partially broken
+     * due to missing icon resources the client has not yet received.
+     *
+     * @see app.revanced.extension.youtube.settings.YouTubeActivityHook#MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS
+     */
+    private static final long MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS = 30 * 1000; // 30 seconds.
+
+    static {
+        final boolean useBoldIcons = VersionCheckPatch.IS_8_40_OR_GREATER
+                && !Settings.SETTINGS_DISABLE_BOLD_ICONS.get()
+                && (System.currentTimeMillis() - Settings.FIRST_TIME_APP_LAUNCHED.get())
+                > MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS;
+
+        Utils.setAppIsUsingBoldIcons(useBoldIcons);
+    }
 
     /**
      * Injection point.
