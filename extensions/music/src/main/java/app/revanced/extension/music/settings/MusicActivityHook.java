@@ -116,4 +116,14 @@ public class MusicActivityHook extends BaseActivityHook {
     public static boolean handleFinish() {
         return MusicSearchViewController.handleFinish(searchViewController);
     }
+
+    /**
+     * Injection point.
+     * <p>
+     * Decides whether to use bold icons.
+     */
+    @SuppressWarnings("unused")
+    public static boolean useBoldIcons(boolean original) {
+        return true;
+    }
 }
