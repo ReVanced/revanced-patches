@@ -124,6 +124,6 @@ public class MusicActivityHook extends BaseActivityHook {
      */
     @SuppressWarnings("unused")
     public static boolean useBoldIcons(boolean original) {
-        return true;
+        return Utils.appIsUsingBoldIcons();
     }
 }
