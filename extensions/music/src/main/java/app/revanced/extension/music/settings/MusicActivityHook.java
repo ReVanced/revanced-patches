@@ -8,7 +8,7 @@ import android.preference.PreferenceFragment;
 import android.view.View;
 import android.widget.Toolbar;
 
-import app.revanced.extension.music.patches.VersionCheckPatch;
+import app.revanced.extension.music.VersionCheckUtils;
 import app.revanced.extension.music.settings.preference.MusicPreferenceFragment;
 import app.revanced.extension.music.settings.search.MusicSearchViewController;
 import app.revanced.extension.shared.Logger;
@@ -34,7 +34,7 @@ public class MusicActivityHook extends BaseActivityHook {
     private static final long MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS = 30 * 1000; // 30 seconds.
 
     static {
-        final boolean useBoldIcons = VersionCheckPatch.IS_8_40_OR_GREATER
+        final boolean useBoldIcons = VersionCheckUtils.IS_8_40_OR_GREATER
                 && !Settings.SETTINGS_DISABLE_BOLD_ICONS.get()
                 && (System.currentTimeMillis() - Settings.FIRST_TIME_APP_LAUNCHED.get())
                 > MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS;

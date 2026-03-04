@@ -1,8 +1,8 @@
-package app.revanced.extension.music.patches;
+package app.revanced.extension.music;
 
 import app.revanced.extension.shared.Utils;
 
-public class VersionCheckPatch {
+public class VersionCheckUtils {
     private static boolean isVersionOrGreater(String version) {
         return Utils.getAppVersionName().compareTo(version) >= 0;
     }
