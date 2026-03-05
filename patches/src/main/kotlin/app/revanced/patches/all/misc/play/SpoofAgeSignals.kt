@@ -20,18 +20,18 @@ val spoofAgeSignalsPatch = bytecodePatch(
     description = "Spoofs Google Play data about the user age and verification status.",
     use = false,
 ) {
-    val ageLower by intOption(
+    val lowerAgeBound by intOption(
         name = "Lower age bound",
         description = "A positive integer.",
         default = 18,
         validator = { it == null || it > 0 },
     )
 
-    val ageUpper by intOption(
+    val upperAgeBound by intOption(
         name = "Upper age bound",
         description = "A positive integer. Must be greater than the lower age bound.",
         default = Int.MAX_VALUE,
-        validator = { it == null || it > ageLower!! },
+        validator = { it == null || it > lowerAgeBound!! },
     )
 
     val userStatus by option<UserStatus>(
@@ -56,8 +56,8 @@ val spoofAgeSignalsPatch = bytecodePatch(
                 } ?: return@forEachInstructionAsSequence null
 
                 val replacement = when (match) {
-                    MethodCall.AgeLower -> ageLower!!
-                    MethodCall.AgeUpper -> ageUpper!!
+                    MethodCall.AgeLower -> lowerAgeBound!!
+                    MethodCall.AgeUpper -> upperAgeBound!!
                     MethodCall.UserStatus -> userStatus!!.value
                 }
 
