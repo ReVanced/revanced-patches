@@ -1,3 +1,11 @@
+# [6.0.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.15...v6.0.0-dev.16) (2026-03-05)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Remove target `19.35.36` no longer supported by YouTube ([#6717](https://github.com/ReVanced/revanced-patches/issues/6717)) ([46fb366](https://github.com/ReVanced/revanced-patches/commit/46fb3669ee59534327d7c3d78e07b813d8a2badb))
+* **YouTube Music:** Prevent crash on bold icons loading ([#6712](https://github.com/ReVanced/revanced-patches/issues/6712)) ([e9bfb7c](https://github.com/ReVanced/revanced-patches/commit/e9bfb7ca9bcd1499f1abe8872999aefff10cd187))
+
 # [6.0.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.14...v6.0.0-dev.15) (2026-03-05)
 
 
