@@ -11,7 +11,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
-import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Suppress("unused")
 val spoofAgeSignalsPatch = bytecodePatch(
@@ -50,8 +49,8 @@ val spoofAgeSignalsPatch = bytecodePatch(
                 val reference = (instruction as? ReferenceInstruction)?.reference as? MethodReference
                     ?: return@forEachInstructionAsSequence null
 
-                val match = MethodCall.entries.firstOrNull { search ->
-                    MethodUtil.methodSignaturesMatch(reference, search.reference)
+                val match = MethodCall.entries.firstOrNull {
+                    reference == it.reference
                 } ?: return@forEachInstructionAsSequence null
 
                 val replacement = when (match) {
