@@ -1,6 +1,5 @@
 package app.revanced.patches.all.misc.play
 
-import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.removeInstructions
@@ -63,30 +62,25 @@ val spoofAgeSignalsPatch = bytecodePatch(
 
                 replacement.let { instructionIndex to it }
             },
-            transform = ::transformMethodCall
+            transform = { method, entry ->
+                val (instructionIndex, replacement) = entry
+
+                // Get the register which would have contained the return value
+                val register = method.getInstruction<OneRegisterInstruction>(instructionIndex + 1).registerA
+
+                // Replace the call instructions with our fake value
+                method.removeInstructions(instructionIndex, 2)
+                method.addInstructions(
+                    instructionIndex,
+                    """
+                        const v$register, $replacement
+                        invoke-static { v$register }, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+                        move-result-object v$register
+                    """.trimIndent(),
+                )
+            }
         )
     }
-}
-
-private fun transformMethodCall(
-    mutableMethod: MutableMethod,
-    entry: Pair<Int, Int>,
-) {
-    val (instructionIndex, replacement) = entry
-
-    // Get the register which would have contained the return value
-    val register = mutableMethod.getInstruction<OneRegisterInstruction>(instructionIndex + 1).registerA
-
-    // Replace the call instructions with our fake value
-    mutableMethod.removeInstructions(instructionIndex, 2)
-    mutableMethod.addInstructions(
-        instructionIndex,
-        """
-            const v$register, $replacement
-            invoke-static { v$register }, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-            move-result-object v$register
-        """.trimIndent(),
-    )
 }
 
 /**
