@@ -28,7 +28,7 @@ val spoofAgeSignalsPatch = bytecodePatch(
     )
 
     val ageUpper by intOption(
-        name = "Lower age bound",
+        name = "Upper age bound",
         description = "A positive integer. Must be greater than the lower age bound.",
         default = Int.MAX_VALUE,
         validator = { it == null || it > ageLower!! },
