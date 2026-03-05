@@ -169,8 +169,8 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         fullscreenButtonMethodMatch.let {
             it.method.apply {
-                // youtube 21.x doesn't cast the fullscreen button to ImageView anymore,
-                // so match on move-result-object after findViewById instead of check-cast
+                // Youtube 21.x doesn't cast the fullscreen button to ImageView anymore,
+                // so match on move-result-object after findViewById instead of check-cast.
                 val moveResultIndex = it[2]
                 val insertIndex = moveResultIndex + 1
                 val insertRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA

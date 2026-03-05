@@ -216,8 +216,8 @@ internal fun spoofVideoStreamsPatch(
         // A proper fix may include modifying the request body to match the platforms expected body.
 
         buildMediaDataSourceMethod.apply {
-            // find return-void, not last instruction which may be a throw in an error branch
-            // where p0 is overwritten by new-instance IllegalArgumentException
+            // Find return-void, not the last instruction, which may be a throw in an error branch
+            // where p0 is overwritten by new-instance IllegalArgumentException.
             val targetIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_VOID)
 
             addInstructions(
