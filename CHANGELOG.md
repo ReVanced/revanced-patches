@@ -1,3 +1,10 @@
+# [6.0.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.14...v6.0.0-dev.15) (2026-03-05)
+
+
+### Bug Fixes
+
+* **Check environment:** Use another (also more suitable) API to circumvent a bug ([393700f](https://github.com/ReVanced/revanced-patches/commit/393700f74ac141bfa109988202707b40d35a64ea))
+
 # [6.0.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.13...v6.0.0-dev.14) (2026-03-03)
 
 
