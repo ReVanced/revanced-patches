@@ -29,7 +29,7 @@ fun checkEnvironmentPatch(
 ) = bytecodePatch(
     description = "Checks, if the application was patched by, otherwise warns the user.",
 ) {
-    compatibleWith(*compatiblePackages)
+    compatibleWith(packages = compatiblePackages)
 
     dependsOn(
         extensionPatch,
@@ -41,7 +41,7 @@ fun checkEnvironmentPatch(
 
         fun setPatchInfo() {
             fun <T : MutableEncodedValue> MutableClassDef.setClassFields(vararg fieldNameValues: Pair<String, T>) {
-                val fieldNameValueMap = mapOf(*fieldNameValues)
+                val fieldNameValueMap = mapOf(pairs = fieldNameValues)
 
                 fields.forEach { field ->
                     field.initialValue = fieldNameValueMap[field.name] ?: return@forEach
