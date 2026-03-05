@@ -40,45 +40,42 @@ val spoofAgeSignalsPatch = bytecodePatch(
     )
 
     apply {
-        forEachInstructionAsSequence(
-            match = { classDef, _, instruction, instructionIndex ->
-                // We want to avoid patching the library itself
-                if (classDef.type.startsWith("Lcom/google/android/play/agesignals/")) return@forEachInstructionAsSequence null
+        forEachInstructionAsSequence(match = { classDef, _, instruction, instructionIndex ->
+            // We want to avoid patching the library itself
+            if (classDef.type.startsWith("Lcom/google/android/play/agesignals/")) return@forEachInstructionAsSequence null
 
-                // Keep only method calls
-                val reference = (instruction as? ReferenceInstruction)?.reference as? MethodReference
-                    ?: return@forEachInstructionAsSequence null
+            // Keep only method calls
+            val reference = (instruction as? ReferenceInstruction)?.reference as? MethodReference
+                ?: return@forEachInstructionAsSequence null
 
-                val match = MethodCall.entries.firstOrNull {
-                    reference == it.reference
-                } ?: return@forEachInstructionAsSequence null
+            val match = MethodCall.entries.firstOrNull {
+                reference == it.reference
+            } ?: return@forEachInstructionAsSequence null
 
-                val replacement = when (match) {
-                    MethodCall.AgeLower -> lowerAgeBound!!
-                    MethodCall.AgeUpper -> upperAgeBound!!
-                    MethodCall.UserStatus -> userStatus!!.value
-                }
-
-                replacement.let { instructionIndex to it }
-            },
-            transform = { method, entry ->
-                val (instructionIndex, replacement) = entry
-
-                // Get the register which would have contained the return value
-                val register = method.getInstruction<OneRegisterInstruction>(instructionIndex + 1).registerA
-
-                // Replace the call instructions with our fake value
-                method.removeInstructions(instructionIndex, 2)
-                method.addInstructions(
-                    instructionIndex,
-                    """
-                        const v$register, $replacement
-                        invoke-static { v$register }, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-                        move-result-object v$register
-                    """.trimIndent(),
-                )
+            val replacement = when (match) {
+                MethodCall.AgeLower -> lowerAgeBound!!
+                MethodCall.AgeUpper -> upperAgeBound!!
+                MethodCall.UserStatus -> userStatus!!.value
             }
-        )
+
+            replacement.let { instructionIndex to it }
+        }, transform = { method, entry ->
+            val (instructionIndex, replacement) = entry
+
+            // Get the register which would have contained the return value
+            val register = method.getInstruction<OneRegisterInstruction>(instructionIndex + 1).registerA
+
+            // Replace the call instructions with our fake value
+            method.removeInstructions(instructionIndex, 2)
+            method.addInstructions(
+                instructionIndex,
+                """
+                    const v$register, $replacement
+                    invoke-static { v$register }, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+                    move-result-object v$register
+                """.trimIndent(),
+            )
+        })
     }
 }
 
