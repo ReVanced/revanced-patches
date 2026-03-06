@@ -1,3 +1,10 @@
+# [6.0.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.17...v6.0.0-dev.18) (2026-03-06)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Find resource id only for 21.05+ ([63161e9](https://github.com/ReVanced/revanced-patches/commit/63161e9fb357387685294e4a80de94cb351c6713))
+
 # [6.0.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.16...v6.0.0-dev.17) (2026-03-06)
 
 
