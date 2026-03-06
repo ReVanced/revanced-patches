@@ -33,11 +33,11 @@ val spoofPlayAgeSignalsPatch = bytecodePatch(
         validator = { it == null || it > lowerAgeBound!! },
     )
 
-    val userStatus by option<UserStatus>(
+    val userStatus by intOption(
         name = "User status",
         description = "An integer representing the user status.",
-        default = UserStatus.VERIFIED,
-        values = UserStatus.entries.associateBy { it.name },
+        default = UserStatus.VERIFIED.value,
+        values = UserStatus.entries.associate { it.name to it.value },
     )
 
     apply {
@@ -56,7 +56,7 @@ val spoofPlayAgeSignalsPatch = bytecodePatch(
             val replacement = when (match) {
                 MethodCall.AgeLower -> lowerAgeBound!!
                 MethodCall.AgeUpper -> upperAgeBound!!
-                MethodCall.UserStatus -> userStatus!!.value
+                MethodCall.UserStatus -> userStatus!!
             }
 
             replacement.let { instructionIndex to it }
