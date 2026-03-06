@@ -261,7 +261,7 @@ val playerControlsPatch = bytecodePatch(
             addInstruction(
                 index + 1,
                 "invoke-static { v$register }, " +
-                    "$EXTENSION_CLASS_DESCRIPTOR->setFullscreenCloseButton(Landroid/widget/ImageView;)V",
+                    "$EXTENSION_CLASS_DESCRIPTOR->setFullscreenCloseButton(Landroid/view/View;)V",
             )
         }
 

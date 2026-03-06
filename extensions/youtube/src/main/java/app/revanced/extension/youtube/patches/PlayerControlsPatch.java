@@ -2,7 +2,6 @@ package app.revanced.extension.youtube.patches;
 
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.widget.ImageView;
 
 import java.lang.ref.WeakReference;
 
@@ -11,7 +10,7 @@ import app.revanced.extension.shared.Logger;
 @SuppressWarnings("unused")
 public class PlayerControlsPatch {
 
-    public static WeakReference<ImageView> fullscreenButtonRef = new WeakReference<>(null);
+    public static WeakReference<View> fullscreenButtonRef = new WeakReference<>(null);
 
     private static boolean fullscreenButtonVisibilityCallbacksExist() {
         return false; // Modified during patching if needed.
@@ -20,8 +19,8 @@ public class PlayerControlsPatch {
     /**
      * Injection point.
      */
-    public static void setFullscreenCloseButton(ImageView imageButton) {
-        fullscreenButtonRef = new WeakReference<>(imageButton);
+    public static void setFullscreenCloseButton(View button) {
+        fullscreenButtonRef = new WeakReference<>(button);
         Logger.printDebug(() -> "Fullscreen button set");
 
         if (!fullscreenButtonVisibilityCallbacksExist()) {
@@ -30,13 +29,13 @@ public class PlayerControlsPatch {
 
         // Add a global listener, since the protected method
         // View#onVisibilityChanged() does not have any call backs.
-        imageButton.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+        button.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             int lastVisibility = View.VISIBLE;
 
             @Override
             public void onGlobalLayout() {
                 try {
-                    final int visibility = imageButton.getVisibility();
+                    final int visibility = button.getVisibility();
                     if (lastVisibility != visibility) {
                         lastVisibility = visibility;
 
