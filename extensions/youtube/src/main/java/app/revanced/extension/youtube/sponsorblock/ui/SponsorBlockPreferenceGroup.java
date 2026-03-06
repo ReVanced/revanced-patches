@@ -33,7 +33,6 @@ import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.ResettableEditTextPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
-import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;

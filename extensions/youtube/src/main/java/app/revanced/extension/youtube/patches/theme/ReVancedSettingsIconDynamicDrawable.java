@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.settings.BaseSettings;
 
 /**
  * Dynamic drawable that is either the regular or bolded ReVanced preference icon.
