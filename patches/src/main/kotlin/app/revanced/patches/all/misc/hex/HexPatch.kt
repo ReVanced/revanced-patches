@@ -8,6 +8,7 @@ import app.revanced.util.Utils.trimIndentMultiline
 
 @Suppress("unused")
 val Hex = rawResourcePatch(
+    name = "Hex",
     description = "Replaces a hexadecimal patterns of bytes of files in an APK.",
     use = false,
 ) {
