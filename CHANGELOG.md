@@ -1,3 +1,10 @@
+# [6.0.0-dev.19](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.18...v6.0.0-dev.19) (2026-03-06)
+
+
+### Bug Fixes
+
+* **Hex:** Add back name, which was accidentally removed from the patch ([6a547a9](https://github.com/ReVanced/revanced-patches/commit/6a547a97e52b7914bb6602f3ecc2c6cecd50e946))
+
 # [6.0.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.17...v6.0.0-dev.18) (2026-03-06)
 
 
