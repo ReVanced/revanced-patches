@@ -38,8 +38,8 @@ internal val BytecodePatchContext.fullscreenButtonMethodMatch by composingFirstM
     returnType("V")
     instructions(
         ResourceType.ID("fullscreen_button"),
-        Opcode.INVOKE_VIRTUAL(),   // findViewById
-        Opcode.MOVE_RESULT_OBJECT() // the actual view, not cast in 21.x
+        Opcode.INVOKE_VIRTUAL(),   // findViewById call.
+        Opcode.MOVE_RESULT_OBJECT() // The actual view, not a check-cast in 21.x.
     )
 }
 
