@@ -178,9 +178,9 @@ val hideShortsComponentsPatch = bytecodePatch(
 
         // region Hide sound button.
 
-        val id = ResourceType.DIMEN["reel_player_right_pivot_v2_size"]
-
         if (!is_21_05_or_greater) {
+            val id = ResourceType.DIMEN["reel_player_right_pivot_v2_size"]
+
             forEachInstructionAsSequence({ _, method, instruction, index ->
                 if (instruction.wideLiteral != id) return@forEachInstructionAsSequence null
 
