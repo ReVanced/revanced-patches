@@ -13,9 +13,9 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 
 @Suppress("unused")
-val spoofAgeSignalsPatch = bytecodePatch(
-    name = "Spoof Age Signals",
-    description = "Spoofs Google Play data about the user age and verification status.",
+val spoofPlayAgeSignalsPatch = bytecodePatch(
+    name = "Spoof Play Age Signals",
+    description = "Spoofs Google Play data about the user's age and verification status.",
     use = false,
 ) {
     val lowerAgeBound by intOption(
