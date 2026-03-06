@@ -5,9 +5,6 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_23_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_02_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_10_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_15_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_26_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_46_or_greater
@@ -50,18 +47,9 @@ val playerResponseMethodHookPatch = bytecodePatch {
         } else if (is_20_15_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 13
             method = playerParameterBuilder2015Method
-        } else if (is_20_10_or_greater) {
+        } else {
             parameterIsShortAndOpeningOrPlaying = 13
             method = playerParameterBuilder2010Method
-        } else if (is_20_02_or_greater) {
-            parameterIsShortAndOpeningOrPlaying = 12
-            method = playerParameterBuilder2002Method
-        } else if (is_19_23_or_greater) {
-            parameterIsShortAndOpeningOrPlaying = 12
-            method = playerParameterBuilder1925Method
-        } else {
-            parameterIsShortAndOpeningOrPlaying = 11
-            method = playerParameterBuilderLegacyMethod
         }
         playerResponseMethod = method
 

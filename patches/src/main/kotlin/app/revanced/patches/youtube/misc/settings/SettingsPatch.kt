@@ -21,7 +21,6 @@ import app.revanced.patches.youtube.misc.check.checkEnvironmentPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.fix.contentprovider.fixContentProviderPatch
 import app.revanced.patches.youtube.misc.fix.playbackspeed.fixPlaybackSpeedWhilePlayingPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_31_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.*
@@ -187,11 +186,9 @@ val settingsPatch = bytecodePatch(
             selectable = true,
         )
 
-        if (is_19_34_or_greater) {
-            PreferenceScreen.GENERAL.addPreferences(
-                SwitchPreference("revanced_restore_old_settings_menus"),
-            )
-        }
+        PreferenceScreen.GENERAL.addPreferences(
+            SwitchPreference("revanced_restore_old_settings_menus"),
+        )
 
         PreferenceScreen.GENERAL.addPreferences(
             SwitchPreference("revanced_settings_search_history"),

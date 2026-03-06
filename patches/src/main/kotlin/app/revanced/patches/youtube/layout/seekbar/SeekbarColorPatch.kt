@@ -11,8 +11,6 @@ import app.revanced.patches.shared.layout.theme.lithoColorHookPatch
 import app.revanced.patches.shared.layout.theme.lithoColorOverrideHook
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_19_49_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_21_02_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
@@ -90,20 +88,18 @@ val seekbarColorPatch = bytecodePatch(
         // If hiding feed seekbar thumbnails, then turn off the cairo gradient
         // of the watch history menu items as they use the same gradient as the
         // player and there is no easy way to distinguish which to use a transparent color.
-        if (is_19_34_or_greater) {
-            watchHistoryMenuUseProgressDrawableMethodMatch.let {
-                it.method.apply {
-                    val index = it[1]
-                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+        watchHistoryMenuUseProgressDrawableMethodMatch.let {
+            it.method.apply {
+                val index = it[1]
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                    addInstructions(
-                        index + 1,
-                        """
-                            invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->showWatchHistoryProgressDrawable(Z)Z
-                            move-result v$register            
-                        """,
-                    )
-                }
+                addInstructions(
+                    index + 1,
+                    """
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->showWatchHistoryProgressDrawable(Z)Z
+                        move-result v$register            
+                    """,
+                )
             }
         }
 
@@ -115,43 +111,22 @@ val seekbarColorPatch = bytecodePatch(
             """,
         )
 
-        val playerMatch: CompositeMatch
-        val checkGradientCoordinates: Boolean
-        if (is_19_49_or_greater) {
-            playerMatch = playerLinearGradientMethodMatch
-            checkGradientCoordinates = true
-        } else {
-            playerMatch = playerLinearGradientLegacyMethodMatch
-            checkGradientCoordinates = false
-        }
-
-        playerMatch.let {
+        playerLinearGradientMethodMatch.let {
             it.method.apply {
                 val index = it[-1]
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(
                     index + 1,
-                    if (checkGradientCoordinates) {
-                        """
-                           invoke-static { v$register, p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerLinearGradient([III)[I
-                           move-result-object v$register
-                        """
-                    } else {
-                        """
-                           invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerLinearGradient([I)[I
-                           move-result-object v$register
-                        """
-                    },
+                    """
+                       invoke-static { v$register, p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerLinearGradient([III)[I
+                       move-result-object v$register
+                    """
                 )
             }
         }
 
         // region apply seekbar custom color to splash screen animation.
-
-        if (!is_19_34_or_greater) {
-            return@apply // 19.25 does not have a cairo launch animation.
-        }
 
         // Hook the splash animation to set the seekbar color.
         mainActivityOnCreateMethod.apply {

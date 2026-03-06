@@ -277,16 +277,14 @@ val playerControlsPatch = bytecodePatch(
         // that uses layout file youtube_video_exploder_controls_bottom_ui_container.xml
         // The change to support this is simple and only requires adding buttons to both layout files,
         // but for now force this different layout off since it's still an experimental test.
-        if (is_19_35_or_greater) {
-            playerBottomControlsExploderFeatureFlagMethod.returnLate(false)
-        }
+        playerBottomControlsExploderFeatureFlagMethod.returnLate(false)
 
         // A/B test of different top overlay controls. Two different layouts can be used:
         // youtube_cf_navigation_improvement_controls_layout.xml
         // youtube_cf_minimal_impact_controls_layout.xml
         //
         // Flag was removed in 20.19+
-        if (is_19_25_or_greater && !is_20_19_or_greater) {
+        if (!is_20_19_or_greater) {
             playerTopControlsExperimentalLayoutFeatureFlagMethod.apply {
                 val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
                 val register = getInstruction<OneRegisterInstruction>(index).registerA

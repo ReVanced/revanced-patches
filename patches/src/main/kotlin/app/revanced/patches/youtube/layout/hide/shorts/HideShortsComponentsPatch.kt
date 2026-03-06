@@ -256,15 +256,12 @@ val hideShortsComponentsPatch = bytecodePatch(
         }
 
         // Hook to hide the shared navigation bar when the Shorts player is opened.
-        (
-                if (is_20_45_or_greater) {
-                    renderBottomNavigationBarParentMethod
-                } else if (is_19_41_or_greater) {
-                    renderBottomNavigationBarLegacy1941ParentMethod
-                } else {
-                    legacyRenderBottomNavigationBarLegacyParentMethod
-                }
-                ).immutableClassDef.getRenderBottomNavigationBarMethodMatch().addInstruction(
+
+        if (is_20_45_or_greater) {
+            renderBottomNavigationBarParentMethod
+        } else {
+            renderBottomNavigationBarLegacy1941ParentMethod
+        }.immutableClassDef.getRenderBottomNavigationBarMethodMatch().addInstruction(
                 0,
                 "invoke-static { p1 }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Ljava/lang/String;)V",
             )
@@ -292,20 +289,19 @@ val hideShortsComponentsPatch = bytecodePatch(
         // Flags might be present in earlier targets, but they are not found in 19.47.53.
         // If these flags are forced on, the experimental layout is still not used, and
         // it appears the features requires additional server side data to fully use.
-        if (is_20_07_or_greater) {
-            // Experimental Shorts player uses Android native buttons and not Litho,
-            // and the layout is provided by the server.
-            //
-            // Since the buttons are native components and not Litho, it should be possible to
-            // fix the RYD Shorts loading delay by asynchronously loading RYD and updating
-            // the button text after RYD has loaded.
-            shortsExperimentalPlayerFeatureFlagMethod.returnLate(false)
 
-            // Experimental UI renderer must also be disabled since it requires the
-            // experimental Shorts player. If this is enabled but Shorts player
-            // is disabled then the app crashes when the Shorts player is opened.
-            renderNextUIFeatureFlagMethod.returnLate(false)
-        }
+        // Experimental Shorts player uses Android native buttons and not Litho,
+        // and the layout is provided by the server.
+        //
+        // Since the buttons are native components and not Litho, it should be possible to
+        // fix the RYD Shorts loading delay by asynchronously loading RYD and updating
+        // the button text after RYD has loaded.
+        shortsExperimentalPlayerFeatureFlagMethod.returnLate(false)
+
+        // Experimental UI renderer must also be disabled since it requires the
+        // experimental Shorts player. If this is enabled but Shorts player
+        // is disabled then the app crashes when the Shorts player is opened.
+        renderNextUIFeatureFlagMethod.returnLate(false)
 
         // endregion
     }

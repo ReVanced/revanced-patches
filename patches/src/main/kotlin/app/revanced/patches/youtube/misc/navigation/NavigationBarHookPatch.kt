@@ -27,12 +27,9 @@ import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.util.MethodUtil
-import java.util.logging.Logger
 
 internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/shared/NavigationBar;"
@@ -205,25 +202,23 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         }
 
         // Fix YT bug of notification tab missing the filled icon.
-        if (is_19_35_or_greater) {
-            val cairoNotificationEnumReference =
-                imageEnumConstructorMethodMatch.method.getInstruction(imageEnumConstructorMethodMatch[-1]).reference
+        val cairoNotificationEnumReference =
+            imageEnumConstructorMethodMatch.method.getInstruction(imageEnumConstructorMethodMatch[-1]).reference
 
-            setEnumMapMethodMatch.apply {
-                val setEnumIntegerIndex = setEnumMapMethodMatch[-1]
-                method.apply {
-                    val enumMapRegister = getInstruction<FiveRegisterInstruction>(setEnumIntegerIndex).registerC
-                    val insertIndex = setEnumIntegerIndex + 1
-                    val freeRegister = findFreeRegister(insertIndex, enumMapRegister)
+        setEnumMapMethodMatch.apply {
+            val setEnumIntegerIndex = setEnumMapMethodMatch[-1]
+            method.apply {
+                val enumMapRegister = getInstruction<FiveRegisterInstruction>(setEnumIntegerIndex).registerC
+                val insertIndex = setEnumIntegerIndex + 1
+                val freeRegister = findFreeRegister(insertIndex, enumMapRegister)
 
-                    addInstructions(
-                        insertIndex,
-                        """
-                            sget-object v$freeRegister, $cairoNotificationEnumReference
-                            invoke-static { v$enumMapRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->setCairoNotificationFilledIcon(Ljava/util/EnumMap;Ljava/lang/Enum;)V
-                        """,
-                    )
-                }
+                addInstructions(
+                    insertIndex,
+                    """
+                        sget-object v$freeRegister, $cairoNotificationEnumReference
+                        invoke-static { v$enumMapRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->setCairoNotificationFilledIcon(Ljava/util/EnumMap;Ljava/lang/Enum;)V
+                    """,
+                )
             }
         }
     }

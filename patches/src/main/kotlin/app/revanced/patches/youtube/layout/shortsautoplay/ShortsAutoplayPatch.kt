@@ -13,8 +13,6 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_09_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -35,7 +33,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/ShortsAutoplayPatch;"
 
-@Suppress("ObjectPropertyName")
+@Suppress("unused")
 val shortsAutoplayPatch = bytecodePatch(
     name = "Shorts autoplay",
     description = "Adds options to automatically play the next Short.",
@@ -65,11 +63,9 @@ val shortsAutoplayPatch = bytecodePatch(
             SwitchPreference("revanced_shorts_autoplay"),
         )
 
-        if (is_19_34_or_greater) {
-            PreferenceScreen.SHORTS.addPreferences(
-                SwitchPreference("revanced_shorts_autoplay_background"),
-            )
-        }
+        PreferenceScreen.SHORTS.addPreferences(
+            SwitchPreference("revanced_shorts_autoplay_background"),
+        )
 
         // Main activity is used to check if app is in pip mode.
         mainActivityOnCreateMethod.addInstruction(
@@ -118,79 +114,78 @@ val shortsAutoplayPatch = bytecodePatch(
 
         // As of YouTube 20.09, Google has removed the code for 'Autoplay' and 'Pause' from this method.
         // Manually restore the removed 'Autoplay' code.
-        if (is_20_09_or_greater) {
-            // Variable names are only a rough guess of what these methods do.
-            val userActionMethodReference =
-                reelPlaybackMethodMatch.method.getInstruction(reelPlaybackMethodMatch[1]).methodReference!!
-            val reelSequenceControllerMethodReference =
-                reelPlaybackMethodMatch.method.getInstruction(reelPlaybackMethodMatch[2]).methodReference!!
 
-            reelPlaybackRepeatMethod.apply {
-                // Find the first call modified by extension code above.
-                val extensionReturnResultIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_STATIC &&
-                            getReference<MethodReference>()?.definingClass == EXTENSION_CLASS_DESCRIPTOR
-                } + 1
-                val enumRegister =
-                    getInstruction<OneRegisterInstruction>(extensionReturnResultIndex).registerA
-                val getReelSequenceControllerIndex = indexOfFirstInstructionOrThrow {
-                    val reference = getReference<FieldReference>()
-                    opcode == Opcode.IGET_OBJECT &&
-                            reference?.definingClass == definingClass &&
-                            reference.type == reelSequenceControllerMethodReference.definingClass
-                }
-                val getReelSequenceControllerReference =
-                    getInstruction<ReferenceInstruction>(getReelSequenceControllerIndex).reference
+        // Variable names are only a rough guess of what these methods do.
+        val userActionMethodReference =
+            reelPlaybackMethodMatch.method.getInstruction(reelPlaybackMethodMatch[1]).methodReference!!
+        val reelSequenceControllerMethodReference =
+            reelPlaybackMethodMatch.method.getInstruction(reelPlaybackMethodMatch[2]).methodReference!!
 
-                // Add a helper method to avoid finding multiple free registers.
-                // If enum is autoplay then method performs autoplay and returns null,
-                // otherwise returns the same enum.
-                val helperClass = definingClass
-                val helperName = "patch_handleAutoPlay"
-                val helperReturnType = "Ljava/lang/Enum;"
-                val helperMethod = ImmutableMethod(
-                    helperClass,
-                    helperName,
-                    listOf(ImmutableMethodParameter("Ljava/lang/Enum;", null, null)),
-                    helperReturnType,
-                    AccessFlags.PRIVATE.value,
-                    null,
-                    null,
-                    MutableMethodImplementation(7),
-                ).toMutable().apply {
-                    addInstructionsWithLabels(
-                        0,
-                        """
-                            invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->isAutoPlay(Ljava/lang/Enum;)Z
-                            move-result v0
-                            if-eqz v0, :ignore
-                            new-instance v0, ${userActionMethodReference.definingClass}
-                            const/4 v1, 0x3
-                            const/4 v2, 0x0
-                            invoke-direct { v0, v1, v2, v2 }, $userActionMethodReference
-                            iget-object v3, p0, $getReelSequenceControllerReference
-                            invoke-virtual { v3, v0 }, $reelSequenceControllerMethodReference
-                            const/4 v4, 0x0
-                            return-object v4
-                            :ignore
-                            return-object p1
-                        """,
-                    )
-                }
-                reelPlaybackRepeatMethod.classDef.methods.add(helperMethod)
+        reelPlaybackRepeatMethod.apply {
+            // Find the first call modified by extension code above.
+            val extensionReturnResultIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_STATIC &&
+                        getReference<MethodReference>()?.definingClass == EXTENSION_CLASS_DESCRIPTOR
+            } + 1
+            val enumRegister =
+                getInstruction<OneRegisterInstruction>(extensionReturnResultIndex).registerA
+            val getReelSequenceControllerIndex = indexOfFirstInstructionOrThrow {
+                val reference = getReference<FieldReference>()
+                opcode == Opcode.IGET_OBJECT &&
+                        reference?.definingClass == definingClass &&
+                        reference.type == reelSequenceControllerMethodReference.definingClass
+            }
+            val getReelSequenceControllerReference =
+                getInstruction<ReferenceInstruction>(getReelSequenceControllerIndex).reference
 
+            // Add a helper method to avoid finding multiple free registers.
+            // If enum is autoplay then method performs autoplay and returns null,
+            // otherwise returns the same enum.
+            val helperClass = definingClass
+            val helperName = "patch_handleAutoPlay"
+            val helperReturnType = "Ljava/lang/Enum;"
+            val helperMethod = ImmutableMethod(
+                helperClass,
+                helperName,
+                listOf(ImmutableMethodParameter("Ljava/lang/Enum;", null, null)),
+                helperReturnType,
+                AccessFlags.PRIVATE.value,
+                null,
+                null,
+                MutableMethodImplementation(7),
+            ).toMutable().apply {
                 addInstructionsWithLabels(
-                    extensionReturnResultIndex + 1,
+                    0,
                     """
-                        invoke-direct { p0, v$enumRegister }, $helperClass->$helperName(Ljava/lang/Enum;)$helperReturnType
-                        move-result-object v$enumRegister
-                        if-nez v$enumRegister, :ignore
-                        return-void     # Autoplay was performed.
+                        invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->isAutoPlay(Ljava/lang/Enum;)Z
+                        move-result v0
+                        if-eqz v0, :ignore
+                        new-instance v0, ${userActionMethodReference.definingClass}
+                        const/4 v1, 0x3
+                        const/4 v2, 0x0
+                        invoke-direct { v0, v1, v2, v2 }, $userActionMethodReference
+                        iget-object v3, p0, $getReelSequenceControllerReference
+                        invoke-virtual { v3, v0 }, $reelSequenceControllerMethodReference
+                        const/4 v4, 0x0
+                        return-object v4
                         :ignore
-                        nop
+                        return-object p1
                     """,
                 )
             }
+            reelPlaybackRepeatMethod.classDef.methods.add(helperMethod)
+
+            addInstructionsWithLabels(
+                extensionReturnResultIndex + 1,
+                """
+                    invoke-direct { p0, v$enumRegister }, $helperClass->$helperName(Ljava/lang/Enum;)$helperReturnType
+                    move-result-object v$enumRegister
+                    if-nez v$enumRegister, :ignore
+                    return-void     # Autoplay was performed.
+                    :ignore
+                    nop
+                """,
+            )
         }
     }
 }
