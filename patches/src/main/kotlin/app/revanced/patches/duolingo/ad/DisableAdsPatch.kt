@@ -10,7 +10,7 @@ val disableAdsPatch = bytecodePatch(
     "Disable ads",
 ) {
     // 6.55.3 and higher can show ads after each exercise.
-    compatibleWith("com.duolingo"("6.54.5"))
+    compatibleWith("com.duolingo")
 
     execute {
         // Couple approaches to remove ads exist:
