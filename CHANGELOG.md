@@ -1,3 +1,10 @@
+# [6.0.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.16...v6.0.0-dev.17) (2026-03-06)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Make it work on 21.x ([#6705](https://github.com/ReVanced/revanced-patches/issues/6705)) ([fdfed3c](https://github.com/ReVanced/revanced-patches/commit/fdfed3c9dd46f477c1cc1b9db0f08054ffa32293))
+
 # [6.0.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.15...v6.0.0-dev.16) (2026-03-05)
 
 
