@@ -6,7 +6,7 @@ import app.revanced.patcher.invoke
 import app.revanced.patcher.name
 import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val BytecodePatchContext.exploreResponseJsonParserMethodMatch by composingFirstMethod("ExploreTopicalFeedResponse") {
-    name("parseFromJson")
+internal val BytecodePatchContext.exploreResponseJsonParserMethodMatch by composingFirstMethod("clusters") {
+    name("unsafeParseFromJson")
     instructions("sectional_items"())
 }
