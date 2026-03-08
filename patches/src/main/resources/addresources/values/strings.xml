@@ -1844,6 +1844,21 @@ Video playback with AV1 may stutter or drop frames."</string>
             <string name="revanced_music_hide_search_button_summary_on">Search button is hidden</string>
             <string name="revanced_music_hide_search_button_summary_off">Search button is shown</string>
         </patch>
+        <patch id="layout.startpage.changeStartPagePatch">
+            <string name="revanced_change_start_page_title">Change start page</string>
+            <string name="revanced_change_start_page_entry_default">Default</string>
+            <string name="revanced_change_start_page_entry_charts">Charts</string>
+            <string name="revanced_change_start_page_entry_episodes_for_later">Episodes for later</string>
+            <string name="revanced_change_start_page_entry_explore">Explore</string>
+            <string name="revanced_change_start_page_entry_history">History</string>
+            <string name="revanced_change_start_page_entry_library">Library</string>
+            <string name="revanced_change_start_page_entry_liked_music">Liked music</string>
+            <string name="revanced_change_start_page_entry_playlists">Playlists</string>
+            <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
+            <string name="revanced_change_start_page_entry_search">Search</string>
+            <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
+
+        </patch>
         <patch id="layout.compactheader.hideCategoryBar">
             <string name="revanced_music_hide_category_bar_title">Hide category bar</string>
             <string name="revanced_music_hide_category_bar_summary_on">Category bar is hidden</string>

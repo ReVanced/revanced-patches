@@ -3,6 +3,7 @@ package app.revanced.extension.music.settings;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import static app.revanced.extension.music.patches.ChangeHeaderPatch.*;
+import static app.revanced.extension.music.patches.ChangeStartPagePatch.*;
 import static app.revanced.extension.shared.settings.Setting.parent;
 
 import app.revanced.extension.shared.settings.YouTubeAndMusicSettings;
@@ -17,6 +18,7 @@ public class Settings extends YouTubeAndMusicSettings {
     public static final BooleanSetting HIDE_GET_PREMIUM_LABEL = new BooleanSetting("revanced_music_hide_get_premium_label", TRUE, true);
 
     // General
+    public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.DEFAULT, true);
     public static final BooleanSetting HIDE_CAST_BUTTON = new BooleanSetting("revanced_music_hide_cast_button", TRUE, true);
     public static final BooleanSetting HIDE_CATEGORY_BAR = new BooleanSetting("revanced_music_hide_category_bar", FALSE, true);
     public static final BooleanSetting HIDE_HISTORY_BUTTON = new BooleanSetting("revanced_music_hide_history_button", FALSE, true);
