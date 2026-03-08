@@ -42,10 +42,10 @@ val spoofPlayAgeSignalsPatch = bytecodePatch(
 
     apply {
         forEachInstructionAsSequence(match = { classDef, _, instruction, instructionIndex ->
-            // We want to avoid patching the library itself
+            // Avoid patching the library itself.
             if (classDef.type.startsWith("Lcom/google/android/play/agesignals/")) return@forEachInstructionAsSequence null
 
-            // Keep only method calls
+            // Keep method calls only.
             val reference = instruction.getReference<MethodReference>()
                 ?: return@forEachInstructionAsSequence null
 
@@ -63,10 +63,10 @@ val spoofPlayAgeSignalsPatch = bytecodePatch(
         }, transform = { method, entry ->
             val (instructionIndex, replacement) = entry
 
-            // Get the register which would have contained the return value
+            // Get the register which would have contained the return value.
             val register = method.getInstruction<OneRegisterInstruction>(instructionIndex + 1).registerA
 
-            // Replace the call instructions with our fake value
+            // Replace the call instructions with the spoofed value.
             method.removeInstructions(instructionIndex, 2)
             method.addInstructions(
                 instructionIndex,
@@ -81,7 +81,7 @@ val spoofPlayAgeSignalsPatch = bytecodePatch(
 }
 
 /**
- * See [AgeSignalsResult](https://developer.android.com/google/play/age-signals/reference/com/google/android/play/agesignals/AgeSignalsResult)
+ * See [AgeSignalsResult](https://developer.android.com/google/play/age-signals/reference/com/google/android/play/agesignals/AgeSignalsResult).
  */
 private enum class MethodCall(
     val reference: MethodReference,
@@ -115,24 +115,24 @@ private enum class MethodCall(
 /**
  * All possible user verification statuses.
  *
- * See [AgeSignalsVerificationStatus](https://developer.android.com/google/play/age-signals/reference/com/google/android/play/agesignals/model/AgeSignalsVerificationStatus)
+ * See [AgeSignalsVerificationStatus](https://developer.android.com/google/play/age-signals/reference/com/google/android/play/agesignals/model/AgeSignalsVerificationStatus).
  */
 private enum class UserStatus(val value: Int) {
-    /** The user provided their age, but it hasn't been verified yet */
+    /** The user provided their age, but it hasn't been verified yet. */
     DECLARED(5),
 
     /** The user is 18+. */
     VERIFIED(0),
 
-    /** The user's guardian has set the age for him */
+    /** The user's guardian has set the age for him. */
     SUPERVISED(1),
 
-    /** The user's guardian hasn't approved the significant changes yet */
+    /** The user's guardian hasn't approved the significant changes yet. */
     SUPERVISED_APPROVAL_PENDING(2),
 
     /** The user's guardian has denied approval for one or more pending significant changes. */
     SUPERVISED_APPROVAL_DENIED(3),
 
-    /** The user is not verified or supervised */
+    /** The user is not verified or supervised. */
     UNKNOWN(4),
 }
