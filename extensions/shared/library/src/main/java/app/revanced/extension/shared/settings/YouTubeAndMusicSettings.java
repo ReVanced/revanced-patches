@@ -9,6 +9,6 @@ public class YouTubeAndMusicSettings extends BaseSettings {
     public static final StringSetting CUSTOM_FILTER_STRINGS = new StringSetting("revanced_custom_filter_strings", "", true, parent(CUSTOM_FILTER));
 
     // Miscellaneous
-    public static final BooleanSetting DEBUG_PROTOBUFFER = new BooleanSetting("revanced_debug_protobuffer", FALSE, false,
-            "revanced_debug_protobuffer_user_dialog_message", parent(BaseSettings.DEBUG));
+    public static final BooleanSetting DEBUG_PROTOCOLBUFFER = new BooleanSetting("revanced_debug_protocolbuffer", FALSE, false,
+            "revanced_debug_protocolbuffer_user_dialog_message", parent(BaseSettings.DEBUG));
 }

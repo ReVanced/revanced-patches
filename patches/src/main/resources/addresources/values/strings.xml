@@ -185,10 +185,10 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_debug_feature_flags_manager_toast_reset">Flags reset</string>
             <string name="revanced_debug_feature_flags_manager_toast_copied">Flags copied to clipboard</string>
             <string name="revanced_debug_feature_flags_manager_toast_no_flags">Restart the app to use this feature</string>
-            <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
-            <string name="revanced_debug_protobuffer_summary_on">Debug logs include proto buffer</string>
-            <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include proto buffer</string>
-            <string name="revanced_debug_protobuffer_user_dialog_message">"Enabling this setting will log additional layout data, including on-screen text for some UI components.
+            <string name="revanced_debug_protocolbuffer_title">Log protocol buffer</string>
+            <string name="revanced_debug_protocolbuffer_summary_on">Debug logs include proto buffer</string>
+            <string name="revanced_debug_protocolbuffer_summary_off">Debug logs do not include proto buffer</string>
+            <string name="revanced_debug_protocolbuffer_user_dialog_message">"Enabling this setting will log additional layout data, including on-screen text for some UI components.
 
 This can help identify components when creating custom filters.
 
