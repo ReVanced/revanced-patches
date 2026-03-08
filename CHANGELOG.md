@@ -1,3 +1,11 @@
+# [6.0.0-dev.21](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.20...v6.0.0-dev.21) (2026-03-08)
+
+
+### Bug Fixes
+
+* **Instagram:** Update fingerprints for version `417.0.0.54.77` ([#6734](https://github.com/ReVanced/revanced-patches/issues/6734)) ([55f510d](https://github.com/ReVanced/revanced-patches/commit/55f510dbedd28678411b4f11d9bbdd303fa68a0d))
+* **Spotify - Sanitize sharing links:** Update patch to latest app versions ([#6685](https://github.com/ReVanced/revanced-patches/issues/6685)) ([bb7448b](https://github.com/ReVanced/revanced-patches/commit/bb7448bc9d789843371d16bfccc9815662913333))
+
 # [6.0.0-dev.20](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.19...v6.0.0-dev.20) (2026-03-08)
 
 
