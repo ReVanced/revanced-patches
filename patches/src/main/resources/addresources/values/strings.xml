@@ -1111,10 +1111,7 @@ To show the Audio track menu, change \'Spoof video streams\' to \'Android No SDK
         </patch>
         <patch id="layout.hide.endscreensuggestedvideo.hideEndScreenSuggestedVideoPatch">
             <string name="revanced_end_screen_suggested_video_title">Hide end screen suggested video</string>
-            <string name="revanced_end_screen_suggested_video_summary_on">"End screen suggested video is hidden when autoplay is turned off
-
-Autoplay can be changed in YouTube settings:
-Settings → Playback → Autoplay next video"</string>
+            <string name="revanced_end_screen_suggested_video_summary_on">"End screen suggested video is hidden</string>
             <string name="revanced_end_screen_suggested_video_summary_off">End screen suggested video is shown</string>
         </patch>
         <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
@@ -1441,6 +1438,11 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
             <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
             <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Restore non collapsed video action bar</string>
             <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Restore transcript functionality</string>
+        </patch>
+        <patch id="layout.buttons.music.overrideOpenInYouTubeMusicButtonPatch">
+            <string name="revanced_override_open_in_youtube_music_button_title">Override \'Open in YouTube Music\' button</string>
+            <string name="revanced_override_open_in_youtube_music_button_summary_on">\'Open in YouTube Music\' button opens your target music app</string>
+            <string name="revanced_override_open_in_youtube_music_button_summary_off">\'Open in YouTube Music\' button opens the original app</string>
         </patch>
         <patch id="layout.startpage.changeStartPagePatch">
             <string name="revanced_change_start_page_title">Change start page</string>
