@@ -1,3 +1,10 @@
+# [6.0.0-dev.20](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.19...v6.0.0-dev.20) (2026-03-08)
+
+
+### Bug Fixes
+
+* **YouTube - Enable Debugging Patch:** Use correct Protocolbuffer setting name ([#6711](https://github.com/ReVanced/revanced-patches/issues/6711)) ([f934022](https://github.com/ReVanced/revanced-patches/commit/f934022f37ba178ac23abfa9bcd59a0c12abe43f))
+
 # [6.0.0-dev.19](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.18...v6.0.0-dev.19) (2026-03-06)
 
 
