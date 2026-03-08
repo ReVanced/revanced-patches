@@ -1,3 +1,10 @@
+# [6.0.0-dev.22](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.21...v6.0.0-dev.22) (2026-03-08)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Icon not drawn correctly on some systems ([#6683](https://github.com/ReVanced/revanced-patches/issues/6683)) ([ddb6396](https://github.com/ReVanced/revanced-patches/commit/ddb6396b3f3f7a2c29b9fa171e189f9931ba0e02))
+
 # [6.0.0-dev.21](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.20...v6.0.0-dev.21) (2026-03-08)
 
 
