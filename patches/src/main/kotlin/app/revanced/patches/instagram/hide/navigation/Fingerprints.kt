@@ -11,8 +11,8 @@ internal val BytecodePatchContext.initializeNavigationButtonsListMethod by getti
 }
 
 internal val BytecodePatchContext.navigationButtonsEnumMethod by gettingFirstImmutableMethodDeclaratively(
-    "FEED",
+    "fragment_clips",
     "fragment_feed",
-    "SEARCH",
+    "fragment_news",
     "fragment_search",
 )
