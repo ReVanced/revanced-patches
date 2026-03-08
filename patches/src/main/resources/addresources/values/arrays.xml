@@ -188,6 +188,26 @@
         </patch>
     </app>
     <app id="music">
+        <patch id="layout.branding.header.changeHeaderPatch">
+            <string-array name="revanced_header_logo_entries">
+                <item>@string/revanced_header_logo_entry_1</item>
+                <item>@string/revanced_header_logo_entry_2</item>
+            </string-array>
+            <string-array name="revanced_header_logo_entry_values">
+                <item>DEFAULT</item>
+                <item>REGULAR</item>
+            </string-array>
+            <string-array name="revanced_header_logo_custom_entries">
+                <item>@string/revanced_header_logo_entry_1</item>
+                <item>@string/revanced_header_logo_entry_2</item>
+                <item>@string/revanced_header_logo_entry_3</item>
+            </string-array>
+            <string-array name="revanced_header_logo_custom_entry_values">
+                <item>DEFAULT</item>
+                <item>REGULAR</item>
+                <item>CUSTOM</item>
+            </string-array>
+        </patch>
         <patch id="layout.branding.customBrandingPatch">
             <string-array name="revanced_custom_branding_name_entries">
                 <!-- Original must be first. -->
@@ -427,7 +447,7 @@
                 <item>MODERN_3</item>
             </string-array>
         </patch>
-        <patch id="layout.branding.changeHeaderPatch">
+        <patch id="layout.branding.header.changeHeaderPatch">
             <string-array name="revanced_header_logo_entries">
                 <item>@string/revanced_header_logo_entry_1</item>
                 <item>@string/revanced_header_logo_entry_2</item>

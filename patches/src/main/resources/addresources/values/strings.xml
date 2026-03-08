@@ -1568,7 +1568,7 @@ Swipe to expand or close"</string>
             <string name="revanced_custom_branding_name_entry_3" translatable="false">YT ReVanced</string>
             <string name="revanced_custom_branding_name_entry_4" translatable="false">YT</string>
         </patch>
-        <patch id="layout.branding.changeHeaderPatch">
+        <patch id="layout.branding.header.changeHeaderPatch">
             <string name="revanced_header_logo_title">Header logo</string>
             <string name="revanced_header_logo_entry_1">Default</string>
             <string name="revanced_header_logo_entry_2">Regular</string>
@@ -1801,6 +1801,12 @@ Video playback with AV1 may stutter or drop frames."</string>
         </patch>
     </app>
     <app id="music">
+        <patch id="layout.branding.header.changeHeaderPatch">
+            <string name="revanced_header_logo_title">Header logo</string>
+            <string name="revanced_header_logo_entry_1">Default</string>
+            <string name="revanced_header_logo_entry_2" translatable="false">ReVanced</string>
+            <string name="revanced_header_logo_entry_3">Custom</string>
+        </patch>
         <patch id="layout.branding.customBrandingPatch">
             <string name="revanced_custom_branding_name_entry_2" translatable="false">YT Music ReVanced</string>
             <string name="revanced_custom_branding_name_entry_3" translatable="false">Music ReVanced</string>

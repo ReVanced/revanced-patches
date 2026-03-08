@@ -65,7 +65,6 @@ val customBrandingPatch = baseCustomBrandingPatch(
     mainActivityName = MUSIC_MAIN_ACTIVITY_NAME,
     activityAliasNameWithIntents = MUSIC_MAIN_ACTIVITY_NAME,
     preferenceScreen = PreferenceScreen.GENERAL,
-
     block = {
         dependsOn(sharedExtensionPatch, disableSplashAnimationPatch)
 

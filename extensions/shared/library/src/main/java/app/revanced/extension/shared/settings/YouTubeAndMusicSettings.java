@@ -11,4 +11,5 @@ public class YouTubeAndMusicSettings extends BaseSettings {
     // Miscellaneous
     public static final BooleanSetting DEBUG_PROTOBUFFER = new BooleanSetting("revanced_debug_protobuffer", FALSE, false,
             "revanced_debug_protobuffer_user_dialog_message", parent(BaseSettings.DEBUG));
+
 }
