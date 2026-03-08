@@ -57,12 +57,13 @@ public final class DescriptionComponentsFilter extends Filter {
         playlistSectionGroupList.addAll(
                 new ByteArrayFilterGroup(
                         Settings.HIDE_EXPLORE_COURSE_SECTION,
-                        "yt_outline_creator_academy", // For Disable bold icons.
+                        "yt_outline_creator_academy",
                         "yt_outline_experimental_graduation_cap"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_EXPLORE_PODCAST_SECTION,
-                        "FEpodcasts_destination"
+                        "FEpodcasts_destination",
+                        "yt_outline_experimental_podcast"
                 )
         );
 
