@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 
 /**
- * Matches the feature availability gate (X/1k4.A05) that determines
+ * Matches the feature availability gate that determines
  * whether auto-scroll should be available for Reels.
  */
 internal val BytecodePatchContext.clipsAutoScrollFeatureCheckMethod by gettingFirstMethodDeclaratively("auto_scroll") {
@@ -15,7 +15,7 @@ internal val BytecodePatchContext.clipsAutoScrollFeatureCheckMethod by gettingFi
 }
 
 /**
- * Matches the toggle handler (X/BmO.A00) called when the user taps
+ * Matches the toggle handler called when the user taps
  * the auto-scroll button. Contains analytics logging strings.
  */
 internal val BytecodePatchContext.clipsAutoScrollToggleMethod by gettingFirstMethodDeclaratively(
