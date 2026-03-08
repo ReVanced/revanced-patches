@@ -13,13 +13,7 @@ val bypassLoginPatch = bytecodePatch(
     compatibleWith("com.adobe.photoshopmix")
 
     apply {
-        var psMixFragment = "Lcom/adobe/photoshopmix/PSMixFragment;"
-        var firstLoginMethod = firstMethod{ name == "isLoggedIn" && definingClass == "Lcom/adobe/acira/accreativecloudlibrary/CreativeCloudSource;" && returnType == "Z"}
-        var libButtonClickedMethod = firstMethod{name=="ccLibButtonClickHandler" && definingClass==psMixFragment}
-        var lightroomButtonClickedMethod = firstMethod{name=="lightroomButtonClickHandler" && definingClass==psMixFragment}
-        var ccButtonClickedMethod = firstMethod{name=="ccButtonClickHandler" && definingClass==psMixFragment}
-
-        firstLoginMethod.returnEarly(true)
+        disableLoginMethod.returnEarly(true)
 
         // Disables these buttons that cause the app to crash while not logged in.
         libButtonClickedMethod.returnEarly()
