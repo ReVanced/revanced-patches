@@ -1,3 +1,10 @@
+# [6.0.0-dev.24](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.23...v6.0.0-dev.24) (2026-03-09)
+
+
+### Features
+
+* **Photoshop Mix:** Add `Bypass login` patch ([#6745](https://github.com/ReVanced/revanced-patches/issues/6745)) ([24caae9](https://github.com/ReVanced/revanced-patches/commit/24caae98b7b4d61b388f644cc1512438e408e6b1))
+
 # [6.0.0-dev.23](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.22...v6.0.0-dev.23) (2026-03-09)
 
 
