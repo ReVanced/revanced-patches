@@ -2,6 +2,7 @@ package app.revanced.patches.all.misc.spoof
 
 import app.revanced.patcher.extensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.forEachInstructionAsSequence
 
 @Suppress("unused")
 val spoofRootOfTrustPatch = bytecodePatch(
@@ -10,23 +11,24 @@ val spoofRootOfTrustPatch = bytecodePatch(
     use = false
 ) {
     apply {
-        classDefs.toList().filter { it.type.contains("RootOfTrust") || it.type.contains("Attestation") }.forEach { classDef ->
-            val mutableClass = classDefs.getOrReplaceMutable(classDef)
+        forEachInstructionAsSequence(
+            match = { _, method, _, _ ->
+                if (!(method.definingClass.contains("RootOfTrust") || method.definingClass.contains("Attestation"))) return@forEachInstructionAsSequence null
 
-            mutableClass.methods.forEach { method ->
                 when (method.name) {
-                    "isDeviceLocked" -> {
-                        if (method.returnType == "Z" && method.implementation?.instructions?.iterator()?.hasNext() == true) {
-                            method.replaceInstructions(0, "const/4 v0, 0x1\nreturn v0")
-                        }
-                    }
-                    "getVerifiedBootState" -> {
-                        if (method.returnType == "I" && method.implementation?.instructions?.iterator()?.hasNext() == true) {
-                            method.replaceInstructions(0, "const/4 v0, 0x0\nreturn v0") // KM_VERIFIED_BOOT_VERIFIED
-                        }
+                    "isDeviceLocked" -> if (method.returnType == "Z") method else null
+                    "getVerifiedBootState" -> if (method.returnType == "I") method else null
+                    else -> null
+                }
+            },
+            transform = { mutableMethod, _ ->
+                if (mutableMethod.implementation?.instructions?.iterator()?.hasNext() == true) {
+                    when (mutableMethod.name) {
+                        "isDeviceLocked" -> mutableMethod.replaceInstructions(0, "const/4 v0, 0x1\nreturn v0")
+                        "getVerifiedBootState" -> mutableMethod.replaceInstructions(0, "const/4 v0, 0x0\nreturn v0")
                     }
                 }
             }
-        }
+        )
     }
 }
