@@ -125,6 +125,14 @@ public final class app/revanced/patches/all/misc/spoof/EnableRomSignatureSpoofin
 	public static final fun getEnableROMSignatureSpoofingPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
+public final class app/revanced/patches/all/misc/spoof/SpoofKeystoreSecurityLevelPatchKt {
+	public static final fun getSpoofKeystoreSecurityLevelPatch ()Lapp/revanced/patcher/patch/Patch;
+}
+
+public final class app/revanced/patches/all/misc/spoof/SpoofRootOfTrustPatchKt {
+	public static final fun getSpoofRootOfTrustPatch ()Lapp/revanced/patcher/patch/Patch;
+}
+
 public final class app/revanced/patches/all/misc/targetSdk/SetTargetSdkVersion34Kt {
 	public static final fun getSetTargetSDKVersion34Patch ()Lapp/revanced/patcher/patch/Patch;
 }
@@ -884,6 +892,7 @@ public final class app/revanced/patches/shared/misc/gms/GmsCoreSupportPatchKt {
 	public static synthetic fun gmsCoreSupportPatch$default (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Ljava/util/Set;Lkotlin/Pair;Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/Patch;
 	public static final fun gmsCoreSupportResourcePatch (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/patch/Option;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/Patch;
 	public static synthetic fun gmsCoreSupportResourcePatch$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/patch/Option;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/Patch;
+	public static final fun prefixOrReplace (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 }
 
 public final class app/revanced/patches/shared/misc/hex/HexPatchBuilder : java/util/Set, kotlin/jvm/internal/markers/KMappedMarker {
