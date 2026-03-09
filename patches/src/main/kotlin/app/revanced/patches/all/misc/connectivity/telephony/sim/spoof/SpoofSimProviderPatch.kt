@@ -104,15 +104,26 @@ val spoofSIMProviderPatch = bytecodePatch(
                     return this
                 }
 
+                // Calculate the Luhn checksum (mod 10) to generate a valid 15th digit, standard for IMEI numbers
+                // Structure of an IMEI is as follows:
+                //  TAC (Type Allocation Code): First 8 digits (e.g., "86" + 6 digits)
+                //  SNR (Serial Number): Next 6 digits
+                //  CD (Check Digit): The 15th digit
                 val computedImei = imei.computeSpoof {
                     val prefix = "86" + generateRandomNumeric(12)
+
                     val sum = prefix.mapIndexed { i, c ->
                         var d = c.digitToInt()
+                        // Double every second digit (index 1, 3, 5...)
                         if (i % 2 != 0) {
-                            d *= 2; if (d > 9) d -= 9
+                            d *= 2
+                            // If result is two digits (e.g. 14), sum them (1+4=5)
+                            // This is mathematically equivalent to d - 9
+                            if (d > 9) d -= 9
                         }
                         d
                     }.sum()
+                    // Append the calculated check digit to the 14-digit prefix
                     prefix + ((10 - (sum % 10)) % 10)
                 }
 
