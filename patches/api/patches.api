@@ -627,6 +627,10 @@ public final class app/revanced/patches/photomath/misc/unlock/plus/UnlockPlusPat
 	public static final fun getUnlockPlusPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
+public final class app/revanced/patches/photoshopmix/BypassLoginPatchKt {
+	public static final fun getBypassLoginPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/piccomafr/misc/SpoofAndroidDeviceIdPatchKt {
 	public static final fun getSpoofAndroidDeviceIDPatch ()Lapp/revanced/patcher/patch/Patch;
 }
