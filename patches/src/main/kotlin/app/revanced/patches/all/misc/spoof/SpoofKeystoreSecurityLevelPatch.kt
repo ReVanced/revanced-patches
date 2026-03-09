@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
 val spoofKeystoreSecurityLevelPatch = bytecodePatch(
-    name = "Spoof Security Level",
+    name = "Spoof keystore security level",
     description = "Forces apps to see Keymaster and Attestation security levels as 'StrongBox' (Level 2).",
     use = false
 ) {
