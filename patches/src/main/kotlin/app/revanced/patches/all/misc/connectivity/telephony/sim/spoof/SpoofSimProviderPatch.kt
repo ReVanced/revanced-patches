@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
 import app.revanced.patcher.patch.stringOption
-import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
+import app.revanced.util.forEachInstructionAsSequence
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -34,6 +34,7 @@ val spoofSIMProviderPatch = bytecodePatch(
     )
 
     fun isMccMncValid(it: Int?): Boolean = it == null || (it >= 10000 && it <= 999999)
+    fun isImeiValid(it: String?): Boolean = it.isNullOrBlank() || it.equals("random", ignoreCase = true) || it.length == 15
 
     val networkCountryIso by isoCountryPatchOption("Network ISO country code")
 
@@ -61,29 +62,62 @@ val spoofSIMProviderPatch = bytecodePatch(
         description = "The full name of the SIM operator.",
     )
 
+    val imei by stringOption(
+        name = "IMEI value",
+        description = "Enter a 15-digit IMEI to spoof, leave blank to skip, or type 'random' to generate a valid random IMEI.",
+        validator = { isImeiValid(it) }
+    )
+
     dependsOn(
-        transformInstructionsPatch(
-            filterMap = { _, _, instruction, instructionIndex ->
-                if (instruction !is ReferenceInstruction) return@transformInstructionsPatch null
-
-                val reference = instruction.reference as? MethodReference ?: return@transformInstructionsPatch null
-
-                val match = MethodCall.entries.firstOrNull { search ->
-                    MethodUtil.methodSignaturesMatch(reference, search.reference)
-                } ?: return@transformInstructionsPatch null
-
-                val replacement = when (match) {
-                    MethodCall.NetworkCountryIso -> networkCountryIso?.lowercase()
-                    MethodCall.NetworkOperator -> networkOperator?.toString()
-                    MethodCall.NetworkOperatorName -> networkOperatorName
-                    MethodCall.SimCountryIso -> simCountryIso?.lowercase()
-                    MethodCall.SimOperator -> simOperator?.toString()
-                    MethodCall.SimOperatorName -> simOperatorName
+        bytecodePatch {
+            apply {
+                val computedImei = if (imei.isNullOrBlank()) {
+                    null
+                } else if (imei?.equals("random", ignoreCase = true) == true) {
+                    val prefix = "86" + (1..12).map { ('0'..'9').random() }.joinToString("")
+                    var sum = 0
+                    for (i in prefix.indices) {
+                        var d = prefix[i] - '0'
+                        if (i % 2 != 0) {
+                            d *= 2
+                            if (d > 9) d -= 9
+                        }
+                        sum += d
+                    }
+                    val checkDigit = (10 - (sum % 10)) % 10
+                    prefix + checkDigit
+                } else {
+                    imei
                 }
-                replacement?.let { instructionIndex to it }
-            },
-            transform = ::transformMethodCall,
-        ),
+
+                forEachInstructionAsSequence(
+                    match = { _, _, instruction, instructionIndex ->
+                        if (instruction !is ReferenceInstruction) return@forEachInstructionAsSequence null
+
+                        val reference = instruction.reference as? MethodReference ?: return@forEachInstructionAsSequence null
+
+                        val match = MethodCall.entries.firstOrNull { search ->
+                            MethodUtil.methodSignaturesMatch(reference, search.reference)
+                        } ?: return@forEachInstructionAsSequence null
+
+                        val replacement = when (match) {
+                            MethodCall.NetworkCountryIso -> networkCountryIso?.lowercase()
+                            MethodCall.NetworkOperator -> networkOperator?.toString()
+                            MethodCall.NetworkOperatorName -> networkOperatorName
+                            MethodCall.SimCountryIso -> simCountryIso?.lowercase()
+                            MethodCall.SimOperator -> simOperator?.toString()
+                            MethodCall.SimOperatorName -> simOperatorName
+                            MethodCall.Imei,
+                            MethodCall.ImeiWithSlot,
+                            MethodCall.DeviceId,
+                            MethodCall.DeviceIdWithSlot -> computedImei
+                        }
+                        replacement?.let { instructionIndex to it }
+                    },
+                    transform = ::transformMethodCall
+                )
+            }
+        },
     )
 }
 
@@ -152,6 +186,38 @@ private enum class MethodCall(
             "getSimOperatorName",
             emptyList(),
             "Ljava/lang/String;",
+        ),
+    ),
+    Imei(
+        ImmutableMethodReference(
+            "Landroid/telephony/TelephonyManager;",
+            "getImei",
+            emptyList(),
+            "Ljava/lang/String;"
+        ),
+    ),
+    ImeiWithSlot(
+        ImmutableMethodReference(
+            "Landroid/telephony/TelephonyManager;",
+            "getImei",
+            listOf("I"),
+            "Ljava/lang/String;"
+        ),
+    ),
+    DeviceId(
+        ImmutableMethodReference(
+            "Landroid/telephony/TelephonyManager;",
+            "getDeviceId",
+            emptyList(),
+            "Ljava/lang/String;"
+        ),
+    ),
+    DeviceIdWithSlot(
+        ImmutableMethodReference(
+            "Landroid/telephony/TelephonyManager;",
+            "getDeviceId",
+            listOf("I"),
+            "Ljava/lang/String;"
         ),
     ),
 }
