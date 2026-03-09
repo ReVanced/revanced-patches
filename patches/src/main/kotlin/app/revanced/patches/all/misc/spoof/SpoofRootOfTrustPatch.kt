@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
 val spoofRootOfTrustPatch = bytecodePatch(
-    name = "Spoof Root of Trust",
+    name = "Spoof root of trust",
     description = "Spoofs device integrity states (Locked Bootloader, Verified OS) for apps that perform local certificate attestation.",
     use = false
 ) {
