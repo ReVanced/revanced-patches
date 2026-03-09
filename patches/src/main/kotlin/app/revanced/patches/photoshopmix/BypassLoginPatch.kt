@@ -11,11 +11,11 @@ val bypassLoginPatch = bytecodePatch(
     compatibleWith("com.adobe.photoshopmix")
 
     apply {
-        disableLoginMethod.returnEarly(true)
+        isLoggedInMethod.returnEarly(true)
 
         // Disables these buttons that cause the app to crash while not logged in.
-        libButtonClickedMethod.returnEarly()
-        lightroomButtonClickedMethod.returnEarly()
-        ccButtonClickedMethod.returnEarly()
+        ccLibButtonClickHandlerMethod.returnEarly()
+        lightroomButtonClickHandlerMethod.returnEarly()
+        ccButtonClickHandlerMethod.returnEarly()
     }
 }
