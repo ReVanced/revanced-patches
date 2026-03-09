@@ -34,8 +34,7 @@ val spoofSIMProviderPatch = bytecodePatch(
     )
 
     fun isMccMncValid(it: Int?): Boolean = it == null || (it >= 10000 && it <= 999999)
-    fun isImeiValid(it: String?): Boolean = it.isNullOrBlank() || it.equals("random", ignoreCase = true) || it.length == 15
-    fun isMeidValid(it: String?): Boolean = it.isNullOrBlank() || it.equals("random", ignoreCase = true) || it.length == 14
+    fun isNumericValid(it: String?, length: Int): Boolean = it.isNullOrBlank() || it.equals("random", ignoreCase = true) || it.length == length
 
     val networkCountryIso by isoCountryPatchOption("Network ISO country code")
 
@@ -66,18 +65,38 @@ val spoofSIMProviderPatch = bytecodePatch(
     val imei by stringOption(
         name = "IMEI value",
         description = "Enter a 15-digit IMEI to spoof, leave blank to skip, or type 'random' to generate a valid random IMEI.",
-        validator = { isImeiValid(it) }
+        validator = { isNumericValid(it, 15) },
     )
 
     val meid by stringOption(
         name = "MEID value",
         description = "Enter a 14-character hex MEID to spoof, leave blank to skip, or type 'random' to generate a valid random MEID.",
-        validator = { isMeidValid(it) }
+        validator = { isNumericValid(it, 14) },
+    )
+
+    val imsi by stringOption(
+        name = "IMSI (Subscriber ID)",
+        description = "15-digit IMSI to spoof, blank to skip, or 'random'.",
+        validator = { isNumericValid(it, 15) },
+    )
+
+    val iccid by stringOption(
+        name = "ICCID (SIM Serial)",
+        description = "19-digit ICCID to spoof, blank to skip, or 'random'.",
+        validator = { isNumericValid(it, 19) },
+    )
+
+    val phone by stringOption(
+        name = "Phone Number",
+        description = "Phone number to spoof, blank to skip, or 'random'.",
+        validator = { it.isNullOrBlank() || it.equals("random", ignoreCase = true) || it.startsWith("+") },
     )
 
     dependsOn(
         bytecodePatch {
             apply {
+                fun generateRandomNumeric(length: Int) = (1..length).map { ('0'..'9').random() }.joinToString("")
+
                 val computedImei = if (imei.isNullOrBlank()) {
                     null
                 } else if (imei?.equals("random", ignoreCase = true) == true) {
@@ -106,6 +125,30 @@ val spoofSIMProviderPatch = bytecodePatch(
                     meid?.uppercase()
                 }
 
+                val computedImsi = if (imsi.isNullOrBlank()) {
+                    null
+                } else if (imsi?.equals("random", ignoreCase = true) == true) {
+                    generateRandomNumeric(15)
+                } else {
+                    imsi
+                }
+
+                val computedIccid = if (iccid.isNullOrBlank()) {
+                    null
+                } else if (iccid?.equals("random", ignoreCase = true) == true) {
+                    "89" + generateRandomNumeric(17)
+                } else {
+                    iccid
+                }
+
+                val computedPhone = if (phone.isNullOrBlank()) {
+                    null
+                } else if (phone?.equals("random", ignoreCase = true) == true) {
+                    "+" + generateRandomNumeric(11)
+                } else {
+                    phone
+                }
+
                 forEachInstructionAsSequence(
                     match = { _, _, instruction, instructionIndex ->
                         if (instruction !is ReferenceInstruction) return@forEachInstructionAsSequence null
@@ -129,6 +172,12 @@ val spoofSIMProviderPatch = bytecodePatch(
                             MethodCall.DeviceIdWithSlot -> computedImei
                             MethodCall.Meid,
                             MethodCall.MeidWithSlot -> computedMeid
+                            MethodCall.SubscriberId,
+                            MethodCall.SubscriberIdWithSlot -> computedImsi
+                            MethodCall.SimSerialNumber,
+                            MethodCall.SimSerialNumberWithSlot -> computedIccid
+                            MethodCall.Line1Number,
+                            MethodCall.Line1NumberWithSlot -> computedPhone
                         }
                         replacement?.let { instructionIndex to it }
                     },
@@ -254,4 +303,52 @@ private enum class MethodCall(
             "Ljava/lang/String;"
         ),
     ),
+    SubscriberId(
+        ImmutableMethodReference(
+            "Landroid/telephony/TelephonyManager;",
+            "getSubscriberId",
+            emptyList(),
+            "Ljava/lang/String;"
+        )
+    ),
+    SubscriberIdWithSlot(
+        ImmutableMethodReference(
+            "Landroid/telephony/TelephonyManager;",
+            "getSubscriberId",
+            listOf("I"),
+            "Ljava/lang/String;"
+        )
+    ),
+    SimSerialNumber(
+        ImmutableMethodReference(
+            "Landroid/telephony/TelephonyManager;",
+            "getSimSerialNumber",
+            emptyList(),
+            "Ljava/lang/String;"
+        )
+    ),
+    SimSerialNumberWithSlot(
+        ImmutableMethodReference(
+            "Landroid/telephony/TelephonyManager;",
+            "getSimSerialNumber",
+            listOf("I"),
+            "Ljava/lang/String;"
+        )
+    ),
+    Line1Number(
+        ImmutableMethodReference(
+            "Landroid/telephony/TelephonyManager;",
+            "getLine1Number",
+            emptyList(),
+            "Ljava/lang/String;"
+        )
+    ),
+    Line1NumberWithSlot(
+        ImmutableMethodReference(
+            "Landroid/telephony/TelephonyManager;",
+            "getLine1Number",
+            listOf("I"),
+            "Ljava/lang/String;"
+        )
+    )
 }
