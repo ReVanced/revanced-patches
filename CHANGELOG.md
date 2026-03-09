@@ -1,3 +1,10 @@
+# [6.0.0-dev.23](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.22...v6.0.0-dev.23) (2026-03-09)
+
+
+### Bug Fixes
+
+* **ProtonVPN - Remove delay:** Make it work on latest version by patching the correct class ([#6757](https://github.com/ReVanced/revanced-patches/issues/6757)) ([e0dc009](https://github.com/ReVanced/revanced-patches/commit/e0dc009780afea9c2f393c4f348cda5ca9c3cbbf))
+
 # [6.0.0-dev.22](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.21...v6.0.0-dev.22) (2026-03-08)
 
 
