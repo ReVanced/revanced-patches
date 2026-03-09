@@ -6,7 +6,7 @@ import app.revanced.util.returnEarly
 @Suppress("unused")
 val bypassLoginPatch = bytecodePatch(
     name = "Bypass login",
-    description = "Allows you to use the app after its discontinuation.",
+    description = "Allows the use of the app after its discontinuation.",
 ) {
     compatibleWith("com.adobe.photoshopmix")
 
