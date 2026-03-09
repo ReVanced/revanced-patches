@@ -13,6 +13,7 @@ val spoofRootOfTrustPatch = bytecodePatch(
     apply {
         forEachInstructionAsSequence(
             match = { _, method, _, _ ->
+                // Filter by class reference first to avoid unnecessary processing
                 if (!(method.definingClass.contains("RootOfTrust") || method.definingClass.contains("Attestation"))) return@forEachInstructionAsSequence null
 
                 when (method.name) {
