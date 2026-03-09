@@ -35,6 +35,7 @@ val spoofSIMProviderPatch = bytecodePatch(
 
     fun isMccMncValid(it: Int?): Boolean = it == null || (it >= 10000 && it <= 999999)
     fun isImeiValid(it: String?): Boolean = it.isNullOrBlank() || it.equals("random", ignoreCase = true) || it.length == 15
+    fun isMeidValid(it: String?): Boolean = it.isNullOrBlank() || it.equals("random", ignoreCase = true) || it.length == 14
 
     val networkCountryIso by isoCountryPatchOption("Network ISO country code")
 
@@ -68,6 +69,12 @@ val spoofSIMProviderPatch = bytecodePatch(
         validator = { isImeiValid(it) }
     )
 
+    val meid by stringOption(
+        name = "MEID value",
+        description = "Enter a 14-character hex MEID to spoof, leave blank to skip, or type 'random' to generate a valid random MEID.",
+        validator = { isMeidValid(it) }
+    )
+
     dependsOn(
         bytecodePatch {
             apply {
@@ -88,6 +95,15 @@ val spoofSIMProviderPatch = bytecodePatch(
                     prefix + checkDigit
                 } else {
                     imei
+                }
+
+                val computedMeid = if (meid.isNullOrBlank()) {
+                    null
+                } else if (meid?.equals("random", ignoreCase = true) == true) {
+                    val chars = "0123456789ABCDEF"
+                    (1..14).map { chars.random() }.joinToString("")
+                } else {
+                    meid?.uppercase()
                 }
 
                 forEachInstructionAsSequence(
@@ -111,6 +127,8 @@ val spoofSIMProviderPatch = bytecodePatch(
                             MethodCall.ImeiWithSlot,
                             MethodCall.DeviceId,
                             MethodCall.DeviceIdWithSlot -> computedImei
+                            MethodCall.Meid,
+                            MethodCall.MeidWithSlot -> computedMeid
                         }
                         replacement?.let { instructionIndex to it }
                     },
@@ -216,6 +234,22 @@ private enum class MethodCall(
         ImmutableMethodReference(
             "Landroid/telephony/TelephonyManager;",
             "getDeviceId",
+            listOf("I"),
+            "Ljava/lang/String;"
+        ),
+    ),
+    Meid(
+        ImmutableMethodReference(
+            "Landroid/telephony/TelephonyManager;",
+            "getMeid",
+            emptyList(),
+            "Ljava/lang/String;"
+        ),
+    ),
+    MeidWithSlot(
+        ImmutableMethodReference(
+            "Landroid/telephony/TelephonyManager;",
+            "getMeid",
             listOf("I"),
             "Ljava/lang/String;"
         ),
