@@ -7,6 +7,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
 import app.revanced.patcher.patch.stringOption
 import app.revanced.util.forEachInstructionAsSequence
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -33,8 +34,8 @@ val spoofSIMProviderPatch = bytecodePatch(
         validator = { it: String? -> it == null || it.uppercase() in countries.values },
     )
 
-    fun isMccMncValid(it: Int?): Boolean = it == null || (it >= 10000 && it <= 999999)
-    fun isNumericValid(it: String?, length: Int): Boolean = it.isNullOrBlank() || it.equals("random", ignoreCase = true) || it.length == length
+    fun isMccMncValid(it: Int?) = it == null || (it in 10000..999999)
+    fun isNumericValid(it: String?, length: Int) = it.isNullOrBlank() || it.equals("random", true) || it.length == length
 
     val networkCountryIso by isoCountryPatchOption("Network ISO country code")
 
@@ -64,13 +65,13 @@ val spoofSIMProviderPatch = bytecodePatch(
 
     val imei by stringOption(
         name = "IMEI value",
-        description = "Enter a 15-digit IMEI to spoof, leave blank to skip, or type 'random' to generate a valid random IMEI.",
+        description = "15-digit IMEI to spoof, blank to skip, or 'random'.",
         validator = { isNumericValid(it, 15) },
     )
 
     val meid by stringOption(
         name = "MEID value",
-        description = "Enter a 14-character hex MEID to spoof, leave blank to skip, or type 'random' to generate a valid random MEID.",
+        description = "14-char hex MEID to spoof, blank to skip, or 'random'.",
         validator = { isNumericValid(it, 14) },
     )
 
@@ -97,57 +98,28 @@ val spoofSIMProviderPatch = bytecodePatch(
             apply {
                 fun generateRandomNumeric(length: Int) = (1..length).map { ('0'..'9').random() }.joinToString("")
 
-                val computedImei = if (imei.isNullOrBlank()) {
-                    null
-                } else if (imei?.equals("random", ignoreCase = true) == true) {
-                    val prefix = "86" + (1..12).map { ('0'..'9').random() }.joinToString("")
-                    var sum = 0
-                    for (i in prefix.indices) {
-                        var d = prefix[i] - '0'
+                fun String?.computeSpoof(randomizer: () -> String): String? {
+                    if (this.isNullOrBlank()) return null
+                    if (this.equals("random", ignoreCase = true)) return randomizer()
+                    return this
+                }
+
+                val computedImei = imei.computeSpoof {
+                    val prefix = "86" + generateRandomNumeric(12)
+                    val sum = prefix.mapIndexed { i, c ->
+                        var d = c.digitToInt()
                         if (i % 2 != 0) {
-                            d *= 2
-                            if (d > 9) d -= 9
+                            d *= 2; if (d > 9) d -= 9
                         }
-                        sum += d
-                    }
-                    val checkDigit = (10 - (sum % 10)) % 10
-                    prefix + checkDigit
-                } else {
-                    imei
+                        d
+                    }.sum()
+                    prefix + ((10 - (sum % 10)) % 10)
                 }
 
-                val computedMeid = if (meid.isNullOrBlank()) {
-                    null
-                } else if (meid?.equals("random", ignoreCase = true) == true) {
-                    val chars = "0123456789ABCDEF"
-                    (1..14).map { chars.random() }.joinToString("")
-                } else {
-                    meid?.uppercase()
-                }
-
-                val computedImsi = if (imsi.isNullOrBlank()) {
-                    null
-                } else if (imsi?.equals("random", ignoreCase = true) == true) {
-                    generateRandomNumeric(15)
-                } else {
-                    imsi
-                }
-
-                val computedIccid = if (iccid.isNullOrBlank()) {
-                    null
-                } else if (iccid?.equals("random", ignoreCase = true) == true) {
-                    "89" + generateRandomNumeric(17)
-                } else {
-                    iccid
-                }
-
-                val computedPhone = if (phone.isNullOrBlank()) {
-                    null
-                } else if (phone?.equals("random", ignoreCase = true) == true) {
-                    "+" + generateRandomNumeric(11)
-                } else {
-                    phone
-                }
+                val computedMeid = meid.computeSpoof { (1..14).map { "0123456789ABCDEF".random() }.joinToString("") }?.uppercase()
+                val computedImsi = imsi.computeSpoof { generateRandomNumeric(15) }
+                val computedIccid = iccid.computeSpoof { "89" + generateRandomNumeric(17) }
+                val computedPhone = phone.computeSpoof { "+" + generateRandomNumeric(11) }
 
                 forEachInstructionAsSequence(
                     match = { _, _, instruction, instructionIndex ->
@@ -166,18 +138,11 @@ val spoofSIMProviderPatch = bytecodePatch(
                             MethodCall.SimCountryIso -> simCountryIso?.lowercase()
                             MethodCall.SimOperator -> simOperator?.toString()
                             MethodCall.SimOperatorName -> simOperatorName
-                            MethodCall.Imei,
-                            MethodCall.ImeiWithSlot,
-                            MethodCall.DeviceId,
-                            MethodCall.DeviceIdWithSlot -> computedImei
-                            MethodCall.Meid,
-                            MethodCall.MeidWithSlot -> computedMeid
-                            MethodCall.SubscriberId,
-                            MethodCall.SubscriberIdWithSlot -> computedImsi
-                            MethodCall.SimSerialNumber,
-                            MethodCall.SimSerialNumberWithSlot -> computedIccid
-                            MethodCall.Line1Number,
-                            MethodCall.Line1NumberWithSlot -> computedPhone
+                            MethodCall.Imei, MethodCall.ImeiWithSlot, MethodCall.DeviceId, MethodCall.DeviceIdWithSlot -> computedImei
+                            MethodCall.Meid, MethodCall.MeidWithSlot -> computedMeid
+                            MethodCall.SubscriberId, MethodCall.SubscriberIdWithSlot -> computedImsi
+                            MethodCall.SimSerialNumber, MethodCall.SimSerialNumberWithSlot -> computedIccid
+                            MethodCall.Line1Number, MethodCall.Line1NumberWithSlot -> computedPhone
                         }
                         replacement?.let { instructionIndex to it }
                     },
@@ -188,20 +153,18 @@ val spoofSIMProviderPatch = bytecodePatch(
     )
 }
 
-private fun transformMethodCall(
-    mutableMethod: MutableMethod,
-    entry: Pair<Int, String>,
-) {
-    val (instructionIndex, methodCallValue) = entry
+private fun transformMethodCall(mutableMethod: MutableMethod, entry: Pair<Int, String>) {
+    val (index, value) = entry
+    val nextInstr = mutableMethod.getInstruction<Instruction>(index + 1)
 
-    // Get the register which would have contained the return value
-    val register = mutableMethod.getInstruction<OneRegisterInstruction>(instructionIndex + 1).registerA
+    if (nextInstr.opcode.name != "move-result-object") {
+        mutableMethod.replaceInstruction(index, "nop")
+        return
+    }
 
-    // Replace the move-result instruction with our fake value
-    mutableMethod.replaceInstruction(
-        instructionIndex + 1,
-        "const-string v$register, \"$methodCallValue\"",
-    )
+    val register = (nextInstr as OneRegisterInstruction).registerA
+    mutableMethod.replaceInstruction(index, "const-string v$register, \"$value\"")
+    mutableMethod.replaceInstruction(index + 1, "nop")
 }
 
 private enum class MethodCall(
