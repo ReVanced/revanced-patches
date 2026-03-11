@@ -54,6 +54,6 @@ public class PlayerControlsPatch {
 
     // noinspection EmptyMethod
     private static void fullscreenButtonVisibilityChanged(boolean isVisible) {
-        // Code added during patching.
+        // Code added by patch.
     }
 }

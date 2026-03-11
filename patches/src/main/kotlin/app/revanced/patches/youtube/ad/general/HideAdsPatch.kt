@@ -18,6 +18,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.contexthook.Endpoint
 import app.revanced.patches.youtube.misc.contexthook.addOSNameHook
 import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
+import app.revanced.patches.youtube.layout.hide.shelves.hideHorizontalShelvesPatch
 import app.revanced.patches.youtube.misc.contexthook.hookClientContextPatch
 import app.revanced.patches.youtube.misc.engagement.addEngagementPanelIdHook
 import app.revanced.patches.youtube.misc.engagement.engagementPanelHookPatch
@@ -50,6 +51,7 @@ private val hideAdsResourcePatch = resourcePatch {
         addResourcesPatch,
         hookClientContextPatch,
         engagementPanelHookPatch,
+        hideHorizontalShelvesPatch
     )
 
     apply {

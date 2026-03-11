@@ -139,22 +139,14 @@ public final class DescriptionComponentsFilter extends Filter {
         // If the description panel is opened in a Shorts, PlayerType is 'HIDDEN',
         // so 'PlayerType.getCurrent().isMaximizedOrFullscreen()' does not guarantee that the description panel is open.
         // Instead, use the engagement id to check if the description panel is opened.
-        if (!EngagementPanel.isDescription()
-                // The user can minimize the player while the engagement panel is open.
-                //
-                // In this case, the engagement panel is treated as open.
-                // (If the player is dismissed, the engagement panel is considered closed)
-                //
-                // Therefore, the following exceptions can occur:
-                // 1. The user opened a regular video and opened the description panel.
-                // 2. The 'horizontalShelf' elements were hidden.
-                // 3. The user minimized the player.
-                // 4. The user manually refreshed the library tab without dismissing the player.
-                // 5. Since the engagement panel is treated as open, the history shelf is filtered.
-                //
-                // To handle these exceptions, filtering is not performed even when the player is minimized.
-                || PlayerType.getCurrent() == PlayerType.WATCH_WHILE_MINIMIZED
-        ) {
+        if (!EngagementPanel.isDescription()) {
+            return false;
+        }
+
+        // PlayerType when the description panel is opened: NONE, HIDDEN,
+        // WATCH_WHILE_MAXIMIZED, WATCH_WHILE_FULLSCREEN, WATCH_WHILE_SLIDING_MAXIMIZED_FULLSCREEN.
+        PlayerType playerType = PlayerType.getCurrent();
+        if (!playerType.isNoneOrHidden() && !playerType.isMaximizedOrFullscreen()) {
             return false;
         }
 

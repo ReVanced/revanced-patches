@@ -376,7 +376,7 @@ public class Utils {
     /**
      * Checks if a specific app package is installed and enabled on the device.
      *
-     * @param packageName The application package name to check (e.g., "app.morphe.android.apps.youtube.music").
+     * @param packageName The application package name to check (e.g., "app.revanced.android.apps.youtube.music").
      * @return True if the package is installed and enabled, false otherwise.
      */
     public static boolean isPackageEnabled(String packageName) {
@@ -396,6 +396,18 @@ public class Utils {
             return false;
         }
     }
+
+    public static boolean startsWithAny(String value, String...targets) {
+        if (isNotEmpty(value)) {
+            for (String string : targets) {
+                if (isNotEmpty(string) && value.startsWith(string)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public interface MatchFilter<T> {
         boolean matches(T object);
     }

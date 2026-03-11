@@ -271,6 +271,7 @@ However, enabling this will also log some user data such as your IP address."</s
 • Breaking news
 • Continue watching
 • Explore more channels
+• For You
 • Most relevant
 • Shopping
 • Watch it again"</string>
@@ -468,10 +469,6 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_community_button_title">Hide Community button</string>
             <string name="revanced_hide_community_button_summary_on">Community button is hidden</string>
             <string name="revanced_hide_community_button_summary_off">Community button is shown</string>
-            <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
-            <string name="revanced_hide_for_you_shelf_title">Hide \'For You\' shelf</string>
-            <string name="revanced_hide_for_you_shelf_summary_on">For You shelf is hidden</string>
-            <string name="revanced_hide_for_you_shelf_summary_off">For You shelf is shown</string>
             <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
             <string name="revanced_hide_join_button_title">Hide Join button</string>
             <string name="revanced_hide_join_button_summary_on">Join button is hidden</string>
@@ -1856,7 +1853,6 @@ Video playback with AV1 may stutter or drop frames."</string>
             <string name="revanced_change_start_page_entry_library">Library</string>
             <string name="revanced_change_start_page_entry_liked_music">Liked music</string>
             <string name="revanced_change_start_page_entry_playlists">Playlists</string>
-            <string name="revanced_change_start_page_entry_podcasts">Podcasts</string>
             <string name="revanced_change_start_page_entry_search">Search</string>
             <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
 

@@ -102,6 +102,14 @@ internal val BytecodePatchContext.parseElementFromBufferMethodMatch by composing
         afterAtMost(1, Opcode.INVOKE_INTERFACE()),
         after(Opcode.MOVE_RESULT_OBJECT()),
         "Failed to parse Element"(String::startsWith),
+        allOf(
+            Opcode.INVOKE_STATIC(),
+            method {
+                returnType.startsWith("L") && parameterTypes.size == 1
+                        && parameterTypes[0].startsWith("L")
+            }
+        ),
+        afterAtMost(4, Opcode.RETURN_OBJECT())
     )
 }
 
@@ -215,7 +223,9 @@ internal val BytecodePatchContext.searchBoxTypingStringMethodMatch by composingF
     parameterTypes("L")
     instructions(
         allOf(Opcode.IGET_OBJECT(), field { type == "Ljava/util/Collection;" }),
-        afterAtMost(5, method { toString() == "Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V" }),
+        afterAtMost(
+            5,
+            method { toString() == "Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V" }),
         allOf(Opcode.IGET_OBJECT(), field { type == "Ljava/lang/String;" }),
         afterAtMost(5, method { toString() == "Ljava/lang/String;->isEmpty()Z" }),
         ResourceType.DIMEN("suggestion_category_divider_height")

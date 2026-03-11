@@ -5,12 +5,10 @@ import androidx.annotation.Nullable;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
+import app.revanced.extension.shared.ConversionContext.ContextInterface;
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.StringTrieSearch;
@@ -124,11 +122,6 @@ public final class LithoFilterPatch {
     private static final boolean EXTRACT_IDENTIFIER_FROM_BUFFER = false;
 
     /**
-     * Turns on additional logging, used for development purposes only.
-     */
-    public static final boolean DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER = false;
-
-    /**
      * String suffix for components.
      * Can be any of: ".eml", ".eml-fe", ".e-b", ".eml-js", "e-js-b"
      */
@@ -145,19 +138,6 @@ public final class LithoFilterPatch {
      * Used for 20.21 and lower.
      */
     private static final ThreadLocal<byte[]> bufferThreadLocal = new ThreadLocal<>();
-
-    /**
-     * Identifier to protocol buffer mapping.  Only used for 20.22+.
-     * Thread local is needed because filtering is multithreaded and each thread can load
-     * a different component with the same identifier.
-     */
-    private static final ThreadLocal<Map<String, byte[]>> identifierToBufferThread = new ThreadLocal<>();
-
-    /**
-     * Global shared buffer. Used only if the buffer is not found in the ThreadLocal.
-     */
-    private static final Map<String, byte[]> identifierToBufferGlobal
-            = Collections.synchronizedMap(createIdentifierToBufferMap());
 
     private static final StringTrieSearch pathSearchTree = new StringTrieSearch();
     private static final StringTrieSearch identifierSearchTree = new StringTrieSearch();
@@ -211,126 +191,11 @@ public final class LithoFilterPatch {
         }
     }
 
-    private static Map<String, byte[]> createIdentifierToBufferMap() {
-        // It's unclear how many items should be cached. This is a guess.
-        return Utils.createSizeRestrictedMap(100);
-    }
-
-    /**
-     * Helper function that differs from {@link Character#isDigit(char)}
-     * as this only matches ascii and not Unicode numbers.
-     */
-    private static boolean isAsciiNumber(byte character) {
-        return '0' <= character && character <= '9';
-    }
-
-    private static boolean isAsciiLowerCaseLetter(byte character) {
-        return 'a' <= character && character <= 'z';
-    }
-
-    /**
-     * Injection point.  Called off the main thread.
-     * Targets 20.22+
-     */
-    public static void setProtoBuffer(byte[] buffer) {
-        if (DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER) {
-            StringBuilder builder = new StringBuilder();
-            LithoFilterParameters.findAsciiStrings(builder, buffer);
-            Logger.printDebug(() -> "New buffer: " + builder);
-        }
-
-        // The identifier always seems to start very close to the buffer start.
-        // Highest identifier start index ever observed is 50, with most around 30 to 40.
-        // The buffer can be very large with up to 200kb has been observed,
-        // so the search is restricted to only the start.
-        final int maxBufferStartIndex = 500; // 10x expected upper bound.
-
-        // Could use Boyer-Moore-Horspool since the string is ASCII and has a limited number of
-        // unique characters, but it seems to be slower since the extra overhead of checking the
-        // bad character array negates any performance gain of skipping a few extra subsearches.
-        int emlIndex = -1;
-        final int emlStringLength = LITHO_COMPONENT_EXTENSION_BYTES.length;
-        final int lastBufferIndexToCheckFrom = Math.min(maxBufferStartIndex, buffer.length - emlStringLength);
-        for (int i = 0; i < lastBufferIndexToCheckFrom; i++) {
-            boolean match = true;
-            for (int j = 0; j < emlStringLength; j++) {
-                if (buffer[i + j] != LITHO_COMPONENT_EXTENSION_BYTES[j]) {
-                    match = false;
-                    break;
-                }
-            }
-            if (match) {
-                emlIndex = i;
-                break;
-            }
-        }
-
-        if (emlIndex < 0) {
-            // Buffer is not used for creating a new litho component.
-            if (DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER) {
-                Logger.printDebug(() -> "Could not find eml index");
-            }
-            return;
-        }
-
-        int startIndex = emlIndex - 1;
-        while (startIndex > 0) {
-            final byte character = buffer[startIndex];
-            int startIndexFinal = startIndex;
-            if (isAsciiLowerCaseLetter(character) || isAsciiNumber(character) || character == '_') {
-                // Valid character for the first path element.
-                startIndex--;
-            } else {
-                startIndex++;
-                break;
-            }
-        }
-
-        // Strip away any numbers on the start of the identifier, which can
-        // be from random data in the buffer before the identifier starts.
-        while (true) {
-            final byte character = buffer[startIndex];
-            if (isAsciiNumber(character)) {
-                startIndex++;
-            } else {
-                break;
-            }
-        }
-
-        // Find the pipe character after the identifier.
-        int endIndex = -1;
-        for (int i = emlIndex, length = buffer.length; i < length; i++) {
-            if (buffer[i] == '|') {
-                endIndex = i;
-                break;
-            }
-        }
-        if (endIndex < 0) {
-            if (BaseSettings.DEBUG.get()) {
-                Logger.printException(() -> "Debug: Could not find buffer identifier");
-            }
-            return;
-        }
-
-        String identifier = new String(buffer, startIndex, endIndex - startIndex, StandardCharsets.US_ASCII);
-        if (DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER) {
-            Logger.printDebug(() -> "Found buffer for identifier: " + identifier);
-        }
-        identifierToBufferGlobal.put(identifier, buffer);
-
-        Map<String, byte[]> map = identifierToBufferThread.get();
-        if (map == null) {
-            map = createIdentifierToBufferMap();
-            identifierToBufferThread.set(map);
-        }
-        map.put(identifier, buffer);
-    }
-
     /**
      * Injection point.  Called off the main thread.
      * Targets 20.21 and lower.
      */
-    public static void setProtoBuffer(@Nullable ByteBuffer buffer) {
+    public static void setProtobufBuffer(@Nullable ByteBuffer buffer) {
         if (buffer == null || !buffer.hasArray()) {
             // It appears the buffer can be cleared out just before the call to #filter()
             // Ignore this null value and retain the last buffer that was set.
@@ -347,44 +212,18 @@ public final class LithoFilterPatch {
     /**
      * Injection point.
      */
-    public static boolean isFiltered(String identifier, @Nullable String accessibilityId,
-                                     @Nullable String accessibilityText, StringBuilder pathBuilder) {
+    public static boolean isFiltered(ContextInterface contextInterface, @Nullable byte[] bytes,
+                                     @Nullable String accessibilityId, @Nullable String accessibilityText) {
         try {
+            String identifier = contextInterface.patch_getIdentifier();
+            StringBuilder pathBuilder = contextInterface.patch_getPathBuilder();
             if (identifier.isEmpty() || pathBuilder.length() == 0) {
                 return false;
             }
 
-            byte[] buffer = null;
-            if (EXTRACT_IDENTIFIER_FROM_BUFFER) {
-                final int pipeIndex = identifier.indexOf('|');
-                if (pipeIndex >= 0) {
-                    // If the identifier contains no pipe, then it's not an ".eml" identifier
-                    // and the buffer is not uniquely identified. Typically, this only happens
-                    // for subcomponents where buffer filtering is not used.
-                    String identifierKey = identifier.substring(0, pipeIndex);
-
-                    var map = identifierToBufferThread.get();
-                    if (map != null) {
-                        buffer = map.get(identifierKey);
-                    }
-
-                    if (buffer == null) {
-                        // Buffer for thread local not found. Use the last buffer found from any thread.
-                        buffer = identifierToBufferGlobal.get(identifierKey);
-
-                        if (DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER && buffer == null) {
-                            // No buffer is found for some components, such as
-                            // shorts_lockup_cell.eml on channel profiles.
-                            // For now, just ignore this and filter without a buffer.
-                            if (BaseSettings.DEBUG.get()) {
-                                Logger.printException(() -> "Debug: Could not find buffer for identifier: " + identifier);
-                            }
-                        }
-                    }
-                }
-            } else {
-                buffer = bufferThreadLocal.get();
-            }
+            byte[] buffer = EXTRACT_IDENTIFIER_FROM_BUFFER
+                    ? bytes
+                    : bufferThreadLocal.get();
 
             // Potentially the buffer may have been null or never set up until now.
             // Use an empty buffer so the litho id/path filters that do not use a buffer still work.
