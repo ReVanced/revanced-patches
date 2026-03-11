@@ -67,7 +67,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
             "20.26.46",
             "20.31.42",
             "20.37.48",
-            "20.40.45"
+            "20.40.45",
+            "20.44.38"
         ),
     )
 
@@ -128,9 +129,10 @@ val returnYouTubeDislikePatch = bytecodePatch(
         // This hook handles all situations, as it's where the created Spans are stored and later reused.
 
         // Find the field name of the conversion context.
-        val textComponentConversionContextField = textComponentConstructorMethod.immutableClassDef.fields.find {
-            it.type == conversionContextClassDef.type
-        } ?: throw PatchException("Could not find conversion context field")
+        val textComponentConversionContextField =
+            textComponentConstructorMethod.immutableClassDef.fields.find {
+                it.type == conversionContextClassDef.type
+            } ?: throw PatchException("Could not find conversion context field")
 
         // Old pre 20.40 and lower hook.
         // 21.05 clobbers p0 (this) register.

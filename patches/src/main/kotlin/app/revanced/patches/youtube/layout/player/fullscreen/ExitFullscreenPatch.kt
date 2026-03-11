@@ -27,7 +27,8 @@ val exitFullscreenPatch = bytecodePatch(
             "20.26.46",
             "20.31.42",
             "20.37.48",
-            "20.40.45"
+            "20.40.45",
+            "20.44.38"
         ),
     )
 
@@ -61,7 +62,7 @@ val exitFullscreenPatch = bytecodePatch(
                 insertIndex,
                 "invoke-static/range { p1 .. p1 }, " +
                         "$EXTENSION_CLASS_DESCRIPTOR->endOfVideoReached(Ljava/lang/Enum;)V",
-                )
+            )
         }
     }
 }

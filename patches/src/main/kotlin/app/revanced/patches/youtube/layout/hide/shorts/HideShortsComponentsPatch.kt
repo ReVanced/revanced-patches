@@ -166,7 +166,8 @@ val hideShortsComponentsPatch = bytecodePatch(
             "20.26.46",
             "20.31.42",
             "20.37.48",
-            "20.40.45"
+            "20.40.45",
+            "20.44.38"
         ),
     )
 
@@ -188,7 +189,8 @@ val hideShortsComponentsPatch = bytecodePatch(
                     methodReference?.name == "getDimensionPixelSize"
                 } + 1
 
-                val sizeRegister = method.getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                val sizeRegister =
+                    method.getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 return@forEachInstructionAsSequence targetIndex to sizeRegister
             }) { method, (targetIndex, sizeRegister) ->
