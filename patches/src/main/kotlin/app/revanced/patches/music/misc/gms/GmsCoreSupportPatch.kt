@@ -10,6 +10,7 @@ import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.gms.Constants.REVANCED_MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
+import app.revanced.patches.music.shared.mainActivityOnCreateMethod
 import app.revanced.patches.shared.castContextFetchMethod
 import app.revanced.patches.shared.misc.gms.gmsCoreSupportPatch
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
@@ -23,7 +24,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     toPackageName = REVANCED_MUSIC_PACKAGE_NAME,
     getPrimeMethod = { primeMethod },
     getEarlyReturnMethods = setOf(BytecodePatchContext::castContextFetchMethod::get),
-    getMainActivityOnCreateMethodToGetInsertIndex = BytecodePatchContext::musicActivityOnCreateMethod::get to { 0 },
+    getMainActivityOnCreateMethodToGetInsertIndex = BytecodePatchContext::mainActivityOnCreateMethod::get to { 0 },
     extensionPatch = sharedExtensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {
@@ -34,6 +35,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
             "8.10.52",
             "8.37.56",
             "8.40.54",
+            "8.44.54"
         ),
     )
 }

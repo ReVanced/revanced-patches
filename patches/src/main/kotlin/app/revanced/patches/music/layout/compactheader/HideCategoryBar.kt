@@ -35,6 +35,7 @@ val hideCategoryBarPatch = bytecodePatch(
             "8.10.52",
             "8.37.56",
             "8.40.54",
+            "8.44.54"
         ),
     )
 

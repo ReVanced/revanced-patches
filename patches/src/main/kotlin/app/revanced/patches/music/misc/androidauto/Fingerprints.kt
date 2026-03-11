@@ -10,9 +10,7 @@ import app.revanced.patcher.returnType
 import app.revanced.patcher.strings
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.checkCertificateMethod by gettingFirstMethodDeclaratively(
-    "X509",
-) {
+internal val BytecodePatchContext.checkCertificateMethod by gettingFirstMethodDeclaratively {
     returnType("Z")
     parameterTypes("L")
     strings("X509", "isPartnerSHAFingerprint")
