@@ -15,6 +15,8 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_09_or_greater
+import app.revanced.patcher.method
+import app.revanced.patches.youtube.misc.playservice.is_21_10_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -99,12 +101,23 @@ val shortsAutoplayPatch = bytecodePatch(
 
         reelPlaybackRepeatMethod.apply {
             // The behavior enums are looked up from an ordinal value to an enum type.
-            findInstructionIndicesReversedOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.definingClass == reelEnumClass &&
-                        reference.parameterTypes.firstOrNull() == "I" &&
-                        reference.returnType == reelEnumClass
-            }.forEach { index ->
+
+            val match = if (is_21_10_or_greater) {
+                method {
+                    returnType == reelEnumClass &&
+                            parameterTypes.size == 1 &&
+                            parameterTypes[0].startsWith("L")
+                }
+            } else {
+                method {
+                    definingClass == "reelEnumClass" &&
+                            returnType == reelEnumClass &&
+                            parameterTypes.size == 1 &&
+                            parameterTypes[0].startsWith("L")
+                }
+            }
+
+            findInstructionIndicesReversedOrThrow { match(0, 0) {} }.forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
                 addInstructions(
