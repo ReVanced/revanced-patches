@@ -1,6 +1,6 @@
 @file:Suppress("SpellCheckingInspection")
 
-package app.revanced.patches.music.layout.miniplayercolor
+package app.revanced.patches.music.layout.miniplayer
 
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.extensions.getInstruction

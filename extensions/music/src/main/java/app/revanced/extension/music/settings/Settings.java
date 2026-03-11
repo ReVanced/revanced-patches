@@ -35,6 +35,7 @@ public class Settings extends YouTubeAndMusicSettings {
 
     // Player
     public static final BooleanSetting CHANGE_MINIPLAYER_COLOR = new BooleanSetting("revanced_music_change_miniplayer_color", FALSE, true);
+    public static final BooleanSetting FORCIBLY_ENABLE_MINIPLAYER = new BooleanSetting("revanced_music_forcibly_enable_miniplayer", FALSE, true);
     public static final BooleanSetting PERMANENT_REPEAT = new BooleanSetting("revanced_music_play_permanent_repeat", FALSE, true);
 
     // Miscellaneous

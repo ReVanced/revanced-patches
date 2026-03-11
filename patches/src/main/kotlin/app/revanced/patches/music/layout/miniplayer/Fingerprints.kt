@@ -1,4 +1,4 @@
-package app.revanced.patches.music.layout.miniplayercolor
+package app.revanced.patches.music.layout.miniplayer
 
 import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
@@ -27,4 +27,11 @@ internal val ClassDef.switchToggleColorMethodMatch by ClassDefComposing.composin
         Opcode.CHECK_CAST,
         Opcode.IGET,
     )
+}
+
+internal val BytecodePatchContext.minimizedPlayerMethod by gettingFirstMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("L", "L")
+    instructions("w_st"())
 }

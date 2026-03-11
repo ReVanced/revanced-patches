@@ -1862,10 +1862,15 @@ Video playback with AV1 may stutter or drop frames."</string>
             <string name="revanced_music_hide_category_bar_summary_on">Category bar is hidden</string>
             <string name="revanced_music_hide_category_bar_summary_off">Category bar is shown</string>
         </patch>
-        <patch id="layout.miniplayercolor.changeMiniplayerColor">
+        <patch id="layout.miniplayer.changeMiniplayerColor">
             <string name="revanced_music_change_miniplayer_color_title">Change miniplayer color</string>
             <string name="revanced_music_change_miniplayer_color_summary_on">Miniplayer color matches fullscreen player</string>
             <string name="revanced_music_change_miniplayer_color_summary_off">Miniplayer uses default color</string>
+        </patch>
+        <patch id="layout.miniplayer.forciblyEnableMiniplayer">
+            <string name="revanced_music_forcibly_enable_miniplayer_title">Forcibly enable miniplayer</string>
+            <string name="revanced_music_forcibly_enable_miniplayer_summary_on">Miniplayer stays minimized when playback changes</string>
+            <string name="revanced_music_forcibly_enable_miniplayer_summary_off">Miniplayer expands to fullscreen when playback changes</string>
         </patch>
         <patch id="layout.navigationbar.navigationBarPatch">
             <string name="revanced_music_navigation_bar_screen_title">Navigation bar</string>
