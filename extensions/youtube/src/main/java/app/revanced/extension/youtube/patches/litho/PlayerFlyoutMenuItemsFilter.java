@@ -127,6 +127,9 @@ public final class PlayerFlyoutMenuItemsFilter extends Filter {
             return false;
         }
 
+        // 21.x+ fix.
+        if (path.contains("bottom_sheet_list_option.e")) return false;
+
         return flyoutFilterGroupList.check(buffer).isFiltered();
     }
 }
