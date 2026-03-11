@@ -359,10 +359,10 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_medical_panels_summary_off">Medical panels are shown</string>
             <string name="revanced_hide_quick_actions_title">Hide quick actions</string>
             <string name="revanced_hide_quick_actions_summary_on">Quick actions in fullscreen are hidden</string>
-            <string name="revanced_hide_quick_actions_summary_off">Quick actions in fullscreen  are shown</string>
-            <string name="revanced_hide_related_videos_title">Hide related videos</string>
-            <string name="revanced_hide_related_videos_summary_on">Related videos in quick actions are hidden</string>
-            <string name="revanced_hide_related_videos_summary_off">Related videos in quick actions are shown</string>
+            <string name="revanced_hide_quick_actions_summary_off">Quick actions in fullscreen are shown</string>
+            <string name="revanced_hide_quick_actions_related_videos_title">Hide quick actions related videos</string>
+            <string name="revanced_hide_quick_actions_related_videos_summary_on">Related videos in quick actions are hidden</string>
+            <string name="revanced_hide_quick_actions_related_videos_summary_off">Related videos in quick actions are shown</string>
             <string name="revanced_hide_subscribers_community_guidelines_title">Hide subscribers guidelines</string>
             <string name="revanced_hide_subscribers_community_guidelines_summary_on">Subscribers community guidelines are hidden</string>
             <string name="revanced_hide_subscribers_community_guidelines_summary_off">Subscribers community guidelines are shown</string>
@@ -1112,9 +1112,9 @@ To show the Audio track menu, change \'Spoof video streams\' to \'Android No SDK
             <string name="revanced_end_screen_suggested_video_summary_off">End screen suggested video is shown</string>
         </patch>
         <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
-            <string name="revanced_hide_related_videos_overlay_title">Hide related videos overlay</string>
-            <string name="revanced_hide_related_videos_overlay_summary_on">Related videos overlay in fullscreen is hidden</string>
-            <string name="revanced_hide_related_videos_overlay_summary_off">Related videos overlay in fullscreen is shown</string>
+            <string name="revanced_hide_player_related_videos_overlay_title">Hide related videos overlay</string>
+            <string name="revanced_hide_player_related_videos_overlay_summary_on">Related videos overlay in fullscreen is hidden</string>
+            <string name="revanced_hide_player_related_videos_overlay_summary_off">Related videos overlay in fullscreen is shown</string>
         </patch>
         <patch id="layout.hide.time.hideTimestampPatch">
             <string name="revanced_hide_timestamp_title">Hide video timestamp</string>

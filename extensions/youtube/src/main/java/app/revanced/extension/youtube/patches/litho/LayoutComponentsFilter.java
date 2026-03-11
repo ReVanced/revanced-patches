@@ -240,7 +240,7 @@ public final class LayoutComponentsFilter extends Filter {
         );
 
         final var relatedVideos = new StringFilterGroup(
-                Settings.HIDE_RELATED_VIDEOS,
+                Settings.HIDE_QUICK_ACTIONS_RELATED_VIDEOS,
                 "fullscreen_related_videos"
         );
 
