@@ -14,7 +14,7 @@ val disableReelsAutoScrollPatch = bytecodePatch(
     apply {
         // Prevent the auto-scroll feature from being initialized.
         // When this returns false, ClipsViewerFragment skips creating the auto-scroller.
-        clipsAutoScrollFeatureCheckMethod.returnEarly(false)
+        clipsAutoScrollFeatureCheckMethod.returnEarly()
 
         // Make the toggle button handler a no-op so tapping it does nothing.
         clipsAutoScrollToggleMethod.returnEarly()
