@@ -493,9 +493,6 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_comments_ai_chat_summary_title">Hide AI chat summary</string>
             <string name="revanced_hide_comments_ai_chat_summary_summary_on">AI chat summary is hidden</string>
             <string name="revanced_hide_comments_ai_chat_summary_summary_off">AI chat summary is shown</string>
-            <string name="revanced_hide_comments_ai_summary_title">Hide AI comments summary</string>
-            <string name="revanced_hide_comments_ai_summary_summary_on">AI comments summary is hidden</string>
-            <string name="revanced_hide_comments_ai_summary_summary_off">AI comments summary is shown</string>
             <string name="revanced_hide_comments_channel_guidelines_title">Hide channel guidelines</string>
             <string name="revanced_hide_comments_channel_guidelines_summary_on">Channel guidelines are hidden</string>
             <string name="revanced_hide_comments_channel_guidelines_summary_off">Channel guidelines are shown</string>
@@ -520,6 +517,9 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_comments_thanks_button_title">Hide Thanks button</string>
             <string name="revanced_hide_comments_thanks_button_summary_on">Thanks button is hidden</string>
             <string name="revanced_hide_comments_thanks_button_summary_off">Thanks button is shown</string>
+            <string name="revanced_sanitize_comments_category_bar_title">Sanitize category bar</string>
+            <string name="revanced_sanitize_comments_category_bar_summary_on">Category buttons except \'Top\' and \'Newest\' are hidden in the comment category bar</string>
+            <string name="revanced_sanitize_comments_category_bar_summary_off">Category buttons are shown in the comment category bar</string>
             <string name="revanced_hide_view_count_title">Hide view count</string>
             <string name="revanced_hide_view_count_summary_on">View count is hidden in feed and search results</string>
             <string name="revanced_hide_view_count_summary_off">View count is shown in feed and search results</string>

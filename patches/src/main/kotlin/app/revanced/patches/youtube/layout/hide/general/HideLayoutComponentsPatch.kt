@@ -15,6 +15,8 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPref
 import app.revanced.patches.youtube.layout.hide.shelves.hideHorizontalShelvesPatch
 import app.revanced.patches.youtube.misc.engagement.engagementPanelHookPatch
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
+import app.revanced.patches.youtube.misc.litho.lazily.hookTreeNodeResult
+import app.revanced.patches.youtube.misc.litho.lazily.lazilyConvertedElementHookPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_20_21_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
@@ -86,6 +88,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         engagementPanelHookPatch,
         resourceMappingPatch,
         hideHorizontalShelvesPatch,
+        lazilyConvertedElementHookPatch
     ),
     filterClasses = setOf(
         LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR,
@@ -154,7 +157,8 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                 SwitchPreference("revanced_hide_comments_emoji_and_timestamp_buttons"),
                 SwitchPreference("revanced_hide_comments_preview_comment"),
                 SwitchPreference("revanced_hide_comments_thanks_button"),
-            ),
+                SwitchPreference("revanced_sanitize_comments_category_bar"),
+                ),
             sorting = Sorting.UNSORTED,
         ),
         SwitchPreference("revanced_hide_channel_bar"),
@@ -271,6 +275,8 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
             SwitchPreference("revanced_hide_you_may_like_section")
         )
     }
+
+    hookTreeNodeResult("$COMMENTS_FILTER_CLASS_NAME->sanitizeCommentsCategoryBar")
 
     // region Hide mix playlists
 
