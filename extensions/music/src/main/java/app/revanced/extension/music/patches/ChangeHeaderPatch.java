@@ -1,5 +1,7 @@
 package app.revanced.extension.music.patches;
 
+import java.util.Objects;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
@@ -33,5 +35,16 @@ public class ChangeHeaderPatch {
 
             return id;
         }
+    }
+
+    /**
+     * Injection point.
+     */
+    @SuppressWarnings("unused")
+    public static int getHeaderDrawableId(int original) {
+        return Objects.requireNonNullElse(
+                Settings.HEADER_LOGO.get().getDrawableId(),
+                original
+        );
     }
 }

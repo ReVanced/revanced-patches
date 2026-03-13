@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.wideLiteral
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.shared.layout.branding.header.changeHeaderPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
@@ -20,7 +19,11 @@ private val targetResourceDirectoryNames = mapOf(
 )
 
 private val variants = arrayOf("dark")
-private val logoResourceNames = arrayOf("revanced_header_dark")
+
+private val logoResourceNames = arrayOf(
+    "revanced_header_minimal",
+    "revanced_header_rounded",
+)
 
 private val headerDrawableNames = arrayOf(
     "action_bar_logo_ringo2",

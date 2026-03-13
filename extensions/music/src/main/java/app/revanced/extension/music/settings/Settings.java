@@ -31,7 +31,7 @@ public class Settings extends YouTubeAndMusicSettings {
     public static final BooleanSetting HIDE_NAVIGATION_BAR_UPGRADE_BUTTON = new BooleanSetting("revanced_music_hide_navigation_bar_upgrade_button", TRUE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR = new BooleanSetting("revanced_music_hide_navigation_bar", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR_LABEL = new BooleanSetting("revanced_music_hide_navigation_bar_labels", FALSE, true);
-    public static final EnumSetting<HeaderLogo> HEADER_LOGO = new EnumSetting<>("revnaced_header_logo", HeaderLogo.DEFAULT, true);
+    public static final EnumSetting<HeaderLogo> HEADER_LOGO = new EnumSetting<>("revanced_header_logo", HeaderLogo.DEFAULT, true);
 
     // Player
     public static final BooleanSetting CHANGE_MINIPLAYER_COLOR = new BooleanSetting("revanced_music_change_miniplayer_color", FALSE, true);
