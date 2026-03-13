@@ -104,6 +104,8 @@ val overrideOpenInYouTubeMusicButtonPatch = bytecodePatch(
                 else -> null
             }
         }) { method, (index, methodDescriptor) ->
+            if (method.definingClass == EXTENSION_CLASS_DESCRIPTOR) return@forEachInstructionAsSequence
+
             val invokeString = when (val instruction = method.getInstruction(index)) {
                 is RegisterRangeInstruction ->
                     "invoke-static/range { v${instruction.startRegister} .. v${instruction.startRegister + instruction.registerCount - 1} }"

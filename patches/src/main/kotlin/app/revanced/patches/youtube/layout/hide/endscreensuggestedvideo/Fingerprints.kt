@@ -46,7 +46,7 @@ internal val BytecodePatchContext.removeOnLayoutChangeListenerMethodMatch by com
         ),
         allOf(Opcode.INVOKE_VIRTUAL(), method {
             name == "removeOnLayoutChangeListener" &&
-                    returnType == "Z" &&
+                    returnType == "V" &&
                     definingClass == "Lcom/google/android/apps/youtube/app/common/" +
                     "player/overlay/YouTubePlayerOverlaysLayout;"
         }),

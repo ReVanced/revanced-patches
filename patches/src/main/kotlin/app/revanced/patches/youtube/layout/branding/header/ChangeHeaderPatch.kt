@@ -5,11 +5,9 @@ import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.wideLiteral
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.Document
-import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.shared.layout.branding.addBrandLicensePatch
 import app.revanced.patches.shared.layout.branding.header.CUSTOM_HEADER_RESOURCE_NAME
 import app.revanced.patches.shared.layout.branding.header.changeHeaderPatch
-import app.revanced.patches.shared.layout.branding.header.variants
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen

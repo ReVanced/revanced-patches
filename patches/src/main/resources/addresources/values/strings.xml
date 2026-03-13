@@ -1108,7 +1108,7 @@ To show the Audio track menu, change \'Spoof video streams\' to \'Android No SDK
         </patch>
         <patch id="layout.hide.endscreensuggestedvideo.hideEndScreenSuggestedVideoPatch">
             <string name="revanced_end_screen_suggested_video_title">Hide end screen suggested video</string>
-            <string name="revanced_end_screen_suggested_video_summary_on">"End screen suggested video is hidden</string>
+            <string name="revanced_end_screen_suggested_video_summary_on">End screen suggested video is hidden</string>
             <string name="revanced_end_screen_suggested_video_summary_off">End screen suggested video is shown</string>
         </patch>
         <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">

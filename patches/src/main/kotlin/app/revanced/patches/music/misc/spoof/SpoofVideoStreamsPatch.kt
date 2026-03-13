@@ -3,7 +3,7 @@ package app.revanced.patches.music.misc.spoof
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
-import app.revanced.patches.music.misc.gms.musicActivityOnCreateMethod
+import app.revanced.patches.music.shared.mainActivityOnCreateMethod
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.patches.music.playservice.*
@@ -14,7 +14,7 @@ import app.revanced.patches.shared.misc.spoof.spoofVideoStreamsPatch
 
 val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
     extensionClassDescriptor = "Lapp/revanced/extension/music/patches/spoof/SpoofVideoStreamsPatch;",
-    getMainActivityOnCreateMethod = { musicActivityOnCreateMethod },
+    getMainActivityOnCreateMethod = { mainActivityOnCreateMethod },
     fixMediaFetchHotConfig = { is_7_16_or_greater },
     fixMediaFetchHotConfigAlternative = { is_8_11_or_greater && !is_8_15_or_greater },
     fixParsePlaybackResponseFeatureFlag = { is_7_33_or_greater },

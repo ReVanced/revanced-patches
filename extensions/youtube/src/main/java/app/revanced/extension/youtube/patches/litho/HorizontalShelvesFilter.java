@@ -13,7 +13,7 @@ import app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
-final class HorizontalShelvesFilter extends Filter {
+public final class HorizontalShelvesFilter extends Filter {
     private final ByteArrayFilterGroupList descriptionBuffers = new ByteArrayFilterGroupList();
     private final ByteArrayFilterGroupList generalBuffers = new ByteArrayFilterGroupList();
 

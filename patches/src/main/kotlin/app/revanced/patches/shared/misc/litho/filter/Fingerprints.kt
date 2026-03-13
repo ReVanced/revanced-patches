@@ -85,7 +85,7 @@ internal val BytecodePatchContext.protobufBufferEncodeMethod by gettingFirstMeth
             Opcode.IGET_OBJECT(),
             field { definingClass == methodDefiningClass && type == "Lcom/google/android/libraries/elements/adl/UpbMessage;" },
         ),
-        method { definingClass == "Lcom/google/android/libraries/elements/adl/UpbMessage;" && name == "jniEecode" },
+        method { definingClass == "Lcom/google/android/libraries/elements/adl/UpbMessage;" && name == "jniEncode" },
     )
 }
 

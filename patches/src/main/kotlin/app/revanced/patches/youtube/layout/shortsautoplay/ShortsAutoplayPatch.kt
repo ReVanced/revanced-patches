@@ -37,7 +37,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/ShortsAutoplayPatch;"
 
-@Suppress("ObjectPropertyName")
+@Suppress("unused")
 val shortsAutoplayPatch = bytecodePatch(
     name = "Shorts autoplay",
     description = "Adds options to automatically play the next Short.",
@@ -110,10 +110,10 @@ val shortsAutoplayPatch = bytecodePatch(
                 }
             } else {
                 method {
-                    definingClass == "reelEnumClass" &&
+                    definingClass == reelEnumClass &&
                             returnType == reelEnumClass &&
                             parameterTypes.size == 1 &&
-                            parameterTypes[0].startsWith("L")
+                            parameterTypes[0] == "I"
                 }
             }
 
