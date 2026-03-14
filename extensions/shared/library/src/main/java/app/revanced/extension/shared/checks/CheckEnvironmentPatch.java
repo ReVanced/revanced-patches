@@ -10,6 +10,8 @@ import android.util.Base64;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -29,6 +31,7 @@ import static app.revanced.extension.shared.checks.PatchInfo.Build.*;
  * <br>
  * Various indicators help to detect if the app was patched by the user.
  */
+@RequiresApi(api = Build.VERSION_CODES.N)
 @SuppressWarnings("unused")
 public final class CheckEnvironmentPatch {
     private static final boolean DEBUG_ALWAYS_SHOW_CHECK_FAILED_DIALOG = debugAlwaysShowWarning();
@@ -121,7 +124,7 @@ public final class CheckEnvironmentPatch {
      * If the build properties are different, the app was likely downloaded pre-patched or patched on another device.
      */
     private static class CheckWasPatchedOnSameDevice extends Check {
-        @SuppressLint({"NewApi", "HardwareIds"})
+        @SuppressLint("HardwareIds")
         @Override
         protected Boolean check() {
             if (PATCH_BOARD.isEmpty()) {
@@ -195,7 +198,7 @@ public final class CheckEnvironmentPatch {
                 PackageManager packageManager = context.getPackageManager();
                 PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
 
-                // Duration since initial install or last update, which ever is sooner.
+                // Duration since initial install or last update, whichever is sooner.
                 durationBetweenPatchingAndInstallation = packageInfo.lastUpdateTime - PatchInfo.PATCH_TIME;
                 Logger.printInfo(() -> "App was installed/updated: "
                         + (durationBetweenPatchingAndInstallation / (60 * 1000) + " minutes after patching"));
