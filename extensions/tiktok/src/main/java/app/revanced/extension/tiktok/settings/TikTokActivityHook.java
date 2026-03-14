@@ -20,7 +20,7 @@ import java.lang.reflect.InvocationTargetException;
 /**
  * Hooks AdPersonalizationActivity to inject a custom {@link TikTokPreferenceFragment}.
  */
-@SuppressWarnings({"deprecation", "NewApi", "unused"})
+@SuppressWarnings({"deprecation", "unused"})
 public class TikTokActivityHook {
     public static Object createSettingsEntry(String entryClazzName, String entryInfoClazzName) {
         try {

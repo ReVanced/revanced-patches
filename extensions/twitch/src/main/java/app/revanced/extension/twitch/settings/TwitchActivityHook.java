@@ -22,7 +22,7 @@ import tv.twitch.android.settings.SettingsActivity;
 /**
  * Hooks AppCompatActivity to inject a custom {@link TwitchPreferenceFragment}.
  */
-@SuppressWarnings({"deprecation", "NewApi", "unused"})
+@SuppressWarnings({"deprecation", "unused"})
 public class TwitchActivityHook {
     private static final int REVANCED_SETTINGS_MENU_ITEM_ID = 0x7;
     private static final String EXTRA_REVANCED_SETTINGS = "app.revanced.twitch.settings";
