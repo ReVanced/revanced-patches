@@ -8,9 +8,11 @@ import android.preference.PreferenceFragment;
 import android.view.View;
 import android.widget.Toolbar;
 
+import app.revanced.extension.music.VersionCheckUtils;
 import app.revanced.extension.music.settings.preference.MusicPreferenceFragment;
 import app.revanced.extension.music.settings.search.MusicSearchViewController;
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseActivityHook;
 
@@ -21,6 +23,24 @@ public class MusicActivityHook extends BaseActivityHook {
 
     @SuppressLint("StaticFieldLeak")
     public static MusicSearchViewController searchViewController;
+
+    /**
+     * How much time has passed since the first launch of the app. Simple check to prevent
+     * forcing bold icons on first launch where the settings menu is partially broken
+     * due to missing icon resources the client has not yet received.
+     *
+     * @see app.revanced.extension.youtube.settings.YouTubeActivityHook#MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS
+     */
+    private static final long MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS = 30 * 1000; // 30 seconds.
+
+    static {
+        final boolean useBoldIcons = VersionCheckUtils.IS_8_40_OR_GREATER
+                && !Settings.SETTINGS_DISABLE_BOLD_ICONS.get()
+                && (System.currentTimeMillis() - Settings.FIRST_TIME_APP_LAUNCHED.get())
+                > MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS;
+
+        Utils.setAppIsUsingBoldIcons(useBoldIcons);
+    }
 
     /**
      * Injection point.
@@ -46,15 +66,7 @@ public class MusicActivityHook extends BaseActivityHook {
         // Override the default YouTube Music theme to increase start padding of list items.
         // Custom style located in resources/music/values/style.xml
         activity.setTheme(Utils.getResourceIdentifierOrThrow(
-                "Theme.ReVanced.YouTubeMusic.Settings", "style"));
-    }
-
-    /**
-     * Returns the resource ID for the YouTube Music settings layout.
-     */
-    @Override
-    protected int getContentViewResourceId() {
-        return LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR;
+                ResourceType.STYLE, "Theme.ReVanced.YouTubeMusic.Settings"));
     }
 
     /**
@@ -122,5 +134,15 @@ public class MusicActivityHook extends BaseActivityHook {
     @SuppressWarnings("unused")
     public static boolean handleFinish() {
         return MusicSearchViewController.handleFinish(searchViewController);
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Decides whether to use bold icons.
+     */
+    @SuppressWarnings("unused")
+    public static boolean useBoldIcons(boolean original) {
+        return Utils.appIsUsingBoldIcons();
     }
 }

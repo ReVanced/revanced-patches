@@ -1,6 +1,6 @@
-package app.revanced.patches.disneyplus.ads
+package app.revanced.patches.disneyplus
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
@@ -10,11 +10,11 @@ val skipAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.disney.disneyplus")
 
-    execute {
-        arrayOf(insertionGetPointsFingerprint, insertionGetRangesFingerprint).forEach {
-            it.method.addInstructions(
-	            0,
-	            """
+    apply {
+        arrayOf(insertionGetPointsMethod, insertionGetRangesMethod).forEach {
+            it.addInstructions(
+                0,
+                """
 	                new-instance v0, Ljava/util/ArrayList;
 	                invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 	                return-object v0

@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.misc.audiofocus
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -27,10 +27,15 @@ val pauseOnAudioInterruptPatch = bytecodePatch(
     compatibleWith(
         "com.google.android.youtube"(
             "20.14.43",
-        )
+            "20.21.37",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
+        ),
     )
 
-    execute {
+    apply {
         addResources("youtube", "misc.audiofocus.pauseOnAudioInterruptPatch")
 
         PreferenceScreen.MISC.addPreferences(
@@ -39,10 +44,9 @@ val pauseOnAudioInterruptPatch = bytecodePatch(
 
         // Hook the builder method that creates AudioFocusRequest.
         // At the start, set the willPauseWhenDucked field (b) to true if setting is enabled.
-        val builderMethod = audioFocusRequestBuilderFingerprint.method
-        val builderClass = builderMethod.definingClass
+        val builderClass = audioFocusRequestBuilderMethod.definingClass
 
-        builderMethod.addInstructionsWithLabels(
+        audioFocusRequestBuilderMethod.addInstructionsWithLabels(
             0,
             """
                 invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->shouldPauseOnAudioInterrupt()Z
@@ -51,16 +55,16 @@ val pauseOnAudioInterruptPatch = bytecodePatch(
                 const/4 v0, 0x1
                 iput-boolean v0, p0, $builderClass->b:Z
             """,
-            ExternalLabel("skip_override", builderMethod.getInstruction(0)),
+            ExternalLabel("skip_override", audioFocusRequestBuilderMethod.getInstruction(0)),
         )
 
         // Also hook the audio focus change listener as a backup.
-        audioFocusChangeListenerFingerprint.method.addInstructions(
+        audioFocusChangeListenerMethod.addInstructions(
             0,
             """
                 invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->overrideAudioFocusChange(I)I
                 move-result p1
-            """
+            """,
         )
     }
 }

@@ -13,8 +13,10 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import java.util.List;
+import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
@@ -28,7 +30,6 @@ public final class MiniplayerPatch {
     public enum MiniplayerType {
         /**
          * Disabled. When swiped down the miniplayer is immediately closed.
-         * Only available with 19.43+
          */
         DISABLED(false, null),
         /** Unmodified type, and same as un-patched. */
@@ -88,9 +89,9 @@ public final class MiniplayerPatch {
         final int HORIZONTAL_PADDING_DIP = 15; // Estimated padding.
         // Round down to the nearest 5 pixels, to keep any error toasts easier to read.
         final int estimatedWidthDipMax = 5 * ((deviceDipWidth - HORIZONTAL_PADDING_DIP) / 5);
-        // On some ultra low end devices the pixel width and density are the same number,
+        // On some ultra-low-end devices the pixel width and density are the same number,
         // which causes the estimate to always give a value of 1.
-        // Fix this by using a fixed size of double the min width.
+        // Fix this by using a fixed size twice the minimum width.
         final int WIDTH_DIP_MAX = estimatedWidthDipMax <= WIDTH_DIP_MIN
                 ? 2 * WIDTH_DIP_MIN
                 : estimatedWidthDipMax;
@@ -115,7 +116,7 @@ public final class MiniplayerPatch {
      * Resource is not present in older targets, and this field will be zero.
      */
     private static final int MODERN_OVERLAY_SUBTITLE_TEXT
-            = Utils.getResourceIdentifier("modern_miniplayer_subtitle_text", "id");
+            = Utils.getResourceIdentifier(ResourceType.ID, "modern_miniplayer_subtitle_text");
 
     private static final MiniplayerType CURRENT_TYPE = Settings.MINIPLAYER_TYPE.get();
 
@@ -139,8 +140,8 @@ public final class MiniplayerPatch {
             (CURRENT_TYPE == MODERN_1 || CURRENT_TYPE == MODERN_3 || CURRENT_TYPE == MODERN_4)
                     && Settings.MINIPLAYER_HIDE_SUBTEXT.get();
 
-    // 19.25 is last version that has forward/back buttons for phones,
-    // but buttons still show for tablets/foldable devices and they don't work well so always hide.
+    // 19.25 is last version that uses forward/back buttons for phones,
+    // but buttons still show for tablets/foldable devices, and they don't work well so always hide.
     private static final boolean HIDE_REWIND_FORWARD_ENABLED = CURRENT_TYPE == MODERN_1
             && (VersionCheckPatch.IS_19_34_OR_GREATER || Settings.MINIPLAYER_HIDE_REWIND_FORWARD.get());
 
@@ -280,6 +281,12 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static int getModernMiniplayerOverrideType(int original) {
+        if (CURRENT_TYPE == MINIMAL) {
+            // In newer app targets the minimal player can show the wrong icon if modern 4 is allowed.
+            // Forcing to modern 1 seems to work.
+            return Objects.requireNonNull(MODERN_1.modernPlayerType);
+        }
+
         Integer modernValue = CURRENT_TYPE.modernPlayerType;
         return modernValue == null
                 ? original
@@ -373,6 +380,19 @@ public final class MiniplayerPatch {
     public static int getMiniplayerDefaultSize(int original) {
         if (CURRENT_TYPE.isModern()) {
             return MINIPLAYER_SIZE;
+        }
+
+        return original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean allowBoldIcons(boolean original) {
+        if (CURRENT_TYPE == MINIMAL) {
+            // Minimal player does not have the correct pause/play icon (it's too large).
+            // Use the non-bold icons instead.
+            return false;
         }
 
         return original;

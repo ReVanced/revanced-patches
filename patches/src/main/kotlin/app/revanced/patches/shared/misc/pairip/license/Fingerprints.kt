@@ -1,17 +1,16 @@
 package app.revanced.patches.shared.misc.pairip.license
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMethodDeclarativelyOrNull
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val processLicenseResponseFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.type == "Lcom/pairip/licensecheck/LicenseClient;" &&
-                method.name == "processResponse"
-    }
+internal val BytecodePatchContext.processLicenseResponseMethod by gettingFirstMethodDeclarativelyOrNull {
+    name("processResponse")
+    definingClass("Lcom/pairip/licensecheck/LicenseClient;")
 }
 
-internal val validateLicenseResponseFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.type == "Lcom/pairip/licensecheck/ResponseValidator;" &&
-                method.name == "validateResponse"
-    }
+internal val BytecodePatchContext.validateLicenseResponseMethod by gettingFirstMethodDeclarativelyOrNull {
+    name("validateResponse")
+    definingClass("Lcom/pairip/licensecheck/ResponseValidator;")
 }

@@ -1,11 +1,9 @@
 package app.revanced.patches.shared.misc.extension
 
-import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.FingerprintBuilder
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.firstClassDef
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.Method
@@ -23,7 +21,7 @@ fun sharedExtensionPatch(
     extensionName: String,
     vararg hooks: ExtensionHook,
 ) = bytecodePatch {
-    dependsOn(sharedExtensionPatch(*hooks))
+    dependsOn(sharedExtensionPatch(hooks = hooks))
 
     extendWith("extensions/$extensionName.rve")
 }
@@ -39,78 +37,92 @@ fun sharedExtensionPatch(
 ) = bytecodePatch {
     extendWith("extensions/shared.rve")
 
-    execute {
-        if (classes.none { EXTENSION_CLASS_DESCRIPTOR == it.type }) {
-            throw PatchException("Shared extension is not available. This patch can not succeed without it.")
-        }
+    apply {
+        // Verify the extension class exists.
+        firstClassDef(EXTENSION_CLASS_DESCRIPTOR)
     }
 
-    finalize {
-        // The hooks are made in finalize to ensure that the context is hooked before any other patches.
+    afterDependents {
+        // The hooks are made in afterDependents to ensure that the context is hooked before any other patches.
         hooks.forEach { hook -> hook(EXTENSION_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.
-        revancedUtilsPatchesVersionFingerprint.method.apply {
-            /**
-             * @return The file path for the jar this classfile is contained inside.
-             */
-            fun getCurrentJarFilePath(): String {
-                val className = object {}::class.java.enclosingClass.name.replace('.', '/') + ".class"
-                val classUrl = object {}::class.java.classLoader?.getResource(className)
-                if (classUrl != null) {
-                    val urlString = classUrl.toString()
+        /**
+         * @return The file path for the jar this classfile is contained inside.
+         */
+        fun getCurrentJarFilePath(): String {
+            val className = object {}::class.java.enclosingClass.name.replace('.', '/') + ".class"
+            val classUrl = object {}::class.java.classLoader?.getResource(className)
+            if (classUrl != null) {
+                val urlString = classUrl.toString()
 
-                    if (urlString.startsWith("jar:file:")) {
-                        val end = urlString.lastIndexOf('!')
+                if (urlString.startsWith("jar:file:")) {
+                    val end = urlString.lastIndexOf('!')
 
-                        return URLDecoder.decode(urlString.substring("jar:file:".length, end), "UTF-8")
-                    }
+                    return URLDecoder.decode(urlString.substring("jar:file:".length, end), "UTF-8")
                 }
-                throw IllegalStateException("Not running from inside a JAR file.")
             }
-
-            /**
-             * @return The value for the manifest entry,
-             *         or "Unknown" if the entry does not exist or is blank.
-             */
-            @Suppress("SameParameterValue")
-            fun getPatchesManifestEntry(attributeKey: String) = JarFile(getCurrentJarFilePath()).use { jarFile ->
-                jarFile.manifest.mainAttributes.entries.firstOrNull { it.key.toString() == attributeKey }?.value?.toString()
-                    ?: "Unknown"
-            }
-
-            val manifestValue = getPatchesManifestEntry("Version")
-            returnEarly(manifestValue)
+            throw IllegalStateException("Not running from inside a JAR file.")
         }
+
+        /**
+         * @return The value for the manifest entry,
+         *         or "Unknown" if the entry does not exist or is blank.
+         */
+        @Suppress("SameParameterValue")
+        fun getPatchesManifestEntry(attributeKey: String) = JarFile(getCurrentJarFilePath()).use { jarFile ->
+            jarFile.manifest.mainAttributes.entries.firstOrNull { it.key.toString() == attributeKey }?.value?.toString()
+                ?: "Unknown"
+        }
+
+        val manifestValue = getPatchesManifestEntry("Version")
+
+        getPatchesReleaseVersionMethod.returnEarly(manifestValue)
     }
 }
 
 class ExtensionHook internal constructor(
-    internal val fingerprint: Fingerprint,
-    private val insertIndexResolver: BytecodePatchContext.(Method) -> Int,
-    private val contextRegisterResolver: BytecodePatchContext.(Method) -> String,
+    private val getInsertIndex: Method.() -> Int,
+    private val getContextRegister: Method.() -> String,
+    private val build: context(MutableList<String>) MutablePredicateList<Method>.() -> Unit,
 ) {
-    context(BytecodePatchContext)
+    context(context: BytecodePatchContext)
     operator fun invoke(extensionClassDescriptor: String) {
-        val insertIndex = insertIndexResolver(fingerprint.method)
-        val contextRegister = contextRegisterResolver(fingerprint.method)
+        val method = context.firstMethodDeclaratively(build = build)
+        val insertIndex = method.getInsertIndex()
+        val contextRegister = method.getContextRegister()
 
-        fingerprint.method.addInstruction(
+        method.addInstruction(
             insertIndex,
             "invoke-static/range { $contextRegister .. $contextRegister }, " +
-                    "$extensionClassDescriptor->setContext(Landroid/content/Context;)V",
+                "$extensionClassDescriptor->setContext(Landroid/content/Context;)V",
         )
     }
 }
 
 fun extensionHook(
-    insertIndexResolver: BytecodePatchContext.(Method) -> Int = { 0 },
-    contextRegisterResolver: BytecodePatchContext.(Method) -> String = { "p0" },
-    fingerprint: Fingerprint,
-) = ExtensionHook(fingerprint, insertIndexResolver, contextRegisterResolver)
+    getInsertIndex: Method.() -> Int = { 0 },
+    getContextRegister: Method.() -> String = { "p0" },
+    build: context(MutableList<String>) MutablePredicateList<Method>.() -> Unit,
+) = ExtensionHook(getInsertIndex, getContextRegister, build)
 
-fun extensionHook(
-    insertIndexResolver: BytecodePatchContext.(Method) -> Int = { 0 },
-    contextRegisterResolver: BytecodePatchContext.(Method) -> String = { "p0" },
-    fingerprintBuilderBlock: FingerprintBuilder.() -> Unit,
-) = extensionHook(insertIndexResolver, contextRegisterResolver, fingerprint(block = fingerprintBuilderBlock))
+/**
+ * Creates an extension hook from a non-obfuscated activity, which typically is the main activity
+ * defined in the app manifest.xml file.
+ *
+ * @param activityClassType Either the full activity class type such as `Lcom/company/MainActivity;`
+ *                          or the 'starts with' or 'ends with' string for the activity such as `/MainActivity;`
+ */
+fun activityOnCreateExtensionHook(activityClassType: String) = extensionHook {
+        name("onCreate")
+        definingClass(activityClassType)
+        returnType("V")
+
+        /*
+        * Leaving this out (for now?), because before the refactor many apps
+        * which used a simpler fingerprint checking only method name and classDef name
+        * were refactored to use this instead, which caused their hooks to fail.
+        */
+        // parameterTypes("Landroid/os/Bundle;")
+    }
+

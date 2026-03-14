@@ -24,7 +24,7 @@ public final class ChangeStartPagePatch {
         DEFAULT("", null),
 
         /**
-         * Browse id.
+         * BrowseId.
          */
         ALL_SUBSCRIPTIONS("FEchannels", TRUE),
         BROWSE("FEguide_builder", TRUE),
@@ -39,7 +39,7 @@ public final class ChangeStartPagePatch {
         YOUR_CLIPS("FEclips", TRUE),
 
         /**
-         * Channel id, this can be used as a browseId.
+         * Channel ID, this can be used as a browseId.
          */
         COURSES("UCtFRv9O2AHqOZjjynzrv-xg", TRUE),
         FASHION("UCrpQ4p1Ql_hG8rKXIKM1MOQ", TRUE),
@@ -52,7 +52,7 @@ public final class ChangeStartPagePatch {
         VIRTUAL_REALITY("UCzuqhhs6NWbgTzMuM09WKDQ", TRUE),
 
         /**
-         * Playlist id, this can be used as a browseId.
+         * Playlist ID, this can be used as a browseId.
          */
         LIKED_VIDEO("VLLL", TRUE),
         WATCH_LATER("VLWL", TRUE),

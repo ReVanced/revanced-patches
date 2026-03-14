@@ -1,8 +1,8 @@
 package app.revanced.patches.instagram.misc.removeBuildExpiredPopup
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -14,8 +14,8 @@ val removeBuildExpiredPopupPatch = bytecodePatch(
 ) {
     compatibleWith("com.instagram.android")
 
-    execute {
-        appUpdateLockoutBuilderFingerprint.method.apply {
+    apply {
+        appUpdateLockoutBuilderMethod.apply {
             val longToIntIndex = instructions.first { it.opcode == Opcode.LONG_TO_INT }.location.index
             val appAgeRegister = getInstruction<TwoRegisterInstruction>(longToIntIndex).registerA
 
@@ -24,4 +24,3 @@ val removeBuildExpiredPopupPatch = bytecodePatch(
         }
     }
 }
-

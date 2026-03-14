@@ -1,7 +1,8 @@
 package app.revanced.patches.youtube.video.quality
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -9,8 +10,9 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.videoQualityChangedFingerprint
+import app.revanced.patches.youtube.shared.videoQualityChangedMethodMatch
 import app.revanced.patches.youtube.video.information.onCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -25,59 +27,58 @@ val rememberVideoQualityPatch = bytecodePatch {
         playerTypeHookPatch,
         settingsPatch,
         addResourcesPatch,
+        versionCheckPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "video.quality.rememberVideoQualityPatch")
 
-        settingsMenuVideoQualityGroup.addAll(listOf(
-            ListPreference(
-                key = "revanced_video_quality_default_mobile",
-                entriesKey = "revanced_video_quality_default_entries",
-                entryValuesKey = "revanced_video_quality_default_entry_values"
-            ),
-            ListPreference(
-                key = "revanced_video_quality_default_wifi",
-                entriesKey = "revanced_video_quality_default_entries",
-                entryValuesKey = "revanced_video_quality_default_entry_values"
-            ),
-            SwitchPreference("revanced_remember_video_quality_last_selected"),
+        settingsMenuVideoQualityGroup.addAll(
+            listOf(
+                ListPreference(
+                    key = "revanced_video_quality_default_mobile",
+                    entriesKey = "revanced_video_quality_default_entries",
+                    entryValuesKey = "revanced_video_quality_default_entry_values",
+                ),
+                ListPreference(
+                    key = "revanced_video_quality_default_wifi",
+                    entriesKey = "revanced_video_quality_default_entries",
+                    entryValuesKey = "revanced_video_quality_default_entry_values",
+                ),
+                SwitchPreference("revanced_remember_video_quality_last_selected"),
 
-            ListPreference(
-                key = "revanced_shorts_quality_default_mobile",
-                entriesKey = "revanced_shorts_quality_default_entries",
-                entryValuesKey = "revanced_shorts_quality_default_entry_values",
+                ListPreference(
+                    key = "revanced_shorts_quality_default_mobile",
+                    entriesKey = "revanced_shorts_quality_default_entries",
+                    entryValuesKey = "revanced_shorts_quality_default_entry_values",
+                ),
+                ListPreference(
+                    key = "revanced_shorts_quality_default_wifi",
+                    entriesKey = "revanced_shorts_quality_default_entries",
+                    entryValuesKey = "revanced_shorts_quality_default_entry_values",
+                ),
+                SwitchPreference("revanced_remember_shorts_quality_last_selected"),
+                SwitchPreference("revanced_remember_video_quality_last_selected_toast"),
             ),
-            ListPreference(
-                key = "revanced_shorts_quality_default_wifi",
-                entriesKey = "revanced_shorts_quality_default_entries",
-                entryValuesKey = "revanced_shorts_quality_default_entry_values"
-            ),
-            SwitchPreference("revanced_remember_shorts_quality_last_selected"),
-            SwitchPreference("revanced_remember_video_quality_last_selected_toast")
-        ))
+        )
 
         onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "newVideoStarted")
 
         // Inject a call to remember the selected quality for Shorts.
-        videoQualityItemOnClickFingerprint.match(
-            videoQualityItemOnClickParentFingerprint.classDef
-        ).method.addInstruction(
+        videoQualityItemOnClickParentMethod.immutableClassDef.getVideoQualityItemOnClickMethod().addInstruction(
             0,
-            "invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->userChangedShortsQuality(I)V"
+            "invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->userChangedShortsQuality(I)V",
         )
 
         // Inject a call to remember the user selected quality for regular videos.
-        videoQualityChangedFingerprint.let {
-            it.method.apply {
-                val index = it.patternMatch!!.startIndex
-                val register = getInstruction<TwoRegisterInstruction>(index).registerA
+        videoQualityChangedMethodMatch.let { match ->
+            val index = match[-1]
+            val register = match.method.getInstruction<TwoRegisterInstruction>(index).registerA
 
-                addInstruction(
-                    index + 1,
-                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V",
-                )
-            }
+            match.method.addInstruction(
+                index + 1,
+                "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V",
+            )
         }
     }
 }

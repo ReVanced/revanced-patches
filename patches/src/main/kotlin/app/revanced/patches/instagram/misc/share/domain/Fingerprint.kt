@@ -1,16 +1,13 @@
 package app.revanced.patches.instagram.misc.share.domain
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal const val EXTENSION_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/instagram/misc/share/domain/ChangeLinkSharingDomainPatch;"
-
-internal val getCustomShareDomainFingerprint = fingerprint {
+internal val BytecodePatchContext.getCustomShareDomainMethod by gettingFirstMethodDeclaratively {
+    name("getCustomShareDomain")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
-    custom { method, classDef ->
-        method.name == "getCustomShareDomain" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
+    returnType("Ljava/lang/String;")
+    parameterTypes()
 }

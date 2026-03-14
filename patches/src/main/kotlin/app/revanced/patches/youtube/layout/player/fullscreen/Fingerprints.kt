@@ -1,25 +1,50 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
-internal const val OPEN_VIDEOS_FULLSCREEN_PORTRAIT_FEATURE_FLAG = 45666112L
-
-internal val openVideosFullscreenPortraitFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L", "Lj\$/util/Optional;")
-    literal {
-        OPEN_VIDEOS_FULLSCREEN_PORTRAIT_FEATURE_FLAG
-    }
+/**
+ * 19.46+
+ */
+internal val BytecodePatchContext.openVideosFullscreenPortraitMethodMatch by composingFirstMethod {
+    returnType("V")
+    parameterTypes("L", "Lj\$/util/Optional;")
+    instructions(
+        Opcode.MOVE_RESULT(), // Conditional check to modify.
+        // Open videos fullscreen portrait feature flag.
+        afterAtMost(5, 45666112L()), // Cannot be more than 5.
+        afterAtMost(10, Opcode.MOVE_RESULT()),
+    )
 }
 
-internal val openVideosFullscreenHookPatchExtensionFingerprint = fingerprint {
+/**
+ * Pre 19.46.
+ */
+internal val BytecodePatchContext.openVideosFullscreenPortraitLegacyMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("L", "Lj\$/util/Optional;")
+    opcodes(
+        Opcode.GOTO,
+        Opcode.SGET_OBJECT,
+        Opcode.GOTO,
+        Opcode.SGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT,
+        Opcode.IF_EQ,
+        Opcode.IF_EQ,
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT, // Conditional check to modify.
+    )
+}
+
+internal val BytecodePatchContext.openVideosFullscreenHookPatchExtensionMethod by gettingFirstMethodDeclaratively {
+    name("isFullScreenPatchIncluded")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Z")
-    parameters()
-    custom { methodDef, classDef ->
-        methodDef.name == "isFullScreenPatchIncluded" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
+    returnType("Z")
+    parameterTypes()
 }

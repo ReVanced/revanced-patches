@@ -8,10 +8,10 @@ import app.revanced.patches.shared.misc.settings.preference.NonInteractivePrefer
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.imageurlhook.addImageUrlErrorCallbackHook
-import app.revanced.patches.youtube.misc.imageurlhook.addImageUrlHook
-import app.revanced.patches.youtube.misc.imageurlhook.addImageUrlSuccessCallbackHook
-import app.revanced.patches.youtube.misc.imageurlhook.cronetImageUrlHookPatch
+import app.revanced.patches.youtube.misc.imageurlhook.addImageURLErrorCallbackHook
+import app.revanced.patches.youtube.misc.imageurlhook.addImageURLHook
+import app.revanced.patches.youtube.misc.imageurlhook.addImageURLSuccessCallbackHook
+import app.revanced.patches.youtube.misc.imageurlhook.cronetImageURLHookPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -19,6 +19,7 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/AlternativeThumbnailsPatch;"
 
+@Suppress("unused")
 val alternativeThumbnailsPatch = bytecodePatch(
     name = "Alternative thumbnails",
     description = "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
@@ -28,19 +29,21 @@ val alternativeThumbnailsPatch = bytecodePatch(
         settingsPatch,
         addResourcesPatch,
         navigationBarHookPatch,
-        cronetImageUrlHookPatch,
+        cronetImageURLHookPatch,
     )
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
+        ),
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.thumbnails.alternativeThumbnailsPatch")
 
         val entries = "revanced_alt_thumbnail_options_entries"
@@ -49,27 +52,27 @@ val alternativeThumbnailsPatch = bytecodePatch(
             ListPreference(
                 key = "revanced_alt_thumbnail_home",
                 entriesKey = entries,
-                entryValuesKey = values
+                entryValuesKey = values,
             ),
             ListPreference(
                 key = "revanced_alt_thumbnail_subscription",
                 entriesKey = entries,
-                entryValuesKey = values
+                entryValuesKey = values,
             ),
             ListPreference(
                 key = "revanced_alt_thumbnail_library",
                 entriesKey = entries,
-                entryValuesKey = values
+                entryValuesKey = values,
             ),
             ListPreference(
                 key = "revanced_alt_thumbnail_player",
                 entriesKey = entries,
-                entryValuesKey = values
+                entryValuesKey = values,
             ),
             ListPreference(
                 key = "revanced_alt_thumbnail_search",
                 entriesKey = entries,
-                entryValuesKey = values
+                entryValuesKey = values,
             ),
             NonInteractivePreference(
                 "revanced_alt_thumbnail_dearrow_about",
@@ -84,8 +87,8 @@ val alternativeThumbnailsPatch = bytecodePatch(
             ListPreference("revanced_alt_thumbnail_stills_time"),
         )
 
-        addImageUrlHook(EXTENSION_CLASS_DESCRIPTOR)
-        addImageUrlSuccessCallbackHook(EXTENSION_CLASS_DESCRIPTOR)
-        addImageUrlErrorCallbackHook(EXTENSION_CLASS_DESCRIPTOR)
+        addImageURLHook(EXTENSION_CLASS_DESCRIPTOR)
+        addImageURLSuccessCallbackHook(EXTENSION_CLASS_DESCRIPTOR)
+        addImageURLErrorCallbackHook(EXTENSION_CLASS_DESCRIPTOR)
     }
 }

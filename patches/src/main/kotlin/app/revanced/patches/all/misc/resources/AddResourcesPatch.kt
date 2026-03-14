@@ -215,8 +215,8 @@ fun addResources(
  * @see addResourcesPatch
  */
 fun addResources(
-    patch: Patch<*>,
-    parseIds: (Patch<*>) -> Map<AppId, Set<PatchId>> = {
+    patch: Patch,
+    parseIds: (Patch) -> Map<AppId, Set<PatchId>> = {
         val patchId = patch.name ?: throw PatchException("Patch has no name")
         val packages = patch.compatiblePackages ?: throw PatchException("Patch has no compatible packages")
 
@@ -273,9 +273,9 @@ val addResourcesPatch = resourcePatch(
     from the temporary map to addResourcesPatch.
 
     After all patches that depend on addResourcesPatch have been executed,
-    addResourcesPatch#finalize is finally called to add all staged resources to the app.
+    addResourcesPatch#afterDependents is finally called to add all staged resources to the app.
      */
-    execute {
+    apply {
         stagedResources = buildMap {
             /**
              * Puts resources under `/resources/addresources/<value>/<resourceKind>.xml` into the map.
@@ -324,7 +324,7 @@ val addResourcesPatch = resourcePatch(
 
             // Stage all resources to a temporary map.
             // Staged resources consumed by addResourcesPatch#invoke(Patch)
-            // are later used in addResourcesPatch#finalize.
+            // are later used in addResourcesPatch#afterDependents.
             try {
                 val addStringResources = { source: Value, dest: Value ->
                     addResources(source, dest, "strings", StringResource::fromNode)
@@ -343,7 +343,7 @@ val addResourcesPatch = resourcePatch(
      * Adds all resources staged in [addResourcesPatch] to the app.
      * This is called after all patches that depend on [addResourcesPatch] have been executed.
      */
-    finalize {
+    afterDependents {
         operator fun MutableMap<String, Pair<Document, Node>>.invoke(
             value: Value,
             resource: BaseResource,
@@ -359,14 +359,14 @@ val addResourcesPatch = resourcePatch(
                 }
 
             getOrPut(resourceFileName) {
-                this@finalize["res/$value/$resourceFileName.xml"].also {
+                this@afterDependents["res/$value/$resourceFileName.xml"].also {
                     it.parentFile?.mkdirs()
 
                     if (it.createNewFile()) {
                         it.writeText("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<resources>\n</resources>")
                     }
                 }
- 
+
                 document("res/$value/$resourceFileName.xml").let { document ->
 
                     // Save the target node here as well

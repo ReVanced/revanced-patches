@@ -1,0 +1,59 @@
+package app.revanced.patches.youtube.layout.hide.signintotvpopup
+
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
+
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/DisableSignInToTVPopupPatch;"
+
+@Suppress("unused")
+val disableSignInToTVPopupPatch = bytecodePatch(
+    name = "Disable sign in to TV popup",
+    description = "Adds an option to disable the popup asking to sign into a TV on the same local network.",
+) {
+    dependsOn(
+        settingsPatch,
+        sharedExtensionPatch,
+        addResourcesPatch,
+        resourceMappingPatch,
+    )
+
+    compatibleWith(
+        "com.google.android.youtube"(
+            "20.14.43",
+            "20.21.37",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
+        ),
+    )
+
+    apply {
+        addResources("youtube", "layout.hide.signintotv.disableSignInToTVPopupPatch")
+
+        PreferenceScreen.MISC.addPreferences(
+            SwitchPreference("revanced_disable_sign_in_to_tv_popup"),
+        )
+
+        signInToTVPopupMethod.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->disableSignInToTVPopup()Z
+                move-result v0
+                if-eqz v0, :allow_sign_in_popup
+                const/4 v0, 0x0
+                return v0
+                :allow_sign_in_popup
+                nop
+            """,
+        )
+    }
+}

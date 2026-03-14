@@ -1,7 +1,7 @@
 package app.revanced.patches.music.misc.dns
 
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
-import app.revanced.patches.music.shared.mainActivityOnCreateFingerprint
+import app.revanced.patches.music.shared.mainActivityOnCreateMethod
 import app.revanced.patches.shared.misc.dns.checkWatchHistoryDomainNameResolutionPatch
 
 val checkWatchHistoryDomainNameResolutionPatch = checkWatchHistoryDomainNameResolutionPatch(
@@ -13,10 +13,12 @@ val checkWatchHistoryDomainNameResolutionPatch = checkWatchHistoryDomainNameReso
         compatibleWith(
             "com.google.android.apps.youtube.music"(
                 "7.29.52",
-                "8.10.52"
+                "8.10.52",
+                "8.37.56",
+                "8.40.54"
             )
         )
     },
 
-    mainActivityFingerprint = mainActivityOnCreateFingerprint
+    getMainActivityMethod = { mainActivityOnCreateMethod }
 )

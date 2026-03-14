@@ -1,7 +1,6 @@
 package app.revanced.extension.shared.settings.search;
 
 import static app.revanced.extension.shared.Utils.getResourceIdentifierOrThrow;
-import static app.revanced.extension.shared.settings.search.BaseSearchViewController.DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
 
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
@@ -33,10 +32,11 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
-import app.revanced.extension.shared.settings.preference.UrlLinkPreference;
+import app.revanced.extension.shared.settings.preference.URLLinkPreference;
 import app.revanced.extension.shared.ui.ColorDot;
 
 /**
@@ -54,15 +54,15 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
     protected static final int PAUSE_BETWEEN_BLINKS = 100;
 
     protected static final int ID_PREFERENCE_TITLE = getResourceIdentifierOrThrow(
-            "preference_title", "id");
+            ResourceType.ID, "preference_title");
     protected static final int ID_PREFERENCE_SUMMARY = getResourceIdentifierOrThrow(
-            "preference_summary", "id");
+            ResourceType.ID, "preference_summary");
     protected static final int ID_PREFERENCE_PATH = getResourceIdentifierOrThrow(
-            "preference_path", "id");
+            ResourceType.ID, "preference_path");
     protected static final int ID_PREFERENCE_SWITCH = getResourceIdentifierOrThrow(
-            "preference_switch", "id");
+            ResourceType.ID, "preference_switch");
     protected static final int ID_PREFERENCE_COLOR_DOT = getResourceIdentifierOrThrow(
-            "preference_color_dot", "id");
+            ResourceType.ID, "preference_color_dot");
 
     protected static class RegularViewHolder {
         TextView titleView;
@@ -275,7 +275,7 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
         holder.titleView.setText(item.highlightedTitle);
         holder.summaryView.setText(item.highlightedSummary);
         holder.summaryView.setVisibility(TextUtils.isEmpty(item.highlightedSummary) ? View.GONE : View.VISIBLE);
-        holder.iconView.setImageResource(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
+        holder.iconView.setImageResource(BaseSearchViewController.getSearchIcon());
     }
 
     /**
@@ -436,7 +436,7 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
     }
 
     /**
-     * Normalizes string for comparison (removes extra characters, spaces etc).
+     * Normalizes string for comparison (removes extra characters, spaces etc.).
      */
     protected String normalizeString(String input) {
         if (TextUtils.isEmpty(input)) return "";
@@ -609,8 +609,8 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
     boolean hasNavigationCapability(Preference preference) {
         // PreferenceScreen always allows navigation.
         if (preference instanceof PreferenceScreen) return true;
-        // UrlLinkPreference does not navigate to a new screen, it opens an external URL.
-        if (preference instanceof UrlLinkPreference) return false;
+        // URLLinkPreference does not navigate to a new screen, it opens an external URL.
+        if (preference instanceof URLLinkPreference) return false;
         // Other group types that might have their own screens.
         if (preference instanceof PreferenceGroup) {
             // Check if it has its own fragment or intent.

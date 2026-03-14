@@ -16,10 +16,11 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
-import app.revanced.extension.shared.settings.preference.UrlLinkPreference;
+import app.revanced.extension.shared.settings.preference.URLLinkPreference;
 
 /**
  * Abstract base class for search result items, defining common fields and behavior.
@@ -38,18 +39,18 @@ public abstract class BaseSearchResultItem {
         // Get the corresponding layout resource ID.
         public int getLayoutResourceId() {
             return switch (this) {
-                case REGULAR, URL_LINK -> getResourceIdentifier("revanced_preference_search_result_regular");
-                case SWITCH -> getResourceIdentifier("revanced_preference_search_result_switch");
-                case LIST   -> getResourceIdentifier("revanced_preference_search_result_list");
-                case COLOR_PICKER -> getResourceIdentifier("revanced_preference_search_result_color");
-                case GROUP_HEADER -> getResourceIdentifier("revanced_preference_search_result_group_header");
-                case NO_RESULTS   -> getResourceIdentifier("revanced_preference_search_no_result");
+                case REGULAR, URL_LINK ->   getResourceIdentifier("revanced_preference_search_result_regular");
+                case SWITCH ->              getResourceIdentifier("revanced_preference_search_result_switch");
+                case LIST   ->              getResourceIdentifier("revanced_preference_search_result_list");
+                case COLOR_PICKER ->        getResourceIdentifier("revanced_preference_search_result_color");
+                case GROUP_HEADER ->        getResourceIdentifier("revanced_preference_search_result_group_header");
+                case NO_RESULTS   ->        getResourceIdentifier("revanced_preference_search_no_result");
             };
         }
 
         private static int getResourceIdentifier(String name) {
             // Placeholder for actual resource identifier retrieval.
-            return Utils.getResourceIdentifierOrThrow(name, "layout");
+            return Utils.getResourceIdentifierOrThrow(ResourceType.LAYOUT, name);
         }
     }
 
@@ -166,7 +167,7 @@ public abstract class BaseSearchResultItem {
             if (pref instanceof SwitchPreference) return ViewType.SWITCH;
             if (pref instanceof ListPreference) return ViewType.LIST;
             if (pref instanceof ColorPickerPreference) return ViewType.COLOR_PICKER;
-            if (pref instanceof UrlLinkPreference) return ViewType.URL_LINK;
+            if (pref instanceof URLLinkPreference) return ViewType.URL_LINK;
             if ("no_results_placeholder".equals(pref.getKey())) return ViewType.NO_RESULTS;
             return ViewType.REGULAR;
         }

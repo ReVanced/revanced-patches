@@ -20,13 +20,18 @@ var is_8_11_or_greater: Boolean by Delegates.notNull()
     private set
 var is_8_15_or_greater: Boolean by Delegates.notNull()
     private set
+var is_8_40_or_greater: Boolean by Delegates.notNull()
+    private set
+var is_8_41_or_greater: Boolean by Delegates.notNull()
+    private set
 
 val versionCheckPatch = resourcePatch(
-    description = "Uses the Play Store service version to find the major/minor version of the YouTube Music target app.",
+    description = "Uses the Play Store service version to find the major/minor version of the YouTube Music target app."
 ) {
-    execute {
+    apply {
         // The app version is missing from the decompiled manifest,
         // so instead use the Google Play services version and compare against specific releases.
+        // This requires ResourcePatchContext, which creatingResourcePatch provides.
         val playStoreServicesVersion = findPlayStoreServicesVersion()
 
         // All bug fix releases always seem to use the same play store version as the minor version.
@@ -36,5 +41,7 @@ val versionCheckPatch = resourcePatch(
         is_8_10_or_greater = 251099000 <= playStoreServicesVersion
         is_8_11_or_greater = 251199000 <= playStoreServicesVersion
         is_8_15_or_greater = 251530000 <= playStoreServicesVersion
+        is_8_40_or_greater = 254080000 <= playStoreServicesVersion
+        is_8_41_or_greater = 254180000 <= playStoreServicesVersion
     }
 }

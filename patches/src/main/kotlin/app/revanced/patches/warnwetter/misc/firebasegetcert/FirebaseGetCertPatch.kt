@@ -8,9 +8,9 @@ val firebaseGetCertPatch = bytecodePatch(
 ) {
     compatibleWith("de.dwd.warnapp")
 
-    execute {
-        listOf(getRegistrationCertFingerprint, getMessagingCertFingerprint).forEach { match ->
-            match.method.returnEarly("0799DDF0414D3B3475E88743C91C0676793ED450")
+    apply {
+        listOf(getRegistrationCertMethod, getMessagingCertMethod).forEach { method ->
+            method.returnEarly("0799DDF0414D3B3475E88743C91C0676793ED450")
         }
     }
 }

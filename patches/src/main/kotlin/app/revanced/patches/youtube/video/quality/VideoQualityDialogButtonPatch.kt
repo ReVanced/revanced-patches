@@ -13,9 +13,9 @@ import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 
 private val videoQualityButtonResourcePatch = resourcePatch {
-    dependsOn(playerControlsResourcePatch)
+    dependsOn(playerControlsPatch)
 
-    execute {
+    apply {
         copyResources(
             "qualitybutton",
             ResourceGroup(
@@ -43,7 +43,7 @@ val videoQualityDialogButtonPatch = bytecodePatch(
         playerControlsPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "video.quality.button.videoQualityDialogButtonPatch")
 
         PreferenceScreen.PLAYER.addPreferences(

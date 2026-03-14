@@ -10,7 +10,7 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.peacocktv.peacockandroid")
 
-    execute {
-        mediaTailerAdServiceFingerprint.method.returnEarly(false)
+    apply {
+        mediaTailerAdServiceMethod.returnEarly(false)
     }
 }

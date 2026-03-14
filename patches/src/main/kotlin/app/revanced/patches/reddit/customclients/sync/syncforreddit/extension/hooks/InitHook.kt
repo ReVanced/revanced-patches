@@ -1,11 +1,7 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.extension.hooks
 
-import app.revanced.patches.shared.misc.extension.extensionHook
+import app.revanced.patches.shared.misc.extension.activityOnCreateExtensionHook
 
-internal val initHook = extensionHook(
-    insertIndexResolver = { 1 }, // Insert after call to super class.
-) {
-    custom { method, classDef ->
-        method.name == "onCreate" && classDef.type == "Lcom/laurencedawson/reddit_sync/RedditApplication;"
-    }
-}
+internal val initHook = activityOnCreateExtensionHook(
+    "Lcom/laurencedawson/reddit_sync/RedditApplication;"
+)

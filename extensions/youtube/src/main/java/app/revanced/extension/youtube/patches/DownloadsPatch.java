@@ -21,14 +21,14 @@ public final class DownloadsPatch {
     /**
      * Injection point.
      */
-    public static void activityCreated(Activity mainActivity) {
+    public static void setMainActivity(Activity mainActivity) {
         activityRef = new WeakReference<>(mainActivity);
     }
 
     /**
      * Injection point.
      * <p>
-     * Called from the in app download hook,
+     * Called from the in-app download hook,
      * for both the player action button (below the video)
      * and the 'Download video' flyout option for feed videos.
      * <p>
@@ -41,7 +41,7 @@ public final class DownloadsPatch {
             }
 
             // If possible, use the main activity as the context.
-            // Otherwise fall back on using the application context.
+            // Otherwise, fall back on using the application context.
             Context context = activityRef.get();
             boolean isActivityContext = true;
             if (context == null) {

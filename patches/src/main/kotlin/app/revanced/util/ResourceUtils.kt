@@ -76,12 +76,16 @@ fun ResourcePatchContext.copyResources(
 
     for (resourceGroup in resources) {
         resourceGroup.resources.forEach { resource ->
+            // Create the target directory if it doesn't exist.
+            Files.createDirectories(targetResourceDirectory.resolve(resourceGroup.resourceDirectoryName).toPath())
+
             val resourceFile = "${resourceGroup.resourceDirectoryName}/$resource"
             val stream = inputStreamFromBundledResource(sourceResourceDirectory, resourceFile)
-            if (stream == null) {
-                throw IllegalArgumentException("Could not find resource: $resourceFile " +
-                        "in directory: $sourceResourceDirectory")
-            }
+                ?: throw IllegalArgumentException(
+                    "Could not find resource: $resourceFile " +
+                            "in directory: $sourceResourceDirectory"
+                )
+
             Files.copy(
                 stream,
                 targetResourceDirectory.resolve(resourceFile).toPath(),
@@ -105,8 +109,8 @@ class ResourceGroup(val resourceDirectoryName: String, vararg val resources: Str
 
 /**
  * Iterate through the children of a node by its tag.
- * @param resource The xml resource.
- * @param targetTag The target xml node.
+ * @param resource The XML resource.
+ * @param targetTag The target XML node.
  * @param callback The callback to call when iterating over the nodes.
  */
 fun ResourcePatchContext.iterateXmlNodeChildren(

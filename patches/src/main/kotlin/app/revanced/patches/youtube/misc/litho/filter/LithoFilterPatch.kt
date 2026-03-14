@@ -2,69 +2,73 @@
 
 package app.revanced.patches.youtube.misc.litho.filter
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patches.youtube.shared.conversionContextToStringMethod
+import app.revanced.patches.shared.misc.litho.filter.EXTENSION_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.misc.litho.filter.lithoFilterPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_05_or_greater
-import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
-import app.revanced.patches.youtube.shared.conversionContextFingerprintToString
+import app.revanced.patches.shared.misc.litho.filter.protobufBufferReferenceLegacyMethod
+import app.revanced.patches.shared.misc.litho.filter.protobufBufferReferenceMethodMatch
+import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.playservice.*
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.insertLiteralOverride
+import app.revanced.util.returnLate
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-
-@Deprecated("Use the shared one instead", ReplaceWith("app.revanced.patches.shared.misc.litho.filter.addLithoFilter"))
-lateinit var addLithoFilter: (String) -> Unit
-    private set
 
 val lithoFilterPatch = lithoFilterPatch(
     componentCreateInsertionIndex = {
         if (is_19_17_or_greater) {
             indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
         } else {
-            // 19.16 clobbers p2 so must check at start of the method
+            // 19.16 clobbers p2 so must check at start of the method and not at the return index.
             0
         }
     },
-    conversionContextFingerprintToString = conversionContextFingerprintToString,
-    executeBlock = BytecodePatchContext::executeBlock,
-) {
-    dependsOn(versionCheckPatch)
-}
-
-private fun BytecodePatchContext.executeBlock() {
-    // region A/B test of new Litho native code.
-
-    // Turn off native code that handles litho component names.  If this feature is on then nearly
-    // all litho components have a null name and identifier/path filtering is completely broken.
-    //
-    // Flag was removed in 20.05. It appears a new flag might be used instead (45660109L),
-    // but if the flag is forced on then litho filtering still works correctly.
-    if (is_19_25_or_greater && !is_20_05_or_greater) {
-        lithoComponentNameUpbFeatureFlagFingerprint.method.apply {
-            // Don't use return early, so the debug patch logs if this was originally on.
-            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN)
-            val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-            addInstruction(insertIndex, "const/4 v$register, 0x0")
+    insertProtobufHook = {
+        if (is_20_22_or_greater) {
+            // Hook method that bridges between UPB buffer native code and FB Litho.
+            // Method is found in 19.25+, but is forcefully turned off for 20.21 and lower.
+            protobufBufferReferenceMethodMatch.let {
+                // Hook the buffer after the call to jniDecode().
+                it.method.addInstruction(
+                    it[-1] + 1,
+                    "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer([B)V",
+                )
+            }
         }
+
+        // Legacy non-native buffer.
+        protobufBufferReferenceLegacyMethod.addInstruction(
+            0,
+            "invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
+        )
+    },
+    getConversionContextToStringMethod = BytecodePatchContext::conversionContextToStringMethod::get,
+    getExtractIdentifierFromBuffer = { is_20_21_or_greater },
+    executeBlock = {
+        // region A/B test of new Litho native code.
+
+        // Turn off native code that handles litho component names. If this feature is on then nearly
+        // all litho components have a null name and identifier/path filtering is completely broken.
+        //
+        // Flag was removed in 20.05. It appears a new flag might be used instead (45660109L),
+        // but if the flag is forced on then litho filtering still works correctly.
+        if (is_19_25_or_greater && !is_20_05_or_greater) {
+            lithoComponentNameUpbFeatureFlagMethod.returnLate(false)
+        }
+
+        // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf).
+        lithoConverterBufferUpbFeatureFlagMethodMatch.let {
+            // 20.22 the flag is still enabled in one location, but what it does is not known.
+            // Disable it anyway.
+            it.method.insertLiteralOverride(
+                it[0],
+                false,
+            )
+        }
+        // endregion
     }
-
-    // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf).
-    // If this is enabled, then the litho protobuffer hook will always show an empty buffer
-    // since it's no longer handled by the hooked Java code.
-    lithoConverterBufferUpbFeatureFlagFingerprint.method.apply {
-        val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
-        val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-        addInstruction(index + 1, "const/4 v$register, 0x0")
-    }
-
-    // endregion
-
-    // Set the addLithoFilter function to the one from the shared patch.
-    // This is done for backwards compatibility.
-    addLithoFilter = app.revanced.patches.shared.misc.litho.filter.addLithoFilter
+) {
+    dependsOn(sharedExtensionPatch, versionCheckPatch)
 }

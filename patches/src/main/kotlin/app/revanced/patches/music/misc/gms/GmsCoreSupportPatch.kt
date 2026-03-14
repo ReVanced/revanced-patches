@@ -1,5 +1,6 @@
 package app.revanced.patches.music.misc.gms
 
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.Option
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -9,32 +10,30 @@ import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.gms.Constants.REVANCED_MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
-import app.revanced.patches.music.misc.spoof.spoofVideoStreamsPatch
-import app.revanced.patches.shared.castContextFetchFingerprint
+import app.revanced.patches.shared.castContextFetchMethod
 import app.revanced.patches.shared.misc.gms.gmsCoreSupportPatch
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.shared.primeMethodFingerprint
+import app.revanced.patches.shared.primeMethod
 
 @Suppress("unused")
 val gmsCoreSupportPatch = gmsCoreSupportPatch(
     fromPackageName = MUSIC_PACKAGE_NAME,
     toPackageName = REVANCED_MUSIC_PACKAGE_NAME,
-    primeMethodFingerprint = primeMethodFingerprint,
-    earlyReturnFingerprints = setOf(
-        castContextFetchFingerprint,
-    ),
-    mainActivityOnCreateFingerprint = musicActivityOnCreateFingerprint,
+    getPrimeMethod = { primeMethod },
+    getEarlyReturnMethods = setOf(BytecodePatchContext::castContextFetchMethod::get),
+    getMainActivityOnCreateMethodToGetInsertIndex = BytecodePatchContext::musicActivityOnCreateMethod::get to { 0 },
     extensionPatch = sharedExtensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {
-    dependsOn(spoofVideoStreamsPatch)
 
     compatibleWith(
         MUSIC_PACKAGE_NAME(
             "7.29.52",
             "8.10.52",
+            "8.37.56",
+            "8.40.54",
         ),
     )
 }

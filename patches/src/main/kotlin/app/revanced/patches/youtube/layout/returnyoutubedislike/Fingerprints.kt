@@ -1,31 +1,34 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.*
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val dislikeFingerprint = fingerprint {
-    returns("V")
-    strings("like/dislike")
+internal val BytecodePatchContext.dislikeMethod by gettingFirstMethodDeclaratively {
+    returnType("V")
+    instructions("like/dislike"())
 }
 
-internal val likeFingerprint = fingerprint {
-    returns("V")
-    strings("like/like")
+internal val BytecodePatchContext.likeMethod by gettingFirstMethodDeclaratively {
+    returnType("V")
+    instructions("like/like"())
 }
 
-internal val removeLikeFingerprint = fingerprint {
-    returns("V")
-    strings("like/removelike")
+internal val BytecodePatchContext.removeLikeMethod by gettingFirstMethodDeclaratively {
+    returnType("V")
+    instructions("like/removelike"())
 }
 
-internal val rollingNumberMeasureAnimatedTextFingerprint = fingerprint {
+internal val BytecodePatchContext.rollingNumberMeasureAnimatedTextMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Lj\$/util/Optional;")
-    parameters("L", "Ljava/lang/String;", "L")
+    returnType("Lj\$/util/Optional;")
+    parameterTypes("L", "Ljava/lang/String;", "L")
     opcodes(
-        Opcode.IGET, // First instruction of method
+        Opcode.IGET, // First instruction of method.
         Opcode.IGET_OBJECT,
         Opcode.IGET_OBJECT,
         Opcode.CONST_HIGH16,
@@ -34,17 +37,17 @@ internal val rollingNumberMeasureAnimatedTextFingerprint = fingerprint {
         Opcode.CONST_4,
         Opcode.AGET,
         Opcode.CONST_4,
-        Opcode.CONST_4, // Measured text width
+        Opcode.CONST_4, // Measured text width.
     )
 }
 
 /**
- * Matches to class found in [rollingNumberMeasureStaticLabelParentFingerprint].
+ * Matches to class found in [rollingNumberMeasureStaticLabelParentMethod].
  */
-internal val rollingNumberMeasureStaticLabelFingerprint = fingerprint {
+internal val ClassDef.rollingNumberMeasureStaticLabelMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("F")
-    parameters("Ljava/lang/String;")
+    returnType("F")
+    parameterTypes("Ljava/lang/String;")
     opcodes(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
@@ -53,69 +56,102 @@ internal val rollingNumberMeasureStaticLabelFingerprint = fingerprint {
     )
 }
 
-internal val rollingNumberMeasureStaticLabelParentFingerprint = fingerprint {
+internal val BytecodePatchContext.rollingNumberMeasureStaticLabelParentMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/String;")
-    parameters()
-    strings("RollingNumberFontProperties{paint=")
+    returnType("Ljava/lang/String;")
+    parameterTypes()
+    instructions(
+        "RollingNumberFontProperties{paint="(),
+    )
 }
 
-internal val rollingNumberSetterFingerprint = fingerprint {
+internal val BytecodePatchContext.rollingNumberSetterMethodMatch by composingFirstMethod {
     opcodes(
         Opcode.INVOKE_DIRECT,
         Opcode.IGET_OBJECT,
     )
-    // Partial string match.
-    strings("RollingNumberType required properties missing! Need")
+
+    val match =
+        indexedMatcher("RollingNumberType required properties missing! Need"(String::contains))
+    custom { match(instructions) }
 }
 
-internal val rollingNumberTextViewFingerprint = fingerprint {
+internal val BytecodePatchContext.rollingNumberTextViewMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L", "F", "F")
-    opcodes(
-        Opcode.IPUT,
-        null, // invoke-direct or invoke-virtual
-        Opcode.IPUT_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID,
+    returnType("V")
+    parameterTypes("L", "F", "F")
+    instructions(
+        Opcode.IPUT(),
+        after(anyOf(Opcode.INVOKE_DIRECT(), Opcode.INVOKE_VIRTUAL())),
+        after(Opcode.IPUT_OBJECT()),
+        after(Opcode.IGET_OBJECT()),
+        after(Opcode.INVOKE_VIRTUAL()),
+        after(Opcode.RETURN_VOID()),
     )
-    custom { _, classDef ->
-        classDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;" || classDef.superclass ==
+    custom {
+        immutableClassDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;" || immutableClassDef.superclass ==
                 "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
     }
 }
 
-internal val textComponentConstructorFingerprint = fingerprint {
-    accessFlags(AccessFlags.CONSTRUCTOR, AccessFlags.PRIVATE)
-    strings("TextComponent")
+internal val BytecodePatchContext.textComponentConstructorMethod by gettingFirstImmutableMethodDeclaratively {
+    custom {
+        // 20.23+ is public.
+        // 20.22 and lower is private.
+        AccessFlags.CONSTRUCTOR.isSet(accessFlags)
+    }
+    instructions("TextComponent"())
 }
 
-internal val textComponentDataFingerprint = fingerprint {
+internal val BytecodePatchContext.textComponentDataMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("L", "L")
-    strings("text")
-    custom { _, classDef ->
-        classDef.fields.find { it.type == "Ljava/util/BitSet;" } != null
-    }
+    parameterTypes("L", "L")
+    instructions(
+        "text"(),
+    )
+    custom { immutableClassDef.anyField { type == "Ljava/util/BitSet;" } }
 }
 
 /**
- * Matches against the same class found in [textComponentConstructorFingerprint].
+ * Matches against the same class found in [textComponentConstructorMethod].
  */
-internal val textComponentLookupFingerprint = fingerprint {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getTextComponentLookupMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
-    returns("L")
-    parameters("L")
-    strings("…")
+    returnType("L")
+    parameterTypes("L")
+    instructions("…"())
 }
 
-internal const val LITHO_NEW_TEXT_COMPONENT_FEATURE_FLAG = 45675738L
-
-internal val textComponentFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.textComponentFeatureFlagMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.FINAL)
-    returns("Z")
-    parameters()
-    literal { LITHO_NEW_TEXT_COMPONENT_FEATURE_FLAG }
+    returnType("Z")
+    parameterTypes()
+    instructions(45675738L())
+}
+
+
+internal val BytecodePatchContext.lithoSpannableStringCreationMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("L", "Ljava/lang/Object;", "L")
+    instructions(
+        allOf(Opcode.NEW_INSTANCE(), type("Landroid/text/SpannableString;")),
+        afterAtMost(
+            5,
+            method {
+                toString() == "Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V"
+            }
+        ),
+        afterAtMost(
+            5,
+            method {
+                toString() == "Landroid/text/SpannableString;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;"
+            }
+        ),
+        method {
+            name == "addOnLayoutChangeListener" && parameterTypes.size == 1 &&
+                    parameterTypes.first() == $$"Landroid/view/View$OnLayoutChangeListener;"
+        }
+    )
 }

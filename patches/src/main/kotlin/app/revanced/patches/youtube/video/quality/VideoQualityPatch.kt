@@ -7,31 +7,34 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPref
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 
 /**
- * Video quality settings.  Used to organize all speed related settings together.
+ * Video quality settings. Used to organize all speed related settings together.
  */
 internal val settingsMenuVideoQualityGroup = mutableSetOf<BasePreference>()
 
 @Suppress("unused")
 val videoQualityPatch = bytecodePatch(
     name = "Video quality",
-    description = "Adds options to set default video qualities and always use the advanced video quality menu."
+    description = "Adds options to set default video qualities and always use the advanced video quality menu.",
 ) {
     dependsOn(
         rememberVideoQualityPatch,
         advancedVideoQualityMenuPatch,
-        videoQualityDialogButtonPatch
+        hidePremiumVideoQualityPatch,
+        videoQualityDialogButtonPatch,
     )
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
+        ),
     )
 
-    execute {
+    apply {
         PreferenceScreen.VIDEO.addPreferences(
             // Keep the preferences organized together.
             PreferenceCategory(
@@ -39,8 +42,8 @@ val videoQualityPatch = bytecodePatch(
                 titleKey = null,
                 sorting = Sorting.UNSORTED,
                 tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
-                preferences = settingsMenuVideoQualityGroup
-            )
+                preferences = settingsMenuVideoQualityGroup,
+            ),
         )
     }
 }

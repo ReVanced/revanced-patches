@@ -1,15 +1,14 @@
 package app.revanced.patches.reddit.customclients.infinityforreddit.subscription
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.invoke
+import app.revanced.patcher.instructions
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val billingClientOnServiceConnectedFingerprint = fingerprint {
-    strings("Billing service connected")
+internal val BytecodePatchContext.billingClientOnServiceConnectedMethod by gettingFirstMethodDeclaratively {
+    instructions("Billing service connected"(String::contains))
 }
 
-internal val startSubscriptionActivityFingerprint = fingerprint {
-    literal {
-        // Intent start flag only used in the subscription activity
-        0x10008000
-    }
+internal val BytecodePatchContext.startSubscriptionActivityMethod by gettingFirstMethodDeclaratively {
+    instructions(0x10008000L())
 }

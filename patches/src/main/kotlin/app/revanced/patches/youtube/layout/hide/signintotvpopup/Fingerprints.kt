@@ -1,12 +1,14 @@
 package app.revanced.patches.youtube.layout.hide.signintotvpopup
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
+import app.revanced.patches.shared.misc.mapping.ResourceType
 
-internal val signInToTvPopupFingerprint = fingerprint {
-    returns("Z")
-    parameters("Ljava/lang/String;", "Z", "L")
-    literal {
-        mdx_seamless_tv_sign_in_drawer_fragment_title_id
-    }
+internal val BytecodePatchContext.signInToTVPopupMethod by gettingFirstMethodDeclaratively {
+    returnType("Z")
+    parameterTypes("Ljava/lang/String;", "Z", "L")
+    instructions(ResourceType.STRING("mdx_seamless_tv_sign_in_drawer_fragment_title"))
 }

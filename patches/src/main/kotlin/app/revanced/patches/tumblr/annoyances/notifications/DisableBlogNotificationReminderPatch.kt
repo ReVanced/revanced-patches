@@ -1,6 +1,6 @@
 package app.revanced.patches.tumblr.annoyances.notifications
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
@@ -10,8 +10,8 @@ val disableBlogNotificationReminderPatch = bytecodePatch(
 ) {
     compatibleWith("com.tumblr")
 
-    execute {
-        isBlogNotifyEnabledFingerprint.method.addInstructions(
+    apply {
+        isBlogNotifyEnabledMethod.addInstructions(
             0,
             """
                 # Return false for BlogNotifyCtaDialog.isEnabled() method.

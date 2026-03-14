@@ -43,7 +43,7 @@ public class BooleanSetting extends Setting<Boolean> {
      * This method is only to be used by the Settings preference code.
      *
      * This intentionally is a static method to deter
-     * accidental usage when {@link #save(Boolean)} was intnded.
+     * accidental usage when {@link #save(Boolean)} was intended.
      */
     public static void privateSetValue(@NonNull BooleanSetting setting, @NonNull Boolean newValue) {
         setting.value = Objects.requireNonNull(newValue);

@@ -1,53 +1,97 @@
 package app.revanced.patches.youtube.layout.buttons.navigation
 
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import com.android.tools.smali.dexlib2.Opcode
 
-internal const val ANDROID_AUTOMOTIVE_STRING = "Android Automotive"
-
-internal val addCreateButtonViewFingerprint = fingerprint {
-    strings("Android Wear", ANDROID_AUTOMOTIVE_STRING)
-}
-
-internal val createPivotBarFingerprint = fingerprint {
+internal val BytecodePatchContext.createPivotBarMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
-    parameters(
+    parameterTypes(
         "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;",
         "Landroid/widget/TextView;",
         "Ljava/lang/CharSequence;",
     )
-    opcodes(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID,
+    instructions(
+        method { name == "setText" && definingClass == "Landroid/widget/TextView;" },
+        Opcode.RETURN_VOID(),
     )
 }
 
-internal const val TRANSLUCENT_NAVIGATION_STATUS_BAR_FEATURE_FLAG = 45400535L
-
-internal val translucentNavigationStatusBarFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.animatedNavigationTabsFeatureFlagMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    literal { TRANSLUCENT_NAVIGATION_STATUS_BAR_FEATURE_FLAG }
+    returnType("Z")
+    instructions(
+        45680008L(),
+    )
 }
 
-internal const val TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG = 45630927L
 
-internal val translucentNavigationButtonsFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.pivotBarStyleMethodMatch by composingFirstMethod {
+    definingClass("/PivotBar;")
+    returnType("V")
+    parameterTypes("L")
+    opcodes(
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT,
+        Opcode.XOR_INT_2ADDR
+    )
+}
+
+internal val BytecodePatchContext.pivotBarChangedMethodMatch by composingFirstMethod {
+    name("onConfigurationChanged")
+    definingClass("/PivotBar;")
+    returnType("V")
+    opcodes(
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT
+    )
+}
+
+internal val BytecodePatchContext.translucentNavigationStatusBarFeatureFlagMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    literal { TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG }
+    returnType("Z")
+    instructions(
+        45400535L(), // Translucent status bar feature flag.
+    )
 }
 
 /**
- * The device on screen back/home/recent buttons.
+ * YouTube nav buttons.
  */
-internal const val TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG = 45632194L
-
-internal val translucentNavigationButtonsSystemFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.translucentNavigationButtonsFeatureFlagMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    literal { TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG }
+    returnType("V")
+    instructions(
+        45630927L(), // Translucent navigation bar buttons feature flag.
+    )
+}
+
+/**
+ * Device on screen back/home/recent buttons.
+ */
+internal val BytecodePatchContext.translucentNavigationButtonsSystemFeatureFlagMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("Z")
+    instructions(
+        45632194L(), // Translucent system buttons feature flag.
+    )
+}
+
+internal val BytecodePatchContext.setWordmarkHeaderMethod by gettingFirstMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("Landroid/widget/ImageView;")
+    instructions(
+        ResourceType.ATTR("ytPremiumWordmarkHeader"),
+        ResourceType.ATTR("ytWordmarkHeader")
+    )
+}
+
+internal val BytecodePatchContext.wideSearchbarLayoutMethod by gettingFirstMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("Landroid/view/View;")
+    parameterTypes("L", "L")
+    instructions(ResourceType.LAYOUT("action_bar_ringo"))
 }

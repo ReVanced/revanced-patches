@@ -247,7 +247,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
             } else {
                 String savedPackageName = Settings.EXTERNAL_DOWNLOADER_PACKAGE_NAME.get();
                 editText.setText(Downloader.findByPackageName(savedPackageName) == null
-                        ? savedPackageName // If the user is clicking thru options then retain existing other app.
+                        ? savedPackageName // If the user is clicking through options then retain existing other app.
                         : ""
                 );
                 editText.setEnabled(true); // Enable editing for Custom.

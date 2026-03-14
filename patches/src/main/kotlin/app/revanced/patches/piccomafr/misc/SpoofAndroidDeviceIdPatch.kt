@@ -1,12 +1,11 @@
 package app.revanced.patches.piccomafr.misc
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val spoofAndroidDeviceIdPatch = bytecodePatch(
+val spoofAndroidDeviceIDPatch = bytecodePatch(
     name = "Spoof Android device ID",
     description = "Spoofs the Android device ID used by the app for account authentication." +
         "This can be used to copy the account to another device.",
@@ -32,14 +31,13 @@ val spoofAndroidDeviceIdPatch = bytecodePatch(
     )
 
     val androidDeviceId by stringOption(
-        key = "android-device-id",
+        name = "Android device ID",
         default = "0011223344556677",
-        title = "Android device ID",
         description = "The Android device ID to spoof to.",
         required = true,
     ) { it!!.matches("[A-Fa-f0-9]{16}".toRegex()) }
 
-    execute {
-        getAndroidIdFingerprint.method.returnEarly(androidDeviceId!!)
+    apply {
+        getAndroidIdMethod.returnEarly(androidDeviceId!!)
     }
 }

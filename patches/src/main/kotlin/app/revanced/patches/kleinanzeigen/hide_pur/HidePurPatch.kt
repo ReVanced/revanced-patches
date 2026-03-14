@@ -10,7 +10,7 @@ val hidePurPatch = bytecodePatch(
 ) {
     compatibleWith("com.ebay.kleinanzeigen")
 
-    execute {
-        getShowAdFreeSubscriptionFingerprint.method.returnEarly(false)
+    apply {
+        getShowAdFreeSubscriptionFingerprint.returnEarly(false)
     }
 }

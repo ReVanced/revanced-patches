@@ -1,8 +1,8 @@
 package app.revanced.patches.openinghours.misc.fix.crash
 
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.newLabel
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
@@ -14,11 +14,12 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Suppress("unused")
 val fixCrashPatch = bytecodePatch(
     name = "Fix crash",
+    description = "Fixes a crash when opening a place.",
 ) {
     compatibleWith("de.simon.openinghours"("1.0"))
 
-    execute {
-        val indexedInstructions = setPlaceFingerprint.method.instructions.withIndex().toList()
+    apply {
+        val indexedInstructions = setPlaceMethod.instructions.withIndex().toList()
 
         /**
          * This function replaces all `checkNotNull` instructions in the integer interval
@@ -27,7 +28,7 @@ val fixCrashPatch = bytecodePatch(
          * the value is indeed null, we jump to a newly created label at `endIndex + 1`.
          */
         fun avoidNullPointerException(startIndex: Int, endIndex: Int) {
-            val continueLabel = setPlaceFingerprint.method.newLabel(endIndex + 1)
+            val continueLabel = setPlaceMethod.newLabel(endIndex + 1)
 
             for (index in startIndex..endIndex) {
                 val instruction = indexedInstructions[index].value
@@ -39,7 +40,7 @@ val fixCrashPatch = bytecodePatch(
                 val checkNotNullInstruction = instruction as FiveRegisterInstruction
                 val originalRegister = checkNotNullInstruction.registerC
 
-                setPlaceFingerprint.method.replaceInstruction(
+                setPlaceMethod.replaceInstruction(
                     index,
                     BuilderInstruction21t(
                         Opcode.IF_EQZ,

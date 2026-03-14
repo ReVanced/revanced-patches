@@ -20,7 +20,7 @@ interface SwipeControlsOverlay {
     fun onBrightnessChanged(brightness: Double)
 
     /**
-     * called when a new swipe- session has started
+     * called when a new swipe-session has started
      */
     fun onEnterSwipeSession()
 }

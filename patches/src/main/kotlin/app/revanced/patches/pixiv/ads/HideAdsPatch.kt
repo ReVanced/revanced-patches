@@ -4,12 +4,10 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val hideAdsPatch = bytecodePatch(
-    name = "Hide ads",
-) {
+val hideAdsPatch = bytecodePatch("Hide ads") {
     compatibleWith("jp.pxv.android"("6.141.1"))
 
-    execute {
-        shouldShowAdsFingerprint.method.returnEarly(false)
+    apply {
+        shouldShowAdsMethod.returnEarly(false)
     }
 }

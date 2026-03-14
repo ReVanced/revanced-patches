@@ -15,7 +15,7 @@ public class BackgroundPlaybackPatch {
 
         // Steps to verify most edge cases (with Shorts background playback set to off):
         // 1. Open a regular video
-        // 2. Minimize app (PIP should appear)
+        // 2. Minimize app (PiP should appear)
         // 3. Reopen app
         // 4. Open a Short (without closing the regular video)
         //    (try opening both Shorts in the video player suggestions AND Shorts from the home feed)
@@ -23,7 +23,7 @@ public class BackgroundPlaybackPatch {
         // 6. Reopen app
         // 7. Close the Short
         // 8. Resume playing the regular video
-        // 9. Minimize the app (PIP should appear)
+        // 9. Minimize the app (PiP should appear)
         if (ShortsPlayerState.isOpen()) {
             return false;
         }

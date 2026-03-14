@@ -10,46 +10,45 @@ import java.util.logging.Logger
  *
  * @param name The name of the string.
  * @param value The value of the string.
- * @param formatted If the string is formatted. Defaults to `true`.
  */
 class StringResource(
     name: String,
     val value: String,
     val formatted: Boolean = true,
 ) : BaseResource(name, "string") {
-    override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
-        super.serialize(ownerDocument, resourceCallback).apply {
-
-            fun String.validateAndroidStringEscaping() : String {
-                if (value.startsWith('"') && value.endsWith('"')) {
-                    // Raw strings allow unescaped single quote but not double quote.
-                    if (!value.substring(1, value.length - 1).contains(Regex("(?<!\\\\)[\"]"))) {
-                        return this
-                    }
-                } else {
-                    if (value.contains('\n')) {
-                        // Don't throw an exception, otherwise unnoticed mistakes
-                        // in Crowdin can cause patching failures.
-                        // Incorrectly escaped strings still work but do not display as intended.
-                        Logger.getLogger(StringResource.javaClass.name).warning(
-                            "String $name is not raw but contains encoded new line characters: $value")
-                    }
-                    if (!value.contains(Regex("(?<!\\\\)['\"]"))) {
-                        return this
-                    }
+    override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) = super.serialize(ownerDocument, resourceCallback).apply {
+        fun String.validateAndroidStringEscaping(): String {
+            if (value.startsWith('"') && value.endsWith('"')) {
+                // Raw strings allow unescaped single quote but not double quote.
+                if (!value.substring(1, value.length - 1).contains(Regex("(?<!\\\\)[\"]"))) {
+                    return this
                 }
-
-                Logger.getLogger(StringResource.javaClass.name).warning(
-                    "String $name cannot contain unescaped quotes in value: $value")
-
-                return this
+            } else {
+                if (value.contains('\n')) {
+                    // Don't throw an exception, otherwise unnoticed mistakes
+                    // in Crowdin can cause patching failures.
+                    // Incorrectly escaped strings still work but do not display as intended.
+                    Logger.getLogger(StringResource::class.java.name).warning(
+                        "String $name is not raw but contains encoded new line characters: $value",
+                    )
+                }
+                if (!value.contains(Regex("(?<!\\\\)['\"]"))) {
+                    return this
+                }
             }
 
-            // if the string is un-formatted, explicitly add the formatted attribute
-            if (!formatted) setAttribute("formatted", "false")
+            Logger.getLogger(StringResource::class.java.name).warning(
+                "String $name cannot contain unescaped quotes in value: $value",
+            )
 
-            textContent = value.validateAndroidStringEscaping()
+            return this
         }
+
+        // if the string is un-formatted, explicitly add the formatted attribute
+        if (!formatted) setAttribute("formatted", "false")
+
+        textContent = value.validateAndroidStringEscaping()
+    }
 
     companion object {
         fun fromNode(node: Node): StringResource {

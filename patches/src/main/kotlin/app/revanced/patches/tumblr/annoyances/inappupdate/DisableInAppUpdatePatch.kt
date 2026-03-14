@@ -13,7 +13,7 @@ val disableInAppUpdatePatch = bytecodePatch(
 
     compatibleWith("com.tumblr")
 
-    execute {
+    apply {
         // Before checking for updates using Google Play core AppUpdateManager, the value of this feature flag is checked.
         // If this flag is false or the last update check was today and no update check is performed.
         addFeatureFlagOverride("inAppUpdate", "false")

@@ -1,11 +1,15 @@
 package app.revanced.patches.primevideo.ads
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.primevideo.misc.extension.sharedExtensionPatch
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 val skipAdsPatch = bytecodePatch(
@@ -18,15 +22,19 @@ val skipAdsPatch = bytecodePatch(
 
     // Skip all the logic in ServerInsertedAdBreakState.enter(), which plays all the ad clips in this
     // ad break. Instead, force the video player to seek over the entire break and reset the state machine.
-    execute {
+    apply {
         // Force doTrigger() access to public so we can call it from our extension.
-        doTriggerFingerprint.method.accessFlags = AccessFlags.PUBLIC.value;
+        doTriggerMethod.accessFlags = AccessFlags.PUBLIC.value
 
-        val getPlayerIndex = enterServerInsertedAdBreakStateFingerprint.patternMatch!!.startIndex
-        enterServerInsertedAdBreakStateFingerprint.method.apply {
+        enterServerInsertedAdBreakStateMethod.apply {
             // Get register that stores VideoPlayer:
             //  invoke-virtual ->getPrimaryPlayer()
             //  move-result-object { playerRegister }
+            val getPlayerIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                    getReference<MethodReference>()?.name == "getPrimaryPlayer"
+            }
+
             val playerRegister = getInstruction<OneRegisterInstruction>(getPlayerIndex + 1).registerA
 
             // Reuse the params from the original method:
@@ -37,9 +45,8 @@ val skipAdsPatch = bytecodePatch(
                 """
                     invoke-static { p0, p1, v$playerRegister }, Lapp/revanced/extension/primevideo/ads/SkipAdsPatch;->enterServerInsertedAdBreakState(Lcom/amazon/avod/media/ads/internal/state/ServerInsertedAdBreakState;Lcom/amazon/avod/media/ads/internal/state/AdBreakTrigger;Lcom/amazon/avod/media/playback/VideoPlayer;)V
                     return-void
-                """
+                """,
             )
         }
     }
 }
-

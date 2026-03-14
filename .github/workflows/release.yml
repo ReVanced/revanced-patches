@@ -15,10 +15,11 @@ jobs:
       packages: write
       id-token: write
       attestations: write
+      artifact-metadata: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Setup Java
         uses: actions/setup-java@v5
@@ -61,7 +62,7 @@ jobs:
 
       - name: Attest
         if: steps.release.outputs.new_release_published == 'true'
-        uses: actions/attest-build-provenance@v3
+        uses: actions/attest@v4
         with:
           subject-name: 'ReVanced Patches ${{ steps.release.outputs.new_release_git_tag }}'
           subject-path: patches/build/libs/patches-*.rvp

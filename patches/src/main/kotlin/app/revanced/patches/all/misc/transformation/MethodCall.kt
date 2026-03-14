@@ -1,7 +1,7 @@
 package app.revanced.patches.all.misc.transformation
 
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.patcher.extensions.replaceInstruction
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
@@ -35,23 +35,10 @@ interface IMethodCall {
         instruction: Instruction35c,
         instructionIndex: Int,
     ) {
-        val registers = arrayOf(
-            instruction.registerC,
-            instruction.registerD,
-            instruction.registerE,
-            instruction.registerF,
-            instruction.registerG,
-        )
-        val argsNum = methodParams.size + 1 // + 1 for instance of definedClassName
-        if (argsNum > registers.size) {
-            // should never happen, but just to be sure (also for the future) a safety check
-            throw RuntimeException(
-                "Not enough registers for $definedClassName#$methodName: " +
-                    "Required $argsNum registers, but only got ${registers.size}.",
-            )
+        val args = with(instruction) {
+            arrayOf(registerC, registerD, registerE, registerF, registerG)
+                .take(registerCount).joinToString(", ") { "v$it" }
         }
-
-        val args = registers.take(argsNum).joinToString(separator = ", ") { reg -> "v$reg" }
         val replacementMethod =
             "$methodName(${definedClassName}${methodParams.joinToString(separator = "")})$returnType"
 

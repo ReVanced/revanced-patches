@@ -1,78 +1,50 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
-import app.revanced.patcher.fingerprint
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionReversed
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.youtube.shared.seekbarMethod
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val appendTimeFingerprint = fingerprint {
-    returns("V")
+internal val BytecodePatchContext.appendTimeMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;")
-    opcodes(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT,
+    returnType("V")
+    parameterTypes("Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;")
+    instructions(
+        ResourceType.STRING("total_time"),
+        method { toString() == "Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;" },
+        after(Opcode.MOVE_RESULT_OBJECT()),
     )
 }
 
-internal val controlsOverlayFingerprint = fingerprint {
-    returns("V")
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
-    parameters()
-    opcodes(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST, // R.id.inset_overlay_view_layout
-        Opcode.IPUT_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.CONST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.NEW_INSTANCE,
+internal val ClassDef.controlsOverlayMethodMatch by ClassDefComposing.composingFirstMethod {
+    returnType("V")
+    parameterTypes()
+    instructions(
+        ResourceType.ID.invoke("inset_overlay_view_layout"),
+        afterAtMost(20, allOf(Opcode.CHECK_CAST(), type("Landroid/widget/FrameLayout;"))),
     )
 }
 
-internal val rectangleFieldInvalidatorFingerprint = fingerprint {
-    returns("V")
-    custom { method, _ ->
-        val instructions = method.implementation?.instructions!!
-        val instructionCount = instructions.count()
-
-        // the method has definitely more than 5 instructions
-        if (instructionCount < 5) return@custom false
-
-        val referenceInstruction = instructions.elementAt(instructionCount - 2) // the second to last instruction
-        val reference = ((referenceInstruction as? ReferenceInstruction)?.reference as? MethodReference)
-
-        reference?.parameterTypes?.size == 1 && reference.name == "invalidate" // the reference is the invalidate(..) method
-    }
+/**
+ * Resolves to the class found in [seekbarMethod].
+ */
+internal val ClassDef.rectangleFieldInvalidatorMethodMatch by ClassDefComposing.composingFirstMethod {
+    returnType("V")
+    parameterTypes()
+    instructions(method("invalidate"))
 }
 
-internal val adProgressTextViewVisibilityFingerprint = fingerprint {
+internal val BytecodePatchContext.adProgressTextViewVisibilityMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Z")
-    custom { method, _ ->
-        indexOfAdProgressTextViewVisibilityInstruction(method) >= 0
-    }
-}
-
-internal fun indexOfAdProgressTextViewVisibilityInstruction(method: Method) =
-    method.indexOfFirstInstructionReversed {
-        val reference = getReference<MethodReference>()
-        reference?.definingClass ==
+    returnType("V")
+    parameterTypes("Z")
+    instructions(
+        method {
+            name == "setVisibility" && definingClass ==
                 "Lcom/google/android/libraries/youtube/ads/player/ui/AdProgressTextView;"
-                && reference.name =="setVisibility"
-    }
+        },
+    )
+}

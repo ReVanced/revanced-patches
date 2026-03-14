@@ -1,17 +1,14 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.ads
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val disableAdsPatch = bytecodePatch(
-    name = "Disable ads",
-) {
+val disableAdsPatch = bytecodePatch("Disable ads") {
     compatibleWith("com.rubenmayayo.reddit")
 
-    execute {
-        arrayOf(maxMediationFingerprint, admobMediationFingerprint).forEach { fingerprint ->
-            fingerprint.method.addInstructions(0, "return-void")
-        }
+    apply {
+        maxMediationMethod.returnEarly()
+        admobMediationMethod.returnEarly()
     }
 }

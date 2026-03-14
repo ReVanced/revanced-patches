@@ -1,6 +1,5 @@
 package app.revanced.extension.tiktok.share;
 
-import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.privacy.LinkSanitizer;
 import app.revanced.extension.shared.settings.BaseSettings;
 
@@ -13,7 +12,7 @@ public final class ShareUrlSanitizer {
      * Injection point for setting check.
      */
     public static boolean shouldSanitize() {
-        return BaseSettings.SANITIZE_SHARED_LINKS.get();
+        return BaseSettings.SANITIZE_SHARING_LINKS.get();
     }
 
     /**
@@ -24,6 +23,6 @@ public final class ShareUrlSanitizer {
             return url;
         }
 
-        return sanitizer.sanitizeUrlString(url);
+        return sanitizer.sanitizeURLString(url);
     }
 }

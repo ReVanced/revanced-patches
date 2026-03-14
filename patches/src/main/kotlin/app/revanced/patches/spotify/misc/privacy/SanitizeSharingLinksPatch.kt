@@ -1,42 +1,39 @@
 package app.revanced.patches.spotify.misc.privacy
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.shared.PATCH_DESCRIPTION_SANITIZE_SHARING_LINKS
-import app.revanced.patches.shared.PATCH_NAME_SANITIZE_SHARING_LINKS
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/spotify/misc/privacy/SanitizeSharingLinksPatch;"
 
 @Suppress("unused")
 val sanitizeSharingLinksPatch = bytecodePatch(
-    name = PATCH_NAME_SANITIZE_SHARING_LINKS,
-    description = PATCH_DESCRIPTION_SANITIZE_SHARING_LINKS,
+    name = "Sanitize sharing links",
+    description = "Removes the tracking query parameters from shared links.",
 ) {
     compatibleWith("com.spotify.music")
 
     dependsOn(sharedExtensionPatch)
 
-    execute {
+    apply {
         val extensionMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->" +
-                "sanitizeSharingLink(Ljava/lang/String;)Ljava/lang/String;"
+            "sanitizeSharingLink(Ljava/lang/String;)Ljava/lang/String;"
 
-        val copyFingerprint = if (shareCopyUrlFingerprint.originalMethodOrNull != null) {
-            shareCopyUrlFingerprint
+        val copyMethod = if (shareCopyUrlMethod != null) {
+            shareCopyUrlMethod
         } else {
-            oldShareCopyUrlFingerprint
+            oldShareCopyUrlMethod
         }
 
-        copyFingerprint.method.apply {
+        copyMethod!!.apply {
             val newPlainTextInvokeIndex = indexOfFirstInstructionOrThrow {
-                getReference<MethodReference>()?.name == "newPlainText"
+                methodReference?.name == "newPlainText"
             }
             val urlRegister = getInstruction<FiveRegisterInstruction>(newPlainTextInvokeIndex).registerD
 
@@ -45,15 +42,14 @@ val sanitizeSharingLinksPatch = bytecodePatch(
                 """
                     invoke-static { v$urlRegister }, $extensionMethodDescriptor
                     move-result-object v$urlRegister
-                """
+                """,
             )
         }
 
         // Android native share sheet is used for all other quick share types (X, WhatsApp, etc).
         val shareUrlParameter: String
-        val shareSheetFingerprint = if (formatAndroidShareSheetUrlFingerprint.originalMethodOrNull != null) {
-            val methodAccessFlags = formatAndroidShareSheetUrlFingerprint.originalMethod
-            shareUrlParameter = if (AccessFlags.STATIC.isSet(methodAccessFlags.accessFlags)) {
+        val shareSheetMethod = if (formatAndroidShareSheetUrlMethod != null) {
+            shareUrlParameter = if (AccessFlags.STATIC.isSet(formatAndroidShareSheetUrlMethod!!.accessFlags)) {
                 // In newer implementations the method is static, so p0 is not `this`.
                 "p1"
             } else {
@@ -62,18 +58,18 @@ val sanitizeSharingLinksPatch = bytecodePatch(
                 "p2"
             }
 
-            formatAndroidShareSheetUrlFingerprint
+            formatAndroidShareSheetUrlMethod
         } else {
             shareUrlParameter = "p2"
-            oldFormatAndroidShareSheetUrlFingerprint
+            oldFormatAndroidShareSheetUrlMethod
         }
 
-        shareSheetFingerprint.method.addInstructions(
+        shareSheetMethod!!.addInstructions(
             0,
             """
                 invoke-static { $shareUrlParameter }, $extensionMethodDescriptor
                 move-result-object $shareUrlParameter
-            """
+            """,
         )
     }
 }

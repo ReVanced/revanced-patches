@@ -4,7 +4,7 @@ import android.view.KeyEvent
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsHostActivity
 
 /**
- * controller for custom volume button behaviour
+ * controller for custom volume button behavior
  *
  * @param controller main controller instance
  */

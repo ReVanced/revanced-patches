@@ -72,7 +72,7 @@ public class EnumSetting<T extends Enum<?>> extends Setting<T> {
     }
 
     /**
-     * @param enumName Enum name.  Casing does not matter.
+     * @param enumName Enum name. Casing does not matter.
      * @return Enum of this type with the same declared name.
      * @throws IllegalArgumentException if the name is not a valid enum of this type.
      */

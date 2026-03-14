@@ -1,11 +1,14 @@
 package app.revanced.patches.youtube.layout.shortsautoplay
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
+import app.revanced.patcher.classDef
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -15,7 +18,7 @@ import app.revanced.patches.youtube.misc.playservice.is_20_09_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
+import app.revanced.patches.youtube.shared.mainActivityOnCreateMethod
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -29,8 +32,10 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ShortsAutoplayPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/ShortsAutoplayPatch;"
 
+@Suppress("ObjectPropertyName")
 val shortsAutoplayPatch = bytecodePatch(
     name = "Shorts autoplay",
     description = "Adds options to automatically play the next Short.",
@@ -44,14 +49,16 @@ val shortsAutoplayPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
+        ),
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.shortsautoplay.shortsAutoplayPatch")
 
         PreferenceScreen.SHORTS.addPreferences(
@@ -65,18 +72,18 @@ val shortsAutoplayPatch = bytecodePatch(
         }
 
         // Main activity is used to check if app is in pip mode.
-        mainActivityOnCreateFingerprint.method.addInstruction(
+        mainActivityOnCreateMethod.addInstruction(
             0,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->setMainActivity(Landroid/app/Activity;)V",
         )
 
-        val reelEnumClass = reelEnumConstructorFingerprint.originalClassDef.type
+        var reelEnumClass: String
 
-        reelEnumConstructorFingerprint.method.apply {
-            val insertIndex = reelEnumConstructorFingerprint.patternMatch!!.startIndex
+        reelEnumConstructorMethodMatch.apply {
+            reelEnumClass = immutableClassDef.type
 
-            addInstructions(
-                insertIndex,
+            method.addInstructions(
+                reelEnumConstructorMethodMatch[-1],
                 """
                     # Pass the first enum value to extension.
                     # Any enum value of this type will work.
@@ -86,13 +93,16 @@ val shortsAutoplayPatch = bytecodePatch(
             )
         }
 
-        reelPlaybackRepeatFingerprint.method.apply {
+        val reelPlaybackRepeatMethod =
+            reelPlaybackRepeatParentMethod.immutableClassDef.getReelPlaybackRepeatMethod()
+
+        reelPlaybackRepeatMethod.apply {
             // The behavior enums are looked up from an ordinal value to an enum type.
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == reelEnumClass &&
-                    reference.parameterTypes.firstOrNull() == "I" &&
-                    reference.returnType == reelEnumClass
+                        reference.parameterTypes.firstOrNull() == "I" &&
+                        reference.returnType == reelEnumClass
             }.forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
@@ -110,22 +120,20 @@ val shortsAutoplayPatch = bytecodePatch(
         // Manually restore the removed 'Autoplay' code.
         if (is_20_09_or_greater) {
             // Variable names are only a rough guess of what these methods do.
-            val userActionMethodIndex = indexOfInitializationInstruction(reelPlaybackFingerprint.method)
-            val userActionMethodReference = reelPlaybackFingerprint.method
-                .getInstruction<ReferenceInstruction>(userActionMethodIndex).reference as MethodReference
-            val reelSequenceControllerMethodIndex = reelPlaybackFingerprint.method
-                .indexOfFirstInstructionOrThrow(userActionMethodIndex, Opcode.INVOKE_VIRTUAL)
-            val reelSequenceControllerMethodReference = reelPlaybackFingerprint.method
-                .getInstruction<ReferenceInstruction>(reelSequenceControllerMethodIndex).reference as MethodReference
+            val userActionMethodReference =
+                reelPlaybackMethodMatch.method.getInstruction(reelPlaybackMethodMatch[1]).methodReference!!
+            val reelSequenceControllerMethodReference =
+                reelPlaybackMethodMatch.method.getInstruction(reelPlaybackMethodMatch[2]).methodReference!!
 
-            reelPlaybackRepeatFingerprint.method.apply {
+            reelPlaybackRepeatMethod.apply {
                 // Find the first call modified by extension code above.
                 val extensionReturnResultIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_STATIC &&
                             getReference<MethodReference>()?.definingClass == EXTENSION_CLASS_DESCRIPTOR
                 } + 1
-                val enumRegister = getInstruction<OneRegisterInstruction>(extensionReturnResultIndex).registerA
-                val getReelSequenceControllerIndex = indexOfFirstInstructionOrThrow(extensionReturnResultIndex) {
+                val enumRegister =
+                    getInstruction<OneRegisterInstruction>(extensionReturnResultIndex).registerA
+                val getReelSequenceControllerIndex = indexOfFirstInstructionOrThrow {
                     val reference = getReference<FieldReference>()
                     opcode == Opcode.IGET_OBJECT &&
                             reference?.definingClass == definingClass &&
@@ -166,10 +174,10 @@ val shortsAutoplayPatch = bytecodePatch(
                             return-object v4
                             :ignore
                             return-object p1
-                        """
+                        """,
                     )
                 }
-                reelPlaybackRepeatFingerprint.classDef.methods.add(helperMethod)
+                reelPlaybackRepeatMethod.classDef.methods.add(helperMethod)
 
                 addInstructionsWithLabels(
                     extensionReturnResultIndex + 1,
@@ -180,7 +188,7 @@ val shortsAutoplayPatch = bytecodePatch(
                         return-void     # Autoplay was performed.
                         :ignore
                         nop
-                    """
+                    """,
                 )
             }
         }

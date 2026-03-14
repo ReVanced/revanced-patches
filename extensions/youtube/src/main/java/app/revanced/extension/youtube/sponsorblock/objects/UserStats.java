@@ -16,8 +16,8 @@ public class UserStats {
      */
     private static final long STATS_EXPIRATION_MILLISECONDS = 60 * 60 * 1000; // 60 minutes.
 
-    private final String privateUserId;
-    public final String publicUserId;
+    private final String privateUserID;
+    public final String publicUserID;
     public final String userName;
     /**
      * "User reputation".  Unclear how SB determines this value.
@@ -37,9 +37,9 @@ public class UserStats {
      */
     public final long fetchTime;
 
-    public UserStats(String privateSbId, @NonNull JSONObject json) throws JSONException {
-        privateUserId = privateSbId;
-        publicUserId = json.getString("userID");
+    public UserStats(String privateSBID, @NonNull JSONObject json) throws JSONException {
+        privateUserID = privateSBID;
+        publicUserID = json.getString("userID");
         userName = json.getString("userName");
         reputation = (float)json.getDouble("reputation");
         segmentCount = json.getInt("segmentCount");
@@ -55,17 +55,17 @@ public class UserStats {
             return true;
         }
 
-        // User changed their SB private user id.
-        return !SponsorBlockSettings.userHasSBPrivateId()
-                || !SponsorBlockSettings.getSBPrivateUserID().equals(privateUserId);
+        // User changed their SB private user ID.
+        return !SponsorBlockSettings.userHasSBPrivateID()
+                || !SponsorBlockSettings.getSBPrivateUserID().equals(privateUserID);
     }
 
     @NonNull
     @Override
     public String toString() {
-        // Do not include private user id in toString().
+        // Do not include private user ID in toString().
         return "UserStats{"
-                + "publicUserId='" + publicUserId + '\''
+                + "publicUserID='" + publicUserID + '\''
                 + ", userName='" + userName + '\''
                 + ", reputation=" + reputation
                 + ", segmentCount=" + segmentCount

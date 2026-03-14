@@ -1,11 +1,11 @@
 package app.revanced.patches.tiktok.feedfilter
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
-import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
+import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadMethod
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -27,23 +27,22 @@ val feedFilterPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("36.5.4"),
     )
 
-    execute {
+    apply {
         arrayOf(
-            feedApiServiceLIZFingerprint.method to "$EXTENSION_CLASS_DESCRIPTOR->filter(Lcom/ss/android/ugc/aweme/feed/model/FeedItemList;)V",
-            followFeedFingerprint.method to "$EXTENSION_CLASS_DESCRIPTOR->filter(Lcom/ss/android/ugc/aweme/follow/presenter/FollowFeedList;)V"
+            feedApiServiceLIZMethod to "$EXTENSION_CLASS_DESCRIPTOR->filter(Lcom/ss/android/ugc/aweme/feed/model/FeedItemList;)V",
+            followFeedMethod to "$EXTENSION_CLASS_DESCRIPTOR->filter(Lcom/ss/android/ugc/aweme/follow/presenter/FollowFeedList;)V",
         ).forEach { (method, filterSignature) ->
             val returnInstruction = method.instructions.first { it.opcode == Opcode.RETURN_OBJECT }
             val register = (returnInstruction as OneRegisterInstruction).registerA
             method.addInstruction(
                 returnInstruction.location.index,
-                "invoke-static { v$register }, $filterSignature"
+                "invoke-static { v$register }, $filterSignature",
             )
         }
 
-        settingsStatusLoadFingerprint.method.addInstruction(
+        settingsStatusLoadMethod.addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableFeedFilter()V",
         )
     }
-
 }

@@ -12,13 +12,13 @@ public class HideEndScreenCardsPatch {
      * Injection point.
      */
     public static void hideEndScreenCardView(View view) {
-        Utils.hideViewUnderCondition(Settings.HIDE_ENDSCREEN_CARDS, view);
+        Utils.hideViewUnderCondition(Settings.HIDE_END_SCREEN_CARDS, view);
     }
 
     /**
      * Injection point.
      */
     public static boolean hideEndScreenCards() {
-        return Settings.HIDE_ENDSCREEN_CARDS.get();
+        return Settings.HIDE_END_SCREEN_CARDS.get();
     }
 }

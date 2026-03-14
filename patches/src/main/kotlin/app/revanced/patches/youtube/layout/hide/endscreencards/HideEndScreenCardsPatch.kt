@@ -1,15 +1,15 @@
 package app.revanced.patches.youtube.layout.hide.endscreencards
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_43_or_greater
@@ -32,14 +32,14 @@ private val hideEndScreenCardsResourcePatch = resourcePatch {
         addResourcesPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.hide.endscreencards.hideEndScreenCardsResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_endscreen_cards"),
+            SwitchPreference("revanced_hide_end_screen_cards"),
         )
 
-        fun idOf(name: String) = resourceMappings["layout", "endscreen_element_layout_$name"]
+        fun idOf(name: String) = ResourceType.LAYOUT["endscreen_element_layout_$name"]
 
         layoutCircle = idOf("circle")
         layoutIcon = idOf("icon")
@@ -58,26 +58,28 @@ val hideEndScreenCardsPatch = bytecodePatch(
     dependsOn(
         sharedExtensionPatch,
         hideEndScreenCardsResourcePatch,
-        versionCheckPatch
+        versionCheckPatch,
     )
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
             "20.14.43",
-        )
+            "20.21.37",
+            "20.26.46",
+            "20.31.42",
+            "20.37.48",
+            "20.40.45"
+        ),
     )
 
-    execute {
+    apply {
         listOf(
-            layoutCircleFingerprint,
-            layoutIconFingerprint,
-            layoutVideoFingerprint,
-        ).forEach { fingerprint ->
-            fingerprint.method.apply {
-                val insertIndex = fingerprint.patternMatch!!.endIndex + 1
+            layoutCircleMethodMatch,
+            layoutIconMethodMatch,
+            layoutVideoMethodMatch,
+        ).forEach { match ->
+            match.method.apply {
+                val insertIndex = match[-1] + 1
                 val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
                 addInstruction(
@@ -89,7 +91,7 @@ val hideEndScreenCardsPatch = bytecodePatch(
         }
 
         if (is_19_43_or_greater) {
-            showEndscreenCardsFingerprint.method.addInstructionsWithLabels(
+            showEndscreenCardsMethod.addInstructionsWithLabels(
                 0,
                 """
                     invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideEndScreenCards()Z
@@ -98,7 +100,7 @@ val hideEndScreenCardsPatch = bytecodePatch(
                     return-void
                     :show
                     nop
-                """
+                """,
             )
         }
     }

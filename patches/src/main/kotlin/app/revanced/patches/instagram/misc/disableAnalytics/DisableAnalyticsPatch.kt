@@ -1,8 +1,10 @@
 package app.revanced.patches.instagram.misc.disableAnalytics
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.instagram.shared.replaceStringWithBogus
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
 val disableAnalyticsPatch = bytecodePatch(
@@ -11,10 +13,10 @@ val disableAnalyticsPatch = bytecodePatch(
 ) {
     compatibleWith("com.instagram.android")
 
-    execute {
+    apply {
         // Returns BOGUS as analytics url.
-        instagramAnalyticsUrlBuilderMethodFingerprint.method.addInstructions(
-        	0,
+        instagramAnalyticsUrlBuilderMethod.addInstructions(
+            0,
             """
                 const-string v0, "BOGUS"
                 return-object v0
@@ -22,7 +24,12 @@ val disableAnalyticsPatch = bytecodePatch(
         )
 
         // Replaces analytics url as BOGUS.
-        facebookAnalyticsUrlInitMethodFingerprint.replaceStringWithBogus(TARGET_URL)
+        facebookAnalyticsUrlInitMethodMatch.let { match ->
+            match.method.apply {
+                val urlIndex = match[1]
+                val register = getInstruction<OneRegisterInstruction>(urlIndex).registerA
+                replaceInstruction(urlIndex, "const-string v$register, \"BOGUS\"")
+            }
+        }
     }
 }
-

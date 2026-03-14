@@ -94,7 +94,7 @@ public class ChangeFormFactorPatch {
     public static void navigationTabCreated(NavigationButton button, View tabView) {
         // On first startup of the app the navigation buttons are fetched and updated.
         // If the user immediately opens the 'You' or opens a video, then the call to
-        // update the navigtation buttons will use the non automotive form factor
+        // update the navigation buttons will use the non-automotive form factor
         // and the explore tab is missing.
         // Fixing this is not so simple because of the concurrent calls for the player and You tab.
         // For now, always hide the explore tab.

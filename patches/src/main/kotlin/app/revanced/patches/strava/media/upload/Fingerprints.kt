@@ -1,21 +1,25 @@
 package app.revanced.patches.strava.media.upload
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.firstMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val getCompressionQualityFingerprint = fingerprint {
-    custom { method, _ ->
-        method.name == "getCompressionQuality"
-    }
+context(_: BytecodePatchContext)
+internal fun ClassDef.getGetCompressionQualityMethod() = firstMethodDeclaratively {
+    name("getCompressionQuality")
+    definingClass("/MediaUploadParameters;")
 }
 
-internal val getMaxDurationFingerprint = fingerprint {
-    custom { method, _ ->
-        method.name == "getMaxDuration"
-    }
+context(_: BytecodePatchContext)
+internal fun ClassDef.getGetMaxDurationMethod() = firstMethodDeclaratively {
+    name("getMaxDuration")
+    definingClass("/MediaUploadParameters;")
 }
 
-internal val getMaxSizeFingerprint = fingerprint {
-    custom { method, _ ->
-        method.name == "getMaxSize"
-    }
+context(_: BytecodePatchContext)
+internal fun ClassDef.getGetMaxSizeMethod() = firstMethodDeclaratively {
+    name("getMaxSize")
+    definingClass("/MediaUploadParameters;")
 }

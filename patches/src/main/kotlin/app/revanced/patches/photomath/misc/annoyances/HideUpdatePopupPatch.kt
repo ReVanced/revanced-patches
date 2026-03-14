@@ -1,6 +1,6 @@
 package app.revanced.patches.photomath.misc.annoyances
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.photomath.detection.signature.signatureDetectionPatch
 
@@ -13,8 +13,8 @@ val hideUpdatePopupPatch = bytecodePatch(
 
     compatibleWith("com.microblink.photomath")
 
-    execute {
-        hideUpdatePopupFingerprint.method.addInstructions(
+    apply {
+        hideUpdatePopupMethod.addInstructions(
             2, // Insert after the null check.
             "return-void",
         )

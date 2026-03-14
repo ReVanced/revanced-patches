@@ -30,7 +30,7 @@ import app.revanced.extension.youtube.sponsorblock.requests.SBRequester;
  * User skip stats.
  * None of the preferences here show up in search results because
  * a category cannot be added to another category for the search results.
- * Additionally the stats must load remotely on a background thread which means the
+ * Additionally, the stats must load remotely on a background thread which means the
  * preferences are not available to collect for search when the settings first load.
  */
 @SuppressWarnings({"unused", "deprecation"})
@@ -58,7 +58,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
             setEnabled(enabled);
             removeAll();
 
-            if (!SponsorBlockSettings.userHasSBPrivateId()) {
+            if (!SponsorBlockSettings.userHasSBPrivateID()) {
                 // User has never voted or created any segments. Only local stats exist.
                 addLocalUserStats();
                 return;
@@ -134,7 +134,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                 } else {
                     preference.setOnPreferenceClickListener(preference1 -> {
                         Intent i = new Intent(Intent.ACTION_VIEW);
-                        i.setData(Uri.parse("https://sb.ltn.fi/userid/" + stats.publicUserId));
+                        i.setData(Uri.parse("https://sb.ltn.fi/userid/" + stats.publicUserID));
                         preference1.getContext().startActivity(i);
                         return true;
                     });

@@ -1,14 +1,16 @@
 package app.revanced.extension.shared.patches.litho;
 
 import androidx.annotation.NonNull;
-
-import java.util.*;
-
 import app.revanced.extension.shared.ByteTrieSearch;
 import app.revanced.extension.shared.StringTrieSearch;
 import app.revanced.extension.shared.TrieSearch;
 import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 public abstract class FilterGroupList<V, T extends FilterGroup<V>> implements Iterable<T> {
 

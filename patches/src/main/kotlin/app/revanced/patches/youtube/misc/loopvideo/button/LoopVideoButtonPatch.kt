@@ -15,7 +15,7 @@ import app.revanced.util.copyResources
 private val loopVideoButtonResourcePatch = resourcePatch {
     dependsOn(playerControlsResourcePatch)
 
-    execute {
+    apply {
         copyResources(
             "loopvideobutton",
             ResourceGroup(
@@ -43,7 +43,7 @@ internal val loopVideoButtonPatch = bytecodePatch(
         playerControlsPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "misc.loopvideo.button.loopVideoButtonPatch")
 
         PreferenceScreen.PLAYER.addPreferences(

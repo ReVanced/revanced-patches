@@ -1,11 +1,11 @@
 package app.revanced.patches.music.misc.gms
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val musicActivityOnCreateFingerprint = fingerprint {
-    returns("V")
-    parameters("Landroid/os/Bundle;")
-    custom { method, classDef ->
-        method.name == "onCreate" && classDef.endsWith("/MusicActivity;")
-    }
+internal val BytecodePatchContext.musicActivityOnCreateMethod by gettingFirstMethodDeclaratively {
+    name("onCreate")
+    definingClass("/MusicActivity;")
+    returnType("V")
+    parameterTypes("Landroid/os/Bundle;")
 }

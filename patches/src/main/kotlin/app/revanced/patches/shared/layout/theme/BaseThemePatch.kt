@@ -7,19 +7,20 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.util.childElementsSequence
-import java.util.Locale
+import java.util.*
 
-internal const val THEME_COLOR_OPTION_DESCRIPTION = "Can be a hex color (#RRGGBB) or a color resource reference."
+internal const val THEME_COLOR_OPTION_DESCRIPTION =
+    "Can be a hex color (#RRGGBB) or a color resource reference."
 
 internal val THEME_DEFAULT_DARK_COLOR_NAMES = setOf(
-    "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98",
-    "yt_black2", "yt_black3", "yt_black4", "yt_status_bar_background_dark",
-    "material_grey_850"
+    "yt_black0", "yt_black1", "yt_black2", "yt_black3", "yt_black4",
+    "yt_black1_opacity95", "yt_black1_opacity98",
+    "yt_status_bar_background_dark", "material_grey_850",
 )
 
 internal val THEME_DEFAULT_LIGHT_COLOR_NAMES = setOf(
-    "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98",
-    "yt_white2", "yt_white3", "yt_white4"
+    "yt_white1", "yt_white2", "yt_white3", "yt_white4",
+    "yt_white1_opacity95", "yt_white1_opacity98",
 )
 
 /**
@@ -56,7 +57,8 @@ internal fun validateColorName(colorString: String): Boolean {
  * Dark theme color option for YouTube and YT Music Theme patches.
  */
 internal val darkThemeBackgroundColorOption = stringOption(
-    key = "darkThemeBackgroundColor",
+    name = "Dark theme background color",
+    description = THEME_COLOR_OPTION_DESCRIPTION,
     default = "@android:color/black",
     values = mapOf(
         "Pure black" to "@android:color/black",
@@ -69,9 +71,7 @@ internal val darkThemeBackgroundColorOption = stringOption(
         "Dark yellow" to "#282900",
         "Dark orange" to "#291800",
         "Dark red" to "#290000",
-    ),
-    title = "Dark theme background color",
-    description = THEME_COLOR_OPTION_DESCRIPTION
+    )
 )
 
 /**
@@ -92,7 +92,7 @@ internal fun baseThemePatch(
 
     dependsOn(lithoColorHookPatch)
 
-    execute {
+    apply {
         executeBlock()
 
         lithoColorOverrideHook(extensionClassDescriptor, "getValue")
@@ -100,14 +100,13 @@ internal fun baseThemePatch(
 }
 
 internal fun baseThemeResourcePatch(
-    darkColorNames: Set<String> = THEME_DEFAULT_DARK_COLOR_NAMES,
-    lightColorNames: Set<String> = THEME_DEFAULT_LIGHT_COLOR_NAMES,
+    getDarkColorNames: () -> Set<String> = { THEME_DEFAULT_DARK_COLOR_NAMES },
+    getLightColorNames: () -> Set<String> = { THEME_DEFAULT_LIGHT_COLOR_NAMES },
     lightColorReplacement: (() -> String)? = null
 ) = resourcePatch {
-
-    execute {
+    apply {
         // After patch option validators are fixed https://github.com/ReVanced/revanced-patcher/issues/372
-        // This should changed to a patch option validator.
+        // This should be changed to a patch option validator.
         val darkColor by darkThemeBackgroundColorOption
         if (!validateColorName(darkColor!!)) {
             throw PatchException("Invalid dark theme color: $darkColor")
@@ -120,6 +119,9 @@ internal fun baseThemeResourcePatch(
 
         document("res/values/colors.xml").use { document ->
             val resourcesNode = document.getElementsByTagName("resources").item(0)
+
+            val darkColorNames = getDarkColorNames()
+            val lightColorNames = getLightColorNames()
 
             resourcesNode.childElementsSequence().forEach { node ->
                 val name = node.getAttribute("name")
