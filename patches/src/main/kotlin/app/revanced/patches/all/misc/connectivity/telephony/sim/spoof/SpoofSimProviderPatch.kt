@@ -88,7 +88,7 @@ val spoofSIMProviderPatch = bytecodePatch(
     )
 
     val phone by stringOption(
-        name = "Phone Number",
+        name = "Phone number",
         description = "Phone number to spoof, blank to skip, or 'random'.",
         validator = { it.isNullOrBlank() || it.equals("random", ignoreCase = true) || it.startsWith("+") },
     )
@@ -123,7 +123,7 @@ val spoofSIMProviderPatch = bytecodePatch(
                         }
                         d
                     }.sum()
-                    // Append the calculated check digit to the 14-digit prefix
+                    // Append the calculated check digit to the 14-digit prefix.
                     prefix + ((10 - (sum % 10)) % 10)
                 }
 
