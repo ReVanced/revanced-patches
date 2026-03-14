@@ -1,3 +1,10 @@
+# [6.0.0-dev.25](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.24...v6.0.0-dev.25) (2026-03-14)
+
+
+### Features
+
+* **Instagram:** Add `Disable Reels auto-scroll` patch ([#6736](https://github.com/ReVanced/revanced-patches/issues/6736)) ([806d6c7](https://github.com/ReVanced/revanced-patches/commit/806d6c799fb67c0fb630ae954ef615ff01597b1f))
+
 # [6.0.0-dev.24](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.23...v6.0.0-dev.24) (2026-03-09)
 
 
