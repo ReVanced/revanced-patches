@@ -13,12 +13,12 @@ val spoofKeystoreSecurityLevelPatch = bytecodePatch(
     apply {
         forEachInstructionAsSequence(
             match = { _, method, _, _ ->
-                // Match methods by comparing the current method to a reference criteria
+                // Match methods by comparing the current method to a reference criteria.
                 val name = method.name.lowercase()
                 if (name.contains("securitylevel") && method.returnType == "I") method else null
             },
             transform = { mutableMethod, _ ->
-                // Ensure the method has an implementation before replacing
+                // Ensure the method has an implementation before replacing.
                 if (mutableMethod.implementation?.instructions?.iterator()?.hasNext() == true) {
                     mutableMethod.replaceInstructions(0, "const/4 v0, 0x2\nreturn v0")
                 }
