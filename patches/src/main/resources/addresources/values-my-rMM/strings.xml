@@ -27,18 +27,53 @@ Second \"item\" text"</string>
         <patch id="misc.checks.checkEnvironmentPatch"/>
         <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"/>
         <patch id="misc.settings.settingsResourcePatch">
+            <string name="revanced_settings_disable_bold_icons_title">ဖောင့်ထူသော အိုင်ကွန်များကို ပိတ်ပါ</string>
+            <string name="revanced_settings_disable_bold_icons_summary_on">အိုင်ကွန်များသည် ဖောင့်ထူမထားပါ</string>
+            <string name="revanced_settings_disable_bold_icons_summary_off">အိုင်ကွန်များသည် ဖောင့်ထူထားပါသည်</string>
             <!-- Settings about dialog. -->
             <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
+            <string name="revanced_gms_core_screen_title">GmsCore</string>
+            <string name="revanced_gms_core_screen_summary">GmsCore နှင့်ပတ်သက်သော ဆက်တင်များ</string>
+            <string name="revanced_gms_core_check_updates_title">GmsCore အပ်ဒိတ်များ စစ်ဆေးရန်</string>
+            <string name="revanced_gms_core_check_updates_summary_on">အပ်ဒိတ်များ စစ်ဆေးခြင်းကို ဖွင့်ထားသည်</string>
+            <string name="revanced_gms_core_check_updates_summary_off">အပ်ဒိတ်များ စစ်ဆေးခြင်းကို ပိတ်ထားသည်။</string>
+            <string name="revanced_gms_core_settings_title">GmsCore ဆက်တင်များ ဖွင့်ပါ။</string>
+            <string name="revanced_gms_core_settings_summary">GmsCore ၏ ဆက်တင်များ</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_gms_core_toast_not_installed_message">MicroG GmsCore ထည့်သွင်းမထားပါ။ ထည့်သွင်းပါ။</string>
+            <string name="revanced_gms_core_dialog_title">ဆောင်ရွက်ရန် လိုအပ်သည်။</string>
+            <string name="revanced_gms_core_toast_update_check_failed_message">MicroG GmsCore အပ်ဒိတ်များ စစ်ဆေးမအောင်မြင်ပါ။</string>
+            <string name="revanced_gms_core_update_available_message">MicroG GmsCore ၏ ဗားရှင်းအသစ် (%1$s) ရရှိနိုင်ပါသည်။ လက်ရှိတွင် သင်သည် ဗားရှင်း %2$s ကို အသုံးပြုနေပါသည်။</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore သည် နောက်ခံတွင် အလုပ်လုပ်ရန် ခွင့်ပြုချက်မရှိပါ။
+
+သင့်ဖုန်းအတွက် “ကျွန်ုပ်၏အက်ပ်ကို မပိတ်ပါနှင့်” လမ်းညွှန်ကို လိုက်နာပြီး သင့် MicroG ထည့်သွင်းမှုအတွက် ညွှန်ကြားချက်များကို အသုံးပြုပါ။
+
+အက်ပ်အလုပ်လုပ်ရန် ၎င်းသည် လိုအပ်ပါသည်။"</string>
+            <string name="revanced_gms_core_dialog_open_website_text">ဝက်ဘ်ဆိုက်ဖွင့်ပါ။</string>
+            <string name="revanced_gms_core_dialog_cancel_text">ပယ်ဖျက်ပါ။</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"ပြဿနာများ ကာကွယ်ရန် MicroG GmsCore ဘက်ထရီ အကောင်းဆုံးပြုလုပ်ခြင်းကို ပိတ်ထားရမည်။
+
+MicroG အတွက် ဘက်ထရီ အကောင်းဆုံးပြုလုပ်ခြင်းကို ပိတ်ထားခြင်းသည် ဘက်ထရီအသုံးပြုမှုကို ဆိုးကျိုးသက်ရောက်စေမည် မဟုတ်ပါ။
+
+ဆက်လုပ်ရန် ခလုတ်ကို နှိပ်ပြီး အကောင်းဆုံးပြုလုပ်ခြင်း ပြောင်းလဲမှုများကို ခွင့်ပြုပါ။"</string>
+            <string name="revanced_gms_core_dialog_continue_text">ဆက်လုပ်ပါ။</string>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch"/>
         <patch id="misc.audio.forceOriginalAudioPatch">
             <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
         </patch>
-        <patch id="misc.debugging.enableDebuggingPatch"/>
+        <patch id="misc.debugging.enableDebuggingPatch">
+            <string name="revanced_debug_feature_flags_manager_toast_no_flags">ဤအင်္ဂါရပ်ကို အသုံးပြုရန် အက်ပ်ကို ပြန်လည်စတင်ပါ</string>
+            <string name="revanced_debug_protocolbuffer_title">ပရိုတိုကောလ် ဘတ်ဖာ မှတ်တမ်း</string>
+            <string name="revanced_debug_protocolbuffer_summary_on">ဒီဘတ်မှတ်တမ်းများတွင် ပရိုတိုဘတ်ဖာ ပါဝင်သည်</string>
+            <string name="revanced_debug_protocolbuffer_summary_off">ဒီဘတ်မှတ်တမ်းများတွင် ပရိုတိုဘတ်ဖာ မပါဝင်ပါ</string>
+            <string name="revanced_debug_protocolbuffer_user_dialog_message">"ဤဆက်တင်ကိုဖွင့်ထားခြင်းသည် အချို့သော UI အစိတ်အပိုင်းများအတွက် မျက်နှာပြင်ပေါ်ရှိ စာသားအပါအဝင် အပိုဆောင်း layout ဒေတာများကို မှတ်တမ်းတင်ပါလိမ့်မည်။
+၎င်းသည် စိတ်ကြိုက် filter များ ဖန်တီးသည့်အခါ အစိတ်အပိုင်းများကို ခွဲခြားသိမြင်နိုင်ရန် ကူညီပေးနိုင်ပါသည်။
+သို့သော်၊ ၎င်းကိုဖွင့်ထားခြင်းသည် သင်၏ IP လိပ်စာကဲ့သို့သော အချို့သော အသုံးပြုသူဒေတာများကိုလည်း မှတ်တမ်းတင်ပါလိမ့်မည်။"</string>
+        </patch>
         <patch id="misc.privacy.sanitizeSharingLinksPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
@@ -48,40 +83,135 @@ Second \"item\" text"</string>
         <patch id="misc.settings.settingsPatch"/>
         <patch id="misc.backgroundplayback.backgroundPlaybackPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
-            <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
+            <string name="revanced_hide_creator_store_shelf_title">ဖန်တီးရှင်စတိုးစင်ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_creator_store_shelf_summary_on">ဗီဒီယိုဖွင့်စက်အောက်ရှိ ဖန်တီးရှင်စတိုးစင်ကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_creator_store_shelf_summary_off">ဗီဒီယိုဖွင့်စက်အောက်ရှိ ဖန်တီးရှင်စတိုးစင်ကို ပြသထားသည်</string>
+            <string name="revanced_hide_comments_section_in_home_feed_title">Home feed ရှိ ဗီဒီယိုများအောက်ရှိ မှတ်ချက်များအပိုင်းကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_on">Home feed ရှိ ဗီဒီယိုများအောက်ရှိ မှတ်ချက်များအပိုင်းကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_off">Home feed ရှိ ဗီဒီယိုများအောက်ရှိ မှတ်ချက်များအပိုင်းကို ပြသထားသည်</string>
+            <!-- 'Latest videos' should be translated using the same localized wording YouTube displays for the button.
+                 This button usually appears in the Home feed for refreshing the feed. -->
+            <string name="revanced_hide_latest_videos_button_title">\'နောက်ဆုံးထွက်ဗီဒီယိုများ\' ခလုတ်ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_latest_videos_button_summary_on">နောက်ဆုံးထွက်ဗီဒီယိုများ ခလုတ်ကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_latest_videos_button_summary_off">နောက်ဆုံးထွက်ဗီဒီယိုများ ခလုတ်ကို ပြသထားသည်</string>
+            <!-- 'Notify me' should be translated using the same localized wording YouTube displays for this button.
+                  This button usually appears in the Subscriptions feed for future livestreams or unreleased videos. -->
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
             <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+            <string name="revanced_hide_web_search_results_title">ဝဘ်ရှာဖွေမှုရလဒ်များကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_web_search_results_summary_on">ဝဘ်ရှာဖွေမှုရလဒ်များကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_web_search_results_summary_off">ဝဘ်ရှာဖွေမှုရလဒ်များကို ပြသထားသည်</string>
+            <string name="revanced_hide_you_may_like_section_title">\'\'သင်ကြိုက်နှစ်သက်နိုင်သည်\'\' အပိုင်းကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_you_may_like_section_summary_on">\'\'သင်ကြိုက်နှစ်သက်နိုင်သည်\'\' အပိုင်းကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_you_may_like_section_summary_off">\'\'သင်ကြိုက်နှစ်သက်နိုင်သည်\'\' အပိုင်းကို ပြသထားသည်</string>
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                  This appears in the video player for certain videos. -->
+                   This button usually appears in the video player for certain videos. -->
+            <!-- 'Live chat replay' should be translated using the same localized wording YouTube displays for the button.
+       This button usually appears in the player overlay for live streamed videos after opening live chat. -->
+            <string name="revanced_hide_live_chat_replay_button_title">\'တိုက်ရိုက်စကားပြောပြန်လည်ကြည့်ရှုခြင်း\' ခလုတ်ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_on">ပလေယာအပေါ်လွှာရှိ တိုက်ရိုက်စကားပြောပြန်လည်ကြည့်ရှုခြင်းခလုတ်ကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_off">ပလေယာအပေါ်လွှာရှိ တိုက်ရိုက်စကားပြောပြန်လည်ကြည့်ရှုခြင်းခလုတ်ကို ပြသထားသည်</string>
+            <string name="revanced_hide_video_title_title">ဗီဒီယိုခေါင်းစဉ်ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_video_title_summary_on">ပလေယာအပေါ်လွှာရှိ ဗီဒီယိုခေါင်းစဉ်ကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_video_title_summary_off">ပလေယာအပေါ်လွှာရှိ ဗီဒီယိုခေါင်းစဉ်ကို ပြသထားသည်</string>
+            <string name="revanced_hide_course_progress_section_title">\'သင်တန်းတိုးတက်မှု\' ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_course_progress_section_summary_on">သင်တန်းတိုးတက်မှုအပိုင်းကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_course_progress_section_summary_off">သင်တန်းတိုးတက်မှုအပိုင်းကို ပြသထားသည်</string>
+            <string name="revanced_hide_explore_section_title">စူးစမ်းလေ့လာမည်ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_explore_section_summary_on">ဤသင်တန်းကို စူးစမ်းလေ့လာမည်နှင့် ပေါ့ဒ်ကတ်စ်များကို စူးစမ်းလေ့လာမည် အပိုင်းများကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_explore_section_summary_off">ဤသင်တန်းကို စူးစမ်းလေ့လာမည်နှင့် ပေါ့ဒ်ကတ်စ်များကို စူးစမ်းလေ့လာမည် အပိုင်းများကို ပြသထားသည်</string>
+            <string name="revanced_hide_explore_course_section_title">\'\'ဤသင်တန်းကို စူးစမ်းလေ့လာမည်\'\' ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_explore_course_section_summary_on">ဤသင်တန်းကို စူးစမ်းလေ့လာမည်အပိုင်းကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_explore_course_section_summary_off">ဤသင်တန်းကို စူးစမ်းလေ့လာမည်အပိုင်းကို ပြသထားသည်</string>
+            <string name="revanced_hide_explore_podcast_section_title">\'\'ပေါ့ဒ်ကတ်စ်များကို စူးစမ်းလေ့လာမည်\'\' ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_explore_podcast_section_summary_on">ပေါ့ဒ်ကတ်စ်များကို စူးစမ်းလေ့လာမည်အပိုင်းကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_explore_podcast_section_summary_off">ပေါ့ဒ်ကတ်စ်များကို စူးစမ်းလေ့လာမည်အပိုင်းကို ပြသထားသည်</string>
+            <string name="revanced_hide_featured_places_section_title">\'\'အသားပေးနေရာများ\'\' ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_featured_places_section_summary_on">အသားပေးနေရာများအပိုင်းကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_featured_places_section_summary_off">အသားပေးနေရာများအပိုင်းကို ပြသထားသည်</string>
+            <string name="revanced_hide_feed_flyout_menu_title">feed flyout menu filter ကို ဖွင့်ပါ</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_on">Feed flyout menu filter ကို ဖွင့်ထားသည်</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_off">Feed flyout menu filter ကို ပိတ်ထားသည်</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Feed flyout menu filter</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">စစ်ထုတ်လိုသော flyout menu အမည်များကို တစ်ကြောင်းစီဖြင့် ရိုက်ထည့်ပါ</string>
+            <string name="revanced_hide_gaming_section_title">ဂိမ်းကစားခြင်းကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_gaming_section_summary_on">ဂိမ်းကစားခြင်းအပိုင်းကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_gaming_section_summary_off">ဂိမ်းကစားခြင်းအပိုင်းကို ပြသထားသည်</string>
+            <string name="revanced_hide_music_section_title">ဂီတကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_music_section_summary_on">ဂီတအပိုင်းကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_music_section_summary_off">ဂီတအပိုင်းကို ပြသထားသည်</string>
+            <string name="revanced_hide_quizzes_section_title">ပဟေဠိများကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_quizzes_section_summary_on">ပဟေဠိများအပိုင်းကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_quizzes_section_summary_off">ပဟေဠိများအပိုင်းကို ပြသထားသည်</string>
+            <string name="revanced_hide_channel_tab_title">ချန်နယ် tab filter ကို ဖွင့်ပါ</string>
+            <string name="revanced_hide_channel_tab_summary_on">ချန်နယ် tab filter ကို ဖွင့်ထားသည်</string>
+            <string name="revanced_hide_channel_tab_summary_off">ချန်နယ် tab filter ကို ပိတ်ထားသည်</string>
+            <string name="revanced_hide_channel_tab_filter_strings_title">ချန်နယ် tab filter</string>
+            <string name="revanced_hide_channel_tab_filter_strings_summary">စစ်ထုတ်လိုသော ချန်နယ် tab အမည်များကို တစ်ကြောင်းစီဖြင့် ရိုက်ထည့်ပါ</string>
             <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
             <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
             <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+            <string name="revanced_hide_view_count_user_dialog_message">"ကန့်သတ်ချက်များ:
+• Shorts shelves, channel pages, and search results may still show view counts.
+• ဤအင်္ဂါရပ်သည် မော်တော်ယာဉ်ပုံစံများတွင် အလုပ်မလုပ်ပါ။"</string>
             <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+            <string name="revanced_hide_upload_time_user_dialog_message">"ကန့်သတ်ချက်များ:
+• Shorts shelves, channel pages, and search results may still show upload times.
+• ဤအင်္ဂါရပ်သည် မော်တော်ယာဉ်ပုံစံများတွင် အလုပ်မလုပ်ပါ။"</string>
             <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
+            <string name="revanced_hide_keyword_content_about_summary">"Home/Subscriptions/Search ရလဒ်များကို သော့ချက်စကားစုများနှင့် ကိုက်ညီသော အကြောင်းအရာများကို ဖျောက်ရန် စစ်ထုတ်ထားသည်
+
+ကန့်သတ်ချက်များ:
+• Shorts ကို ချန်နယ်အမည်ဖြင့် ဖျောက်၍မရပါ
+• အချို့ UI အစိတ်အပိုင်းများကို ဖျောက်၍မရပါ
+• သော့ချက်စကားလုံးရှာဖွေခြင်းသည် ရလဒ်မပြနိုင်ပါ"</string>
             <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
-            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_hide_fullscreen_ads_summary_on">မျက်နှာပြင်အပြည့် ကြော်ငြာများကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_player_popup_ads_title">ပလေယာ ပေါ့ပ်အပ်ကြော်ငြာများကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_player_popup_ads_summary_on">ပလေယာ ပေါ့ပ်အပ်ကြော်ငြာများကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_player_popup_ads_summary_off">ပလေယာ ပေါ့ပ်အပ်ကြော်ငြာများကို ပြသထားသည်</string>
+            <string name="revanced_hide_view_products_banner_summary_on">ပလေယာအပေါ်လွှာရှိ ကုန်ပစ္စည်းကြည့်ရှုရန်နဖူးစည်းစာတန်းကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_view_products_banner_summary_off">ပလေယာအပေါ်လွှာရှိ ကုန်ပစ္စည်းကြည့်ရှုရန်နဖူးစည်းစာတန်းကို ပြသထားသည်</string>
+            <string name="revanced_hide_youtube_premium_promotions_title">YouTube Premium ကြော်ငြာများကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_on">YouTube Premium ကြော်ငြာများကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_off">YouTube Premium ကြော်ငြာများကို ပြသထားသည်</string>
         </patch>
-        <patch id="ad.getpremium.hideGetPremiumPatch"/>
         <patch id="ad.video.videoAdsPatch"/>
-        <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"/>
+        <patch id="interaction.copyvideourl.copyVideoURLResourcePatch">
+            <string name="revanced_share_copy_url_success">URL ကို ကလစ်ဘုတ်သို့ ကူးယူခဲ့သည်</string>
+            <string name="revanced_share_copy_url_timestamp_success">အချိန်တံဆိပ်ပါသော URL ကို ကူးယူခဲ့သည်</string>
+            <string name="revanced_copy_video_url_title">ဗီဒီယို URL ကူးယူရန် ခလုတ်ကို ပြသပါ</string>
+            <string name="revanced_copy_video_url_summary_on">ဗီဒီယို URL ကူးယူရန် ခလုတ်ကို ပြသထားသည်။ ဗီဒီယို URL ကို ကူးယူရန် နှိပ်ပါ။ အချိန်တံဆိပ်ဖြင့် ကူးယူရန် နှိပ်၍ ဖိထားပါ</string>
+            <string name="revanced_copy_video_url_summary_off">ဗီဒီယို URL ကူးယူရန် ခလုတ်ကို မပြသထားပါ</string>
+            <string name="revanced_copy_video_url_timestamp_title">အချိန်တံဆိပ် URL ကူးယူရန် ခလုတ်ကို ပြသပါ</string>
+            <string name="revanced_copy_video_url_timestamp_summary_on">အချိန်တံဆိပ် URL ကူးယူရန် ခလုတ်ကို ပြသထားသည်။ အချိန်တံဆိပ်ပါသော ဗီဒီယို URL ကို ကူးယူရန် နှိပ်ပါ။ အချိန်တံဆိပ်မပါဘဲ ကူးယူရန် နှိပ်၍ ဖိထားပါ</string>
+            <string name="revanced_copy_video_url_timestamp_summary_off">အချိန်တံဆိပ် URL ကူးယူရန် ခလုတ်ကို မပြသထားပါ</string>
+        </patch>
         <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"/>
-        <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch"/>
+        <patch id="layout.hide.signintotv.disableSignInToTVPopupPatch">
+            <string name="revanced_disable_sign_in_to_tv_popup_title">\'တီဗီသို့ဝင်ရောက်ရန်\' ပေါ့ပ်အပ်ကို ပိတ်ပါ</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_on">တီဗီသို့ဝင်ရောက်ရန် ပေါ့ပ်အပ်ကို ပိတ်ထားသည်</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_off">တီဗီသို့ဝင်ရောက်ရန် ပေါ့ပ်အပ်ကို ဖွင့်ထားသည်</string>
+        </patch>
         <patch id="interaction.doubletap.disableDoubleTapActionsPatch"/>
         <patch id="interaction.downloads.downloadsResourcePatch">
             <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
         </patch>
         <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"/>
-        <patch id="interaction.seekbar.enableSeekbarTappingPatch"/>
+        <patch id="interaction.seekbar.enableTapToSeekPatch">
+            <string name="revanced_tap_to_seek_title">ရှာဖွေရန် နှိပ်ခြင်းကို ဖွင့်ပါ</string>
+            <string name="revanced_tap_to_seek_summary_on">ရှာဖွေရန် နှိပ်ခြင်းကို ဖွင့်ထားသည်</string>
+            <string name="revanced_tap_to_seek_summary_off">ရှာဖွေရန် နှိပ်ခြင်းကို ပိတ်ထားသည်</string>
+        </patch>
         <patch id="interaction.swipecontrols.swipeControlsResourcePatch"/>
         <patch id="layout.autocaptions.autoCaptionsPatch"/>
         <patch id="layout.buttons.action.hideButtonsPatch">
@@ -89,25 +219,82 @@ Second \"item\" text"</string>
             <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
             <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
             <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually only shows on live streams. -->
+                  This button usually appears on live streamed videos. -->
             <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged-in user. -->
+                  This button usually appears on videos uploaded by the logged-in user. -->
             <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button usually appears if the user IP is from a specific region such as the USA or EU. -->
             <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_clip_button_user_dialog_message">အချို့အသုံးပြုသူအကောင့်များအတွက် ဖျောက်ထားခြင်းသည် အလုပ်မလုပ်နိုင်ပါ။</string>
             <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
         </patch>
-        <patch id="layout.buttons.navigation.navigationButtonsPatch">
+        <patch id="layout.buttons.navigation.navigationBarPatch">
+            <string name="revanced_navigation_buttons_screen_title">လမ်းညွှန်ခလုတ်များ</string>
+            <string name="revanced_navigation_buttons_screen_summary">လမ်းညွှန်ဘားခလုတ်များကို ဖျောက်ပါ သို့မဟုတ် ပြောင်းလဲပါ</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
+            <string name="revanced_hide_home_button_title">ပင်မကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_home_button_summary_on">ပင်မခလုတ်ကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_home_button_summary_off">ပင်မခလုတ်ကို ပြသထားသည်</string>
             <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_shorts_button_title">Shorts ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_shorts_button_summary_on">Shorts ခလုတ်ကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_shorts_button_summary_off">Shorts ခလုတ်ကို ပြသထားသည်</string>
             <!-- 'Create' has no display name. Translate normally. -->
+            <string name="revanced_hide_create_button_title">ဖန်တီးမည်ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_create_button_summary_on">ဖန်တီးမည်ခလုတ်ကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_create_button_summary_off">ဖန်တီးမည်ခလုတ်ကို ပြသထားသည်</string>
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_subscriptions_button_title">စာရင်းသွင်းမှုများကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_subscriptions_button_summary_on">စာရင်းသွင်းမှုများခလုတ်ကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_subscriptions_button_summary_off">စာရင်းသွင်းမှုများခလုတ်ကို ပြသထားသည်</string>
+            <string name="revanced_hide_notifications_button_title">အသိပေးချက်များကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_notifications_button_summary_on">အသိပေးချက်များခလုတ်ကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_notifications_button_summary_off">အသိပေးချက်များခလုတ်ကို ပြသထားသည်</string>
             <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_switch_create_with_notifications_button_title">ဖန်တီးမည်နှင့် အသိပေးချက်များကို ပြောင်းပါ</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_on">ဖန်တီးမည်ခလုတ်ကို အသိပေးချက်များခလုတ်နှင့် ပြောင်းထားသည်</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_off">ဖန်တီးမည်ခလုတ်ကို အသိပေးချက်များခလုတ်နှင့် မပြောင်းထားပါ</string>
+            <string name="revanced_switch_create_with_notifications_button_user_dialog_message">ဤဆက်တင်ကို ပြောင်းလဲခြင်းသည် အကျိုးသက်ရောက်မှုမရှိပါက လျှို့ဝှက်မုဒ်သို့ ပြောင်းလဲကြည့်ပါ။</string>
+            <string name="revanced_hide_navigation_button_labels_title">လမ်းညွှန်ခလုတ်တံဆိပ်များကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_navigation_button_labels_summary_on">တံဆိပ်များကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_navigation_button_labels_summary_off">တံဆိပ်များကို ပြသထားသည်</string>
+            <string name="revanced_narrow_navigation_buttons_title">ကျဉ်းမြောင်းသော လမ်းညွှန်ခလုတ်များကို ဖွင့်ပါ</string>
+            <string name="revanced_narrow_navigation_buttons_summary_on">လမ်းညွှန်ခလုတ်များကြား နေရာလွတ်သည် ကျဉ်းမြောင်းသည်</string>
+            <string name="revanced_narrow_navigation_buttons_summary_off">လမ်းညွှန်ခလုတ်များကြား နေရာလွတ်သည် ပုံမှန်အတိုင်းဖြစ်သည်</string>
+            <string name="revanced_navigation_bar_animations_title">လမ်းညွှန်ဘားကာတွန်းများကို ဖွင့်ပါ</string>
+            <string name="revanced_navigation_bar_animations_summary_on">လမ်းညွှန်ပြောင်းလဲမှုများသည် ကာတွန်းများပါရှိသည်</string>
+            <string name="revanced_navigation_bar_animations_summary_off">လမ်းညွှန်ပြောင်းလဲမှုများသည် ကာတွန်းများမပါရှိပါ</string>
+            <string name="revanced_disable_translucent_status_bar_title">အလင်းဖြတ်နိုင်သော စတေးတပ်ဘားကို ပိတ်ပါ</string>
+            <string name="revanced_disable_translucent_status_bar_summary_on">စတေးတပ်ဘားသည် အလင်းမဖြတ်နိုင်ပါ</string>
+            <string name="revanced_disable_translucent_status_bar_summary_off">စတေးတပ်ဘားသည် အလင်းမဖြတ်နိုင် သို့မဟုတ် အလင်းဖြတ်နိုင်သည်</string>
+            <string name="revanced_disable_translucent_status_bar_user_dialog_message">"ကန့်သတ်ချက်များ:
+• ဗီဒီယိုဖွင့်စက်၏ ထိပ်တွင် အနက်ရောင်ဘားတစ်ခု ပေါ်လာနိုင်ပါသည်။
+• အချို့စက်ပစ္စည်းများတွင် ဤအင်္ဂါရပ်ကို ဖွင့်ခြင်းသည် စနစ်လမ်းညွှန်ဘားကို ပွင့်လင်းမြင်သာအောင် ပြောင်းလဲနိုင်သည်။"</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_title">အလင်းဖြတ်နိုင်သော ဘားအလင်းရောင်ကို ပိတ်ပါ</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_on">အလင်းမုဒ်လမ်းညွှန်ဘားသည် အလင်းမဖြတ်နိုင်ပါ</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_off">အလင်းမုဒ်လမ်းညွှန်ဘားသည် အလင်းမဖြတ်နိုင် သို့မဟုတ် အလင်းဖြတ်နိုင်သည်</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_title">အလင်းဖြတ်နိုင်သော ဘားအမှောင်ရောင်ကို ပိတ်ပါ</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">အမှောင်မုဒ်လမ်းညွှန်ဘားသည် အလင်းမဖြတ်နိုင်ပါ</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">အမှောင်မုဒ်လမ်းညွှန်ဘားသည် အလင်းမဖြတ်နိုင် သို့မဟုတ် အလင်းဖြတ်နိုင်သည်</string>
+            <string name="revanced_toolbar_screen_title">ကိရိယာဘား</string>
+            <string name="revanced_toolbar_screen_summary">ကိရိယာဘားအစိတ်အပိုင်းများကို ဖျောက်ပါ သို့မဟုတ် ပြောင်းလဲပါ</string>
+            <string name="revanced_hide_toolbar_create_button_title">ဖန်တီးမည်ခလုတ်ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_toolbar_create_button_summary_on">ဖန်တီးမည်ခလုတ်ကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_toolbar_create_button_summary_off">ဖန်တီးမည်ခလုတ်ကို ပြသထားသည်</string>
+            <string name="revanced_hide_toolbar_notification_button_title">အသိပေးချက်များခလုတ်ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_on">အသိပေးချက်များခလုတ်ကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_off">အသိပေးချက်များခလုတ်ကို ပြသထားသည်</string>
+            <string name="revanced_hide_toolbar_search_button_title">ရှာဖွေရန်ခလုတ်ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_toolbar_search_button_summary_on">ရှာဖွေရန်ခလုတ်ကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_toolbar_search_button_summary_off">ရှာဖွေရန်ခလုတ်ကို ပြသထားသည်</string>
+            <string name="revanced_wide_searchbar_title">ကျယ်ပြန့်သော ရှာဖွေရေးဘားကို ဖွင့်ပါ</string>
+            <string name="revanced_wide_searchbar_summary_on">ကျယ်ပြန့်သော ရှာဖွေရေးဘားကို ဖွင့်ထားသည်</string>
+            <string name="revanced_wide_searchbar_summary_off">ကျယ်ပြန့်သော ရှာဖွေရေးဘားကို ပိတ်ထားသည်</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -126,25 +313,67 @@ Second \"item\" text"</string>
         </patch>
         <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
             <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+            <string name="revanced_hide_collapse_button_title">ချုံ့မည်ခလုတ်ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_collapse_button_summary_on">ချုံ့မည်ခလုတ်ကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_collapse_button_summary_off">ချုံ့မည်ခလုတ်ကို ပြသထားသည်</string>
+            <string name="revanced_hide_fullscreen_button_title">မျက်နှာပြင်အပြည့်ခလုတ်ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_fullscreen_button_summary_on">မျက်နှာပြင်အပြည့်ခလုတ်ကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_fullscreen_button_summary_off">မျက်နှာပြင်အပြည့်ခလုတ်ကို ပြသထားသည်</string>
         </patch>
-        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch"/>
+        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
+            <string name="revanced_hide_end_screen_cards_title">အဆုံးသတ်မျက်နှာပြင်ကတ်များကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_end_screen_cards_summary_on">အဆုံးသတ်မျက်နှာပြင်ကတ်များကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_end_screen_cards_summary_off">အဆုံးသတ်မျက်နှာပြင်ကတ်များကို ပြသထားသည်</string>
+        </patch>
         <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"/>
         <patch id="layout.hide.infocards.hideInfocardsResourcePatch"/>
         <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"/>
         <patch id="layout.hide.seekbar.hideSeekbarPatch">
             <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
+            <string name="revanced_fullscreen_large_seekbar_title">မျက်နှာပြင်အပြည့် အရွယ်အစားကြီး seekbar ကို ဖွင့်ပါ</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_on">မျက်နှာပြင်အပြည့် seekbar သည် အရွယ်အစားကြီးဖြစ်သည်</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_off">မျက်နှာပြင်အပြည့် seekbar သည် ပုံမှန်အရွယ်အစားဖြစ်သည်</string>
         </patch>
         <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+            <string name="revanced_hide_shorts_channel_title">ချန်နယ်စာမျက်နှာရှိ Shorts ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_shorts_channel_summary_on">ချန်နယ်စာမျက်နှာတွင် ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_shorts_channel_summary_off">ချန်နယ်စာမျက်နှာတွင် ပြသထားသည်</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+            <string name="revanced_hide_shorts_video_description_title">ဗီဒီယိုဖော်ပြချက်ရှိ Shorts ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_shorts_video_description_summary_on">ဗီဒီယိုဖော်ပြချက်တွင် ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_shorts_video_description_summary_off">ဗီဒီယိုဖော်ပြချက်တွင် ပြသထားသည်</string>
+            <string name="revanced_hide_shorts_ai_button_title">AI ခလုတ်ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_shorts_ai_button_summary_on">AI ခလုတ်ကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_shorts_ai_button_summary_off">AI ခလုတ်ကို ပြသထားသည်</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_title">\'အလိုအလျောက် အသံထပ်ဆင့်\' တံဆိပ်ကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">အလိုအလျောက် အသံထပ်ဆင့်တံဆိပ်ကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">အလိုအလျောက် အသံထပ်ဆင့်တံဆိပ်ကို ပြသထားသည်</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+            <!-- YT may no longer use this feature and this setting may be obsolete. -->
             <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
             <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
         </patch>
-        <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"/>
+        <patch id="layout.hide.autoplaypreview.hideAutoplayPreviewPatch">
+            <string name="revanced_hide_autoplay_preview_title">အလိုအလျောက်ဖွင့်သည့် ကြည့်ရှုမှုအကြိုကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_autoplay_preview_summary_on">အလိုအလျောက်ဖွင့်သည့် ကြည့်ရှုမှုအကြိုကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_autoplay_preview_summary_off">အလိုအလျောက်ဖွင့်သည့် ကြည့်ရှုမှုအကြိုကို ပြသထားသည်</string>
+        </patch>
+        <patch id="layout.hide.endscreensuggestedvideo.hideEndScreenSuggestedVideoPatch">
+            <string name="revanced_end_screen_suggested_video_title">အဆုံးသတ်မျက်နှာပြင် အကြံပြုဗီဒီယိုကို ဖျောက်ပါ</string>
+            <string name="revanced_end_screen_suggested_video_summary_on">"အလိုအလျောက်ဖွင့်ခြင်းကို ပိတ်ထားသည့်အခါ အဆုံးသတ်မျက်နှာပြင် အကြံပြုဗီဒီယိုကို ဖျောက်ထားသည်
+
+အလိုအလျောက်ဖွင့်ခြင်းကို YouTube ဆက်တင်များတွင် ပြောင်းလဲနိုင်သည်:
+ဆက်တင်များ → ဖွင့်ခြင်း → နောက်ဗီဒီယိုကို အလိုအလျောက်ဖွင့်ပါ"</string>
+            <string name="revanced_end_screen_suggested_video_summary_off">အဆုံးသတ်မျက်နှာပြင် အကြံပြုဗီဒီယိုကို ပြသထားသည်</string>
+        </patch>
         <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch"/>
         <patch id="layout.hide.time.hideTimestampPatch"/>
-        <patch id="layout.panels.popup.playerPopupPanelsPatch"/>
+        <patch id="layout.panels.popup.playerPopupPanelsPatch">
+            <string name="revanced_disable_player_popup_panels_title">ပလေယာ ပေါ့ပ်အပ် ပန်နယ်များကို ဝှက်ပါ</string>
+            <string name="revanced_disable_player_popup_panels_summary_on">ပလေယာ ပေါ့ပ်အပ် ပန်နယ်များကို ဝှက်ထားသည်</string>
+            <string name="revanced_disable_player_popup_panels_summary_off">ပလေယာ ပေါ့ပ်အပ် ပန်နယ်များကို ပြသထားသည်</string>
+        </patch>
         <patch id="layout.player.fullscreen.exitFullscreenPatch"/>
         <patch id="layout.player.fullscreen.openVideosFullscreen"/>
         <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"/>
@@ -155,10 +384,12 @@ Second \"item\" text"</string>
             <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
             <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
         </patch>
-        <patch id="layout.searchbar.wideSearchbarPatch"/>
-        <patch id="layout.seekbar.seekbarThumbnailsPatch"/>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
             <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
+            <string name="revanced_sb_segments_nomusic_sum">ဂီတဗီဒီယိုများတွင်သာ အသုံးပြုရန်။ ဂီတမပါဝင်သည့် ဂီတဗီဒီယိုအပိုင်းများ၊ အခြားအမျိုးအစားဖြင့် အကျုံးမဝင်သေးသော အပိုင်းများ</string>
+            <string name="revanced_sb_submit_failed_forbidden">အပိုင်းကို တင်သွင်း၍မရပါ: %s</string>
+            <string name="revanced_sb_submit_failed_duplicate">"အပိုင်းကို တင်သွင်း၍မရပါ။
+ရှိပြီးသားဖြစ်သည်"</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <!-- A segment start and end time, such as "02:10 to 03:40". -->
             <!-- Shown in the settings preferences, and translations can be any text length. -->
@@ -170,7 +401,11 @@ Second \"item\" text"</string>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch"/>
         <patch id="layout.shortsautoplay.shortsAutoplayPatch"/>
         <patch id="layout.miniplayer.miniplayerPatch"/>
-        <patch id="layout.theme.themePatch"/>
+        <patch id="layout.theme.themePatch">
+            <string name="revanced_splash_screen_animation_style_entry_1">ပိတ်ထားသည်</string>
+            <string name="revanced_splash_screen_animation_style_entry_2">အရောင်</string>
+            <string name="revanced_splash_screen_animation_style_entry_3">အဖြူအမည်း</string>
+        </patch>
         <patch id="layout.branding.customBrandingPatch"/>
         <patch id="layout.branding.changeHeaderPatch">
             <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
@@ -187,7 +422,11 @@ Second \"item\" text"</string>
         <patch id="misc.loopvideo.button.loopVideoButtonPatch"/>
         <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"/>
         <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"/>
-        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch"/>
+        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_title">နှိပ်၍ ဖိထားသော haptics ကို ပိတ်ပါ</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">နှိပ်၍ ဖိထားသော haptics ကို ပိတ်ထားသည်</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">နှိပ်၍ ဖိထားသော haptics ကို ဖွင့်ထားသည်</string>
+        </patch>
         <patch id="misc.gms.accountCredentialsInvalidTextPatch"/>
         <patch id="misc.links.bypassURLRedirectsPatch"/>
         <patch id="misc.links.openLinksExternallyPatch"/>
@@ -200,6 +439,11 @@ Second \"item\" text"</string>
         <patch id="video.speed.remember.rememberPlaybackSpeedPatch"/>
         <patch id="video.codecs.disableVideoCodecsPatch"/>
         <patch id="video.quality.advancedVideoQualityMenuPatch"/>
+        <patch id="video.quality.hidePremiumVideoQualityPatch">
+            <string name="revanced_hide_premium_video_quality_title">ပရီမီယမ်အရည်အသွေးရွေးချယ်စရာများကို ဖျောက်ပါ</string>
+            <string name="revanced_hide_premium_video_quality_summary_on">ပရီမီယမ်အရည်အသွေးရွေးချယ်စရာများကို ဖျောက်ထားသည်</string>
+            <string name="revanced_hide_premium_video_quality_summary_off">ပရီမီယမ်အရည်အသွေးရွေးချယ်စရာများကို ပြသထားသည်</string>
+        </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch"/>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
@@ -207,7 +451,9 @@ Second \"item\" text"</string>
     </app>
     <app id="music">
         <patch id="layout.branding.customBrandingPatch"/>
-        <patch id="misc.settings.settingsPatch"/>
+        <patch id="misc.settings.settingsPatch">
+            <!-- In languages where "About" is ambiguous, translate to "About ReVanced" (i.e., About this app). -->
+        </patch>
         <patch id="ad.video.hideVideoAdsPatch"/>
         <patch id="interaction.permanentrepeat.permanentRepeatPatch"/>
         <patch id="layout.buttons.hideButtons"/>

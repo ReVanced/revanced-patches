@@ -27,18 +27,43 @@ Second \"item\" text"</string>
         <patch id="misc.checks.checkEnvironmentPatch"/>
         <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"/>
         <patch id="misc.settings.settingsResourcePatch">
+            <string name="revanced_settings_disable_bold_icons_title">Qalin ikonlarni o\'chirish</string>
+            <string name="revanced_settings_disable_bold_icons_summary_on">Ikonkalar qalin emas</string>
+            <string name="revanced_settings_disable_bold_icons_summary_off">Ikonkalar qalin</string>
             <!-- Settings about dialog. -->
             <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
+            <string name="revanced_gms_core_screen_title">GmsCore</string>
+            <string name="revanced_gms_core_screen_summary">GmsCorega oid sozlamalar</string>
+            <string name="revanced_gms_core_check_updates_title">GmsCore yangilanishlarini tekshirish</string>
+            <string name="revanced_gms_core_check_updates_summary_on">Yangilanishlarni tekshirish yoqilgan</string>
+            <string name="revanced_gms_core_check_updates_summary_off">Yangilanishlarni tekshirish o\'chirilgan</string>
+            <string name="revanced_gms_core_settings_title">GmsCore sozlamalarini ochish</string>
+            <string name="revanced_gms_core_settings_summary">GmsCore sozlamalari</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_gms_core_toast_not_installed_message">MicroG GmsCore o\'rnatilmagan. O\'rnating.</string>
+            <string name="revanced_gms_core_dialog_title">Harakat talab qilinadi</string>
+            <string name="revanced_gms_core_toast_update_check_failed_message">MicroG GmsCore yangilanishlarini tekshirib bo\'lmadi</string>
+            <string name="revanced_gms_core_update_available_message">MicroG GmsCore’ning yangi versiyasi (%1$s) mavjud. Hozirda siz %2$s versiyasidan foydalanmoqdasiz.</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore fon rejimida ishlashga ruxsatga ega emas.\n\nTelefoningiz uchun \"Ilovamni o'ldirmang\" qo'llanmasiga amal qiling va ko'rsatmalarni MicroG o'rnatishingizga qo'llang.\n\nBu ilova ishlashi uchun talab qilinadi."</string>
+            <string name="revanced_gms_core_dialog_open_website_text">Veb-saytni ochish</string>
+            <string name="revanced_gms_core_dialog_cancel_text">Bekor qilish</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Muammolarni oldini olish uchun MicroG GmsCore batareyani optimallashtirish o'chirilishi kerak.\n\nMicroG uchun batareya optimallashtirishni o'chirish batareya quvvatiga salbiy ta'sir ko'rsatmaydi.\n\nDavom etish tugmasini bosing va optimallashtirish o'zgarishlariga ruxsat bering."</string>
+            <string name="revanced_gms_core_dialog_continue_text">Davom etish</string>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch"/>
         <patch id="misc.audio.forceOriginalAudioPatch">
             <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
         </patch>
-        <patch id="misc.debugging.enableDebuggingPatch"/>
+        <patch id="misc.debugging.enableDebuggingPatch">
+            <string name="revanced_debug_feature_flags_manager_toast_no_flags">Ushbu funksiyadan foydalanish uchun ilovani qayta ishga tushiring.</string>
+            <string name="revanced_debug_protocolbuffer_title">Protokol buferini jurnalga kiritish</string>
+            <string name="revanced_debug_protocolbuffer_summary_on">Disk raskadrovka jurnallarida protobuffer mavjud</string>
+            <string name="revanced_debug_protocolbuffer_summary_off">Disk raskadrovka jurnallarida protobuffer mavjud emas</string>
+            <string name="revanced_debug_protocolbuffer_user_dialog_message">"Ushbu sozlamani yoqish qo'shimcha joylashuv ma'lumotlarini, shu jumladan ba'zi UI komponentlari uchun ekrandagi matnni qayd etadi.\n\nBu maxsus filtrlarni yaratishda komponentlarni aniqlashga yordam beradi.\n\nBiroq, buni yoqish sizning IP manzilingiz kabi ba'zi foydalanuvchi ma'lumotlarini ham qayd etadi."</string>
+        </patch>
         <patch id="misc.privacy.sanitizeSharingLinksPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
@@ -48,40 +73,135 @@ Second \"item\" text"</string>
         <patch id="misc.settings.settingsPatch"/>
         <patch id="misc.backgroundplayback.backgroundPlaybackPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
-            <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
+            <string name="revanced_hide_creator_store_shelf_title">Muallif doʻkon tokchasini yashirish</string>
+            <string name="revanced_hide_creator_store_shelf_summary_on">Video pleer ostidagi muallif doʻkon tokchasi yashirilgan</string>
+            <string name="revanced_hide_creator_store_shelf_summary_off">Video pleer ostidagi muallif doʻkon tokchasi koʻrsatilgan</string>
+            <string name="revanced_hide_comments_section_in_home_feed_title">Bosh sahifa tasmasidagi videolar ostidagi izohlar boʻlimini yashirish</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_on">Bosh sahifa tasmasidagi videolar ostidagi izohlar boʻlimi yashirilgan</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_off">Bosh sahifa tasmasidagi videolar ostidagi izohlar boʻlimi koʻrsatilgan</string>
+            <!-- 'Latest videos' should be translated using the same localized wording YouTube displays for the button.
+                 This button usually appears in the Home feed for refreshing the feed. -->
+            <string name="revanced_hide_latest_videos_button_title">\"Eng soʻnggi videolar\" tugmasini yashirish</string>
+            <string name="revanced_hide_latest_videos_button_summary_on">Eng soʻnggi videolar tugmasi yashirilgan</string>
+            <string name="revanced_hide_latest_videos_button_summary_off">Eng soʻnggi videolar tugmasi koʻrsatilgan</string>
+            <!-- 'Notify me' should be translated using the same localized wording YouTube displays for this button.
+                  This button usually appears in the Subscriptions feed for future livestreams or unreleased videos. -->
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
             <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+            <string name="revanced_hide_web_search_results_title">Veb qidiruv natijalarini yashirish</string>
+            <string name="revanced_hide_web_search_results_summary_on">Veb qidiruv natijalari yashirilgan</string>
+            <string name="revanced_hide_web_search_results_summary_off">Veb qidiruv natijalari koʻrsatilgan</string>
+            <string name="revanced_hide_you_may_like_section_title">\'Sizga yoqishi mumkin\' boʻlimini yashirish</string>
+            <string name="revanced_hide_you_may_like_section_summary_on">\'Sizga yoqishi mumkin\' boʻlimi yashirilgan</string>
+            <string name="revanced_hide_you_may_like_section_summary_off">\'Sizga yoqishi mumkin\' boʻlimi koʻrsatilgan</string>
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                  This appears in the video player for certain videos. -->
+                   This button usually appears in the video player for certain videos. -->
+            <!-- 'Live chat replay' should be translated using the same localized wording YouTube displays for the button.
+       This button usually appears in the player overlay for live streamed videos after opening live chat. -->
+            <string name="revanced_hide_live_chat_replay_button_title">\"Jonli chat takrori\" tugmasini yashirish</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_on">Pleer ustidagi jonli chat takrori tugmasi yashirilgan</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_off">Pleer ustidagi jonli chat takrori tugmasi koʻrsatilgan</string>
+            <string name="revanced_hide_video_title_title">Video sarlavhasini yashirish</string>
+            <string name="revanced_hide_video_title_summary_on">Pleer ustidagi video sarlavhasi yashirilgan</string>
+            <string name="revanced_hide_video_title_summary_off">Pleer ustidagi video sarlavhasi koʻrsatilgan</string>
+            <string name="revanced_hide_course_progress_section_title">\'Kurs jarayoni\'ni yashirish</string>
+            <string name="revanced_hide_course_progress_section_summary_on">Kurs jarayoni boʻlimi yashirilgan</string>
+            <string name="revanced_hide_course_progress_section_summary_off">Kurs jarayoni boʻlimi koʻrsatilgan</string>
+            <string name="revanced_hide_explore_section_title">Kashfiyotni yashirish</string>
+            <string name="revanced_hide_explore_section_summary_on">Ushbu kursni kashf etish va Podcast boʻlimlarini kashf etish yashirilgan</string>
+            <string name="revanced_hide_explore_section_summary_off">Ushbu kursni kashf etish va Podcast boʻlimlarini kashf etish koʻrsatilgan</string>
+            <string name="revanced_hide_explore_course_section_title">\'Ushbu kursni kashf etish\'ni yashirish</string>
+            <string name="revanced_hide_explore_course_section_summary_on">Ushbu kursni kashf etish boʻlimi yashirilgan</string>
+            <string name="revanced_hide_explore_course_section_summary_off">Ushbu kursni kashf etish boʻlimi koʻrsatilgan</string>
+            <string name="revanced_hide_explore_podcast_section_title">\'Podcastni kashf etish\'ni yashirish</string>
+            <string name="revanced_hide_explore_podcast_section_summary_on">Podcast boʻlimini kashf etish yashirilgan</string>
+            <string name="revanced_hide_explore_podcast_section_summary_off">Podcast boʻlimini kashf etish koʻrsatilgan</string>
+            <string name="revanced_hide_featured_places_section_title">\'Tavsiya etilgan joylar\'ni yashirish</string>
+            <string name="revanced_hide_featured_places_section_summary_on">Tavsiya etilgan joylar boʻlimi yashirilgan</string>
+            <string name="revanced_hide_featured_places_section_summary_off">Tavsiya etilgan joylar boʻlimi koʻrsatilgan</string>
+            <string name="revanced_hide_feed_flyout_menu_title">Tasma ochiluvchi menyu filtrini yoqish</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_on">Tasma ochiluvchi menyu filtri yoqilgan</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_off">Tasma ochiluvchi menyu filtri oʻchirilgan</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Tasma ochiluvchi menyu filtri</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Filtrga qoʻshish uchun ochiluvchi menyu nomlarini har bir qatorda bittadan kiriting</string>
+            <string name="revanced_hide_gaming_section_title">Oʻyinlarni yashirish</string>
+            <string name="revanced_hide_gaming_section_summary_on">Oʻyinlar boʻlimi yashirilgan</string>
+            <string name="revanced_hide_gaming_section_summary_off">Oʻyinlar boʻlimi koʻrsatilgan</string>
+            <string name="revanced_hide_music_section_title">Musiqani yashirish</string>
+            <string name="revanced_hide_music_section_summary_on">Musiqa boʻlimi yashirilgan</string>
+            <string name="revanced_hide_music_section_summary_off">Musiqa boʻlimi koʻrsatilgan</string>
+            <string name="revanced_hide_quizzes_section_title">Viktorinalarni yashirish</string>
+            <string name="revanced_hide_quizzes_section_summary_on">Viktorinalar boʻlimi yashirilgan</string>
+            <string name="revanced_hide_quizzes_section_summary_off">Viktorinalar boʻlimi koʻrsatilgan</string>
+            <string name="revanced_hide_channel_tab_title">Kanal yorligʻi filtrini yoqish</string>
+            <string name="revanced_hide_channel_tab_summary_on">Kanal yorligʻi filtri yoqilgan</string>
+            <string name="revanced_hide_channel_tab_summary_off">Kanal yorligʻi filtri oʻchirilgan</string>
+            <string name="revanced_hide_channel_tab_filter_strings_title">Kanal yorligʻi filtri</string>
+            <string name="revanced_hide_channel_tab_filter_strings_summary">Filtrga qoʻshish uchun kanal yorligʻi nomlarini har bir qatorda bittadan kiriting</string>
             <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
             <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
             <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+            <string name="revanced_hide_view_count_user_dialog_message">"Cheklovlar:
+• Shorts tokchalari, kanal sahifalari va qidiruv natijalari koʻrishlar sonini koʻrsatishi mumkin.
+• Bu funksiya avtomobil shakl omili bilan ishlamaydi."</string>
             <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+            <string name="revanced_hide_upload_time_user_dialog_message">"Cheklovlar:
+• Shorts tokchalari, kanal sahifalari va qidiruv natijalari yuklash vaqtlarini koʻrsatishi mumkin.
+• Bu funksiya avtomobil shakl omili bilan ishlamaydi."</string>
             <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
+            <string name="revanced_hide_keyword_content_about_summary">"Asosiy/Obunalar/Qidiruv natijalari kalit soʻz iboralariga mos keladigan kontentni yashirish uchun filtrlangan
+
+Cheklovlar:
+• Shorts kanal nomi boʻyicha yashirilmaydi
+• Baʼzi UI komponentlari yashirilmasligi mumkin
+• Kalit soʻzni qidirish natija bermasligi mumkin"</string>
             <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
-            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_hide_fullscreen_ads_summary_on">Toʻliq ekranli reklamalar yashirilgan</string>
+            <string name="revanced_hide_player_popup_ads_title">Pleer ochiluvchi reklamalarini yashirish</string>
+            <string name="revanced_hide_player_popup_ads_summary_on">Pleer ochiluvchi reklamalari yashirilgan</string>
+            <string name="revanced_hide_player_popup_ads_summary_off">Pleer ochiluvchi reklamalari koʻrsatilgan</string>
+            <string name="revanced_hide_view_products_banner_summary_on">Pleer ustidagi mahsulotlarni koʻrish banneri yashirilgan</string>
+            <string name="revanced_hide_view_products_banner_summary_off">Pleer ustidagi mahsulotlarni koʻrish banneri koʻrsatilgan</string>
+            <string name="revanced_hide_youtube_premium_promotions_title">YouTube Premium aksiyalarini yashirish</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_on">YouTube Premium aksiyalari yashirilgan</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_off">YouTube Premium aksiyalari koʻrsatilgan</string>
         </patch>
-        <patch id="ad.getpremium.hideGetPremiumPatch"/>
         <patch id="ad.video.videoAdsPatch"/>
-        <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"/>
+        <patch id="interaction.copyvideourl.copyVideoURLResourcePatch">
+            <string name="revanced_share_copy_url_success">URL manzili buferga nusxalandi</string>
+            <string name="revanced_share_copy_url_timestamp_success">Vaqt tamgʻasi bilan URL manzili nusxalandi</string>
+            <string name="revanced_copy_video_url_title">Video URL manzilini nusxalash tugmasini koʻrsatish</string>
+            <string name="revanced_copy_video_url_summary_on">Video URL manzilini nusxalash tugmasi koʻrsatilgan. Video URL manzilini nusxalash uchun bosing. Vaqt tamgʻasi bilan nusxalash uchun bosib turing</string>
+            <string name="revanced_copy_video_url_summary_off">Video URL manzilini nusxalash tugmasi koʻrsatilmagan</string>
+            <string name="revanced_copy_video_url_timestamp_title">Vaqt tamgʻasi URL manzilini nusxalash tugmasini koʻrsatish</string>
+            <string name="revanced_copy_video_url_timestamp_summary_on">Vaqt tamgʻasi URL manzilini nusxalash tugmasi koʻrsatilgan. Vaqt tamgʻasi bilan video URL manzilini nusxalash uchun bosing. Vaqt tamgʻasisiz nusxalash uchun bosib turing</string>
+            <string name="revanced_copy_video_url_timestamp_summary_off">Vaqt tamgʻasi URL manzilini nusxalash tugmasi koʻrsatilmagan</string>
+        </patch>
         <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"/>
-        <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch"/>
+        <patch id="layout.hide.signintotv.disableSignInToTVPopupPatch">
+            <string name="revanced_disable_sign_in_to_tv_popup_title">\"TVga kirish\" ochiluvchi oynasini oʻchirish</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_on">TVga kirish ochiluvchi oynasi oʻchirilgan</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_off">TVga kirish ochiluvchi oynasi yoqilgan</string>
+        </patch>
         <patch id="interaction.doubletap.disableDoubleTapActionsPatch"/>
         <patch id="interaction.downloads.downloadsResourcePatch">
             <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
         </patch>
         <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"/>
-        <patch id="interaction.seekbar.enableSeekbarTappingPatch"/>
+        <patch id="interaction.seekbar.enableTapToSeekPatch">
+            <string name="revanced_tap_to_seek_title">Qidirish uchun bosishni yoqish</string>
+            <string name="revanced_tap_to_seek_summary_on">Qidirish uchun bosish yoqilgan</string>
+            <string name="revanced_tap_to_seek_summary_off">Qidirish uchun bosish oʻchirilgan</string>
+        </patch>
         <patch id="interaction.swipecontrols.swipeControlsResourcePatch"/>
         <patch id="layout.autocaptions.autoCaptionsPatch"/>
         <patch id="layout.buttons.action.hideButtonsPatch">
@@ -89,25 +209,82 @@ Second \"item\" text"</string>
             <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
             <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
             <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually only shows on live streams. -->
+                  This button usually appears on live streamed videos. -->
             <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged-in user. -->
+                  This button usually appears on videos uploaded by the logged-in user. -->
             <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button usually appears if the user IP is from a specific region such as the USA or EU. -->
             <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_clip_button_user_dialog_message">Yashirish baʼzi foydalanuvchi akkauntlari uchun ishlamasligi mumkin.</string>
             <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
         </patch>
-        <patch id="layout.buttons.navigation.navigationButtonsPatch">
+        <patch id="layout.buttons.navigation.navigationBarPatch">
+            <string name="revanced_navigation_buttons_screen_title">Navigatsiya tugmalari</string>
+            <string name="revanced_navigation_buttons_screen_summary">Navigatsiya panelidagi tugmalarni yashirish yoki oʻzgartirish</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
+            <string name="revanced_hide_home_button_title">Bosh sahifani yashirish</string>
+            <string name="revanced_hide_home_button_summary_on">Bosh sahifa tugmasi yashirilgan</string>
+            <string name="revanced_hide_home_button_summary_off">Bosh sahifa tugmasi koʻrsatilgan</string>
             <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_shorts_button_title">Shortsni yashirish</string>
+            <string name="revanced_hide_shorts_button_summary_on">Shorts tugmasi yashirilgan</string>
+            <string name="revanced_hide_shorts_button_summary_off">Shorts tugmasi koʻrsatilgan</string>
             <!-- 'Create' has no display name. Translate normally. -->
+            <string name="revanced_hide_create_button_title">Yaratishni yashirish</string>
+            <string name="revanced_hide_create_button_summary_on">Yaratish tugmasi yashirilgan</string>
+            <string name="revanced_hide_create_button_summary_off">Yaratish tugmasi koʻrsatilgan</string>
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_subscriptions_button_title">Obunalarni yashirish</string>
+            <string name="revanced_hide_subscriptions_button_summary_on">Obunalar tugmasi yashirilgan</string>
+            <string name="revanced_hide_subscriptions_button_summary_off">Obunalar tugmasi koʻrsatilgan</string>
+            <string name="revanced_hide_notifications_button_title">Bildirishnomalarni yashirish</string>
+            <string name="revanced_hide_notifications_button_summary_on">Bildirishnomalar tugmasi yashirilgan</string>
+            <string name="revanced_hide_notifications_button_summary_off">Bildirishnomalar tugmasi koʻrsatilgan</string>
             <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_switch_create_with_notifications_button_title">Yaratishni Bildirishnomalar bilan almashtirish</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_on">Yaratish tugmasi Bildirishnomalar tugmasi bilan almashtirilgan</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_off">Yaratish tugmasi Bildirishnomalar tugmasi bilan almashtirilmagan</string>
+            <string name="revanced_switch_create_with_notifications_button_user_dialog_message">Agar bu sozlamani oʻzgartirish ish bermasa, inkognito rejimiga oʻtishga harakat qiling.</string>
+            <string name="revanced_hide_navigation_button_labels_title">Navigatsiya tugmalari yorliqlarini yashirish</string>
+            <string name="revanced_hide_navigation_button_labels_summary_on">Yorliqlar yashirilgan</string>
+            <string name="revanced_hide_navigation_button_labels_summary_off">Yorliqlar koʻrsatilgan</string>
+            <string name="revanced_narrow_navigation_buttons_title">Tor navigatsiya tugmalarini yoqish</string>
+            <string name="revanced_narrow_navigation_buttons_summary_on">Navigatsiya tugmalari orasidagi boʻshliq tor</string>
+            <string name="revanced_narrow_navigation_buttons_summary_off">Navigatsiya tugmalari orasidagi boʻshliq normal</string>
+            <string name="revanced_navigation_bar_animations_title">Navigatsiya paneli animatsiyalarini yoqish</string>
+            <string name="revanced_navigation_bar_animations_summary_on">Navigatsiya oʻtishlari animatsiyali</string>
+            <string name="revanced_navigation_bar_animations_summary_off">Navigatsiya oʻtishlari animatsiyali emas</string>
+            <string name="revanced_disable_translucent_status_bar_title">Yarim shaffof holat panelini oʻchirish</string>
+            <string name="revanced_disable_translucent_status_bar_summary_on">Holat paneli shaffof emas</string>
+            <string name="revanced_disable_translucent_status_bar_summary_off">Holat paneli shaffof emas yoki yarim shaffof</string>
+            <string name="revanced_disable_translucent_status_bar_user_dialog_message">"Cheklovlar:
+• Video pleerning yuqori qismida qora chiziq paydo boʻlishi mumkin.
+• Baʼzi qurilmalarda bu funksiyani yoqish tizim navigatsiya panelini shaffofga oʻzgartirishi mumkin."</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_title">Ochiq rangli yarim shaffof panelni oʻchirish</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Ochiq rejim navigatsiya paneli shaffof emas</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Ochiq rejim navigatsiya paneli shaffof emas yoki yarim shaffof</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_title">Toʻq rangli yarim shaffof panelni oʻchirish</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Toʻq rejim navigatsiya paneli shaffof emas</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Toʻq rejim navigatsiya paneli shaffof emas yoki yarim shaffof</string>
+            <string name="revanced_toolbar_screen_title">Asboblar paneli</string>
+            <string name="revanced_toolbar_screen_summary">Asboblar paneli komponentlarini yashirish yoki oʻzgartirish</string>
+            <string name="revanced_hide_toolbar_create_button_title">Yaratish tugmasini yashirish</string>
+            <string name="revanced_hide_toolbar_create_button_summary_on">Yaratish tugmasi yashirilgan</string>
+            <string name="revanced_hide_toolbar_create_button_summary_off">Yaratish tugmasi koʻrsatilgan</string>
+            <string name="revanced_hide_toolbar_notification_button_title">Bildirishnomalar tugmasini yashirish</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_on">Bildirishnomalar tugmasi yashirilgan</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_off">Bildirishnomalar tugmasi koʻrsatilgan</string>
+            <string name="revanced_hide_toolbar_search_button_title">Qidirish tugmasini yashirish</string>
+            <string name="revanced_hide_toolbar_search_button_summary_on">Qidirish tugmasi yashirilgan</string>
+            <string name="revanced_hide_toolbar_search_button_summary_off">Qidirish tugmasi koʻrsatilgan.</string>
+            <string name="revanced_wide_searchbar_title">Keng qidiruv satrini yoqish</string>
+            <string name="revanced_wide_searchbar_summary_on">Keng qidiruv satri yoqilgan</string>
+            <string name="revanced_wide_searchbar_summary_off">Keng qidiruv satri o\'chirilgan</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -126,25 +303,67 @@ Second \"item\" text"</string>
         </patch>
         <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
             <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+            <string name="revanced_hide_collapse_button_title">Yigʻish tugmasini yashirish</string>
+            <string name="revanced_hide_collapse_button_summary_on">Yigʻish tugmasi yashirilgan</string>
+            <string name="revanced_hide_collapse_button_summary_off">Yigʻish tugmasi koʻrsatilgan</string>
+            <string name="revanced_hide_fullscreen_button_title">Toʻliq ekran tugmasini yashirish</string>
+            <string name="revanced_hide_fullscreen_button_summary_on">Toʻliq ekran tugmasi yashirilgan</string>
+            <string name="revanced_hide_fullscreen_button_summary_off">Toʻliq ekran tugmasi koʻrsatilgan</string>
         </patch>
-        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch"/>
+        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
+            <string name="revanced_hide_end_screen_cards_title">Yakuniy ekran kartalarini yashirish</string>
+            <string name="revanced_hide_end_screen_cards_summary_on">Yakuniy ekran kartalari yashirilgan</string>
+            <string name="revanced_hide_end_screen_cards_summary_off">Yakuniy ekran kartalari koʻrsatilgan</string>
+        </patch>
         <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"/>
         <patch id="layout.hide.infocards.hideInfocardsResourcePatch"/>
         <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"/>
         <patch id="layout.hide.seekbar.hideSeekbarPatch">
             <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
+            <string name="revanced_fullscreen_large_seekbar_title">Toʻliq ekranli katta qidirish panelini yoqish</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_on">Toʻliq ekranli qidirish paneli katta hajmda</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_off">Toʻliq ekranli qidirish paneli normal hajmda</string>
         </patch>
         <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+            <string name="revanced_hide_shorts_channel_title">Kanal sahifasida Shortsni yashirish</string>
+            <string name="revanced_hide_shorts_channel_summary_on">Kanal sahifasida yashirilgan</string>
+            <string name="revanced_hide_shorts_channel_summary_off">Kanal sahifasida koʻrsatilgan</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+            <string name="revanced_hide_shorts_video_description_title">Video tavsifida Shortsni yashirish</string>
+            <string name="revanced_hide_shorts_video_description_summary_on">Video tavsifida yashirilgan</string>
+            <string name="revanced_hide_shorts_video_description_summary_off">Video tavsifida koʻrsatilgan</string>
+            <string name="revanced_hide_shorts_ai_button_title">Sunʼiy intellekt tugmasini yashirish</string>
+            <string name="revanced_hide_shorts_ai_button_summary_on">Sunʼiy intellekt tugmasi yashirilgan</string>
+            <string name="revanced_hide_shorts_ai_button_summary_off">Sunʼiy intellekt tugmasi koʻrsatilgan</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_title">\'Avtomatik dublyaj qilingan\' yorligʻini yashirish</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Avtomatik dublyaj qilingan yorliq yashirilgan</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Avtomatik dublyaj qilingan yorliq koʻrsatilgan</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+            <!-- YT may no longer use this feature and this setting may be obsolete. -->
             <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
             <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
         </patch>
-        <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"/>
+        <patch id="layout.hide.autoplaypreview.hideAutoplayPreviewPatch">
+            <string name="revanced_hide_autoplay_preview_title">Avtomatik ijro etish oldindan koʻrishini yashirish</string>
+            <string name="revanced_hide_autoplay_preview_summary_on">Avtomatik ijro etish oldindan koʻrishi yashirilgan</string>
+            <string name="revanced_hide_autoplay_preview_summary_off">Avtomatik ijro etish oldindan koʻrishi koʻrsatilgan</string>
+        </patch>
+        <patch id="layout.hide.endscreensuggestedvideo.hideEndScreenSuggestedVideoPatch">
+            <string name="revanced_end_screen_suggested_video_title">Yakuniy ekran tavsiya etilgan videosini yashirish</string>
+            <string name="revanced_end_screen_suggested_video_summary_on">"Avtomatik ijro etish oʻchirilganida yakuniy ekran tavsiya etilgan videosi yashiriladi
+
+Avtomatik ijro etishni YouTube sozlamalarida oʻzgartirish mumkin:
+Sozlamalar → Ijro etish → Keyingi videoni avtomatik ijro etish"</string>
+            <string name="revanced_end_screen_suggested_video_summary_off">Yakuniy ekran tavsiya etilgan videosi koʻrsatilgan</string>
+        </patch>
         <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch"/>
         <patch id="layout.hide.time.hideTimestampPatch"/>
-        <patch id="layout.panels.popup.playerPopupPanelsPatch"/>
+        <patch id="layout.panels.popup.playerPopupPanelsPatch">
+            <string name="revanced_disable_player_popup_panels_title">Pleer qalqib chiquvchi panellarni yashirish</string>
+            <string name="revanced_disable_player_popup_panels_summary_on">Pleer qalqib chiquvchi panellari yashirilgan</string>
+            <string name="revanced_disable_player_popup_panels_summary_off">Pleer qalqib chiquvchi panellari ko\'rsatilgan</string>
+        </patch>
         <patch id="layout.player.fullscreen.exitFullscreenPatch"/>
         <patch id="layout.player.fullscreen.openVideosFullscreen"/>
         <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"/>
@@ -155,10 +374,12 @@ Second \"item\" text"</string>
             <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
             <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
         </patch>
-        <patch id="layout.searchbar.wideSearchbarPatch"/>
-        <patch id="layout.seekbar.seekbarThumbnailsPatch"/>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
             <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
+            <string name="revanced_sb_segments_nomusic_sum">Faqat musiqiy videolarda foydalanish uchun. Musiqasiz musiqiy videolarning boshqa kategoriya bilan qamrab olinmagan boʻlimlari</string>
+            <string name="revanced_sb_submit_failed_forbidden">Segmentni yuborib boʻlmadi: %s</string>
+            <string name="revanced_sb_submit_failed_duplicate">"Segmentni yuborib boʻlmadi.
+Allaqachon mavjud"</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <!-- A segment start and end time, such as "02:10 to 03:40". -->
             <!-- Shown in the settings preferences, and translations can be any text length. -->
@@ -170,7 +391,11 @@ Second \"item\" text"</string>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch"/>
         <patch id="layout.shortsautoplay.shortsAutoplayPatch"/>
         <patch id="layout.miniplayer.miniplayerPatch"/>
-        <patch id="layout.theme.themePatch"/>
+        <patch id="layout.theme.themePatch">
+            <string name="revanced_splash_screen_animation_style_entry_1">Oʻchirilgan</string>
+            <string name="revanced_splash_screen_animation_style_entry_2">Rangli</string>
+            <string name="revanced_splash_screen_animation_style_entry_3">Oq-qora</string>
+        </patch>
         <patch id="layout.branding.customBrandingPatch"/>
         <patch id="layout.branding.changeHeaderPatch">
             <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
@@ -187,7 +412,11 @@ Second \"item\" text"</string>
         <patch id="misc.loopvideo.button.loopVideoButtonPatch"/>
         <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"/>
         <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"/>
-        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch"/>
+        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_title">Bosish va ushlab turish haptikasini oʻchirish</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">Bosish va ushlab turish haptikasi oʻchirilgan</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">Bosish va ushlab turish haptikasi yoqilgan</string>
+        </patch>
         <patch id="misc.gms.accountCredentialsInvalidTextPatch"/>
         <patch id="misc.links.bypassURLRedirectsPatch"/>
         <patch id="misc.links.openLinksExternallyPatch"/>
@@ -200,6 +429,11 @@ Second \"item\" text"</string>
         <patch id="video.speed.remember.rememberPlaybackSpeedPatch"/>
         <patch id="video.codecs.disableVideoCodecsPatch"/>
         <patch id="video.quality.advancedVideoQualityMenuPatch"/>
+        <patch id="video.quality.hidePremiumVideoQualityPatch">
+            <string name="revanced_hide_premium_video_quality_title">Premium sifat variantlarini yashirish</string>
+            <string name="revanced_hide_premium_video_quality_summary_on">Premium sifat variantlari yashirilgan</string>
+            <string name="revanced_hide_premium_video_quality_summary_off">Premium sifat variantlari koʻrsatilgan</string>
+        </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch"/>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
@@ -207,7 +441,9 @@ Second \"item\" text"</string>
     </app>
     <app id="music">
         <patch id="layout.branding.customBrandingPatch"/>
-        <patch id="misc.settings.settingsPatch"/>
+        <patch id="misc.settings.settingsPatch">
+            <!-- In languages where "About" is ambiguous, translate to "About ReVanced" (i.e., About this app). -->
+        </patch>
         <patch id="ad.video.hideVideoAdsPatch"/>
         <patch id="interaction.permanentrepeat.permanentRepeatPatch"/>
         <patch id="layout.buttons.hideButtons"/>

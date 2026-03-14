@@ -27,18 +27,55 @@ Second \"item\" text"</string>
         <patch id="misc.checks.checkEnvironmentPatch"/>
         <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"/>
         <patch id="misc.settings.settingsResourcePatch">
+            <string name="revanced_settings_disable_bold_icons_title">තද අයිකන අක්‍රිය කරන්න</string>
+            <string name="revanced_settings_disable_bold_icons_summary_on">අයිකන තද නොවේ</string>
+            <string name="revanced_settings_disable_bold_icons_summary_off">අයිකන තදයි</string>
             <!-- Settings about dialog. -->
             <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
+            <string name="revanced_gms_core_screen_title">GmsCore</string>
+            <string name="revanced_gms_core_screen_summary">GmsCore හා සම්බන්ධ සැකසුම්</string>
+            <string name="revanced_gms_core_check_updates_title">GmsCore යාවත්කාලීන කිරීම් පරීක්ෂා කරන්න</string>
+            <string name="revanced_gms_core_check_updates_summary_on">යාවත්කාලීන කිරීම් පරීක්ෂා කිරීම සක්‍රීයයි</string>
+            <string name="revanced_gms_core_check_updates_summary_off">යාවත්කාලීන පරීක්ෂා කිරීම අක්‍රිය කර ඇත</string>
+            <string name="revanced_gms_core_settings_title">GmsCore සැකසුම් විවෘත කරන්න</string>
+            <string name="revanced_gms_core_settings_summary">GmsCore හි සැකසුම්</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_gms_core_toast_not_installed_message">MicroG GmsCore ස්ථාපනය කර නැත. එය ස්ථාපනය කරන්න.</string>
+            <string name="revanced_gms_core_dialog_title">ක්‍රියාවක් අවශ්‍යයි</string>
+            <string name="revanced_gms_core_toast_update_check_failed_message">MicroG GmsCore යාවත්කාලීන පරීක්ෂා කිරීම අසාර්ථක විය</string>
+            <string name="revanced_gms_core_update_available_message">MicroG GmsCore හි නව අනුවාදයක් (%1$s) තිබේ. දැනට ඔබ %2$s අනුවාදය භාවිතා කරයි.</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore හට පසුබිමේ ධාවනය කිරීමට අවසර නැත.
+
+ඔබගේ දුරකථනය සඳහා \"මගේ යෙදුම මරා නොදමන්න\" මාර්ගෝපදේශය අනුගමනය කරන්න, සහ MicroG ස්ථාපනයට උපදෙස් අදාළ කරන්න.
+
+යෙදුම ක්‍රියාත්මක වීමට මෙය අවශ්‍ය වේ."</string>
+            <string name="revanced_gms_core_dialog_open_website_text">වෙබ් අඩවිය විවෘත කරන්න</string>
+            <string name="revanced_gms_core_dialog_cancel_text">අවලංගු කරන්න</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"ගැටළු වළක්වා ගැනීමට MicroG GmsCore බැටරි ප්‍රශස්තකරණය අක්‍රිය කළ යුතුය.
+
+MicroG සඳහා බැටරි ප්‍රශස්තකරණය අක්‍රිය කිරීම බැටරි භාවිතයට අහිතකර ලෙස බලපාන්නේ නැත.
+
+ඉදිරියට යන්න බොත්තම තට්ටු කර ප්‍රශස්තකරණ වෙනස්කම් වලට ඉඩ දෙන්න."</string>
+            <string name="revanced_gms_core_dialog_continue_text">ඉදිරියට යන්න</string>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch"/>
         <patch id="misc.audio.forceOriginalAudioPatch">
             <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
         </patch>
-        <patch id="misc.debugging.enableDebuggingPatch"/>
+        <patch id="misc.debugging.enableDebuggingPatch">
+            <string name="revanced_debug_feature_flags_manager_toast_no_flags">මෙම විශේෂාංගය භාවිත කිරීමට යෙදුම නැවත අරඹන්න</string>
+            <string name="revanced_debug_protocolbuffer_title">ලොග් ප්‍රොටෝකෝල් බෆරය</string>
+            <string name="revanced_debug_protocolbuffer_summary_on">වර්ගීකරණ ලොග් වල ප්‍රොටෝ බෆරය ඇතුළත් වේ</string>
+            <string name="revanced_debug_protocolbuffer_summary_off">වර්ගීකරණ ලොග් වල ප්‍රොටෝ බෆරය ඇතුළත් නොවේ</string>
+            <string name="revanced_debug_protocolbuffer_user_dialog_message">"මෙම සැකසීම සක්‍රීය කිරීමෙන්, සමහර UI සංරචක සඳහා තිරයේ ඇති පෙළ ඇතුළු අමතර පිරිසැලසුම් දත්ත සටහන් කරනු ඇත.
+
+අභිරුචි පෙරහන් සෑදීමේදී සංරචක හඳුනා ගැනීමට මෙය උපකාරී වේ.
+
+කෙසේ වෙතත්, මෙය සක්‍රීය කිරීමෙන් ඔබගේ IP ලිපිනය වැනි සමහර පරිශීලක දත්ත ද සටහන් වනු ඇත."</string>
+        </patch>
         <patch id="misc.privacy.sanitizeSharingLinksPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
@@ -48,40 +85,135 @@ Second \"item\" text"</string>
         <patch id="misc.settings.settingsPatch"/>
         <patch id="misc.backgroundplayback.backgroundPlaybackPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
-            <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
+            <string name="revanced_hide_creator_store_shelf_title">නිර්මාණකරුවන්ගේ ගබඩා රාක්කය සඟවන්න</string>
+            <string name="revanced_hide_creator_store_shelf_summary_on">වීඩියෝ වාදකය යටතේ ඇති නිර්මාණකරුවන්ගේ ගබඩා රාක්කය සඟවා ඇත</string>
+            <string name="revanced_hide_creator_store_shelf_summary_off">වීඩියෝ වාදකය යටතේ ඇති නිර්මාණකරුවන්ගේ ගබඩා රාක්කය පෙන්වා ඇත</string>
+            <string name="revanced_hide_comments_section_in_home_feed_title">මුල් පිටුවේ වීඩියෝ යටතේ අදහස් දැක්වීම් කොටස සඟවන්න</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_on">මුල් පිටුවේ වීඩියෝ යටතේ අදහස් දැක්වීම් කොටස සඟවා ඇත</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_off">මුල් පිටුවේ වීඩියෝ යටතේ අදහස් දැක්වීම් කොටස පෙන්වා ඇත</string>
+            <!-- 'Latest videos' should be translated using the same localized wording YouTube displays for the button.
+                 This button usually appears in the Home feed for refreshing the feed. -->
+            <string name="revanced_hide_latest_videos_button_title">\'නවතම වීඩියෝ\' බොත්තම සඟවන්න</string>
+            <string name="revanced_hide_latest_videos_button_summary_on">නවතම වීඩියෝ බොත්තම සඟවා ඇත</string>
+            <string name="revanced_hide_latest_videos_button_summary_off">නවතම වීඩියෝ බොත්තම පෙන්වා ඇත</string>
+            <!-- 'Notify me' should be translated using the same localized wording YouTube displays for this button.
+                  This button usually appears in the Subscriptions feed for future livestreams or unreleased videos. -->
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
             <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+            <string name="revanced_hide_web_search_results_title">වෙබ් සෙවුම් ප්‍රතිඵල සඟවන්න</string>
+            <string name="revanced_hide_web_search_results_summary_on">වෙබ් සෙවුම් ප්‍රතිඵල සඟවා ඇත</string>
+            <string name="revanced_hide_web_search_results_summary_off">වෙබ් සෙවුම් ප්‍රතිඵල පෙන්වා ඇත</string>
+            <string name="revanced_hide_you_may_like_section_title">\'ඔබ කැමති විය හැකි\' කොටස සඟවන්න</string>
+            <string name="revanced_hide_you_may_like_section_summary_on">\'ඔබ කැමති විය හැකි\' කොටස සඟවා ඇත</string>
+            <string name="revanced_hide_you_may_like_section_summary_off">\'ඔබ කැමති විය හැකි\' කොටස පෙන්වා ඇත</string>
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                  This appears in the video player for certain videos. -->
+                   This button usually appears in the video player for certain videos. -->
+            <!-- 'Live chat replay' should be translated using the same localized wording YouTube displays for the button.
+       This button usually appears in the player overlay for live streamed videos after opening live chat. -->
+            <string name="revanced_hide_live_chat_replay_button_title">\'සජීවී කතාබස් නැවත ධාවනය\' බොත්තම සඟවන්න</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_on">වාදක ආවරණයේ සජීවී කතාබස් නැවත ධාවනය බොත්තම සඟවා ඇත</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_off">වාදක ආවරණයේ සජීවී කතාබස් නැවත ධාවනය බොත්තම පෙන්වා ඇත</string>
+            <string name="revanced_hide_video_title_title">වීඩියෝ මාතෘකාව සඟවන්න</string>
+            <string name="revanced_hide_video_title_summary_on">වාදක ආවරණයේ වීඩියෝ මාතෘකාව සඟවා ඇත</string>
+            <string name="revanced_hide_video_title_summary_off">වාදක ආවරණයේ වීඩියෝ මාතෘකාව පෙන්වා ඇත</string>
+            <string name="revanced_hide_course_progress_section_title">\'පාඨමාලා ප්‍රගතිය\' සඟවන්න</string>
+            <string name="revanced_hide_course_progress_section_summary_on">පාඨමාලා ප්‍රගති කොටස සඟවා ඇත</string>
+            <string name="revanced_hide_course_progress_section_summary_off">පාඨමාලා ප්‍රගති කොටස පෙන්වා ඇත</string>
+            <string name="revanced_hide_explore_section_title">ගවේෂණය සඟවන්න</string>
+            <string name="revanced_hide_explore_section_summary_on">මෙම පාඨමාලාව ගවේෂණය කරන්න සහ පොඩ්කාස්ට් කොටස් ගවේෂණය කරන්න සඟවා ඇත</string>
+            <string name="revanced_hide_explore_section_summary_off">මෙම පාඨමාලාව ගවේෂණය කරන්න සහ පොඩ්කාස්ට් කොටස් ගවේෂණය කරන්න පෙන්වා ඇත</string>
+            <string name="revanced_hide_explore_course_section_title">\'මෙම පාඨමාලාව ගවේෂණය කරන්න\' සඟවන්න</string>
+            <string name="revanced_hide_explore_course_section_summary_on">මෙම පාඨමාලා කොටස ගවේෂණය කරන්න සඟවා ඇත</string>
+            <string name="revanced_hide_explore_course_section_summary_off">මෙම පාඨමාලා කොටස ගවේෂණය කරන්න පෙන්වා ඇත</string>
+            <string name="revanced_hide_explore_podcast_section_title">\'පොඩ්කාස්ට් ගවේෂණය කරන්න\' සඟවන්න</string>
+            <string name="revanced_hide_explore_podcast_section_summary_on">පොඩ්කාස්ට් කොටස ගවේෂණය කරන්න සඟවා ඇත</string>
+            <string name="revanced_hide_explore_podcast_section_summary_off">පොඩ්කාස්ට් කොටස ගවේෂණය කරන්න පෙන්වා ඇත</string>
+            <string name="revanced_hide_featured_places_section_title">\'විශේෂිත ස්ථාන\' සඟවන්න</string>
+            <string name="revanced_hide_featured_places_section_summary_on">විශේෂිත ස්ථාන කොටස සඟවා ඇත</string>
+            <string name="revanced_hide_featured_places_section_summary_off">විශේෂිත ස්ථාන කොටස පෙන්වා ඇත</string>
+            <string name="revanced_hide_feed_flyout_menu_title">ෆීඩ් ෆ්ලයිඅවුට් මෙනු පෙරහන සක්‍රීය කරන්න</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_on">ෆීඩ් ෆ්ලයිඅවුට් මෙනු පෙරහන සක්‍රීය කර ඇත</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_off">ෆීඩ් ෆ්ලයිඅවුට් මෙනු පෙරහන අක්‍රීය කර ඇත</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_title">ෆීඩ් ෆ්ලයිඅවුට් මෙනු පෙරහන</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">පෙරීමට ෆ්ලයිඅවුට් මෙනු නම් ඇතුළු කරන්න, එක් පේළියකට එකක්</string>
+            <string name="revanced_hide_gaming_section_title">ක්‍රීඩා සඟවන්න</string>
+            <string name="revanced_hide_gaming_section_summary_on">ක්‍රීඩා කොටස සඟවා ඇත</string>
+            <string name="revanced_hide_gaming_section_summary_off">ක්‍රීඩා කොටස පෙන්වා ඇත</string>
+            <string name="revanced_hide_music_section_title">සංගීතය සඟවන්න</string>
+            <string name="revanced_hide_music_section_summary_on">සංගීත කොටස සඟවා ඇත</string>
+            <string name="revanced_hide_music_section_summary_off">සංගීත කොටස පෙන්වා ඇත</string>
+            <string name="revanced_hide_quizzes_section_title">ප්‍රශ්නාවලී සඟවන්න</string>
+            <string name="revanced_hide_quizzes_section_summary_on">ප්‍රශ්නාවලී කොටස සඟවා ඇත</string>
+            <string name="revanced_hide_quizzes_section_summary_off">ප්‍රශ්නාවලී කොටස පෙන්වා ඇත</string>
+            <string name="revanced_hide_channel_tab_title">නාලිකා ටැබ් පෙරහන සක්‍රීය කරන්න</string>
+            <string name="revanced_hide_channel_tab_summary_on">නාලිකා ටැබ් පෙරහන සක්‍රීය කර ඇත</string>
+            <string name="revanced_hide_channel_tab_summary_off">නාලිකා ටැබ් පෙරහන අක්‍රීය කර ඇත</string>
+            <string name="revanced_hide_channel_tab_filter_strings_title">නාලිකා ටැබ් පෙරහන</string>
+            <string name="revanced_hide_channel_tab_filter_strings_summary">පෙරීමට නාලිකා ටැබ් නම් ඇතුළු කරන්න, එක් පේළියකට එකක්</string>
             <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
             <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
             <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+            <string name="revanced_hide_view_count_user_dialog_message">"සීමාවන්:
+• Shorts රාක්ක, නාලිකා පිටු, සහ සෙවුම් ප්‍රතිඵලවල තවමත් බැලීම් ගණන් පෙන්විය හැක.
+• මෙම විශේෂාංගය වාහන ආකෘති සාධකය සමඟ ක්‍රියා නොකරයි."</string>
             <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+            <string name="revanced_hide_upload_time_user_dialog_message">"සීමාවන්:
+• Shorts රාක්ක, නාලිකා පිටු, සහ සෙවුම් ප්‍රතිඵලවල තවමත් උඩුගත කළ වේලාවන් පෙන්විය හැක.
+• මෙම විශේෂාංගය වාහන ආකෘති සාධකය සමඟ ක්‍රියා නොකරයි."</string>
             <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
+            <string name="revanced_hide_keyword_content_about_summary">"මුල් පිටුව/දායකත්වයන්/සෙවුම් ප්‍රතිඵල, ප්‍රධාන පද වාක්‍ය ඛණ්ඩවලට ගැළපෙන අන්තර්ගතය සැඟවීමට පෙරහන් කර ඇත
+
+සීමාවන්:
+• Shorts නාලිකා නාමයෙන් සැඟවිය නොහැක
+• සමහර UI අංග සැඟවිය නොහැක
+• ප්‍රධාන පදයක් සෙවීමෙන් ප්‍රතිඵල නොපෙන්විය හැක"</string>
             <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
-            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_hide_fullscreen_ads_summary_on">සම්පූර්ණ තිර දැන්වීම් සඟවා ඇත</string>
+            <string name="revanced_hide_player_popup_ads_title">වාදක පොප්-අප් දැන්වීම් සඟවන්න</string>
+            <string name="revanced_hide_player_popup_ads_summary_on">වාදක පොප්-අප් දැන්වීම් සඟවා ඇත</string>
+            <string name="revanced_hide_player_popup_ads_summary_off">වාදක පොප්-අප් දැන්වීම් පෙන්වා ඇත</string>
+            <string name="revanced_hide_view_products_banner_summary_on">වාදක ආවරණයේ නිෂ්පාදන බැනරය බලන්න සඟවා ඇත</string>
+            <string name="revanced_hide_view_products_banner_summary_off">වාදක ආවරණයේ නිෂ්පාදන බැනරය බලන්න පෙන්වා ඇත</string>
+            <string name="revanced_hide_youtube_premium_promotions_title">YouTube Premium ප්‍රවර්ධන සඟවන්න</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_on">YouTube Premium ප්‍රවර්ධන සඟවා ඇත</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_off">YouTube Premium ප්‍රවර්ධන පෙන්වා ඇත</string>
         </patch>
-        <patch id="ad.getpremium.hideGetPremiumPatch"/>
         <patch id="ad.video.videoAdsPatch"/>
-        <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"/>
+        <patch id="interaction.copyvideourl.copyVideoURLResourcePatch">
+            <string name="revanced_share_copy_url_success">URL ක්ලිප්බෝඩ් එකට පිටපත් කරන ලදි</string>
+            <string name="revanced_share_copy_url_timestamp_success">වේලා මුද්‍රාව සමඟ URL පිටපත් කරන ලදි</string>
+            <string name="revanced_copy_video_url_title">වීඩියෝ URL පිටපත් කිරීමේ බොත්තම පෙන්වන්න</string>
+            <string name="revanced_copy_video_url_summary_on">වීඩියෝ URL පිටපත් කිරීමේ බොත්තම පෙන්වා ඇත. වීඩියෝ URL පිටපත් කිරීමට තට්ටු කරන්න. වේලා මුද්‍රාව සමඟ පිටපත් කිරීමට තට්ටු කර අල්ලාගෙන සිටින්න</string>
+            <string name="revanced_copy_video_url_summary_off">වීඩියෝ URL පිටපත් කිරීමේ බොත්තම පෙන්වා නැත</string>
+            <string name="revanced_copy_video_url_timestamp_title">වේලා මුද්‍රාව URL පිටපත් කිරීමේ බොත්තම පෙන්වන්න</string>
+            <string name="revanced_copy_video_url_timestamp_summary_on">වේලා මුද්‍රාව URL පිටපත් කිරීමේ බොත්තම පෙන්වා ඇත. වේලා මුද්‍රාව සමඟ වීඩියෝ URL පිටපත් කිරීමට තට්ටු කරන්න. වේලා මුද්‍රාව නොමැතිව පිටපත් කිරීමට තට්ටු කර අල්ලාගෙන සිටින්න</string>
+            <string name="revanced_copy_video_url_timestamp_summary_off">වේලා මුද්‍රාව URL පිටපත් කිරීමේ බොත්තම පෙන්වා නැත</string>
+        </patch>
         <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"/>
-        <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch"/>
+        <patch id="layout.hide.signintotv.disableSignInToTVPopupPatch">
+            <string name="revanced_disable_sign_in_to_tv_popup_title">\'රූපවාහිනියට පිවිසෙන්න\' පොප්-අප් අක්‍රීය කරන්න</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_on">රූපවාහිනියට පිවිසීමේ පොප්-අප් අක්‍රීය කර ඇත</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_off">රූපවාහිනියට පිවිසීමේ පොප්-අප් සක්‍රීය කර ඇත</string>
+        </patch>
         <patch id="interaction.doubletap.disableDoubleTapActionsPatch"/>
         <patch id="interaction.downloads.downloadsResourcePatch">
             <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
         </patch>
         <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"/>
-        <patch id="interaction.seekbar.enableSeekbarTappingPatch"/>
+        <patch id="interaction.seekbar.enableTapToSeekPatch">
+            <string name="revanced_tap_to_seek_title">සෙවීමට තට්ටු කිරීම සක්‍රීය කරන්න</string>
+            <string name="revanced_tap_to_seek_summary_on">සෙවීමට තට්ටු කිරීම සක්‍රීය කර ඇත</string>
+            <string name="revanced_tap_to_seek_summary_off">සෙවීමට තට්ටු කිරීම අක්‍රීය කර ඇත</string>
+        </patch>
         <patch id="interaction.swipecontrols.swipeControlsResourcePatch"/>
         <patch id="layout.autocaptions.autoCaptionsPatch"/>
         <patch id="layout.buttons.action.hideButtonsPatch">
@@ -89,25 +221,82 @@ Second \"item\" text"</string>
             <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
             <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
             <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually only shows on live streams. -->
+                  This button usually appears on live streamed videos. -->
             <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged-in user. -->
+                  This button usually appears on videos uploaded by the logged-in user. -->
             <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button usually appears if the user IP is from a specific region such as the USA or EU. -->
             <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_clip_button_user_dialog_message">සමහර පරිශීලක ගිණුම් සඳහා සැඟවීම ක්‍රියා නොකරනු ඇත.</string>
             <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
         </patch>
-        <patch id="layout.buttons.navigation.navigationButtonsPatch">
+        <patch id="layout.buttons.navigation.navigationBarPatch">
+            <string name="revanced_navigation_buttons_screen_title">සංචාලන බොත්තම්</string>
+            <string name="revanced_navigation_buttons_screen_summary">සංචාලන තීරු බොත්තම් සඟවන්න හෝ වෙනස් කරන්න</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
+            <string name="revanced_hide_home_button_title">මුල් පිටුව සඟවන්න</string>
+            <string name="revanced_hide_home_button_summary_on">මුල් පිටුව බොත්තම සඟවා ඇත</string>
+            <string name="revanced_hide_home_button_summary_off">මුල් පිටුව බොත්තම පෙන්වා ඇත</string>
             <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_shorts_button_title">Shorts සඟවන්න</string>
+            <string name="revanced_hide_shorts_button_summary_on">Shorts බොත්තම සඟවා ඇත</string>
+            <string name="revanced_hide_shorts_button_summary_off">Shorts බොත්තම පෙන්වා ඇත</string>
             <!-- 'Create' has no display name. Translate normally. -->
+            <string name="revanced_hide_create_button_title">සාදන්න සඟවන්න</string>
+            <string name="revanced_hide_create_button_summary_on">සාදන්න බොත්තම සඟවා ඇත</string>
+            <string name="revanced_hide_create_button_summary_off">සාදන්න බොත්තම පෙන්වා ඇත</string>
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_subscriptions_button_title">දායකත්වයන් සඟවන්න</string>
+            <string name="revanced_hide_subscriptions_button_summary_on">දායකත්වයන් බොත්තම සඟවා ඇත</string>
+            <string name="revanced_hide_subscriptions_button_summary_off">දායකත්වයන් බොත්තම පෙන්වා ඇත</string>
+            <string name="revanced_hide_notifications_button_title">දැනුම්දීම් සඟවන්න</string>
+            <string name="revanced_hide_notifications_button_summary_on">දැනුම්දීම් බොත්තම සඟවා ඇත</string>
+            <string name="revanced_hide_notifications_button_summary_off">දැනුම්දීම් බොත්තම පෙන්වා ඇත</string>
             <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_switch_create_with_notifications_button_title">සාදන්න දැනුම්දීම් සමඟ මාරු කරන්න</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_on">සාදන්න බොත්තම දැනුම්දීම් බොත්තම සමඟ මාරු කර ඇත</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_off">සාදන්න බොත්තම දැනුම්දීම් බොත්තම සමඟ මාරු කර නැත</string>
+            <string name="revanced_switch_create_with_notifications_button_user_dialog_message">මෙම සැකසුම වෙනස් කිරීමෙන් කිසිදු බලපෑමක් නොමැති නම්, Incognito ප්‍රකාරයට මාරු වීමට උත්සාහ කරන්න.</string>
+            <string name="revanced_hide_navigation_button_labels_title">සංචාලන බොත්තම් ලේබල සඟවන්න</string>
+            <string name="revanced_hide_navigation_button_labels_summary_on">ලේබල සඟවා ඇත</string>
+            <string name="revanced_hide_navigation_button_labels_summary_off">ලේබල පෙන්වා ඇත</string>
+            <string name="revanced_narrow_navigation_buttons_title">පටු සංචාලන බොත්තම් සක්‍රීය කරන්න</string>
+            <string name="revanced_narrow_navigation_buttons_summary_on">සංචාලන බොත්තම් අතර පරතරය පටුය</string>
+            <string name="revanced_narrow_navigation_buttons_summary_off">සංචාලන බොත්තම් අතර පරතරය සාමාන්‍යයි</string>
+            <string name="revanced_navigation_bar_animations_title">සංචාලන තීරු සජීවීකරණ සක්‍රීය කරන්න</string>
+            <string name="revanced_navigation_bar_animations_summary_on">සංචාලන සංක්‍රාන්ති සජීවිකරණය කර ඇත</string>
+            <string name="revanced_navigation_bar_animations_summary_off">සංචාලන සංක්‍රාන්ති සජීවිකරණය කර නැත</string>
+            <string name="revanced_disable_translucent_status_bar_title">පාරභාසක තත්ව තීරුව අක්‍රීය කරන්න</string>
+            <string name="revanced_disable_translucent_status_bar_summary_on">තත්ව තීරුව පාරාන්ධයි</string>
+            <string name="revanced_disable_translucent_status_bar_summary_off">තත්ව තීරුව පාරාන්ධ හෝ පාරභාසකයි</string>
+            <string name="revanced_disable_translucent_status_bar_user_dialog_message">"සීමාවන්:
+• වීඩියෝ වාදකයේ ඉහළින් කළු තීරුවක් දිස්විය හැක.
+• සමහර උපාංගවල, මෙම විශේෂාංගය සක්‍රීය කිරීමෙන් පද්ධති සංචාලන තීරුව විනිවිද පෙනෙන ලෙස වෙනස් විය හැක."</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_title">දිදුලන පාරභාසක තීරුව අක්‍රීය කරන්න</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_on">ආලෝක ප්‍රකාර සංචාලන තීරුව පාරාන්ධයි</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_off">ආලෝක ප්‍රකාර සංචාලන තීරුව පාරාන්ධ හෝ පාරභාසකයි</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_title">අඳුරු පාරභාසක තීරුව අක්‍රීය කරන්න</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">අඳුරු ප්‍රකාර සංචාලන තීරුව පාරාන්ධයි</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">අඳුරු ප්‍රකාර සංචාලන තීරුව පාරාන්ධ හෝ පාරභාසකයි</string>
+            <string name="revanced_toolbar_screen_title">මෙවලම් තීරුව</string>
+            <string name="revanced_toolbar_screen_summary">මෙවලම් තීරු අංග සඟවන්න හෝ වෙනස් කරන්න</string>
+            <string name="revanced_hide_toolbar_create_button_title">සාදන්න බොත්තම සඟවන්න</string>
+            <string name="revanced_hide_toolbar_create_button_summary_on">සාදන්න බොත්තම සඟවා ඇත</string>
+            <string name="revanced_hide_toolbar_create_button_summary_off">සාදන්න බොත්තම පෙන්වා ඇත</string>
+            <string name="revanced_hide_toolbar_notification_button_title">දැනුම්දීම් බොත්තම සඟවන්න</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_on">දැනුම්දීම් බොත්තම සඟවා ඇත</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_off">දැනුම්දීම් බොත්තම පෙන්වා ඇත</string>
+            <string name="revanced_hide_toolbar_search_button_title">සෙවුම් බොත්තම සඟවන්න</string>
+            <string name="revanced_hide_toolbar_search_button_summary_on">සෙවුම් බොත්තම සඟවා ඇත</string>
+            <string name="revanced_hide_toolbar_search_button_summary_off">සෙවුම් බොත්තම පෙන්වා ඇත.</string>
+            <string name="revanced_wide_searchbar_title">පුළුල් සෙවුම් තීරුව සක්‍රීය කරන්න</string>
+            <string name="revanced_wide_searchbar_summary_on">පුළුල් සෙවුම් තීරුව සක්‍රීය කර ඇත</string>
+            <string name="revanced_wide_searchbar_summary_off">පුළුල් සෙවුම් තීරුව අක්‍රීය කර ඇත</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -126,25 +315,67 @@ Second \"item\" text"</string>
         </patch>
         <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
             <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+            <string name="revanced_hide_collapse_button_title">කුඩා කරන බොත්තම සඟවන්න</string>
+            <string name="revanced_hide_collapse_button_summary_on">කුඩා කරන බොත්තම සඟවා ඇත</string>
+            <string name="revanced_hide_collapse_button_summary_off">කුඩා කරන බොත්තම පෙන්වා ඇත</string>
+            <string name="revanced_hide_fullscreen_button_title">සම්පූර්ණ තිර බොත්තම සඟවන්න</string>
+            <string name="revanced_hide_fullscreen_button_summary_on">සම්පූර්ණ තිර බොත්තම සඟවා ඇත</string>
+            <string name="revanced_hide_fullscreen_button_summary_off">සම්පූර්ණ තිර බොත්තම පෙන්වා ඇත</string>
         </patch>
-        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch"/>
+        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
+            <string name="revanced_hide_end_screen_cards_title">අවසාන තිර කාඩ්පත් සඟවන්න</string>
+            <string name="revanced_hide_end_screen_cards_summary_on">අවසාන තිර කාඩ්පත් සඟවා ඇත</string>
+            <string name="revanced_hide_end_screen_cards_summary_off">අවසාන තිර කාඩ්පත් පෙන්වා ඇත</string>
+        </patch>
         <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"/>
         <patch id="layout.hide.infocards.hideInfocardsResourcePatch"/>
         <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"/>
         <patch id="layout.hide.seekbar.hideSeekbarPatch">
             <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
+            <string name="revanced_fullscreen_large_seekbar_title">සම්පූර්ණ තිරයේ විශාල සෙවීම් තීරුව සක්‍රීය කරන්න</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_on">සම්පූර්ණ තිරයේ සෙවීම් තීරුව විශාල ප්‍රමාණයේය</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_off">සම්පූර්ණ තිරයේ සෙවීම් තීරුව සාමාන්‍ය ප්‍රමාණයේය</string>
         </patch>
         <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+            <string name="revanced_hide_shorts_channel_title">නාලිකා පිටුවේ Shorts සඟවන්න</string>
+            <string name="revanced_hide_shorts_channel_summary_on">නාලිකා පිටුවේ සඟවා ඇත</string>
+            <string name="revanced_hide_shorts_channel_summary_off">නාලිකා පිටුවේ පෙන්වා ඇත</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+            <string name="revanced_hide_shorts_video_description_title">වීඩියෝ විස්තරයේ Shorts සඟවන්න</string>
+            <string name="revanced_hide_shorts_video_description_summary_on">වීඩියෝ විස්තරයේ සඟවා ඇත</string>
+            <string name="revanced_hide_shorts_video_description_summary_off">වීඩියෝ විස්තරයේ පෙන්වා ඇත</string>
+            <string name="revanced_hide_shorts_ai_button_title">AI බොත්තම සඟවන්න</string>
+            <string name="revanced_hide_shorts_ai_button_summary_on">AI බොත්තම සඟවා ඇත</string>
+            <string name="revanced_hide_shorts_ai_button_summary_off">AI බොත්තම පෙන්වා ඇත</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_title">\'ස්වයංක්‍රීයව හඬ කැවුම්\' ලේබලය සඟවන්න</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">ස්වයංක්‍රීයව හඬ කැවුම් ලේබලය සඟවා ඇත</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">ස්වයංක්‍රීයව හඬ කැවුම් ලේබලය පෙන්වා ඇත</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+            <!-- YT may no longer use this feature and this setting may be obsolete. -->
             <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
             <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
         </patch>
-        <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"/>
+        <patch id="layout.hide.autoplaypreview.hideAutoplayPreviewPatch">
+            <string name="revanced_hide_autoplay_preview_title">ස්වයංක්‍රීය වාදනය පෙරදසුන සඟවන්න</string>
+            <string name="revanced_hide_autoplay_preview_summary_on">ස්වයංක්‍රීය වාදනය පෙරදසුන සඟවා ඇත</string>
+            <string name="revanced_hide_autoplay_preview_summary_off">ස්වයංක්‍රීය වාදනය පෙරදසුන පෙන්වා ඇත</string>
+        </patch>
+        <patch id="layout.hide.endscreensuggestedvideo.hideEndScreenSuggestedVideoPatch">
+            <string name="revanced_end_screen_suggested_video_title">අවසාන තිරයේ යෝජිත වීඩියෝව සඟවන්න</string>
+            <string name="revanced_end_screen_suggested_video_summary_on">"ස්වයංක්‍රීය වාදනය අක්‍රිය කළ විට අවසාන තිරයේ යෝජිත වීඩියෝව සඟවා ඇත
+
+YouTube සැකසීම්වලින් ස්වයංක්‍රීය වාදනය වෙනස් කළ හැක:
+සැකසීම් → ධාවනය → ඊළඟ වීඩියෝව ස්වයංක්‍රීයව ධාවනය කරන්න"</string>
+            <string name="revanced_end_screen_suggested_video_summary_off">අවසාන තිරයේ යෝජිත වීඩියෝව පෙන්වා ඇත</string>
+        </patch>
         <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch"/>
         <patch id="layout.hide.time.hideTimestampPatch"/>
-        <patch id="layout.panels.popup.playerPopupPanelsPatch"/>
+        <patch id="layout.panels.popup.playerPopupPanelsPatch">
+            <string name="revanced_disable_player_popup_panels_title">ප්ලේයර් පොප්අප් පැනල සඟවන්න</string>
+            <string name="revanced_disable_player_popup_panels_summary_on">ප්ලේයර් පොප්අප් පැනල සඟවා ඇත</string>
+            <string name="revanced_disable_player_popup_panels_summary_off">ප්ලේයර් පොප්අප් පැනල පෙන්වා ඇත</string>
+        </patch>
         <patch id="layout.player.fullscreen.exitFullscreenPatch"/>
         <patch id="layout.player.fullscreen.openVideosFullscreen"/>
         <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"/>
@@ -155,10 +386,12 @@ Second \"item\" text"</string>
             <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
             <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
         </patch>
-        <patch id="layout.searchbar.wideSearchbarPatch"/>
-        <patch id="layout.seekbar.seekbarThumbnailsPatch"/>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
             <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
+            <string name="revanced_sb_segments_nomusic_sum">සංගීත වීඩියෝ සඳහා පමණි. වෙනත් කාණ්ඩයක් යටතේ දැනටමත් ආවරණය නොවන, සංගීතය නොමැති සංගීත වීඩියෝ කොටස්</string>
+            <string name="revanced_sb_submit_failed_forbidden">කොටස ඉදිරිපත් කළ නොහැක: %s</string>
+            <string name="revanced_sb_submit_failed_duplicate">"කොටස ඉදිරිපත් කළ නොහැක.
+දැනටමත් පවතී"</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <!-- A segment start and end time, such as "02:10 to 03:40". -->
             <!-- Shown in the settings preferences, and translations can be any text length. -->
@@ -170,7 +403,11 @@ Second \"item\" text"</string>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch"/>
         <patch id="layout.shortsautoplay.shortsAutoplayPatch"/>
         <patch id="layout.miniplayer.miniplayerPatch"/>
-        <patch id="layout.theme.themePatch"/>
+        <patch id="layout.theme.themePatch">
+            <string name="revanced_splash_screen_animation_style_entry_1">අක්‍රීය කර ඇත</string>
+            <string name="revanced_splash_screen_animation_style_entry_2">වර්ණය</string>
+            <string name="revanced_splash_screen_animation_style_entry_3">කළු සහ සුදු</string>
+        </patch>
         <patch id="layout.branding.customBrandingPatch"/>
         <patch id="layout.branding.changeHeaderPatch">
             <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
@@ -187,7 +424,11 @@ Second \"item\" text"</string>
         <patch id="misc.loopvideo.button.loopVideoButtonPatch"/>
         <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"/>
         <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"/>
-        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch"/>
+        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_title">තට්ටු කර අල්ලාගෙන සිටින විට කම්පනය අක්‍රීය කරන්න</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">තට්ටු කර අල්ලාගෙන සිටින විට කම්පනය අක්‍රීය කර ඇත</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">තට්ටු කර අල්ලාගෙන සිටින විට කම්පනය සක්‍රීය කර ඇත</string>
+        </patch>
         <patch id="misc.gms.accountCredentialsInvalidTextPatch"/>
         <patch id="misc.links.bypassURLRedirectsPatch"/>
         <patch id="misc.links.openLinksExternallyPatch"/>
@@ -200,6 +441,11 @@ Second \"item\" text"</string>
         <patch id="video.speed.remember.rememberPlaybackSpeedPatch"/>
         <patch id="video.codecs.disableVideoCodecsPatch"/>
         <patch id="video.quality.advancedVideoQualityMenuPatch"/>
+        <patch id="video.quality.hidePremiumVideoQualityPatch">
+            <string name="revanced_hide_premium_video_quality_title">වාරික තත්ත්ව විකල්ප සඟවන්න</string>
+            <string name="revanced_hide_premium_video_quality_summary_on">වාරික තත්ත්ව විකල්ප සඟවා ඇත</string>
+            <string name="revanced_hide_premium_video_quality_summary_off">වාරික තත්ත්ව විකල්ප පෙන්වා ඇත</string>
+        </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch"/>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
@@ -207,7 +453,9 @@ Second \"item\" text"</string>
     </app>
     <app id="music">
         <patch id="layout.branding.customBrandingPatch"/>
-        <patch id="misc.settings.settingsPatch"/>
+        <patch id="misc.settings.settingsPatch">
+            <!-- In languages where "About" is ambiguous, translate to "About ReVanced" (i.e., About this app). -->
+        </patch>
         <patch id="ad.video.hideVideoAdsPatch"/>
         <patch id="interaction.permanentrepeat.permanentRepeatPatch"/>
         <patch id="layout.buttons.hideButtons"/>

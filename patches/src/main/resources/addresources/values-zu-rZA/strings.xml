@@ -27,18 +27,47 @@ Second \"item\" text"</string>
         <patch id="misc.checks.checkEnvironmentPatch"/>
         <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"/>
         <patch id="misc.settings.settingsResourcePatch">
+            <string name="revanced_settings_disable_bold_icons_title">Khubaza izithonjana eziqinile</string>
+            <string name="revanced_settings_disable_bold_icons_summary_on">Izithonjana aziqinile</string>
+            <string name="revanced_settings_disable_bold_icons_summary_off">Izithonjana ziqinile</string>
             <!-- Settings about dialog. -->
             <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
+            <string name="revanced_gms_core_screen_title">GmsCore</string>
+            <string name="revanced_gms_core_screen_summary">Izilungiselelo eziphathelene ne-GmsCore</string>
+            <string name="revanced_gms_core_check_updates_title">Hlola izibuyekezo ze-GmsCore</string>
+            <string name="revanced_gms_core_check_updates_summary_on">Ukuhlolwa kwezibuyekezo kuvuliwe</string>
+            <string name="revanced_gms_core_check_updates_summary_off">Ukuhlolwa kwezibuyekezo kukhutshaziwe</string>
+            <string name="revanced_gms_core_settings_title">Vula Izilungiselelo ze-GmsCore</string>
+            <string name="revanced_gms_core_settings_summary">Izilungiselelo ze-GmsCore</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_gms_core_toast_not_installed_message">I-MicroG GmsCore ayifakiwe. Yifake.</string>
+            <string name="revanced_gms_core_dialog_title">Kudingeka isenzo</string>
+            <string name="revanced_gms_core_toast_update_check_failed_message">Kuhlulekile ukuhlola izibuyekezo ze-MicroG GmsCore</string>
+            <string name="revanced_gms_core_update_available_message">Uhlobo olusha (%1$s) lwe-MicroG GmsCore luyatholakala. Okwamanje, usebenzisa uhlobo %2$s.</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"I-MicroG GmsCore ayinayo imvume yokusebenza ngemuva.\n\nLandela umhlahlandlela othi \"Ungabulali uhlelo lwami lokusebenza\" wefoni yakho, bese usebenzisa imiyalelo ekufakweni kwe-MicroG yakho.\n\nLokhu kuyadingeka ukuze uhlelo lokusebenza lusebenze."</string>
+            <string name="revanced_gms_core_dialog_open_website_text">Vula iwebhusayithi</string>
+            <string name="revanced_gms_core_dialog_cancel_text">Khansela</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Ukwenziwa kahle kwebhethri ye-MicroG GmsCore kufanele kukhutshazwe ukuze kuvinjelwe izinkinga.\n\nUkukhubaza ukwenziwa kahle kwebhethri kwe-MicroG ngeke kuthinte kabi ukusetshenziswa kwebhethri.\n\nThepha inkinobho ethi qhubeka bese uvumela izinguquko zokwenziwa kahle."</string>
+            <string name="revanced_gms_core_dialog_continue_text">Qhubeka</string>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch"/>
         <patch id="misc.audio.forceOriginalAudioPatch">
             <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
         </patch>
-        <patch id="misc.debugging.enableDebuggingPatch"/>
+        <patch id="misc.debugging.enableDebuggingPatch">
+            <string name="revanced_debug_feature_flags_manager_toast_no_flags">Qala kabusha uhlelo lokusebenza ukuze usebenzise lesi sici</string>
+            <string name="revanced_debug_protocolbuffer_title">Iphrothokholi bhapha Yelogi</string>
+            <string name="revanced_debug_protocolbuffer_summary_on">Amalogi okulungisa iphutha afaka phakathi iprothokholi bhapha</string>
+            <string name="revanced_debug_protocolbuffer_summary_off">Amalogi okulungisa iphutha awafaki phakathi iprothokholi bhapha</string>
+            <string name="revanced_debug_protocolbuffer_user_dialog_message">"Ukwenza le nkambu isebenze kuzofaka phansi idatha eyengeziwe yokwakheka, okuhlanganisa umbhalo osesikrinini wezingxenye ezithile ze-UI.
+
+Lokhu kungasiza ekuboneni izingxenye lapho kwakhiwa izihlungi ezingokwezifiso.
+
+Kodwa-ke, ukuyivula lokhu kuzofaka futhi phansi idatha ethile yomsebenzisi njengesilandi sakho se-IP."</string>
+        </patch>
         <patch id="misc.privacy.sanitizeSharingLinksPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
@@ -48,40 +77,135 @@ Second \"item\" text"</string>
         <patch id="misc.settings.settingsPatch"/>
         <patch id="misc.backgroundplayback.backgroundPlaybackPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
-            <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
+            <string name="revanced_hide_creator_store_shelf_title">Fihla ishalofu lesitolo somdali</string>
+            <string name="revanced_hide_creator_store_shelf_summary_on">Ishalofu lesitolo somdali elingaphansi kwesidlali sevidiyo lifihliwe</string>
+            <string name="revanced_hide_creator_store_shelf_summary_off">Ishalofu lesitolo somdali elingaphansi kwesidlali sevidiyo libonisiwe</string>
+            <string name="revanced_hide_comments_section_in_home_feed_title">Fihla isigaba samazwana ngaphansi kwamavidiyo kokuphakelayo Kwasekhaya</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_on">Isigaba samazwana ngaphansi kwamavidiyo kokuphakelayo Kwasekhaya sifihliwe</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_off">Isigaba samazwana ngaphansi kwamavidiyo kokuphakelayo Kwasekhaya sibonisiwe</string>
+            <!-- 'Latest videos' should be translated using the same localized wording YouTube displays for the button.
+                 This button usually appears in the Home feed for refreshing the feed. -->
+            <string name="revanced_hide_latest_videos_button_title">Fihla inkinobho \'Yamavidiyo Akamuva\'</string>
+            <string name="revanced_hide_latest_videos_button_summary_on">Inkinobho yamavidiyo akamuva ifihliwe</string>
+            <string name="revanced_hide_latest_videos_button_summary_off">Inkinobho yamavidiyo akamuva ibonisiwe</string>
+            <!-- 'Notify me' should be translated using the same localized wording YouTube displays for this button.
+                  This button usually appears in the Subscriptions feed for future livestreams or unreleased videos. -->
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
             <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+            <string name="revanced_hide_web_search_results_title">Fihla imiphumela yokusesha kuwebhu</string>
+            <string name="revanced_hide_web_search_results_summary_on">Imiphumela yokusesha kuwebhu ifihliwe</string>
+            <string name="revanced_hide_web_search_results_summary_off">Imiphumela yokusesha kuwebhu ibonisiwe</string>
+            <string name="revanced_hide_you_may_like_section_title">Fihla isigaba \'Ongase Usithande\'</string>
+            <string name="revanced_hide_you_may_like_section_summary_on">Isigaba \'Ongase Usithande\' sifihliwe</string>
+            <string name="revanced_hide_you_may_like_section_summary_off">Isigaba \'Ongase Usithande\' sibonisiwe</string>
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                  This appears in the video player for certain videos. -->
+                   This button usually appears in the video player for certain videos. -->
+            <!-- 'Live chat replay' should be translated using the same localized wording YouTube displays for the button.
+       This button usually appears in the player overlay for live streamed videos after opening live chat. -->
+            <string name="revanced_hide_live_chat_replay_button_title">Fihla inkinobho \'Yokuphinda Okushiwo Engxoxweni Ebukhoma\'</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_on">Inkinobho yokuphinda okushiwo engxoxweni ebukhoma esendlalelweni sesidlali ifihliwe</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_off">Inkinobho yokuphinda okushiwo engxoxweni ebukhoma esendlalelweni sesidlali ibonisiwe</string>
+            <string name="revanced_hide_video_title_title">Fihla isihloko sevidiyo</string>
+            <string name="revanced_hide_video_title_summary_on">Isihloko sevidiyo esendlalelweni sesidlali sifihliwe</string>
+            <string name="revanced_hide_video_title_summary_off">Isihloko sevidiyo esendlalelweni sesidlali sibonisiwe</string>
+            <string name="revanced_hide_course_progress_section_title">Fihla \'Inqubekela phambili yesifundo\'</string>
+            <string name="revanced_hide_course_progress_section_summary_on">Isigaba senqubekela phambili yesifundo sifihliwe</string>
+            <string name="revanced_hide_course_progress_section_summary_off">Isigaba senqubekela phambili yesifundo sibonisiwe</string>
+            <string name="revanced_hide_explore_section_title">Fihla Okumele Kuhloliwe</string>
+            <string name="revanced_hide_explore_section_summary_on">Isigaba esithi Hlola lesi sifundo kanye Nesigaba esithi Hlola i-podcast kufihliwe</string>
+            <string name="revanced_hide_explore_section_summary_off">Isigaba esithi Hlola lesi sifundo kanye Nesigaba esithi Hlola i-podcast kubonisiwe</string>
+            <string name="revanced_hide_explore_course_section_title">Fihla \'Hlola lesi sifundo\'</string>
+            <string name="revanced_hide_explore_course_section_summary_on">Isigaba esithi Hlola lesi sifundo sifihliwe</string>
+            <string name="revanced_hide_explore_course_section_summary_off">Isigaba esithi Hlola lesi sifundo sibonisiwe</string>
+            <string name="revanced_hide_explore_podcast_section_title">Fihla \'Hlola i-podcast\'</string>
+            <string name="revanced_hide_explore_podcast_section_summary_on">Isigaba esithi Hlola i-podcast sifihliwe</string>
+            <string name="revanced_hide_explore_podcast_section_summary_off">Isigaba esithi Hlola i-podcast sibonisiwe</string>
+            <string name="revanced_hide_featured_places_section_title">Fihla \'Izindawo Ezifakiwe\'</string>
+            <string name="revanced_hide_featured_places_section_summary_on">Isigaba sezindawo ezifakiwe sifihliwe</string>
+            <string name="revanced_hide_featured_places_section_summary_off">Isigaba sezindawo ezifakiwe sibonisiwe</string>
+            <string name="revanced_hide_feed_flyout_menu_title">Vumela isihlungi semenyu esindizayo sokuphakelayo</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_on">Isihlungi semenyu esindizayo sokuphakelayo sivunyelwe</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_off">Isihlungi semenyu esindizayo sokuphakelayo sikhutshaziwe</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Isihlungi semenyu esindizayo sokuphakelayo</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Faka amagama emenyu esindizayo ukuze uhlunge ngawo, elilodwa umugqa ngamunye</string>
+            <string name="revanced_hide_gaming_section_title">Fihla Imidlalo</string>
+            <string name="revanced_hide_gaming_section_summary_on">Isigaba semidlalo sifihliwe</string>
+            <string name="revanced_hide_gaming_section_summary_off">Isigaba semidlalo sibonisiwe</string>
+            <string name="revanced_hide_music_section_title">Fihla Umculo</string>
+            <string name="revanced_hide_music_section_summary_on">Isigaba somculo sifihliwe</string>
+            <string name="revanced_hide_music_section_summary_off">Isigaba somculo sibonisiwe</string>
+            <string name="revanced_hide_quizzes_section_title">Fihla Imibuzo</string>
+            <string name="revanced_hide_quizzes_section_summary_on">Isigaba semibuzo sifihliwe</string>
+            <string name="revanced_hide_quizzes_section_summary_off">Isigaba semibuzo sibonisiwe</string>
+            <string name="revanced_hide_channel_tab_title">Vumela isihlungi sethebhu yesiteshi</string>
+            <string name="revanced_hide_channel_tab_summary_on">Isihlungi sethebhu yesiteshi sivunyelwe</string>
+            <string name="revanced_hide_channel_tab_summary_off">Isihlungi sethebhu yesiteshi sikhutshaziwe</string>
+            <string name="revanced_hide_channel_tab_filter_strings_title">Isihlungi sethebhu yesiteshi</string>
+            <string name="revanced_hide_channel_tab_filter_strings_summary">Faka amagama ethebhu yesiteshi ukuze uhlunge ngawo, elilodwa umugqa ngamunye</string>
             <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
             <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
             <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+            <string name="revanced_hide_view_count_user_dialog_message">"Imikhawulo:
+• Amashalofu Shorts, amakhasi esiteshi, nemiphumela yokusesha kusengabonisa izibalo zokubukwa.
+• Lesi sici asisebenzi ngefomu lemoto."</string>
             <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+            <string name="revanced_hide_upload_time_user_dialog_message">"Imikhawulo:
+• Amashalofu Shorts, amakhasi esiteshi, nemiphumela yokusesha kusengabonisa izikhathi zokulayisha.
+• Lesi sici asisebenzi ngefomu lemoto."</string>
             <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
+            <string name="revanced_hide_keyword_content_about_summary">"Imiphumela yasekhaya/Yokubhalisa/Yokusesha ihlungiwe ukuze kufihlwe okuqukethwe okufana nemishwana yamagama angukhiye
+
+Imikhawulo:
+• Shorts ayikwazi ukufihlwa ngegama lesiteshi
+• Ezinye izingxenye ze-UI zingase zingafihlwa
+• Ukusesha igama elingukhiye kungase kungabonisi imiphumela"</string>
             <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
-            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_hide_fullscreen_ads_summary_on">Izikhangiso zesikrini esigcwele zifihliwe</string>
+            <string name="revanced_hide_player_popup_ads_title">Fihla izikhangiso ze-popup zesidlali</string>
+            <string name="revanced_hide_player_popup_ads_summary_on">Izikhangiso ze-popup zesidlali zifihliwe</string>
+            <string name="revanced_hide_player_popup_ads_summary_off">Izikhangiso ze-popup zesidlali zibonisiwe</string>
+            <string name="revanced_hide_view_products_banner_summary_on">Isibhengezo sokubuka imikhiqizo esendlalelweni sesidlali sifihliwe</string>
+            <string name="revanced_hide_view_products_banner_summary_off">Isibhengezo sokubuka imikhiqizo esendlalelweni sesidlali sibonisiwe</string>
+            <string name="revanced_hide_youtube_premium_promotions_title">Fihla amaphromoshini we-YouTube Premium</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_on">Amaphromoshini we-YouTube Premium afihliwe</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_off">Amaphromoshini we-YouTube Premium abonisiwe</string>
         </patch>
-        <patch id="ad.getpremium.hideGetPremiumPatch"/>
         <patch id="ad.video.videoAdsPatch"/>
-        <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"/>
+        <patch id="interaction.copyvideourl.copyVideoURLResourcePatch">
+            <string name="revanced_share_copy_url_success">I-URL ikopishwe ebhodini lokunamathisela</string>
+            <string name="revanced_share_copy_url_timestamp_success">I-URL enesikhathi ikopishwe</string>
+            <string name="revanced_copy_video_url_title">Bonisa inkinobho yokukopisha i-URL yevidiyo</string>
+            <string name="revanced_copy_video_url_summary_on">Inkinobho yokukopisha i-URL yevidiyo ibonisiwe. Thepha ukuze ukopishe i-URL yevidiyo. Thepha bese ubamba ukuze ukopishe ngesikhathi</string>
+            <string name="revanced_copy_video_url_summary_off">Inkinobho yokukopisha i-URL yevidiyo ayibonisiwe</string>
+            <string name="revanced_copy_video_url_timestamp_title">Bonisa inkinobho yokukopisha i-URL yesikhathi</string>
+            <string name="revanced_copy_video_url_timestamp_summary_on">Inkinobho yokukopisha i-URL yesikhathi ibonisiwe. Thepha ukuze ukopishe i-URL yevidiyo ngesikhathi. Thepha bese ubamba ukuze ukopishe ngaphandle kwesikhathi</string>
+            <string name="revanced_copy_video_url_timestamp_summary_off">Inkinobho yokukopisha i-URL yesikhathi ayibonisiwe</string>
+        </patch>
         <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"/>
-        <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch"/>
+        <patch id="layout.hide.signintotv.disableSignInToTVPopupPatch">
+            <string name="revanced_disable_sign_in_to_tv_popup_title">Khubaza i-popup ethi \'Ngena ku-TV\'</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_on">I-popup ethi Ngena ku-TV ikhutshaziwe</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_off">I-popup ethi Ngena ku-TV ivunyelwe</string>
+        </patch>
         <patch id="interaction.doubletap.disableDoubleTapActionsPatch"/>
         <patch id="interaction.downloads.downloadsResourcePatch">
             <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
         </patch>
         <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"/>
-        <patch id="interaction.seekbar.enableSeekbarTappingPatch"/>
+        <patch id="interaction.seekbar.enableTapToSeekPatch">
+            <string name="revanced_tap_to_seek_title">Vumela ukuthepha ukuze useshe</string>
+            <string name="revanced_tap_to_seek_summary_on">Ukuthepha ukuze useshe kuvunyelwe</string>
+            <string name="revanced_tap_to_seek_summary_off">Ukuthepha ukuze useshe kukhutshaziwe</string>
+        </patch>
         <patch id="interaction.swipecontrols.swipeControlsResourcePatch"/>
         <patch id="layout.autocaptions.autoCaptionsPatch"/>
         <patch id="layout.buttons.action.hideButtonsPatch">
@@ -89,25 +213,82 @@ Second \"item\" text"</string>
             <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
             <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
             <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually only shows on live streams. -->
+                  This button usually appears on live streamed videos. -->
             <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged-in user. -->
+                  This button usually appears on videos uploaded by the logged-in user. -->
             <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button usually appears if the user IP is from a specific region such as the USA or EU. -->
             <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_clip_button_user_dialog_message">Ukufihla kungase kungasebenzi kwamanye ama-akhawunti omsebenzisi.</string>
             <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
         </patch>
-        <patch id="layout.buttons.navigation.navigationButtonsPatch">
+        <patch id="layout.buttons.navigation.navigationBarPatch">
+            <string name="revanced_navigation_buttons_screen_title">Izinkinobho zokuzulazula</string>
+            <string name="revanced_navigation_buttons_screen_summary">Fihla noma ushintshe izinkinobho zebha yokuzulazula</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
+            <string name="revanced_hide_home_button_title">Fihla Ikhaya</string>
+            <string name="revanced_hide_home_button_summary_on">Inkinobho yekhaya ifihliwe</string>
+            <string name="revanced_hide_home_button_summary_off">Inkinobho yekhaya ibonisiwe</string>
             <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_shorts_button_title">Fihla Shorts</string>
+            <string name="revanced_hide_shorts_button_summary_on">Inkinobho ye-Shorts ifihliwe</string>
+            <string name="revanced_hide_shorts_button_summary_off">Inkinobho ye-Shorts ibonisiwe</string>
             <!-- 'Create' has no display name. Translate normally. -->
+            <string name="revanced_hide_create_button_title">Fihla Dala</string>
+            <string name="revanced_hide_create_button_summary_on">Inkinobho yokudala ifihliwe</string>
+            <string name="revanced_hide_create_button_summary_off">Inkinobho yokudala ibonisiwe</string>
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_subscriptions_button_title">Fihla Okubhalisiwe</string>
+            <string name="revanced_hide_subscriptions_button_summary_on">Inkinobho yokubhalisa ifihliwe</string>
+            <string name="revanced_hide_subscriptions_button_summary_off">Inkinobho yokubhalisa ibonisiwe</string>
+            <string name="revanced_hide_notifications_button_title">Fihla Izaziso</string>
+            <string name="revanced_hide_notifications_button_summary_on">Inkinobho yezaziso ifihliwe</string>
+            <string name="revanced_hide_notifications_button_summary_off">Inkinobho yezaziso ibonisiwe</string>
             <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_switch_create_with_notifications_button_title">Shintsha Dala ngezaziso</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_on">Inkinobho yokudala ishintshwe ngenkinobho yezaziso</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_off">Inkinobho yokudala ayishintshwanga ngenkinobho yezaziso</string>
+            <string name="revanced_switch_create_with_notifications_button_user_dialog_message">Uma ukushintsha lesi silungiselelo kungasebenzi, zama ukushintshela kumodi ye-Incognito.</string>
+            <string name="revanced_hide_navigation_button_labels_title">Fihla amalebula ezinkinobho zokuzulazula</string>
+            <string name="revanced_hide_navigation_button_labels_summary_on">Amalebula afihliwe</string>
+            <string name="revanced_hide_navigation_button_labels_summary_off">Amalebula abonisiwe</string>
+            <string name="revanced_narrow_navigation_buttons_title">Vumela izinkinobho zokuzulazula ezincane</string>
+            <string name="revanced_narrow_navigation_buttons_summary_on">Isikhala phakathi kwezinkinobho zokuzulazula sincane</string>
+            <string name="revanced_narrow_navigation_buttons_summary_off">Isikhala phakathi kwezinkinobho zokuzulazula sijwayelekile</string>
+            <string name="revanced_navigation_bar_animations_title">Vumela izithombe ezinyakazayo zebha yokuzulazula</string>
+            <string name="revanced_navigation_bar_animations_summary_on">Ukuguquka kokuzulazula kunomdwebo</string>
+            <string name="revanced_navigation_bar_animations_summary_off">Ukuguquka kokuzulazula akunamdwebo</string>
+            <string name="revanced_disable_translucent_status_bar_title">Khubaza ibha yesimo engabonisi lutho</string>
+            <string name="revanced_disable_translucent_status_bar_summary_on">Ibha yesimo ayibonisi lutho</string>
+            <string name="revanced_disable_translucent_status_bar_summary_off">Ibha yesimo ayibonisi lutho noma iyabonisa</string>
+            <string name="revanced_disable_translucent_status_bar_user_dialog_message">"Imikhawulo:
+• Ibha emnyama ingase ivele phezulu esidlali sevidiyo.
+• Kwamanye amadivayisi, ukuvumela lesi sici kungashintsha ibha yokuzulazula yesistimu ibe sobala."</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_title">Khubaza ibha ekhanyayo engabonisi lutho</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Ibha yokuzulazula yemodi ekhanyayo ayibonisi lutho</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Ibha yokuzulazula yemodi ekhanyayo ayibonisi lutho noma iyabonisa</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_title">Khubaza ibha emnyama engabonisi lutho</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Ibha yokuzulazula yemodi emnyama ayibonisi lutho</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Ibha yokuzulazula yemodi emnyama ayibonisi lutho noma iyabonisa</string>
+            <string name="revanced_toolbar_screen_title">Ibha yamathuluzi</string>
+            <string name="revanced_toolbar_screen_summary">Fihla noma ushintshe izingxenye zebha yamathuluzi</string>
+            <string name="revanced_hide_toolbar_create_button_title">Fihla inkinobho yokudala</string>
+            <string name="revanced_hide_toolbar_create_button_summary_on">Inkinobho yokudala ifihliwe</string>
+            <string name="revanced_hide_toolbar_create_button_summary_off">Inkinobho yokudala ibonisiwe</string>
+            <string name="revanced_hide_toolbar_notification_button_title">Fihla inkinobho yezaziso</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_on">Inkinobho yezaziso ifihliwe</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_off">Inkinobho yezaziso ibonisiwe</string>
+            <string name="revanced_hide_toolbar_search_button_title">Fihla inkinobho yokusesha</string>
+            <string name="revanced_hide_toolbar_search_button_summary_on">Inkinobho yokusesha ifihliwe</string>
+            <string name="revanced_hide_toolbar_search_button_summary_off">Inkinobho yokusesha ibonisiwe.</string>
+            <string name="revanced_wide_searchbar_title">Vumela ibha yokusesha ebanzi</string>
+            <string name="revanced_wide_searchbar_summary_on">Ibha yokusesha ebanzi ivuliwe</string>
+            <string name="revanced_wide_searchbar_summary_off">Ibha yokusesha ebanzi ikhutshaziwe</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -126,25 +307,67 @@ Second \"item\" text"</string>
         </patch>
         <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
             <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+            <string name="revanced_hide_collapse_button_title">Fihla inkinobho yokugoqa</string>
+            <string name="revanced_hide_collapse_button_summary_on">Inkinobho yokugoqa ifihliwe</string>
+            <string name="revanced_hide_collapse_button_summary_off">Inkinobho yokugoqa ibonisiwe</string>
+            <string name="revanced_hide_fullscreen_button_title">Fihla inkinobho yesikrini esigcwele</string>
+            <string name="revanced_hide_fullscreen_button_summary_on">Inkinobho yesikrini esigcwele ifihliwe</string>
+            <string name="revanced_hide_fullscreen_button_summary_off">Inkinobho yesikrini esigcwele ibonisiwe</string>
         </patch>
-        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch"/>
+        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
+            <string name="revanced_hide_end_screen_cards_title">Fihla amakhadi esikrini sokuphela</string>
+            <string name="revanced_hide_end_screen_cards_summary_on">Amakhadi esikrini sokuphela afihliwe</string>
+            <string name="revanced_hide_end_screen_cards_summary_off">Amakhadi esikrini sokuphela abonisiwe</string>
+        </patch>
         <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"/>
         <patch id="layout.hide.infocards.hideInfocardsResourcePatch"/>
         <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"/>
         <patch id="layout.hide.seekbar.hideSeekbarPatch">
             <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
+            <string name="revanced_fullscreen_large_seekbar_title">Vumela ibha yokusesha enkulu yesikrini esigcwele</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_on">Ibha yokusesha yesikrini esigcwele inosayizi omkhulu</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_off">Ibha yokusesha yesikrini esigcwele inosayizi ojwayelekile</string>
         </patch>
         <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+            <string name="revanced_hide_shorts_channel_title">Fihla Shorts ekhasini lesiteshi</string>
+            <string name="revanced_hide_shorts_channel_summary_on">Kufihliwe ekhasini lesiteshi</string>
+            <string name="revanced_hide_shorts_channel_summary_off">Kubonisiwe ekhasini lesiteshi</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+            <string name="revanced_hide_shorts_video_description_title">Fihla Shorts encazelweni yevidiyo</string>
+            <string name="revanced_hide_shorts_video_description_summary_on">Kufihliwe encazelweni yevidiyo</string>
+            <string name="revanced_hide_shorts_video_description_summary_off">Kubonisiwe encazelweni yevidiyo</string>
+            <string name="revanced_hide_shorts_ai_button_title">Fihla inkinobho ye-AI</string>
+            <string name="revanced_hide_shorts_ai_button_summary_on">Inkinobho ye-AI ifihliwe</string>
+            <string name="revanced_hide_shorts_ai_button_summary_off">Inkinobho ye-AI ibonisiwe</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_title">Fihla ilebula \'Elimenyezelwe ngokuzenzakalela\'</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Ilebula elimenyezelwe ngokuzenzakalela lifihliwe</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Ilebula elimenyezelwe ngokuzenzakalela libonisiwe</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+            <!-- YT may no longer use this feature and this setting may be obsolete. -->
             <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
             <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
         </patch>
-        <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"/>
+        <patch id="layout.hide.autoplaypreview.hideAutoplayPreviewPatch">
+            <string name="revanced_hide_autoplay_preview_title">Fihla ukubuka kuqala okuzenzakalelayo</string>
+            <string name="revanced_hide_autoplay_preview_summary_on">Ukubuka kuqala okuzenzakalelayo kufihliwe</string>
+            <string name="revanced_hide_autoplay_preview_summary_off">Ukubuka kuqala okuzenzakalelayo kubonisiwe</string>
+        </patch>
+        <patch id="layout.hide.endscreensuggestedvideo.hideEndScreenSuggestedVideoPatch">
+            <string name="revanced_end_screen_suggested_video_title">Fihla ividiyo ephakanyisiwe yesikrini sokuphela</string>
+            <string name="revanced_end_screen_suggested_video_summary_on">"Ividiyo ephakanyisiwe yesikrini sokuphela ifihliwe uma ukudlala okuzenzakalelayo kukhutshaziwe
+
+Ukudlala okuzenzakalelayo kungashintshwa kuzilungiselelo ze-YouTube:
+Izilungiselelo → Ukudlala → Dlala ividiyo elandelayo ngokuzenzakalelayo"</string>
+            <string name="revanced_end_screen_suggested_video_summary_off">Ividiyo ephakanyisiwe yesikrini sokuphela ibonisiwe</string>
+        </patch>
         <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch"/>
         <patch id="layout.hide.time.hideTimestampPatch"/>
-        <patch id="layout.panels.popup.playerPopupPanelsPatch"/>
+        <patch id="layout.panels.popup.playerPopupPanelsPatch">
+            <string name="revanced_disable_player_popup_panels_title">Fihla amaphaneli wokuzivelelayo esidlali</string>
+            <string name="revanced_disable_player_popup_panels_summary_on">Amaphaneli wokuzivelelayo esidlali afihliwe</string>
+            <string name="revanced_disable_player_popup_panels_summary_off">Amaphaneli wokuzivelelayo esidlali abonisiwe</string>
+        </patch>
         <patch id="layout.player.fullscreen.exitFullscreenPatch"/>
         <patch id="layout.player.fullscreen.openVideosFullscreen"/>
         <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"/>
@@ -155,10 +378,12 @@ Second \"item\" text"</string>
             <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
             <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
         </patch>
-        <patch id="layout.searchbar.wideSearchbarPatch"/>
-        <patch id="layout.seekbar.seekbarThumbnailsPatch"/>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
             <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
+            <string name="revanced_sb_segments_nomusic_sum">Okwamavidiyo omculo kuphela. Izingxenye zamavidiyo omculo angenamculo, angakahlanganiswa ngesigaba esinye</string>
+            <string name="revanced_sb_submit_failed_forbidden">Ayikwazi ukuthumela ingxenye: %s</string>
+            <string name="revanced_sb_submit_failed_duplicate">"Ayikwazi ukuthumela ingxenye.
+Isevele ikhona"</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <!-- A segment start and end time, such as "02:10 to 03:40". -->
             <!-- Shown in the settings preferences, and translations can be any text length. -->
@@ -170,7 +395,11 @@ Second \"item\" text"</string>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch"/>
         <patch id="layout.shortsautoplay.shortsAutoplayPatch"/>
         <patch id="layout.miniplayer.miniplayerPatch"/>
-        <patch id="layout.theme.themePatch"/>
+        <patch id="layout.theme.themePatch">
+            <string name="revanced_splash_screen_animation_style_entry_1">Kukhutshaziwe</string>
+            <string name="revanced_splash_screen_animation_style_entry_2">Umbala</string>
+            <string name="revanced_splash_screen_animation_style_entry_3">Omnyama nomhlophe</string>
+        </patch>
         <patch id="layout.branding.customBrandingPatch"/>
         <patch id="layout.branding.changeHeaderPatch">
             <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
@@ -187,7 +416,11 @@ Second \"item\" text"</string>
         <patch id="misc.loopvideo.button.loopVideoButtonPatch"/>
         <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"/>
         <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"/>
-        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch"/>
+        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_title">Khubaza ukuthepha nokubamba kwe-haptics</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">Ukuthepha nokubamba kwe-haptics kukhutshaziwe</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">Ukuthepha nokubamba kwe-haptics kuvunyelwe</string>
+        </patch>
         <patch id="misc.gms.accountCredentialsInvalidTextPatch"/>
         <patch id="misc.links.bypassURLRedirectsPatch"/>
         <patch id="misc.links.openLinksExternallyPatch"/>
@@ -200,6 +433,11 @@ Second \"item\" text"</string>
         <patch id="video.speed.remember.rememberPlaybackSpeedPatch"/>
         <patch id="video.codecs.disableVideoCodecsPatch"/>
         <patch id="video.quality.advancedVideoQualityMenuPatch"/>
+        <patch id="video.quality.hidePremiumVideoQualityPatch">
+            <string name="revanced_hide_premium_video_quality_title">Fihla izinketho zekhwalithi ye-Premium</string>
+            <string name="revanced_hide_premium_video_quality_summary_on">Izinketho zekhwalithi ye-Premium zifihliwe</string>
+            <string name="revanced_hide_premium_video_quality_summary_off">Izinketho zekhwalithi ye-Premium zibonisiwe</string>
+        </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch"/>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
@@ -207,7 +445,9 @@ Second \"item\" text"</string>
     </app>
     <app id="music">
         <patch id="layout.branding.customBrandingPatch"/>
-        <patch id="misc.settings.settingsPatch"/>
+        <patch id="misc.settings.settingsPatch">
+            <!-- In languages where "About" is ambiguous, translate to "About ReVanced" (i.e., About this app). -->
+        </patch>
         <patch id="ad.video.hideVideoAdsPatch"/>
         <patch id="interaction.permanentrepeat.permanentRepeatPatch"/>
         <patch id="layout.buttons.hideButtons"/>

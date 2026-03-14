@@ -27,18 +27,55 @@ Second \"item\" text"</string>
         <patch id="misc.checks.checkEnvironmentPatch"/>
         <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"/>
         <patch id="misc.settings.settingsResourcePatch">
+            <string name="revanced_settings_disable_bold_icons_title">ଗାଢ଼ ଆଇକନ୍ ନିଷ୍କ୍ରିୟ କରନ୍ତୁ</string>
+            <string name="revanced_settings_disable_bold_icons_summary_on">ଆଇକନ୍ ଗାଢ଼ ନୁହଁନ୍ତି</string>
+            <string name="revanced_settings_disable_bold_icons_summary_off">ଆଇକନ୍ ଗାଢ଼</string>
             <!-- Settings about dialog. -->
             <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
+            <string name="revanced_gms_core_screen_title">ଜିଏମଏସକୋର</string>
+            <string name="revanced_gms_core_screen_summary">ଜିଏମଏସକୋର ସମ୍ବନ୍ଧୀୟ ସେଟିଂସମୂହ</string>
+            <string name="revanced_gms_core_check_updates_title">ଜିଏମଏସକୋର ଅପଡେଟ୍‌ ଯାଞ୍ଚ କରନ୍ତୁ</string>
+            <string name="revanced_gms_core_check_updates_summary_on">ଅପଡେଟ୍‌ ଯାଞ୍ଚ ସକ୍ଷମ କରାଯାଇଛି</string>
+            <string name="revanced_gms_core_check_updates_summary_off">ଅପଡେଟ୍ ଯାଞ୍ଚ ଅକ୍ଷମ କରାଯାଇଛି</string>
+            <string name="revanced_gms_core_settings_title">GmsCore ସେଟିଂସ୍ ଖୋଲନ୍ତୁ</string>
+            <string name="revanced_gms_core_settings_summary">GmsCore ର ସେଟିଂସ୍</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_gms_core_toast_not_installed_message">MicroG GmsCore ସ୍ଥାପିତ ହୋଇନାହିଁ। ଏହାକୁ ସ୍ଥାପନ କରନ୍ତୁ।</string>
+            <string name="revanced_gms_core_dialog_title">କାର୍ଯ୍ୟ ଆବଶ୍ୟକ</string>
+            <string name="revanced_gms_core_toast_update_check_failed_message">MicroG GmsCore ଅପଡେଟ୍ ଯାଞ୍ଚ କରିବାରେ ବିଫଳ ହେଲା</string>
+            <string name="revanced_gms_core_update_available_message">MicroG GmsCore ର ଏକ ନୂତନ ସଂସ୍କରଣ (%1$s) ଉପଲବ୍ଧ ଅଛି। ବର୍ତ୍ତମାନ, ଆପଣ %2$s ସଂସ୍କରଣ ବ୍ୟବହାର କରୁଛନ୍ତି।</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore କୁ ପୃଷ୍ଠଭୂମିରେ ଚାଲିବାକୁ ଅନୁମତି ନାହିଁ।
+
+ଆପଣଙ୍କ ଫୋନ୍ ପାଇଁ \"ମୋ ଆପ୍ କୁ ବନ୍ଦ କରନ୍ତୁ ନାହିଁ\" ଗାଇଡ୍ ଅନୁସରଣ କରନ୍ତୁ ଏବଂ ନିର୍ଦ୍ଦେଶାବଳୀକୁ ଆପଣଙ୍କ MicroG ସ୍ଥାପନାରେ ପ୍ରୟୋଗ କରନ୍ତୁ।
+
+ଆପ୍ କାର୍ଯ୍ୟ କରିବା ପାଇଁ ଏହା ଆବଶ୍ୟକ।"</string>
+            <string name="revanced_gms_core_dialog_open_website_text">ୱେବସାଇଟ୍ ଖୋଲନ୍ତୁ</string>
+            <string name="revanced_gms_core_dialog_cancel_text">ବାତିଲ୍ କରନ୍ତୁ</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"ସମସ୍ୟା ରୋକିବା ପାଇଁ MicroG GmsCore ବ୍ୟାଟେରୀ ଅପ୍ଟିମାଇଜେସନ୍ ଅକ୍ଷମ କରିବା ଆବଶ୍ୟକ।
+
+MicroG ପାଇଁ ବ୍ୟାଟେରୀ ଅପ୍ଟିମାଇଜେସନ୍ ଅକ୍ଷମ କରିବା ବ୍ୟାଟେରୀ ବ୍ୟବହାରକୁ ନକାରାତ୍ମକ ଭାବରେ ପ୍ରଭାବିତ କରିବ ନାହିଁ।
+
+ଜାରି ରଖିବା ବଟନ୍ ଉପରେ ଟ୍ୟାପ୍ କରନ୍ତୁ ଏବଂ ଅପ୍ଟିମାଇଜେସନ୍ ପରିବର୍ତ୍ତନଗୁଡ଼ିକୁ ଅନୁମତି ଦିଅନ୍ତୁ।"</string>
+            <string name="revanced_gms_core_dialog_continue_text">ଜାରି ରଖନ୍ତୁ</string>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch"/>
         <patch id="misc.audio.forceOriginalAudioPatch">
             <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
         </patch>
-        <patch id="misc.debugging.enableDebuggingPatch"/>
+        <patch id="misc.debugging.enableDebuggingPatch">
+            <string name="revanced_debug_feature_flags_manager_toast_no_flags">ଏହି ଫିଚର୍‌ ବ୍ୟବହାର କରିବାକୁ ଆପ୍‌କୁ ପୁନଃ ଆରମ୍ଭ କରନ୍ତୁ</string>
+            <string name="revanced_debug_protocolbuffer_title">ପ୍ରୋଟୋକଲ ବଫର୍ ଲଗ୍</string>
+            <string name="revanced_debug_protocolbuffer_summary_on">ଡିବଗ୍ ଲଗ୍‌ରେ ପ୍ରୋଟୋ ବଫର୍ ଅନ୍ତର୍ଭୁକ୍ତ</string>
+            <string name="revanced_debug_protocolbuffer_summary_off">ଡିବଗ୍ ଲଗ୍‌ରେ ପ୍ରୋଟୋ ବଫର୍ ଅନ୍ତର୍ଭୁକ୍ତ ନୁହେଁ</string>
+            <string name="revanced_debug_protocolbuffer_user_dialog_message">"ଏହି ସେଟିଂକୁ ସକ୍ଷମ କରିବା ଦ୍ୱାରା ଅତିରିକ୍ତ ଲେଆଉଟ୍ ଡାଟା ଲଗ୍ ହେବ, ଯେଉଁଥିରେ କିଛି UI କମ୍ପୋନେଣ୍ଟ ପାଇଁ ଅନ୍-ସ୍କ୍ରିନ୍ ଟେକ୍ସଟ୍ ଅନ୍ତର୍ଭୁକ୍ତ।
+
+ଏହା କଷ୍ଟମ ଫିଲ୍ଟର୍ ସୃଷ୍ଟି କରିବା ସମୟରେ କମ୍ପୋନେଣ୍ଟଗୁଡ଼ିକୁ ଚିହ୍ନଟ କରିବାରେ ସାହାଯ୍ୟ କରିପାରେ।
+
+ତେବେ, ଏହାକୁ ସକ୍ଷମ କରିବା ଦ୍ୱାରା ଆପଣଙ୍କ IP ଠିକଣା ଭଳି କିଛି ଉପଭୋକ୍ତା ଡାଟା ମଧ୍ୟ ଲଗ୍ ହେବ।"</string>
+        </patch>
         <patch id="misc.privacy.sanitizeSharingLinksPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
@@ -48,40 +85,135 @@ Second \"item\" text"</string>
         <patch id="misc.settings.settingsPatch"/>
         <patch id="misc.backgroundplayback.backgroundPlaybackPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
-            <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
+            <string name="revanced_hide_creator_store_shelf_title">କ୍ରିଏଟର୍ ଷ୍ଟୋର୍ ସେଲ୍ଫ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_creator_store_shelf_summary_on">ଭିଡିଓ ପ୍ଲେୟାର୍‌ ତଳେ ଥିବା କ୍ରିଏଟର୍ ଷ୍ଟୋର୍ ସେଲ୍ଫ ଲୁଚିଛି</string>
+            <string name="revanced_hide_creator_store_shelf_summary_off">ଭିଡିଓ ପ୍ଲେୟାର୍‌ ତଳେ ଥିବା କ୍ରିଏଟର୍ ଷ୍ଟୋର୍ ସେଲ୍ଫ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_comments_section_in_home_feed_title">ହୋମ୍ ଫିଡ୍‌ରେ ଭିଡିଓ ତଳେ ଥିବା କମେଣ୍ଟ୍‌ ସେକ୍ସନ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_on">ହୋମ୍ ଫିଡ୍‌ରେ ଭିଡିଓ ତଳେ ଥିବା କମେଣ୍ଟ୍‌ ସେକ୍ସନ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_off">ହୋମ୍ ଫିଡ୍‌ରେ ଭିଡିଓ ତଳେ ଥିବା କମେଣ୍ଟ୍‌ ସେକ୍ସନ୍ ଦେଖାଯାଉଛି</string>
+            <!-- 'Latest videos' should be translated using the same localized wording YouTube displays for the button.
+                 This button usually appears in the Home feed for refreshing the feed. -->
+            <string name="revanced_hide_latest_videos_button_title">\'ସର୍ବଶେଷ ଭିଡିଓ\' ବଟନ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_latest_videos_button_summary_on">ସର୍ବଶେଷ ଭିଡିଓ ବଟନ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_latest_videos_button_summary_off">ସର୍ବଶେଷ ଭିଡିଓ ବଟନ୍ ଦେଖାଯାଉଛି</string>
+            <!-- 'Notify me' should be translated using the same localized wording YouTube displays for this button.
+                  This button usually appears in the Subscriptions feed for future livestreams or unreleased videos. -->
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
             <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+            <string name="revanced_hide_web_search_results_title">ୱେବ୍ ସନ୍ଧାନ ଫଳାଫଳ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_web_search_results_summary_on">ୱେବ୍ ସନ୍ଧାନ ଫଳାଫଳ ଲୁଚିଛି</string>
+            <string name="revanced_hide_web_search_results_summary_off">ୱେବ୍ ସନ୍ଧାନ ଫଳାଫଳ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_you_may_like_section_title">\'ଆପଣ ପସନ୍ଦ କରିପାରନ୍ତି\' ବିଭାଗ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_you_may_like_section_summary_on">\'ଆପଣ ପସନ୍ଦ କରିପାରନ୍ତି\' ବିଭାଗ ଲୁଚିଛି</string>
+            <string name="revanced_hide_you_may_like_section_summary_off">\'ଆପଣ ପସନ୍ଦ କରିପାରନ୍ତି\' ବିଭାଗ ଦେଖାଯାଉଛି</string>
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                  This appears in the video player for certain videos. -->
+                   This button usually appears in the video player for certain videos. -->
+            <!-- 'Live chat replay' should be translated using the same localized wording YouTube displays for the button.
+       This button usually appears in the player overlay for live streamed videos after opening live chat. -->
+            <string name="revanced_hide_live_chat_replay_button_title">\'ଲାଇଭ୍ ଚାଟ୍ ରିପ୍ଲେ\' ବଟନ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_on">ପ୍ଲେୟାର୍ ଓଭର୍‌ଲେରେ ଥିବା ଲାଇଭ୍ ଚାଟ୍ ରିପ୍ଲେ ବଟନ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_off">ପ୍ଲେୟାର୍ ଓଭର୍‌ଲେରେ ଥିବା ଲାଇଭ୍ ଚାଟ୍ ରିପ୍ଲେ ବଟନ୍ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_video_title_title">ଭିଡିଓର ଶୀର୍ଷକ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_video_title_summary_on">ପ୍ଲେୟାର୍ ଓଭର୍‌ଲେରେ ଭିଡିଓର ଶୀର୍ଷକ ଲୁଚିଛି</string>
+            <string name="revanced_hide_video_title_summary_off">ପ୍ଲେୟାର୍ ଓଭର୍‌ଲେରେ ଭିଡିଓର ଶୀର୍ଷକ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_course_progress_section_title">\'ପାଠ୍ୟକ୍ରମ ପ୍ରଗତି\' ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_course_progress_section_summary_on">ପାଠ୍ୟକ୍ରମ ପ୍ରଗତି ବିଭାଗ ଲୁଚିଛି</string>
+            <string name="revanced_hide_course_progress_section_summary_off">ପାଠ୍ୟକ୍ରମ ପ୍ରଗତି ବିଭାଗ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_explore_section_title">ଏକ୍ସପ୍ଲୋର୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_explore_section_summary_on">ଏହି ପାଠ୍ୟକ୍ରମ ଏବଂ ପଡକାଷ୍ଟ ବିଭାଗଗୁଡ଼ିକ ଲୁଚିଛି</string>
+            <string name="revanced_hide_explore_section_summary_off">ଏହି ପାଠ୍ୟକ୍ରମ ଏବଂ ପଡକାଷ୍ଟ ବିଭାଗଗୁଡ଼ିକ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_explore_course_section_title">\'ଏହି ପାଠ୍ୟକ୍ରମ ଏକ୍ସପ୍ଲୋର୍ କରନ୍ତୁ\' ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_explore_course_section_summary_on">ଏହି ପାଠ୍ୟକ୍ରମ ଏକ୍ସପ୍ଲୋର୍ ବିଭାଗ ଲୁଚିଛି</string>
+            <string name="revanced_hide_explore_course_section_summary_off">ଏହି ପାଠ୍ୟକ୍ରମ ଏକ୍ସପ୍ଲୋର୍ ବିଭାଗ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_explore_podcast_section_title">\'ପଡକାଷ୍ଟ ଏକ୍ସପ୍ଲୋର୍ କରନ୍ତୁ\' ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_explore_podcast_section_summary_on">ପଡକାଷ୍ଟ ଏକ୍ସପ୍ଲୋର୍ ବିଭାଗ ଲୁଚିଛି</string>
+            <string name="revanced_hide_explore_podcast_section_summary_off">ପଡକାଷ୍ଟ ଏକ୍ସପ୍ଲୋର୍ ବିଭାଗ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_featured_places_section_title">\'ବୈଶିଷ୍ଟ୍ୟପୂର୍ଣ୍ଣ ସ୍ଥାନଗୁଡିକ\' ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_featured_places_section_summary_on">ବୈଶିଷ୍ଟ୍ୟପୂର୍ଣ୍ଣ ସ୍ଥାନଗୁଡିକ ବିଭାଗ ଲୁଚିଛି</string>
+            <string name="revanced_hide_featured_places_section_summary_off">ବୈଶିଷ୍ଟ୍ୟପୂର୍ଣ୍ଣ ସ୍ଥାନଗୁଡିକ ବିଭାଗ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_feed_flyout_menu_title">ଫିଡ୍ ଫ୍ଲାଇଆଉଟ୍ ମେନୁ ଫିଲ୍ଟର୍ ସକ୍ଷମ କରନ୍ତୁ</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_on">ଫିଡ୍ ଫ୍ଲାଇଆଉଟ୍ ମେନୁ ଫିଲ୍ଟର୍ ସକ୍ଷମ ହୋଇଛି</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_off">ଫିଡ୍ ଫ୍ଲାଇଆଉଟ୍ ମେନୁ ଫିଲ୍ଟର୍ ନିଷ୍କ୍ରିୟ ହୋଇଛି</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_title">ଫିଡ୍ ଫ୍ଲାଇଆଉଟ୍ ମେନୁ ଫିଲ୍ଟର୍</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">ଫିଲ୍ଟର୍ କରିବାକୁ ଫ୍ଲାଇଆଉଟ୍ ମେନୁର ନାମ ପ୍ରବେଶ କରନ୍ତୁ, ପ୍ରତି ଧାଡିରେ ଗୋଟିଏ</string>
+            <string name="revanced_hide_gaming_section_title">ଗେମିଂ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_gaming_section_summary_on">ଗେମିଂ ବିଭାଗ ଲୁଚିଛି</string>
+            <string name="revanced_hide_gaming_section_summary_off">ଗେମିଂ ବିଭାଗ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_music_section_title">ମ୍ୟୁଜିକ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_music_section_summary_on">ମ୍ୟୁଜିକ୍ ବିଭାଗ ଲୁଚିଛି</string>
+            <string name="revanced_hide_music_section_summary_off">ମ୍ୟୁଜିକ୍ ବିଭାଗ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_quizzes_section_title">କୁଇଜ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_quizzes_section_summary_on">କୁଇଜ୍ ବିଭାଗ ଲୁଚିଛି</string>
+            <string name="revanced_hide_quizzes_section_summary_off">କୁଇଜ୍ ବିଭାଗ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_channel_tab_title">ଚ୍ୟାନେଲ୍ ଟାବ୍ ଫିଲ୍ଟର୍ ସକ୍ଷମ କରନ୍ତୁ</string>
+            <string name="revanced_hide_channel_tab_summary_on">ଚ୍ୟାନେଲ୍ ଟାବ୍ ଫିଲ୍ଟର୍ ସକ୍ଷମ ହୋଇଛି</string>
+            <string name="revanced_hide_channel_tab_summary_off">ଚ୍ୟାନେଲ୍ ଟାବ୍ ଫିଲ୍ଟର୍ ନିଷ୍କ୍ରିୟ ହୋଇଛି</string>
+            <string name="revanced_hide_channel_tab_filter_strings_title">ଚ୍ୟାନେଲ୍ ଟାବ୍ ଫିଲ୍ଟର୍</string>
+            <string name="revanced_hide_channel_tab_filter_strings_summary">ଫିଲ୍ଟର୍ କରିବାକୁ ଚ୍ୟାନେଲ୍ ଟାବ୍ ନାମ ପ୍ରବେଶ କରନ୍ତୁ, ପ୍ରତି ଧାଡିରେ ଗୋଟିଏ</string>
             <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
             <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
             <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+            <string name="revanced_hide_view_count_user_dialog_message">"ସୀମାବଦ୍ଧତା:
+• Shorts ସେଲ୍ଫ, ଚ୍ୟାନେଲ୍ ପୃଷ୍ଠା ଏବଂ ସନ୍ଧାନ ଫଳାଫଳରେ ଦେଖାଯାଇଥିବା ସଂଖ୍ୟାଗୁଡ଼ିକ ପ୍ରଦର୍ଶିତ ହୋଇପାରେ।
+• ଏହି ଫିଚର୍ ଅଟୋମୋଟିଭ୍ ଫର୍ମ ଫାକ୍ଟର୍ ସହିତ କାର୍ଯ୍ୟ କରେ ନାହିଁ।"</string>
             <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+            <string name="revanced_hide_upload_time_user_dialog_message">"ସୀମାବଦ୍ଧତା:
+• Shorts ସେଲ୍ଫ, ଚ୍ୟାନେଲ୍ ପୃଷ୍ଠା ଏବଂ ସନ୍ଧାନ ଫଳାଫଳରେ ଅପଲୋଡ୍ ସମୟ ପ୍ରଦର୍ଶିତ ହୋଇପାରେ।
+• ଏହି ଫିଚର୍ ଅଟୋମୋଟିଭ୍ ଫର୍ମ ଫାକ୍ଟର୍ ସହିତ କାର୍ଯ୍ୟ କରେ ନାହିଁ।"</string>
             <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
+            <string name="revanced_hide_keyword_content_about_summary">"ହୋମ୍/ସବସ୍କ୍ରିପସନ୍/ସନ୍ଧାନ ଫଳାଫଳଗୁଡ଼ିକ କୀୱର୍ଡ୍ ବାକ୍ୟାଂଶ ସହିତ ମେଳ ଖାଉଥିବା ବିଷୟବସ୍ତୁ ଲୁଚାଇବା ପାଇଁ ଫିଲ୍ଟର୍ କରାଯାଇଛି
+
+ସୀମାବଦ୍ଧତା:
+• Shorts ଚ୍ୟାନେଲ୍ ନାମ ଦ୍ୱାରା ଲୁଚାଯାଇପାରିବ ନାହିଁ
+• କିଛି UI ଉପାଦାନ ଲୁଚି ନ ପାରେ
+• ଏକ କୀୱର୍ଡ୍ ପାଇଁ ସନ୍ଧାନ କଲେ କୌଣସି ଫଳାଫଳ ମିଳିନପାରେ।"</string>
             <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
-            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_hide_fullscreen_ads_summary_on">ଫୁଲ୍‌ସ୍କ୍ରିନ୍ ବିଜ୍ଞାପନଗୁଡ଼ିକ ଲୁଚିଛି</string>
+            <string name="revanced_hide_player_popup_ads_title">ପ୍ଲେୟାର୍ ପପ୍‌ଅପ୍ ବିଜ୍ଞାପନ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_player_popup_ads_summary_on">ପ୍ଲେୟାର୍ ପପ୍‌ଅପ୍ ବିଜ୍ଞାପନଗୁଡ଼ିକ ଲୁଚିଛି</string>
+            <string name="revanced_hide_player_popup_ads_summary_off">ପ୍ଲେୟାର୍ ପପ୍‌ଅପ୍ ବିଜ୍ଞାପନଗୁଡ଼ିକ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_view_products_banner_summary_on">ପ୍ଲେୟାର୍ ଓଭର୍‌ଲେରେ ଥିବା ଉତ୍ପାଦ ବ୍ୟାନର୍ ଦେଖିବା ଲୁଚିଛି</string>
+            <string name="revanced_hide_view_products_banner_summary_off">ପ୍ଲେୟାର୍ ଓଭର୍‌ଲେରେ ଥିବା ଉତ୍ପାଦ ବ୍ୟାନର୍ ଦେଖିବା ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_youtube_premium_promotions_title">YouTube Premium ପ୍ରମୋସନ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_on">YouTube Premium ପ୍ରମୋସନ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_off">YouTube Premium ପ୍ରମୋସନ୍ ଦେଖାଯାଉଛି</string>
         </patch>
-        <patch id="ad.getpremium.hideGetPremiumPatch"/>
         <patch id="ad.video.videoAdsPatch"/>
-        <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"/>
+        <patch id="interaction.copyvideourl.copyVideoURLResourcePatch">
+            <string name="revanced_share_copy_url_success">URL କ୍ଲିପବୋର୍ଡକୁ କପି ହୋଇଛି</string>
+            <string name="revanced_share_copy_url_timestamp_success">ଟାଇମ୍‌ଷ୍ଟାମ୍ପ୍ ସହିତ URL କପି ହୋଇଛି</string>
+            <string name="revanced_copy_video_url_title">ଭିଡିଓ URL କପି ବଟନ୍ ଦେଖାନ୍ତୁ</string>
+            <string name="revanced_copy_video_url_summary_on">ଭିଡିଓ URL କପି ବଟନ୍ ଦେଖାଯାଉଛି। ଭିଡିଓ URL କପି କରିବା ପାଇଁ ଟ୍ୟାପ୍ କରନ୍ତୁ। ଟାଇମ୍‌ଷ୍ଟାମ୍ପ୍ ସହିତ କପି କରିବା ପାଇଁ ଟ୍ୟାପ୍ କରି ଧରି ରଖନ୍ତୁ</string>
+            <string name="revanced_copy_video_url_summary_off">ଭିଡିଓ URL କପି ବଟନ୍ ଦେଖାଯାଉ ନାହିଁ</string>
+            <string name="revanced_copy_video_url_timestamp_title">ଟାଇମ୍‌ଷ୍ଟାମ୍ପ୍ URL କପି ବଟନ୍ ଦେଖାନ୍ତୁ</string>
+            <string name="revanced_copy_video_url_timestamp_summary_on">ଟାଇମ୍‌ଷ୍ଟାମ୍ପ୍ URL କପି ବଟନ୍ ଦେଖାଯାଉଛି। ଟାଇମ୍‌ଷ୍ଟାମ୍ପ୍ ସହିତ ଭିଡିଓ URL କପି କରିବା ପାଇଁ ଟ୍ୟାପ୍ କରନ୍ତୁ। ଟାଇମ୍‌ଷ୍ଟାମ୍ପ୍ ବିନା କପି କରିବା ପାଇଁ ଟ୍ୟାପ୍ କରି ଧରି ରଖନ୍ତୁ</string>
+            <string name="revanced_copy_video_url_timestamp_summary_off">ଟାଇମ୍‌ଷ୍ଟାମ୍ପ୍ URL କପି ବଟନ୍ ଦେଖାଯାଉ ନାହିଁ</string>
+        </patch>
         <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"/>
-        <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch"/>
+        <patch id="layout.hide.signintotv.disableSignInToTVPopupPatch">
+            <string name="revanced_disable_sign_in_to_tv_popup_title">\'ଟିଭିରେ ସାଇନ୍ ଇନ୍ କରନ୍ତୁ\' ପପ୍‌ଅପ୍ ନିଷ୍କ୍ରିୟ କରନ୍ତୁ</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_on">ଟିଭିରେ ସାଇନ୍ ଇନ୍ ପପ୍‌ଅପ୍ ନିଷ୍କ୍ରିୟ ହୋଇଛି</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_off">ଟିଭିରେ ସାଇନ୍ ଇନ୍ ପପ୍‌ଅପ୍ ସକ୍ଷମ ହୋଇଛି</string>
+        </patch>
         <patch id="interaction.doubletap.disableDoubleTapActionsPatch"/>
         <patch id="interaction.downloads.downloadsResourcePatch">
             <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
         </patch>
         <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"/>
-        <patch id="interaction.seekbar.enableSeekbarTappingPatch"/>
+        <patch id="interaction.seekbar.enableTapToSeekPatch">
+            <string name="revanced_tap_to_seek_title">ଖୋଜିବା ପାଇଁ ଟ୍ୟାପ୍ ସକ୍ଷମ କରନ୍ତୁ</string>
+            <string name="revanced_tap_to_seek_summary_on">ଖୋଜିବା ପାଇଁ ଟ୍ୟାପ୍ ସକ୍ଷମ ହୋଇଛି</string>
+            <string name="revanced_tap_to_seek_summary_off">ଖୋଜିବା ପାଇଁ ଟ୍ୟାପ୍ ନିଷ୍କ୍ରିୟ ହୋଇଛି</string>
+        </patch>
         <patch id="interaction.swipecontrols.swipeControlsResourcePatch"/>
         <patch id="layout.autocaptions.autoCaptionsPatch"/>
         <patch id="layout.buttons.action.hideButtonsPatch">
@@ -89,25 +221,82 @@ Second \"item\" text"</string>
             <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
             <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
             <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually only shows on live streams. -->
+                  This button usually appears on live streamed videos. -->
             <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged-in user. -->
+                  This button usually appears on videos uploaded by the logged-in user. -->
             <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button usually appears if the user IP is from a specific region such as the USA or EU. -->
             <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_clip_button_user_dialog_message">କିଛି ଉପଭୋକ୍ତା ଆକାଉଣ୍ଟ୍ ପାଇଁ ଲୁଚାଇବା କାର୍ଯ୍ୟ କରିନପାରେ।</string>
             <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
         </patch>
-        <patch id="layout.buttons.navigation.navigationButtonsPatch">
+        <patch id="layout.buttons.navigation.navigationBarPatch">
+            <string name="revanced_navigation_buttons_screen_title">ନାଭିଗେସନ୍ ବଟନ୍ଗୁଡ଼ିକ</string>
+            <string name="revanced_navigation_buttons_screen_summary">ନାଭିଗେସନ୍ ବାର୍ ବଟନ୍ଗୁଡ଼ିକୁ ଲୁଚାନ୍ତୁ କିମ୍ବା ପରିବର୍ତ୍ତନ କରନ୍ତୁ</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
+            <string name="revanced_hide_home_button_title">ହୋମ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_home_button_summary_on">ହୋମ୍ ବଟନ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_home_button_summary_off">ହୋମ୍ ବଟନ୍ ଦେଖାଯାଉଛି</string>
             <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_shorts_button_title">Shorts ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_shorts_button_summary_on">Shorts ବଟନ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_shorts_button_summary_off">Shorts ବଟନ୍ ଦେଖାଯାଉଛି</string>
             <!-- 'Create' has no display name. Translate normally. -->
+            <string name="revanced_hide_create_button_title">କ୍ରିଏଟ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_create_button_summary_on">କ୍ରିଏଟ୍ ବଟନ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_create_button_summary_off">କ୍ରିଏଟ୍ ବଟନ୍ ଦେଖାଯାଉଛି</string>
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_subscriptions_button_title">ସବସ୍କ୍ରିପସନ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_subscriptions_button_summary_on">ସବସ୍କ୍ରିପସନ୍ ବଟନ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_subscriptions_button_summary_off">ସବସ୍କ୍ରିପସନ୍ ବଟନ୍ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_notifications_button_title">ବିଜ୍ଞପ୍ତି ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_notifications_button_summary_on">ବିଜ୍ଞପ୍ତି ବଟନ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_notifications_button_summary_off">ବିଜ୍ଞପ୍ତି ବଟନ୍ ଦେଖାଯାଉଛି</string>
             <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_switch_create_with_notifications_button_title">କ୍ରିଏଟ୍ କୁ ବିଜ୍ଞପ୍ତି ସହିତ ସ୍ୱିଚ୍ କରନ୍ତୁ</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_on">କ୍ରିଏଟ୍ ବଟନ୍ ବିଜ୍ଞପ୍ତି ବଟନ୍ ସହିତ ସ୍ୱିଚ୍ ହୋଇଛି</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_off">କ୍ରିଏଟ୍ ବଟନ୍ ବିଜ୍ଞପ୍ତି ବଟନ୍ ସହିତ ସ୍ୱିଚ୍ ହୋଇନାହିଁ</string>
+            <string name="revanced_switch_create_with_notifications_button_user_dialog_message">ଯଦି ଏହି ସେଟିଂ ପରିବର୍ତ୍ତନ କାର୍ଯ୍ୟକାରୀ ହୁଏ ନାହିଁ, ତେବେ ଇନ୍‌କଗ୍ନିଟୋ ମୋଡ୍‌କୁ ସ୍ୱିଚ୍ କରିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+            <string name="revanced_hide_navigation_button_labels_title">ନାଭିଗେସନ୍ ବଟନ୍ ଲେବଲ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_navigation_button_labels_summary_on">ଲେବଲ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_navigation_button_labels_summary_off">ଲେବଲ୍ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_narrow_navigation_buttons_title">ସଂକୀର୍ଣ୍ଣ ନାଭିଗେସନ୍ ବଟନ୍ ସକ୍ଷମ କରନ୍ତୁ</string>
+            <string name="revanced_narrow_navigation_buttons_summary_on">ନାଭିଗେସନ୍ ବଟନ୍ ମଧ୍ୟରେ ବ୍ୟବଧାନ ସଂକୀର୍ଣ୍ଣ ଅଟେ</string>
+            <string name="revanced_narrow_navigation_buttons_summary_off">ନାଭିଗେସନ୍ ବଟନ୍ ମଧ୍ୟରେ ବ୍ୟବଧାନ ସାଧାରଣ ଅଟେ</string>
+            <string name="revanced_navigation_bar_animations_title">ନାଭିଗେସନ୍ ବାର୍ ଆନିମେସନ୍ ସକ୍ଷମ କରନ୍ତୁ</string>
+            <string name="revanced_navigation_bar_animations_summary_on">ନାଭିଗେସନ୍ ଟ୍ରାଞ୍ଜିସନ୍ ଆନିମେଟେଡ୍ ହୋଇଛି</string>
+            <string name="revanced_navigation_bar_animations_summary_off">ନାଭିଗେସନ୍ ଟ୍ରାଞ୍ଜିସନ୍ ଆନିମେଟେଡ୍ ହୋଇନାହିଁ</string>
+            <string name="revanced_disable_translucent_status_bar_title">ପାରଦର୍ଶୀ ଷ୍ଟାଟସ୍ ବାର୍ ନିଷ୍କ୍ରିୟ କରନ୍ତୁ</string>
+            <string name="revanced_disable_translucent_status_bar_summary_on">ଷ୍ଟାଟସ୍ ବାର୍ ଅସ୍ପଷ୍ଟ ଅଟେ</string>
+            <string name="revanced_disable_translucent_status_bar_summary_off">ଷ୍ଟାଟସ୍ ବାର୍ ଅସ୍ପଷ୍ଟ କିମ୍ବା ପାରଦର୍ଶୀ ଅଟେ</string>
+            <string name="revanced_disable_translucent_status_bar_user_dialog_message">"ସୀମାବଦ୍ଧତା:
+• ଭିଡିଓ ପ୍ଲେୟାର୍‌ର ଶୀର୍ଷରେ ଏକ କଳା ବାର୍ ଦେଖାଯାଇପାରେ।
+• କିଛି ଡିଭାଇସ୍‌ରେ, ଏହି ଫିଚର୍ ସକ୍ଷମ କରିବା ଦ୍ୱାରା ସିଷ୍ଟମ୍ ନାଭିଗେସନ୍ ବାର୍ ପାରଦର୍ଶୀରେ ପରିବର୍ତ୍ତନ ହୋଇପାରେ।"</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_title">ହାଲୁକା ପାରଦର୍ଶୀ ବାର୍ ନିଷ୍କ୍ରିୟ କରନ୍ତୁ</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_on">ଲାଇଟ୍ ମୋଡ୍ ନାଭିଗେସନ୍ ବାର୍ ଅସ୍ପଷ୍ଟ ଅଟେ</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_off">ଲାଇଟ୍ ମୋଡ୍ ନାଭିଗେସନ୍ ବାର୍ ଅସ୍ପଷ୍ଟ କିମ୍ବା ପାରଦର୍ଶୀ ଅଟେ</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_title">ଗାଢ଼ ପାରଦର୍ଶୀ ବାର୍ ନିଷ୍କ୍ରିୟ କରନ୍ତୁ</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">ଡାର୍କ ମୋଡ୍ ନାଭିଗେସନ୍ ବାର୍ ଅସ୍ପଷ୍ଟ ଅଟେ</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">ଡାର୍କ ମୋଡ୍ ନାଭିଗେସନ୍ ବାର୍ ଅସ୍ପଷ୍ଟ କିମ୍ବା ପାରଦର୍ଶୀ ଅଟେ</string>
+            <string name="revanced_toolbar_screen_title">ଟୁଲବାର୍</string>
+            <string name="revanced_toolbar_screen_summary">ଟୁଲବାର୍ ଉପାଦାନଗୁଡ଼ିକୁ ଲୁଚାନ୍ତୁ କିମ୍ବା ପରିବର୍ତ୍ତନ କରନ୍ତୁ</string>
+            <string name="revanced_hide_toolbar_create_button_title">କ୍ରିଏଟ୍ ବଟନ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_toolbar_create_button_summary_on">କ୍ରିଏଟ୍ ବଟନ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_toolbar_create_button_summary_off">କ୍ରିଏଟ୍ ବଟନ୍ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_toolbar_notification_button_title">ବିଜ୍ଞପ୍ତି ବଟନ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_on">ବିଜ୍ଞପ୍ତି ବଟନ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_off">ବିଜ୍ଞପ୍ତି ବଟନ୍ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_toolbar_search_button_title">ସନ୍ଧାନ ବଟନ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_toolbar_search_button_summary_on">ସନ୍ଧାନ ବଟନ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_toolbar_search_button_summary_off">ସନ୍ଧାନ ବଟନ୍ ଦେଖାଯାଉଛି।</string>
+            <string name="revanced_wide_searchbar_title">ବିସ୍ତୃତ ସନ୍ଧାନ ବାର୍ ସକ୍ଷମ କରନ୍ତୁ</string>
+            <string name="revanced_wide_searchbar_summary_on">ବିସ୍ତୃତ ସନ୍ଧାନ ବାର୍ ସକ୍ଷମ ହୋଇଛି</string>
+            <string name="revanced_wide_searchbar_summary_off">ବିସ୍ତୃତ ସନ୍ଧାନ ବାର୍ ଅକ୍ଷମ ହୋଇଛି</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -126,25 +315,67 @@ Second \"item\" text"</string>
         </patch>
         <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
             <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+            <string name="revanced_hide_collapse_button_title">କଲାପ୍ସ ବଟନ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_collapse_button_summary_on">କଲାପ୍ସ ବଟନ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_collapse_button_summary_off">କଲାପ୍ସ ବଟନ୍ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_fullscreen_button_title">ଫୁଲ୍‌ସ୍କ୍ରିନ୍ ବଟନ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_fullscreen_button_summary_on">ଫୁଲ୍‌ସ୍କ୍ରିନ୍ ବଟନ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_fullscreen_button_summary_off">ଫୁଲ୍‌ସ୍କ୍ରିନ୍ ବଟନ୍ ଦେଖାଯାଉଛି</string>
         </patch>
-        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch"/>
+        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
+            <string name="revanced_hide_end_screen_cards_title">ଶେଷ ସ୍କ୍ରିନ୍ କାର୍ଡଗୁଡ଼ିକ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_end_screen_cards_summary_on">ଶେଷ ସ୍କ୍ରିନ୍ କାର୍ଡଗୁଡ଼ିକ ଲୁଚିଛି</string>
+            <string name="revanced_hide_end_screen_cards_summary_off">ଶେଷ ସ୍କ୍ରିନ୍ କାର୍ଡଗୁଡ଼ିକ ଦେଖାଯାଉଛି</string>
+        </patch>
         <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"/>
         <patch id="layout.hide.infocards.hideInfocardsResourcePatch"/>
         <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"/>
         <patch id="layout.hide.seekbar.hideSeekbarPatch">
             <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
+            <string name="revanced_fullscreen_large_seekbar_title">ଫୁଲ୍‌ସ୍କ୍ରିନ୍ ବଡ଼ ସିକବାର୍ ସକ୍ଷମ କରନ୍ତୁ</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_on">ଫୁଲ୍‌ସ୍କ୍ରିନ୍ ସିକବାର୍ ବଡ଼ ଆକାରର ଅଟେ</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_off">ଫୁଲ୍‌ସ୍କ୍ରିନ୍ ସିକବାର୍ ସାଧାରଣ ଆକାରର ଅଟେ</string>
         </patch>
         <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+            <string name="revanced_hide_shorts_channel_title">ଚ୍ୟାନେଲ୍ ପୃଷ୍ଠାରେ Shorts ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_shorts_channel_summary_on">ଚ୍ୟାନେଲ୍ ପୃଷ୍ଠାରେ ଲୁଚିଛି</string>
+            <string name="revanced_hide_shorts_channel_summary_off">ଚ୍ୟାନେଲ୍ ପୃଷ୍ଠାରେ ଦେଖାଯାଉଛି</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+            <string name="revanced_hide_shorts_video_description_title">ଭିଡିଓ ବର୍ଣ୍ଣନାରେ Shorts ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_shorts_video_description_summary_on">ଭିଡିଓ ବର୍ଣ୍ଣନାରେ ଲୁଚିଛି</string>
+            <string name="revanced_hide_shorts_video_description_summary_off">ଭିଡିଓ ବର୍ଣ୍ଣନାରେ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_shorts_ai_button_title">AI ବଟନ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_shorts_ai_button_summary_on">AI ବଟନ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_shorts_ai_button_summary_off">AI ବଟନ୍ ଦେଖାଯାଉଛି</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_title">\'ଅଟୋ-ଡବ୍ଡ୍\' ଲେବଲ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">ଅଟୋ-ଡବ୍ଡ୍ ଲେବଲ୍ ଲୁଚିଛି</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">ଅଟୋ-ଡବ୍ଡ୍ ଲେବଲ୍ ଦେଖାଯାଉଛି</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+            <!-- YT may no longer use this feature and this setting may be obsolete. -->
             <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
             <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
         </patch>
-        <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"/>
+        <patch id="layout.hide.autoplaypreview.hideAutoplayPreviewPatch">
+            <string name="revanced_hide_autoplay_preview_title">ଅଟୋପ୍ଲେ ପ୍ରିଭ୍ୟୁ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_autoplay_preview_summary_on">ଅଟୋପ୍ଲେ ପ୍ରିଭ୍ୟୁ ଲୁଚିଛି</string>
+            <string name="revanced_hide_autoplay_preview_summary_off">ଅଟୋପ୍ଲେ ପ୍ରିଭ୍ୟୁ ଦେଖାଯାଉଛି</string>
+        </patch>
+        <patch id="layout.hide.endscreensuggestedvideo.hideEndScreenSuggestedVideoPatch">
+            <string name="revanced_end_screen_suggested_video_title">ଶେଷ ସ୍କ୍ରିନ୍ ସୁପାରିଶିତ ଭିଡିଓ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_end_screen_suggested_video_summary_on">"ଅଟୋପ୍ଲେ ବନ୍ଦ ଥିବାବେଳେ ଶେଷ ସ୍କ୍ରିନ୍ ସୁପାରିଶିତ ଭିଡିଓ ଲୁଚିଛି
+
+ଅଟୋପ୍ଲେ YouTube ସେଟିଂସରେ ପରିବର୍ତ୍ତନ କରାଯାଇପାରିବ:
+ସେଟିଂସ୍ → ପ୍ଲେବ୍ୟାକ୍ → ପରବର୍ତ୍ତୀ ଭିଡିଓ ଅଟୋପ୍ଲେ କରନ୍ତୁ"</string>
+            <string name="revanced_end_screen_suggested_video_summary_off">ଶେଷ ସ୍କ୍ରିନ୍ ସୁପାରିଶିତ ଭିଡିଓ ଦେଖାଯାଉଛି</string>
+        </patch>
         <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch"/>
         <patch id="layout.hide.time.hideTimestampPatch"/>
-        <patch id="layout.panels.popup.playerPopupPanelsPatch"/>
+        <patch id="layout.panels.popup.playerPopupPanelsPatch">
+            <string name="revanced_disable_player_popup_panels_title">ପ୍ଲେୟାର ପପଅପ୍ ପ୍ୟାନେଲ୍ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_disable_player_popup_panels_summary_on">ପ୍ଲେୟାର ପପଅପ୍ ପ୍ୟାନେଲ୍ ଲୁଚାଯାଇଛି</string>
+            <string name="revanced_disable_player_popup_panels_summary_off">ପ୍ଲେୟାର ପପଅପ୍ ପ୍ୟାନେଲ୍ ଦେଖାଯାଉଛି</string>
+        </patch>
         <patch id="layout.player.fullscreen.exitFullscreenPatch"/>
         <patch id="layout.player.fullscreen.openVideosFullscreen"/>
         <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"/>
@@ -155,10 +386,12 @@ Second \"item\" text"</string>
             <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
             <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
         </patch>
-        <patch id="layout.searchbar.wideSearchbarPatch"/>
-        <patch id="layout.seekbar.seekbarThumbnailsPatch"/>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
             <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
+            <string name="revanced_sb_segments_nomusic_sum">କେବଳ ମ୍ୟୁଜିକ୍ ଭିଡିଓରେ ବ୍ୟବହାର ପାଇଁ। ମ୍ୟୁଜିକ୍ ବିନା ମ୍ୟୁଜିକ୍ ଭିଡିଓର ବିଭାଗ, ଯାହା ଅନ୍ୟ କୌଣସି ଶ୍ରେଣୀ ଦ୍ୱାରା ଆବୃତ ହୋଇନାହିଁ</string>
+            <string name="revanced_sb_submit_failed_forbidden">ଏହି ସେଗମେଣ୍ଟ୍ ଦାଖଲ କରିହେବ ନାହିଁ: %s</string>
+            <string name="revanced_sb_submit_failed_duplicate">"ସେଗମେଣ୍ଟ୍ ଦାଖଲ କରିହେବ ନାହିଁ।
+ପୂର୍ବରୁ ବିଦ୍ୟମାନ"</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <!-- A segment start and end time, such as "02:10 to 03:40". -->
             <!-- Shown in the settings preferences, and translations can be any text length. -->
@@ -170,7 +403,11 @@ Second \"item\" text"</string>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch"/>
         <patch id="layout.shortsautoplay.shortsAutoplayPatch"/>
         <patch id="layout.miniplayer.miniplayerPatch"/>
-        <patch id="layout.theme.themePatch"/>
+        <patch id="layout.theme.themePatch">
+            <string name="revanced_splash_screen_animation_style_entry_1">ନିଷ୍କ୍ରିୟ</string>
+            <string name="revanced_splash_screen_animation_style_entry_2">ରଙ୍ଗ</string>
+            <string name="revanced_splash_screen_animation_style_entry_3">କଳା ଏବଂ ଧଳା</string>
+        </patch>
         <patch id="layout.branding.customBrandingPatch"/>
         <patch id="layout.branding.changeHeaderPatch">
             <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
@@ -187,7 +424,11 @@ Second \"item\" text"</string>
         <patch id="misc.loopvideo.button.loopVideoButtonPatch"/>
         <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"/>
         <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"/>
-        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch"/>
+        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_title">ଟ୍ୟାପ୍ ଏବଂ ହୋଲ୍ଡ ହାପ୍ଟିକ୍ସ ନିଷ୍କ୍ରିୟ କରନ୍ତୁ</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">ଟ୍ୟାପ୍ ଏବଂ ହୋଲ୍ଡ ହାପ୍ଟିକ୍ସ ନିଷ୍କ୍ରିୟ ହୋଇଛି</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">ଟ୍ୟାପ୍ ଏବଂ ହୋଲ୍ଡ ହାପ୍ଟିକ୍ସ ସକ୍ଷମ ହୋଇଛି</string>
+        </patch>
         <patch id="misc.gms.accountCredentialsInvalidTextPatch"/>
         <patch id="misc.links.bypassURLRedirectsPatch"/>
         <patch id="misc.links.openLinksExternallyPatch"/>
@@ -200,6 +441,11 @@ Second \"item\" text"</string>
         <patch id="video.speed.remember.rememberPlaybackSpeedPatch"/>
         <patch id="video.codecs.disableVideoCodecsPatch"/>
         <patch id="video.quality.advancedVideoQualityMenuPatch"/>
+        <patch id="video.quality.hidePremiumVideoQualityPatch">
+            <string name="revanced_hide_premium_video_quality_title">ପ୍ରିମିୟମ୍ ଗୁଣବତ୍ତା ବିକଳ୍ପ ଲୁଚାନ୍ତୁ</string>
+            <string name="revanced_hide_premium_video_quality_summary_on">ପ୍ରିମିୟମ୍ ଗୁଣବତ୍ତା ବିକଳ୍ପ ଲୁଚିଛି</string>
+            <string name="revanced_hide_premium_video_quality_summary_off">ପ୍ରିମିୟମ୍ ଗୁଣବତ୍ତା ବିକଳ୍ପ ଦେଖାଯାଉଛି</string>
+        </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch"/>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
@@ -207,7 +453,9 @@ Second \"item\" text"</string>
     </app>
     <app id="music">
         <patch id="layout.branding.customBrandingPatch"/>
-        <patch id="misc.settings.settingsPatch"/>
+        <patch id="misc.settings.settingsPatch">
+            <!-- In languages where "About" is ambiguous, translate to "About ReVanced" (i.e., About this app). -->
+        </patch>
         <patch id="ad.video.hideVideoAdsPatch"/>
         <patch id="interaction.permanentrepeat.permanentRepeatPatch"/>
         <patch id="layout.buttons.hideButtons"/>
