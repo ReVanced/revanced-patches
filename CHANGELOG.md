@@ -1,3 +1,10 @@
+# [6.0.0-dev.26](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.25...v6.0.0-dev.26) (2026-03-14)
+
+
+### Bug Fixes
+
+* Add minSdk to all extension projects ([#6778](https://github.com/ReVanced/revanced-patches/issues/6778)) ([7517f57](https://github.com/ReVanced/revanced-patches/commit/7517f57ac7a54e1c914e8dd8cc3e1aa908e28e54))
+
 # [6.0.0-dev.25](https://github.com/ReVanced/revanced-patches/compare/v6.0.0-dev.24...v6.0.0-dev.25) (2026-03-14)
 
 
