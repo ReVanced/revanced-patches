@@ -238,8 +238,8 @@ public final class AlternativeThumbnailsPatch {
         // See https://github.com/ajayyy/DeArrowThumbnailCache/blob/29eb4359ebdf823626c79d944a901492d760bbbc/app.py#L29.
         return dearrowAPIURI
                 .buildUpon()
-                .appendQueryParameter("videoId", videoId)
-                .appendQueryParameter("redirectURL", fallbackURL)
+                .appendQueryParameter("videoID", videoId)
+                .appendQueryParameter("redirectUrl", fallbackURL)
                 .build()
                 .toString();
     }
