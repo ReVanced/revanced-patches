@@ -11,7 +11,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 // app updates as MobileConfig keys are server-assigned constants.
 private const val LOCATION_STICKER_REDESIGN_CONFIG_KEY = 0x8105a100041e0dL
 
-internal val BytecodePatchContext.locationStickerRedesignGateMethod
+internal val BytecodePatchContext.locationStickerRedesignGateMethodMatch
     by composingFirstMethod {
         instructions(LOCATION_STICKER_REDESIGN_CONFIG_KEY())
     }
