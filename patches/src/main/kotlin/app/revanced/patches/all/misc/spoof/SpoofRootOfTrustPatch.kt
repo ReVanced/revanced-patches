@@ -13,23 +13,49 @@ val spoofRootOfTrustPatch = bytecodePatch(
     apply {
         forEachInstructionAsSequence(
             match = { _, method, _, _ ->
-                // Filter by class reference first to avoid unnecessary processing.
-                if (!(method.definingClass.contains("RootOfTrust") || method.definingClass.contains("Attestation"))) return@forEachInstructionAsSequence null
-
-                when (method.name) {
-                    "isDeviceLocked" -> if (method.returnType == "Z") method else null
-                    "getVerifiedBootState" -> if (method.returnType == "I") method else null
-                    else -> null
+                MethodCall.entries.firstOrNull {
+                    method.definingClass.endsWith(it.className) &&
+                            method.name == it.methodName &&
+                            method.returnType == it.returnType
                 }
             },
-            transform = { mutableMethod, _ ->
+            transform = { mutableMethod, methodCall ->
                 if (mutableMethod.implementation?.instructions?.iterator()?.hasNext() == true) {
-                    when (mutableMethod.name) {
-                        "isDeviceLocked" -> mutableMethod.replaceInstructions(0, "const/4 v0, 0x1\nreturn v0")
-                        "getVerifiedBootState" -> mutableMethod.replaceInstructions(0, "const/4 v0, 0x0\nreturn v0")
-                    }
+                    mutableMethod.replaceInstructions(0, methodCall.replacementInstructions)
                 }
             }
         )
     }
+}
+
+private enum class MethodCall(
+    val className: String,
+    val methodName: String,
+    val returnType: String,
+    val replacementInstructions: String,
+) {
+    IsDeviceLockedRootOfTrust(
+        "RootOfTrust;",
+        "isDeviceLocked",
+        "Z",
+        "const/4 v0, 0x1\nreturn v0",
+    ),
+    GetVerifiedBootStateRootOfTrust(
+        "RootOfTrust;",
+        "getVerifiedBootState",
+        "I",
+        "const/4 v0, 0x0\nreturn v0",
+    ),
+    IsDeviceLockedAttestation(
+        "Attestation;",
+        "isDeviceLocked",
+        "Z",
+        "const/4 v0, 0x1\nreturn v0",
+    ),
+    GetVerifiedBootStateAttestation(
+        "Attestation;",
+        "getVerifiedBootState",
+        "I",
+        "const/4 v0, 0x0\nreturn v0",
+    ),
 }
