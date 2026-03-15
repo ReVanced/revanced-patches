@@ -184,7 +184,7 @@ internal fun baseCustomBrandingPatch(
                     "android:label",
                     if (useCustomName) {
                         // Use custom name everywhere.
-                        customName!!
+                        customName
                     } else {
                         // The YT application name can appear in some places alongside the system
                         // YouTube app, such as the settings app list and in the "open with" file picker.
