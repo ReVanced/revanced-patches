@@ -252,7 +252,7 @@ fun gmsCoreSupportResourcePatch(
                         .joinToString(";") { authority ->
                             APP_AUTHORITIES += authority
 
-                            authority.replace(fromPackageName, toPackageName)
+                            authority.prefixOrReplace(fromPackageName, toPackageName)
                         }
                 }
             }
