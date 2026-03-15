@@ -1,3 +1,10 @@
+## [6.0.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v6.0.1-dev.2...v6.0.1-dev.3) (2026-03-15)
+
+
+### Bug Fixes
+
+* **GmsCore support:** use `prefixOrReplace` for non-matching APP_AUTHORITIES in content URL transformation ([#6801](https://github.com/ReVanced/revanced-patches/issues/6801)) ([8f6f128](https://github.com/ReVanced/revanced-patches/commit/8f6f128d718c20c56668ed3801b434a5cbb04dfd))
+
 ## [6.0.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v6.0.1-dev.1...v6.0.1-dev.2) (2026-03-15)
 
 
