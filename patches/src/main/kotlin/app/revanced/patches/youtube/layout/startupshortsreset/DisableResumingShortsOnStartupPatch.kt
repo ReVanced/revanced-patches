@@ -42,7 +42,9 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             "20.26.46",
             "20.31.42",
             "20.37.48",
-            "20.40.45"
+            "20.40.45",
+            "21.10.494",
+            "21.10.494"
             // This patch is obsolete with 21.03 because YT seems to have
             // removed resuming Shorts functionality.
             // TODO: Before adding 21.03+, merge this patch into `Hide Shorts component`

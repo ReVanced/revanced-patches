@@ -54,7 +54,8 @@ val shortsAutoplayPatch = bytecodePatch(
             "20.26.46",
             "20.31.42",
             "20.37.48",
-            "20.40.45"
+            "20.40.45",
+            "21.10.494"
         ),
     )
 
@@ -97,12 +98,10 @@ val shortsAutoplayPatch = bytecodePatch(
             reelPlaybackRepeatParentMethod.immutableClassDef.getReelPlaybackRepeatMethod()
 
         reelPlaybackRepeatMethod.apply {
-            // The behavior enums are looked up from an ordinal value to an enum type.
+            // The behavior enums are looked up and converted to an enum type.
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()
-                reference?.definingClass == reelEnumClass &&
-                        reference.parameterTypes.firstOrNull() == "I" &&
-                        reference.returnType == reelEnumClass
+                reference?.returnType == reelEnumClass
             }.forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
