@@ -344,7 +344,7 @@ internal fun baseCustomBrandingPatch(
                 )
             }
 
-            val enabledNameIndex = if (useCustomName) numberOfPresetAppNames else 1 // 1 indexing.
+            val enabledNameIndex = if (useCustomName) numberOfPresetAppNames else 2 // 1 indexing.
             val enabledIconIndex = if (useCustomIcon) iconStyleNames.size - 1 else 0 // 0 indexing.
 
             for (appNameIndex in 1..numberOfPresetAppNames) {
