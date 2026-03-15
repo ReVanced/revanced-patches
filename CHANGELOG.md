@@ -1,3 +1,10 @@
+## [6.0.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v6.0.0...v6.0.1-dev.1) (2026-03-15)
+
+
+### Bug Fixes
+
+* **YouTube:** Use correct query parameters for DeArrow requests ([#6780](https://github.com/ReVanced/revanced-patches/issues/6780)) ([02a48e7](https://github.com/ReVanced/revanced-patches/commit/02a48e7a5f2b1ffd64a80651b49666de27ab7014))
+
 # [6.0.0](https://github.com/ReVanced/revanced-patches/compare/v5.50.2...v6.0.0) (2026-03-14)
 
 
