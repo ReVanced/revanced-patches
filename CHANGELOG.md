@@ -1,3 +1,10 @@
+## [6.0.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v6.0.1-dev.1...v6.0.1-dev.2) (2026-03-15)
+
+
+### Bug Fixes
+
+* **YouTube Music - Hide buttons:** Crashes on startup due to null LayoutParams ([#6799](https://github.com/ReVanced/revanced-patches/issues/6799)) ([3e32c38](https://github.com/ReVanced/revanced-patches/commit/3e32c387328b061f33b361ed022ae18e447a7904))
+
 ## [6.0.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v6.0.0...v6.0.1-dev.1) (2026-03-15)
 
 
