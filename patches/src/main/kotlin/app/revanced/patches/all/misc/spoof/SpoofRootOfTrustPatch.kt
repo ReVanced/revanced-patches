@@ -32,7 +32,7 @@ private enum class MethodCall(
     val className: String,
     val methodName: String,
     val returnType: String,
-    val replacementInstructions: String,
+    val returnTrue: Boolean,
 ) {
     IsDeviceLockedRootOfTrust(
         "RootOfTrust;",
