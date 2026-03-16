@@ -3,6 +3,9 @@ package app.revanced.patches.all.misc.spoof
 import app.revanced.patcher.extensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.forEachInstructionAsSequence
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
+import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Suppress("unused")
 val spoofRootOfTrustPatch = bytecodePatch(
@@ -13,11 +16,7 @@ val spoofRootOfTrustPatch = bytecodePatch(
     apply {
         forEachInstructionAsSequence(
             match = { _, method, _, _ ->
-                MethodCall.entries.firstOrNull {
-                    method.definingClass.endsWith(it.className) &&
-                            method.name == it.methodName &&
-                            method.returnType == it.returnType
-                }
+                MethodCall.entries.firstOrNull { MethodUtil.methodSignaturesMatch(method, it.reference) }
             },
             transform = { mutableMethod, methodCall ->
                 if (mutableMethod.implementation?.instructions?.iterator()?.hasNext() == true) {
@@ -29,33 +28,43 @@ val spoofRootOfTrustPatch = bytecodePatch(
 }
 
 private enum class MethodCall(
-    val className: String,
-    val methodName: String,
-    val returnType: String,
-    val returnTrue: Boolean,
+    val reference: MethodReference,
+    val replacementInstructions: String,
 ) {
     IsDeviceLockedRootOfTrust(
-        "RootOfTrust;",
-        "isDeviceLocked",
-        "Z",
+        ImmutableMethodReference(
+            "LRootOfTrust;",
+            "isDeviceLocked",
+            emptyList(),
+            "Z"
+        ),
         "const/4 v0, 0x1\nreturn v0",
     ),
     GetVerifiedBootStateRootOfTrust(
-        "RootOfTrust;",
-        "getVerifiedBootState",
-        "I",
+        ImmutableMethodReference(
+            "LRootOfTrust;",
+            "getVerifiedBootState",
+            emptyList(),
+            "I"
+        ),
         "const/4 v0, 0x0\nreturn v0",
     ),
     IsDeviceLockedAttestation(
-        "Attestation;",
-        "isDeviceLocked",
-        "Z",
+        ImmutableMethodReference(
+            "LAttestation;",
+            "isDeviceLocked",
+            emptyList(),
+            "Z"
+        ),
         "const/4 v0, 0x1\nreturn v0",
     ),
     GetVerifiedBootStateAttestation(
-        "Attestation;",
-        "getVerifiedBootState",
-        "I",
+        ImmutableMethodReference(
+            "LAttestation;",
+            "getVerifiedBootState",
+            emptyList(),
+            "I"
+        ),
         "const/4 v0, 0x0\nreturn v0",
     ),
 }
