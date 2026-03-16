@@ -1,7 +1,8 @@
 package app.revanced.extension.shared.spoof.requests;
 
 import static app.revanced.extension.shared.ByteTrieSearch.convertStringsToBytes;
-import static app.revanced.extension.shared.spoof.requests.PlayerRoutes.GET_STREAMING_DATA;
+import static app.revanced.extension.shared.spoof.requests.PlayerRoutes.GET_PLAYER_STREAMING_DATA;
+import static app.revanced.extension.shared.spoof.requests.PlayerRoutes.GET_REEL_STREAMING_DATA;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +28,7 @@ import java.util.concurrent.TimeoutException;
 import app.revanced.extension.shared.ByteTrieSearch;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.requests.Route;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.spoof.ClientType;
 
@@ -146,7 +148,10 @@ public class StreamingDataRequest {
         final long startTime = System.currentTimeMillis();
 
         try {
-            HttpURLConnection connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(GET_STREAMING_DATA, clientType);
+            Route.CompiledRoute route = clientType.usePlayerEndpoint ?
+                    GET_PLAYER_STREAMING_DATA : GET_REEL_STREAMING_DATA;
+
+            HttpURLConnection connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(route, clientType);
             connection.setConnectTimeout(HTTP_TIMEOUT_MILLISECONDS);
             connection.setReadTimeout(HTTP_TIMEOUT_MILLISECONDS);
 

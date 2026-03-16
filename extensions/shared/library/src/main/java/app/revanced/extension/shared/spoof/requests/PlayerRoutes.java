@@ -15,10 +15,17 @@ import app.revanced.extension.shared.spoof.ClientType;
 import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
 
 final class PlayerRoutes {
-    static final Route.CompiledRoute GET_STREAMING_DATA = new Route(
+    static final Route.CompiledRoute GET_PLAYER_STREAMING_DATA = new Route(
             Route.Method.POST,
             "player" +
                     "?fields=streamingData" +
+                    "&alt=proto"
+    ).compile();
+
+    static final Route.CompiledRoute GET_REEL_STREAMING_DATA = new Route(
+            Route.Method.POST,
+            "reel/reel_item_watch" +
+                    "?fields=playerResponse.playabilityStatus,playerResponse.streamingData" +
                     "&alt=proto"
     ).compile();
 
@@ -47,6 +54,7 @@ final class PlayerRoutes {
             Locale streamLocale = language.getLocale();
 
             JSONObject client = new JSONObject();
+
             client.put("deviceMake", clientType.deviceMake);
             client.put("deviceModel", clientType.deviceModel);
             client.put("clientName", clientType.clientName);
@@ -61,9 +69,19 @@ final class PlayerRoutes {
             context.put("client", client);
 
             innerTubeBody.put("context", context);
-            innerTubeBody.put("contentCheckOk", true);
-            innerTubeBody.put("racyCheckOk", true);
-            innerTubeBody.put("videoId", videoId);
+
+            if (clientType.usePlayerEndpoint) {
+                innerTubeBody.put("contentCheckOk", true);
+                innerTubeBody.put("racyCheckOk", true);
+                innerTubeBody.put("videoId", videoId);
+            } else {
+                JSONObject playerRequest = new JSONObject();
+                playerRequest.put("contentCheckOk", true);
+                playerRequest.put("racyCheckOk", true);
+                playerRequest.put("videoId", videoId);
+                innerTubeBody.put("playerRequest", playerRequest);
+                innerTubeBody.put("disablePlayerResponse", false);
+            }
         } catch (JSONException e) {
             Logger.printException(() -> "Failed to create innerTubeBody", e);
         }

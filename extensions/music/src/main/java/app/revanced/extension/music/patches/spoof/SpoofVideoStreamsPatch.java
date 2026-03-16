@@ -1,7 +1,7 @@
 package app.revanced.extension.music.patches.spoof;
 
 import static app.revanced.extension.music.settings.Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE;
-import static app.revanced.extension.shared.spoof.ClientType.ANDROID_NO_SDK;
+import static app.revanced.extension.shared.spoof.ClientType.ANDROID_REEL;
 import static app.revanced.extension.shared.spoof.ClientType.ANDROID_VR_1_43_32;
 import static app.revanced.extension.shared.spoof.ClientType.ANDROID_VR_1_61_48;
 import static app.revanced.extension.shared.spoof.ClientType.VISIONOS;
@@ -19,7 +19,7 @@ public class SpoofVideoStreamsPatch {
     public static void setClientOrderToUse() {
         List<ClientType> availableClients = List.of(
                 ANDROID_VR_1_43_32,
-                ANDROID_NO_SDK,
+                ANDROID_REEL,
                 VISIONOS,
                 ANDROID_VR_1_61_48
         );
