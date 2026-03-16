@@ -1,3 +1,10 @@
+# [6.1.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v6.0.2-dev.1...v6.1.0-dev.1) (2026-03-16)
+
+
+### Features
+
+* Change contact email in patches about ([df1c3a4](https://github.com/ReVanced/revanced-patches/commit/df1c3a4a70fd2595d77b539299f1f7301bc60d24))
+
 ## [6.0.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v6.0.1...v6.0.2-dev.1) (2026-03-16)
 
 
