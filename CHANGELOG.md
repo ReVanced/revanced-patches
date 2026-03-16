@@ -1,3 +1,10 @@
+## [6.0.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v6.0.1...v6.0.2-dev.1) (2026-03-16)
+
+
+### Bug Fixes
+
+* **Export internal data documents provider:** Correct S_IFLNK constant and symlink detection mask ([#6819](https://github.com/ReVanced/revanced-patches/issues/6819)) ([252617b](https://github.com/ReVanced/revanced-patches/commit/252617b8dd3f24e1ff9a04ba1d91b43dc29bd757))
+
 ## [6.0.1](https://github.com/ReVanced/revanced-patches/compare/v6.0.0...v6.0.1) (2026-03-15)
 
 
