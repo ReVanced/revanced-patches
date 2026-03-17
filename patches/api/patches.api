@@ -421,6 +421,10 @@ public final class app/revanced/patches/messenger/layout/HideFacebookButtonPatch
 	public static final fun getHideFacebookButtonPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
+public final class app/revanced/patches/messenger/layout/RestoreOldEmojiDrawerPatchKt {
+	public static final fun getRestoreOldEmojiDrawerPatch ()Lapp/revanced/patcher/patch/Patch;
+}
+
 public final class app/revanced/patches/messenger/metaai/RemoveMetaAIPatchKt {
 	public static final fun getRemoveMetaAIPatch ()Lapp/revanced/patcher/patch/Patch;
 }
@@ -632,7 +636,7 @@ public final class app/revanced/patches/photomath/misc/unlock/plus/UnlockPlusPat
 }
 
 public final class app/revanced/patches/photoshopmix/BypassLoginPatchKt {
-	public static final fun getBypassLoginPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getBypassLoginPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
 public final class app/revanced/patches/piccomafr/misc/SpoofAndroidDeviceIdPatchKt {
