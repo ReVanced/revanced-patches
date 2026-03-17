@@ -900,10 +900,10 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_hide_player_flyout_audio_track_summary_on">Audio track menu is hidden</string>
             <string name="revanced_hide_player_flyout_audio_track_summary_off">Audio track menu is shown</string>
             <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
-                  'Android No SDK' must be kept untranslated. -->
+                  'Android Reel' must be kept untranslated. -->
             <string name="revanced_hide_player_flyout_audio_track_not_available">"Audio track menu is hidden
 
-To show the Audio track menu, change \'Spoof video streams\' to \'Android No SDK\'"</string>
+To show the Audio track menu, change \'Spoof video streams\' to \'Android >Reel\'"</string>
             <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
             <string name="revanced_hide_player_flyout_watch_in_vr_title">Hide Watch in VR</string>
             <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Watch in VR menu is hidden</string>
