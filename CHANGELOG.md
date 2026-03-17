@@ -1,3 +1,10 @@
+# [6.1.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v6.1.0-dev.1...v6.1.0-dev.2) (2026-03-17)
+
+
+### Features
+
+* **Announcements:** Support ReVanced API v5 announcements ([a05386e](https://github.com/ReVanced/revanced-patches/commit/a05386e8bc24c085b5c74f3674c402c5dd5ad468))
+
 # [6.1.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v6.0.2-dev.1...v6.1.0-dev.1) (2026-03-16)
 
 
