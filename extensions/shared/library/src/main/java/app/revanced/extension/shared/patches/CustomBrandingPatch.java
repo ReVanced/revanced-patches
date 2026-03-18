@@ -114,7 +114,7 @@ public class CustomBrandingPatch {
 
     /**
      * Injection point.
-     *
+     * <p>
      * The total number of app name aliases, including dummy aliases.
      */
     private static int numberOfPresetAppNames() {
@@ -146,13 +146,13 @@ public class CustomBrandingPatch {
     public static int getDefaultAppNameIndex() {
         return userProvidedCustomName()
                 ? numberOfPresetAppNames()
-                : 1;
+                : 2;
     }
 
     public static BrandingTheme getDefaultIconStyle() {
         return userProvidedCustomIcon()
                 ? BrandingTheme.CUSTOM
-                : BrandingTheme.ORIGINAL;
+                : BrandingTheme.ROUNDED;
     }
 
     /**
