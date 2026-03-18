@@ -1693,13 +1693,13 @@ Automotive レイアウト
             <string name="revanced_remember_video_quality_last_selected_toast_summary_on">デフォルトの画質が変更された場合にトースト通知が表示されます</string>
             <string name="revanced_remember_video_quality_last_selected_toast_summary_off">デフォルトの画質が変更された場合にトースト通知は表示されません</string>
             <string name="revanced_video_quality_default_wifi_title">デフォルトの画質 (Wi-Fi)</string>
-            <string name="revanced_video_quality_default_mobile_title">デフォルトの画質 (携帯回線)</string>
+            <string name="revanced_video_quality_default_mobile_title">デフォルトの画質 (モバイル)</string>
             <string name="revanced_remember_shorts_quality_last_selected_title">ショートの画質の変更を保存</string>
             <string name="revanced_remember_shorts_quality_last_selected_summary_on">画質の変更はすべてのショート動画に適用されます</string>
             <string name="revanced_remember_shorts_quality_last_selected_summary_off">画質の変更は現在のショート動画にのみ適用されます</string>
             <string name="revanced_shorts_quality_default_wifi_title">デフォルトのショートの画質 (Wi-Fi)</string>
-            <string name="revanced_shorts_quality_default_mobile_title">デフォルトのショートの画質 (携帯回線)</string>
-            <string name="revanced_remember_video_quality_mobile">携帯回線</string>
+            <string name="revanced_shorts_quality_default_mobile_title">デフォルトのショートの画質 (モバイル)</string>
+            <string name="revanced_remember_video_quality_mobile">モバイル</string>
             <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
             <string name="revanced_remember_video_quality_toast">デフォルトの画質の変更 (%1$s): %2$s</string>
             <string name="revanced_remember_video_quality_toast_shorts">ショートの画質の変更 (%1$s): %2$s</string>

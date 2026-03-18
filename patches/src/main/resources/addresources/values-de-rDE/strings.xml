@@ -35,14 +35,14 @@ Second \"item\" text"</string>
             <string name="revanced_check_environment_dialog_ignore_button">Ignorieren</string>
             <string name="revanced_check_environment_failed_message">&lt;h5&gt;Diese App wurde offenbar nicht von Ihnen gepatcht.&lt;/h5&gt;&lt;br&gt;Diese App funktioniert möglicherweise nicht richtig, &lt;b&gt;könnte schädlich oder sogar gefährlich in der Verwendung sein&lt;/b&gt;.&lt; br&gt;&lt;br&gt;Diese Prüfungen deuten darauf hin, dass diese App vorab gepatcht wurde oder von jemandem bezogen wurde:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Es wird dringend empfohlen, &lt;b&gt;diese App zu deinstallieren und selbst zu patchen&lt;/b&gt; um sicherzustellen, dass Sie eine validierte und sichere App verwenden.&lt;p&gt;&lt;br&gt;Wenn Sie diese Warnung ignorieren, wird sie nur zweimal angezeigt.</string>
             <string name="revanced_check_environment_not_same_patching_device">Auf einem anderen Gerät gepatcht</string>
-            <string name="revanced_check_environment_manager_not_expected_installer">Nicht durch ReVanced Manager installiert</string>
+            <string name="revanced_check_environment_manager_not_expected_installer">Nicht von ReVanced Manager installiert</string>
             <string name="revanced_check_environment_not_near_patch_time">Vor mehr als 10 Minuten gepatcht</string>
             <string name="revanced_check_environment_not_near_patch_time_days">Vor %s Tagen gepatcht</string>
             <string name="revanced_check_environment_not_near_patch_time_invalid">APK Erstellungsdatum ist beschädigt</string>
         </patch>
         <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
             <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced Hinweis</string>
-            <string name="revanced_check_watch_history_domain_name_dialog_message">Ihr Verlauf wird nicht gespeichert.&lt;br&gt;&lt;br&gt;Dies wird höchstwahrscheinlich durch einen DNS-Werbeblocker oder einen Netzwerkproxy verursacht.&lt;br&gt;&lt;br&gt;Um dies zu beheben, setze &lt;b&gt;s.youtube.com&lt;/b&gt; auf die Whitelist oder schalten Sie alle DNS-Blocker und Proxies aus.</string>
+            <string name="revanced_check_watch_history_domain_name_dialog_message">Ihr Verlauf wird nicht gespeichert.&lt;br&gt;&lt;br&gt;Dies wird höchstwahrscheinlich durch einen DNS-Werbeblocker oder einen Netzwerkproxy verursacht.&lt;br&gt;&lt;br&gt;Um dies zu beheben, setze &lt;b&gt;s.youtube.com&lt;/b&gt; auf die Whitelist oder schalten Sie alle DNS-Blocker und Proxys aus.</string>
             <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nicht wieder anzeigen</string>
         </patch>
         <patch id="misc.settings.settingsResourcePatch">
@@ -1598,7 +1598,9 @@ Tippen Sie hier, um mehr über DeArrow zu erfahren"</string>
             <string name="revanced_loop_video_button_toast_on">Loop-Video ist aktiviert</string>
             <string name="revanced_loop_video_button_toast_off">Loop-Video ist deaktiviert</string>
         </patch>
-        <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"/>
+        <patch id="misc.audiofocus.pauseOnAudioInterruptPatch">
+            <string name="revanced_pause_on_audio_interrupt_title">Pause bei Audiounterbrechung</string>
+        </patch>
         <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
             <string name="revanced_spoof_device_dimensions_title">Spoof-Gerätegröße</string>
             <string name="revanced_spoof_device_dimensions_summary_on">"Gerätemessungen gefälscht
@@ -1753,7 +1755,9 @@ Die Videowiedergabe mit AV1 kann stottern oder Bilder überspringen."</string>
         </patch>
     </app>
     <app id="music">
-        <patch id="layout.branding.customBrandingPatch"/>
+        <patch id="layout.branding.customBrandingPatch">
+            <string name="revanced_custom_branding_name_entry_4">Musik</string>
+        </patch>
         <patch id="misc.settings.settingsPatch">
             <!-- In languages where "About" is ambiguous, translate to "About ReVanced" (i.e., About this app). -->
             <string name="revanced_settings_music_screen_0_about_title">Über</string>

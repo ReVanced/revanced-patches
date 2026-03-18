@@ -188,7 +188,7 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
             <string name="revanced_debug_protocolbuffer_title">Catatan protokol buffer</string>
             <string name="revanced_debug_protocolbuffer_summary_on">Pencatatan debug termasuk buffer proto</string>
             <string name="revanced_debug_protocolbuffer_summary_off">Pencatatan debug tidak menyertakan buffer proto</string>
-            <string name="revanced_debug_protocolbuffer_user_dialog_message">"Mengaktifkan setelan ini akan mencatat data tata letak tambahan, termasuk teks pada layar untuk beberapa komponen UI.
+            <string name="revanced_debug_protocolbuffer_user_dialog_message">"Mengaktifkan pengaturan ini akan mencatat data tata letak tambahan, termasuk teks pada layar untuk beberapa komponen UI.
 
 Ini dapat membantu mengidentifikasi komponen saat membuat penyaring khusus.
 

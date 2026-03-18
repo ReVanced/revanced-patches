@@ -25,7 +25,7 @@ Second \"item\" text"</string>
             <string name="revanced_custom_branding_name_entry_5">Aangepast</string>
             <string name="revanced_custom_branding_icon_title">App-pictogram</string>
             <string name="revanced_custom_branding_icon_entry_1">Origineel</string>
-            <string name="revanced_custom_branding_icon_entry_2">shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_2</string>
+            <string name="revanced_custom_branding_icon_entry_2">ReVanced</string>
             <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
             <string name="revanced_custom_branding_icon_entry_3">ReVanced minimaal</string>
             <string name="revanced_custom_branding_icon_entry_4">ReVanced geschaald</string>
@@ -33,7 +33,7 @@ Second \"item\" text"</string>
             <string name="revanced_custom_branding_icon_entry_5">Aangepast</string>
         </patch>
         <patch id="misc.checks.checkEnvironmentPatch">
-            <string name="revanced_check_environment_failed_title">Controle mislukt</string>
+            <string name="revanced_check_environment_failed_title">Controles mislukt</string>
             <string name="revanced_check_environment_dialog_open_official_source_button">Open officiële website</string>
             <string name="revanced_check_environment_dialog_ignore_button">Negeren</string>
             <string name="revanced_check_environment_failed_message">&lt;h5&gt;Deze app lijkt niet door u te zijn gepatcht.&lt;/h5&gt;&lt;br&gt;Deze app werkt mogelijk niet goed, is **mogelijk schadelijk of zelfs gevaarlijk om te gebruiken**.&lt;br&gt;&lt;br&gt;Deze checks geven aan dat deze app is gepatcht of van iemand anders is verkregen:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Het is sterk aan te raden om **deze app te verwijderen en zelf te patchen** om er zeker van te zijn dat u een gevalideerde en veilige app gebruikt.&lt;p&gt;&lt;br&gt;Indien genegeerd, zal deze waarschuwing nog slechts twee keer worden getoond.</string>
@@ -1592,6 +1592,7 @@ Het inschakelen hiervan kan ontbrekende afbeeldingen oplossen die in sommige reg
             <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Oorspronkelijke miniaturen</string>
             <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Stilstaande opnames</string>
             <string name="revanced_alt_thumbnail_options_entry_4">Stilstaande opnames</string>
+            <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
             <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow biedt door de menigte gecrowdsourcede miniaturen voor YouTube-video's. Deze miniaturen zijn vaak relevanter dan die van YouTube.
 
 Als dit is ingeschakeld, worden video-URL's naar de API-server verzonden en worden geen andere gegevens verzonden. Als een video geen DeArrow-miniaturen heeft, worden de originele of stilstaande opnames weergegeven.
@@ -1635,7 +1636,11 @@ Tik hier om meer te weten te komen over DeArrow"</string>
             <string name="revanced_loop_video_button_toast_on">Loopvideo is ingeschakeld</string>
             <string name="revanced_loop_video_button_toast_off">Loopvideo is uitgeschakeld</string>
         </patch>
-        <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"/>
+        <patch id="misc.audiofocus.pauseOnAudioInterruptPatch">
+            <string name="revanced_pause_on_audio_interrupt_title">Pauzeren bij audio-onderbreking</string>
+            <string name="revanced_pause_on_audio_interrupt_summary_on">Afspelen wordt gepauzeerd wanneer andere audio wordt afgespeeld (bijv. navigatie)</string>
+            <string name="revanced_pause_on_audio_interrupt_summary_off">Volume wordt zachter wanneer andere audio wordt afgespeeld</string>
+        </patch>
         <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
             <string name="revanced_spoof_device_dimensions_title">Spoof apparaatdimensies</string>
             <string name="revanced_spoof_device_dimensions_summary_on">"Apparaatdimensies gespoofed
@@ -1695,6 +1700,7 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
             <string name="revanced_shorts_quality_default_wifi_title">Standaardkwaliteit voor Shorts op wifi-netwerk</string>
             <string name="revanced_shorts_quality_default_mobile_title">Standaardkwaliteit voor Shorts op mobiel netwerk</string>
             <string name="revanced_remember_video_quality_mobile">mobiel</string>
+            <string name="revanced_remember_video_quality_wifi">wifi</string>
             <string name="revanced_remember_video_quality_toast">Standaard %1$s-kwaliteit gewijzigd naar: %2$s</string>
             <string name="revanced_remember_video_quality_toast_shorts">De kwaliteit van Shorts %1$s is gewijzigd in: %2$s</string>
         </patch>
@@ -1789,7 +1795,11 @@ Het afspelen van video met AV1 kan haperen of frames overslaan."</string>
         </patch>
     </app>
     <app id="music">
-        <patch id="layout.branding.customBrandingPatch"/>
+        <patch id="layout.branding.customBrandingPatch">
+            <string name="revanced_custom_branding_name_entry_2">YT Music ReVanced</string>
+            <string name="revanced_custom_branding_name_entry_3">Music ReVanced</string>
+            <string name="revanced_custom_branding_name_entry_4">Music</string>
+        </patch>
         <patch id="misc.settings.settingsPatch">
             <!-- In languages where "About" is ambiguous, translate to "About ReVanced" (i.e., About this app). -->
             <string name="revanced_settings_music_screen_0_about_title">Over</string>
@@ -1916,6 +1926,7 @@ Het afspelen van video met AV1 kan haperen of frames overslaan."</string>
             <string name="revanced_about_summary">Over ReVanced</string>
             <string name="revanced_ads_screen_title">Advertentieblokkering</string>
             <string name="revanced_ads_screen_summary">Instellingen advertentieblokkering</string>
+            <string name="revanced_chat_screen_title">Chat</string>
             <string name="revanced_chat_screen_summary">Chat-instellingen</string>
             <string name="revanced_misc_screen_title">Overige</string>
             <string name="revanced_misc_screen_summary">Diverse instellingen</string>

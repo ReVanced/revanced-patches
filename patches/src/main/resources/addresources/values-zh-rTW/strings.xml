@@ -91,7 +91,7 @@ Second \"item\" text"</string>
             <string name="revanced_language_title">ReVanced 語言</string>
             <string name="revanced_language_user_dialog_message">"部分語言的翻譯可能缺少或不完整。
 
-如要翻譯新的語言或改善現有翻譯，請前往 translate.revanced.app"</string>
+若要翻譯新的語言或改善現有翻譯，請前往 translate.revanced.app"</string>
             <string name="revanced_language_DEFAULT">應用程式語言</string>
             <string name="revanced_pref_import_export_title">匯入/匯出</string>
             <string name="revanced_pref_import_export_summary">匯入/匯出 ReVanced 設定</string>
@@ -312,8 +312,8 @@ Second \"item\" text"</string>
             <string name="revanced_hide_ticket_shelf_summary_off">票券架已顯示</string>
             <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
             <string name="revanced_hide_video_recommendation_labels_title">隱藏影片推薦標籤</string>
-            <string name="revanced_hide_video_recommendation_labels_summary_on">搜尋結果中的「其他人也觀看」與「您可能也喜歡」標籤已隱藏</string>
-            <string name="revanced_hide_video_recommendation_labels_summary_off">搜尋結果中的「其他人也觀看」與「您可能也喜歡」標籤已顯示</string>
+            <string name="revanced_hide_video_recommendation_labels_summary_on">已隱藏搜尋結果中的「其他人也觀看」與「你可能也喜歡」標籤</string>
+            <string name="revanced_hide_video_recommendation_labels_summary_off">已顯示搜尋結果中的「其他人也觀看」與「你可能也喜歡」標籤</string>
             <string name="revanced_hide_visual_spacer_title">隱藏視覺間隔</string>
             <string name="revanced_hide_visual_spacer_summary_on">視覺間隔已隱藏</string>
             <string name="revanced_hide_visual_spacer_summary_off">視覺間隔已顯示</string>
@@ -907,9 +907,9 @@ Second \"item\" text"</string>
             <string name="revanced_hide_player_flyout_video_quality_title">隱藏影片畫質選單</string>
             <string name="revanced_hide_player_flyout_video_quality_summary_on">影片畫質選單已隱藏</string>
             <string name="revanced_hide_player_flyout_video_quality_summary_off">影片畫質選單已顯示</string>
-            <string name="revanced_hide_player_flyout_video_quality_footer_title">隱藏影片畫質選單頁尾</string>
-            <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">已隱藏影片畫質選單頁尾</string>
-            <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">已顯示影片畫質選單頁尾</string>
+            <string name="revanced_hide_player_flyout_video_quality_footer_title">隱藏「影片畫質」選單頁尾</string>
+            <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">已隱藏「影片畫質」選單頁尾</string>
+            <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">已顯示「影片畫質」選單頁尾</string>
         </patch>
         <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
             <string name="revanced_hide_autoplay_button_title">隱藏「自動播放」按鈕</string>
@@ -1670,8 +1670,8 @@ Second \"item\" text"</string>
             <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">拖曳還原觸覺回饋已停用</string>
             <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">拖曳還原觸覺回饋已啟用</string>
             <string name="revanced_disable_haptic_feedback_tap_and_hold_title">停用輕觸並按住觸覺回饋</string>
-            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">輕觸並按住觸覺回饋已停用</string>
-            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">輕觸並按住觸覺回饋已啟用</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">已停用輕觸並按住觸覺回饋</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">已啟用輕觸並按住觸覺回饋</string>
             <string name="revanced_disable_haptic_feedback_zoom_title">停用縮放震動</string>
             <string name="revanced_disable_haptic_feedback_zoom_summary_on">縮放觸覺回饋已停用</string>
             <string name="revanced_disable_haptic_feedback_zoom_summary_off">縮放觸覺回饋已啟用</string>
@@ -1712,12 +1712,12 @@ Second \"item\" text"</string>
         </patch>
         <patch id="video.speed.button.playbackSpeedButtonPatch">
             <string name="revanced_playback_speed_dialog_button_title">顯示速度對話方塊按鈕</string>
-            <string name="revanced_playback_speed_dialog_button_summary_on">速度對話框按鈕已顯示。長按可將播放速度重設為預設值</string>
+            <string name="revanced_playback_speed_dialog_button_summary_on">已顯示速度對話框按鈕。長按可將播放速度重設為預設值</string>
             <string name="revanced_playback_speed_dialog_button_summary_off">速度對話框按鈕未顯示</string>
         </patch>
         <patch id="video.quality.button.videoQualityDialogButtonPatch">
             <string name="revanced_video_quality_dialog_button_title">顯示畫質切換按鈕</string>
-            <string name="revanced_video_quality_dialog_button_summary_on">影片畫質按鈕已顯示。長按可重設為預設畫質</string>
+            <string name="revanced_video_quality_dialog_button_summary_on">已顯示影片畫質按鈕。長按可重設為預設畫質</string>
             <string name="revanced_video_quality_dialog_button_summary_off">影片畫質按鈕未顯示</string>
         </patch>
         <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1791,7 +1791,7 @@ AV1 視訊播放可能會卡頓或丟格。"</string>
             <string name="revanced_spoof_video_streams_about_playback_failure">• 影片可能會在 1:00 停止，或在某些地區無法播放</string>
             <string name="revanced_spoof_video_streams_about_no_audio_tracks">• 音軌選單遺失</string>
             <string name="revanced_spoof_video_streams_about_no_av1">• 沒有 AV1 影片解碼器</string>
-            <string name="revanced_spoof_video_streams_about_no_stable_volume">• 穩定音量無法使用</string>
+            <string name="revanced_spoof_video_streams_about_no_stable_volume">• 無法使用平衡音量</string>
             <string name="revanced_spoof_video_streams_about_kids_videos">• 在登出或無痕模式下，兒童影片可能無法播放</string>
             <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
             <string name="revanced_spoof_video_streams_about_no_force_original_audio">• 強制原始音訊不可用</string>

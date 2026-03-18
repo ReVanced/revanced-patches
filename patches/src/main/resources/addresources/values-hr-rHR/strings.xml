@@ -29,7 +29,7 @@ Second \"item\" text"</string>
         </patch>
         <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"/>
         <patch id="misc.settings.settingsResourcePatch">
-            <string name="revanced_settings_save">Sačuvaj</string>
+            <string name="revanced_settings_save">Spremi</string>
             <string name="revanced_settings_disable_bold_icons_title">Onemogući podebljane ikone</string>
             <string name="revanced_settings_disable_bold_icons_summary_on">Ikone nisu podebljane</string>
             <string name="revanced_settings_disable_bold_icons_summary_off">Ikone su podebljane</string>
@@ -41,7 +41,7 @@ Second \"item\" text"</string>
             <string name="revanced_gms_core_screen_title">GmsCore</string>
             <string name="revanced_gms_core_screen_summary">Postavke povezane s GmsCoreom</string>
             <string name="revanced_gms_core_check_updates_title">Provjeri ažuriranja za GmsCore</string>
-            <string name="revanced_gms_core_check_updates_summary_on">Provjera ažuriranja omogućena je</string>
+            <string name="revanced_gms_core_check_updates_summary_on">Provjera ažuriranja je omogućena</string>
             <string name="revanced_gms_core_check_updates_summary_off">Provjera ažuriranja je onemogućena</string>
             <string name="revanced_gms_core_settings_title">Otvori postavke za GmsCore</string>
             <string name="revanced_gms_core_settings_summary">Postavke za GmsCore</string>
@@ -49,7 +49,7 @@ Second \"item\" text"</string>
             <string name="revanced_gms_core_toast_not_installed_message">MicroG GmsCore nije instaliran. Instalirajte ga.</string>
             <string name="revanced_gms_core_dialog_title">Potrebna je radnja</string>
             <string name="revanced_gms_core_toast_update_check_failed_message">Nije uspjela provjera ažuriranja za MicroG GmsCore</string>
-            <string name="revanced_gms_core_update_available_message">Dostupna je nova verzija (%1$s) MicroG GmsCore. Trenutno koristite verziju %2$s.</string>
+            <string name="revanced_gms_core_update_available_message">Dostupna je nova verzija (%1$s) MicroG GmsCorea. Trenutno koristite verziju %2$s.</string>
             <string name="revanced_gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore nema dopuštenje za rad u pozadini.\n\nSlijedite vodič \"Ne ubijaj moju aplikaciju\" za svoj telefon i primijenite upute na svoju MicroG instalaciju.\n\nOvo je potrebno da bi aplikacija radila."</string>
             <string name="revanced_gms_core_dialog_open_website_text">Otvori web-stranicu</string>
             <string name="revanced_gms_core_dialog_cancel_text">Odustani</string>
@@ -438,8 +438,8 @@ Već postoji"</string>
         <patch id="video.quality.advancedVideoQualityMenuPatch"/>
         <patch id="video.quality.hidePremiumVideoQualityPatch">
             <string name="revanced_hide_premium_video_quality_title">Sakrij opcije premium kvalitete</string>
-            <string name="revanced_hide_premium_video_quality_summary_on">Opcije premium kvalitete su sakrivene</string>
-            <string name="revanced_hide_premium_video_quality_summary_off">Opcije premium kvalitete su prikazane</string>
+            <string name="revanced_hide_premium_video_quality_summary_on">Premium opcije kvalitete su skrivene</string>
+            <string name="revanced_hide_premium_video_quality_summary_off">Premium opcije kvalitete su prikazane</string>
         </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch"/>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">

@@ -14,7 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import app.revanced.extension.shared.ui.CustomDialog;
+
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -29,7 +31,18 @@ import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public final class AnnouncementsPatch {
+    private static final String[] ANNOUNCEMENT_TAGS = {
+            "\uD83C\uDF9E\uFE0F YouTube",
+    };
+
     private AnnouncementsPatch() {
+    }
+
+    private static boolean hasSupportedTag(String wrapperTag) {
+        if (wrapperTag == null) return false;
+        for (var tag : ANNOUNCEMENT_TAGS) if (tag.equals(wrapperTag)) return true;
+
+        return false;
     }
 
     private static boolean isLatestAlready() throws IOException {
@@ -56,19 +69,30 @@ public final class AnnouncementsPatch {
 
         var jsonString = Requester.parseStringAndDisconnect(connection);
 
-        // Parse the ID. Fall-back to raw string if it fails.
-        int id = Settings.ANNOUNCEMENT_LAST_ID.defaultValue;
+        var id = -1;
         try {
-            final var announcementIDs = new JSONArray(jsonString);
-            if (announcementIDs.length() == 0) return true;
-            
-            id = announcementIDs.getJSONObject(0).getInt("id");
+            final var announcementIDTagPairs = new JSONArray(jsonString);
+            if (announcementIDTagPairs.length() == 0) return true;
+
+            JSONObject latest = null;
+            for (int i = 0, entryCount = announcementIDTagPairs.length(); i < entryCount; i++) {
+                var pair = announcementIDTagPairs.optJSONObject(i);
+                if (pair != null && hasSupportedTag(pair.optString("tag", null))) {
+                    latest = pair;
+                    break;
+                }
+            }
+
+            if (latest == null || latest.isNull("id")) return true;
+
+            id = latest.getInt("id");
         } catch (Throwable ex) {
             Logger.printException(() -> "Failed to parse announcement ID", ex);
+            return true;
         }
 
         // Do not show the announcement, if the last announcement id is the same as the current one.
-        return Settings.ANNOUNCEMENT_LAST_ID.get() == id;
+        return Settings.ANNOUNCEMENT_LAST_ID.get().equals(id);
     }
 
     public static void showAnnouncement(final Activity context) {
@@ -95,7 +119,22 @@ public final class AnnouncementsPatch {
                 LocalDateTime archivedAt = LocalDateTime.MAX;
                 Level level = Level.INFO;
                 try {
-                    final var announcement = new JSONArray(jsonString).getJSONObject(0);
+                    final var announcements = new JSONArray(jsonString);
+                    JSONObject latestAnnouncement = null;
+                    for (int i = 0, entryCount = announcements.length(); i < entryCount; i++) {
+                        var announcementTagPair = announcements.optJSONObject(i);
+                        if (announcementTagPair != null && hasSupportedTag(announcementTagPair.optString("tag", null))) {
+                            latestAnnouncement = announcementTagPair;
+                            break;
+                        }
+                    }
+
+                    if (latestAnnouncement == null || latestAnnouncement.isNull("announcement")) {
+                        Logger.printDebug(() -> "No YouTube announcement found in latest announcements response");
+                        return;
+                    }
+
+                    final var announcement = latestAnnouncement.getJSONObject("announcement");
 
                     id = announcement.getInt("id");
                     title = announcement.getString("title");

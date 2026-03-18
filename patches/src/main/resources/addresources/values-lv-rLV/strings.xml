@@ -57,7 +57,7 @@ Second \"item\" text"</string>
             <string name="revanced_settings_restart_title">Nepieciešama restartēšana</string>
             <string name="revanced_settings_restart_dialog_message">Lai šīs izmaiņas stātos spēkā, restartējiet lietotni.</string>
             <string name="revanced_settings_restart">Restartēt</string>
-            <string name="revanced_settings_import">Importēt</string>
+            <string name="revanced_settings_import">Ievietot</string>
             <string name="revanced_settings_import_copy">Kopēt</string>
             <string name="revanced_settings_import_reset">ReVanced iestatījumi atiestatīti uz noklusējuma vērtībām</string>
             <string name="revanced_settings_import_success">Importēti %d iestatījumi</string>
@@ -641,8 +641,8 @@ Ierobežojumi:
             <string name="revanced_external_downloader_name_summary">Jūsu instalētās ārējās lejupielādētāja lietotnes pakotnes nosaukums</string>
             <string name="revanced_external_downloader_other_item_hint">Ievadiet pakotnes nosaukumu</string>
             <string name="revanced_external_downloader_other_item">Cits</string>
-            <string name="revanced_external_downloader_not_found_title">Lietotne nav instalēta</string>
-            <string name="revanced_external_downloader_not_installed_warning">%s nav instalēts. Lūdzu, instalējiet to.</string>
+            <string name="revanced_external_downloader_not_found_title">Lietotne nav uzstādīta</string>
+            <string name="revanced_external_downloader_not_installed_warning">%s nav uzstādīta. Lūdzu, uzstādiet to.</string>
             <string name="revanced_external_downloader_package_not_found_warning">"Nevarēja atrast instalēto lietotni ar pakotnes nosaukumu: %s
 
 Pārbaudiet, vai pakotnes nosaukums ir pareizs un lietotne ir instalēta"</string>

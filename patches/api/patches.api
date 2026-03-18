@@ -89,8 +89,12 @@ public final class app/revanced/patches/all/misc/packagename/ChangePackageNamePa
 	public static final fun setOrGetFallbackPackageName (Ljava/lang/String;)Ljava/lang/String;
 }
 
-public final class app/revanced/patches/all/misc/playintegrity/DisablePlayIntegrityKt {
+public final class app/revanced/patches/all/misc/play/DisablePlayIntegrityKt {
 	public static final fun getDisablePlayIntegrityPatch ()Lapp/revanced/patcher/patch/Patch;
+}
+
+public final class app/revanced/patches/all/misc/play/SpoofPlayAgeSignalsKt {
+	public static final fun getSpoofPlayAgeSignalsPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
 public final class app/revanced/patches/all/misc/resources/AddResourcesPatchKt {
@@ -123,6 +127,14 @@ public final class app/revanced/patches/all/misc/shortcut/sharetargets/RemoveSha
 
 public final class app/revanced/patches/all/misc/spoof/EnableRomSignatureSpoofingKt {
 	public static final fun getEnableROMSignatureSpoofingPatch ()Lapp/revanced/patcher/patch/Patch;
+}
+
+public final class app/revanced/patches/all/misc/spoof/SpoofKeystoreSecurityLevelPatchKt {
+	public static final fun getSpoofKeystoreSecurityLevelPatch ()Lapp/revanced/patcher/patch/Patch;
+}
+
+public final class app/revanced/patches/all/misc/spoof/SpoofRootOfTrustPatchKt {
+	public static final fun getSpoofRootOfTrustPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
 public final class app/revanced/patches/all/misc/targetSdk/SetTargetSdkVersion34Kt {
@@ -363,6 +375,10 @@ public final class app/revanced/patches/instagram/reels/autoscroll/DisableReelsA
 
 public final class app/revanced/patches/instagram/story/flipping/DisableStoryAutoFlippingPatchKt {
 	public static final fun getDisableStoryAutoFlippingPatch ()Lapp/revanced/patcher/patch/Patch;
+}
+
+public final class app/revanced/patches/instagram/story/locationsticker/EnableLocationStickerRedesignPatchKt {
+	public static final fun getEnableLocationStickerRedesignPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
 public final class app/revanced/patches/irplus/ad/RemoveAdsPatchKt {
