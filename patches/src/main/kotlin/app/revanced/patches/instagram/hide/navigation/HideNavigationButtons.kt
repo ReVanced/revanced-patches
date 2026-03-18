@@ -1,5 +1,6 @@
 package app.revanced.patches.instagram.hide.navigation
 
+import app.revanced.patcher.extensions.fieldReference
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.firstMethodDeclaratively
 import app.revanced.patcher.immutableClassDef
@@ -9,12 +10,10 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
@@ -82,7 +81,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
                 opcode == Opcode.IPUT_OBJECT &&
                     (this as TwoRegisterInstruction).registerA == 2 // p2 register.
             }.let {
-                method.getInstruction(it).getReference<FieldReference>()!!.name
+                method.getInstruction(it).fieldReference!!.name
             }
         }
 

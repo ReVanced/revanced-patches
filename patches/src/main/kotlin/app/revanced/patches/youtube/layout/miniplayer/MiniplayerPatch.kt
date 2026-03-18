@@ -7,7 +7,9 @@ import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Compan
 import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.fieldReference
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
@@ -29,8 +31,6 @@ import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
@@ -269,7 +269,7 @@ val miniplayerPatch = bytecodePatch(
             it.apply {
                 if (AccessFlags.CONSTRUCTOR.isSet(accessFlags)) {
                     val iPutIndex = indexOfFirstInstructionOrThrow {
-                        this.opcode == Opcode.IPUT && this.getReference<FieldReference>()?.type == "I"
+                        this.opcode == Opcode.IPUT && this.fieldReference?.type == "I"
                     }
 
                     insertModernMiniplayerTypeOverride(iPutIndex)
@@ -394,7 +394,7 @@ val miniplayerPatch = bytecodePatch(
         if (is_20_31_or_greater) {
             miniplayerSetIconsMethod.apply {
                 findInstructionIndicesReversedOrThrow {
-                    val reference = getReference<MethodReference>()
+                    val reference = methodReference
                     opcode == Opcode.INVOKE_INTERFACE &&
                             reference?.returnType == "Z" && reference.parameterTypes.isEmpty()
                 }.forEach { index ->

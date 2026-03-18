@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.interaction.seekbar
 import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -12,8 +13,6 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.findFreeRegister
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/TapToSeekPatch;"
 
@@ -35,8 +34,7 @@ val enableTapToSeekPatch = bytecodePatch(
 
         // Find the required methods to tap the seekbar.
         val tapToSeekMethods = onTouchEventHandlerMethodMatch.let {
-            fun getReference(index: Int) = it.method.getInstruction<ReferenceInstruction>(index)
-                .reference as MethodReference
+            fun getReference(index: Int) = it.method.getInstruction(index).methodReference!!
 
             listOf(
                 getReference(it[0]),

@@ -2,16 +2,15 @@ package app.revanced.patches.spotify.layout.theme
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/layout/theme/CustomThemePatch;"
@@ -39,7 +38,7 @@ private val customThemeBytecodePatch = bytecodePatch {
         // including the solid color of it.
         parseLottieJsonMethod.apply {
             val invokeParseColorIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
+                val reference = methodReference
                 reference?.definingClass == "Landroid/graphics/Color;" &&
                         reference.name == "parseColor"
             }
@@ -60,7 +59,7 @@ private val customThemeBytecodePatch = bytecodePatch {
         // Lottie animated color parser.
         parseAnimatedColorMethod.apply {
             val invokeArgbIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
+                val reference = methodReference
                 reference?.definingClass == "Landroid/graphics/Color;" &&
                         reference.name == "argb"
             }

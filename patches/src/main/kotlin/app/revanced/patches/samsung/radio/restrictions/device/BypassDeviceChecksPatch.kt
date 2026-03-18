@@ -2,12 +2,11 @@ package app.revanced.patches.samsung.radio.restrictions.device
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstructions
+import app.revanced.patcher.extensions.stringReference
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.findFreeRegister
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/samsung/radio/restrictions/device/BypassDeviceChecksPatch;"
@@ -25,7 +24,7 @@ val bypassDeviceChecksPatch = bytecodePatch(
         // Find the first string that start with "SM-", that's the list of incompatible devices.
         val firstStringIndex = checkDeviceMethod.indexOfFirstInstructionOrThrow {
             opcode == Opcode.CONST_STRING &&
-                getReference<StringReference>()?.string?.startsWith("SM-") == true
+                stringReference?.string?.startsWith("SM-") == true
         }
 
         // Find the following filled-new-array (or filled-new-array/range) instruction.

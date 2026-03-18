@@ -3,12 +3,11 @@ package app.revanced.patches.reddit.customclients.redditisfun.api
 import app.revanced.patcher.CompositeMatch
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.stringReference
 import app.revanced.patches.reddit.customclients.spoofClientPatch
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Suppress("unused")
 val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { clientIdOption ->
@@ -64,7 +63,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
         // Replace old.reddit.com with www.reddit.com to fix this.
         buildAuthorizationStringMethodMatch.method.apply {
             val index = indexOfFirstInstructionOrThrow {
-                getReference<StringReference>()?.contains("old.reddit.com") == true
+                stringReference?.contains("old.reddit.com") == true
             }
 
             val targetRegister = getInstruction<OneRegisterInstruction>(index).registerA

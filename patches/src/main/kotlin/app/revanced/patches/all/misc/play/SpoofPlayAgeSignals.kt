@@ -2,14 +2,12 @@ package app.revanced.patches.all.misc.play
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.removeInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
-import app.revanced.patcher.patch.option
 import app.revanced.util.forEachInstructionAsSequence
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 
@@ -46,7 +44,7 @@ val spoofPlayAgeSignalsPatch = bytecodePatch(
             if (classDef.type.startsWith("Lcom/google/android/play/agesignals/")) return@forEachInstructionAsSequence null
 
             // Keep method calls only.
-            val reference = instruction.getReference<MethodReference>()
+            val reference = instruction.methodReference
                 ?: return@forEachInstructionAsSequence null
 
             val match = MethodCall.entries.firstOrNull {

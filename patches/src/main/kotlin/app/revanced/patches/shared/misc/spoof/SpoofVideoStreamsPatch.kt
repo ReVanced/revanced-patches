@@ -20,7 +20,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
@@ -123,7 +122,7 @@ internal fun spoofVideoStreamsPatch(
             val resultMethodType = createStreamingDataMethodMatch.classDef.type
             val videoDetailsIndex = createStreamingDataMethodMatch[-1]
             val videoDetailsRegister = getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
-            val videoDetailsClass = getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
+            val videoDetailsClass = getInstruction(videoDetailsIndex).fieldReference!!.type
 
             addInstruction(
                 videoDetailsIndex + 1,
@@ -135,15 +134,15 @@ internal fun spoofVideoStreamsPatch(
             val setStreamingDataIndex = createStreamingDataMethodMatch[0]
 
             val playerProtoClass = getInstruction(setStreamingDataIndex + 1)
-                .getReference<FieldReference>()!!.definingClass
+                .fieldReference!!.definingClass
 
-            val setStreamingDataField = getInstruction(setStreamingDataIndex).getReference<FieldReference>()
+            val setStreamingDataField = getInstruction(setStreamingDataIndex).fieldReference
 
             val getStreamingDataField = getInstruction(
                 indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.IGET_OBJECT && getReference<FieldReference>()?.definingClass == playerProtoClass
+                    opcode == Opcode.IGET_OBJECT && fieldReference?.definingClass == playerProtoClass
                 },
-            ).getReference<FieldReference>()
+            ).fieldReference
 
             // Use a helper method to avoid the need of picking out multiple free registers from the hooked code.
             createStreamingDataMethodMatch.classDef.methods.add(
@@ -275,7 +274,7 @@ internal fun spoofVideoStreamsPatch(
             val mediaFetchEnumClass = definingClass
             val sabrFieldIndex = indexOfFirstInstructionOrThrow(disabledBySABRStreamingUrlString) {
                 opcode == Opcode.SPUT_OBJECT &&
-                    getReference<FieldReference>()?.type == mediaFetchEnumClass
+                    fieldReference?.type == mediaFetchEnumClass
             }
 
             Pair(

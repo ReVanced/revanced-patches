@@ -4,6 +4,7 @@ import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.firstMethodDeclaratively
 import app.revanced.patcher.instructions
@@ -12,13 +13,10 @@ import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.returnType
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import java.net.InetAddress
 import java.net.URI
@@ -70,10 +68,10 @@ val changeLyricsProviderPatch = bytecodePatch(
 
         val patchedHttpClientBuilderMethod = with(httpClientBuilderMethod) {
             val invokeBuildUrlIndex = indexOfFirstInstructionOrThrow {
-                getReference<MethodReference>()?.returnType == "Lokhttp3/HttpUrl;"
+                methodReference?.returnType == "Lokhttp3/HttpUrl;"
             }
             val setUrlBuilderHostIndex = indexOfFirstInstructionReversedOrThrow(invokeBuildUrlIndex) {
-                val reference = getReference<MethodReference>()
+                val reference = methodReference
                 reference?.definingClass == "Lokhttp3/HttpUrl${"$"}Builder;" &&
                     reference.parameterTypes.firstOrNull() == "Ljava/lang/String;"
             }
@@ -103,7 +101,7 @@ val changeLyricsProviderPatch = bytecodePatch(
 
         getLyricsHttpClientMethod.apply {
             val getLyricsHttpClientIndex = indexOfFirstInstructionOrThrow {
-                getReference<MethodReference>() == httpClientBuilderMethod
+                methodReference == httpClientBuilderMethod
             }
             val getLyricsHttpClientInstruction = getInstruction<BuilderInstruction35c>(getLyricsHttpClientIndex)
 

@@ -2,14 +2,13 @@ package app.revanced.patches.primevideo.ads
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.primevideo.misc.extension.sharedExtensionPatch
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 val skipAdsPatch = bytecodePatch(
@@ -32,7 +31,7 @@ val skipAdsPatch = bytecodePatch(
             //  move-result-object { playerRegister }
             val getPlayerIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_VIRTUAL &&
-                    getReference<MethodReference>()?.name == "getPrimaryPlayer"
+                    methodReference?.name == "getPrimaryPlayer"
             }
 
             val playerRegister = getInstruction<OneRegisterInstruction>(getPlayerIndex + 1).registerA

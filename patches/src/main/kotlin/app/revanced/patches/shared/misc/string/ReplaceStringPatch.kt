@@ -1,12 +1,11 @@
 package app.revanced.patches.shared.misc.string
 
 import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.stringReference
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.ReferenceType
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import kotlin.text.contains
 
 fun replaceStringPatch(
@@ -20,7 +19,7 @@ fun replaceStringPatch(
             filterMap = filterMap@{ _, _, instruction, instructionIndex ->
                 if (instruction.opcode.referenceType != ReferenceType.STRING) return@filterMap null
 
-                val stringReference = instruction.getReference<StringReference>()!!.string
+                val stringReference = instruction.stringReference!!.string
                 if (from !in stringReference) return@filterMap null
 
                 Triple(instructionIndex, instruction as OneRegisterInstruction, stringReference)

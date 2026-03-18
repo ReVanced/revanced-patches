@@ -2,23 +2,20 @@ package app.revanced.patches.googlenews.misc.extension.hooks
 
 import app.revanced.patcher.definingClass
 import app.revanced.patcher.extensions.instructions
-import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.name
 import app.revanced.patcher.opcodes
 import app.revanced.patches.shared.misc.extension.extensionHook
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private var getApplicationContextIndex = -1
 
 internal val startActivityInitHook = extensionHook(
     getInsertIndex = {
         getApplicationContextIndex = indexOfFirstInstructionOrThrow {
-            getReference<MethodReference>()?.name == "getApplicationContext"
+            methodReference?.name == "getApplicationContext"
         }
 
         getApplicationContextIndex + 2 // Below the move-result-object instruction.

@@ -5,11 +5,11 @@ import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Compan
 import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.fieldReference
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -40,7 +40,7 @@ val cronetImageURLHookPatch = bytecodePatch(
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.
         val urlFieldInstruction = requestMethod.instructions.first {
-            val reference = it.getReference<FieldReference>()
+            val reference = it.fieldReference
             it.opcode == Opcode.IPUT_OBJECT && reference?.type == "Ljava/lang/String;"
         } as ReferenceInstruction
 

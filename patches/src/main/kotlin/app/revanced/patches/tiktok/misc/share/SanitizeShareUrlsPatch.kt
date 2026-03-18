@@ -2,10 +2,10 @@ package app.revanced.patches.tiktok.misc.share
 
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.util.findFreeRegister
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -30,7 +30,7 @@ val sanitizeSharingLinksPatch = bytecodePatch(
     apply {
         urlShorteningMethod.apply {
             val invokeIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
+                val reference = methodReference
                 reference?.name == "LIZ" && reference.definingClass.startsWith("LX/")
             }
 
@@ -43,7 +43,7 @@ val sanitizeSharingLinksPatch = bytecodePatch(
                 .reference.toString()
 
             val observableFactoryIndex = indexOfFirstInstructionOrThrow {
-                val ref = getReference<MethodReference>()
+                val ref = methodReference
                 ref?.name == "LJ" && ref.definingClass.startsWith("LX/")
             }
             val observableFactoryRef = getInstruction<ReferenceInstruction>(observableFactoryIndex)

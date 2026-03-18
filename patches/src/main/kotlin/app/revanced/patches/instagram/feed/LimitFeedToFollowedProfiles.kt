@@ -9,10 +9,8 @@ import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.name
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/instagram/feed/LimitFeedToFollowedProfiles;"
 
@@ -40,7 +38,7 @@ val limitFeedToFollowedProfilesPatch = bytecodePatch(
                 reference?.type == "Ljava/util/Map;" &&
                     reference.definingClass == mainFeedRequestClassMethod.classDef.type
             }.let { instructionIndex ->
-                getInstruction(instructionIndex).getReference<FieldReference>()!!.name
+                getInstruction(instructionIndex).fieldReference!!.name
             }
         }
 
@@ -49,7 +47,7 @@ val limitFeedToFollowedProfilesPatch = bytecodePatch(
         }.apply {
             // Finds the instruction where the map is being initialized in the constructor
             val getHeaderIndex = indexOfFirstInstructionOrThrow {
-                getReference<FieldReference>().let {
+                fieldReference.let {
                     it?.name == mainFeedRequestHeaderFieldName
                 }
             }

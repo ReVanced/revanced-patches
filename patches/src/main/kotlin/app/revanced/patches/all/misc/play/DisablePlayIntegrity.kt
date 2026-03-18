@@ -1,11 +1,10 @@
 package app.revanced.patches.all.misc.play
 
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
@@ -30,7 +29,7 @@ val disablePlayIntegrityPatch = bytecodePatch(
         transformInstructionsPatch(
             filterMap = filterMap@{ classDef, method, instruction, instructionIndex ->
                 val reference = instruction
-                    .getReference<MethodReference>()
+                    .methodReference
                     ?.takeIf {
                         MethodUtil.methodSignaturesMatch(CONTEXT_BIND_SERVICE_METHOD_REFERENCE, it)
                     }

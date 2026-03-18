@@ -7,10 +7,6 @@ import app.revanced.patches.googlephotos.misc.extension.extensionPatch
 import app.revanced.patches.googlephotos.misc.gms.Constants.PHOTOS_PACKAGE_NAME
 import app.revanced.patches.googlephotos.misc.gms.Constants.REVANCED_PHOTOS_PACKAGE_NAME
 import app.revanced.patches.shared.misc.gms.gmsCoreSupportPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 
 @Suppress("unused")
