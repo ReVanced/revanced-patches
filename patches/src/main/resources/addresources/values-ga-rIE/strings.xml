@@ -370,39 +370,39 @@ Mar sin féin, má chumasaíonn tú é seo, logálfar roinnt sonraí úsáideora
             <string name="revanced_hide_video_title_title">Folaigh teideal físeáin</string>
             <string name="revanced_hide_video_title_summary_on">Tá teideal an fhíseáin i bhfolach san fhorleagan seinnteora</string>
             <string name="revanced_hide_video_title_summary_off">Taispeántar teideal an fhíseáin i bhforleagan an imreora</string>
-            <string name="revanced_hide_ai_generated_video_summary_section_title">Folaigh \'Achoimre físeáin arna giniúint ag AI\'</string>
+            <string name="revanced_hide_ai_generated_video_summary_section_title">Folaigh \'Achoimre físe a ghintear le hintleacht shaorga\'</string>
             <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Tá an chuid achoimre físe IS-ghinte i bhfolach</string>
-            <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Taispeántar an chuid achoimre físe a ghintear ag AI</string>
+            <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Taispeántar an chuid achoimre físe a ghintear ag Intleacht Shaorga</string>
             <string name="revanced_hide_ask_section_title">Folaigh Iarr</string>
             <string name="revanced_hide_ask_section_summary_on">Tá an rannán Iarratas i bhfolach</string>
             <string name="revanced_hide_ask_section_summary_off">Taispeántar an rannán Iarratas</string>
             <string name="revanced_hide_attributes_section_title">Folaigh Tréithe</string>
-            <string name="revanced_hide_attributes_section_summary_on">Tá ailt d\'áiteanna sonracha, Cluichí, Ceol agus Daoine a luaitear i bhfolach</string>
+            <string name="revanced_hide_attributes_section_summary_on">Tá na rannóga \'Áiteanna Réadmhaoine\', \'Cluichí\', \'Ceol\' agus \'Daoine\' i bhfolach</string>
             <string name="revanced_hide_attributes_section_summary_off">Taispeántar ailt d\'áiteanna sonracha, Cluichí, Ceol agus Daoine a luaitear</string>
             <string name="revanced_hide_chapters_section_title">Folaigh Caibidlí</string>
             <string name="revanced_hide_chapters_section_summary_on">Tá an chuid Caibidil i bhfolach</string>
             <string name="revanced_hide_chapters_section_summary_off">Taispeántar alt na gcaibidlí</string>
-            <string name="revanced_hide_course_progress_section_title">Folaigh ‘Dul chun cinn cúrsa’</string>
+            <string name="revanced_hide_course_progress_section_title">Folaigh \'Dul chun cinn an chúrsa\'</string>
             <string name="revanced_hide_course_progress_section_summary_on">Tá rannóg an dul chun cinn cúrsa i bhfolach</string>
             <string name="revanced_hide_course_progress_section_summary_off">Taispeántar rannóg an dul chun cinn cúrsa</string>
             <string name="revanced_hide_explore_section_title">Folaigh Iniúchadh</string>
             <string name="revanced_hide_explore_section_summary_on">Tá rannóga Iniúchadh ar an gcúrsa seo agus Déan iniúchadh ar an bpodchraoladh i bhfolach</string>
-            <string name="revanced_hide_explore_section_summary_off">Taispeántar rannóga Iniúchadh ar an gcúrsa seo agus Déan iniúchadh ar an bpodchraoladh</string>
+            <string name="revanced_hide_explore_section_summary_off">Taispeántar na rannóga Iniúchadh an chúrsa seo agus Iniúchadh na podchraoltaí</string>
             <string name="revanced_hide_explore_course_section_title">Folaigh ‘Déan iniúchadh ar an gcúrsa seo’</string>
             <string name="revanced_hide_explore_course_section_summary_on">Tá rannóg Déan iniúchadh ar an gcúrsa seo i bhfolach</string>
-            <string name="revanced_hide_explore_course_section_summary_off">Taispeántar rannóg Déan iniúchadh ar an gcúrsa seo</string>
+            <string name="revanced_hide_explore_course_section_summary_off">Taispeántar an chuid seo den chúrsa a iniúchadh</string>
             <string name="revanced_hide_explore_podcast_section_title">Folaigh \'Déan iniúchadh ar an bpodchraoladh\'</string>
             <string name="revanced_hide_explore_podcast_section_summary_on">Tá an chuid Déan iniúchadh ar an bpodchraoladh i bhfolach</string>
-            <string name="revanced_hide_explore_podcast_section_summary_off">Taispeántar an chuid Déan iniúchadh ar an bpodchraoladh</string>
-            <string name="revanced_hide_podcast_section_title">Folaigh \'Déan iniúchadh ar an bpodchraoladh\'</string>
-            <string name="revanced_hide_podcast_section_summary_on">Tá an chuid Déan iniúchadh ar an bpodchraoladh i bhfolach</string>
-            <string name="revanced_hide_podcast_section_summary_off">Taispeántar an chuid Déan iniúchadh ar an bpodchraoladh</string>
+            <string name="revanced_hide_explore_podcast_section_summary_off">Taispeántar an rannóg podchraoltaí a iniúchadh</string>
+            <string name="revanced_hide_podcast_section_title">Folaigh \'Iniúchadh a dhéanamh ar an bpodchraoladh\'</string>
+            <string name="revanced_hide_podcast_section_summary_on">Tá an rannán podchraoltaí a iniúchadh i bhfolach</string>
+            <string name="revanced_hide_podcast_section_summary_off">Taispeántar an rannóg podchraoltaí a iniúchadh</string>
             <string name="revanced_hide_featured_links_section_title">Folaigh naisc le feiceáil</string>
             <string name="revanced_hide_featured_links_section_summary_on">Tá an chuid nasc le feiceáil i bhfolach</string>
             <string name="revanced_hide_featured_links_section_summary_off">Taispeántar an chuid nasc le feiceáil</string>
             <string name="revanced_hide_featured_places_section_title">Folaigh ‘Áiteanna faoi Thrácht’</string>
             <string name="revanced_hide_featured_places_section_summary_on">Tá rannóg na n-áiteanna faoi Thrácht i bhfolach</string>
-            <string name="revanced_hide_featured_places_section_summary_off">Taispeántar rannóg na n-áiteanna faoi Thrácht</string>
+            <string name="revanced_hide_featured_places_section_summary_off">Taispeántar an chuid áiteanna feiceálacha</string>
             <string name="revanced_hide_featured_videos_section_title">Folaigh físeáin le feiceáil</string>
             <string name="revanced_hide_featured_videos_section_summary_on">Tá an chuid físeán le feiceáil i bhfolach</string>
             <string name="revanced_hide_featured_videos_section_summary_off">Taispeántar an chuid físeán le feiceáil</string>
@@ -1847,7 +1847,7 @@ D’fhéadfadh sé go mbeadh stad nó go gcaillfí frámaí ag athsheinm físe l
             <string name="revanced_music_navigation_bar_screen_summary">Folaigh nó athraigh cnaipí an bharra nascleanúna</string>
             <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
             <string name="revanced_music_hide_navigation_bar_home_button_title">Folaigh Baile</string>
-            <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Tá cnaipe Baile folaithe</string>
+            <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Tá an cnaipe baile i bhfolach</string>
             <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Taispeántar an cnaipe baile</string>
             <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
             <string name="revanced_music_hide_navigation_bar_samples_button_title">Folaigh Samplaí</string>
@@ -1875,7 +1875,7 @@ D’fhéadfadh sé go mbeadh stad nó go gcaillfí frámaí ag athsheinm físe l
         <patch id="layout.premium.hideGetPremiumPatch">
             <string name="revanced_music_hide_get_premium_label_title">Folaigh an lipéad \'Faigh Music Premium\'</string>
             <string name="revanced_music_hide_get_premium_label_summary_on">Tá an lipéad i bhfolach</string>
-            <string name="revanced_music_hide_get_premium_label_summary_off">Taispeántar an lipéad</string>
+            <string name="revanced_music_hide_get_premium_label_summary_off">Taispeántar lipéad</string>
         </patch>
         <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
             <string name="revanced_music_hide_upgrade_button_title">Folaigh an cnaipe uasghrádaithe</string>
@@ -1885,28 +1885,28 @@ D’fhéadfadh sé go mbeadh stad nó go gcaillfí frámaí ag athsheinm físe l
     </app>
     <app id="twitch">
         <patch id="ad.audio.audioAdsPatch">
-            <string name="revanced_block_audio_ads_title">Cuir bac ar fógraí fuaime</string>
-            <string name="revanced_block_audio_ads_summary_on">Cuirtear bac ar fhógraí fuaime</string>
+            <string name="revanced_block_audio_ads_title">Blocáil fógraí fuaime</string>
+            <string name="revanced_block_audio_ads_summary_on">Tá fógraí fuaime blocáilte</string>
             <string name="revanced_block_audio_ads_summary_off">Tá fógraí fuaime díbhlocáilte</string>
         </patch>
         <patch id="ad.embedded.embeddedAdsPatch">
             <string name="revanced_embedded_ads_service_unavailable">%s neamh-infheidhme, d\'fhéadfadh go dtaispeánfadh fógraí. Bain triail as seirbhís blocála fógraí a athrú sna socruithe.</string>
-            <string name="revanced_embedded_ads_service_failed">Tháinig earráid ar %s, d\'fhéadfadh go dtaispeánfadh fógraí. Bain triail as seirbhís blocála fógraí a athrú sna socruithe.</string>
+            <string name="revanced_embedded_ads_service_failed">Thug %s earráid ar ais, d’fhéadfadh fógraí a bheith le feiceáil. Bain triail as an tseirbhís blocála fógraí a athrú sna socruithe.</string>
             <string name="revanced_block_embedded_ads_title">Bloc ar fhógraí físe leabaithe</string>
             <string name="revanced_block_embedded_ads_entry_1">Díchumasaithe</string>
-            <string name="revanced_block_embedded_ads_entry_2">Proxy lonrúil</string>
+            <string name="revanced_block_embedded_ads_entry_2">Seachfhreastalaí lonrúil</string>
             <string name="revanced_block_embedded_ads_entry_3">Seachfhreastalaí PurpleAdBlock</string>
         </patch>
         <patch id="ad.video.videoAdsPatch">
             <string name="revanced_block_video_ads_title">Bloc ar fhógraí físe</string>
-            <string name="revanced_block_video_ads_summary_on">Cuirtear bac ar fhógraí físe</string>
-            <string name="revanced_block_video_ads_summary_off">Déantar fógraí físe a dhíbhlocáil</string>
+            <string name="revanced_block_video_ads_summary_on">Tá bac ar fhógraí físe</string>
+            <string name="revanced_block_video_ads_summary_off">Tá fógraí físe díbhlocáilte</string>
         </patch>
         <patch id="chat.antidelete.showDeletedMessagesPatch">
             <string name="revanced_deleted_msg">Teachtaireacht scriosta</string>
             <string name="revanced_show_deleted_messages_title">Taispeáin teachtaireachtaí scriosta</string>
             <string name="revanced_show_deleted_messages_entry_1">Ná taispeáin teachtaireachtaí scriosta</string>
-            <string name="revanced_show_deleted_messages_entry_2">Folaigh teachtaireachtaí scriosta taobh thiar a fhalsúa</string>
+            <string name="revanced_show_deleted_messages_entry_2">Folaigh teachtaireachtaí scriosta taobh thiar a mhilleann</string>
             <string name="revanced_show_deleted_messages_entry_3">Taispeáin teachtaireachtaí scriosta mar théacs trasnaithe amach</string>
         </patch>
         <patch id="chat.autoclaim.autoClaimChannelPointsPatch">

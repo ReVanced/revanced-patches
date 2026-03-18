@@ -1514,6 +1514,11 @@ El minireproductor se puede arrastrar fuera de la pantalla hacia la izquierda o 
             <string name="revanced_miniplayer_hide_overlay_buttons_title">Ocultar botones de superposición</string>
             <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Los botones de superposición están ocultos</string>
             <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Se muestran los botones de superposición</string>
+            <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ocultar botones de expandir y cerrar</string>
+            <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Los botones están ocultos
+
+Deslizar para expandir o cerrar"</string>
+            <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Se muestran botones de expandir y cerrar</string>
             <string name="revanced_miniplayer_hide_subtext_title">Ocultar subtextos</string>
             <string name="revanced_miniplayer_hide_subtext_summary_on">Los subtextos están ocultos</string>
             <string name="revanced_miniplayer_hide_subtext_summary_off">Los subtextos se muestran</string>
@@ -1622,7 +1627,10 @@ Toca aquí para obtener más información sobre DeArrow"</string>
             <string name="revanced_loop_video_button_toast_on">Bucle de vídeo activado</string>
             <string name="revanced_loop_video_button_toast_off">Bucle de vídeo desactivado</string>
         </patch>
-        <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"/>
+        <patch id="misc.audiofocus.pauseOnAudioInterruptPatch">
+            <string name="revanced_pause_on_audio_interrupt_title">Pausar cuando se corte el audio</string>
+            <string name="revanced_pause_on_audio_interrupt_summary_on">La reproducción se detiene cuando se reproduce otro audio (por ejemplo, navegación)</string>
+        </patch>
         <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
             <string name="revanced_spoof_device_dimensions_title">Dimensiones del dispositivo</string>
             <string name="revanced_spoof_device_dimensions_summary_on">"Las dimensiones del dispositivo están falsificadas

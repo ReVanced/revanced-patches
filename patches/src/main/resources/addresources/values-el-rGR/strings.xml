@@ -238,13 +238,9 @@ Second \"item\" text"</string>
             <string name="revanced_shorts_disable_background_playback_summary_off">Η αναπαραγωγή παρασκηνίου είναι ενεργοποιημένη για τα Shorts</string>
         </patch>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
-            <string name="revanced_hide_creator_store_shelf_title">Ενότητα καταστήματος δημιουργού</string>
-            <string name="revanced_hide_creator_store_shelf_summary_on">Κρυμμένη
-
-Αφορά την ενότητα καταστήματος δημιουργού κάτω από την οθόνη αναπαραγωγής</string>
-            <string name="revanced_hide_creator_store_shelf_summary_off">Εμφανίζεται
-
-Αφορά την ενότητα καταστήματος δημιουργού κάτω από την οθόνη αναπαραγωγής</string>
+            <string name="revanced_hide_creator_store_shelf_title">Ενότητα καταστήματος δημιουργού κάτω από την οθόνη αναπαραγωγής</string>
+            <string name="revanced_hide_creator_store_shelf_summary_on">Κρυμμένη</string>
+            <string name="revanced_hide_creator_store_shelf_summary_off">Εμφανίζεται</string>
             <string name="revanced_hide_album_cards_title">Κάρτες άλμπουμ</string>
             <string name="revanced_hide_album_cards_summary_on">Κρυμμένες</string>
             <string name="revanced_hide_album_cards_summary_off">Εμφανίζονται</string>
@@ -373,13 +369,9 @@ Second \"item\" text"</string>
             <string name="revanced_hide_timed_reactions_title">Συγχρονισμένες αντιδράσεις</string>
             <string name="revanced_hide_timed_reactions_summary_on">Κρυμμένες</string>
             <string name="revanced_hide_timed_reactions_summary_off">Εμφανίζονται</string>
-            <string name="revanced_hide_video_title_title">Τίτλος του βίντεο</string>
-            <string name="revanced_hide_video_title_summary_on">Κρυμμένος
-
-Αφορά τον τίτλο του βίντεο στη λειτουργία πλήρους οθόνης</string>
-            <string name="revanced_hide_video_title_summary_off">Εμφανίζεται
-
-Αφορά τον τίτλο του βίντεο στη λειτουργία πλήρους οθόνης</string>
+            <string name="revanced_hide_video_title_title">Τίτλος του βίντεο στην πλήρη οθόνη</string>
+            <string name="revanced_hide_video_title_summary_on">Κρυμμένος</string>
+            <string name="revanced_hide_video_title_summary_off">Εμφανίζεται</string>
             <string name="revanced_hide_ai_generated_video_summary_section_title">Σύνοψη βίντεο που δημιουργήθηκε από AI</string>
             <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Κρυμμένη</string>
             <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Εμφανίζεται</string>
@@ -395,13 +387,9 @@ Second \"item\" text"</string>
             <string name="revanced_hide_course_progress_section_title">Ενότητα «Πρόοδος μαθήματος»</string>
             <string name="revanced_hide_course_progress_section_summary_on">Κρυμμένη</string>
             <string name="revanced_hide_course_progress_section_summary_off">Εμφανίζεται</string>
-            <string name="revanced_hide_explore_section_title">Ενότητες «Εξερεύνηση»</string>
-            <string name="revanced_hide_explore_section_summary_on">Κρυμμένες
-
-Αφορά τις ενότητες «Εξερευνήστε αυτή τη σειρά μαθημάτων» και «Εξερευνήστε το podcast»</string>
-            <string name="revanced_hide_explore_section_summary_off">Εμφανίζονται
-
-Αφορά τις ενότητες «Εξερευνήστε αυτή τη σειρά μαθημάτων» και «Εξερευνήστε το podcast»</string>
+            <string name="revanced_hide_explore_section_title">Ενότητες «Εξερευνήστε...»</string>
+            <string name="revanced_hide_explore_section_summary_on">Κρυμμένες. Αφορά τις ενότητες «Εξερευνήστε αυτή τη σειρά μαθημάτων» και «Εξερευνήστε το podcast»</string>
+            <string name="revanced_hide_explore_section_summary_off">Εμφανίζονται. Αφορά τις ενότητες «Εξερευνήστε αυτή τη σειρά μαθημάτων» και «Εξερευνήστε το podcast»</string>
             <string name="revanced_hide_explore_course_section_title">Ενότητα «Εξερευνήστε αυτή τη σειρά μαθημάτων»</string>
             <string name="revanced_hide_explore_course_section_summary_on">Κρυμμένη</string>
             <string name="revanced_hide_explore_course_section_summary_off">Εμφανίζεται</string>
@@ -1631,8 +1619,8 @@ Second \"item\" text"</string>
         </patch>
         <patch id="misc.announcements.announcementsPatch">
             <string name="revanced_announcements_title">Εμφάνιση ανακοινώσεων ReVanced</string>
-            <string name="revanced_announcements_summary_on">Οι ανακοινώσεις κατά την εκκίνηση εμφανίζονται</string>
-            <string name="revanced_announcements_summary_off">Οι ανακοινώσεις κατά την εκκίνηση δεν εμφανίζονται</string>
+            <string name="revanced_announcements_summary_on">Οι ανακοινώσεις εμφανίζονται κατά την εκκίνηση</string>
+            <string name="revanced_announcements_summary_off">Οι ανακοινώσεις δεν εμφανίζονται κατά την εκκίνηση</string>
             <string name="revanced_announcements_enabled_summary">Εμφάνιση ανακοινώσεων κατά την εκκίνηση</string>
             <string name="revanced_announcements_connection_failed">Αποτυχία σύνδεσης με τον πάροχο ανακοινώσεων</string>
             <string name="revanced_announcements_dialog_dismiss">Παράλειψη</string>
