@@ -1,3 +1,16 @@
+# [6.1.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v6.1.0-dev.3...v6.1.0-dev.4) (2026-03-18)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding:** Fix double icons and change default branding to ReVanced ([#6806](https://github.com/ReVanced/revanced-patches/issues/6806)) ([e51c529](https://github.com/ReVanced/revanced-patches/commit/e51c5292c171325e7cfa0f5ee85474d9b3961a34))
+
+
+### Features
+
+* Add `Spoof root of trust` and `Spoof keystore security level` patch ([#6751](https://github.com/ReVanced/revanced-patches/issues/6751)) ([4bc8c7c](https://github.com/ReVanced/revanced-patches/commit/4bc8c7c0f60a095533f07dc281f0320f8eb22f3c))
+* **Instagram:** Add `Enable location sticker redesign` patch ([#6808](https://github.com/ReVanced/revanced-patches/issues/6808)) ([4b699da](https://github.com/ReVanced/revanced-patches/commit/4b699da220e5d1527c390792b6228e2d9cffedb7))
+
 # [6.1.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v6.1.0-dev.2...v6.1.0-dev.3) (2026-03-18)
 
 
