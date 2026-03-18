@@ -14,9 +14,7 @@ internal val BytecodePatchContext.renderRedesignedDrawerMethodMatch by composing
     instructions(
         allOf(
             Opcode.INVOKE_VIRTUAL(),
-            method {
-                returnType == "Z" && parameterTypes.isEmpty()
-            }
+            method { returnType == "Z" && parameterTypes.isEmpty() }
         )
     )
 }
