@@ -89,8 +89,12 @@ public final class app/revanced/patches/all/misc/packagename/ChangePackageNamePa
 	public static final fun setOrGetFallbackPackageName (Ljava/lang/String;)Ljava/lang/String;
 }
 
-public final class app/revanced/patches/all/misc/playintegrity/DisablePlayIntegrityKt {
+public final class app/revanced/patches/all/misc/play/DisablePlayIntegrityKt {
 	public static final fun getDisablePlayIntegrityPatch ()Lapp/revanced/patcher/patch/Patch;
+}
+
+public final class app/revanced/patches/all/misc/play/SpoofPlayAgeSignalsKt {
+	public static final fun getSpoofPlayAgeSignalsPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
 public final class app/revanced/patches/all/misc/resources/AddResourcesPatchKt {
