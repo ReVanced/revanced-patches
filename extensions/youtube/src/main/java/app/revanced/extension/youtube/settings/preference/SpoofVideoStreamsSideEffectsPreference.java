@@ -19,7 +19,7 @@ import app.revanced.extension.shared.spoof.ClientType;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"deprecation", "unused"})
-public class SpoofStreamingDataSideEffectsPreference extends Preference {
+public class SpoofVideoStreamsSideEffectsPreference extends Preference {
 
     @Nullable
     private ClientType currentClientType;
@@ -33,19 +33,19 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
         Utils.runOnMainThread(this::updateUI);
     };
 
-    public SpoofStreamingDataSideEffectsPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public SpoofVideoStreamsSideEffectsPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    public SpoofStreamingDataSideEffectsPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SpoofVideoStreamsSideEffectsPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public SpoofStreamingDataSideEffectsPreference(Context context, AttributeSet attrs) {
+    public SpoofVideoStreamsSideEffectsPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public SpoofStreamingDataSideEffectsPreference(Context context) {
+    public SpoofVideoStreamsSideEffectsPreference(Context context) {
         super(context);
     }
 
@@ -88,27 +88,23 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
                             + '\n' + str("revanced_spoof_video_streams_about_no_stable_volume")
                             + '\n' + str("revanced_spoof_video_streams_about_no_av1")
                             + '\n' + str("revanced_spoof_video_streams_about_no_force_original_audio");
+            case ANDROID_REEL ->
+                    summary = str("revanced_spoof_video_streams_about_playback_failure");
             // VR 1.61 is not exposed in the UI and should never be reached here.
             case ANDROID_VR_1_43_32, ANDROID_VR_1_61_48 ->
-                    summary = str("revanced_spoof_video_streams_about_no_audio_tracks")
-                            + '\n' + str("revanced_spoof_video_streams_about_no_stable_volume");
-            case ANDROID_NO_SDK ->
-                    summary = str("revanced_spoof_video_streams_about_playback_failure");
-            case IPADOS ->
                     summary = str("revanced_spoof_video_streams_about_playback_failure")
-                            + '\n' + str("revanced_spoof_video_streams_about_no_av1");
-            case VISIONOS ->
-                    summary = str("revanced_spoof_video_streams_about_experimental")
                             + '\n' + str("revanced_spoof_video_streams_about_no_audio_tracks")
-                            + '\n' + str("revanced_spoof_video_streams_about_no_av1");
+                            + '\n' + str("revanced_spoof_video_streams_about_no_stable_volume");
+            case VISIONOS -> summary = str("revanced_spoof_video_streams_about_experimental")
+                    + '\n' + str("revanced_spoof_video_streams_about_playback_failure")
+                    + '\n' + str("revanced_spoof_video_streams_about_no_audio_tracks")
+                    + '\n' + str("revanced_spoof_video_streams_about_no_av1");
             default -> Logger.printException(() -> "Unknown client: " + clientType);
         }
 
-        // Only iPadOS can play children videos in incognito, but it commonly fails at 1 minute
-        // or doesn't start playback at all. List the side effect for other clients
-        // since they will fall over to iPadOS.
-        if (clientType != ClientType.IPADOS && clientType != ClientType.ANDROID_NO_SDK) {
-            summary += '\n' + str("revanced_spoof_video_streams_about_kids_videos");
+        // Only Android Reel and Android VR supports 360° VR immersive mode.
+        if (!clientType.name().startsWith("ANDROID_VR") && clientType != ClientType.ANDROID_REEL) {
+            summary += '\n' + str("revanced_spoof_video_streams_about_no_immersive_mode");
         }
 
         // Use better formatting for bullet points.

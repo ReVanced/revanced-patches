@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.android.library) 
+    alias(libs.plugins.android.library)
 }
 
 android {
@@ -19,4 +19,6 @@ android {
 dependencies {
     compileOnly(libs.annotation)
     compileOnly(libs.okhttp)
+    compileOnly(libs.protobuf.javalite)
+    implementation(project(":extensions:shared:protobuf", configuration = "shadowRuntimeElements"))
 }
