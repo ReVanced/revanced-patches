@@ -1,12 +1,10 @@
 package app.revanced.patches.messenger.layout
 
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.firstMethod
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.getReference
 import app.revanced.util.returnEarly
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Suppress("unused")
 val restoreOldEmojiDrawerPatch = bytecodePatch(
@@ -17,12 +15,9 @@ val restoreOldEmojiDrawerPatch = bytecodePatch(
 
     apply {
         val isRedesignedDrawerEnabledMethodReference = renderRedesignedDrawerMethodMatch.let {
-            it.method.getInstruction(it[0]).getReference<MethodReference>()!!
+            it.method.getInstruction(it[0]).methodReference!!
         }
-        val isRedesignedDrawerEnabledMethod = firstMethod {
-            definingClass == isRedesignedDrawerEnabledMethodReference.definingClass
-                    && MethodUtil.methodSignaturesMatch(this, isRedesignedDrawerEnabledMethodReference)
-        }
+        val isRedesignedDrawerEnabledMethod = firstMethod(isRedesignedDrawerEnabledMethodReference)
         isRedesignedDrawerEnabledMethod.returnEarly(false)
     }
 }
