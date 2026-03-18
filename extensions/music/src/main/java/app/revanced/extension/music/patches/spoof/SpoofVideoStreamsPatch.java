@@ -18,8 +18,8 @@ public class SpoofVideoStreamsPatch {
      */
     public static void setClientOrderToUse() {
         List<ClientType> availableClients = List.of(
-                ANDROID_VR_1_43_32,
                 ANDROID_REEL,
+                ANDROID_VR_1_43_32,
                 VISIONOS,
                 ANDROID_VR_1_61_48
         );

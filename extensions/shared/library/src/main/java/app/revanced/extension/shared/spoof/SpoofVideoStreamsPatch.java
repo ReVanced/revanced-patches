@@ -5,7 +5,6 @@ import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
 
-import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -39,7 +38,7 @@ public class SpoofVideoStreamsPatch {
     @Nullable
     private static volatile AppLanguage languageOverride;
 
-    private static volatile ClientType preferredClient = ClientType.ANDROID_VR_1_43_32;
+    private static volatile ClientType preferredClient = ClientType.ANDROID_REEL;
 
     /**
      * @return If this patch was included during patching.
@@ -250,7 +249,7 @@ public class SpoofVideoStreamsPatch {
      * Called after {@link #fetchStreams(String, Map)}.
      */
     @Nullable
-    public static ByteBuffer getStreamingData(String videoId) {
+    public static byte[] getStreamingData(String videoId) {
         if (SPOOF_STREAMING_DATA) {
             try {
                 StreamingDataRequest request = StreamingDataRequest.getRequestForVideoId(videoId);

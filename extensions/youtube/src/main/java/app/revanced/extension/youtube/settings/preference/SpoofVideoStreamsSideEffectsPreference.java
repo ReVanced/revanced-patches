@@ -19,7 +19,7 @@ import app.revanced.extension.shared.spoof.ClientType;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"deprecation", "unused"})
-public class SpoofStreamingDataSideEffectsPreference extends Preference {
+public class SpoofVideoStreamsSideEffectsPreference extends Preference {
 
     @Nullable
     private ClientType currentClientType;
@@ -33,19 +33,19 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
         Utils.runOnMainThread(this::updateUI);
     };
 
-    public SpoofStreamingDataSideEffectsPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public SpoofVideoStreamsSideEffectsPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    public SpoofStreamingDataSideEffectsPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SpoofVideoStreamsSideEffectsPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public SpoofStreamingDataSideEffectsPreference(Context context, AttributeSet attrs) {
+    public SpoofVideoStreamsSideEffectsPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public SpoofStreamingDataSideEffectsPreference(Context context) {
+    public SpoofVideoStreamsSideEffectsPreference(Context context) {
         super(context);
     }
 
@@ -92,12 +92,13 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
                     summary = str("revanced_spoof_video_streams_about_playback_failure");
             // VR 1.61 is not exposed in the UI and should never be reached here.
             case ANDROID_VR_1_43_32, ANDROID_VR_1_61_48 ->
-                    summary = str("revanced_spoof_video_streams_about_no_audio_tracks")
-                            + '\n' + str("revanced_spoof_video_streams_about_no_stable_volume");
-             case VISIONOS ->
-                    summary = str("revanced_spoof_video_streams_about_experimental")
+                    summary = str("revanced_spoof_video_streams_about_playback_failure")
                             + '\n' + str("revanced_spoof_video_streams_about_no_audio_tracks")
-                            + '\n' + str("revanced_spoof_video_streams_about_no_av1");
+                            + '\n' + str("revanced_spoof_video_streams_about_no_stable_volume");
+            case VISIONOS -> summary = str("revanced_spoof_video_streams_about_experimental")
+                    + '\n' + str("revanced_spoof_video_streams_about_playback_failure")
+                    + '\n' + str("revanced_spoof_video_streams_about_no_audio_tracks")
+                    + '\n' + str("revanced_spoof_video_streams_about_no_av1");
             default -> Logger.printException(() -> "Unknown client: " + clientType);
         }
 
