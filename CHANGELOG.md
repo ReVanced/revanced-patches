@@ -1,3 +1,10 @@
+# [6.1.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v6.1.0-dev.2...v6.1.0-dev.3) (2026-03-18)
+
+
+### Features
+
+* **Spoof video streams:** Add Android Reel client to fix playback issues ([#6830](https://github.com/ReVanced/revanced-patches/issues/6830)) ([4b6c3e3](https://github.com/ReVanced/revanced-patches/commit/4b6c3e312328fbf6a1c7065e27d8ff04573e58be))
+
 # [6.1.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v6.1.0-dev.1...v6.1.0-dev.2) (2026-03-17)
 
 
