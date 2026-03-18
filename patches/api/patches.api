@@ -125,6 +125,14 @@ public final class app/revanced/patches/all/misc/spoof/EnableRomSignatureSpoofin
 	public static final fun getEnableROMSignatureSpoofingPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
+public final class app/revanced/patches/all/misc/spoof/SpoofKeystoreSecurityLevelPatchKt {
+	public static final fun getSpoofKeystoreSecurityLevelPatch ()Lapp/revanced/patcher/patch/Patch;
+}
+
+public final class app/revanced/patches/all/misc/spoof/SpoofRootOfTrustPatchKt {
+	public static final fun getSpoofRootOfTrustPatch ()Lapp/revanced/patcher/patch/Patch;
+}
+
 public final class app/revanced/patches/all/misc/targetSdk/SetTargetSdkVersion34Kt {
 	public static final fun getSetTargetSDKVersion34Patch ()Lapp/revanced/patcher/patch/Patch;
 }
