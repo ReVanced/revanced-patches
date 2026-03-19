@@ -101,8 +101,8 @@ public class ShortsAutoplayPatch {
             }
 
             ShortsLoopBehavior autoPlayBehavior = IS_21_10_OR_GREATER
-                    ? ShortsLoopBehavior.SINGLE_PLAY
-                    : ShortsLoopBehavior.AUTO_ADVANCE;
+                    ? ShortsLoopBehavior.AUTO_ADVANCE
+                    : ShortsLoopBehavior.SINGLE_PLAY;
 
             Enum<?> overrideBehavior = (autoplay
                     ? autoPlayBehavior
