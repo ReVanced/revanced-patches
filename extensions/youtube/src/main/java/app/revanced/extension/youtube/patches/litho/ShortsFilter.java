@@ -53,10 +53,6 @@ public final class ShortsFilter extends Filter {
     private final StringFilterGroup shortsCompactFeedVideo;
     private final ByteArrayFilterGroup shortsCompactFeedVideoBuffer;
     private final StringFilterGroup channelProfile;
-    private final StringFilterGroup useSoundButton;
-    private final ByteArrayFilterGroup useSoundButtonBuffer;
-    private final StringFilterGroup useTemplateButton;
-    private final ByteArrayFilterGroup useTemplateButtonBuffer;
 
     private final StringFilterGroup autoDubbedLabel;
     private final StringFilterGroup subscribeButton;
@@ -70,6 +66,9 @@ public final class ShortsFilter extends Filter {
 
     private final StringFilterGroup suggestedAction;
     private final ByteArrayFilterGroupList suggestedActionsBuffer = new ByteArrayFilterGroupList();
+
+    private final StringFilterGroup useButtons;
+    private final ByteArrayFilterGroupList useButtonsBuffer = new ByteArrayFilterGroupList();
 
     private final StringFilterGroup shortsActionBar;
     private final StringFilterGroup shortsActionButton;
@@ -246,35 +245,6 @@ public final class ShortsFilter extends Filter {
                 )
         );
 
-        useSoundButton = new StringFilterGroup(
-                Settings.HIDE_SHORTS_USE_SOUND_BUTTON,
-                // First filter needed for "Use this sound" that can appear when viewing Shorts
-                // through the "Short remixing this video" section.
-                "floating_action_button.e",
-                // Second filter needed for "Use this sound" that can appear below the video title.
-                REEL_METAPANEL_PATH,
-                REEL_PLAYER_OVERLAY_PATH
-        );
-
-        useSoundButtonBuffer = new ByteArrayFilterGroup(
-                null,
-                "yt_outline_camera_",
-                "yt_outline_experimental_camera_"
-        );
-
-        useTemplateButton = new StringFilterGroup(
-                Settings.HIDE_SHORTS_USE_TEMPLATE_BUTTON,
-                // Second filter needed for "Use this template" that can appear below the video title.
-                REEL_METAPANEL_PATH,
-                REEL_PLAYER_OVERLAY_PATH
-        );
-
-        useTemplateButtonBuffer = new ByteArrayFilterGroup(
-                null,
-                "yt_outline_template_add_",
-                "yt_outline_experimental_template_add_"
-        );
-
         shortsActionButton = new StringFilterGroup(
                 null,
                 // Can be any of:
@@ -285,6 +255,26 @@ public final class ShortsFilter extends Filter {
                 "button.e"
         );
 
+        useButtons = new StringFilterGroup(
+                null,
+                REEL_PLAYER_OVERLAY_PATH,
+                REEL_METAPANEL_PATH,
+                "floating_action_button.e"
+        );
+
+        useButtonsBuffer.addAll(
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_USE_SOUND_BUTTON,
+                        "yt_outline_camera_",
+                        "yt_outline_experimental_camera_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_USE_TEMPLATE_BUTTON,
+                        "yt_outline_template_add_",
+                        "yt_outline_experimental_template_add_"
+                )
+        );
+
         suggestedAction = new StringFilterGroup(
                 null,
                 "suggested_action.e"
@@ -293,7 +283,7 @@ public final class ShortsFilter extends Filter {
         addPathCallbacks(
                 shortsCompactFeedVideo, shelfHeaderPath, joinButton, subscribeButton, paidPromotionLabel,
                 livePreview, suggestedAction, pausedOverlayButtons, channelBar, infoPanel, previewComment,
-                autoDubbedLabel, fullVideoLinkLabel, videoTitle, useSoundButton, soundButton, stickers,
+                autoDubbedLabel, fullVideoLinkLabel, videoTitle, soundButton, stickers, useButtons,
                 reelCarousel, reelSoundMetadata, likeFountain, likeButton, dislikeButton, shortsActionBar
         );
 
@@ -433,14 +423,6 @@ public final class ShortsFilter extends Filter {
                 return reelCarouselBuffer.check(buffer).isFiltered();
             }
 
-            if (matchedGroup == useSoundButton) {
-                return useSoundButtonBuffer.check(buffer).isFiltered();
-            }
-
-            if (matchedGroup == useTemplateButton) {
-                return useTemplateButtonBuffer.check(buffer).isFiltered();
-            }
-
             if (matchedGroup == shortsCompactFeedVideo) {
                 return shouldHideShortsFeedItems() && shortsCompactFeedVideoBuffer.check(buffer).isFiltered();
             }
@@ -462,6 +444,10 @@ public final class ShortsFilter extends Filter {
                     return shortsActionButtonGroupList.check(accessibility).isFiltered();
                 }
                 return false;
+            }
+
+            if (matchedGroup == useButtons) {
+                return path.contains("button.e") && useButtonsBuffer.check(buffer).isFiltered();
             }
 
             if (matchedGroup == suggestedAction) {
