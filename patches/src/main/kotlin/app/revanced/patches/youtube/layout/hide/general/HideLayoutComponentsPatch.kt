@@ -19,6 +19,7 @@ import app.revanced.patches.youtube.misc.litho.lazily.hookTreeNodeResult
 import app.revanced.patches.youtube.misc.litho.lazily.lazilyConvertedElementHookPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_20_21_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_21_11_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -157,7 +158,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                 SwitchPreference("revanced_hide_comments_preview_comment"),
                 SwitchPreference("revanced_hide_comments_thanks_button"),
                 SwitchPreference("revanced_sanitize_comments_category_bar"),
-                ),
+            ),
             sorting = Sorting.UNSORTED,
         ),
         SwitchPreference("revanced_hide_channel_bar"),
@@ -247,7 +248,6 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                 ),
             )
         ),
-        SwitchPreference("revanced_hide_floating_microphone_button"),
         SwitchPreference(
             key = "revanced_hide_horizontal_shelves",
             tag = "app.revanced.extension.shared.settings.preference.BulletPointSwitchPreference",
@@ -272,6 +272,12 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
     if (is_20_21_or_greater) {
         PreferenceScreen.FEED.addPreferences(
             SwitchPreference("revanced_hide_you_may_like_section")
+        )
+    }
+
+    if (!is_21_11_or_greater) {
+        PreferenceScreen.FEED.addPreferences(
+            SwitchPreference("revanced_hide_floating_microphone_button")
         )
     }
 
@@ -449,18 +455,22 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // region Hide Floating microphone
 
-    showFloatingMicrophoneButtonMethodMatch.let {
-        it.method.apply {
-            val index = it[-1]
-            val register = getInstruction<TwoRegisterInstruction>(index).registerA
+    if (!is_21_11_or_greater) {
+        // Code has moved in 21.11+, but it's not clear when/ where this
+        // floating microphone can show or if this patch is still relevant.
+        showFloatingMicrophoneButtonMethodMatch.let {
+            it.method.apply {
+                val index = it[-1]
+                val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
-            addInstructions(
-                index + 1,
-                """
+                addInstructions(
+                    index + 1,
+                    """
                         invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
                         move-result v$register
                     """,
-            )
+                )
+            }
         }
     }
 

@@ -480,6 +480,7 @@ public final class LayoutComponentsFilter extends Filter {
      * Injection point.
      */
     public static boolean hideFloatingMicrophoneButton(final boolean original) {
+        // FIXME? Is this feature still relevant? When/where does this microphone appear?
         return original || Settings.HIDE_FLOATING_MICROPHONE_BUTTON.get();
     }
 
