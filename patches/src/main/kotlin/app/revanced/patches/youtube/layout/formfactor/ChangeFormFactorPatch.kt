@@ -7,6 +7,9 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
+import app.revanced.patches.youtube.misc.contexthook.Endpoint
+import app.revanced.patches.youtube.misc.contexthook.addClientFormFactorHook
+import app.revanced.patches.youtube.misc.contexthook.hookClientContextPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.navigation.hookNavigationButtonCreated
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
@@ -27,6 +30,7 @@ val changeFormFactorPatch = bytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
+        hookClientContextPatch,
         navigationBarHookPatch
     )
 
@@ -49,8 +53,6 @@ val changeFormFactorPatch = bytecodePatch(
             ListPreference("revanced_change_form_factor"),
         )
 
-        hookNavigationButtonCreated(EXTENSION_CLASS_DESCRIPTOR)
-
         val formFactorEnumConstructorClass = formFactorEnumConstructorMethod.definingClass
 
         val createPlayerRequestBodyWithModelMatch = firstMethodComposite {
@@ -71,11 +73,23 @@ val changeFormFactorPatch = bytecodePatch(
                 addInstructions(
                     index + 1,
                     """
-                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getFormFactor(I)I
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getUniversalFormFactor(I)I
                         move-result v$register
                     """,
                 )
             }
+        }
+
+        setOf(
+            Endpoint.GET_WATCH,
+            Endpoint.NEXT,
+            Endpoint.GUIDE,
+            Endpoint.REEL,
+        ).forEach { endpoint ->
+            addClientFormFactorHook(
+                endpoint,
+                "$EXTENSION_CLASS_DESCRIPTOR->replaceBrokenFormFactor(I)I",
+            )
         }
     }
 }

@@ -528,7 +528,7 @@ public final class KeywordContentFilter extends Filter {
         }
 
         return switch (selectedNavButton) {
-            case HOME, EXPLORE -> hideHome;
+            case HOME -> hideHome;
             case SUBSCRIPTIONS -> hideSubscriptions;
             // User is in the Library or notifications.
             default -> false;
