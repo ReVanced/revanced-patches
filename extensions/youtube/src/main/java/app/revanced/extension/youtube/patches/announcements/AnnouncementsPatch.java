@@ -20,7 +20,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -116,7 +116,7 @@ public final class AnnouncementsPatch {
                 int id = Settings.ANNOUNCEMENT_LAST_ID.defaultValue;
                 String title;
                 String message;
-                LocalDateTime archivedAt = LocalDateTime.MAX;
+                Instant archivedAt = Instant.MAX;
                 Level level = Level.INFO;
                 try {
                     final var announcements = new JSONArray(jsonString);
@@ -140,20 +140,20 @@ public final class AnnouncementsPatch {
                     title = announcement.getString("title");
                     message = announcement.getString("content");
                     if (!announcement.isNull("archived_at")) {
-                        archivedAt = LocalDateTime.parse(announcement.getString("archived_at"));
+                        archivedAt = Instant.parse(announcement.getString("archived_at"));
                     }
                     if (!announcement.isNull("level")) {
                         level = Level.fromInt(announcement.getInt("level"));
                     }
                 } catch (Throwable ex) {
-                    Logger.printException(() -> "Failed to parse announcement. Fall-backing to raw string", ex);
+                    Logger.printException(() -> "Failed to parse announcement. Falling back to raw string", ex);
 
                     title = "Announcement";
                     message = jsonString;
                 }
 
                 // If the announcement is archived, do not show it.
-                if (archivedAt.isBefore(LocalDateTime.now())) {
+                if (archivedAt.isBefore(Instant.now())) {
                     Settings.ANNOUNCEMENT_LAST_ID.save(id);
                     return;
                 }
