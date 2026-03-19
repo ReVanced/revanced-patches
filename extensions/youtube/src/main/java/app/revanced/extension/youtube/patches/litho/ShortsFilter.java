@@ -252,23 +252,27 @@ public final class ShortsFilter extends Filter {
                 // through the "Short remixing this video" section.
                 "floating_action_button.e",
                 // Second filter needed for "Use this sound" that can appear below the video title.
-                REEL_METAPANEL_PATH
+                REEL_METAPANEL_PATH,
+                REEL_PLAYER_OVERLAY_PATH
         );
 
         useSoundButtonBuffer = new ByteArrayFilterGroup(
                 null,
-                "yt_outline_camera_"
+                "yt_outline_camera_",
+                "yt_outline_experimental_camera_"
         );
 
         useTemplateButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_USE_TEMPLATE_BUTTON,
                 // Second filter needed for "Use this template" that can appear below the video title.
-                REEL_METAPANEL_PATH
+                REEL_METAPANEL_PATH,
+                REEL_PLAYER_OVERLAY_PATH
         );
 
         useTemplateButtonBuffer = new ByteArrayFilterGroup(
                 null,
-                "yt_outline_template_add_"
+                "yt_outline_template_add_",
+                "yt_outline_experimental_template_add_"
         );
 
         shortsActionButton = new StringFilterGroup(
