@@ -186,6 +186,18 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
                             move-result v$speedRegister
                         """
                     )
+
+                    val enabledIndex = it[3].index
+                    val enabledRegister =
+                        getInstruction<OneRegisterInstruction>(enabledIndex).registerA
+
+                    addInstructions(
+                        enabledIndex,
+                        """
+                            invoke-static { v$enabledRegister }, $EXTENSION_CLASS_DESCRIPTOR->disableTapAndHoldSpeed(Z)Z
+                            move-result v$enabledRegister
+                        """
+                    )
                 }
             }
         }
