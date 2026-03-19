@@ -352,7 +352,7 @@ public final class app/revanced/patches/irplus/ad/RemoveAdsPatchKt {
 	public static final fun getRemoveAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/jakdojade/ad/DisableAdsPatchKt {
+public final class app/revanced/patches/jakdojade/ads/DisableAdsPatchKt {
 	public static final fun getDisableAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
