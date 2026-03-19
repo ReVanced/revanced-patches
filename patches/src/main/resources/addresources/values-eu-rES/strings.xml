@@ -27,18 +27,55 @@ Second \"item\" text"</string>
         <patch id="misc.checks.checkEnvironmentPatch"/>
         <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"/>
         <patch id="misc.settings.settingsResourcePatch">
+            <string name="revanced_settings_disable_bold_icons_title">Desgaitu ikono lodiak</string>
+            <string name="revanced_settings_disable_bold_icons_summary_on">Ikonoak ez dira lodiak</string>
+            <string name="revanced_settings_disable_bold_icons_summary_off">Ikonoak lodiak dira</string>
             <!-- Settings about dialog. -->
             <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
+            <string name="revanced_gms_core_screen_title">GmsCore</string>
+            <string name="revanced_gms_core_screen_summary">GmsCorerekin lotutako ezarpenak</string>
+            <string name="revanced_gms_core_check_updates_title">GmsCore eguneratzeak egiaztatu</string>
+            <string name="revanced_gms_core_check_updates_summary_on">Eguneratzeak egiaztatzea gaituta dago</string>
+            <string name="revanced_gms_core_check_updates_summary_off">Eguneraketak bilatzea desgaituta dago</string>
+            <string name="revanced_gms_core_settings_title">Ireki GmsCore ezarpenak</string>
+            <string name="revanced_gms_core_settings_summary">GmsCore-ren ezarpenak</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_gms_core_toast_not_installed_message">MicroG GmsCore ez dago instalatuta. Instalatu.</string>
+            <string name="revanced_gms_core_dialog_title">Ekintza beharrezkoa</string>
+            <string name="revanced_gms_core_toast_update_check_failed_message">MicroG GmsCore eguneraketak bilatzean huts egin du</string>
+            <string name="revanced_gms_core_update_available_message">MicroG GmsCore-ren bertsio berri bat (%1$s) eskuragarri dago. Une honetan, %2$s bertsioa erabiltzen ari zara.</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore-k ez du atzealdean exekutatzeko baimenik.
+
+Jarraitu \"Ez hil nire aplikazioa\" gida zure telefonoarentzat, eta aplikatu argibideak zure MicroG instalazioari.
+
+Hau beharrezkoa da aplikazioak funtziona dezan."</string>
+            <string name="revanced_gms_core_dialog_open_website_text">Ireki webgunea</string>
+            <string name="revanced_gms_core_dialog_cancel_text">Utzi</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCore-ren bateria optimizazioak desgaitu behar dira arazoak ekiditeko.
+
+MicroG-rako bateria optimizazioak desgaitzeak ez du bateriaren erabilera negatiboki eragingo.
+
+Sakatu jarraitzeko botoia eta baimendu optimizazio aldaketak."</string>
+            <string name="revanced_gms_core_dialog_continue_text">Jarraitu</string>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch"/>
         <patch id="misc.audio.forceOriginalAudioPatch">
             <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
         </patch>
-        <patch id="misc.debugging.enableDebuggingPatch"/>
+        <patch id="misc.debugging.enableDebuggingPatch">
+            <string name="revanced_debug_feature_flags_manager_toast_no_flags">Aplikazioa berrabiarazi eginbide hau erabiltzeko</string>
+            <string name="revanced_debug_protocolbuffer_title">Log protokolo-bufferra</string>
+            <string name="revanced_debug_protocolbuffer_summary_on">Arazketa-erregistroek proto-bufferra barne hartzen dute</string>
+            <string name="revanced_debug_protocolbuffer_summary_off">Arazketa-erregistroek ez dute proto-bufferra barne hartzen</string>
+            <string name="revanced_debug_protocolbuffer_user_dialog_message">"Ezarpen hau gaitzeak diseinu-datu gehigarriak erregistratuko ditu, UI osagai batzuen pantailako testua barne.
+
+Honek osagaiak identifikatzen lagun dezake iragazki pertsonalizatuak sortzean.
+
+Hala ere, hau gaitzeak erabiltzailearen datu batzuk ere erregistratuko ditu, adibidez, zure IP helbidea."</string>
+        </patch>
         <patch id="misc.privacy.sanitizeSharingLinksPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
@@ -48,40 +85,135 @@ Second \"item\" text"</string>
         <patch id="misc.settings.settingsPatch"/>
         <patch id="misc.backgroundplayback.backgroundPlaybackPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
-            <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
+            <string name="revanced_hide_creator_store_shelf_title">Ezkutatu sortzaileen denda-apala</string>
+            <string name="revanced_hide_creator_store_shelf_summary_on">Bideo-erreproduzitzailearen azpiko sortzaileen denda-apala ezkutatuta dago</string>
+            <string name="revanced_hide_creator_store_shelf_summary_off">Bideo-erreproduzitzailearen azpiko sortzaileen denda-apala ikusgai dago</string>
+            <string name="revanced_hide_comments_section_in_home_feed_title">Ezkutatu iruzkinen atala bideoen azpian Hasierako jarioan</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_on">Iruzkinen atala bideoen azpian Hasierako jarioan ezkutatuta dago</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_off">Iruzkinen atala bideoen azpian Hasierako jarioan ikusgai dago</string>
+            <!-- 'Latest videos' should be translated using the same localized wording YouTube displays for the button.
+                 This button usually appears in the Home feed for refreshing the feed. -->
+            <string name="revanced_hide_latest_videos_button_title">Ezkutatu \'Azken bideoak\' botoia</string>
+            <string name="revanced_hide_latest_videos_button_summary_on">Azken bideoak botoia ezkutatuta dago</string>
+            <string name="revanced_hide_latest_videos_button_summary_off">Azken bideoak botoia ikusgai dago</string>
+            <!-- 'Notify me' should be translated using the same localized wording YouTube displays for this button.
+                  This button usually appears in the Subscriptions feed for future livestreams or unreleased videos. -->
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
             <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+            <string name="revanced_hide_web_search_results_title">Ezkutatu web bilaketaren emaitzak</string>
+            <string name="revanced_hide_web_search_results_summary_on">Web bilaketaren emaitzak ezkutatuta daude</string>
+            <string name="revanced_hide_web_search_results_summary_off">Web bilaketaren emaitzak ikusgai daude</string>
+            <string name="revanced_hide_you_may_like_section_title">Ezkutatu \'Agian gustatuko zaizu\' atala</string>
+            <string name="revanced_hide_you_may_like_section_summary_on"> \'Agian gustatuko zaizu\' atala ezkutatuta dago</string>
+            <string name="revanced_hide_you_may_like_section_summary_off"> \'Agian gustatuko zaizu\' atala ikusgai dago</string>
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                  This appears in the video player for certain videos. -->
+                   This button usually appears in the video player for certain videos. -->
+            <!-- 'Live chat replay' should be translated using the same localized wording YouTube displays for the button.
+       This button usually appears in the player overlay for live streamed videos after opening live chat. -->
+            <string name="revanced_hide_live_chat_replay_button_title">Ezkutatu \'Zuzeneko txataren errepikapena\' botoia</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_on">Zuzeneko txataren errepikapena botoia erreproduzitzailearen gainjarpenean ezkutatuta dago</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_off">Zuzeneko txataren errepikapena botoia erreproduzitzailearen gainjarpenean ikusgai dago</string>
+            <string name="revanced_hide_video_title_title">Ezkutatu bideoaren izenburua</string>
+            <string name="revanced_hide_video_title_summary_on">Bideoaren izenburua erreproduzitzailearen gainjarpenean ezkutatuta dago</string>
+            <string name="revanced_hide_video_title_summary_off">Bideoaren izenburua erreproduzitzailearen gainjarpenean ikusgai dago</string>
+            <string name="revanced_hide_course_progress_section_title">Ezkutatu \'Ikastaroaren aurrerapena\'</string>
+            <string name="revanced_hide_course_progress_section_summary_on">Ikastaroaren aurrerapen atala ezkutatuta dago</string>
+            <string name="revanced_hide_course_progress_section_summary_off">Ikastaroaren aurrerapen atala ikusgai dago</string>
+            <string name="revanced_hide_explore_section_title">Ezkutatu Arakatu</string>
+            <string name="revanced_hide_explore_section_summary_on">\'Ikastaro hau arakatu\' eta \'Podcastea arakatu\' atalak ezkutatuta daude</string>
+            <string name="revanced_hide_explore_section_summary_off">\'Ikastaro hau arakatu\' eta \'Podcastea arakatu\' atalak ikusgai daude</string>
+            <string name="revanced_hide_explore_course_section_title">Ezkutatu \'Ikastaro hau arakatu\'</string>
+            <string name="revanced_hide_explore_course_section_summary_on">\'Ikastaro hau arakatu\' atala ezkutatuta dago</string>
+            <string name="revanced_hide_explore_course_section_summary_off">\'Ikastaro hau arakatu\' atala ikusgai dago</string>
+            <string name="revanced_hide_explore_podcast_section_title">Ezkutatu \'Podcastea arakatu\'</string>
+            <string name="revanced_hide_explore_podcast_section_summary_on">\'Podcastea arakatu\' atala ezkutatuta dago</string>
+            <string name="revanced_hide_explore_podcast_section_summary_off">\'Podcastea arakatu\' atala ikusgai dago</string>
+            <string name="revanced_hide_featured_places_section_title">Ezkutatu \'Leku aipagarriak\'</string>
+            <string name="revanced_hide_featured_places_section_summary_on">Leku aipagarriak atala ezkutatuta dago</string>
+            <string name="revanced_hide_featured_places_section_summary_off">Leku aipagarriak atala ikusgai dago</string>
+            <string name="revanced_hide_feed_flyout_menu_title">Gaitu jarioaren laster-menuaren iragazkia</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_on">Jarioaren laster-menuaren iragazkia gaituta dago</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_off">Jarioaren laster-menuaren iragazkia desgaituta dago</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Jarioaren laster-menuaren iragazkia</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Sartu iragazteko laster-menuaren izenak, bat lerroko</string>
+            <string name="revanced_hide_gaming_section_title">Ezkutatu Jokoak</string>
+            <string name="revanced_hide_gaming_section_summary_on">Jokoak atala ezkutatuta dago</string>
+            <string name="revanced_hide_gaming_section_summary_off">Jokoak atala ikusgai dago</string>
+            <string name="revanced_hide_music_section_title">Ezkutatu Musika</string>
+            <string name="revanced_hide_music_section_summary_on">Musika atala ezkutatuta dago</string>
+            <string name="revanced_hide_music_section_summary_off">Musika atala ikusgai dago</string>
+            <string name="revanced_hide_quizzes_section_title">Ezkutatu Galdetegiak</string>
+            <string name="revanced_hide_quizzes_section_summary_on">Galdetegiak atala ezkutatuta dago</string>
+            <string name="revanced_hide_quizzes_section_summary_off">Galdetegiak atala ikusgai dago</string>
+            <string name="revanced_hide_channel_tab_title">Gaitu kanalaren fitxaren iragazkia</string>
+            <string name="revanced_hide_channel_tab_summary_on">Kanalaren fitxaren iragazkia gaituta dago</string>
+            <string name="revanced_hide_channel_tab_summary_off">Kanalaren fitxaren iragazkia desgaituta dago</string>
+            <string name="revanced_hide_channel_tab_filter_strings_title">Kanalaren fitxaren iragazkia</string>
+            <string name="revanced_hide_channel_tab_filter_strings_summary">Sartu iragazteko kanalaren fitxen izenak, bat lerroko</string>
             <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
             <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
             <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+            <string name="revanced_hide_view_count_user_dialog_message">"Mugaketak:
+• Shorts apalak, kanal orriak eta bilaketa-emaitzak ikustaldi-kopuruak erakusten jarrai dezakete.
+• Eginbide honek ez du funtzionatzen automobilgintzako forma-faktoreekin."</string>
             <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+            <string name="revanced_hide_upload_time_user_dialog_message">"Mugaketak:
+• Shorts apalak, kanal orriak eta bilaketa-emaitzak kargatze-denborak erakusten jarrai dezakete.
+• Eginbide honek ez du funtzionatzen automobilgintzako forma-faktoreekin."</string>
             <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
+            <string name="revanced_hide_keyword_content_about_summary">"Hasiera/Harpidetzak/Bilaketa-emaitzak iragazi egiten dira, gako-hitz esaldiekin bat datozen edukiak ezkutatzeko
+
+Mugaketak:
+• Shorts ezin dira ezkutatu kanalaren izenaren arabera
+• UI osagai batzuk agian ez dira ezkutatuko
+• Gako-hitz bat bilatzeak ez du emaitzarik erakutsiko"</string>
             <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
-            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_hide_fullscreen_ads_summary_on">Pantaila osoko iragarkiak ezkutatuta daude</string>
+            <string name="revanced_hide_player_popup_ads_title">Ezkutatu erreproduzitzailearen pop-up iragarkiak</string>
+            <string name="revanced_hide_player_popup_ads_summary_on">Erreproduzitzailearen pop-up iragarkiak ezkutatuta daude</string>
+            <string name="revanced_hide_player_popup_ads_summary_off">Erreproduzitzailearen pop-up iragarkiak ikusgai daude</string>
+            <string name="revanced_hide_view_products_banner_summary_on">Produktuak ikusteko pankarta erreproduzitzailearen gainjarpenean ezkutatuta dago</string>
+            <string name="revanced_hide_view_products_banner_summary_off">Produktuak ikusteko pankarta erreproduzitzailearen gainjarpenean ikusgai dago</string>
+            <string name="revanced_hide_youtube_premium_promotions_title">Ezkutatu YouTube Premium promozioak</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_on">YouTube Premium promozioak ezkutatuta daude</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_off">YouTube Premium promozioak ikusgai daude</string>
         </patch>
-        <patch id="ad.getpremium.hideGetPremiumPatch"/>
         <patch id="ad.video.videoAdsPatch"/>
-        <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"/>
+        <patch id="interaction.copyvideourl.copyVideoURLResourcePatch">
+            <string name="revanced_share_copy_url_success">URLa arbelera kopiatu da</string>
+            <string name="revanced_share_copy_url_timestamp_success">URLa denbora-markarekin kopiatu da</string>
+            <string name="revanced_copy_video_url_title">Erakutsi bideoaren URLaren kopia botoia</string>
+            <string name="revanced_copy_video_url_summary_on">Bideoaren URLaren kopia botoia ikusgai dago. Sakatu bideoaren URLa kopiatzeko. Luze sakatu denbora-markarekin kopiatzeko</string>
+            <string name="revanced_copy_video_url_summary_off">Bideoaren URLaren kopia botoia ez dago ikusgai</string>
+            <string name="revanced_copy_video_url_timestamp_title">Erakutsi denbora-markaren URLaren kopia botoia</string>
+            <string name="revanced_copy_video_url_timestamp_summary_on">Denbora-markaren URLaren kopia botoia ikusgai dago. Sakatu denbora-markarekin bideoaren URLa kopiatzeko. Luze sakatu denbora-markarik gabe kopiatzeko</string>
+            <string name="revanced_copy_video_url_timestamp_summary_off">Denbora-markaren URLaren kopia botoia ez dago ikusgai</string>
+        </patch>
         <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"/>
-        <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch"/>
+        <patch id="layout.hide.signintotv.disableSignInToTVPopupPatch">
+            <string name="revanced_disable_sign_in_to_tv_popup_title">Desgaitu \'Telebistan saioa hasi\' pop-upa</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_on">\'Telebistan saioa hasi\' pop-upa desgaituta dago</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_off">\'Telebistan saioa hasi\' pop-upa gaituta dago</string>
+        </patch>
         <patch id="interaction.doubletap.disableDoubleTapActionsPatch"/>
         <patch id="interaction.downloads.downloadsResourcePatch">
             <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
         </patch>
         <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"/>
-        <patch id="interaction.seekbar.enableSeekbarTappingPatch"/>
+        <patch id="interaction.seekbar.enableTapToSeekPatch">
+            <string name="revanced_tap_to_seek_title">Gaitu sakatu eta bilatu</string>
+            <string name="revanced_tap_to_seek_summary_on">Sakatu eta bilatu gaituta dago</string>
+            <string name="revanced_tap_to_seek_summary_off">Sakatu eta bilatu desgaituta dago</string>
+        </patch>
         <patch id="interaction.swipecontrols.swipeControlsResourcePatch"/>
         <patch id="layout.autocaptions.autoCaptionsPatch"/>
         <patch id="layout.buttons.action.hideButtonsPatch">
@@ -89,25 +221,82 @@ Second \"item\" text"</string>
             <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
             <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
             <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually only shows on live streams. -->
+                  This button usually appears on live streamed videos. -->
             <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged-in user. -->
+                  This button usually appears on videos uploaded by the logged-in user. -->
             <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button usually appears if the user IP is from a specific region such as the USA or EU. -->
             <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_clip_button_user_dialog_message">Ezkutatzeak agian ez du funtzionatuko erabiltzaile-kontu batzuetan.</string>
             <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
         </patch>
-        <patch id="layout.buttons.navigation.navigationButtonsPatch">
+        <patch id="layout.buttons.navigation.navigationBarPatch">
+            <string name="revanced_navigation_buttons_screen_title">Nabigazio-botoiak</string>
+            <string name="revanced_navigation_buttons_screen_summary">Ezkutatu edo aldatu nabigazio-barrako botoiak</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
+            <string name="revanced_hide_home_button_title">Ezkutatu Hasiera</string>
+            <string name="revanced_hide_home_button_summary_on">Hasiera botoia ezkutatuta dago</string>
+            <string name="revanced_hide_home_button_summary_off">Hasiera botoia ikusgai dago</string>
             <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_shorts_button_title">Ezkutatu Shorts</string>
+            <string name="revanced_hide_shorts_button_summary_on">Shorts botoia ezkutatuta dago</string>
+            <string name="revanced_hide_shorts_button_summary_off">Shorts botoia ikusgai dago</string>
             <!-- 'Create' has no display name. Translate normally. -->
+            <string name="revanced_hide_create_button_title">Ezkutatu Sortu</string>
+            <string name="revanced_hide_create_button_summary_on">Sortu botoia ezkutatuta dago</string>
+            <string name="revanced_hide_create_button_summary_off">Sortu botoia ikusgai dago</string>
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_subscriptions_button_title">Ezkutatu Harpidetzak</string>
+            <string name="revanced_hide_subscriptions_button_summary_on">Harpidetzak botoia ezkutatuta dago</string>
+            <string name="revanced_hide_subscriptions_button_summary_off">Harpidetzak botoia ikusgai dago</string>
+            <string name="revanced_hide_notifications_button_title">Ezkutatu Jakinarazpenak</string>
+            <string name="revanced_hide_notifications_button_summary_on">Jakinarazpenak botoia ezkutatuta dago</string>
+            <string name="revanced_hide_notifications_button_summary_off">Jakinarazpenak botoia ikusgai dago</string>
             <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_switch_create_with_notifications_button_title">Aldatu Sortu eta Jakinarazpenak</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_on">Sortu botoia Jakinarazpenak botoiarekin trukatu da</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_off">Sortu botoia ez da Jakinarazpenak botoiarekin trukatu</string>
+            <string name="revanced_switch_create_with_notifications_button_user_dialog_message">Ezarpen hau aldatzeak ez badu eraginik, saiatu inkognito modura aldatzen.</string>
+            <string name="revanced_hide_navigation_button_labels_title">Ezkutatu nabigazio-botoien etiketak</string>
+            <string name="revanced_hide_navigation_button_labels_summary_on">Etiketak ezkutatuta daude</string>
+            <string name="revanced_hide_navigation_button_labels_summary_off">Etiketak ikusgai daude</string>
+            <string name="revanced_narrow_navigation_buttons_title">Gaitu nabigazio-botoi estuak</string>
+            <string name="revanced_narrow_navigation_buttons_summary_on">Nabigazio-botoien arteko tartea estua da</string>
+            <string name="revanced_narrow_navigation_buttons_summary_off">Nabigazio-botoien arteko tartea normala da</string>
+            <string name="revanced_navigation_bar_animations_title">Gaitu nabigazio-barrako animazioak</string>
+            <string name="revanced_navigation_bar_animations_summary_on">Nabigazio-trantsizioak animatuta daude</string>
+            <string name="revanced_navigation_bar_animations_summary_off">Nabigazio-trantsizioak ez daude animatuta</string>
+            <string name="revanced_disable_translucent_status_bar_title">Desgaitu egoera-barra zeharrargia</string>
+            <string name="revanced_disable_translucent_status_bar_summary_on">Egoera-barra opakoa da</string>
+            <string name="revanced_disable_translucent_status_bar_summary_off">Egoera-barra opakoa edo zeharrargia da</string>
+            <string name="revanced_disable_translucent_status_bar_user_dialog_message">"Mugaketak:
+• Barra beltz bat ager daiteke bideo-erreproduzitzailearen goialdean.
+• Gailu batzuetan, eginbide hau gaitzeak sistemaren nabigazio-barra gardena bihur dezake."</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_title">Desgaitu barra zeharrargi argia</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Modu argiko nabigazio-barra opakoa da</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Modu argiko nabigazio-barra opakoa edo zeharrargia da</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_title">Desgaitu barra zeharrargi iluna</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Modu iluneko nabigazio-barra opakoa da</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Modu iluneko nabigazio-barra opakoa edo zeharrargia da</string>
+            <string name="revanced_toolbar_screen_title">Tresna-barra</string>
+            <string name="revanced_toolbar_screen_summary">Ezkutatu edo aldatu tresna-barrako osagaiak</string>
+            <string name="revanced_hide_toolbar_create_button_title">Ezkutatu Sortu botoia</string>
+            <string name="revanced_hide_toolbar_create_button_summary_on">Sortu botoia ezkutatuta dago</string>
+            <string name="revanced_hide_toolbar_create_button_summary_off">Sortu botoia ikusgai dago</string>
+            <string name="revanced_hide_toolbar_notification_button_title">Ezkutatu Jakinarazpenak botoia</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_on">Jakinarazpenak botoia ezkutatuta dago</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_off">Jakinarazpenak botoia ikusgai dago</string>
+            <string name="revanced_hide_toolbar_search_button_title">Ezkutatu Bilatu botoia</string>
+            <string name="revanced_hide_toolbar_search_button_summary_on">Bilatu botoia ezkutatuta dago</string>
+            <string name="revanced_hide_toolbar_search_button_summary_off">Bilatu botoia ikusgai dago.</string>
+            <string name="revanced_wide_searchbar_title">Gaitu bilaketa-barra zabala</string>
+            <string name="revanced_wide_searchbar_summary_on">Bilaketa-barra zabala gaituta dago</string>
+            <string name="revanced_wide_searchbar_summary_off">Bilaketa-barra zabala desgaituta dago</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -126,25 +315,67 @@ Second \"item\" text"</string>
         </patch>
         <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
             <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+            <string name="revanced_hide_collapse_button_title">Ezkutatu Tolestu botoia</string>
+            <string name="revanced_hide_collapse_button_summary_on">Tolestu botoia ezkutatuta dago</string>
+            <string name="revanced_hide_collapse_button_summary_off">Tolestu botoia ikusgai dago</string>
+            <string name="revanced_hide_fullscreen_button_title">Ezkutatu Pantaila osoa botoia</string>
+            <string name="revanced_hide_fullscreen_button_summary_on">Pantaila osoa botoia ezkutatuta dago</string>
+            <string name="revanced_hide_fullscreen_button_summary_off">Pantaila osoa botoia ikusgai dago</string>
         </patch>
-        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch"/>
+        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
+            <string name="revanced_hide_end_screen_cards_title">Ezkutatu amaiera-pantailako txartelak</string>
+            <string name="revanced_hide_end_screen_cards_summary_on">Amaiera-pantailako txartelak ezkutatuta daude</string>
+            <string name="revanced_hide_end_screen_cards_summary_off">Amaiera-pantailako txartelak ikusgai daude</string>
+        </patch>
         <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"/>
         <patch id="layout.hide.infocards.hideInfocardsResourcePatch"/>
         <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"/>
         <patch id="layout.hide.seekbar.hideSeekbarPatch">
             <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
+            <string name="revanced_fullscreen_large_seekbar_title">Gaitu pantaila osoko bilaketa-barra handia</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_on">Pantaila osoko bilaketa-barra handia da</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_off">Pantaila osoko bilaketa-barra tamaina normalekoa da</string>
         </patch>
         <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+            <string name="revanced_hide_shorts_channel_title">Ezkutatu Shorts kanalaren orrian</string>
+            <string name="revanced_hide_shorts_channel_summary_on">Ezkutatuta kanalaren orrian</string>
+            <string name="revanced_hide_shorts_channel_summary_off">Ikusgai kanalaren orrian</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+            <string name="revanced_hide_shorts_video_description_title">Ezkutatu Shorts bideoaren deskribapenean</string>
+            <string name="revanced_hide_shorts_video_description_summary_on">Ezkutatuta bideoaren deskribapenean</string>
+            <string name="revanced_hide_shorts_video_description_summary_off">Ikusgai bideoaren deskribapenean</string>
+            <string name="revanced_hide_shorts_ai_button_title">Ezkutatu AI botoia</string>
+            <string name="revanced_hide_shorts_ai_button_summary_on">AI botoia ezkutatuta dago</string>
+            <string name="revanced_hide_shorts_ai_button_summary_off">AI botoia ikusgai dago</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_title">Ezkutatu \'Auto-bikoiztua\' etiketa</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Auto-bikoiztua etiketa ezkutatuta dago</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Auto-bikoiztua etiketa ikusgai dago</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+            <!-- YT may no longer use this feature and this setting may be obsolete. -->
             <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
             <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
         </patch>
-        <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"/>
+        <patch id="layout.hide.autoplaypreview.hideAutoplayPreviewPatch">
+            <string name="revanced_hide_autoplay_preview_title">Ezkutatu erreprodukzio automatikoko aurrebista</string>
+            <string name="revanced_hide_autoplay_preview_summary_on">Erreprodukzio automatikoko aurrebista ezkutatuta dago</string>
+            <string name="revanced_hide_autoplay_preview_summary_off">Erreprodukzio automatikoko aurrebista ikusgai dago</string>
+        </patch>
+        <patch id="layout.hide.endscreensuggestedvideo.hideEndScreenSuggestedVideoPatch">
+            <string name="revanced_end_screen_suggested_video_title">Ezkutatu amaiera-pantailako iradokitako bideoa</string>
+            <string name="revanced_end_screen_suggested_video_summary_on">"Amaiera-pantailako iradokitako bideoa ezkutatuta dago erreprodukzio automatikoa desgaituta dagoenean
+
+Erreprodukzio automatikoa YouTube ezarpenetan alda daiteke:
+Ezarpenak → Erreprodukzioa → Hurrengo bideoa automatikoki erreproduzitu"</string>
+            <string name="revanced_end_screen_suggested_video_summary_off">Amaiera-pantailako iradokitako bideoa ikusgai dago</string>
+        </patch>
         <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch"/>
         <patch id="layout.hide.time.hideTimestampPatch"/>
-        <patch id="layout.panels.popup.playerPopupPanelsPatch"/>
+        <patch id="layout.panels.popup.playerPopupPanelsPatch">
+            <string name="revanced_disable_player_popup_panels_title">Ezkutatu erreproduzitzailearen pop-up panelak</string>
+            <string name="revanced_disable_player_popup_panels_summary_on">Erreproduzitzailearen pop-up panelak ezkutatuta daude</string>
+            <string name="revanced_disable_player_popup_panels_summary_off">Erreproduzitzailearen pop-up panelak bistaratuta daude</string>
+        </patch>
         <patch id="layout.player.fullscreen.exitFullscreenPatch"/>
         <patch id="layout.player.fullscreen.openVideosFullscreen"/>
         <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"/>
@@ -155,10 +386,12 @@ Second \"item\" text"</string>
             <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
             <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
         </patch>
-        <patch id="layout.searchbar.wideSearchbarPatch"/>
-        <patch id="layout.seekbar.seekbarThumbnailsPatch"/>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
             <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
+            <string name="revanced_sb_segments_nomusic_sum">Musika-bideoetan soilik erabiltzeko. Musika gabeko musika-bideoen atalak, beste kategoria batek oraindik estaltzen ez dituenak</string>
+            <string name="revanced_sb_submit_failed_forbidden">Ezin da segmentua bidali: %s</string>
+            <string name="revanced_sb_submit_failed_duplicate">"Ezin da segmentua bidali.
+Jada existitzen da"</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <!-- A segment start and end time, such as "02:10 to 03:40". -->
             <!-- Shown in the settings preferences, and translations can be any text length. -->
@@ -170,7 +403,11 @@ Second \"item\" text"</string>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch"/>
         <patch id="layout.shortsautoplay.shortsAutoplayPatch"/>
         <patch id="layout.miniplayer.miniplayerPatch"/>
-        <patch id="layout.theme.themePatch"/>
+        <patch id="layout.theme.themePatch">
+            <string name="revanced_splash_screen_animation_style_entry_1">Desgaituta</string>
+            <string name="revanced_splash_screen_animation_style_entry_2">Kolorea</string>
+            <string name="revanced_splash_screen_animation_style_entry_3">Zuri-beltza</string>
+        </patch>
         <patch id="layout.branding.customBrandingPatch"/>
         <patch id="layout.branding.changeHeaderPatch">
             <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
@@ -187,7 +424,11 @@ Second \"item\" text"</string>
         <patch id="misc.loopvideo.button.loopVideoButtonPatch"/>
         <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"/>
         <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"/>
-        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch"/>
+        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_title">Desgaitu sakatu eta eduki haptikoak</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">Sakatu eta eduki haptikoak desgaituta daude</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">Sakatu eta eduki haptikoak gaituta daude</string>
+        </patch>
         <patch id="misc.gms.accountCredentialsInvalidTextPatch"/>
         <patch id="misc.links.bypassURLRedirectsPatch"/>
         <patch id="misc.links.openLinksExternallyPatch"/>
@@ -200,6 +441,11 @@ Second \"item\" text"</string>
         <patch id="video.speed.remember.rememberPlaybackSpeedPatch"/>
         <patch id="video.codecs.disableVideoCodecsPatch"/>
         <patch id="video.quality.advancedVideoQualityMenuPatch"/>
+        <patch id="video.quality.hidePremiumVideoQualityPatch">
+            <string name="revanced_hide_premium_video_quality_title">Ezkutatu Premium kalitate-aukerak</string>
+            <string name="revanced_hide_premium_video_quality_summary_on">Premium kalitate-aukerak ezkutatuta daude</string>
+            <string name="revanced_hide_premium_video_quality_summary_off">Premium kalitate-aukerak ikusgai daude</string>
+        </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch"/>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
@@ -207,7 +453,9 @@ Second \"item\" text"</string>
     </app>
     <app id="music">
         <patch id="layout.branding.customBrandingPatch"/>
-        <patch id="misc.settings.settingsPatch"/>
+        <patch id="misc.settings.settingsPatch">
+            <!-- In languages where "About" is ambiguous, translate to "About ReVanced" (i.e., About this app). -->
+        </patch>
         <patch id="ad.video.hideVideoAdsPatch"/>
         <patch id="interaction.permanentrepeat.permanentRepeatPatch"/>
         <patch id="layout.buttons.hideButtons"/>

@@ -27,18 +27,55 @@ Second \"item\" text"</string>
         <patch id="misc.checks.checkEnvironmentPatch"/>
         <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"/>
         <patch id="misc.settings.settingsResourcePatch">
+            <string name="revanced_settings_disable_bold_icons_title">Жоон иконаларды өчүрүү</string>
+            <string name="revanced_settings_disable_bold_icons_summary_on">Иконалар жоон эмес</string>
+            <string name="revanced_settings_disable_bold_icons_summary_off">Иконалар жоон</string>
             <!-- Settings about dialog. -->
             <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
+            <string name="revanced_gms_core_screen_title">GmsCore</string>
+            <string name="revanced_gms_core_screen_summary">GmsCore\'го тиешелүү жөндөөлөр</string>
+            <string name="revanced_gms_core_check_updates_title">GmsCore жаңыртууларын текшерүү</string>
+            <string name="revanced_gms_core_check_updates_summary_on">Жаңыртууларды текшерүү иштетилген</string>
+            <string name="revanced_gms_core_check_updates_summary_off">Жаңыртууларды текшерүү өчүрүлгөн</string>
+            <string name="revanced_gms_core_settings_title">GmsCore Жөндөөлөрүн ачуу</string>
+            <string name="revanced_gms_core_settings_summary">GmsCore Жөндөөлөрү</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_gms_core_toast_not_installed_message">MicroG GmsCore орнотулган эмес. Орнотуңуз.</string>
+            <string name="revanced_gms_core_dialog_title">Аракет талап кылынат</string>
+            <string name="revanced_gms_core_toast_update_check_failed_message">MicroG GmsCore жаңыртууларын текшерүү мүмкүн болгон жок</string>
+            <string name="revanced_gms_core_update_available_message">MicroG GmsCore\'дун жаңы версиясы (%1$s) жеткиликтүү. Учурда сиз %2$s версиясын колдонуп жатасыз.</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore фондо иштөөгө уруксаты жок.
+
+Телефонуңуз үчүн \"Менин колдонмомду өлтүрбө\" жол көрсөткүчүн ээрчиңиз жана нускамаларды MicroG орнотууңузга колдонуңуз.
+
+Бул колдонмонун иштеши үчүн талап кылынат."</string>
+            <string name="revanced_gms_core_dialog_open_website_text">Веб-сайтты ачуу</string>
+            <string name="revanced_gms_core_dialog_cancel_text">Жокко чыгаруу</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Көйгөйлөрдү болтурбоо үчүн MicroG GmsCore батареяны оптималдаштырууну өчүрүү керек.
+
+MicroG үчүн батареяны оптималдаштырууну өчүрүү батареянын колдонулушуна терс таасирин тийгизбейт.
+
+Улантуу баскычын басып, оптималдаштыруу өзгөрүүлөрүнө уруксат бериңиз."</string>
+            <string name="revanced_gms_core_dialog_continue_text">Улантуу</string>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch"/>
         <patch id="misc.audio.forceOriginalAudioPatch">
             <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
         </patch>
-        <patch id="misc.debugging.enableDebuggingPatch"/>
+        <patch id="misc.debugging.enableDebuggingPatch">
+            <string name="revanced_debug_feature_flags_manager_toast_no_flags">Бул функцияны колдонуу үчүн колдонмону өчүрүп кайра баштаңыз.</string>
+            <string name="revanced_debug_protocolbuffer_title">Протокол буферди журналга жазуу</string>
+            <string name="revanced_debug_protocolbuffer_summary_on">Мүчүлүштүктөрдү оңдоо журналдары протокол буферди камтыйт</string>
+            <string name="revanced_debug_protocolbuffer_summary_off">Мүчүлүштүктөрдү оңдоо журналдары протокол буферди камтыбайт</string>
+            <string name="revanced_debug_protocolbuffer_user_dialog_message">"Бул жөндөөнү иштетүү кошумча жайгашуу дайындарын, анын ичинде кээ бир UI компоненттери үчүн экрандагы текстти каттайт.
+
+Бул ыңгайлаштырылган чыпкаларды түзүүдө компоненттерди аныктоого жардам берет.
+
+Бирок, муну иштетүү IP дарегиңиз сыяктуу кээ бир колдонуучу дайындарын да каттайт."</string>
+        </patch>
         <patch id="misc.privacy.sanitizeSharingLinksPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
@@ -48,40 +85,135 @@ Second \"item\" text"</string>
         <patch id="misc.settings.settingsPatch"/>
         <patch id="misc.backgroundplayback.backgroundPlaybackPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
-            <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
+            <string name="revanced_hide_creator_store_shelf_title">Жаратуучу дүкөнүнүн текчесин жашыруу</string>
+            <string name="revanced_hide_creator_store_shelf_summary_on">Видео ойноткучтун астындагы жаратуучу дүкөнүнүн текчеси жашырылган</string>
+            <string name="revanced_hide_creator_store_shelf_summary_off">Видео ойноткучтун астындагы жаратуучу дүкөнүнүн текчеси көрсөтүлгөн</string>
+            <string name="revanced_hide_comments_section_in_home_feed_title">Башкы лентадагы видеолордун астындагы комментарийлер бөлүмүн жашыруу</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_on">Башкы лентадагы видеолордун астындагы комментарийлер бөлүмү жашырылган</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_off">Башкы лентадагы видеолордун астындагы комментарийлер бөлүмү көрсөтүлгөн</string>
+            <!-- 'Latest videos' should be translated using the same localized wording YouTube displays for the button.
+                 This button usually appears in the Home feed for refreshing the feed. -->
+            <string name="revanced_hide_latest_videos_button_title">Жаңы видеолор</string>
+            <string name="revanced_hide_latest_videos_button_summary_on">Жаңы видеолор баскычы жашырылган</string>
+            <string name="revanced_hide_latest_videos_button_summary_off">Жаңы видеолор баскычы көрсөтүлгөн</string>
+            <!-- 'Notify me' should be translated using the same localized wording YouTube displays for this button.
+                  This button usually appears in the Subscriptions feed for future livestreams or unreleased videos. -->
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
             <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+            <string name="revanced_hide_web_search_results_title">Веб издөө натыйжаларын жашыруу</string>
+            <string name="revanced_hide_web_search_results_summary_on">Веб издөө натыйжалары жашырылган</string>
+            <string name="revanced_hide_web_search_results_summary_off">Веб издөө натыйжалары көрсөтүлгөн</string>
+            <string name="revanced_hide_you_may_like_section_title">\"Сизге жагышы мүмкүн\" бөлүмүн жашыруу</string>
+            <string name="revanced_hide_you_may_like_section_summary_on">\"Сизге жагышы мүмкүн\" бөлүмү жашырылган</string>
+            <string name="revanced_hide_you_may_like_section_summary_off">\"Сизге жагышы мүмкүн\" бөлүмү көрсөтүлгөн</string>
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                  This appears in the video player for certain videos. -->
+                   This button usually appears in the video player for certain videos. -->
+            <!-- 'Live chat replay' should be translated using the same localized wording YouTube displays for the button.
+       This button usually appears in the player overlay for live streamed videos after opening live chat. -->
+            <string name="revanced_hide_live_chat_replay_button_title">\"Жандуу баарлашууну кайталоо\" баскычын жашыруу</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_on">Ойноткучтун үстүңкү катмарындагы \"Жандуу баарлашууну кайталоо\" баскычы жашырылган</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_off">Ойноткучтун үстүңкү катмарындагы \"Жандуу баарлашууну кайталоо\" баскычы көрсөтүлгөн</string>
+            <string name="revanced_hide_video_title_title">Видеонун аталышын жашыруу</string>
+            <string name="revanced_hide_video_title_summary_on">Ойноткучтун үстүңкү катмарындагы видеонун аталышы жашырылган</string>
+            <string name="revanced_hide_video_title_summary_off">Ойноткучтун үстүңкү катмарындагы видеонун аталышы көрсөтүлгөн</string>
+            <string name="revanced_hide_course_progress_section_title">Курстун жүрүшүн жашыруу</string>
+            <string name="revanced_hide_course_progress_section_summary_on">Курстун жүрүшү бөлүмү жашырылган</string>
+            <string name="revanced_hide_course_progress_section_summary_off">Курстун жүрүшү бөлүмү көрсөтүлгөн</string>
+            <string name="revanced_hide_explore_section_title">Изилдөөнү жашыруу</string>
+            <string name="revanced_hide_explore_section_summary_on">\"Бул курсту изилдөө\" жана \"Подкастты изилдөө\" бөлүмдөрү жашырылган</string>
+            <string name="revanced_hide_explore_section_summary_off">\"Бул курсту изилдөө\" жана \"Подкастты изилдөө\" бөлүмдөрү көрсөтүлгөн</string>
+            <string name="revanced_hide_explore_course_section_title">\"Бул курсту изилдөө\" бөлүмүн жашыруу</string>
+            <string name="revanced_hide_explore_course_section_summary_on">\"Бул курсту изилдөө\" бөлүмү жашырылган</string>
+            <string name="revanced_hide_explore_course_section_summary_off">\"Бул курсту изилдөө\" бөлүмү көрсөтүлгөн</string>
+            <string name="revanced_hide_explore_podcast_section_title">\"Подкастты изилдөө\" бөлүмүн жашыруу</string>
+            <string name="revanced_hide_explore_podcast_section_summary_on">\"Подкастты изилдөө\" бөлүмү жашырылган</string>
+            <string name="revanced_hide_explore_podcast_section_summary_off">\"Подкастты изилдөө\" бөлүмү көрсөтүлгөн</string>
+            <string name="revanced_hide_featured_places_section_title">\"Өзгөчөлөнгөн жерлерди\" жашыруу</string>
+            <string name="revanced_hide_featured_places_section_summary_on">Өзгөчөлөнгөн жерлер</string>
+            <string name="revanced_hide_featured_places_section_summary_off">Өзгөчөлөнгөн жерлер бөлүмү көрсөтүлгөн</string>
+            <string name="revanced_hide_feed_flyout_menu_title">Лентанын калкыма меню чыпкасын иштетүү</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_on">Лентанын калкыма меню чыпкасы иштетилген</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_off">Лентанын калкыма меню чыпкасы өчүрүлгөн</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Лентанын калкыма меню чыпкасы</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Чыпкалоо үчүн калкыма меню аттарын сапка бирден киргизиңиз</string>
+            <string name="revanced_hide_gaming_section_title">Оюндарды жашыруу</string>
+            <string name="revanced_hide_gaming_section_summary_on">Оюндар бөлүмү жашырылган</string>
+            <string name="revanced_hide_gaming_section_summary_off">Оюндар бөлүмү көрсөтүлгөн</string>
+            <string name="revanced_hide_music_section_title">Музыканы жашыруу</string>
+            <string name="revanced_hide_music_section_summary_on">Музыка бөлүмү жашырылган</string>
+            <string name="revanced_hide_music_section_summary_off">Музыка бөлүмү көрсөтүлгөн</string>
+            <string name="revanced_hide_quizzes_section_title">Викториналарды жашыруу</string>
+            <string name="revanced_hide_quizzes_section_summary_on">Викториналар бөлүмү жашырылган</string>
+            <string name="revanced_hide_quizzes_section_summary_off">Викториналар бөлүмү көрсөтүлгөн</string>
+            <string name="revanced_hide_channel_tab_title">Канал өтмөгүнүн чыпкасын иштетүү</string>
+            <string name="revanced_hide_channel_tab_summary_on">Канал өтмөгүнүн чыпкасы иштетилген</string>
+            <string name="revanced_hide_channel_tab_summary_off">Канал өтмөгүнүн чыпкасы өчүрүлгөн</string>
+            <string name="revanced_hide_channel_tab_filter_strings_title">Канал өтмөгүнүн чыпкасы</string>
+            <string name="revanced_hide_channel_tab_filter_strings_summary">Чыпкалоо үчүн канал өтмөгүнүн аттарын сапка бирден киргизиңиз</string>
             <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
             <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
             <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+            <string name="revanced_hide_view_count_user_dialog_message">"Чектөөлөр:
+• Shorts текчелеринде, канал баракчаларында жана издөө натыйжаларында көрүү сандары дагы эле көрсөтүлүшү мүмкүн.
+• Бул функция унаа форма фактору менен иштебейт."</string>
             <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+            <string name="revanced_hide_upload_time_user_dialog_message">"Чектөөлөр:
+• Shorts текчелеринде, канал баракчаларында жана издөө натыйжаларында жүктөө убакыттары дагы эле көрсөтүлүшү мүмкүн.
+• Бул функция унаа форма фактору менен иштебейт."</string>
             <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
+            <string name="revanced_hide_keyword_content_about_summary">"Башкы бет/Жазылуулар/Издөө натыйжалары ачкыч сөз айкаштарына дал келген мазмунду жашыруу үчүн чыпкаланган
+
+Чектөөлөр:
+• Shorts каналдын аты боюнча жашырылбайт
+• Кээ бир UI компоненттери жашырылбай калышы мүмкүн
+• Ачкыч сөз менен издөө натыйжаларды көрсөтпөй калышы мүмкүн"</string>
             <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
-            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_hide_fullscreen_ads_summary_on">Толук экрандагы жарнамалар жашырылган</string>
+            <string name="revanced_hide_player_popup_ads_title">Ойноткучтун калкыма жарнамаларын жашыруу</string>
+            <string name="revanced_hide_player_popup_ads_summary_on">Ойноткучтун калкыма жарнамалары жашырылган</string>
+            <string name="revanced_hide_player_popup_ads_summary_off">Ойноткучтун калкыма жарнамалары көрсөтүлгөн</string>
+            <string name="revanced_hide_view_products_banner_summary_on">Ойноткучтун үстүңкү катмарындагы өнүмдөрдү көрүү баннери жашырылган</string>
+            <string name="revanced_hide_view_products_banner_summary_off">Ойноткучтун үстүңкү катмарындагы өнүмдөрдү көрүү баннери көрсөтүлгөн</string>
+            <string name="revanced_hide_youtube_premium_promotions_title">YouTube Premium промоакцияларын жашыруу</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_on">YouTube Premium промоакциялары жашырылган</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_off">YouTube Premium промоакциялары көрсөтүлгөн</string>
         </patch>
-        <patch id="ad.getpremium.hideGetPremiumPatch"/>
         <patch id="ad.video.videoAdsPatch"/>
-        <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"/>
+        <patch id="interaction.copyvideourl.copyVideoURLResourcePatch">
+            <string name="revanced_share_copy_url_success">URL алмашуу буферине көчүрүлдү</string>
+            <string name="revanced_share_copy_url_timestamp_success">Убакыт белгиси менен URL көчүрүлдү</string>
+            <string name="revanced_copy_video_url_title">Видеонун URL дарегин көчүрүү баскычын көрсөтүү</string>
+            <string name="revanced_copy_video_url_summary_on">Видеонун URL дарегин көчүрүү баскычы көрсөтүлгөн. Видеонун URL дарегин көчүрүү үчүн басыңыз. Убакыт белгиси менен көчүрүү үчүн басып туруңуз</string>
+            <string name="revanced_copy_video_url_summary_off">Видеонун URL дарегин көчүрүү баскычы көрсөтүлгөн эмес</string>
+            <string name="revanced_copy_video_url_timestamp_title">Убакыт белгиси менен URL көчүрүү баскычын көрсөтүү</string>
+            <string name="revanced_copy_video_url_timestamp_summary_on">Убакыт белгиси менен URL көчүрүү баскычы көрсөтүлгөн. Видеонун URL дарегин убакыт белгиси менен көчүрүү үчүн басыңыз. Убакыт белгиси жок көчүрүү үчүн басып туруңуз</string>
+            <string name="revanced_copy_video_url_timestamp_summary_off">Убакыт белгиси менен URL көчүрүү баскычы көрсөтүлгөн эмес</string>
+        </patch>
         <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"/>
-        <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch"/>
+        <patch id="layout.hide.signintotv.disableSignInToTVPopupPatch">
+            <string name="revanced_disable_sign_in_to_tv_popup_title">\"ТВга кирүү\" калкыма терезесин өчүрүү</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_on">\"ТВга кирүү\" калкыма терезеси өчүрүлгөн</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_off">\"ТВга кирүү\" калкыма терезеси иштетилген</string>
+        </patch>
         <patch id="interaction.doubletap.disableDoubleTapActionsPatch"/>
         <patch id="interaction.downloads.downloadsResourcePatch">
             <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
         </patch>
         <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"/>
-        <patch id="interaction.seekbar.enableSeekbarTappingPatch"/>
+        <patch id="interaction.seekbar.enableTapToSeekPatch">
+            <string name="revanced_tap_to_seek_title">Издөө үчүн басууну иштетүү</string>
+            <string name="revanced_tap_to_seek_summary_on">Издөө үчүн басуу иштетилген</string>
+            <string name="revanced_tap_to_seek_summary_off">Издөө үчүн басуу өчүрүлгөн</string>
+        </patch>
         <patch id="interaction.swipecontrols.swipeControlsResourcePatch"/>
         <patch id="layout.autocaptions.autoCaptionsPatch"/>
         <patch id="layout.buttons.action.hideButtonsPatch">
@@ -89,25 +221,82 @@ Second \"item\" text"</string>
             <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
             <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
             <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually only shows on live streams. -->
+                  This button usually appears on live streamed videos. -->
             <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged-in user. -->
+                  This button usually appears on videos uploaded by the logged-in user. -->
             <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button usually appears if the user IP is from a specific region such as the USA or EU. -->
             <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_clip_button_user_dialog_message">Кээ бир колдонуучу аккаунттары үчүн жашыруу иштебей калышы мүмкүн.</string>
             <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
         </patch>
-        <patch id="layout.buttons.navigation.navigationButtonsPatch">
+        <patch id="layout.buttons.navigation.navigationBarPatch">
+            <string name="revanced_navigation_buttons_screen_title">Навигация баскычтары</string>
+            <string name="revanced_navigation_buttons_screen_summary">Навигация тилкесинин баскычтарын жашыруу же өзгөртүү</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
+            <string name="revanced_hide_home_button_title">Башкы бетти жашыруу</string>
+            <string name="revanced_hide_home_button_summary_on">Башкы бет баскычы жашырылган</string>
+            <string name="revanced_hide_home_button_summary_off">Башкы бет баскычы көрсөтүлгөн</string>
             <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_shorts_button_title">Shorts жашыруу</string>
+            <string name="revanced_hide_shorts_button_summary_on">Shorts баскычы жашырылган</string>
+            <string name="revanced_hide_shorts_button_summary_off">Shorts баскычы көрсөтүлгөн</string>
             <!-- 'Create' has no display name. Translate normally. -->
+            <string name="revanced_hide_create_button_title">Түзүүнү жашыруу</string>
+            <string name="revanced_hide_create_button_summary_on">Түзүү баскычы жашырылган</string>
+            <string name="revanced_hide_create_button_summary_off">Түзүү баскычы көрсөтүлгөн</string>
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_subscriptions_button_title">Жазылууларды жашыруу</string>
+            <string name="revanced_hide_subscriptions_button_summary_on">Жазылуулар баскычы жашырылган</string>
+            <string name="revanced_hide_subscriptions_button_summary_off">Жазылуулар баскычы көрсөтүлгөн</string>
+            <string name="revanced_hide_notifications_button_title">Эскертмелерди жашыруу</string>
+            <string name="revanced_hide_notifications_button_summary_on">Эскертмелер баскычы жашырылган</string>
+            <string name="revanced_hide_notifications_button_summary_off">Эскертмелер баскычы көрсөтүлгөн</string>
             <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_switch_create_with_notifications_button_title">Түзүүнү Эскертмелер менен алмаштыруу</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_on">Түзүү баскычы Эскертмелер баскычы менен алмаштырылган</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_off">Түзүү баскычы Эскертмелер баскычы менен алмаштырылган эмес</string>
+            <string name="revanced_switch_create_with_notifications_button_user_dialog_message">Эгер бул жөндөөнү өзгөртүү натыйжа бербесе, Инкогнито режимине өтүп көрүңүз.</string>
+            <string name="revanced_hide_navigation_button_labels_title">Навигация баскычтарынын этикеткаларын жашыруу</string>
+            <string name="revanced_hide_navigation_button_labels_summary_on">Этикеткалар жашырылган</string>
+            <string name="revanced_hide_navigation_button_labels_summary_off">Этикеткалар көрсөтүлгөн</string>
+            <string name="revanced_narrow_navigation_buttons_title">Тар навигация баскычтарын иштетүү</string>
+            <string name="revanced_narrow_navigation_buttons_summary_on">Навигация баскычтарынын ортосундагы аралык тар</string>
+            <string name="revanced_narrow_navigation_buttons_summary_off">Навигация баскычтарынын ортосундагы аралык кадимкидей</string>
+            <string name="revanced_navigation_bar_animations_title">Навигация тилкесинин анимацияларын иштетүү</string>
+            <string name="revanced_navigation_bar_animations_summary_on">Навигация өтүүлөрү анимацияланган</string>
+            <string name="revanced_navigation_bar_animations_summary_off">Навигация өтүүлөрү анимацияланган эмес</string>
+            <string name="revanced_disable_translucent_status_bar_title">Тунук эмес абал тилкесин өчүрүү</string>
+            <string name="revanced_disable_translucent_status_bar_summary_on">Абал тилкеси тунук эмес</string>
+            <string name="revanced_disable_translucent_status_bar_summary_off">Абал тилкеси тунук эмес же тунук</string>
+            <string name="revanced_disable_translucent_status_bar_user_dialog_message">"Чектөөлөр:
+• Видео ойноткучтун жогору жагында кара тилке пайда болушу мүмкүн.
+• Кээ бир түзмөктөрдө бул функцияны иштетүү системанын навигация тилкесин тунук кылып өзгөртө алат."</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_title">Ачык тунук тилкени өчүрүү</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Жарык режимдеги навигация тилкеси тунук эмес</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Жарык режимдеги навигация тилкеси тунук эмес же тунук</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_title">Кара тунук тилкени өчүрүү</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Караңгы режимдеги навигация тилкеси тунук эмес</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Караңгы режимдеги навигация тилкеси тунук эмес же тунук</string>
+            <string name="revanced_toolbar_screen_title">Куралдар тилкеси</string>
+            <string name="revanced_toolbar_screen_summary">Куралдар тилкесинин компоненттерин жашыруу же өзгөртүү</string>
+            <string name="revanced_hide_toolbar_create_button_title">Түзүү баскычын жашыруу</string>
+            <string name="revanced_hide_toolbar_create_button_summary_on">Түзүү баскычы жашырылган</string>
+            <string name="revanced_hide_toolbar_create_button_summary_off">Түзүү баскычы көрсөтүлгөн</string>
+            <string name="revanced_hide_toolbar_notification_button_title">Эскертмелер баскычын жашыруу</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_on">Эскертмелер баскычы жашырылган</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_off">Эскертмелер баскычы көрсөтүлгөн</string>
+            <string name="revanced_hide_toolbar_search_button_title">Издөө баскычын жашыруу</string>
+            <string name="revanced_hide_toolbar_search_button_summary_on">Издөө баскычы жашырылган</string>
+            <string name="revanced_hide_toolbar_search_button_summary_off">Издөө баскычы көрсөтүлгөн.</string>
+            <string name="revanced_wide_searchbar_title">Кең издөө тилкесин иштетүү</string>
+            <string name="revanced_wide_searchbar_summary_on">Кең издөө тилкеси иштетилген</string>
+            <string name="revanced_wide_searchbar_summary_off">Кең издөө тилкеси өчүрүлгөн</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -126,25 +315,67 @@ Second \"item\" text"</string>
         </patch>
         <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
             <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+            <string name="revanced_hide_collapse_button_title">Кичирейтүү баскычын жашыруу</string>
+            <string name="revanced_hide_collapse_button_summary_on">Кичирейтүү баскычы жашырылган</string>
+            <string name="revanced_hide_collapse_button_summary_off">Кичирейтүү баскычы көрсөтүлгөн</string>
+            <string name="revanced_hide_fullscreen_button_title">Толук экран баскычын жашыруу</string>
+            <string name="revanced_hide_fullscreen_button_summary_on">Толук экран баскычы жашырылган</string>
+            <string name="revanced_hide_fullscreen_button_summary_off">Толук экран баскычы көрсөтүлгөн</string>
         </patch>
-        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch"/>
+        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
+            <string name="revanced_hide_end_screen_cards_title">Акыркы экран карталарын жашыруу</string>
+            <string name="revanced_hide_end_screen_cards_summary_on">Акыркы экран карталары жашырылган</string>
+            <string name="revanced_hide_end_screen_cards_summary_off">Акыркы экран карталары көрсөтүлгөн</string>
+        </patch>
         <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"/>
         <patch id="layout.hide.infocards.hideInfocardsResourcePatch"/>
         <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"/>
         <patch id="layout.hide.seekbar.hideSeekbarPatch">
             <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
+            <string name="revanced_fullscreen_large_seekbar_title">Толук экрандуу чоң издөө тилкесин иштетүү</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_on">Толук экрандуу издөө тилкеси чоң өлчөмдө</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_off">Толук экрандуу издөө тилкеси кадимки өлчөмдө</string>
         </patch>
         <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+            <string name="revanced_hide_shorts_channel_title">Канал баракчасындагы Shorts жашыруу</string>
+            <string name="revanced_hide_shorts_channel_summary_on">Канал баракчасында жашырылган</string>
+            <string name="revanced_hide_shorts_channel_summary_off">Канал баракчасында көрсөтүлгөн</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+            <string name="revanced_hide_shorts_video_description_title">Видео сыпаттамасындагы Shorts жашыруу</string>
+            <string name="revanced_hide_shorts_video_description_summary_on">Видео сыпаттамасында жашырылган</string>
+            <string name="revanced_hide_shorts_video_description_summary_off">Видео сыпаттамасында көрсөтүлгөн</string>
+            <string name="revanced_hide_shorts_ai_button_title">AI баскычын жашыруу</string>
+            <string name="revanced_hide_shorts_ai_button_summary_on">AI баскычы жашырылган</string>
+            <string name="revanced_hide_shorts_ai_button_summary_off">AI баскычы көрсөтүлгөн</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_title">\"Авто-котормо\" этикеткасын жашыруу</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Авто-котормо этикеткасы жашырылган</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Авто-котормо этикеткасы көрсөтүлгөн</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+            <!-- YT may no longer use this feature and this setting may be obsolete. -->
             <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
             <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
         </patch>
-        <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"/>
+        <patch id="layout.hide.autoplaypreview.hideAutoplayPreviewPatch">
+            <string name="revanced_hide_autoplay_preview_title">Авто ойнотуунун алдын ала көрүнүшүн жашыруу</string>
+            <string name="revanced_hide_autoplay_preview_summary_on">Авто ойнотуунун алдын ала көрүнүшү жашырылган</string>
+            <string name="revanced_hide_autoplay_preview_summary_off">Авто ойнотуунун алдын ала көрүнүшү көрсөтүлгөн</string>
+        </patch>
+        <patch id="layout.hide.endscreensuggestedvideo.hideEndScreenSuggestedVideoPatch">
+            <string name="revanced_end_screen_suggested_video_title">Акыркы экрандагы сунушталган видеону жашыруу</string>
+            <string name="revanced_end_screen_suggested_video_summary_on">"Авто ойнотуу өчүрүлгөндө акыркы экрандагы сунушталган видео жашырылат
+
+Авто ойнотууну YouTube жөндөөлөрүнөн өзгөртсө болот:
+Жөндөөлөр → Ойнотуу → Кийинки видеону автоматтык түрдө ойнотуу"</string>
+            <string name="revanced_end_screen_suggested_video_summary_off">Акыркы экрандагы сунушталган видео көрсөтүлгөн</string>
+        </patch>
         <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch"/>
         <patch id="layout.hide.time.hideTimestampPatch"/>
-        <patch id="layout.panels.popup.playerPopupPanelsPatch"/>
+        <patch id="layout.panels.popup.playerPopupPanelsPatch">
+            <string name="revanced_disable_player_popup_panels_title">Ойноткучтун калкыма панелдерин жашыруу</string>
+            <string name="revanced_disable_player_popup_panels_summary_on">Ойноткучтун калкыма панелдери жашырылган</string>
+            <string name="revanced_disable_player_popup_panels_summary_off">Ойноткучтун калкыма панелдери көрсөтүлгөн</string>
+        </patch>
         <patch id="layout.player.fullscreen.exitFullscreenPatch"/>
         <patch id="layout.player.fullscreen.openVideosFullscreen"/>
         <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"/>
@@ -155,10 +386,12 @@ Second \"item\" text"</string>
             <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
             <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
         </patch>
-        <patch id="layout.searchbar.wideSearchbarPatch"/>
-        <patch id="layout.seekbar.seekbarThumbnailsPatch"/>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
             <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
+            <string name="revanced_sb_segments_nomusic_sum">Музыкалык видеолордо гана колдонулат. Музыкасы жок музыкалык видеолордун башка категорияга кирбеген бөлүктөрү</string>
+            <string name="revanced_sb_submit_failed_forbidden">Сегментти жөнөтүү мүмкүн эмес: %s</string>
+            <string name="revanced_sb_submit_failed_duplicate">"Сегментти жөнөтүү мүмкүн эмес.
+Буга чейин бар"</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <!-- A segment start and end time, such as "02:10 to 03:40". -->
             <!-- Shown in the settings preferences, and translations can be any text length. -->
@@ -170,7 +403,11 @@ Second \"item\" text"</string>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch"/>
         <patch id="layout.shortsautoplay.shortsAutoplayPatch"/>
         <patch id="layout.miniplayer.miniplayerPatch"/>
-        <patch id="layout.theme.themePatch"/>
+        <patch id="layout.theme.themePatch">
+            <string name="revanced_splash_screen_animation_style_entry_1">Өчүрүлгөн</string>
+            <string name="revanced_splash_screen_animation_style_entry_2">Түс</string>
+            <string name="revanced_splash_screen_animation_style_entry_3">Ак-кара</string>
+        </patch>
         <patch id="layout.branding.customBrandingPatch"/>
         <patch id="layout.branding.changeHeaderPatch">
             <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
@@ -187,7 +424,11 @@ Second \"item\" text"</string>
         <patch id="misc.loopvideo.button.loopVideoButtonPatch"/>
         <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"/>
         <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"/>
-        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch"/>
+        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_title">Басып кармап туруу гаптикасын өчүрүү</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">Басып кармап туруу гаптикасы өчүрүлгөн</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">Басып кармап туруу гаптикасы иштетилген</string>
+        </patch>
         <patch id="misc.gms.accountCredentialsInvalidTextPatch"/>
         <patch id="misc.links.bypassURLRedirectsPatch"/>
         <patch id="misc.links.openLinksExternallyPatch"/>
@@ -200,6 +441,11 @@ Second \"item\" text"</string>
         <patch id="video.speed.remember.rememberPlaybackSpeedPatch"/>
         <patch id="video.codecs.disableVideoCodecsPatch"/>
         <patch id="video.quality.advancedVideoQualityMenuPatch"/>
+        <patch id="video.quality.hidePremiumVideoQualityPatch">
+            <string name="revanced_hide_premium_video_quality_title">Премиум сапат параметрлерин жашыруу</string>
+            <string name="revanced_hide_premium_video_quality_summary_on">Премиум сапат параметрлери жашырылган</string>
+            <string name="revanced_hide_premium_video_quality_summary_off">Премиум сапат параметрлери көрсөтүлгөн</string>
+        </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch"/>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
@@ -207,7 +453,9 @@ Second \"item\" text"</string>
     </app>
     <app id="music">
         <patch id="layout.branding.customBrandingPatch"/>
-        <patch id="misc.settings.settingsPatch"/>
+        <patch id="misc.settings.settingsPatch">
+            <!-- In languages where "About" is ambiguous, translate to "About ReVanced" (i.e., About this app). -->
+        </patch>
         <patch id="ad.video.hideVideoAdsPatch"/>
         <patch id="interaction.permanentrepeat.permanentRepeatPatch"/>
         <patch id="layout.buttons.hideButtons"/>

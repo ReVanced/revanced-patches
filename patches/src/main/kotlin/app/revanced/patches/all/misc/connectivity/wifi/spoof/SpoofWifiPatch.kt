@@ -3,7 +3,7 @@ package app.revanced.patches.all.misc.connectivity.wifi.spoof
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
-import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
+import app.revanced.util.forEachInstructionAsSequence
 
 private const val EXTENSION_CLASS_DESCRIPTOR_PREFIX =
     "Lapp/revanced/extension/all/misc/connectivity/wifi/spoof/SpoofWifiPatch"
@@ -19,29 +19,32 @@ val spoofWiFiConnectionPatch = bytecodePatch(
     extendWith("extensions/all/misc/connectivity/wifi/spoof/spoof-wifi.rve")
 
     dependsOn(
-        transformInstructionsPatch(
-            filterMap = { classDef, _, instruction, instructionIndex ->
-                filterMapInstruction35c<MethodCall>(
-                    EXTENSION_CLASS_DESCRIPTOR_PREFIX,
-                    classDef,
-                    instruction,
-                    instructionIndex,
-                )
-            },
-            transform = { method, entry ->
-                val (methodType, instruction, instructionIndex) = entry
-                methodType.replaceInvokeVirtualWithExtension(
-                    EXTENSION_CLASS_DESCRIPTOR,
-                    method,
-                    instruction,
-                    instructionIndex,
-                )
-            },
-        ),
+        bytecodePatch {
+            apply {
+                forEachInstructionAsSequence(
+                    match = { classDef, _, instruction, instructionIndex ->
+                        filterMapInstruction35c<MethodCall>(
+                            EXTENSION_CLASS_DESCRIPTOR_PREFIX,
+                            classDef,
+                            instruction,
+                            instructionIndex,
+                        )
+                    },
+                    transform = { method, entry ->
+                        val (methodType, instruction, instructionIndex) = entry
+                        methodType.replaceInvokeVirtualWithExtension(
+                            EXTENSION_CLASS_DESCRIPTOR,
+                            method,
+                            instruction,
+                            instructionIndex,
+                        )
+                    })
+            }
+        },
     )
 }
 
-// Information about method calls we want to replace
+// Information about method calls we want to replace.
 @Suppress("unused")
 private enum class MethodCall(
     override val definedClassName: String,
@@ -89,13 +92,13 @@ private enum class MethodCall(
         "Landroid/net/NetworkInfo;",
         "getState",
         arrayOf(),
-        "Landroid/net/NetworkInfo\$State;",
+        $$"Landroid/net/NetworkInfo$State;",
     ),
     GetDetailedState(
         "Landroid/net/NetworkInfo;",
         "getDetailedState",
         arrayOf(),
-        "Landroid/net/NetworkInfo\$DetailedState;",
+        $$"Landroid/net/NetworkInfo$DetailedState;",
     ),
     IsActiveNetworkMetered(
         "Landroid/net/ConnectivityManager;",
@@ -132,7 +135,7 @@ private enum class MethodCall(
         "registerBestMatchingNetworkCallback",
         arrayOf(
             "Landroid/net/NetworkRequest;",
-            "Landroid/net/ConnectivityManager\$NetworkCallback;",
+            $$"Landroid/net/ConnectivityManager$NetworkCallback;",
             "Landroid/os/Handler;",
         ),
         "V",
@@ -140,19 +143,19 @@ private enum class MethodCall(
     RegisterDefaultNetworkCallback1(
         "Landroid/net/ConnectivityManager;",
         "registerDefaultNetworkCallback",
-        arrayOf("Landroid/net/ConnectivityManager\$NetworkCallback;"),
+        arrayOf($$"Landroid/net/ConnectivityManager$NetworkCallback;"),
         "V",
     ),
     RegisterDefaultNetworkCallback2(
         "Landroid/net/ConnectivityManager;",
         "registerDefaultNetworkCallback",
-        arrayOf("Landroid/net/ConnectivityManager\$NetworkCallback;", "Landroid/os/Handler;"),
+        arrayOf($$"Landroid/net/ConnectivityManager$NetworkCallback;", "Landroid/os/Handler;"),
         "V",
     ),
     RegisterNetworkCallback1(
         "Landroid/net/ConnectivityManager;",
         "registerNetworkCallback",
-        arrayOf("Landroid/net/NetworkRequest;", "Landroid/net/ConnectivityManager\$NetworkCallback;"),
+        arrayOf("Landroid/net/NetworkRequest;", $$"Landroid/net/ConnectivityManager$NetworkCallback;"),
         "V",
     ),
     RegisterNetworkCallback2(
@@ -166,7 +169,7 @@ private enum class MethodCall(
         "registerNetworkCallback",
         arrayOf(
             "Landroid/net/NetworkRequest;",
-            "Landroid/net/ConnectivityManager\$NetworkCallback;",
+            $$"Landroid/net/ConnectivityManager$NetworkCallback;",
             "Landroid/os/Handler;",
         ),
         "V",
@@ -174,13 +177,13 @@ private enum class MethodCall(
     RequestNetwork1(
         "Landroid/net/ConnectivityManager;",
         "requestNetwork",
-        arrayOf("Landroid/net/NetworkRequest;", "Landroid/net/ConnectivityManager\$NetworkCallback;"),
+        arrayOf("Landroid/net/NetworkRequest;", $$"Landroid/net/ConnectivityManager$NetworkCallback;"),
         "V",
     ),
     RequestNetwork2(
         "Landroid/net/ConnectivityManager;",
         "requestNetwork",
-        arrayOf("Landroid/net/NetworkRequest;", "Landroid/net/ConnectivityManager\$NetworkCallback;", "I"),
+        arrayOf("Landroid/net/NetworkRequest;", $$"Landroid/net/ConnectivityManager$NetworkCallback;", "I"),
         "V",
     ),
     RequestNetwork3(
@@ -188,7 +191,7 @@ private enum class MethodCall(
         "requestNetwork",
         arrayOf(
             "Landroid/net/NetworkRequest;",
-            "Landroid/net/ConnectivityManager\$NetworkCallback;",
+            $$"Landroid/net/ConnectivityManager$NetworkCallback;",
             "Landroid/os/Handler;",
         ),
         "V",
@@ -204,7 +207,7 @@ private enum class MethodCall(
         "requestNetwork",
         arrayOf(
             "Landroid/net/NetworkRequest;",
-            "Landroid/net/ConnectivityManager\$NetworkCallback;",
+            $$"Landroid/net/ConnectivityManager$NetworkCallback;",
             "Landroid/os/Handler;",
             "I",
         ),
@@ -213,7 +216,7 @@ private enum class MethodCall(
     UnregisterNetworkCallback1(
         "Landroid/net/ConnectivityManager;",
         "unregisterNetworkCallback",
-        arrayOf("Landroid/net/ConnectivityManager\$NetworkCallback;"),
+        arrayOf($$"Landroid/net/ConnectivityManager$NetworkCallback;"),
         "V",
     ),
     UnregisterNetworkCallback2(

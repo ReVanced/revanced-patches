@@ -27,18 +27,47 @@ Second \"item\" text"</string>
         <patch id="misc.checks.checkEnvironmentPatch"/>
         <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"/>
         <patch id="misc.settings.settingsResourcePatch">
+            <string name="revanced_settings_disable_bold_icons_title">Slökkva á feitletruðum táknum</string>
+            <string name="revanced_settings_disable_bold_icons_summary_on">Tákn eru ekki feitletruð</string>
+            <string name="revanced_settings_disable_bold_icons_summary_off">Tákn eru feitletruð</string>
             <!-- Settings about dialog. -->
             <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
+            <string name="revanced_gms_core_screen_title">GmsCore</string>
+            <string name="revanced_gms_core_screen_summary">Stillingar tengdar GmsCore</string>
+            <string name="revanced_gms_core_check_updates_title">Athuga með uppfærslur fyrir GmsCore</string>
+            <string name="revanced_gms_core_check_updates_summary_on">Að athuga með uppfærslur er virkt</string>
+            <string name="revanced_gms_core_check_updates_summary_off">Slökkt er á athugun á uppfærslum</string>
+            <string name="revanced_gms_core_settings_title">Opna GmsCore stillingar</string>
+            <string name="revanced_gms_core_settings_summary">Stillingar GmsCore</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_gms_core_toast_not_installed_message">MicroG GmsCore er ekki uppsett. Settu það upp.</string>
+            <string name="revanced_gms_core_dialog_title">Þörf á aðgerð</string>
+            <string name="revanced_gms_core_toast_update_check_failed_message">Tókst ekki að athuga hvort MicroG GmsCore væri með uppfærslur</string>
+            <string name="revanced_gms_core_update_available_message">Ný útgáfa (%1$s) af MicroG GmsCore er fáanleg. Eins og er, ertu að nota útgáfu %2$s.</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore hefur ekki leyfi til að keyra í bakgrunni.\n\nFylgdu leiðbeiningunum „Ekki drepa appið mitt“ fyrir símann þinn og beittu leiðbeiningunum á MicroG uppsetninguna þína.\n\nÞetta er nauðsynlegt til að appið virki."</string>
+            <string name="revanced_gms_core_dialog_open_website_text">Opna vefsíðu</string>
+            <string name="revanced_gms_core_dialog_cancel_text">Hætta við</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Slökkva verður á rafhlöðubestun MicroG GmsCore til að koma í veg fyrir vandamál.\n\nAð slökkva á rafhlöðubestun fyrir MicroG mun ekki hafa neikvæð áhrif á rafhlöðunotkun.\n\nÝttu á áfram hnappinn og leyfðu breytingar á bestun."</string>
+            <string name="revanced_gms_core_dialog_continue_text">Áfram</string>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch"/>
         <patch id="misc.audio.forceOriginalAudioPatch">
             <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
         </patch>
-        <patch id="misc.debugging.enableDebuggingPatch"/>
+        <patch id="misc.debugging.enableDebuggingPatch">
+            <string name="revanced_debug_feature_flags_manager_toast_no_flags">Endurræstu forritið til að nota þennan eiginleika</string>
+            <string name="revanced_debug_protocolbuffer_title">Skrá samskiptastaðal biðminni</string>
+            <string name="revanced_debug_protocolbuffer_summary_on">Villuleitarskrár innihalda samskiptastaðal biðminni</string>
+            <string name="revanced_debug_protocolbuffer_summary_off">Villuleitarskrár innihalda ekki samskiptastaðal biðminni</string>
+            <string name="revanced_debug_protocolbuffer_user_dialog_message">"Með því að virkja þessa stillingu verða skráð auka uppsetningargögn, þar á meðal texti á skjánum fyrir suma notendaviðmótshluta.
+
+Þetta getur hjálpað til við að auðkenna hluta þegar sérsniðnar síur eru búnar til.
+
+Hins vegar mun virkjun þessa einnig skrá notendagögn eins og IP tölu þína."</string>
+        </patch>
         <patch id="misc.privacy.sanitizeSharingLinksPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
@@ -48,40 +77,135 @@ Second \"item\" text"</string>
         <patch id="misc.settings.settingsPatch"/>
         <patch id="misc.backgroundplayback.backgroundPlaybackPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
-            <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
+            <string name="revanced_hide_creator_store_shelf_title">Fela hillu fyrir verslun höfunda</string>
+            <string name="revanced_hide_creator_store_shelf_summary_on">Hilla fyrir verslun höfunda undir myndbandsspilaranum er falin</string>
+            <string name="revanced_hide_creator_store_shelf_summary_off">Hilla fyrir verslun höfunda undir myndbandsspilaranum er sýnd</string>
+            <string name="revanced_hide_comments_section_in_home_feed_title">Fela athugasemdahluta undir myndböndum í heimasíðu</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_on">Athugasemdahluti undir myndböndum í heimasíðu er falinn</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_off">Athugasemdahluti undir myndböndum í heimasíðu er sýndur</string>
+            <!-- 'Latest videos' should be translated using the same localized wording YouTube displays for the button.
+                 This button usually appears in the Home feed for refreshing the feed. -->
+            <string name="revanced_hide_latest_videos_button_title">Fela hnappinn „Nýjustu myndbönd“</string>
+            <string name="revanced_hide_latest_videos_button_summary_on">Hnappurinn „Nýjustu myndbönd“ er falinn</string>
+            <string name="revanced_hide_latest_videos_button_summary_off">Hnappurinn „Nýjustu myndbönd“ er sýndur</string>
+            <!-- 'Notify me' should be translated using the same localized wording YouTube displays for this button.
+                  This button usually appears in the Subscriptions feed for future livestreams or unreleased videos. -->
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
             <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+            <string name="revanced_hide_web_search_results_title">Fela niðurstöður vefleitar</string>
+            <string name="revanced_hide_web_search_results_summary_on">Niðurstöður vefleitar eru falnar</string>
+            <string name="revanced_hide_web_search_results_summary_off">Niðurstöður vefleitar eru sýndar</string>
+            <string name="revanced_hide_you_may_like_section_title">Fela hlutann „Þér gæti líkað“</string>
+            <string name="revanced_hide_you_may_like_section_summary_on">Hlutinn „Þér gæti líkað“ er falinn</string>
+            <string name="revanced_hide_you_may_like_section_summary_off">Hlutinn „Þér gæti líkað“ er sýndur</string>
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                  This appears in the video player for certain videos. -->
+                   This button usually appears in the video player for certain videos. -->
+            <!-- 'Live chat replay' should be translated using the same localized wording YouTube displays for the button.
+       This button usually appears in the player overlay for live streamed videos after opening live chat. -->
+            <string name="revanced_hide_live_chat_replay_button_title">Fela hnappinn „Endursýning á spjalli“</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_on">Hnappurinn „Endursýning á spjalli“ í spilarayfirlagi er falinn</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_off">Hnappurinn „Endursýning á spjalli“ í spilarayfirlagi er sýndur</string>
+            <string name="revanced_hide_video_title_title">Fela myndbandsheiti</string>
+            <string name="revanced_hide_video_title_summary_on">Myndbandsheiti í spilarayfirlagi er falið</string>
+            <string name="revanced_hide_video_title_summary_off">Myndbandsheiti í spilarayfirlagi er sýnt</string>
+            <string name="revanced_hide_course_progress_section_title">Fela „Námsframvindu“</string>
+            <string name="revanced_hide_course_progress_section_summary_on">Hluti námsframvindu er falinn</string>
+            <string name="revanced_hide_course_progress_section_summary_off">Hluti námsframvindu er sýndur</string>
+            <string name="revanced_hide_explore_section_title">Fela Kanna</string>
+            <string name="revanced_hide_explore_section_summary_on">Hlutarnir „Kanna þetta námskeið“ og „Kanna hlaðvarpið“ eru faldir</string>
+            <string name="revanced_hide_explore_section_summary_off">Hlutarnir „Kanna þetta námskeið“ og „Kanna hlaðvarpið“ eru sýndir</string>
+            <string name="revanced_hide_explore_course_section_title">Fela „Kanna þetta námskeið“</string>
+            <string name="revanced_hide_explore_course_section_summary_on">Hluti „Kanna þetta námskeið“ er falinn</string>
+            <string name="revanced_hide_explore_course_section_summary_off">Hluti „Kanna þetta námskeið“ er sýndur</string>
+            <string name="revanced_hide_explore_podcast_section_title">Fela „Kanna hlaðvarpið“</string>
+            <string name="revanced_hide_explore_podcast_section_summary_on">Hluti „Kanna hlaðvarpið“ er falinn</string>
+            <string name="revanced_hide_explore_podcast_section_summary_off">Hluti „Kanna hlaðvarpið“ er sýndur</string>
+            <string name="revanced_hide_featured_places_section_title">Fela „Valda staði“</string>
+            <string name="revanced_hide_featured_places_section_summary_on">Hluti „Valda staði“ er falinn</string>
+            <string name="revanced_hide_featured_places_section_summary_off">Hluti „Valda staði“ er sýndur</string>
+            <string name="revanced_hide_feed_flyout_menu_title">Virkja síu fyrir fellivalmynd straums</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_on">Sía fyrir fellivalmynd straums er virk</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_off">Sía fyrir fellivalmynd straums er óvirk</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Sía fyrir fellivalmynd straums</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Sláðu inn nöfn fellivalmynda til að sía eftir, eitt nafn á línu</string>
+            <string name="revanced_hide_gaming_section_title">Fela leiki</string>
+            <string name="revanced_hide_gaming_section_summary_on">Leikjahlutinn er falinn</string>
+            <string name="revanced_hide_gaming_section_summary_off">Leikjahlutinn er sýndur</string>
+            <string name="revanced_hide_music_section_title">Fela tónlist</string>
+            <string name="revanced_hide_music_section_summary_on">Tónlistahlutinn er falinn</string>
+            <string name="revanced_hide_music_section_summary_off">Tónlistahlutinn er sýndur</string>
+            <string name="revanced_hide_quizzes_section_title">Fela spurningakeppni</string>
+            <string name="revanced_hide_quizzes_section_summary_on">Spurningakeppnishlutinn er falinn</string>
+            <string name="revanced_hide_quizzes_section_summary_off">Spurningakeppnishlutinn er sýndur</string>
+            <string name="revanced_hide_channel_tab_title">Virkja síu fyrir rásarflipa</string>
+            <string name="revanced_hide_channel_tab_summary_on">Sía fyrir rásarflipa er virk</string>
+            <string name="revanced_hide_channel_tab_summary_off">Sía fyrir rásarflipa er óvirk</string>
+            <string name="revanced_hide_channel_tab_filter_strings_title">Sía fyrir rásarflipa</string>
+            <string name="revanced_hide_channel_tab_filter_strings_summary">Sláðu inn nöfn rásarflipa til að sía eftir, eitt nafn á línu</string>
             <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
             <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
             <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+            <string name="revanced_hide_view_count_user_dialog_message">"Takmarkanir:
+• Shorts hillur, rásasíður og leitarniðurstöður gætu enn sýnt fjölda áhorfa.
+• Þessi eiginleiki virkar ekki með bíllíkanaformi."</string>
             <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+            <string name="revanced_hide_upload_time_user_dialog_message">"Takmarkanir:
+• Shorts hillur, rásasíður og leitarniðurstöður gætu enn sýnt upphleðslutíma.
+• Þessi eiginleiki virkar ekki með bíllíkanaformi."</string>
             <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
+            <string name="revanced_hide_keyword_content_about_summary">"Heima/áskriftir/leitarniðurstöður eru síaðar til að fela efni sem passar við leitarorðasetningar
+
+Takmarkanir:
+• Shorts er ekki hægt að fela eftir rásarnafni
+• Sumir notendaviðmótshlutar gætu ekki verið faldir
+• Leit eftir leitarorði gæti ekki sýnt neinar niðurstöður"</string>
             <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
-            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_hide_fullscreen_ads_summary_on">Heilskjáauglýsingar eru falnar</string>
+            <string name="revanced_hide_player_popup_ads_title">Fela sprettigluggaauglýsingar spilara</string>
+            <string name="revanced_hide_player_popup_ads_summary_on">Sprettigluggaauglýsingar spilara eru falnar</string>
+            <string name="revanced_hide_player_popup_ads_summary_off">Sprettigluggaauglýsingar spilara eru sýndar</string>
+            <string name="revanced_hide_view_products_banner_summary_on">Borði „Skoða vörur“ í spilarayfirlagi er falinn</string>
+            <string name="revanced_hide_view_products_banner_summary_off">Borði „Skoða vörur“ í spilarayfirlagi er sýndur</string>
+            <string name="revanced_hide_youtube_premium_promotions_title">Fela YouTube Premium kynningar</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_on">YouTube Premium kynningar eru falnar</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_off">YouTube Premium kynningar eru sýndar</string>
         </patch>
-        <patch id="ad.getpremium.hideGetPremiumPatch"/>
         <patch id="ad.video.videoAdsPatch"/>
-        <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"/>
+        <patch id="interaction.copyvideourl.copyVideoURLResourcePatch">
+            <string name="revanced_share_copy_url_success">Slóð afrituð á klippiborð</string>
+            <string name="revanced_share_copy_url_timestamp_success">Slóð með tímastimpli afrituð</string>
+            <string name="revanced_copy_video_url_title">Sýna hnappinn til að afrita myndbandsslóð</string>
+            <string name="revanced_copy_video_url_summary_on">Hnappurinn til að afrita myndbandsslóð er sýndur. Bankaðu til að afrita myndbandsslóð. Haltu inni til að afrita með tímastimpli</string>
+            <string name="revanced_copy_video_url_summary_off">Hnappurinn til að afrita myndbandsslóð er ekki sýndur</string>
+            <string name="revanced_copy_video_url_timestamp_title">Sýna hnappinn til að afrita slóð með tímastimpli</string>
+            <string name="revanced_copy_video_url_timestamp_summary_on">Hnappurinn til að afrita slóð með tímastimpli er sýndur. Bankaðu til að afrita myndbandsslóð með tímastimpli. Haltu inni til að afrita án tímastimpils</string>
+            <string name="revanced_copy_video_url_timestamp_summary_off">Hnappurinn til að afrita slóð með tímastimpli er ekki sýndur</string>
+        </patch>
         <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"/>
-        <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch"/>
+        <patch id="layout.hide.signintotv.disableSignInToTVPopupPatch">
+            <string name="revanced_disable_sign_in_to_tv_popup_title">Slökkva á sprettiglugganum „Skráðu þig inn á sjónvarp“</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_on">Sprettiglugginn „Skráðu þig inn á sjónvarp“ er óvirkur</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_off">Sprettiglugginn „Skráðu þig inn á sjónvarp“ er virkur</string>
+        </patch>
         <patch id="interaction.doubletap.disableDoubleTapActionsPatch"/>
         <patch id="interaction.downloads.downloadsResourcePatch">
             <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
         </patch>
         <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"/>
-        <patch id="interaction.seekbar.enableSeekbarTappingPatch"/>
+        <patch id="interaction.seekbar.enableTapToSeekPatch">
+            <string name="revanced_tap_to_seek_title">Virkja bank til að spóla</string>
+            <string name="revanced_tap_to_seek_summary_on">Bank til að spóla er virkur</string>
+            <string name="revanced_tap_to_seek_summary_off">Bank til að spóla er óvirkur</string>
+        </patch>
         <patch id="interaction.swipecontrols.swipeControlsResourcePatch"/>
         <patch id="layout.autocaptions.autoCaptionsPatch"/>
         <patch id="layout.buttons.action.hideButtonsPatch">
@@ -89,25 +213,82 @@ Second \"item\" text"</string>
             <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
             <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
             <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually only shows on live streams. -->
+                  This button usually appears on live streamed videos. -->
             <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged-in user. -->
+                  This button usually appears on videos uploaded by the logged-in user. -->
             <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button usually appears if the user IP is from a specific region such as the USA or EU. -->
             <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_clip_button_user_dialog_message">Fela gæti ekki virkað fyrir suma notendareikninga.</string>
             <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
         </patch>
-        <patch id="layout.buttons.navigation.navigationButtonsPatch">
+        <patch id="layout.buttons.navigation.navigationBarPatch">
+            <string name="revanced_navigation_buttons_screen_title">Flakkahnappar</string>
+            <string name="revanced_navigation_buttons_screen_summary">Fela eða breyta flakkastikuhnappum</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
+            <string name="revanced_hide_home_button_title">Fela Heim</string>
+            <string name="revanced_hide_home_button_summary_on">Heimahnappur er falinn</string>
+            <string name="revanced_hide_home_button_summary_off">Heimahnappur er sýndur</string>
             <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_shorts_button_title">Fela Shorts</string>
+            <string name="revanced_hide_shorts_button_summary_on">Shorts hnappur er falinn</string>
+            <string name="revanced_hide_shorts_button_summary_off">Shorts hnappur er sýndur</string>
             <!-- 'Create' has no display name. Translate normally. -->
+            <string name="revanced_hide_create_button_title">Fela Búa til</string>
+            <string name="revanced_hide_create_button_summary_on">Hnappurinn „Búa til“ er falinn</string>
+            <string name="revanced_hide_create_button_summary_off">Hnappurinn „Búa til“ er sýndur</string>
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_subscriptions_button_title">Fela áskriftir</string>
+            <string name="revanced_hide_subscriptions_button_summary_on">Áskriftarhnappur er falinn</string>
+            <string name="revanced_hide_subscriptions_button_summary_off">Áskriftarhnappur er sýndur</string>
+            <string name="revanced_hide_notifications_button_title">Fela tilkynningar</string>
+            <string name="revanced_hide_notifications_button_summary_on">Tilkynningarhnappur er falinn</string>
+            <string name="revanced_hide_notifications_button_summary_off">Tilkynningarhnappur er sýndur</string>
             <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_switch_create_with_notifications_button_title">Skipta um Búa til og Tilkynningar</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_on">Hnappurinn „Búa til“ er skipt út fyrir tilkynningarhnappinn</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_off">Hnappurinn „Búa til“ er ekki skipt út fyrir tilkynningarhnappinn</string>
+            <string name="revanced_switch_create_with_notifications_button_user_dialog_message">Ef þessi breyting tekur ekki gildi skaltu reyna að skipta yfir í ósýnilegan ham.</string>
+            <string name="revanced_hide_navigation_button_labels_title">Fela flakkahnappamerki</string>
+            <string name="revanced_hide_navigation_button_labels_summary_on">Merkin eru falin</string>
+            <string name="revanced_hide_navigation_button_labels_summary_off">Merkin eru sýnd</string>
+            <string name="revanced_narrow_navigation_buttons_title">Virkja þrönga flakkahnappa</string>
+            <string name="revanced_narrow_navigation_buttons_summary_on">Bil á milli flakkahnappa er þröngt</string>
+            <string name="revanced_narrow_navigation_buttons_summary_off">Bil á milli flakkahnappa er eðlilegt</string>
+            <string name="revanced_navigation_bar_animations_title">Virkja hreyfimyndir í flakkastiku</string>
+            <string name="revanced_navigation_bar_animations_summary_on">Flakksbreytingar eru líflegar</string>
+            <string name="revanced_navigation_bar_animations_summary_off">Flakksbreytingar eru ekki líflegar</string>
+            <string name="revanced_disable_translucent_status_bar_title">Slökkva á hálfgegnsæri stöðustiku</string>
+            <string name="revanced_disable_translucent_status_bar_summary_on">Stöðustika er ógegnsæ</string>
+            <string name="revanced_disable_translucent_status_bar_summary_off">Stöðustika er ógegnsæ eða hálfgegnsæ</string>
+            <string name="revanced_disable_translucent_status_bar_user_dialog_message">"Takmarkanir:
+• Svartur stika gæti birst efst á myndbandsspilaranum.
+• Á sumum tækjum getur virkjun þessa eiginleika breytt flakkastiku kerfisins í gegnsæja."</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_title">Slökkva á ljósri hálfgegnsæri stiku</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Flakkastika í ljósum ham er ógegnsæ</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Flakkastika í ljósum ham er ógegnsæ eða hálfgegnsæ</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_title">Slökkva á dökkri hálfgegnsæri stiku</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Flakkastika í dökkum ham er ógegnsæ</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Flakkastika í dökkum ham er ógegnsæ eða hálfgegnsæ</string>
+            <string name="revanced_toolbar_screen_title">Tækjastika</string>
+            <string name="revanced_toolbar_screen_summary">Fela eða breyta íhlutum tækjastiku</string>
+            <string name="revanced_hide_toolbar_create_button_title">Fela hnappinn „Búa til“</string>
+            <string name="revanced_hide_toolbar_create_button_summary_on">Hnappurinn „Búa til“ er falinn</string>
+            <string name="revanced_hide_toolbar_create_button_summary_off">Hnappurinn „Búa til“ er sýndur</string>
+            <string name="revanced_hide_toolbar_notification_button_title">Fela tilkynningarhnapp</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_on">Tilkynningarhnappur er falinn</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_off">Tilkynningarhnappur er sýndur</string>
+            <string name="revanced_hide_toolbar_search_button_title">Fela leitarhnapp</string>
+            <string name="revanced_hide_toolbar_search_button_summary_on">Leitarhnappur er falinn</string>
+            <string name="revanced_hide_toolbar_search_button_summary_off">Leitarhnappur er sýndur.</string>
+            <string name="revanced_wide_searchbar_title">Virkja breiða leitarstiku</string>
+            <string name="revanced_wide_searchbar_summary_on">Breið leitarstika er virkjuð</string>
+            <string name="revanced_wide_searchbar_summary_off">Breið leitarstika er óvirk</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -126,25 +307,67 @@ Second \"item\" text"</string>
         </patch>
         <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
             <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+            <string name="revanced_hide_collapse_button_title">Fela fellihnapp</string>
+            <string name="revanced_hide_collapse_button_summary_on">Fellihnappur er falinn</string>
+            <string name="revanced_hide_collapse_button_summary_off">Fellihnappur er sýndur</string>
+            <string name="revanced_hide_fullscreen_button_title">Fela heilskjárhnapp</string>
+            <string name="revanced_hide_fullscreen_button_summary_on">Heilskjárhnappur er falinn</string>
+            <string name="revanced_hide_fullscreen_button_summary_off">Heilskjárhnappur er sýndur</string>
         </patch>
-        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch"/>
+        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
+            <string name="revanced_hide_end_screen_cards_title">Fela endaskjárspjöld</string>
+            <string name="revanced_hide_end_screen_cards_summary_on">Endaskjárspjöld eru falin</string>
+            <string name="revanced_hide_end_screen_cards_summary_off">Endaskjárspjöld eru sýnd</string>
+        </patch>
         <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"/>
         <patch id="layout.hide.infocards.hideInfocardsResourcePatch"/>
         <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"/>
         <patch id="layout.hide.seekbar.hideSeekbarPatch">
             <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
+            <string name="revanced_fullscreen_large_seekbar_title">Virkja stóra spólustiku í heilskjá</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_on">Spólustika í heilskjá er stór</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_off">Spólustika í heilskjá er venjuleg</string>
         </patch>
         <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+            <string name="revanced_hide_shorts_channel_title">Fela Shorts á rásasíðu</string>
+            <string name="revanced_hide_shorts_channel_summary_on">Falið á rásasíðu</string>
+            <string name="revanced_hide_shorts_channel_summary_off">Sýnt á rásasíðu</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+            <string name="revanced_hide_shorts_video_description_title">Fela Shorts í myndbandslýsingu</string>
+            <string name="revanced_hide_shorts_video_description_summary_on">Falið í myndbandslýsingu</string>
+            <string name="revanced_hide_shorts_video_description_summary_off">Sýnt í myndbandslýsingu</string>
+            <string name="revanced_hide_shorts_ai_button_title">Fela gervigreindarhnapp</string>
+            <string name="revanced_hide_shorts_ai_button_summary_on">Gervigreindarhnappur er falinn</string>
+            <string name="revanced_hide_shorts_ai_button_summary_off">Gervigreindarhnappur er sýndur</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_title">Fela merkið „Sjálfvirkt talsett“</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Merkið „Sjálfvirkt talsett“ er falið</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Merkið „Sjálfvirkt talsett“ er sýnt</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+            <!-- YT may no longer use this feature and this setting may be obsolete. -->
             <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
             <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
         </patch>
-        <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"/>
+        <patch id="layout.hide.autoplaypreview.hideAutoplayPreviewPatch">
+            <string name="revanced_hide_autoplay_preview_title">Fela sjálfvirka forskoðun</string>
+            <string name="revanced_hide_autoplay_preview_summary_on">Sjálfvirk forskoðun er falin</string>
+            <string name="revanced_hide_autoplay_preview_summary_off">Sjálfvirk forskoðun er sýnd</string>
+        </patch>
+        <patch id="layout.hide.endscreensuggestedvideo.hideEndScreenSuggestedVideoPatch">
+            <string name="revanced_end_screen_suggested_video_title">Fela ráðlagt myndband á endaskjá</string>
+            <string name="revanced_end_screen_suggested_video_summary_on">"Ráðlagt myndband á endaskjá er falið þegar sjálfvirk spilun er slökkt
+
+Hægt er að breyta sjálfvirkri spilun í YouTube stillingum:
+Stillingar → Spilun → Spila næsta myndband sjálfvirkt"</string>
+            <string name="revanced_end_screen_suggested_video_summary_off">Ráðlagt myndband á endaskjá er sýnt</string>
+        </patch>
         <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch"/>
         <patch id="layout.hide.time.hideTimestampPatch"/>
-        <patch id="layout.panels.popup.playerPopupPanelsPatch"/>
+        <patch id="layout.panels.popup.playerPopupPanelsPatch">
+            <string name="revanced_disable_player_popup_panels_title">Fela sprettigluggaspjöld spilarans</string>
+            <string name="revanced_disable_player_popup_panels_summary_on">Sprettigluggaspjöld spilarans eru falin</string>
+            <string name="revanced_disable_player_popup_panels_summary_off">Sprettigluggaspjöld spilarans eru sýnd</string>
+        </patch>
         <patch id="layout.player.fullscreen.exitFullscreenPatch"/>
         <patch id="layout.player.fullscreen.openVideosFullscreen"/>
         <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"/>
@@ -155,10 +378,12 @@ Second \"item\" text"</string>
             <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
             <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
         </patch>
-        <patch id="layout.searchbar.wideSearchbarPatch"/>
-        <patch id="layout.seekbar.seekbarThumbnailsPatch"/>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
             <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
+            <string name="revanced_sb_segments_nomusic_sum">Aðeins til notkunar í tónlistarmyndböndum. Hlutar tónlistarmyndbanda án tónlistar, sem falla ekki undir annan flokk</string>
+            <string name="revanced_sb_submit_failed_forbidden">Ekki tókst að senda inn hluta: %s</string>
+            <string name="revanced_sb_submit_failed_duplicate">"Ekki tókst að senda inn hluta.
+Er þegar til"</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <!-- A segment start and end time, such as "02:10 to 03:40". -->
             <!-- Shown in the settings preferences, and translations can be any text length. -->
@@ -170,7 +395,11 @@ Second \"item\" text"</string>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch"/>
         <patch id="layout.shortsautoplay.shortsAutoplayPatch"/>
         <patch id="layout.miniplayer.miniplayerPatch"/>
-        <patch id="layout.theme.themePatch"/>
+        <patch id="layout.theme.themePatch">
+            <string name="revanced_splash_screen_animation_style_entry_1">Óvirkur</string>
+            <string name="revanced_splash_screen_animation_style_entry_2">Litur</string>
+            <string name="revanced_splash_screen_animation_style_entry_3">Svart og hvítt</string>
+        </patch>
         <patch id="layout.branding.customBrandingPatch"/>
         <patch id="layout.branding.changeHeaderPatch">
             <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
@@ -187,7 +416,11 @@ Second \"item\" text"</string>
         <patch id="misc.loopvideo.button.loopVideoButtonPatch"/>
         <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"/>
         <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"/>
-        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch"/>
+        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_title">Slökkva á snertiviðbrögðum við snertingu og hald</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">Snertiviðbrögð við snertingu og hald eru óvirk</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">Snertiviðbrögð við snertingu og hald eru virk</string>
+        </patch>
         <patch id="misc.gms.accountCredentialsInvalidTextPatch"/>
         <patch id="misc.links.bypassURLRedirectsPatch"/>
         <patch id="misc.links.openLinksExternallyPatch"/>
@@ -200,6 +433,11 @@ Second \"item\" text"</string>
         <patch id="video.speed.remember.rememberPlaybackSpeedPatch"/>
         <patch id="video.codecs.disableVideoCodecsPatch"/>
         <patch id="video.quality.advancedVideoQualityMenuPatch"/>
+        <patch id="video.quality.hidePremiumVideoQualityPatch">
+            <string name="revanced_hide_premium_video_quality_title">Fela Premium gæðavalkosti</string>
+            <string name="revanced_hide_premium_video_quality_summary_on">Premium gæðavalkostir eru falnir</string>
+            <string name="revanced_hide_premium_video_quality_summary_off">Premium gæðavalkostir eru sýndir</string>
+        </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch"/>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
@@ -207,7 +445,9 @@ Second \"item\" text"</string>
     </app>
     <app id="music">
         <patch id="layout.branding.customBrandingPatch"/>
-        <patch id="misc.settings.settingsPatch"/>
+        <patch id="misc.settings.settingsPatch">
+            <!-- In languages where "About" is ambiguous, translate to "About ReVanced" (i.e., About this app). -->
+        </patch>
         <patch id="ad.video.hideVideoAdsPatch"/>
         <patch id="interaction.permanentrepeat.permanentRepeatPatch"/>
         <patch id="layout.buttons.hideButtons"/>

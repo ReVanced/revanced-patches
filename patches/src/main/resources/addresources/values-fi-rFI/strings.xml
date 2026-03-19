@@ -82,6 +82,9 @@ Second \"item\" text"</string>
             <string name="revanced_settings_search_history_title">Näytä asetusten hakuhistoria</string>
             <string name="revanced_settings_search_history_summary_on">Asetusten hakuhistoria näytetään</string>
             <string name="revanced_settings_search_history_summary_off">Asetusten hakuhistoriaa ei näytetä</string>
+            <string name="revanced_settings_disable_bold_icons_title">Poista lihavoidut kuvakkeet käytöstä</string>
+            <string name="revanced_settings_disable_bold_icons_summary_on">Kuvakkeet eivät ole lihavoituja</string>
+            <string name="revanced_settings_disable_bold_icons_summary_off">Kuvakkeet ovat lihavoituja</string>
             <string name="revanced_show_menu_icons_title">Näytä ReVanced-asetuskuvakkeet</string>
             <string name="revanced_show_menu_icons_summary_on">Asetuskuvakkeet näytetään</string>
             <string name="revanced_show_menu_icons_summary_off">Asetuskuvakkeita ei näytetä</string>
@@ -101,23 +104,31 @@ Kääntääksesi uusia kieliä tai parantaaksesi olemassa olevia käännöksiä,
                  and changes made here must also be made there. -->
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
-            <string name="microg_settings_title">GmsCore-asetukset</string>
-            <string name="microg_settings_summary">GmsCoren asetukset</string>
+            <string name="revanced_gms_core_screen_title">GmsCore</string>
+            <string name="revanced_gms_core_screen_summary">GmsCoren asetukset</string>
+            <string name="revanced_gms_core_check_updates_title">Tarkista GmsCore-päivitykset</string>
+            <string name="revanced_gms_core_check_updates_summary_on">Päivitysten tarkistus on käytössä</string>
+            <string name="revanced_gms_core_check_updates_summary_off">Päivitysten tarkistus on poistettu käytöstä</string>
+            <string name="revanced_gms_core_settings_title">Avaa GmsCore-asetukset</string>
+            <string name="revanced_gms_core_settings_summary">GmsCoren asetukset</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-            <string name="gms_core_toast_not_installed_message">MicroG GmsCorea ei ole asennettu. Asenna se.</string>
-            <string name="gms_core_dialog_title">Vaatii toimenpiteitä</string>
-            <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCorella ei ole lupaa pysyä käynnissä taustalla.
+            <string name="revanced_gms_core_toast_not_installed_message">MicroG GmsCorea ei ole asennettu. Asenna se.</string>
+            <string name="revanced_gms_core_dialog_title">Vaatii toimenpiteitä</string>
+            <string name="revanced_gms_core_toast_update_check_failed_message">MicroG GmsCore -päivitysten tarkistus epäonnistui</string>
+            <string name="revanced_gms_core_update_available_message">Uusi versio (%1$s) MicroG GmsCoresta on saatavilla. Käytössäsi on tällä hetkellä versio %2$s.</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCorella ei ole lupaa pysyä käynnissä taustalla.
 
 Seuraa puhelimeesi sopivaa \"Don't kill my app\" -opasta ja sovella sen ohjeita MicroG-asennukseesi.
 
 Tämä on välttämätöntä sovelluksen toiminnalle."</string>
-            <string name="gms_core_dialog_open_website_text">Avaa verkkosivusto</string>
-            <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCoren akun optimoinnit on poistettava käytöstä ongelmien välttämiseksi.
+            <string name="revanced_gms_core_dialog_open_website_text">Avaa verkkosivusto</string>
+            <string name="revanced_gms_core_dialog_cancel_text">Peruuta</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCoren akun optimoinnit on poistettava käytöstä ongelmien välttämiseksi.
 
 MicroG:n akun optimointien poistaminen käytöstä ei vaikuta akun käyttöön negatiivisesti.
 
 Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
-            <string name="gms_core_dialog_continue_text">Jatka</string>
+            <string name="revanced_gms_core_dialog_continue_text">Jatka</string>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <string name="revanced_spoof_video_streams_screen_title">Naamioi videovirrat</string>
@@ -173,10 +184,11 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
             <string name="revanced_debug_feature_flags_manager_toast_saved">Liput tallennettu</string>
             <string name="revanced_debug_feature_flags_manager_toast_reset">Liput nollattu</string>
             <string name="revanced_debug_feature_flags_manager_toast_copied">Liput kopioitu leikepöydälle</string>
-            <string name="revanced_debug_protobuffer_title">Kirjaa protokollapuskuri</string>
-            <string name="revanced_debug_protobuffer_summary_on">Virheenkorjauslokit sisältävät proto-puskurin</string>
-            <string name="revanced_debug_protobuffer_summary_off">Virheenkorjauslokit eivät sisällä proto-puskuria</string>
-            <string name="revanced_debug_protobuffer_user_dialog_message">"Tämän asetuksen käyttöönotto kirjaa lisätietoja asettelusta, mm. joidenkin käyttöliittymän osien näyttötekstiä.
+            <string name="revanced_debug_feature_flags_manager_toast_no_flags">Käynnistä sovellus uudelleen käyttääksesi tätä ominaisuutta</string>
+            <string name="revanced_debug_protocolbuffer_title">Kirjaa protokollapuskuri</string>
+            <string name="revanced_debug_protocolbuffer_summary_on">Virheenkorjauslokit sisältävät proto-puskurin</string>
+            <string name="revanced_debug_protocolbuffer_summary_off">Virheenkorjauslokit eivät sisällä proto-puskuria</string>
+            <string name="revanced_debug_protocolbuffer_user_dialog_message">"Tämän asetuksen käyttöönotto kirjaa lisätietoja asettelusta, mm. joidenkin käyttöliittymän osien näyttötekstiä.
 
 Tämä voi auttaa komponenttien tunnistamisessa, kun luot mukautettuja suodattimia.
 
@@ -226,6 +238,9 @@ Tämän käyttöönotto kirjaa myös joitakin käyttäjätietoja, kuten IP-osoit
             <string name="revanced_shorts_disable_background_playback_summary_off">Shortsien taustatoisto on käytössä</string>
         </patch>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
+            <string name="revanced_hide_creator_store_shelf_title">Piilota sisällöntuottajan kauppahylly</string>
+            <string name="revanced_hide_creator_store_shelf_summary_on">Sisällöntuottajan kauppahylly piilotetaan videosoittimen alla</string>
+            <string name="revanced_hide_creator_store_shelf_summary_off">Sisällöntuottajan kauppahylly videosoittimen alla näytetään</string>
             <string name="revanced_hide_album_cards_title">Piilota albumikortit</string>
             <string name="revanced_hide_album_cards_summary_on">Albumikortit piilotetaan</string>
             <string name="revanced_hide_album_cards_summary_off">Albumikortit näytetään</string>
@@ -235,6 +250,9 @@ Tämän käyttöönotto kirjaa myös joitakin käyttäjätietoja, kuten IP-osoit
             <string name="revanced_hide_chips_shelf_title">Piilota siruhylly</string>
             <string name="revanced_hide_chips_shelf_summary_on">Siruhylly piilotetaan</string>
             <string name="revanced_hide_chips_shelf_summary_off">Siruhylly näytetään</string>
+            <string name="revanced_hide_comments_section_in_home_feed_title">Piilota kommenttiosio videoiden alla Etusivu-syötteessä</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_on">Kommenttiosio videoiden alla Etusivu-syötteessä on piilotettu</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_off">Kommenttiosio videoiden alla Etusivu-syötteessä näytetään</string>
             <string name="revanced_hide_community_posts_title">Piilota yhteisöpostaukset</string>
             <string name="revanced_hide_community_posts_summary_on">Yhteisöpostaukset piilotetaan</string>
             <string name="revanced_hide_community_posts_summary_off">Yhteisöpostaukset näytetään</string>
@@ -262,14 +280,19 @@ Tämän käyttöönotto kirjaa myös joitakin käyttäjätietoja, kuten IP-osoit
             <string name="revanced_hide_latest_posts_title">Piilota uusimmat postaukset</string>
             <string name="revanced_hide_latest_posts_summary_on">Uusimmat postaukset piilotetaan</string>
             <string name="revanced_hide_latest_posts_summary_off">Uusimmat postaukset näytetään</string>
+            <!-- 'Latest videos' should be translated using the same localized wording YouTube displays for the button.
+                 This button usually appears in the Home feed for refreshing the feed. -->
+            <string name="revanced_hide_latest_videos_button_title">Piilota \"Uusimmat videot\" -painike</string>
+            <string name="revanced_hide_latest_videos_button_summary_on">Uusimmat videot -painike piilotetaan</string>
+            <string name="revanced_hide_latest_videos_button_summary_off">Uusimmat videot -painike näytetään</string>
             <string name="revanced_hide_mix_playlists_title">Piilota mix-soittolistat</string>
             <string name="revanced_hide_mix_playlists_summary_on">Mix-soittolistat piilotetaan</string>
             <string name="revanced_hide_mix_playlists_summary_off">Mix-soittolistat näytetään</string>
             <string name="revanced_hide_movies_section_title">Piilota elokuvat-osio</string>
             <string name="revanced_hide_movies_section_summary_on">Elokuvat-osio piilotetaan</string>
             <string name="revanced_hide_movies_section_summary_off">Elokuvat-osio näytetään</string>
-            <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
+            <!-- 'Notify me' should be translated using the same localized wording YouTube displays for this button.
+                  This button usually appears in the Subscriptions feed for future livestreams or unreleased videos. -->
             <string name="revanced_hide_notify_me_button_title">Piilota \"Ilmoita minulle\" -painike</string>
             <string name="revanced_hide_notify_me_button_summary_on">Ilmoita minulle -painike piilotetaan</string>
             <string name="revanced_hide_notify_me_button_summary_off">Ilmoita minulle -painike näytetään</string>
@@ -294,13 +317,16 @@ Tämän käyttöönotto kirjaa myös joitakin käyttäjätietoja, kuten IP-osoit
             <string name="revanced_hide_visual_spacer_title">Piilota visuaalinen väliosa</string>
             <string name="revanced_hide_visual_spacer_summary_on">Visuaalinen väliosa on piilotettu</string>
             <string name="revanced_hide_visual_spacer_summary_off">Visuaalinen väliosa on näkyvissä</string>
+            <string name="revanced_hide_web_search_results_title">Piilota verkkohakutulokset</string>
+            <string name="revanced_hide_web_search_results_summary_on">Verkkohakutulokset piilotetaan</string>
+            <string name="revanced_hide_web_search_results_summary_off">Verkkohakutulokset näytetään</string>
+            <string name="revanced_hide_you_may_like_section_title">Piilota \"Saatat pitää\" -osio</string>
+            <string name="revanced_hide_you_may_like_section_summary_on">\"Saatat pitää\" -osio on piilotettu</string>
+            <string name="revanced_hide_you_may_like_section_summary_off">\"Saatat pitää\" -osio näytetään</string>
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <string name="revanced_hide_doodles_title">Piilota YouTube Doodlet</string>
             <string name="revanced_hide_doodles_summary_on">Logon YouTube Doodles -animaatio piilotetaan</string>
             <string name="revanced_hide_doodles_summary_off">Logon YouTube Doodles -animaatio näytetään</string>
-            <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodlet näkyvät muutamana päivänä vuodessa.
-
-Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käytössä, myös hakupalkin alla oleva suodatinpalkki piilotetaan."</string>
             <string name="revanced_hide_channel_bar_title">Piilota kanavapalkki</string>
             <string name="revanced_hide_channel_bar_summary_on">Kanavapalkki piilotetaan</string>
             <string name="revanced_hide_channel_bar_summary_off">Kanavapalkki näytetään</string>
@@ -317,10 +343,15 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
             <string name="revanced_hide_info_panels_summary_on">Tietopaneelit piilotetaan</string>
             <string name="revanced_hide_info_panels_summary_off">Tietopaneelit näytetään</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                  This appears in the video player for certain videos. -->
+                   This button usually appears in the video player for certain videos. -->
             <string name="revanced_hide_join_membership_button_title">Piilota Liity-painike</string>
             <string name="revanced_hide_join_membership_button_summary_on">Liity-painike piilotetaan</string>
             <string name="revanced_hide_join_membership_button_summary_off">Liity-painike näytetään</string>
+            <!-- 'Live chat replay' should be translated using the same localized wording YouTube displays for the button.
+       This button usually appears in the player overlay for live streamed videos after opening live chat. -->
+            <string name="revanced_hide_live_chat_replay_button_title">Piilota \"Live-chat-uusinta\" -painike</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_on">Live-chat-uusinta -painike soittimen peittokuvassa on piilotettu</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_off">Live-chat-uusinta -painike soittimen peittokuvassa näytetään</string>
             <string name="revanced_hide_medical_panels_title">Piilota lääketieteelliset paneelit</string>
             <string name="revanced_hide_medical_panels_summary_on">Lääketieteelliset paneelit piilotetaan</string>
             <string name="revanced_hide_medical_panels_summary_off">Lääketieteelliset paneelit näytetään</string>
@@ -336,6 +367,9 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
             <string name="revanced_hide_timed_reactions_title">Piilota ajoitetut reaktiot</string>
             <string name="revanced_hide_timed_reactions_summary_on">Ajoitetut reaktiot piilotetaan</string>
             <string name="revanced_hide_timed_reactions_summary_off">Ajoitetut reaktiot näytetään</string>
+            <string name="revanced_hide_video_title_title">Piilota videon otsikko</string>
+            <string name="revanced_hide_video_title_summary_on">Videon otsikko soittimen peittokuvassa on piilotettu</string>
+            <string name="revanced_hide_video_title_summary_off">Videon otsikko soittimen peittokuvassa näytetään</string>
             <string name="revanced_hide_ai_generated_video_summary_section_title">Piilota \"tekoälyn luoma videoyhteenveto\"</string>
             <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Tekoälyn luoma videon yhteenveto-osio piilotetaan</string>
             <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Tekoälyn luoma videon yhteenveto-osio näytetään</string>
@@ -348,33 +382,62 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
             <string name="revanced_hide_chapters_section_title">Piilota Videon osat</string>
             <string name="revanced_hide_chapters_section_summary_on">Videon osat -osio piilotetaan</string>
             <string name="revanced_hide_chapters_section_summary_off">Videon osat -osio näytetään</string>
-            <string name="revanced_hide_how_this_was_made_section_title">Piilota \"Miten sisältö on luotu\"</string>
-            <string name="revanced_hide_how_this_was_made_section_summary_on">Miten sisältö on luotu -osio piilotetaan</string>
-            <string name="revanced_hide_how_this_was_made_section_summary_off">Miten sisältö on luotu -osio näytetään</string>
-            <string name="revanced_hide_hype_points_title">Piilota Hype-pisteet</string>
-            <string name="revanced_hide_hype_points_summary_on">Hype-pisteet piilotetaan</string>
-            <string name="revanced_hide_hype_points_summary_off">Hype-pisteet näytetään</string>
+            <string name="revanced_hide_course_progress_section_title">Piilota \'Kurssin edistyminen\'</string>
+            <string name="revanced_hide_course_progress_section_summary_on">Kurssin edistyminen -osio on piilotettu</string>
+            <string name="revanced_hide_course_progress_section_summary_off">Kurssin edistyminen -osio näytetään</string>
+            <string name="revanced_hide_explore_section_title">Piilota Tutki</string>
+            <string name="revanced_hide_explore_section_summary_on">Tutustu tähän kurssiin ja Tutustu podcastiin -osiot on piilotettu</string>
+            <string name="revanced_hide_explore_section_summary_off">Tutustu tähän kurssiin ja Tutustu podcastiin -osiot näytetään</string>
+            <string name="revanced_hide_explore_course_section_title">Piilota \'Tutustu tähän kurssiin\'</string>
+            <string name="revanced_hide_explore_course_section_summary_on">Tutustu tähän kurssiin -osio on piilotettu</string>
+            <string name="revanced_hide_explore_course_section_summary_off">Tutustu tähän kurssiin -osio näytetään</string>
+            <string name="revanced_hide_explore_podcast_section_title">Piilota \"Tutustu podcastiin\"</string>
+            <string name="revanced_hide_explore_podcast_section_summary_on">Tutustu podcastiin -osio piilotetaan</string>
+            <string name="revanced_hide_explore_podcast_section_summary_off">Tutustu podcastiin -osio näytetään</string>
             <string name="revanced_hide_podcast_section_title">Piilota \"Tutustu podcastiin\"</string>
             <string name="revanced_hide_podcast_section_summary_on">Tutustu podcastiin -osio piilotetaan</string>
             <string name="revanced_hide_podcast_section_summary_off">Tutustu podcastiin -osio näytetään</string>
             <string name="revanced_hide_featured_links_section_title">Piilota esitellyt linkit</string>
             <string name="revanced_hide_featured_links_section_summary_on">Suositeltujen linkkien osio piilotetaan</string>
             <string name="revanced_hide_featured_links_section_summary_off">Suositeltujen linkkien osio näytetään</string>
+            <string name="revanced_hide_featured_places_section_title">Piilota \'Esitellyt paikat\'</string>
+            <string name="revanced_hide_featured_places_section_summary_on">Esitellyt paikat -osio on piilotettu</string>
+            <string name="revanced_hide_featured_places_section_summary_off">Esitellyt paikat -osio näytetään</string>
             <string name="revanced_hide_featured_videos_section_title">Piilota suositellut videot</string>
             <string name="revanced_hide_featured_videos_section_summary_on">Suositeltujen videoiden osio piilotetaan</string>
             <string name="revanced_hide_featured_videos_section_summary_off">Suositeltujen videoiden osio näytetään</string>
+            <string name="revanced_hide_feed_flyout_menu_title">Ota syötteen ponnahdusvalikon suodatin käyttöön</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_on">Syötteen ponnahdusvalikon suodatin on käytössä</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_off">Syötteen ponnahdusvalikon suodatin ei ole käytössä</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Syötteen ponnahdusvalikon suodatin</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Syötä ponnahdusvalikon nimet suodatettavaksi, yksi per rivi</string>
+            <string name="revanced_hide_gaming_section_title">Piilota Pelit</string>
+            <string name="revanced_hide_gaming_section_summary_on">Pelit-osio on piilotettu</string>
+            <string name="revanced_hide_gaming_section_summary_off">Pelit-osio näytetään</string>
+            <string name="revanced_hide_how_this_was_made_section_title">Piilota \"Miten sisältö on luotu\"</string>
+            <string name="revanced_hide_how_this_was_made_section_summary_on">Miten sisältö on luotu -osio piilotetaan</string>
+            <string name="revanced_hide_how_this_was_made_section_summary_off">Miten sisältö on luotu -osio näytetään</string>
+            <string name="revanced_hide_hype_points_title">Piilota Hype-pisteet</string>
+            <string name="revanced_hide_hype_points_summary_on">Hype-pisteet piilotetaan</string>
+            <string name="revanced_hide_hype_points_summary_off">Hype-pisteet näytetään</string>
             <string name="revanced_hide_info_cards_section_title">Piilota tietokortit</string>
             <string name="revanced_hide_info_cards_section_summary_on">Infokortit-osio piilotetaan</string>
             <string name="revanced_hide_info_cards_section_summary_off">Infokortit-osio näytetään</string>
             <string name="revanced_hide_key_concepts_section_title">Piilota \"Keskeiset käsitteet\"</string>
             <string name="revanced_hide_key_concepts_section_summary_on">Keskeiset käsitteet -osio piilotetaan</string>
             <string name="revanced_hide_key_concepts_section_summary_off">Keskeiset käsitteet -osio näytetään</string>
+            <string name="revanced_hide_music_section_title">Piilota Musiikki</string>
+            <string name="revanced_hide_music_section_summary_on">Musiikki-osio on piilotettu</string>
+            <string name="revanced_hide_music_section_summary_off">Musiikki-osio näytetään</string>
             <string name="revanced_hide_subscribe_button_title">Piilota Tilaa-painike</string>
             <string name="revanced_hide_subscribe_button_summary_on">Tilaa-painike piilotetaan</string>
             <string name="revanced_hide_subscribe_button_summary_off">Tilaa-painike näytetään</string>
             <string name="revanced_hide_transcript_section_title">Piilota transkriptio</string>
             <string name="revanced_hide_transcript_section_summary_on">Transkriptio-osio piilotetaan</string>
             <string name="revanced_hide_transcript_section_summary_off">Transkriptio-osio näytetään</string>
+            <string name="revanced_hide_quizzes_section_title">Piilota Tietovisat</string>
+            <string name="revanced_hide_quizzes_section_summary_on">Tietovisat-osio on piilotettu</string>
+            <string name="revanced_hide_quizzes_section_summary_off">Tietovisat-osio näytetään</string>
             <string name="revanced_hide_description_components_screen_title">Videon kuvaus</string>
             <string name="revanced_hide_description_components_screen_summary">Piilota tai näytä videon kuvauksen osia</string>
             <string name="revanced_hide_filter_bar_screen_title">Suodatinpalkki</string>
@@ -393,6 +456,11 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
             <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Näytetään katseluhistoriassa</string>
             <string name="revanced_channel_screen_title">Kanavasivu</string>
             <string name="revanced_channel_screen_summary">Piilota tai näytä kanavasivun osia</string>
+            <string name="revanced_hide_channel_tab_title">Ota kanavavälilehden suodatin käyttöön</string>
+            <string name="revanced_hide_channel_tab_summary_on">Kanavavälilehden suodatin on käytössä</string>
+            <string name="revanced_hide_channel_tab_summary_off">Kanavavälilehden suodatin ei ole käytössä</string>
+            <string name="revanced_hide_channel_tab_filter_strings_title">Kanavavälilehden suodatin</string>
+            <string name="revanced_hide_channel_tab_filter_strings_summary">Syötä suodatettavat kanavavälilehtien nimet, yksi per rivi</string>
             <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
             <string name="revanced_hide_community_button_title">Piilota yhteisöpainike</string>
             <string name="revanced_hide_community_button_summary_on">Yhteisö-painike piilotetaan</string>
@@ -456,15 +524,15 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
             <string name="revanced_hide_view_count_summary_off">Katselukerrat näytetään syötteessä ja hakutuloksissa</string>
             <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
             <string name="revanced_hide_view_count_user_dialog_message">"Rajoitukset:
-• Shorts-hyllyt, kanavasivut ja hakutulokset saattavat edelleen näyttää katselukertoja
-• Tämä ominaisuus ei toimi ajoneuvo-käyttöliittymäasettelussa"</string>
+• Shorts-hyllyt, kanavasivut ja hakutulokset saattavat edelleen näyttää katselukertoja.
+• Tämä ominaisuus ei toimi ajoneuvo-käyttöliittymäasettelussa."</string>
             <string name="revanced_hide_upload_time_title">Piilota julkaisuaika</string>
             <string name="revanced_hide_upload_time_summary_on">Julkaisuaika piilotetaan syötteessä ja hakutuloksissa</string>
             <string name="revanced_hide_upload_time_summary_off">Julkaisuaika näytetään syötteessä ja hakutuloksissa</string>
             <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
             <string name="revanced_hide_upload_time_user_dialog_message">"Rajoitukset:
-• Shorts-hyllyt, kanavasivut ja hakutulokset saattavat edelleen näyttää julkaisuaikoja
-• Tämä ominaisuus ei toimi ajoneuvo-käyttöliittymäasettelussa"</string>
+• Shorts-hyllyt, kanavasivut ja hakutulokset saattavat edelleen näyttää julkaisuaikoja.
+• Tämä ominaisuus ei toimi ajoneuvo-käyttöliittymäasettelussa."</string>
             <string name="revanced_hide_keyword_content_screen_title">Piilota sisältöä avainsanojen mukaan</string>
             <string name="revanced_hide_keyword_content_screen_summary">Piilota haku- ja syötevideoita avainsanasuodattimilla</string>
             <string name="revanced_hide_keyword_content_home_title">Piilota koti-videoita avainsanojen mukaan</string>
@@ -485,9 +553,9 @@ Avainsanat voivat olla kanavanimiä tai mitä tahansa videootsikoissa näkyvää
 
 Sana, jossa on isoja kirjaimia keskellä, on syötettävä samalla kirjainkokoisella (esim: iPhone, TikTok, LeBlanc)"</string>
             <string name="revanced_hide_keyword_content_about_title">Tietoja avainsanoilla suodatuksesta</string>
-            <string name="revanced_hide_keyword_content_about_summary">"Etusivu/Tilaus/Hakutulokset suodatetaan niin, että avainsanoja vastaava sisältö piilotetaan
+            <string name="revanced_hide_keyword_content_about_summary">"Etusivu/Tilaukset/Hakutulokset suodatetaan niin, että avainsanoja vastaava sisältö piilotetaan
 
-Rajoitukset
+Rajoitukset:
 • Shorts-videoita ei voi piilottaa kanavan nimen perusteella
 • Joitain käyttöliittymän osia ei välttämättä piiloteta
 • Avainsanan haku ei välttämättä näytä tuloksia"</string>
@@ -502,19 +570,12 @@ Rajoitukset
             <string name="revanced_hide_keyword_toast_invalid_broad">Avainsana piilottaa kaikki videot: %s</string>
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
-            <string name="revanced_hide_creator_store_shelf_title">Piilota sisällöntuottajan kauppahylly</string>
-            <string name="revanced_hide_creator_store_shelf_summary_on">Sisällöntuottajan kauppahylly piilotetaan videosoittimen alla</string>
-            <string name="revanced_hide_creator_store_shelf_summary_off">Sisällöntuottajan kauppahylly videosoittimen alla näytetään</string>
             <string name="revanced_hide_end_screen_store_banner_title">Piilota loppunäytön kauppabanneri</string>
             <string name="revanced_hide_end_screen_store_banner_summary_on">Loppunäytön kauppabanneri piilotetaan</string>
             <string name="revanced_hide_end_screen_store_banner_summary_off">Loppunäytön kauppabanneri näytetään</string>
             <string name="revanced_hide_fullscreen_ads_title">Piilota koko näytön mainokset</string>
-            <string name="revanced_hide_fullscreen_ads_summary_on">"Koko näytön mainokset piilotetaan
-
-Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
+            <string name="revanced_hide_fullscreen_ads_summary_on">Koko näytön mainokset piilotetaan</string>
             <string name="revanced_hide_fullscreen_ads_summary_off">Koko näytön mainokset näytetään</string>
-            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-            <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Koko näytön mainosten piilottaminen toimii vain vanhemmilla laitteilla</string>
             <string name="revanced_hide_general_ads_title">Piilota yleiset mainokset</string>
             <string name="revanced_hide_general_ads_summary_on">Yleiset mainokset piilotetaan</string>
             <string name="revanced_hide_general_ads_summary_off">Yleiset mainokset näytetään</string>
@@ -524,6 +585,9 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
             <string name="revanced_hide_paid_promotion_label_title">Piilota maksetun mainostuksen tunniste</string>
             <string name="revanced_hide_paid_promotion_label_summary_on">Maksetun mainostuksen tunniste piilotetaan</string>
             <string name="revanced_hide_paid_promotion_label_summary_off">Maksetun mainostuksen tunniste näytetään</string>
+            <string name="revanced_hide_player_popup_ads_title">Piilota soittimen ponnahdusmainokset</string>
+            <string name="revanced_hide_player_popup_ads_summary_on">Soittimen ponnahdusmainokset piilotetaan</string>
+            <string name="revanced_hide_player_popup_ads_summary_off">Soittimen ponnahdusmainokset näytetään</string>
             <string name="revanced_hide_self_sponsor_ads_title">Piilota itse-sponsoroidut kortit</string>
             <string name="revanced_hide_self_sponsor_ads_summary_on">Itse-sponsoroidut kortit piilotetaan</string>
             <string name="revanced_hide_self_sponsor_ads_summary_off">Itse-sponsoroidut kortit näytetään</string>
@@ -531,23 +595,18 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
             <string name="revanced_hide_shopping_links_summary_on">Ostoslinkit videon kuvauksessa piilotetaan</string>
             <string name="revanced_hide_shopping_links_summary_off">Ostoslinkit videon kuvauksessa näytetään</string>
             <string name="revanced_hide_view_products_banner_title">Piilota \"Näytä tuotteet\" -banneri</string>
-            <string name="revanced_hide_view_products_banner_summary_on">Videon peittokuvan tuotebannerit piilotetaan</string>
-            <string name="revanced_hide_view_products_banner_summary_off">Videon peittokuvan tuotebannerit näytetään</string>
-            <string name="revanced_hide_web_search_results_title">Piilota verkkohakutulokset</string>
-            <string name="revanced_hide_web_search_results_summary_on">Verkkohakutulokset piilotetaan</string>
-            <string name="revanced_hide_web_search_results_summary_off">Verkkohakutulokset näytetään</string>
-        </patch>
-        <patch id="ad.getpremium.hideGetPremiumPatch">
-            <string name="revanced_hide_get_premium_title">Piilota YouTube Premium -mainokset</string>
-            <string name="revanced_hide_get_premium_summary_on">YouTube Premium -mainokset videosoittimen alla piilotetaan</string>
-            <string name="revanced_hide_get_premium_summary_off">YouTube Premium -mainokset videosoittimen alla näytetään</string>
+            <string name="revanced_hide_view_products_banner_summary_on">Tuotenäytön banneri soittimen peittokuvassa on piilotettu</string>
+            <string name="revanced_hide_view_products_banner_summary_off">Tuotenäytön banneri soittimen peittokuvassa näytetään</string>
+            <string name="revanced_hide_youtube_premium_promotions_title">Piilota YouTube Premium -mainokset</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_on">YouTube Premium -mainokset piilotetaan</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_off">YouTube Premium -mainokset näytetään</string>
         </patch>
         <patch id="ad.video.videoAdsPatch">
             <string name="revanced_hide_video_ads_title">Piilota videomainokset</string>
             <string name="revanced_hide_video_ads_summary_on">Videomainokset piilotetaan</string>
             <string name="revanced_hide_video_ads_summary_off">Videomainokset näytetään</string>
         </patch>
-        <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+        <patch id="interaction.copyvideourl.copyVideoURLResourcePatch">
             <string name="revanced_share_copy_url_success">URL-osoite kopioitiin leikepöydälle</string>
             <string name="revanced_share_copy_url_timestamp_success">Aikaleimattu URL-osoite kopioitiin</string>
             <string name="revanced_copy_video_url_title">Näytä videon URL-osoitteen kopiointipainike</string>
@@ -563,10 +622,10 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
             <string name="revanced_remove_viewer_discretion_dialog_summary_off">Valintaikkuna näytetään</string>
             <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tämä ei ohita ikärajoitusta. Se vain hyväksyy sen automaattisesti.</string>
         </patch>
-        <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
-            <string name="revanced_disable_signin_to_tv_popup_title">Poista \"Kirjaudu TV:hen\" -ponnahdusikkuna käytöstä</string>
-            <string name="revanced_disable_signin_to_tv_popup_summary_on">Kirjaudu televisioon -ponnahdusikkuna on poistettu käytöstä</string>
-            <string name="revanced_disable_signin_to_tv_popup_summary_off">Kirjaudu televisioon -ponnahdusikkuna on käytössä</string>
+        <patch id="layout.hide.signintotv.disableSignInToTVPopupPatch">
+            <string name="revanced_disable_sign_in_to_tv_popup_title">Poista \"Kirjaudu TV:hen\" -ponnahdusikkuna käytöstä</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_on">Kirjaudu televisioon -ponnahdusikkuna on poistettu käytöstä</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_off">Kirjaudu televisioon -ponnahdusikkuna on käytössä</string>
         </patch>
         <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
             <string name="revanced_disable_chapter_skip_double_tap_title">Poista videon osan ohittaminen kaksoisnapauttamalla käytöstä</string>
@@ -599,10 +658,10 @@ Tarkista, että paketin nimi on oikein ja sovellus on asennettu"</string>
             <string name="revanced_disable_precise_seeking_gesture_summary_on">Ele ei ole käytössä</string>
             <string name="revanced_disable_precise_seeking_gesture_summary_off">Ele on käytössä</string>
         </patch>
-        <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-            <string name="revanced_seekbar_tapping_title">Ota etsintä napauttamalla käyttöön</string>
-            <string name="revanced_seekbar_tapping_summary_on">Etsintä napauttamalla on käytössä</string>
-            <string name="revanced_seekbar_tapping_summary_off">Etsintä napauttamalla ei ole käytössä</string>
+        <patch id="interaction.seekbar.enableTapToSeekPatch">
+            <string name="revanced_tap_to_seek_title">Ota etsintä napauttamalla käyttöön</string>
+            <string name="revanced_tap_to_seek_summary_on">Etsintä napauttamalla on käytössä</string>
+            <string name="revanced_tap_to_seek_summary_off">Etsintä napauttamalla ei ole käytössä</string>
         </patch>
         <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
             <string name="revanced_swipe_brightness_title">Ota kirkkauden ele käyttöön</string>
@@ -683,7 +742,7 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
             <string name="revanced_hide_comments_button_summary_on">Kommentit-painike piilotetaan</string>
             <string name="revanced_hide_comments_button_summary_off">Kommentit-painike näytetään</string>
             <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually only shows on live streams. -->
+                  This button usually appears on live streamed videos. -->
             <string name="revanced_hide_report_button_title">Piilota Tee ilmoitus</string>
             <string name="revanced_hide_report_button_summary_on">Tee ilmoitus -painike piilotetaan</string>
             <string name="revanced_hide_report_button_summary_off">Tee ilmoitus -painike näytetään</string>
@@ -696,7 +755,7 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
             <string name="revanced_hide_download_button_summary_on">Lataa-painike piilotetaan</string>
             <string name="revanced_hide_download_button_summary_off">Lataa-painike näytetään</string>
             <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged-in user. -->
+                  This button usually appears on videos uploaded by the logged-in user. -->
             <string name="revanced_hide_hype_button_title">Piilota Hypetä</string>
             <string name="revanced_hide_hype_button_summary_on">Hypetä-painike piilotetaan</string>
             <string name="revanced_hide_hype_button_summary_off">Hypetä-painike näytetään</string>
@@ -709,7 +768,7 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
             <string name="revanced_hide_thanks_button_summary_on">Kiitos-painike piilotetaan</string>
             <string name="revanced_hide_thanks_button_summary_off">Kiitos-painike näytetään</string>
             <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button usually appears if the user IP is from a specific region such as the USA or EU. -->
             <string name="revanced_hide_ask_button_title">Piilota Ask</string>
             <string name="revanced_hide_ask_button_summary_on">Ask-painike piilotetaan</string>
             <string name="revanced_hide_ask_button_summary_off">Ask-painike näytetään</string>
@@ -717,6 +776,7 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
             <string name="revanced_hide_clip_button_title">Piilota Klippi</string>
             <string name="revanced_hide_clip_button_summary_on">Klippi-painike piilotetaan</string>
             <string name="revanced_hide_clip_button_summary_off">Klippi-painike näytetään</string>
+            <string name="revanced_hide_clip_button_user_dialog_message">Piilotus ei välttämättä toimi joillakin käyttäjätileillä.</string>
             <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
             <string name="revanced_hide_shop_button_title">Piilota Kauppa</string>
             <string name="revanced_hide_shop_button_summary_on">Kauppa-painike piilotetaan</string>
@@ -726,7 +786,7 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
             <string name="revanced_hide_save_button_summary_on">Tallenna-painike piilotetaan</string>
             <string name="revanced_hide_save_button_summary_off">Tallenna-painike näytetään</string>
         </patch>
-        <patch id="layout.buttons.navigation.navigationButtonsPatch">
+        <patch id="layout.buttons.navigation.navigationBarPatch">
             <string name="revanced_navigation_buttons_screen_title">Navigointipainikkeet</string>
             <string name="revanced_navigation_buttons_screen_summary">Piilota tai muuta navigointipalkin painikkeita</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -750,26 +810,44 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
             <string name="revanced_hide_notifications_button_summary_off">Ilmoitukset-painike näytetään</string>
             <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
             <string name="revanced_switch_create_with_notifications_button_title">Vaihda Luo ja Ilmoitukset</string>
-            <string name="revanced_switch_create_with_notifications_button_summary_on">"Luo- ja Ilmoitukset-painikkeet vaihdetaan
-
-Huomaa: Tämä piilottaa väkisin myös videomainokset"</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_on">Luo-painike on vaihdettu Ilmoitukset-painikkeen kanssa</string>
             <string name="revanced_switch_create_with_notifications_button_summary_off">Luo- ja Ilmoitukset-painikkeita ei vaihdeta</string>
-            <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Tämän asetuksen poistaminen käytöstä poistaa myös Shorts-mainosten eston käytöstä.
-
-Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-tilaan."</string>
+            <string name="revanced_switch_create_with_notifications_button_user_dialog_message">Jos tämän asetuksen muuttaminen ei tule voimaan, yritä vaihtaa Incognito-tilaan.</string>
             <string name="revanced_hide_navigation_button_labels_title">Piilota navigointipainikkeiden tunnisteet</string>
             <string name="revanced_hide_navigation_button_labels_summary_on">Tunnisteet piilotetaan</string>
             <string name="revanced_hide_navigation_button_labels_summary_off">Tunnisteet näytetään</string>
+            <string name="revanced_narrow_navigation_buttons_title">Ota kapeat navigointipainikkeet käyttöön</string>
+            <string name="revanced_narrow_navigation_buttons_summary_on">Navigointipainikkeiden väli on kapea</string>
+            <string name="revanced_narrow_navigation_buttons_summary_off">Navigointipainikkeiden väli on normaali</string>
+            <string name="revanced_navigation_bar_animations_title">Ota navigointipalkin animaatiot käyttöön</string>
+            <string name="revanced_navigation_bar_animations_summary_on">Navigointisiirtymät ovat animoituja</string>
+            <string name="revanced_navigation_bar_animations_summary_off">Navigointisiirtymät eivät ole animoituja</string>
             <string name="revanced_disable_translucent_status_bar_title">Poista läpikuultava tilapalkki käytöstä</string>
             <string name="revanced_disable_translucent_status_bar_summary_on">Tilapalkki on läpinäkymätön</string>
             <string name="revanced_disable_translucent_status_bar_summary_off">Tilapalkki on läpinäkymätön tai läpikuultava</string>
-            <string name="revanced_disable_translucent_status_bar_user_dialog_message">Joillakin laitteilla tämän ominaisuuden käyttöönotto voi muuttaa järjestelmän navigointipalkin läpinäkyväksi.</string>
+            <string name="revanced_disable_translucent_status_bar_user_dialog_message">"Rajoitukset:
+• Musta palkki saattaa ilmestyä videosoittimen yläreunaan.
+• Joissakin laitteissa tämän ominaisuuden käyttöönotto voi muuttaa järjestelmän navigointipalkin läpinäkyväksi."</string>
             <string name="revanced_disable_translucent_navigation_bar_light_title">Poista vaalea läpikuultava palkki käytöstä</string>
             <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Vaalean tilan navigointipalkki on läpinäkymätön</string>
             <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Vaalean tilan navigointipalkki on läpinäkymätön tai läpikuultava</string>
             <string name="revanced_disable_translucent_navigation_bar_dark_title">Poista tumma läpikuultava palkki käytöstä</string>
             <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Tumman tilan navigointipalkki on läpinäkymätön</string>
             <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Tumman tilan navigointipalkki on läpinäkymätön tai läpikuultava</string>
+            <string name="revanced_toolbar_screen_title">Työkalupalkki</string>
+            <string name="revanced_toolbar_screen_summary">Piilota tai muuta työkalupalkin osia</string>
+            <string name="revanced_hide_toolbar_create_button_title">Piilota Luo-painike</string>
+            <string name="revanced_hide_toolbar_create_button_summary_on">Luo-painike on piilotettu</string>
+            <string name="revanced_hide_toolbar_create_button_summary_off">Luo-painike näytetään</string>
+            <string name="revanced_hide_toolbar_notification_button_title">Piilota Ilmoitukset-painike</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_on">Ilmoitukset-painike on piilotettu</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_off">Ilmoitukset-painike näytetään</string>
+            <string name="revanced_hide_toolbar_search_button_title">Piilota Haku-painike</string>
+            <string name="revanced_hide_toolbar_search_button_summary_on">Hakupainike piilotetaan</string>
+            <string name="revanced_hide_toolbar_search_button_summary_off">Hakupainike näytetään.</string>
+            <string name="revanced_wide_searchbar_title">Ota leveä hakupalkki käyttöön</string>
+            <string name="revanced_wide_searchbar_summary_on">Leveä hakupalkki on käytössä</string>
+            <string name="revanced_wide_searchbar_summary_off">Leveä hakupalkki ei ole käytössä</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <string name="revanced_hide_player_flyout_title">Flyout-valikko</string>
@@ -844,6 +922,12 @@ Näyttääksesi ääniraitavalikon, muuta \"Videostriimien naamioiminen\" -asetu
             <string name="revanced_hide_cast_button_title">Piilota Cast-painike</string>
             <string name="revanced_hide_cast_button_summary_on">Cast-painike piilotetaan</string>
             <string name="revanced_hide_cast_button_summary_off">Cast-painike näytetään</string>
+            <string name="revanced_hide_collapse_button_title">Piilota Kutista-painike</string>
+            <string name="revanced_hide_collapse_button_summary_on">Kutista-painike on piilotettu</string>
+            <string name="revanced_hide_collapse_button_summary_off">Kutista-painike näytetään</string>
+            <string name="revanced_hide_fullscreen_button_title">Piilota Koko näyttö -painike</string>
+            <string name="revanced_hide_fullscreen_button_summary_on">Koko näyttö -painike on piilotettu</string>
+            <string name="revanced_hide_fullscreen_button_summary_off">Koko näyttö -painike näytetään</string>
             <string name="revanced_hide_player_control_buttons_background_title">Piilota soittimen ohjainten tausta</string>
             <string name="revanced_hide_player_control_buttons_background_summary_on">Soittimen ohjainten tausta piilotetaan</string>
             <string name="revanced_hide_player_control_buttons_background_summary_off">Soittimen ohjainten tausta näytetään</string>
@@ -852,9 +936,9 @@ Näyttääksesi ääniraitavalikon, muuta \"Videostriimien naamioiminen\" -asetu
             <string name="revanced_hide_player_previous_next_buttons_summary_off">Painikkeet näytetään</string>
         </patch>
         <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
-            <string name="revanced_hide_endscreen_cards_title">Piilota loppunäytön kortit</string>
-            <string name="revanced_hide_endscreen_cards_summary_on">Loppunäytön kortit piilotetaan</string>
-            <string name="revanced_hide_endscreen_cards_summary_off">Loppunäytön kortit näytetään</string>
+            <string name="revanced_hide_end_screen_cards_title">Piilota loppunäytön kortit</string>
+            <string name="revanced_hide_end_screen_cards_summary_on">Loppunäytön kortit piilotetaan</string>
+            <string name="revanced_hide_end_screen_cards_summary_off">Loppunäytön kortit näytetään</string>
         </patch>
         <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
             <string name="revanced_disable_fullscreen_ambient_mode_title">Poista Tunnelmavalaistus käytöstä kokoruututilassa</string>
@@ -879,10 +963,16 @@ Näyttääksesi ääniraitavalikon, muuta \"Videostriimien naamioiminen\" -asetu
             <string name="revanced_hide_seekbar_thumbnail_title">Piilota videoiden pikkukuvien etenemispalkki</string>
             <string name="revanced_hide_seekbar_thumbnail_summary_on">Videoiden pikkukuvien etenemispalkki piilotetaan</string>
             <string name="revanced_hide_seekbar_thumbnail_summary_off">Videoiden pikkukuvien etenemispalkki näytetään</string>
+            <string name="revanced_fullscreen_large_seekbar_title">Ota käyttöön koko näytön suuri etenemispalkki</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_on">Koko näytön etenemispalkki on suuri</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_off">Koko näytön etenemispalkki on normaalin kokoinen</string>
         </patch>
         <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
             <string name="revanced_shorts_player_screen_title">Shorts-soitin</string>
             <string name="revanced_shorts_player_screen_summary">Piilota tai näytä Shorts-soittimen osia</string>
+            <string name="revanced_hide_shorts_channel_title">Piilota Shorts-videot kanavasivulta</string>
+            <string name="revanced_hide_shorts_channel_summary_on">Piilotettu kanavasivulla</string>
+            <string name="revanced_hide_shorts_channel_summary_off">Näytetään kanavasivulla</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
             <string name="revanced_hide_shorts_home_title">Piilota Shortsit Koti-syötteessä</string>
             <string name="revanced_hide_shorts_home_summary_on">Piilotetaan Koti-syötteessä ja liittyvissä videoissa</string>
@@ -894,9 +984,18 @@ Näyttääksesi ääniraitavalikon, muuta \"Videostriimien naamioiminen\" -asetu
             <string name="revanced_hide_shorts_subscriptions_title">Piilota Shortsit Tilaukset-syötteessä</string>
             <string name="revanced_hide_shorts_subscriptions_summary_on">Piilotetaan Tilaukset-syötteessä</string>
             <string name="revanced_hide_shorts_subscriptions_summary_off">Näytetään tilaukset-syötteessä</string>
+            <string name="revanced_hide_shorts_video_description_title">Piilota Shorts-videot videon kuvauksesta</string>
+            <string name="revanced_hide_shorts_video_description_summary_on">Piilotettu videon kuvauksessa</string>
+            <string name="revanced_hide_shorts_video_description_summary_off">Näytetään videon kuvauksessa</string>
             <string name="revanced_hide_shorts_history_title">Piilota Shortsit katseluhistoriassa</string>
             <string name="revanced_hide_shorts_history_summary_on">Piilotetaan katseluhistoriassa</string>
             <string name="revanced_hide_shorts_history_summary_off">Näytetään katseluhistoriassa</string>
+            <string name="revanced_hide_shorts_ai_button_title">Piilota tekoäly-painike</string>
+            <string name="revanced_hide_shorts_ai_button_summary_on">Tekoäly-painike on piilotettu</string>
+            <string name="revanced_hide_shorts_ai_button_summary_off">Tekoäly-painike näytetään</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_title">Piilota \"Automaattisesti jälkiäänitetty\" -merkintä</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Automaattisesti jälkiäänitetty merkintä on piilotettu</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Automaattisesti jälkiäänitetty merkintä näytetään</string>
             <string name="revanced_hide_shorts_auto_dubbed_label_title">Piilota \"Automaattisesti jälkiäänitetty\" -merkintä</string>
             <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Automaattisesti jälkiäänitetty merkintä on piilotettu</string>
             <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Automaattisesti jälkiäänitetty merkintä näytetään</string>
@@ -958,6 +1057,7 @@ Näyttääksesi ääniraitavalikon, muuta \"Videostriimien naamioiminen\" -asetu
             <string name="revanced_hide_shorts_use_template_button_title">Piilota \"Käytä tätä mallia\" -painike</string>
             <string name="revanced_hide_shorts_use_template_button_summary_on">Käytä tätä mallia -painike piilotetaan</string>
             <string name="revanced_hide_shorts_use_template_button_summary_off">Käytä tätä mallia -painike näytetään</string>
+            <!-- YT may no longer use this feature and this setting may be obsolete. -->
             <string name="revanced_hide_shorts_like_fountain_title">Piilota Tykkää-painikkeen suihkulähdeanimaatio</string>
             <string name="revanced_hide_shorts_like_fountain_summary_on">Tykkää-painikkeen suihkulähdeanimaatio piilotetaan</string>
             <string name="revanced_hide_shorts_like_fountain_summary_off">Tykkää-painikkeen suihkulähdeanimaatio näytetään</string>
@@ -1000,7 +1100,12 @@ Näyttääksesi ääniraitavalikon, muuta \"Videostriimien naamioiminen\" -asetu
             <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigointipalkki piilotetaan</string>
             <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigointipalkki näytetään</string>
         </patch>
-        <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+        <patch id="layout.hide.autoplaypreview.hideAutoplayPreviewPatch">
+            <string name="revanced_hide_autoplay_preview_title">Piilota automaattisen toiston esikatselu</string>
+            <string name="revanced_hide_autoplay_preview_summary_on">Automaattisen toiston esikatselu on piilotettu</string>
+            <string name="revanced_hide_autoplay_preview_summary_off">Automaattisen toiston esikatselu näytetään</string>
+        </patch>
+        <patch id="layout.hide.endscreensuggestedvideo.hideEndScreenSuggestedVideoPatch">
             <string name="revanced_end_screen_suggested_video_title">Piilota loppunäytön ehdotettu video</string>
             <string name="revanced_end_screen_suggested_video_summary_on">"Loppunäytön ehdotettu video on piilotettu, kun automaattinen toisto ei ole käytössä
 
@@ -1019,9 +1124,9 @@ Asetukset → Toisto → Toista seuraava video automaattisesti"</string>
             <string name="revanced_hide_timestamp_summary_off">Aikaleima näytetään</string>
         </patch>
         <patch id="layout.panels.popup.playerPopupPanelsPatch">
-            <string name="revanced_hide_player_popup_panels_title">Piilota soittimen ponnahdusikkunat</string>
-            <string name="revanced_hide_player_popup_panels_summary_on">Soittimen ponnahdusikkunat piilotetaan</string>
-            <string name="revanced_hide_player_popup_panels_summary_off">Soittimen ponnahdusikkunat näytetään</string>
+            <string name="revanced_disable_player_popup_panels_title">Piilota soittimen ponnahdusikkunat</string>
+            <string name="revanced_disable_player_popup_panels_summary_on">Soittimen ponnahdusikkunat piilotetaan</string>
+            <string name="revanced_disable_player_popup_panels_summary_off">Soittimen ponnahdusikkunat näytetään</string>
         </patch>
         <patch id="layout.player.fullscreen.exitFullscreenPatch">
             <string name="revanced_exit_fullscreen_title">Poistu kokoruututilasta videon lopussa</string>
@@ -1090,26 +1195,6 @@ Rajoitus: Ei-tykkäykset eivät välttämättä näy incognito-tilassa"</string>
             <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Asiakasmäärän rajoja ei havaittu</string>
             <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Asiakkaan hintaraja kohdistettu %d kertaa</string>
             <string name="revanced_ryd_statistics_millisecond_text">%d millisekuntia</string>
-        </patch>
-        <patch id="layout.searchbar.wideSearchbarPatch">
-            <string name="revanced_wide_searchbar_title">Ota leveä hakupalkki käyttöön</string>
-            <string name="revanced_wide_searchbar_summary_on">Leveä hakupalkki on käytössä</string>
-            <string name="revanced_wide_searchbar_summary_off">Leveä hakupalkki ei ole käytössä</string>
-        </patch>
-        <patch id="layout.seekbar.seekbarThumbnailsPatch">
-            <string name="revanced_seekbar_thumbnails_high_quality_title">Ota korkealaatuiset pikkukuvat käyttöön</string>
-            <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Etenemispalkin pikkukuvat ovat korkealaatuisia</string>
-            <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Etenemispalkin pikkukuvat ovat keskilaatuisia</string>
-            <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Koko näytön etenemispalkin pikkukuvat ovat korkealaatuisia</string>
-            <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Koko näytön etenemispalkin pikkukuvat ovat keskilaatuisia</string>
-            <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Tämä palauttaa myös pienoiskuvat livestriimeissä, joilla ei ole etenemispalkin pikkukuvia.
-
-Etenemispalkin pikkukuvat käyttävät samaa laatua kuin nykyinen video.
-
-Tämä ominaisuus toimii parhaiten, kun videon laatu on 720p tai alhaisempi ja kun käytössä on erittäin nopea Internet-yhteys."</string>
-            <string name="revanced_restore_old_seekbar_thumbnails_title">Palauta vanhat etenemispalkin pikkukuvat</string>
-            <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Etenemispalkin pikkukuvat näkyvät etenemispalkin yläpuolella</string>
-            <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Etenemispalkin pikkukuvat näkyvät kokoruututilassa</string>
         </patch>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
             <string name="revanced_settings_screen_10_sponsorblock_title">SponsorBlock</string>
@@ -1352,8 +1437,6 @@ Jos tämä poistetaan myöhemmin käytöstä, on suositeltavaa tyhjentää sovel
             <string name="revanced_spoof_app_version_target_title">Naamioitava kohdeversio</string>
             <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Palauta laajennettu videon toimintopalkki</string>
             <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Palauta transkriptiotoiminto</string>
-            <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Palauta vanhat Shorts-soittimen kuvakkeet</string>
-            <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Palauta vanhat navigointikuvakkeet</string>
         </patch>
         <patch id="layout.startpage.changeStartPagePatch">
             <string name="revanced_change_start_page_title">Vaihda aloitussivua</string>
@@ -1464,8 +1547,9 @@ Pyyhkäise laajentaaksesi tai sulkeaksesi"</string>
             <string name="revanced_gradient_loading_screen_summary_on">Latausruudulla on liukuvärillinen tausta</string>
             <string name="revanced_gradient_loading_screen_summary_off">Latausruudulla on yksivärinen tausta</string>
             <string name="revanced_splash_screen_animation_style_title">Aloitussivun tyyli</string>
-            <string name="revanced_splash_screen_animation_style_entry_1">Väri</string>
-            <string name="revanced_splash_screen_animation_style_entry_2">Mustavalkoinen</string>
+            <string name="revanced_splash_screen_animation_style_entry_1">Pois käytöstä</string>
+            <string name="revanced_splash_screen_animation_style_entry_2">Väri</string>
+            <string name="revanced_splash_screen_animation_style_entry_3">Mustavalkoinen</string>
             <string name="revanced_seekbar_custom_color_title">Ota mukautettu etenemispalkin väri käyttöön</string>
             <string name="revanced_seekbar_custom_color_summary_on">Mukautettu etenemispalkin väri näytetään</string>
             <string name="revanced_seekbar_custom_color_summary_off">Alkuperäinen etenemispalkin väri näytetään</string>
@@ -1581,6 +1665,9 @@ Tämä voi avata korkealaatuisemmat videot"</string>
             <string name="revanced_disable_haptic_feedback_seek_undo_title">Poista etsinnän kumoamisen haptiikka käytöstä</string>
             <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">Etsinnän kumoamisen haptiikka ei ole käytössä</string>
             <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">Etsinnän kumoamisen haptiikka on käytössä</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_title">Poista napautuksen ja pitämisen haptiikka käytöstä</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">Napautuksen ja pitämisen haptiikka on poistettu käytöstä</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">Napautuksen ja pitämisen haptiikka on käytössä</string>
             <string name="revanced_disable_haptic_feedback_zoom_title">Poista zoomaushaptiikka käytöstä</string>
             <string name="revanced_disable_haptic_feedback_zoom_summary_on">Zoomaushaptiikka ei ole käytössä</string>
             <string name="revanced_disable_haptic_feedback_zoom_summary_off">Zoomaushaptiikka on käytössä</string>
@@ -1676,6 +1763,11 @@ Rajoitukset:
             <string name="revanced_advanced_video_quality_menu_summary_on">Edistynyt videolaatuvalikko näytetään</string>
             <string name="revanced_advanced_video_quality_menu_summary_off">Edistynyttä videolaatuvalikkoa ei näytetä</string>
         </patch>
+        <patch id="video.quality.hidePremiumVideoQualityPatch">
+            <string name="revanced_hide_premium_video_quality_title">Piilota Premium-laatuvaihtoehdot</string>
+            <string name="revanced_hide_premium_video_quality_summary_on">Premium-laatuvaihtoehdot on piilotettu</string>
+            <string name="revanced_hide_premium_video_quality_summary_off">Premium-laatuvaihtoehdot näytetään</string>
+        </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch">
             <string name="revanced_slide_to_seek_title">Ota kelaus liu\'uttamalla käyttöön</string>
             <string name="revanced_slide_to_seek_summary_on">Kelaus liu\'uttamalla on käytössä</string>
@@ -1711,6 +1803,7 @@ AV1-videon toisto saattaa pätkiä."</string>
             <string name="revanced_custom_branding_name_entry_4">Music</string>
         </patch>
         <patch id="misc.settings.settingsPatch">
+            <!-- In languages where "About" is ambiguous, translate to "About ReVanced" (i.e., About this app). -->
             <string name="revanced_settings_music_screen_0_about_title">Tietoja</string>
             <string name="revanced_settings_music_screen_1_ads_title">Mainokset</string>
             <string name="revanced_settings_music_screen_2_general_title">Yleiset</string>

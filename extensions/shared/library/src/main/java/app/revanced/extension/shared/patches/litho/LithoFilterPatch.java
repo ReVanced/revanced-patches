@@ -47,7 +47,7 @@ public final class LithoFilterPatch {
             }
             builder.append(" Path: ");
             builder.append(path);
-            if (YouTubeAndMusicSettings.DEBUG_PROTOBUFFER.get()) {
+            if (YouTubeAndMusicSettings.DEBUG_PROTOCOLBUFFER.get()) {
                 builder.append(" BufferStrings: ");
                 findAsciiStrings(builder, buffer);
             }

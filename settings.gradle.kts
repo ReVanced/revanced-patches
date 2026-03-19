@@ -2,7 +2,6 @@ rootProject.name = "revanced-patches"
 
 pluginManagement {
     repositories {
-        mavenLocal()
         gradlePluginPortal()
         google()
         maven {
@@ -10,12 +9,16 @@ pluginManagement {
             url = uri("https://maven.pkg.github.com/revanced/revanced-patches-gradle-plugin")
             credentials(PasswordCredentials::class)
         }
+        // TODO: Remove once https://github.com/google/protobuf-gradle-plugin/pull/797 is merged.
+        maven { url = uri("https://jitpack.io") }
     }
-}
-
-dependencyResolutionManagement {
-    repositories {
-        mavenLocal()
+    // TODO: Remove once https://github.com/google/protobuf-gradle-plugin/pull/797 is merged.
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "com.google.protobuf") {
+                useModule("com.github.ReVanced:protobuf-gradle-plugin:${requested.version}")
+            }
+        }
     }
 }
 

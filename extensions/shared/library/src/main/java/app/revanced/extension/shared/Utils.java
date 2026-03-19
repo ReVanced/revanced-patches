@@ -32,11 +32,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -65,7 +61,6 @@ import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.preference.ReVancedAboutPreference;
 import app.revanced.extension.shared.ui.Dim;
 
-@SuppressWarnings("NewApi")
 public class Utils {
 
     @SuppressLint("StaticFieldLeak")
@@ -139,6 +134,7 @@ public class Utils {
         return versionName;
     }
 
+    @SuppressWarnings("unused")
     public static String getApplicationName() {
         if (applicationLabel == null) {
             try {
@@ -185,24 +181,13 @@ public class Utils {
      * @param view The view to hide.
      */
     public static void hideViewBy0dp(View view) {
-        if (view instanceof LinearLayout) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams);
-        } else if (view instanceof FrameLayout) {
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams2);
-        } else if (view instanceof RelativeLayout) {
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams3);
-        } else if (view instanceof Toolbar) {
-            Toolbar.LayoutParams layoutParams4 = new Toolbar.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams4);
-        } else {
-            ViewGroup.LayoutParams params = view.getLayoutParams();
-            params.width = 0;
-            params.height = 0;
-            view.setLayoutParams(params);
-        }
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+        if (params == null)
+            params = new ViewGroup.LayoutParams(0, 0);
+
+        params.width = 0;
+        params.height = 0;
+        view.setLayoutParams(params);
     }
 
     /**
@@ -514,6 +499,7 @@ public class Utils {
         return str != null && !str.isEmpty();
     }
 
+    @SuppressWarnings("unused")
     public static boolean isTablet() {
         return context.getResources().getConfiguration().smallestScreenWidthDp >= 600;
     }
@@ -553,6 +539,7 @@ public class Utils {
         return  getTextDirectionString(isRightToLeftLocale());
     }
 
+    @SuppressWarnings("unused")
     public static String getTextDirectionString(Locale locale) {
         return getTextDirectionString(isRightToLeftLocale(locale));
     }

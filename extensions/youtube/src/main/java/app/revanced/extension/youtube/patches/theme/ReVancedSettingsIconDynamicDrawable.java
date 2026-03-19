@@ -1,7 +1,9 @@
 package app.revanced.extension.youtube.patches.theme;
 
+import android.content.res.ColorStateList;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
+import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 
@@ -10,7 +12,6 @@ import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.settings.BaseSettings;
 
 /**
  * Dynamic drawable that is either the regular or bolded ReVanced preference icon.
@@ -81,5 +82,20 @@ public class ReVancedSettingsIconDynamicDrawable extends Drawable {
     public void onBoundsChange(@NonNull Rect bounds) {
         super.onBoundsChange(bounds);
         icon.setBounds(bounds);
+    }
+
+    @Override
+    public void setTint(int tintColor) {
+        icon.setTint(tintColor);
+    }
+
+    @Override
+    public void setTintList(@Nullable ColorStateList tint) {
+        icon.setTintList(tint);
+    }
+
+    @Override
+    public void setTintMode(@Nullable PorterDuff.Mode tintMode) {
+        icon.setTintMode(tintMode);
     }
 }

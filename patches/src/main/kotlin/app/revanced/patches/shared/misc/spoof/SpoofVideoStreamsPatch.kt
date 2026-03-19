@@ -169,13 +169,13 @@ internal fun spoofVideoStreamsPatch(
                             if-eqz v2, :disabled
     
                             # Get streaming data.
-                            invoke-static { v2 }, $EXTENSION_CLASS_DESCRIPTOR->getStreamingData(Ljava/lang/String;)Ljava/nio/ByteBuffer;
+                            invoke-static { v2 }, $EXTENSION_CLASS_DESCRIPTOR->getStreamingData(Ljava/lang/String;)[B
                             move-result-object v3
                             if-eqz v3, :disabled
     
                             # Parse streaming data.
                             sget-object v4, $playerProtoClass->a:$playerProtoClass
-                            invoke-static { v4, v3 }, $protobufClass->parseFrom(${protobufClass}Ljava/nio/ByteBuffer;)$protobufClass
+                            invoke-static { v4, v3 }, $protobufClass->parseFrom(${protobufClass}[B)$protobufClass
                             move-result-object v5
                             check-cast v5, $playerProtoClass
     

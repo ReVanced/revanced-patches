@@ -3,7 +3,6 @@ package app.revanced.patches.shared.layout.branding
 import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.firstImmutableClassDef
 import app.revanced.patcher.patch.*
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
@@ -126,14 +125,14 @@ internal fun baseCustomBrandingPatch(
                     val getBuilderIndex = if (isYouTubeMusic) {
                         // YT Music the field is not a plain object type.
                         indexOfFirstInstructionOrThrow {
-                            getReference<FieldReference>()?.type == "Landroid/app/Notification\$Builder;"
+                            getReference<FieldReference>()?.type == $$"Landroid/app/Notification$Builder;"
                         }
                     } else {
                         // Find the field name of the notification builder. Field is an Object type.
                         val builderCastIndex = indexOfFirstInstructionOrThrow {
                             val reference = getReference<TypeReference>()
                             opcode == Opcode.CHECK_CAST &&
-                                    reference?.type == "Landroid/app/Notification\$Builder;"
+                                    reference?.type == $$"Landroid/app/Notification$Builder;"
                         }
                         indexOfFirstInstructionReversedOrThrow(builderCastIndex) {
                             getReference<FieldReference>()?.type == "Ljava/lang/Object;"
@@ -148,11 +147,11 @@ internal fun baseCustomBrandingPatch(
                     ).forEach { index ->
                         addInstructionsAtControlFlowLabel(
                             index,
-                            """
+                            $$"""
                                 move-object/from16 v0, p0
-                                iget-object v0, v0, $builderFieldName
-                                check-cast v0, Landroid/app/Notification${'$'}Builder;
-                                invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->setNotificationIcon(Landroid/app/Notification${'$'}Builder;)V
+                                iget-object v0, v0, $$builderFieldName
+                                check-cast v0, Landroid/app/Notification$Builder;
+                                invoke-static { v0 }, $$EXTENSION_CLASS_DESCRIPTOR->setNotificationIcon(Landroid/app/Notification$Builder;)V
                             """,
                         )
                     }
@@ -162,16 +161,37 @@ internal fun baseCustomBrandingPatch(
     )
 
     afterDependents {
+        val useCustomName = customName != null
+        val useCustomIcon = customIcon != null
+        val isRootInstall = setOrGetFallbackPackageName(originalAppPackageName) == originalAppPackageName
+
         // Can only check if app is root installation by checking if change package name patch is in use.
         // and can only do that in the afterDependents block here.
         // The UI preferences cannot be selectively added here, because the settings afterDependents block
         // may have already run and the settings are already wrote to file.
         // Instead, show a warning if any patch option was used (A rooted device launcher ignores the manifest changes),
         // and the non-functional in-app settings are removed on app startup by extension code.
-        if (customName != null || customIcon != null) {
-            if (setOrGetFallbackPackageName(originalAppPackageName) == originalAppPackageName) {
-                Logger.getLogger(this::class.java.name).warning(
-                    "Custom branding does not work with root installation. No changes applied.",
+        if (isRootInstall && (useCustomName || useCustomIcon)) {
+            Logger.getLogger(this::class.java.name).warning(
+                "Custom branding does not work with root installation. No changes applied."
+            )
+        }
+
+        if (!isRootInstall || useCustomName) {
+            document("AndroidManifest.xml").use { document ->
+                val application = document.getElementsByTagName("application").item(0) as Element
+                application.setAttribute(
+                    "android:label",
+                    if (useCustomName) {
+                        // Use custom name everywhere.
+                        customName
+                    } else {
+                        // The YT application name can appear in some places alongside the system
+                        // YouTube app, such as the settings app list and in the "open with" file picker.
+                        // Because the YouTube app cannot be completely uninstalled and only disabled,
+                        // use a custom name for this situation to disambiguate which app is which.
+                        "@string/revanced_custom_branding_name_entry_2"
+                    }
                 )
             }
         }
@@ -312,16 +332,19 @@ internal fun baseCustomBrandingPatch(
                 activityAliasNameWithIntents,
             ).childNodes
 
-            // The YT application name can appear in some places alongside the system
-            // YouTube app, such as the settings app list and in the "open with" file picker.
-            // Because the YouTube app cannot be completely uninstalled and only disabled,
-            // use a custom name for this situation to disambiguate which app is which.
-            application.setAttribute(
-                "android:label",
-                "@string/revanced_custom_branding_name_entry_2",
-            )
+            // If user provides a custom icon, then change the application icon ('static' icon)
+            // which shows as the push notification for some devices, in the app settings,
+            // and as the icon for the apk before installing.
+            // This icon cannot be dynamically selected and this change must only be done if the
+            // user provides an icon otherwise there is no way to restore the original YouTube icon.
+            if (useCustomIcon) {
+                application.setAttribute(
+                    "android:icon",
+                    "@mipmap/revanced_launcher_custom"
+                )
+            }
 
-            val enabledNameIndex = if (useCustomName) numberOfPresetAppNames else 1 // 1 indexing.
+            val enabledNameIndex = if (useCustomName) numberOfPresetAppNames else 2 // 1 indexing.
             val enabledIconIndex = if (useCustomIcon) iconStyleNames.size else 0 // 0 indexing.
 
             for (appNameIndex in 1..numberOfPresetAppNames) {
@@ -336,7 +359,7 @@ internal fun baseCustomBrandingPatch(
                         iconMipmapName = originalLauncherIconName,
                         appNameIndex = appNameIndex,
                         useCustomName = useCustomNameLabel,
-                        enabled = (appNameIndex == 1),
+                        enabled = false,
                         intentFilters,
                     ),
                 )

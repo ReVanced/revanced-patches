@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package app.revanced.extension.shared.innertube;
+
+option optimize_for = LITE_RUNTIME;
+option java_package = "app.revanced.extension.shared.innertube";
+
+message PlayerResponse {
+    oneof data {
+      PlayabilityStatus playability_status = 2;
+      StreamingData streaming_data = 4;
+    }
+}
+
+message PlayabilityStatus {
+  Status status = 1;
+  string reason = 2;
+}
+
+enum Status {
+  OK = 0;
+  ERROR = 1;
+  UNPLAYABLE = 2;
+  LOGIN_REQUIRED = 3;
+  CONTENT_CHECK_REQUIRED = 4;
+  AGE_CHECK_REQUIRED = 5;
+  LIVE_STREAM_OFFLINE = 6;
+  FULLSCREEN_ONLY = 7;
+  GL_PLAYBACK_REQUIRED = 8;
+  AGE_VERIFICATION_REQUIRED = 9;
+}
+
+message StreamingData {
+    repeated Format formats = 2;
+    repeated Format adaptiveFormats = 3;
+    string serverAbrStreamingUrl = 15;
+}
+
+message Format {
+    string url = 2;
+    string signatureCipher = 48;
+}

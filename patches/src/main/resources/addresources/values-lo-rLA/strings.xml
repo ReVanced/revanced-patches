@@ -27,18 +27,47 @@ Second \"item\" text"</string>
         <patch id="misc.checks.checkEnvironmentPatch"/>
         <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"/>
         <patch id="misc.settings.settingsResourcePatch">
+            <string name="revanced_settings_disable_bold_icons_title">ປິດການໃຊ້ງານໄອຄອນຕົວໜາ</string>
+            <string name="revanced_settings_disable_bold_icons_summary_on">ໄອຄອນບໍ່ເປັນຕົວໜາ</string>
+            <string name="revanced_settings_disable_bold_icons_summary_off">ໄອຄອນເປັນຕົວໜາ</string>
             <!-- Settings about dialog. -->
             <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
+            <string name="revanced_gms_core_screen_title">GmsCore</string>
+            <string name="revanced_gms_core_screen_summary">ການຕັ້ງຄ່າທີ່ກ່ຽວຂ້ອງກັບ GmsCore</string>
+            <string name="revanced_gms_core_check_updates_title">ກວດສອບການອັບເດດ GmsCore</string>
+            <string name="revanced_gms_core_check_updates_summary_on">ເປີດໃຊ້ງານການກວດສອບການອັບເດດ</string>
+            <string name="revanced_gms_core_check_updates_summary_off">ປິດການກວດສອບການອັບເດດແລ້ວ</string>
+            <string name="revanced_gms_core_settings_title">ເປີດການຕັ້ງຄ່າ GmsCore</string>
+            <string name="revanced_gms_core_settings_summary">ການຕັ້ງຄ່າຂອງ GmsCore</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_gms_core_toast_not_installed_message">MicroG GmsCore ບໍ່ໄດ້ຕິດຕັ້ງ. ຕິດຕັ້ງມັນ.</string>
+            <string name="revanced_gms_core_dialog_title">ຕ້ອງການການກະທຳ</string>
+            <string name="revanced_gms_core_toast_update_check_failed_message">ກວດສອບການອັບເດດ MicroG GmsCore ລົ້ມເຫຼວ</string>
+            <string name="revanced_gms_core_update_available_message">ລຸ້ນໃໝ່ (%1$s) ຂອງ MicroG GmsCore ມີໃຫ້ໃຊ້ແລ້ວ. ປັດຈຸບັນ, ທ່ານກໍາລັງໃຊ້ລຸ້ນ %2$s.</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore ບໍ່ມີສິດໃນການເຮັດວຽກໃນພື້ນຫຼັງ.\n\nປະຕິບັດຕາມຄູ່ມື \"ຢ່າປິດແອັບຂອງຂ້ອຍ\" ສຳລັບໂທລະສັບຂອງທ່ານ, ແລະ ນຳໃຊ້ຄຳແນະນຳໃສ່ການຕິດຕັ້ງ MicroG ຂອງທ່ານ.\n\nອັນນີ້ແມ່ນຈຳເປັນສຳລັບແອັບເພື່ອເຮັດວຽກ."</string>
+            <string name="revanced_gms_core_dialog_open_website_text">ເປີດເວັບໄຊ</string>
+            <string name="revanced_gms_core_dialog_cancel_text">ຍົກເລີກ</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"ການເພີ່ມປະສິດທິພາບແບັດເຕີຣີຂອງ MicroG GmsCore ຕ້ອງຖືກປິດເພື່ອປ້ອງກັນບັນຫາ.\n\nການປິດການເພີ່ມປະສິດທິພາບແບັດເຕີຣີສຳລັບ MicroG ຈະບໍ່ສົ່ງຜົນກະທົບຕໍ່ການນຳໃຊ້ແບັດເຕີຣີ.\n\nແຕະປຸ່ມສືບຕໍ່ ແລະ ອະນຸຍາດການປ່ຽນແປງການເພີ່ມປະສິດທິພາບ."</string>
+            <string name="revanced_gms_core_dialog_continue_text">ສືບຕໍ່</string>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch"/>
         <patch id="misc.audio.forceOriginalAudioPatch">
             <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
         </patch>
-        <patch id="misc.debugging.enableDebuggingPatch"/>
+        <patch id="misc.debugging.enableDebuggingPatch">
+            <string name="revanced_debug_feature_flags_manager_toast_no_flags">ປິດເປີດແອັບໃໝ່ເພື່ອໃຊ້ຄຸນສົມບັດນີ້</string>
+            <string name="revanced_debug_protocolbuffer_title">ບັນທຶກໂປຣໂຕຄໍບັຟເຟີ</string>
+            <string name="revanced_debug_protocolbuffer_summary_on">ບັນທຶກດີບັກລວມມີໂປຣໂຕຄໍບັຟເຟີ</string>
+            <string name="revanced_debug_protocolbuffer_summary_off">ບັນທຶກດີບັກບໍ່ລວມມີໂປຣໂຕຄໍບັຟເຟີ</string>
+            <string name="revanced_debug_protocolbuffer_user_dialog_message">"ການເປີດໃຊ້ການຕັ້ງຄ່ານີ້ຈະບັນທຶກຂໍ້ມູນເຄົ້າໂຄງເພີ່ມເຕີມ, ລວມທັງຂໍ້ຄວາມເທິງໜ້າຈໍສໍາລັບບາງອົງປະກອບ UI.
+
+ອັນນີ້ສາມາດຊ່ວຍລະບຸອົງປະກອບຕ່າງໆ ເມື່ອສ້າງຕົວກອງແບບກຳນົດເອງ.
+
+ແນວໃດກໍຕາມ, ການເປີດໃຊ້ນີ້ກໍຈະບັນທຶກຂໍ້ມູນຜູ້ໃຊ້ບາງຢ່າງ ເຊັ່ນ: ທີ່ຢູ່ IP ຂອງທ່ານ."</string>
+        </patch>
         <patch id="misc.privacy.sanitizeSharingLinksPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
@@ -48,40 +77,135 @@ Second \"item\" text"</string>
         <patch id="misc.settings.settingsPatch"/>
         <patch id="misc.backgroundplayback.backgroundPlaybackPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
-            <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
+            <string name="revanced_hide_creator_store_shelf_title">ເຊື່ອງຊັ້ນວາງຮ້ານຄ້າຜູ້ສ້າງ</string>
+            <string name="revanced_hide_creator_store_shelf_summary_on">ຊັ້ນວາງຮ້ານຄ້າຜູ້ສ້າງທີ່ຢູ່ລຸ່ມເຄື່ອງຫຼິ້ນວິດີໂອຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_creator_store_shelf_summary_off">ຊັ້ນວາງຮ້ານຄ້າຜູ້ສ້າງທີ່ຢູ່ລຸ່ມເຄື່ອງຫຼິ້ນວິດີໂອຖືກສະແດງ</string>
+            <string name="revanced_hide_comments_section_in_home_feed_title">ເຊື່ອງພາກສ່ວນຄຳເຫັນພາຍໃຕ້ວິດີໂອໃນຟີດໜ້າຫຼັກ</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_on">ພາກສ່ວນຄຳເຫັນພາຍໃຕ້ວິດີໂອໃນຟີດໜ້າຫຼັກຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_off">ພາກສ່ວນຄຳເຫັນພາຍໃຕ້ວິດີໂອໃນຟີດໜ້າຫຼັກຖືກສະແດງ</string>
+            <!-- 'Latest videos' should be translated using the same localized wording YouTube displays for the button.
+                 This button usually appears in the Home feed for refreshing the feed. -->
+            <string name="revanced_hide_latest_videos_button_title">ເຊື່ອງປຸ່ມ \'ວິດີໂອລ່າສຸດ\'</string>
+            <string name="revanced_hide_latest_videos_button_summary_on">ປຸ່ມວິດີໂອລ່າສຸດຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_latest_videos_button_summary_off">ປຸ່ມວິດີໂອລ່າສຸດຖືກສະແດງ</string>
+            <!-- 'Notify me' should be translated using the same localized wording YouTube displays for this button.
+                  This button usually appears in the Subscriptions feed for future livestreams or unreleased videos. -->
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
             <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+            <string name="revanced_hide_web_search_results_title">ເຊື່ອງຜົນການຄົ້ນຫາເວັບ</string>
+            <string name="revanced_hide_web_search_results_summary_on">ຜົນການຄົ້ນຫາເວັບຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_web_search_results_summary_off">ຜົນການຄົ້ນຫາເວັບຖືກສະແດງ</string>
+            <string name="revanced_hide_you_may_like_section_title">ເຊື່ອງພາກສ່ວນ \'ທີ່ທ່ານອາດຈະມັກ\'</string>
+            <string name="revanced_hide_you_may_like_section_summary_on">ພາກສ່ວນ \'ທີ່ທ່ານອາດຈະມັກ\' ຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_you_may_like_section_summary_off">ພາກສ່ວນ \'ທີ່ທ່ານອາດຈະມັກ\' ຖືກສະແດງ</string>
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                  This appears in the video player for certain videos. -->
+                   This button usually appears in the video player for certain videos. -->
+            <!-- 'Live chat replay' should be translated using the same localized wording YouTube displays for the button.
+       This button usually appears in the player overlay for live streamed videos after opening live chat. -->
+            <string name="revanced_hide_live_chat_replay_button_title">ເຊື່ອງປຸ່ມ \'ເປີດເບິ່ງການສົນທະນາສົດຄືນໃໝ່\'</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_on">ປຸ່ມເປີດເບິ່ງການສົນທະນາສົດຄືນໃໝ່ໃນການວາງຊ້ອນເຄື່ອງຫຼິ້ນຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_off">ປຸ່ມເປີດເບິ່ງການສົນທະນາສົດຄືນໃໝ່ໃນການວາງຊ້ອນເຄື່ອງຫຼິ້ນຖືກສະແດງ</string>
+            <string name="revanced_hide_video_title_title">ເຊື່ອງຫົວຂໍ້ວິດີໂອ</string>
+            <string name="revanced_hide_video_title_summary_on">ຫົວຂໍ້ວິດີໂອໃນການວາງຊ້ອນເຄື່ອງຫຼິ້ນຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_video_title_summary_off">ຫົວຂໍ້ວິດີໂອໃນການວາງຊ້ອນເຄື່ອງຫຼິ້ນຖືກສະແດງ</string>
+            <string name="revanced_hide_course_progress_section_title">ເຊື່ອງ \'ຄວາມຄືບໜ້າຂອງຫຼັກສູດ\'</string>
+            <string name="revanced_hide_course_progress_section_summary_on">ພາກສ່ວນຄວາມຄືບໜ້າຂອງຫຼັກສູດຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_course_progress_section_summary_off">ພາກສ່ວນຄວາມຄືບໜ້າຂອງຫຼັກສູດຖືກສະແດງ</string>
+            <string name="revanced_hide_explore_section_title">ເຊື່ອງສຳຫຼວດ</string>
+            <string name="revanced_hide_explore_section_summary_on">ພາກສ່ວນສຳຫຼວດຫຼັກສູດນີ້ ແລະ ສຳຫຼວດພອດແຄສຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_explore_section_summary_off">ພາກສ່ວນສຳຫຼວດຫຼັກສູດນີ້ ແລະ ສຳຫຼວດພອດແຄສຖືກສະແດງ</string>
+            <string name="revanced_hide_explore_course_section_title">ເຊື່ອງ \'ສຳຫຼວດຫຼັກສູດນີ້\'</string>
+            <string name="revanced_hide_explore_course_section_summary_on">ພາກສ່ວນສຳຫຼວດຫຼັກສູດນີ້ຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_explore_course_section_summary_off">ພາກສ່ວນສຳຫຼວດຫຼັກສູດນີ້ຖືກສະແດງ</string>
+            <string name="revanced_hide_explore_podcast_section_title">ເຊື່ອງ \'ສຳຫຼວດພອດແຄສ\'</string>
+            <string name="revanced_hide_explore_podcast_section_summary_on">ພາກສ່ວນສຳຫຼວດພອດແຄສຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_explore_podcast_section_summary_off">ພາກສ່ວນສຳຫຼວດພອດແຄສຖືກສະແດງ</string>
+            <string name="revanced_hide_featured_places_section_title">ເຊື່ອງ \'ສະຖານທີ່ແນະນຳ\'</string>
+            <string name="revanced_hide_featured_places_section_summary_on">ພາກສ່ວນສະຖານທີ່ແນະນຳຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_featured_places_section_summary_off">ພາກສ່ວນສະຖານທີ່ແນະນຳຖືກສະແດງ</string>
+            <string name="revanced_hide_feed_flyout_menu_title">ເປີດນຳໃຊ້ຕົວກອງເມນູຟີດແບບປັອບອັບ</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_on">ຕົວກອງເມນູຟີດແບບປັອບອັບຖືກເປີດນຳໃຊ້</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_off">ຕົວກອງເມນູຟີດແບບປັອບອັບຖືກປິດນຳໃຊ້</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_title">ຕົວກອງເມນູຟີດແບບປັອບອັບ</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">ໃສ່ຊື່ເມນູແບບປັອບອັບເພື່ອໃຊ້ຕົວກອງ, ແຕ່ລະລາຍການຢູ່ແຖວໃໝ່</string>
+            <string name="revanced_hide_gaming_section_title">ເຊື່ອງເກມ</string>
+            <string name="revanced_hide_gaming_section_summary_on">ພາກສ່ວນເກມຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_gaming_section_summary_off">ພາກສ່ວນເກມຖືກສະແດງ</string>
+            <string name="revanced_hide_music_section_title">ເຊື່ອງເພງ</string>
+            <string name="revanced_hide_music_section_summary_on">ພາກສ່ວນເພງຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_music_section_summary_off">ພາກສ່ວນເພງຖືກສະແດງ</string>
+            <string name="revanced_hide_quizzes_section_title">ເຊື່ອງແບບສອບຖາມ</string>
+            <string name="revanced_hide_quizzes_section_summary_on">ພາກສ່ວນແບບສອບຖາມຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_quizzes_section_summary_off">ພາກສ່ວນແບບສອບຖາມຖືກສະແດງ</string>
+            <string name="revanced_hide_channel_tab_title">ເປີດນຳໃຊ້ຕົວກອງແຖບຊ່ອງ</string>
+            <string name="revanced_hide_channel_tab_summary_on">ຕົວກອງແຖບຊ່ອງຖືກເປີດນຳໃຊ້</string>
+            <string name="revanced_hide_channel_tab_summary_off">ຕົວກອງແຖບຊ່ອງຖືກປິດນຳໃຊ້</string>
+            <string name="revanced_hide_channel_tab_filter_strings_title">ຕົວກອງແຖບຊ່ອງ</string>
+            <string name="revanced_hide_channel_tab_filter_strings_summary">ໃສ່ຊື່ແຖບຊ່ອງເພື່ອໃຊ້ຕົວກອງ, ແຕ່ລະລາຍການຢູ່ແຖວໃໝ່</string>
             <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
             <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
             <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+            <string name="revanced_hide_view_count_user_dialog_message">"ຂໍ້ຈຳກັດ:
+• ຊັ້ນວາງ Shorts, ໜ້າຊ່ອງ ແລະ ຜົນການຄົ້ນຫາອາດຍັງສະແດງຈຳນວນການເບິ່ງ.
+• ຄຸນສົມບັດນີ້ບໍ່ຮອງຮັບກັບຮູບແບບຍານຍົນ."</string>
             <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+            <string name="revanced_hide_upload_time_user_dialog_message">"ຂໍ້ຈຳກັດ:
+• ຊັ້ນວາງ Shorts, ໜ້າຊ່ອງ ແລະ ຜົນການຄົ້ນຫາອາດຍັງສະແດງເວລາອັບໂຫຼດ.
+• ຄຸນສົມບັດນີ້ບໍ່ຮອງຮັບກັບຮູບແບບຍານຍົນ."</string>
             <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
+            <string name="revanced_hide_keyword_content_about_summary">"ໜ້າຫຼັກ/ການສະໝັກໃຊ້/ຜົນການຄົ້ນຫາຖືກກັ່ນຕອງເພື່ອເຊື່ອງເນື້ອຫາທີ່ກົງກັບຄຳສັບຫຼັກ
+
+ຂໍ້ຈຳກັດ:
+• ບໍ່ສາມາດເຊື່ອງ Shorts ຕາມຊື່ຊ່ອງໄດ້
+• ອົງປະກອບບາງສ່ວນຂອງ UI ອາດຈະບໍ່ຖືກເຊື່ອງ
+• ການຄົ້ນຫາດ້ວຍຄຳສັບຫຼັກອາດຈະບໍ່ພົບຜົນ"</string>
             <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
-            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_hide_fullscreen_ads_summary_on">ໂຄສະນາແບບເຕັມຈໍຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_player_popup_ads_title">ເຊື່ອງໂຄສະນາປັອບອັບຂອງເຄື່ອງຫຼິ້ນ</string>
+            <string name="revanced_hide_player_popup_ads_summary_on">ໂຄສະນາປັອບອັບຂອງເຄື່ອງຫຼິ້ນຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_player_popup_ads_summary_off">ໂຄສະນາປັອບອັບຂອງເຄື່ອງຫຼິ້ນຖືກສະແດງ</string>
+            <string name="revanced_hide_view_products_banner_summary_on">ປ້າຍໂຄສະນາເບິ່ງສິນຄ້າໃນການວາງຊ້ອນຂອງເຄື່ອງຫຼິ້ນຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_view_products_banner_summary_off">ປ້າຍໂຄສະນາເບິ່ງສິນຄ້າໃນການວາງຊ້ອນຂອງເຄື່ອງຫຼິ້ນຖືກສະແດງ</string>
+            <string name="revanced_hide_youtube_premium_promotions_title">ເຊື່ອງການໂປຣໂມດ YouTube Premium</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_on">ການໂປຣໂມດ YouTube Premium ຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_off">ການໂປຣໂມດ YouTube Premium ຖືກສະແດງ</string>
         </patch>
-        <patch id="ad.getpremium.hideGetPremiumPatch"/>
         <patch id="ad.video.videoAdsPatch"/>
-        <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"/>
+        <patch id="interaction.copyvideourl.copyVideoURLResourcePatch">
+            <string name="revanced_share_copy_url_success">ສຳເນົາ URL ໃສ່ຄລິບບອດແລ້ວ</string>
+            <string name="revanced_share_copy_url_timestamp_success">ສຳເນົາ URL ພ້ອມເຄື່ອງໝາຍເວລາແລ້ວ</string>
+            <string name="revanced_copy_video_url_title">ສະແດງປຸ່ມສຳເນົາ URL ວິດີໂອ</string>
+            <string name="revanced_copy_video_url_summary_on">ປຸ່ມສຳເນົາ URL ວິດີໂອຖືກສະແດງ. ແຕະເພື່ອສຳເນົາ URL ວິດີໂອ. ແຕະຄ້າງໄວ້ເພື່ອສຳເນົາພ້ອມເຄື່ອງໝາຍເວລາ</string>
+            <string name="revanced_copy_video_url_summary_off">ປຸ່ມສຳເນົາ URL ວິດີໂອບໍ່ຖືກສະແດງ</string>
+            <string name="revanced_copy_video_url_timestamp_title">ສະແດງປຸ່ມສຳເນົາ URL ເຄື່ອງໝາຍເວລາ</string>
+            <string name="revanced_copy_video_url_timestamp_summary_on">ປຸ່ມສຳເນົາ URL ເຄື່ອງໝາຍເວລາຖືກສະແດງ. ແຕະເພື່ອສຳເນົາ URL ວິດີໂອພ້ອມເຄື່ອງໝາຍເວລາ. ແຕະຄ້າງໄວ້ເພື່ອສຳເນົາໂດຍບໍ່ມີເຄື່ອງໝາຍເວລາ</string>
+            <string name="revanced_copy_video_url_timestamp_summary_off">ປຸ່ມສຳເນົາ URL ເຄື່ອງໝາຍເວລາບໍ່ຖືກສະແດງ</string>
+        </patch>
         <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"/>
-        <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch"/>
+        <patch id="layout.hide.signintotv.disableSignInToTVPopupPatch">
+            <string name="revanced_disable_sign_in_to_tv_popup_title">ປິດໃຊ້ງານປັອບອັບ \'ເຂົ້າສູ່ລະບົບໂທລະພາບ\'</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_on">ປັອບອັບເຂົ້າສູ່ລະບົບໂທລະພາບຖືກປິດໃຊ້ງານ</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_off">ປັອບອັບເຂົ້າສູ່ລະບົບໂທລະພາບຖືກເປີດໃຊ້ງານ</string>
+        </patch>
         <patch id="interaction.doubletap.disableDoubleTapActionsPatch"/>
         <patch id="interaction.downloads.downloadsResourcePatch">
             <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
         </patch>
         <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"/>
-        <patch id="interaction.seekbar.enableSeekbarTappingPatch"/>
+        <patch id="interaction.seekbar.enableTapToSeekPatch">
+            <string name="revanced_tap_to_seek_title">ເປີດໃຊ້ງານແຕະເພື່ອຊອກຫາ</string>
+            <string name="revanced_tap_to_seek_summary_on">ການແຕະເພື່ອຊອກຫາຖືກເປີດໃຊ້ງານ</string>
+            <string name="revanced_tap_to_seek_summary_off">ການແຕະເພື່ອຊອກຫາຖືກປິດໃຊ້ງານ</string>
+        </patch>
         <patch id="interaction.swipecontrols.swipeControlsResourcePatch"/>
         <patch id="layout.autocaptions.autoCaptionsPatch"/>
         <patch id="layout.buttons.action.hideButtonsPatch">
@@ -89,25 +213,82 @@ Second \"item\" text"</string>
             <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
             <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
             <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually only shows on live streams. -->
+                  This button usually appears on live streamed videos. -->
             <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged-in user. -->
+                  This button usually appears on videos uploaded by the logged-in user. -->
             <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button usually appears if the user IP is from a specific region such as the USA or EU. -->
             <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_clip_button_user_dialog_message">ການເຊື່ອງອາດຈະບໍ່ໄດ້ຜົນສຳລັບບາງບັນຊີຜູ້ໃຊ້.</string>
             <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
         </patch>
-        <patch id="layout.buttons.navigation.navigationButtonsPatch">
+        <patch id="layout.buttons.navigation.navigationBarPatch">
+            <string name="revanced_navigation_buttons_screen_title">ປຸ່ມນຳທາງ</string>
+            <string name="revanced_navigation_buttons_screen_summary">ເຊື່ອງ ຫຼື ປ່ຽນປຸ່ມແຖບນຳທາງ</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
+            <string name="revanced_hide_home_button_title">ເຊື່ອງໜ້າຫຼັກ</string>
+            <string name="revanced_hide_home_button_summary_on">ປຸ່ມໜ້າຫຼັກຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_home_button_summary_off">ປຸ່ມໜ້າຫຼັກຖືກສະແດງ</string>
             <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_shorts_button_title">ເຊື່ອງ Shorts</string>
+            <string name="revanced_hide_shorts_button_summary_on">ປຸ່ມ Shorts ຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_shorts_button_summary_off">ປຸ່ມ Shorts ຖືກສະແດງ</string>
             <!-- 'Create' has no display name. Translate normally. -->
+            <string name="revanced_hide_create_button_title">ເຊື່ອງສ້າງ</string>
+            <string name="revanced_hide_create_button_summary_on">ປຸ່ມສ້າງຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_create_button_summary_off">ປຸ່ມສ້າງຖືກສະແດງ</string>
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_subscriptions_button_title">ເຊື່ອງການສະໝັກໃຊ້</string>
+            <string name="revanced_hide_subscriptions_button_summary_on">ປຸ່ມການສະໝັກໃຊ້ຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_subscriptions_button_summary_off">ປຸ່ມການສະໝັກໃຊ້ຖືກສະແດງ</string>
+            <string name="revanced_hide_notifications_button_title">ເຊື່ອງການແຈ້ງເຕືອນ</string>
+            <string name="revanced_hide_notifications_button_summary_on">ປຸ່ມການແຈ້ງເຕືອນຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_notifications_button_summary_off">ປຸ່ມການແຈ້ງເຕືອນຖືກສະແດງ</string>
             <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_switch_create_with_notifications_button_title">ສັບປ່ຽນສ້າງກັບການແຈ້ງເຕືອນ</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_on">ປຸ່ມສ້າງຖືກສັບປ່ຽນກັບປຸ່ມການແຈ້ງເຕືອນ</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_off">ປຸ່ມສ້າງບໍ່ຖືກສັບປ່ຽນກັບປຸ່ມການແຈ້ງເຕືອນ</string>
+            <string name="revanced_switch_create_with_notifications_button_user_dialog_message">ຖ້າການປ່ຽນແປງການຕັ້ງຄ່ານີ້ບໍ່ມີຜົນ, ໃຫ້ລອງປ່ຽນເປັນໂໝດບໍ່ລະບຸຕົວຕົນ.</string>
+            <string name="revanced_hide_navigation_button_labels_title">ເຊື່ອງປ້າຍກຳກັບປຸ່ມນຳທາງ</string>
+            <string name="revanced_hide_navigation_button_labels_summary_on">ປ້າຍກຳກັບຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_navigation_button_labels_summary_off">ປ້າຍກຳກັບຖືກສະແດງ</string>
+            <string name="revanced_narrow_navigation_buttons_title">ເປີດໃຊ້ງານປຸ່ມນຳທາງແບບແຄບ</string>
+            <string name="revanced_narrow_navigation_buttons_summary_on">ໄລຍະຫ່າງລະຫວ່າງປຸ່ມນຳທາງແມ່ນແຄບ</string>
+            <string name="revanced_narrow_navigation_buttons_summary_off">ໄລຍະຫ່າງລະຫວ່າງປຸ່ມນຳທາງແມ່ນປົກກະຕິ</string>
+            <string name="revanced_navigation_bar_animations_title">ເປີດໃຊ້ງານອະນິເມຊັນແຖບນຳທາງ</string>
+            <string name="revanced_navigation_bar_animations_summary_on">ການປ່ຽນຜ່ານການນຳທາງຖືກເຮັດໃຫ້ມີອະນິເມຊັນ</string>
+            <string name="revanced_navigation_bar_animations_summary_off">ການປ່ຽນຜ່ານການນຳທາງບໍ່ມີອະນິເມຊັນ</string>
+            <string name="revanced_disable_translucent_status_bar_title">ປິດໃຊ້ງານແຖບສະຖານະແບບໂປ່ງໃສ</string>
+            <string name="revanced_disable_translucent_status_bar_summary_on">ແຖບສະຖານະແມ່ນແນ່ນອນ</string>
+            <string name="revanced_disable_translucent_status_bar_summary_off">ແຖບສະຖານະແມ່ນແນ່ນອນ ຫຼື ໂປ່ງໃສ</string>
+            <string name="revanced_disable_translucent_status_bar_user_dialog_message">"ຂໍ້ຈຳກັດ:
+• ແຖບສີດຳອາດຈະປາກົດຢູ່ເທິງສຸດຂອງເຄື່ອງຫຼິ້ນວິດີໂອ.
+• ໃນບາງອຸປະກອນ, ການເປີດໃຊ້ງານຄຸນສົມບັດນີ້ສາມາດປ່ຽນແຖບນຳທາງລະບົບໃຫ້ເປັນແບບໂປ່ງໃສ."</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_title">ປິດໃຊ້ງານແຖບໂປ່ງໃສແບບສະຫວ່າງ</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_on">ແຖບນຳທາງໂໝດສະຫວ່າງແມ່ນແນ່ນອນ</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_off">ແຖບນຳທາງໂໝດສະຫວ່າງແມ່ນແນ່ນອນ ຫຼື ໂປ່ງໃສ</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_title">ປິດໃຊ້ງານແຖບໂປ່ງໃສແບບມືດ</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">ແຖບນຳທາງໂໝດມືດແມ່ນແນ່ນອນ</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">ແຖບນຳທາງໂໝດມືດແມ່ນແນ່ນອນ ຫຼື ໂປ່ງໃສ</string>
+            <string name="revanced_toolbar_screen_title">ແຖບເຄື່ອງມື</string>
+            <string name="revanced_toolbar_screen_summary">ເຊື່ອງ ຫຼື ປ່ຽນອົງປະກອບຂອງແຖບເຄື່ອງມື</string>
+            <string name="revanced_hide_toolbar_create_button_title">ເຊື່ອງປຸ່ມສ້າງ</string>
+            <string name="revanced_hide_toolbar_create_button_summary_on">ປຸ່ມສ້າງຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_toolbar_create_button_summary_off">ປຸ່ມສ້າງຖືກສະແດງ</string>
+            <string name="revanced_hide_toolbar_notification_button_title">ເຊື່ອງປຸ່ມການແຈ້ງເຕືອນ</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_on">ປຸ່ມການແຈ້ງເຕືອນຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_off">ປຸ່ມການແຈ້ງເຕືອນຖືກສະແດງ</string>
+            <string name="revanced_hide_toolbar_search_button_title">ເຊື່ອງປຸ່ມຄົ້ນຫາ</string>
+            <string name="revanced_hide_toolbar_search_button_summary_on">ປຸ່ມຄົ້ນຫາຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_toolbar_search_button_summary_off">ປຸ່ມຄົ້ນຫາຖືກສະແດງ.</string>
+            <string name="revanced_wide_searchbar_title">ເປີດໃຊ້ແຖບຄົ້ນຫາແບບກວ້າງ</string>
+            <string name="revanced_wide_searchbar_summary_on">ແຖບຄົ້ນຫາແບບກວ້າງຖືກເປີດໃຊ້ງານ</string>
+            <string name="revanced_wide_searchbar_summary_off">ແຖບຄົ້ນຫາແບບກວ້າງຖືກປິດໃຊ້ງານ</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -126,25 +307,67 @@ Second \"item\" text"</string>
         </patch>
         <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
             <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+            <string name="revanced_hide_collapse_button_title">ເຊື່ອງປຸ່ມຫຍໍ້ລົງ</string>
+            <string name="revanced_hide_collapse_button_summary_on">ປຸ່ມຫຍໍ້ລົງຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_collapse_button_summary_off">ປຸ່ມຫຍໍ້ລົງຖືກສະແດງ</string>
+            <string name="revanced_hide_fullscreen_button_title">ເຊື່ອງປຸ່ມເຕັມຈໍ</string>
+            <string name="revanced_hide_fullscreen_button_summary_on">ປຸ່ມເຕັມຈໍຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_fullscreen_button_summary_off">ປຸ່ມເຕັມຈໍຖືກສະແດງ</string>
         </patch>
-        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch"/>
+        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
+            <string name="revanced_hide_end_screen_cards_title">ເຊື່ອງບັດຈໍສິ້ນສຸດ</string>
+            <string name="revanced_hide_end_screen_cards_summary_on">ບັດຈໍສິ້ນສຸດຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_end_screen_cards_summary_off">ບັດຈໍສິ້ນສຸດຖືກສະແດງ</string>
+        </patch>
         <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"/>
         <patch id="layout.hide.infocards.hideInfocardsResourcePatch"/>
         <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"/>
         <patch id="layout.hide.seekbar.hideSeekbarPatch">
             <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
+            <string name="revanced_fullscreen_large_seekbar_title">ເປີດໃຊ້ງານແຖບຊອກຫາຂະໜາດໃຫຍ່ແບບເຕັມຈໍ</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_on">ແຖບຊອກຫາເຕັມຈໍມີຂະໜາດໃຫຍ່</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_off">ແຖບຊອກຫາເຕັມຈໍມີຂະໜາດປົກກະຕິ</string>
         </patch>
         <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+            <string name="revanced_hide_shorts_channel_title">ເຊື່ອງ Shorts ໃນໜ້າຊ່ອງ</string>
+            <string name="revanced_hide_shorts_channel_summary_on">ເຊື່ອງໄວ້ໃນໜ້າຊ່ອງ</string>
+            <string name="revanced_hide_shorts_channel_summary_off">ສະແດງໃນໜ້າຊ່ອງ</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+            <string name="revanced_hide_shorts_video_description_title">ເຊື່ອງ Shorts ໃນຄຳອະທິບາຍວິດີໂອ</string>
+            <string name="revanced_hide_shorts_video_description_summary_on">ເຊື່ອງໄວ້ໃນຄຳອະທິບາຍວິດີໂອ</string>
+            <string name="revanced_hide_shorts_video_description_summary_off">ສະແດງໃນຄຳອະທິບາຍວິດີໂອ</string>
+            <string name="revanced_hide_shorts_ai_button_title">ເຊື່ອງປຸ່ມ AI</string>
+            <string name="revanced_hide_shorts_ai_button_summary_on">ປຸ່ມ AI ຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_shorts_ai_button_summary_off">ປຸ່ມ AI ຖືກສະແດງ</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_title">ເຊື່ອງປ້າຍກຳກັບ \'ພາກສຽງອັດຕະໂນມັດ\'</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">ປ້າຍກຳກັບພາກສຽງອັດຕະໂນມັດຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">ປ້າຍກຳກັບພາກສຽງອັດຕະໂນມັດຖືກສະແດງ</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+            <!-- YT may no longer use this feature and this setting may be obsolete. -->
             <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
             <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
         </patch>
-        <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"/>
+        <patch id="layout.hide.autoplaypreview.hideAutoplayPreviewPatch">
+            <string name="revanced_hide_autoplay_preview_title">ເຊື່ອງການສະແດງຕົວຢ່າງແບບຫຼິ້ນອັດຕະໂນມັດ</string>
+            <string name="revanced_hide_autoplay_preview_summary_on">ການສະແດງຕົວຢ່າງແບບຫຼິ້ນອັດຕະໂນມັດຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_autoplay_preview_summary_off">ການສະແດງຕົວຢ່າງແບບຫຼິ້ນອັດຕະໂນມັດຖືກສະແດງ</string>
+        </patch>
+        <patch id="layout.hide.endscreensuggestedvideo.hideEndScreenSuggestedVideoPatch">
+            <string name="revanced_end_screen_suggested_video_title">ເຊື່ອງວິດີໂອທີ່ແນະນຳໃນຈໍສິ້ນສຸດ</string>
+            <string name="revanced_end_screen_suggested_video_summary_on">"ວິດີໂອທີ່ແນະນຳໃນຈໍສິ້ນສຸດຖືກເຊື່ອງໄວ້ເມື່ອການຫຼິ້ນອັດຕະໂນມັດຖືກປິດ
+
+ສາມາດປ່ຽນການຫຼິ້ນອັດຕະໂນມັດໄດ້ໃນການຕັ້ງຄ່າ YouTube:
+ການຕັ້ງຄ່າ → ການຫຼິ້ນ → ຫຼິ້ນວິດີໂອຕໍ່ໄປອັດຕະໂນມັດ"</string>
+            <string name="revanced_end_screen_suggested_video_summary_off">ວິດີໂອທີ່ແນະນຳໃນຈໍສິ້ນສຸດຖືກສະແດງ</string>
+        </patch>
         <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch"/>
         <patch id="layout.hide.time.hideTimestampPatch"/>
-        <patch id="layout.panels.popup.playerPopupPanelsPatch"/>
+        <patch id="layout.panels.popup.playerPopupPanelsPatch">
+            <string name="revanced_disable_player_popup_panels_title">ເຊື່ອງແຜງປ໊ອບອັບເຄື່ອງຫຼິ້ນ</string>
+            <string name="revanced_disable_player_popup_panels_summary_on">ແຜງປ໊ອບອັບເຄື່ອງຫຼິ້ນຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_disable_player_popup_panels_summary_off">ແຜງປ໊ອບອັບເຄື່ອງຫຼິ້ນຖືກສະແດງ</string>
+        </patch>
         <patch id="layout.player.fullscreen.exitFullscreenPatch"/>
         <patch id="layout.player.fullscreen.openVideosFullscreen"/>
         <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"/>
@@ -155,10 +378,12 @@ Second \"item\" text"</string>
             <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
             <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
         </patch>
-        <patch id="layout.searchbar.wideSearchbarPatch"/>
-        <patch id="layout.seekbar.seekbarThumbnailsPatch"/>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
             <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
+            <string name="revanced_sb_segments_nomusic_sum">ໃຊ້ໄດ້ສະເພາະກັບວິດີໂອເພງເທົ່ານັ້ນ. ພາກສ່ວນຂອງວິດີໂອເພງທີ່ບໍ່ມີດົນຕີ, ເຊິ່ງຍັງບໍ່ໄດ້ຖືກຄອບຄຸມໂດຍໝວດໝູ່ນັ້ນ</string>
+            <string name="revanced_sb_submit_failed_forbidden">ບໍ່ສາມາດສົ່ງສ່ວນ: %s</string>
+            <string name="revanced_sb_submit_failed_duplicate">"ບໍ່ສາມາດສົ່ງສ່ວນ.
+ມີຢູ່ແລ້ວ"</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <!-- A segment start and end time, such as "02:10 to 03:40". -->
             <!-- Shown in the settings preferences, and translations can be any text length. -->
@@ -170,7 +395,11 @@ Second \"item\" text"</string>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch"/>
         <patch id="layout.shortsautoplay.shortsAutoplayPatch"/>
         <patch id="layout.miniplayer.miniplayerPatch"/>
-        <patch id="layout.theme.themePatch"/>
+        <patch id="layout.theme.themePatch">
+            <string name="revanced_splash_screen_animation_style_entry_1">ປິດໃຊ້ງານ</string>
+            <string name="revanced_splash_screen_animation_style_entry_2">ສີ</string>
+            <string name="revanced_splash_screen_animation_style_entry_3">ສີດຳ ແລະ ສີຂາວ</string>
+        </patch>
         <patch id="layout.branding.customBrandingPatch"/>
         <patch id="layout.branding.changeHeaderPatch">
             <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
@@ -187,7 +416,11 @@ Second \"item\" text"</string>
         <patch id="misc.loopvideo.button.loopVideoButtonPatch"/>
         <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"/>
         <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"/>
-        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch"/>
+        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_title">ປິດໃຊ້ງານການສັ່ນສະເທືອນເມື່ອແຕະຄ້າງໄວ້</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">ການສັ່ນສະເທືອນເມື່ອແຕະຄ້າງໄວ້ຖືກປິດໃຊ້ງານ</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">ການສັ່ນສະເທືອນເມື່ອແຕະຄ້າງໄວ້ຖືກເປີດໃຊ້ງານ</string>
+        </patch>
         <patch id="misc.gms.accountCredentialsInvalidTextPatch"/>
         <patch id="misc.links.bypassURLRedirectsPatch"/>
         <patch id="misc.links.openLinksExternallyPatch"/>
@@ -200,6 +433,11 @@ Second \"item\" text"</string>
         <patch id="video.speed.remember.rememberPlaybackSpeedPatch"/>
         <patch id="video.codecs.disableVideoCodecsPatch"/>
         <patch id="video.quality.advancedVideoQualityMenuPatch"/>
+        <patch id="video.quality.hidePremiumVideoQualityPatch">
+            <string name="revanced_hide_premium_video_quality_title">ເຊື່ອງຕົວເລືອກຄຸນນະພາບພຣີມຽມ</string>
+            <string name="revanced_hide_premium_video_quality_summary_on">ຕົວເລືອກຄຸນນະພາບພຣີມຽມຖືກເຊື່ອງໄວ້</string>
+            <string name="revanced_hide_premium_video_quality_summary_off">ຕົວເລືອກຄຸນນະພາບພຣີມຽມຖືກສະແດງ</string>
+        </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch"/>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
@@ -207,7 +445,9 @@ Second \"item\" text"</string>
     </app>
     <app id="music">
         <patch id="layout.branding.customBrandingPatch"/>
-        <patch id="misc.settings.settingsPatch"/>
+        <patch id="misc.settings.settingsPatch">
+            <!-- In languages where "About" is ambiguous, translate to "About ReVanced" (i.e., About this app). -->
+        </patch>
         <patch id="ad.video.hideVideoAdsPatch"/>
         <patch id="interaction.permanentrepeat.permanentRepeatPatch"/>
         <patch id="layout.buttons.hideButtons"/>

@@ -27,18 +27,55 @@ Second \"item\" text"</string>
         <patch id="misc.checks.checkEnvironmentPatch"/>
         <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"/>
         <patch id="misc.settings.settingsResourcePatch">
+            <string name="revanced_settings_disable_bold_icons_title">Lemaza ikoni nene</string>
+            <string name="revanced_settings_disable_bold_icons_summary_on">Ikoni si nene</string>
+            <string name="revanced_settings_disable_bold_icons_summary_off">Ikoni ni nene</string>
             <!-- Settings about dialog. -->
             <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
+            <string name="revanced_gms_core_screen_title">GmsCore</string>
+            <string name="revanced_gms_core_screen_summary">Mipangilio inayohusiana na GmsCore</string>
+            <string name="revanced_gms_core_check_updates_title">Angalia sasisho za GmsCore</string>
+            <string name="revanced_gms_core_check_updates_summary_on">Kuangalia sasisho kumewashwa</string>
+            <string name="revanced_gms_core_check_updates_summary_off">Kuangalia masasisho kumezimwa</string>
+            <string name="revanced_gms_core_settings_title">Fungua Mipangilio ya GmsCore</string>
+            <string name="revanced_gms_core_settings_summary">Mipangilio ya GmsCore</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_gms_core_toast_not_installed_message">MicroG GmsCore haijasanikishwa. Isanikishe.</string>
+            <string name="revanced_gms_core_dialog_title">Kitendo kinahitajika</string>
+            <string name="revanced_gms_core_toast_update_check_failed_message">Imeshindwa kuangalia masasisho ya MicroG GmsCore</string>
+            <string name="revanced_gms_core_update_available_message">Toleo jipya la MicroG GmsCore (%1$s) linapatikana. Kwa sasa, unatumia toleo %2$s.</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore haina ruhusa ya kufanya kazi chinichini.
+
+Fuata mwongozo wa \"Usizime programu yangu\" kwa simu yako, na utumie maagizo kwa usakinishaji wako wa MicroG.
+
+Hii inahitajika ili programu ifanye kazi."</string>
+            <string name="revanced_gms_core_dialog_open_website_text">Fungua tovuti</string>
+            <string name="revanced_gms_core_dialog_cancel_text">Ghairi</string>
+            <string name="revanced_gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Uboreshaji wa betri wa MicroG GmsCore lazima uzimwe ili kuzuia matatizo.
+
+Kuzima uboreshaji wa betri kwa MicroG hakutaathiri vibaya matumizi ya betri.
+
+Gonga kitufe cha kuendelea na uruhusu mabadiliko ya uboreshaji."</string>
+            <string name="revanced_gms_core_dialog_continue_text">Endelea</string>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch"/>
         <patch id="misc.audio.forceOriginalAudioPatch">
             <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
         </patch>
-        <patch id="misc.debugging.enableDebuggingPatch"/>
+        <patch id="misc.debugging.enableDebuggingPatch">
+            <string name="revanced_debug_feature_flags_manager_toast_no_flags">Anzisha upya programu ili utumie kipengele hiki</string>
+            <string name="revanced_debug_protocolbuffer_title">Kumbukumbu bafa ya itifaki</string>
+            <string name="revanced_debug_protocolbuffer_summary_on">Logi za utatuaji zinajumuisha bafa ya itifaki</string>
+            <string name="revanced_debug_protocolbuffer_summary_off">Logi za utatuaji hazijumuishi bafa ya itifaki</string>
+            <string name="revanced_debug_protocolbuffer_user_dialog_message">"Kuwezesha mpangilio huu kutaandikisha data ya ziada ya mpangilio, ikijumuisha maandishi yanayoonekana kwenye skrini kwa baadhi ya vijenzi vya UI.
+
+Hii inaweza kusaidia kutambua vijenzi wakati wa kuunda vichujio maalum.
+
+Hata hivyo, kuwezesha hii pia kutaandikisha baadhi ya data ya mtumiaji kama vile anwani yako ya IP."</string>
+        </patch>
         <patch id="misc.privacy.sanitizeSharingLinksPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
@@ -48,40 +85,135 @@ Second \"item\" text"</string>
         <patch id="misc.settings.settingsPatch"/>
         <patch id="misc.backgroundplayback.backgroundPlaybackPatch"/>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
-            <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
-                  This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
+            <string name="revanced_hide_creator_store_shelf_title">Ficha rafu ya duka la muundaji</string>
+            <string name="revanced_hide_creator_store_shelf_summary_on">Rafu ya duka la muundaji chini ya kicheza video imefichwa</string>
+            <string name="revanced_hide_creator_store_shelf_summary_off">Rafu ya duka la muundaji chini ya kicheza video imeonyeshwa</string>
+            <string name="revanced_hide_comments_section_in_home_feed_title">Ficha sehemu ya maoni chini ya video kwenye mipasho ya Nyumbani</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_on">Sehemu ya maoni chini ya video kwenye mipasho ya Nyumbani imefichwa</string>
+            <string name="revanced_hide_comments_section_in_home_feed_summary_off">Sehemu ya maoni chini ya video kwenye mipasho ya Nyumbani imeonyeshwa</string>
+            <!-- 'Latest videos' should be translated using the same localized wording YouTube displays for the button.
+                 This button usually appears in the Home feed for refreshing the feed. -->
+            <string name="revanced_hide_latest_videos_button_title">Ficha kitufe cha \'Video mpya zaidi\'</string>
+            <string name="revanced_hide_latest_videos_button_summary_on">Kitufe cha video mpya zaidi kimefichwa</string>
+            <string name="revanced_hide_latest_videos_button_summary_off">Kitufe cha video mpya zaidi kimeonyeshwa</string>
+            <!-- 'Notify me' should be translated using the same localized wording YouTube displays for this button.
+                  This button usually appears in the Subscriptions feed for future livestreams or unreleased videos. -->
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
             <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+            <string name="revanced_hide_web_search_results_title">Ficha matokeo ya utafutaji kwenye wavuti</string>
+            <string name="revanced_hide_web_search_results_summary_on">Matokeo ya utafutaji kwenye wavuti yamefichwa</string>
+            <string name="revanced_hide_web_search_results_summary_off">Matokeo ya utafutaji kwenye wavuti yameonyeshwa</string>
+            <string name="revanced_hide_you_may_like_section_title">Ficha sehemu ya \'Unaweza kupenda\'</string>
+            <string name="revanced_hide_you_may_like_section_summary_on">Sehemu ya \'Unaweza kupenda\' imefichwa</string>
+            <string name="revanced_hide_you_may_like_section_summary_off">Sehemu ya \'Unaweza kupenda\' imeonyeshwa</string>
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
-                  This appears in the video player for certain videos. -->
+                   This button usually appears in the video player for certain videos. -->
+            <!-- 'Live chat replay' should be translated using the same localized wording YouTube displays for the button.
+       This button usually appears in the player overlay for live streamed videos after opening live chat. -->
+            <string name="revanced_hide_live_chat_replay_button_title">Ficha kitufe cha \'Rejea ya gumzo la moja kwa moja\'</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_on">Kitufe cha rejea ya gumzo la moja kwa moja kwenye kicheza video kimefichwa</string>
+            <string name="revanced_hide_live_chat_replay_button_summary_off">Kitufe cha rejea ya gumzo la moja kwa moja kwenye kicheza video kimeonyeshwa</string>
+            <string name="revanced_hide_video_title_title">Ficha jina la video</string>
+            <string name="revanced_hide_video_title_summary_on">Jina la video kwenye kicheza video kimefichwa</string>
+            <string name="revanced_hide_video_title_summary_off">Jina la video kwenye kicheza video limeonyeshwa</string>
+            <string name="revanced_hide_course_progress_section_title">Ficha \'Maendeleo ya kozi\'</string>
+            <string name="revanced_hide_course_progress_section_summary_on">Sehemu ya maendeleo ya kozi imefichwa</string>
+            <string name="revanced_hide_course_progress_section_summary_off">Sehemu ya maendeleo ya kozi imeonyeshwa</string>
+            <string name="revanced_hide_explore_section_title">Ficha Gundua</string>
+            <string name="revanced_hide_explore_section_summary_on">Sehemu za Gundua kozi hii na Gundua podikasti zimefichwa</string>
+            <string name="revanced_hide_explore_section_summary_off">Sehemu za Gundua kozi hii na Gundua podikasti zimeonyeshwa</string>
+            <string name="revanced_hide_explore_course_section_title">Ficha \'Gundua kozi hii\'</string>
+            <string name="revanced_hide_explore_course_section_summary_on">Sehemu ya Gundua kozi hii imefichwa</string>
+            <string name="revanced_hide_explore_course_section_summary_off">Sehemu ya Gundua kozi hii imeonyeshwa</string>
+            <string name="revanced_hide_explore_podcast_section_title">Ficha \'Gundua podikasti\'</string>
+            <string name="revanced_hide_explore_podcast_section_summary_on">Sehemu ya Gundua podikasti imefichwa</string>
+            <string name="revanced_hide_explore_podcast_section_summary_off">Sehemu ya Gundua podikasti imeonyeshwa</string>
+            <string name="revanced_hide_featured_places_section_title">Ficha \'Maeneo Yanayoangaziwa\'</string>
+            <string name="revanced_hide_featured_places_section_summary_on">Sehemu ya Maeneo Yanayoangaziwa imefichwa</string>
+            <string name="revanced_hide_featured_places_section_summary_off">Sehemu ya Maeneo Yanayoangaziwa imeonyeshwa</string>
+            <string name="revanced_hide_feed_flyout_menu_title">Washa kichujio cha menyu ibukizi ya mipasho</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_on">Kichujio cha menyu ibukizi ya mipasho kimewashwa</string>
+            <string name="revanced_hide_feed_flyout_menu_summary_off">Kichujio cha menyu ibukizi ya mipasho kimezimwa</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_title">Kichujio cha menyu ibukizi ya mipasho</string>
+            <string name="revanced_hide_feed_flyout_menu_filter_strings_summary">Weka majina ya menyu ibukizi ya kuchuja, moja kwa kila mstari</string>
+            <string name="revanced_hide_gaming_section_title">Ficha Michezo</string>
+            <string name="revanced_hide_gaming_section_summary_on">Sehemu ya Michezo imefichwa</string>
+            <string name="revanced_hide_gaming_section_summary_off">Sehemu ya Michezo imeonyeshwa</string>
+            <string name="revanced_hide_music_section_title">Ficha Muziki</string>
+            <string name="revanced_hide_music_section_summary_on">Sehemu ya Muziki imefichwa</string>
+            <string name="revanced_hide_music_section_summary_off">Sehemu ya Muziki imeonyeshwa</string>
+            <string name="revanced_hide_quizzes_section_title">Ficha Maswali</string>
+            <string name="revanced_hide_quizzes_section_summary_on">Sehemu ya Maswali imefichwa</string>
+            <string name="revanced_hide_quizzes_section_summary_off">Sehemu ya Maswali imeonyeshwa</string>
+            <string name="revanced_hide_channel_tab_title">Washa kichujio cha kichupo cha chaneli</string>
+            <string name="revanced_hide_channel_tab_summary_on">Kichujio cha kichupo cha chaneli kimewashwa</string>
+            <string name="revanced_hide_channel_tab_summary_off">Kichujio cha kichupo cha chaneli kimezimwa</string>
+            <string name="revanced_hide_channel_tab_filter_strings_title">Kichujio cha kichupo cha chaneli</string>
+            <string name="revanced_hide_channel_tab_filter_strings_summary">Weka majina ya kichupo cha chaneli ya kuchuja, moja kwa kila mstari</string>
             <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
             <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
             <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+            <string name="revanced_hide_view_count_user_dialog_message">"Mapungufu:
+• Rafu za Shorts, kurasa za chaneli, na matokeo ya utafutaji bado yanaweza kuonyesha idadi ya kutazamwa.
+• Kipengele hiki hakifanyi kazi na muundo wa magari."</string>
             <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+            <string name="revanced_hide_upload_time_user_dialog_message">"Mapungufu:
+• Rafu za Shorts, kurasa za chaneli, na matokeo ya utafutaji bado yanaweza kuonyesha nyakati za kupakiwa.
+• Kipengele hiki hakifanyi kazi na muundo wa magari."</string>
             <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
+            <string name="revanced_hide_keyword_content_about_summary">"Mipasho ya Nyumbani/Usajili/Matokeo ya utafutaji huchujwa ili kuficha maudhui yanayolingana na misemo ya maneno muhimu
+
+Mapungufu:
+• Shorts haziwezi kufichwa kwa jina la chaneli
+• Baadhi ya vipengele vya kiolesura cha mtumiaji huenda visifichwe
+• Kutafuta neno muhimu kunaweza kusionyesha matokeo yoyote"</string>
             <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
-            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+            <string name="revanced_hide_fullscreen_ads_summary_on">Matangazo ya skrini nzima yamefichwa</string>
+            <string name="revanced_hide_player_popup_ads_title">Ficha matangazo ibukizi ya kichezaji</string>
+            <string name="revanced_hide_player_popup_ads_summary_on">Matangazo ibukizi ya kichezaji yamefichwa</string>
+            <string name="revanced_hide_player_popup_ads_summary_off">Matangazo ibukizi ya kichezaji yameonyeshwa</string>
+            <string name="revanced_hide_view_products_banner_summary_on">Bango la kutazama bidhaa kwenye kicheza video limefichwa</string>
+            <string name="revanced_hide_view_products_banner_summary_off">Bango la kutazama bidhaa kwenye kicheza video limeonyeshwa</string>
+            <string name="revanced_hide_youtube_premium_promotions_title">Ficha matangazo ya YouTube Premium</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_on">Matangazo ya YouTube Premium yamefichwa</string>
+            <string name="revanced_hide_youtube_premium_promotions_summary_off">Matangazo ya YouTube Premium yameonyeshwa</string>
         </patch>
-        <patch id="ad.getpremium.hideGetPremiumPatch"/>
         <patch id="ad.video.videoAdsPatch"/>
-        <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"/>
+        <patch id="interaction.copyvideourl.copyVideoURLResourcePatch">
+            <string name="revanced_share_copy_url_success">URL imenakiliwa kwenye ubao klipu</string>
+            <string name="revanced_share_copy_url_timestamp_success">URL yenye muhuri wa muda imenakiliwa</string>
+            <string name="revanced_copy_video_url_title">Onyesha kitufe cha kunakili URL ya video</string>
+            <string name="revanced_copy_video_url_summary_on">Kitufe cha kunakili URL ya video kimeonyeshwa. Gonga ili kunakili URL ya video. Gonga na ushikilie ili kunakili na muhuri wa muda</string>
+            <string name="revanced_copy_video_url_summary_off">Kitufe cha kunakili URL ya video hakijaonyeshwa</string>
+            <string name="revanced_copy_video_url_timestamp_title">Onyesha kitufe cha kunakili URL ya muhuri wa muda</string>
+            <string name="revanced_copy_video_url_timestamp_summary_on">Kitufe cha kunakili URL ya muhuri wa muda kimeonyeshwa. Gonga ili kunakili URL ya video na muhuri wa muda. Gonga na ushikilie ili kunakili bila muhuri wa muda</string>
+            <string name="revanced_copy_video_url_timestamp_summary_off">Kitufe cha kunakili URL ya muhuri wa muda hakijaonyeshwa</string>
+        </patch>
         <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"/>
-        <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch"/>
+        <patch id="layout.hide.signintotv.disableSignInToTVPopupPatch">
+            <string name="revanced_disable_sign_in_to_tv_popup_title">Zima dirisha ibukizi la \'Ingia kwenye TV\'</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_on">Dirisha ibukizi la Ingia kwenye TV limezimwa</string>
+            <string name="revanced_disable_sign_in_to_tv_popup_summary_off">Dirisha ibukizi la Ingia kwenye TV limewashwa</string>
+        </patch>
         <patch id="interaction.doubletap.disableDoubleTapActionsPatch"/>
         <patch id="interaction.downloads.downloadsResourcePatch">
             <!-- 'Download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title'. -->
         </patch>
         <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"/>
-        <patch id="interaction.seekbar.enableSeekbarTappingPatch"/>
+        <patch id="interaction.seekbar.enableTapToSeekPatch">
+            <string name="revanced_tap_to_seek_title">Washa gonga ili kutafuta</string>
+            <string name="revanced_tap_to_seek_summary_on">Gonga ili kutafuta kimewashwa</string>
+            <string name="revanced_tap_to_seek_summary_off">Gonga ili kutafuta kimezimwa</string>
+        </patch>
         <patch id="interaction.swipecontrols.swipeControlsResourcePatch"/>
         <patch id="layout.autocaptions.autoCaptionsPatch"/>
         <patch id="layout.buttons.action.hideButtonsPatch">
@@ -89,25 +221,82 @@ Second \"item\" text"</string>
             <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
             <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
             <!-- 'Report' should be translated with the same localized wording that YouTube displays.
-                  This button usually only shows on live streams. -->
+                  This button usually appears on live streamed videos. -->
             <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged-in user. -->
+                  This button usually appears on videos uploaded by the logged-in user. -->
             <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
-                  This button only shows if the user ip is from specific region such as the USA or EU. -->
+                  This button usually appears if the user IP is from a specific region such as the USA or EU. -->
             <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_clip_button_user_dialog_message">Kuficha kunaweza kusifanye kazi kwa baadhi ya akaunti za watumiaji.</string>
             <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
             <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
         </patch>
-        <patch id="layout.buttons.navigation.navigationButtonsPatch">
+        <patch id="layout.buttons.navigation.navigationBarPatch">
+            <string name="revanced_navigation_buttons_screen_title">Vitufe vya kusogeza</string>
+            <string name="revanced_navigation_buttons_screen_summary">Ficha au badilisha vitufe vya upau wa kusogeza</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
+            <string name="revanced_hide_home_button_title">Ficha Nyumbani</string>
+            <string name="revanced_hide_home_button_summary_on">Kitufe cha Nyumbani kimefichwa</string>
+            <string name="revanced_hide_home_button_summary_off">Kitufe cha Nyumbani kimeonyeshwa</string>
             <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_shorts_button_title">Ficha Shorts</string>
+            <string name="revanced_hide_shorts_button_summary_on">Kitufe cha Shorts kimefichwa</string>
+            <string name="revanced_hide_shorts_button_summary_off">Kitufe cha Shorts kimeonyeshwa</string>
             <!-- 'Create' has no display name. Translate normally. -->
+            <string name="revanced_hide_create_button_title">Ficha Unda</string>
+            <string name="revanced_hide_create_button_summary_on">Kitufe cha Unda kimefichwa</string>
+            <string name="revanced_hide_create_button_summary_off">Kitufe cha Unda kimeonyeshwa</string>
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_hide_subscriptions_button_title">Ficha Usajili</string>
+            <string name="revanced_hide_subscriptions_button_summary_on">Kitufe cha Usajili kimefichwa</string>
+            <string name="revanced_hide_subscriptions_button_summary_off">Kitufe cha Usajili kimeonyeshwa</string>
+            <string name="revanced_hide_notifications_button_title">Ficha Arifa</string>
+            <string name="revanced_hide_notifications_button_summary_on">Kitufe cha Arifa kimefichwa</string>
+            <string name="revanced_hide_notifications_button_summary_off">Kitufe cha Arifa kimeonyeshwa</string>
             <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
+            <string name="revanced_switch_create_with_notifications_button_title">Badilisha Unda na Arifa</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_on">Kitufe cha Unda kimebadilishwa na kitufe cha Arifa</string>
+            <string name="revanced_switch_create_with_notifications_button_summary_off">Kitufe cha Unda hakijabadilishwa na kitufe cha Arifa</string>
+            <string name="revanced_switch_create_with_notifications_button_user_dialog_message">Ikiwa kubadilisha mpangilio huu hakufanyi kazi, jaribu kubadili hali fiche.</string>
+            <string name="revanced_hide_navigation_button_labels_title">Ficha lebo za kitufe cha kusogeza</string>
+            <string name="revanced_hide_navigation_button_labels_summary_on">Lebo zimefichwa</string>
+            <string name="revanced_hide_navigation_button_labels_summary_off">Lebo zimeonyeshwa</string>
+            <string name="revanced_narrow_navigation_buttons_title">Washa vitufe vidogo vya kusogeza</string>
+            <string name="revanced_narrow_navigation_buttons_summary_on">Nafasi kati ya vitufe vya kusogeza ni ndogo</string>
+            <string name="revanced_narrow_navigation_buttons_summary_off">Nafasi kati ya vitufe vya kusogeza ni ya kawaida</string>
+            <string name="revanced_navigation_bar_animations_title">Washa uhuishaji wa upau wa kusogeza</string>
+            <string name="revanced_navigation_bar_animations_summary_on">Mabadiliko ya usogezaji yana uhuishaji</string>
+            <string name="revanced_navigation_bar_animations_summary_off">Mabadiliko ya usogezaji hayana uhuishaji</string>
+            <string name="revanced_disable_translucent_status_bar_title">Zima upau wa hali unaopitisha mwanga</string>
+            <string name="revanced_disable_translucent_status_bar_summary_on">Upau wa hali haupitishi mwanga</string>
+            <string name="revanced_disable_translucent_status_bar_summary_off">Upau wa hali haupitishi mwanga au unapisha mwanga</string>
+            <string name="revanced_disable_translucent_status_bar_user_dialog_message">"Mapungufu:
+• Upau mweusi unaweza kuonekana juu ya kicheza video.
+• Kwenye baadhi ya vifaa, kuwasha kipengele hiki kunaweza kubadilisha upau wa kusogeza wa mfumo kuwa wa uwazi."</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_title">Zima upau mwepesi unaopitisha mwanga</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Upau wa kusogeza wa hali nyepesi haupitishi mwanga</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Upau wa kusogeza wa hali nyepesi haupitishi mwanga au unapisha mwanga</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_title">Zima upau mweusi unaopitisha mwanga</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Upau wa kusogeza wa hali nyeusi haupitishi mwanga</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Upau wa kusogeza wa hali nyeusi haupitishi mwanga au unapisha mwanga</string>
+            <string name="revanced_toolbar_screen_title">Upauzana</string>
+            <string name="revanced_toolbar_screen_summary">Ficha au badilisha vipengele vya upauzana</string>
+            <string name="revanced_hide_toolbar_create_button_title">Ficha kitufe cha Unda</string>
+            <string name="revanced_hide_toolbar_create_button_summary_on">Kitufe cha Unda kimefichwa</string>
+            <string name="revanced_hide_toolbar_create_button_summary_off">Kitufe cha Unda kimeonyeshwa</string>
+            <string name="revanced_hide_toolbar_notification_button_title">Ficha kitufe cha Arifa</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_on">Kitufe cha Arifa kimefichwa</string>
+            <string name="revanced_hide_toolbar_notification_button_summary_off">Kitufe cha Arifa kimeonyeshwa</string>
+            <string name="revanced_hide_toolbar_search_button_title">Ficha kitufe cha Tafuta</string>
+            <string name="revanced_hide_toolbar_search_button_summary_on">Kitufe cha Tafuta kimefichwa</string>
+            <string name="revanced_hide_toolbar_search_button_summary_off">Kitufe cha Tafuta kimeonyeshwa.</string>
+            <string name="revanced_wide_searchbar_title">Washa upau mpana wa utafutaji</string>
+            <string name="revanced_wide_searchbar_summary_on">Upau mpana wa utafutaji umewashwa</string>
+            <string name="revanced_wide_searchbar_summary_off">Upau mpana wa utafutaji umezimwa</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -126,25 +315,67 @@ Second \"item\" text"</string>
         </patch>
         <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
             <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
+            <string name="revanced_hide_collapse_button_title">Ficha kitufe cha Kunja</string>
+            <string name="revanced_hide_collapse_button_summary_on">Kitufe cha Kunja kimefichwa</string>
+            <string name="revanced_hide_collapse_button_summary_off">Kitufe cha Kunja kimeonyeshwa</string>
+            <string name="revanced_hide_fullscreen_button_title">Ficha kitufe cha Skrini nzima</string>
+            <string name="revanced_hide_fullscreen_button_summary_on">Kitufe cha Skrini nzima kimefichwa</string>
+            <string name="revanced_hide_fullscreen_button_summary_off">Kitufe cha Skrini nzima kimeonyeshwa</string>
         </patch>
-        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch"/>
+        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
+            <string name="revanced_hide_end_screen_cards_title">Ficha kadi za mwisho wa skrini</string>
+            <string name="revanced_hide_end_screen_cards_summary_on">Kadi za mwisho wa skrini zimefichwa</string>
+            <string name="revanced_hide_end_screen_cards_summary_off">Kadi za mwisho wa skrini zimeonyeshwa</string>
+        </patch>
         <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"/>
         <patch id="layout.hide.infocards.hideInfocardsResourcePatch"/>
         <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"/>
         <patch id="layout.hide.seekbar.hideSeekbarPatch">
             <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
+            <string name="revanced_fullscreen_large_seekbar_title">Washa upau wa kutafuta mkubwa wa skrini nzima</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_on">Upau wa kutafuta wa skrini nzima una ukubwa mkubwa</string>
+            <string name="revanced_fullscreen_large_seekbar_summary_off">Upau wa kutafuta wa skrini nzima una ukubwa wa kawaida</string>
         </patch>
         <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+            <string name="revanced_hide_shorts_channel_title">Ficha Shorts kwenye ukurasa wa chaneli</string>
+            <string name="revanced_hide_shorts_channel_summary_on">Imefichwa kwenye ukurasa wa chaneli</string>
+            <string name="revanced_hide_shorts_channel_summary_off">Imeonyeshwa kwenye ukurasa wa chaneli</string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
             <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
+            <string name="revanced_hide_shorts_video_description_title">Ficha Shorts kwenye maelezo ya video</string>
+            <string name="revanced_hide_shorts_video_description_summary_on">Imefichwa kwenye maelezo ya video</string>
+            <string name="revanced_hide_shorts_video_description_summary_off">Imeonyeshwa kwenye maelezo ya video</string>
+            <string name="revanced_hide_shorts_ai_button_title">Ficha kitufe cha AI</string>
+            <string name="revanced_hide_shorts_ai_button_summary_on">Kitufe cha AI kimefichwa</string>
+            <string name="revanced_hide_shorts_ai_button_summary_off">Kitufe cha AI kimeonyeshwa</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_title">Ficha lebo ya \'Imenukuliwa kiotomatiki\'</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Lebo ya Imenukuliwa kiotomatiki imefichwa</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Lebo ya Imenukuliwa kiotomatiki imeonyeshwa</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
+            <!-- YT may no longer use this feature and this setting may be obsolete. -->
             <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
             <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
         </patch>
-        <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"/>
+        <patch id="layout.hide.autoplaypreview.hideAutoplayPreviewPatch">
+            <string name="revanced_hide_autoplay_preview_title">Ficha onyesho la kwanza la kucheza kiotomatiki</string>
+            <string name="revanced_hide_autoplay_preview_summary_on">Onyesho la kwanza la kucheza kiotomatiki limefichwa</string>
+            <string name="revanced_hide_autoplay_preview_summary_off">Onyesho la kwanza la kucheza kiotomatiki limeonyeshwa</string>
+        </patch>
+        <patch id="layout.hide.endscreensuggestedvideo.hideEndScreenSuggestedVideoPatch">
+            <string name="revanced_end_screen_suggested_video_title">Ficha video iliyopendekezwa ya mwisho wa skrini</string>
+            <string name="revanced_end_screen_suggested_video_summary_on">"Video iliyopendekezwa ya mwisho wa skrini imefichwa wakati kucheza kiotomatiki kumezimwa
+
+Kucheza kiotomatiki kunaweza kubadilishwa katika mipangilio ya YouTube:
+Mipangilio → Uchezaji → Cheza video inayofuata kiotomatiki"</string>
+            <string name="revanced_end_screen_suggested_video_summary_off">Video iliyopendekezwa ya mwisho wa skrini imeonyeshwa</string>
+        </patch>
         <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch"/>
         <patch id="layout.hide.time.hideTimestampPatch"/>
-        <patch id="layout.panels.popup.playerPopupPanelsPatch"/>
+        <patch id="layout.panels.popup.playerPopupPanelsPatch">
+            <string name="revanced_disable_player_popup_panels_title">Ficha paneli ibukizi za kichezaji</string>
+            <string name="revanced_disable_player_popup_panels_summary_on">Paneli ibukizi za kichezaji zimefichwa</string>
+            <string name="revanced_disable_player_popup_panels_summary_off">Paneli ibukizi za kichezaji zimeonyeshwa</string>
+        </patch>
         <patch id="layout.player.fullscreen.exitFullscreenPatch"/>
         <patch id="layout.player.fullscreen.openVideosFullscreen"/>
         <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"/>
@@ -155,10 +386,12 @@ Second \"item\" text"</string>
             <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
             <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
         </patch>
-        <patch id="layout.searchbar.wideSearchbarPatch"/>
-        <patch id="layout.seekbar.seekbarThumbnailsPatch"/>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
             <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
+            <string name="revanced_sb_segments_nomusic_sum">Kwa matumizi katika video za muziki pekee. Sehemu za video za muziki zisizo na muziki, ambazo hazijafunikwa tayari na kategoria nyingine</string>
+            <string name="revanced_sb_submit_failed_forbidden">Haiwezi kuwasilisha sehemu: %s</string>
+            <string name="revanced_sb_submit_failed_duplicate">"Haiwezi kuwasilisha sehemu.
+Tayari ipo"</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <!-- A segment start and end time, such as "02:10 to 03:40". -->
             <!-- Shown in the settings preferences, and translations can be any text length. -->
@@ -170,7 +403,11 @@ Second \"item\" text"</string>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch"/>
         <patch id="layout.shortsautoplay.shortsAutoplayPatch"/>
         <patch id="layout.miniplayer.miniplayerPatch"/>
-        <patch id="layout.theme.themePatch"/>
+        <patch id="layout.theme.themePatch">
+            <string name="revanced_splash_screen_animation_style_entry_1">Imezimwa</string>
+            <string name="revanced_splash_screen_animation_style_entry_2">Rangi</string>
+            <string name="revanced_splash_screen_animation_style_entry_3">Nyeusi na nyeupe</string>
+        </patch>
         <patch id="layout.branding.customBrandingPatch"/>
         <patch id="layout.branding.changeHeaderPatch">
             <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
@@ -187,7 +424,11 @@ Second \"item\" text"</string>
         <patch id="misc.loopvideo.button.loopVideoButtonPatch"/>
         <patch id="misc.audiofocus.pauseOnAudioInterruptPatch"/>
         <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"/>
-        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch"/>
+        <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_title">Zima haptics ya kugonga na kushikilia</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_on">Haptics ya kugonga na kushikilia imezimwa</string>
+            <string name="revanced_disable_haptic_feedback_tap_and_hold_summary_off">Haptics ya kugonga na kushikilia imewashwa</string>
+        </patch>
         <patch id="misc.gms.accountCredentialsInvalidTextPatch"/>
         <patch id="misc.links.bypassURLRedirectsPatch"/>
         <patch id="misc.links.openLinksExternallyPatch"/>
@@ -200,6 +441,11 @@ Second \"item\" text"</string>
         <patch id="video.speed.remember.rememberPlaybackSpeedPatch"/>
         <patch id="video.codecs.disableVideoCodecsPatch"/>
         <patch id="video.quality.advancedVideoQualityMenuPatch"/>
+        <patch id="video.quality.hidePremiumVideoQualityPatch">
+            <string name="revanced_hide_premium_video_quality_title">Ficha chaguo za ubora wa Premium</string>
+            <string name="revanced_hide_premium_video_quality_summary_on">Chaguo za ubora wa Premium zimefichwa</string>
+            <string name="revanced_hide_premium_video_quality_summary_off">Chaguo za ubora wa Premium zimeonyeshwa</string>
+        </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch"/>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
@@ -207,7 +453,9 @@ Second \"item\" text"</string>
     </app>
     <app id="music">
         <patch id="layout.branding.customBrandingPatch"/>
-        <patch id="misc.settings.settingsPatch"/>
+        <patch id="misc.settings.settingsPatch">
+            <!-- In languages where "About" is ambiguous, translate to "About ReVanced" (i.e., About this app). -->
+        </patch>
         <patch id="ad.video.hideVideoAdsPatch"/>
         <patch id="interaction.permanentrepeat.permanentRepeatPatch"/>
         <patch id="layout.buttons.hideButtons"/>
