@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.revanced.extension.shared.ConversionContext.ContextInterface;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.StringTrieSearch;
 import app.revanced.extension.shared.Utils;
@@ -75,6 +76,7 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup chipBar;
     private final StringFilterGroup channelProfile;
     private final StringFilterGroupList channelProfileGroupList;
+    private final StringFilterGroupList communityPostStringFilterGroup;
 
     public LayoutComponentsFilter() {
         exceptions.addPatterns(
@@ -139,6 +141,16 @@ public final class LayoutComponentsFilter extends Filter {
                 "text_post_responsive_root.e",
                 "poll_post_responsive_root.e",
                 "shared_post_root.e"
+        );
+        communityPostStringFilterGroup = new StringFilterGroupList();
+        communityPostStringFilterGroup.addAll(
+                new StringFilterGroup(
+                        null,
+                        // home
+                        "horizontalCollectionSwipeProtector=null",
+                        // subscriptions
+                        "heightConstraint=null"
+                )
         );
 
         final var subscribersCommunityGuidelines = new StringFilterGroup(
@@ -379,8 +391,14 @@ public final class LayoutComponentsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
-                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    public boolean isFiltered(ContextInterface contextInterface,
+                              String identifier,
+                              String accessibility,
+                              String path,
+                              byte[] buffer,
+                              StringFilterGroup matchedGroup,
+                              FilterContentType contentType,
+                              int contentIndex) {
         // This identifier is used not only in players but also in search results:
         // https://github.com/ReVanced/revanced-patches/issues/3245
         // Until 2024, medical information panels such as Covid-19 also used this identifier and were shown in the search results.
@@ -400,13 +418,8 @@ public final class LayoutComponentsFilter extends Filter {
             return channelProfileGroupList.check(accessibility).isFiltered();
         }
 
-        if (matchedGroup == communityPosts
-                && NavigationBar.isBackButtonVisible()
-                && !NavigationBar.isSearchBarActive()
-                && PlayerType.getCurrent() != PlayerType.WATCH_WHILE_MAXIMIZED) {
-            // Allow community posts on channel profile page,
-            // or if viewing an individual channel in the feed.
-            return false;
+        if (matchedGroup == communityPosts) {
+            return communityPostStringFilterGroup.check(contextInterface.toString()).isFiltered();
         }
 
         if (exceptions.matches(path)) return false; // Exceptions are not filtered.

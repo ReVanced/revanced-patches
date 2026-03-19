@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.patches.litho;
 
+import app.revanced.extension.shared.ConversionContext.ContextInterface;
 import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.shared.patches.litho.FilterGroup.*;
 import app.revanced.extension.youtube.patches.playback.speed.CustomPlaybackSpeedPatch;
@@ -38,8 +39,14 @@ public final class PlaybackSpeedMenuFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
-                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    public boolean isFiltered(ContextInterface contextInterface,
+                              String identifier,
+                              String accessibility,
+                              String path,
+                              byte[] buffer,
+                              StringFilterGroup matchedGroup,
+                              FilterContentType contentType,
+                              int contentIndex) {
         if (matchedGroup == oldPlaybackMenuGroup) {
             isOldPlaybackSpeedMenuVisible = true;
         } else {

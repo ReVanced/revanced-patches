@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.patches.litho;
 
+import app.revanced.extension.shared.ConversionContext.ContextInterface;
 import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.shared.patches.litho.FilterGroup.*;
@@ -133,8 +134,14 @@ public final class DescriptionComponentsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
-                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    public boolean isFiltered(ContextInterface contextInterface,
+                              String identifier,
+                              String accessibility,
+                              String path,
+                              byte[] buffer,
+                              StringFilterGroup matchedGroup,
+                              FilterContentType contentType,
+                              int contentIndex) {
         // The description panel can be opened in both the regular player and Shorts.
         // If the description panel is opened in a Shorts, PlayerType is 'HIDDEN',
         // so 'PlayerType.getCurrent().isMaximizedOrFullscreen()' does not guarantee that the description panel is open.

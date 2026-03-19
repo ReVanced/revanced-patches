@@ -1,5 +1,7 @@
 package app.revanced.extension.youtube.patches.litho;
 
+import app.revanced.extension.shared.ConversionContext;
+import app.revanced.extension.shared.ConversionContext.ContextInterface;
 import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
@@ -158,8 +160,14 @@ public final class VideoActionButtonsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
-                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    public boolean isFiltered(ContextInterface contextInterface,
+                              String identifier,
+                              String accessibility,
+                              String path,
+                              byte[] buffer,
+                              StringFilterGroup matchedGroup,
+                              FilterContentType contentType,
+                              int contentIndex) {
         if (matchedGroup == likeSubscribeGlow) {
             return path.startsWith(VIDEO_ACTION_BAR_PATH_PREFIX) || path.startsWith(COMPACT_CHANNEL_BAR_PATH_PREFIX)
                     || path.startsWith(COMPACTIFY_VIDEO_ACTION_BAR_PATH);

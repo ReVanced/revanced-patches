@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import java.util.List;
 
+import app.revanced.extension.shared.ConversionContext.ContextInterface;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.shared.patches.litho.FilterGroup.*;
@@ -85,8 +86,14 @@ public final class CommentsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
-                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    public boolean isFiltered(ContextInterface contextInterface,
+                              String identifier,
+                              String accessibility,
+                              String path,
+                              byte[] buffer,
+                              StringFilterGroup matchedGroup,
+                              FilterContentType contentType,
+                              int contentIndex) {
         if (matchedGroup == comments) {
             if (path.startsWith(VIDEO_LOCKUP_WITH_ATTACHMENT_PATH)) {
                 return Settings.HIDE_COMMENTS_SECTION_IN_HOME_FEED.get();

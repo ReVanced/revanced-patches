@@ -1,15 +1,18 @@
 package app.revanced.extension.youtube.patches.litho;
 
+import static app.revanced.extension.shared.ConversionContext.*;
 import static app.revanced.extension.youtube.patches.LayoutReloadObserverPatch.isActionBarVisible;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 
 import android.view.View;
 
+import app.revanced.extension.shared.ConversionContext;
 import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.shared.patches.litho.FilterGroup.*;
 import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.litho.FilterGroupList.ByteArrayFilterGroupList;
 import app.revanced.extension.shared.patches.litho.FilterGroupList.StringFilterGroupList;
+
 import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
 
 import java.lang.ref.WeakReference;
@@ -394,8 +397,14 @@ public final class ShortsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
-                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    public boolean isFiltered(ContextInterface contextInterface,
+                              String identifier,
+                              String accessibility,
+                              String path,
+                              byte[] buffer,
+                              StringFilterGroup matchedGroup,
+                              FilterContentType contentType,
+                              int contentIndex) {
         if (contentType == FilterContentType.IDENTIFIER) {
             if (matchedGroup == shelfHeaderIdentifier) {
                 // Shelf header reused in history/channel/etc.
