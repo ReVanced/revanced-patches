@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.layout.theme
 
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
@@ -24,8 +24,6 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.seekbar.seekbarColorPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_02_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_21_06_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -230,24 +228,20 @@ val themePatch = baseThemePatch(
             ),
         )
 
-        if (is_19_47_or_greater) {
-            PreferenceScreen.GENERAL.addPreferences(
-                ListPreference("revanced_splash_screen_animation_style"),
-            )
-        }
+        PreferenceScreen.GENERAL.addPreferences(
+            ListPreference("revanced_splash_screen_animation_style"),
+        )
 
         useGradientLoadingScreenMethodMatch.method.insertLiteralOverride(
             useGradientLoadingScreenMethodMatch[0],
             "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z",
         )
 
-        if (is_19_47_or_greater) {
-            // Lottie splash screen exists in earlier versions, but it may not be always on.
-            splashScreenStyleMethodMatch.method.insertLiteralOverride(
-                splashScreenStyleMethodMatch[0],
-                "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I",
-            )
-        }
+        // Lottie splash screen exists in earlier versions, but it may not be always on.
+        splashScreenStyleMethodMatch.method.insertLiteralOverride(
+            splashScreenStyleMethodMatch[0],
+            "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I",
+        )
 
         showSplashScreen1MethodMatch.let {
             it.method.apply {
@@ -264,22 +258,20 @@ val themePatch = baseThemePatch(
             }
         }
 
-        if (is_20_02_or_greater) {
-            showSplashScreen2MethodMatch.let {
-                val insertIndex = it[1]
-                it.method.apply {
-                    val insertInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
-                    val registerA = insertInstruction.registerA
-                    val registerB = insertInstruction.registerB
+        showSplashScreen2MethodMatch.let {
+            val insertIndex = it[1]
+            it.method.apply {
+                val insertInstruction = getInstruction<TwoRegisterInstruction>(insertIndex)
+                val registerA = insertInstruction.registerA
+                val registerB = insertInstruction.registerB
 
-                    addInstructions(
-                        insertIndex,
-                        """
-                            invoke-static { v$registerA, v$registerB }, ${EXTENSION_CLASS_DESCRIPTOR}->showSplashScreen(II)I
-                            move-result v$registerA
-                        """
-                    )
-                }
+                addInstructions(
+                    insertIndex,
+                    """
+                        invoke-static { v$registerA, v$registerB }, ${EXTENSION_CLASS_DESCRIPTOR}->showSplashScreen(II)I
+                        move-result v$registerA
+                    """
+                )
             }
         }
     },

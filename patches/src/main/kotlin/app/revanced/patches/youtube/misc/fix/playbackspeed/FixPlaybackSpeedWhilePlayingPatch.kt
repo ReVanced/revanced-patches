@@ -6,7 +6,6 @@ import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.findFreeRegister
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -37,10 +36,6 @@ val fixPlaybackSpeedWhilePlayingPatch = bytecodePatch {
     )
 
     apply {
-        if (!is_19_34_or_greater) {
-            return@apply
-        }
-
         playbackSpeedInFeedsMethod.apply {
             val playbackSpeedIndex = indexOfGetPlaybackSpeedInstruction(this)
             val playbackSpeedRegister = getInstruction<TwoRegisterInstruction>(playbackSpeedIndex).registerA

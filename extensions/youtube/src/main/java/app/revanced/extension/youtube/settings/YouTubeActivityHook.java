@@ -11,7 +11,6 @@ import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseActivityHook;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
-import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.settings.preference.YouTubePreferenceFragment;
 import app.revanced.extension.youtube.settings.search.YouTubeSearchViewController;
 
@@ -19,7 +18,7 @@ import app.revanced.extension.youtube.settings.search.YouTubeSearchViewControlle
  * Hooks LicenseActivity to inject a custom {@link YouTubePreferenceFragment}
  * with a toolbar and search functionality.
  */
-@SuppressWarnings("deprecation")
+
 public class YouTubeActivityHook extends BaseActivityHook {
 
     /**
@@ -121,15 +120,7 @@ public class YouTubeActivityHook extends BaseActivityHook {
      */
     @SuppressWarnings("unused")
     public static boolean useCairoSettingsFragment(boolean original) {
-        // Early targets have layout issues and it's better to always force off.
-        if (!VersionCheckPatch.IS_19_34_OR_GREATER) {
-            return false;
-        }
         if (Settings.RESTORE_OLD_SETTINGS_MENUS.get()) {
-            return false;
-        }
-        // Spoofing can cause half broken settings menus of old and new settings.
-        if (SpoofAppVersionPatch.isSpoofingToLessThan("19.35.36")) {
             return false;
         }
 

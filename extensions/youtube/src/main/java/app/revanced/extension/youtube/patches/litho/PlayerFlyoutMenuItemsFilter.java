@@ -7,7 +7,6 @@ import app.revanced.extension.shared.patches.litho.FilterGroupList.ByteArrayFilt
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
-import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.ShortsPlayerState;
 

@@ -1,9 +1,6 @@
 package app.revanced.extension.youtube.patches.litho;
 
-import static app.revanced.extension.shared.StringRef.str;
-
 import android.app.Dialog;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
