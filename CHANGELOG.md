@@ -1,3 +1,10 @@
+## [6.1.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v6.1.0...v6.1.1-dev.1) (2026-03-19)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Set `ANDROID_REEL` client as default ([#6878](https://github.com/ReVanced/revanced-patches/issues/6878)) ([a9aeb32](https://github.com/ReVanced/revanced-patches/commit/a9aeb325de1160262c4db9b4b60c6c5e39730620))
+
 # [6.1.0](https://github.com/ReVanced/revanced-patches/compare/v6.0.1...v6.1.0) (2026-03-18)
 
 
