@@ -48,7 +48,10 @@ val themePatch = baseThemePatch(
             default = "@android:color/white",
             values = mapOf(
                 "White" to "@android:color/white",
-                "Material You" to "@android:color/system_neutral1_50",
+                "Material You (Neutral)" to "@android:color/system_neutral1_100",
+                "Material You - Primary" to "@android:color/system_accent1_200",
+                "Material You - Secondary" to "@android:color/system_accent2_200",
+                "Material You - Tertiary" to "@android:color/system_accent3_200",
                 "Catppuccin (Latte)" to "#E6E9EF",
                 "Light pink" to "#FCCFF3",
                 "Light blue" to "#D1E0FF",
