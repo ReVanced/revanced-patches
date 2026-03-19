@@ -1,6 +1,6 @@
 @file:Suppress("SpellCheckingInspection")
 
-package app.revanced.patches.music.layout.miniplayercolor
+package app.revanced.patches.music.layout.miniplayer
 
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.extensions.getInstruction
@@ -43,11 +43,12 @@ val changeMiniplayerColorPatch = bytecodePatch(
             "8.10.52",
             "8.37.56",
             "8.40.54",
+            "8.44.54"
         ),
     )
 
     apply {
-        addResources("music", "layout.miniplayercolor.changeMiniplayerColor")
+        addResources("music", "layout.miniplayer.changeMiniplayerColor")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_music_change_miniplayer_color"),

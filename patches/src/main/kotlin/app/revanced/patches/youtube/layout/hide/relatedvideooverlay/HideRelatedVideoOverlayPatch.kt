@@ -35,7 +35,8 @@ val hideRelatedVideoOverlayPatch = bytecodePatch(
             "20.26.46",
             "20.31.42",
             "20.37.48",
-            "20.40.45"
+            "20.40.45",
+            "20.44.38"
         ),
     )
 
@@ -43,7 +44,7 @@ val hideRelatedVideoOverlayPatch = bytecodePatch(
         addResources("youtube", "layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_related_videos_overlay"),
+            SwitchPreference("revanced_hide_player_related_videos_overlay"),
         )
 
         val relatedEndScreenResultsMethod =

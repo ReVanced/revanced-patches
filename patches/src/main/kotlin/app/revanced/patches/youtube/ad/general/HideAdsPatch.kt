@@ -18,6 +18,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.contexthook.Endpoint
 import app.revanced.patches.youtube.misc.contexthook.addOSNameHook
 import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
+import app.revanced.patches.youtube.layout.hide.shelves.hideHorizontalShelvesPatch
 import app.revanced.patches.youtube.misc.contexthook.hookClientContextPatch
 import app.revanced.patches.youtube.misc.engagement.addEngagementPanelIdHook
 import app.revanced.patches.youtube.misc.engagement.engagementPanelHookPatch
@@ -50,6 +51,7 @@ private val hideAdsResourcePatch = resourcePatch {
         addResourcesPatch,
         hookClientContextPatch,
         engagementPanelHookPatch,
+        hideHorizontalShelvesPatch
     )
 
     apply {
@@ -94,7 +96,8 @@ val hideAdsPatch = bytecodePatch(
             "20.26.46",
             "20.31.42",
             "20.37.48",
-            "20.40.45"
+            "20.40.45",
+            "20.44.38"
         ),
     )
 
@@ -212,6 +215,7 @@ val hideAdsPatch = bytecodePatch(
         setOf(
             Endpoint.BROWSE,
             Endpoint.SEARCH,
+            Endpoint.NEXT,
         ).forEach { endpoint ->
             addOSNameHook(
                 endpoint,

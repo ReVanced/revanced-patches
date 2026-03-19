@@ -3,49 +3,25 @@
 package app.revanced.patches.youtube.misc.litho.filter
 
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patches.youtube.shared.conversionContextToStringMethod
 import app.revanced.patches.shared.misc.litho.filter.EXTENSION_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.misc.litho.filter.lithoFilterPatch
-import app.revanced.patches.shared.misc.litho.filter.protobufBufferReferenceLegacyMethod
-import app.revanced.patches.shared.misc.litho.filter.protobufBufferReferenceMethodMatch
+import app.revanced.patches.shared.misc.litho.filter.protobufBufferReferenceMethod
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.*
-import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.insertLiteralOverride
 import app.revanced.util.returnLate
-import com.android.tools.smali.dexlib2.Opcode
 
 val lithoFilterPatch = lithoFilterPatch(
-    componentCreateInsertionIndex = {
-        if (is_19_17_or_greater) {
-            indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
-        } else {
-            // 19.16 clobbers p2 so must check at start of the method and not at the return index.
-            0
+    insertLegacyProtobufHook = {
+        if (!is_20_22_or_greater) {
+            // Non-native buffer.
+            protobufBufferReferenceMethod.addInstruction(
+                0,
+                "invoke-static { p2 }, ${EXTENSION_CLASS_DESCRIPTOR}->setProtobufBuffer(Ljava/nio/ByteBuffer;)V",
+            )
         }
     },
-    insertProtobufHook = {
-        if (is_20_22_or_greater) {
-            // Hook method that bridges between UPB buffer native code and FB Litho.
-            // Method is found in 19.25+, but is forcefully turned off for 20.21 and lower.
-            protobufBufferReferenceMethodMatch.let {
-                // Hook the buffer after the call to jniDecode().
-                it.method.addInstruction(
-                    it[-1] + 1,
-                    "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer([B)V",
-                )
-            }
-        }
-
-        // Legacy non-native buffer.
-        protobufBufferReferenceLegacyMethod.addInstruction(
-            0,
-            "invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
-        )
-    },
-    getConversionContextToStringMethod = BytecodePatchContext::conversionContextToStringMethod::get,
-    getExtractIdentifierFromBuffer = { is_20_21_or_greater },
+    getExtractIdentifierFromBuffer = { is_20_22_or_greater },
     executeBlock = {
         // region A/B test of new Litho native code.
 

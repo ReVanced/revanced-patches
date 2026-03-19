@@ -7,7 +7,8 @@ import app.revanced.patches.shared.layout.theme.baseThemeResourcePatch
 import app.revanced.patches.shared.layout.theme.darkThemeBackgroundColorOption
 import app.revanced.patches.shared.misc.settings.overrideThemeColors
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/theme/ThemePatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/music/patches/theme/ThemePatch;"
 
 @Suppress("unused")
 val themePatch = baseThemePatch(
@@ -33,7 +34,8 @@ val themePatch = baseThemePatch(
                 "7.29.52",
                 "8.10.52",
                 "8.37.56",
-                "8.40.54"
+                "8.40.54",
+                "8.44.54"
             )
         )
     },

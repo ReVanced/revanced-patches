@@ -7,21 +7,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.componentContextParserMethod by gettingFirstImmutableMethodDeclaratively {
-    returnType("L")
-    instructions(
-        "Failed to parse Element proto."(),
-        "Cannot read theme key from model."()
-    )
-}
-
-context(_: BytecodePatchContext)
-internal fun ClassDef.getTreeNodeResultListMethod() = firstMethodDeclaratively  {
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
-    returnType("Ljava/util/List;")
-    instructions(allOf(Opcode.INVOKE_STATIC(), method("nCopies")))
-}
-
 internal val BytecodePatchContext.shortsBottomBarContainerMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")

@@ -126,3 +126,10 @@ internal val BytecodePatchContext.playerControlsButtonStrokeFeatureFlagMethod by
     parameterTypes()
     instructions(45713296L())
 }
+
+internal val BytecodePatchContext.playerOverlayOpacityGradientFeatureFlagMethod by gettingFirstMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("Z")
+    parameterTypes()
+    instructions(45729621L())
+}

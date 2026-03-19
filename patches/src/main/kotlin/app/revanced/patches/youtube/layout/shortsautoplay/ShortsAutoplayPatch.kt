@@ -15,6 +15,8 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_09_or_greater
+import app.revanced.patcher.method
+import app.revanced.patches.youtube.misc.playservice.is_21_10_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -35,7 +37,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/ShortsAutoplayPatch;"
 
-@Suppress("ObjectPropertyName")
+@Suppress("unused")
 val shortsAutoplayPatch = bytecodePatch(
     name = "Shorts autoplay",
     description = "Adds options to automatically play the next Short.",
@@ -54,7 +56,8 @@ val shortsAutoplayPatch = bytecodePatch(
             "20.26.46",
             "20.31.42",
             "20.37.48",
-            "20.40.45"
+            "20.40.45",
+            "20.44.38"
         ),
     )
 
@@ -98,12 +101,23 @@ val shortsAutoplayPatch = bytecodePatch(
 
         reelPlaybackRepeatMethod.apply {
             // The behavior enums are looked up from an ordinal value to an enum type.
-            findInstructionIndicesReversedOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.definingClass == reelEnumClass &&
-                        reference.parameterTypes.firstOrNull() == "I" &&
-                        reference.returnType == reelEnumClass
-            }.forEach { index ->
+
+            val match = if (is_21_10_or_greater) {
+                method {
+                    returnType == reelEnumClass &&
+                            parameterTypes.size == 1 &&
+                            parameterTypes[0].startsWith("L")
+                }
+            } else {
+                method {
+                    definingClass == reelEnumClass &&
+                            returnType == reelEnumClass &&
+                            parameterTypes.size == 1 &&
+                            parameterTypes[0] == "I"
+                }
+            }
+
+            findInstructionIndicesReversedOrThrow { match(0, 0) {} }.forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
                 addInstructions(

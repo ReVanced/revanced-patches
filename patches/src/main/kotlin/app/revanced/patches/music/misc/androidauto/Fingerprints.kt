@@ -7,14 +7,13 @@ import app.revanced.patcher.invoke
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
+import app.revanced.patcher.strings
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.checkCertificateMethod by gettingFirstMethodDeclaratively(
-    "X509",
-) {
+internal val BytecodePatchContext.checkCertificateMethod by gettingFirstMethodDeclaratively {
     returnType("Z")
-    parameterTypes("Ljava/lang/String;")
-    instructions("Failed to get certificate"(String::contains))
+    parameterTypes("L")
+    strings("X509", "isPartnerSHAFingerprint")
 }
 
 internal val BytecodePatchContext.searchMediaItemsConstructorMethod by gettingFirstMethodDeclaratively(

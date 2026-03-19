@@ -12,7 +12,8 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/PauseOnAudioInterruptPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/PauseOnAudioInterruptPatch;"
 
 val pauseOnAudioInterruptPatch = bytecodePatch(
     name = "Pause on audio interrupt",
@@ -31,7 +32,8 @@ val pauseOnAudioInterruptPatch = bytecodePatch(
             "20.26.46",
             "20.31.42",
             "20.37.48",
-            "20.40.45"
+            "20.40.45",
+            "20.44.38"
         ),
     )
 

@@ -38,7 +38,7 @@ import kotlin.collections.remove
  *
  * @param fieldName The name of the field to find. Partial matches are allowed.
  */
-private fun Method.findInstructionIndexFromToString(fieldName: String): Int {
+private fun Method.findInstructionIndexFromToString(fieldName: String, isField: Boolean) : Int {
     val stringIndex = indexOfFirstInstruction {
         val reference = getReference<StringReference>()
         reference?.string?.contains(fieldName) == true
@@ -67,21 +67,54 @@ private fun Method.findInstructionIndexFromToString(fieldName: String): Int {
         // Should never happen.
         throw IllegalArgumentException("Could not find StringBuilder append usage in: $this")
     }
-    val fieldUsageRegister = getInstruction<FiveRegisterInstruction>(fieldUsageIndex).registerD
+
+    var fieldUsageRegister = getInstruction<FiveRegisterInstruction>(fieldUsageIndex).registerD
 
     // Look backwards up the method to find the instruction that sets the register.
     var fieldSetIndex = indexOfFirstInstructionReversedOrThrow(fieldUsageIndex - 1) {
         fieldUsageRegister == writeRegister
     }
 
-    // If the field is a method call, then adjust from MOVE_RESULT to the method call.
-    val fieldSetOpcode = getInstruction(fieldSetIndex).opcode
-    if (fieldSetOpcode == MOVE_RESULT ||
-        fieldSetOpcode == MOVE_RESULT_WIDE ||
-        fieldSetOpcode == MOVE_RESULT_OBJECT
-    ) {
-        fieldSetIndex--
+    // Some 'toString()' methods, despite using a StringBuilder, convert the value via
+    // 'Object.toString()' or 'String.valueOf(object)' before appending it to the StringBuilder.
+    // In this case, the correct index cannot be found.
+    // Additional validation is done to find the index of the correct field or method.
+    //
+    // Check up to 3 method calls.
+    var checksLeft = 3
+    while (checksLeft > 0) {
+        // If the field is a method call, then adjust from MOVE_RESULT to the method call.
+        val fieldSetOpcode = getInstruction(fieldSetIndex).opcode
+        if (fieldSetOpcode == MOVE_RESULT ||
+            fieldSetOpcode == MOVE_RESULT_WIDE ||
+            fieldSetOpcode == MOVE_RESULT_OBJECT
+        ) {
+            fieldSetIndex--
+        }
+
+        val fieldSetReference = getInstruction<ReferenceInstruction>(fieldSetIndex).reference
+
+        if (isField && fieldSetReference is FieldReference ||
+            !isField && fieldSetReference is MethodReference
+        ) {
+            // Valid index.
+            return fieldSetIndex
+        } else if (fieldSetReference is MethodReference &&
+            // Object.toString(), String.valueOf(object)
+            fieldSetReference.returnType == "Ljava/lang/String;"
+        ) {
+            fieldUsageRegister = getInstruction<FiveRegisterInstruction>(fieldSetIndex).registerC
+
+            // Look backwards up the method to find the instruction that sets the register.
+            fieldSetIndex = indexOfFirstInstructionReversedOrThrow(fieldSetIndex - 1) {
+                fieldUsageRegister == writeRegister
+            }
+            checksLeft--
+        } else {
+            throw IllegalArgumentException("Unknown reference: $fieldSetReference")
+        }
     }
+
 
     return fieldSetIndex
 }
@@ -93,7 +126,7 @@ private fun Method.findInstructionIndexFromToString(fieldName: String): Int {
  */
 context(context: BytecodePatchContext)
 internal fun Method.findMethodFromToString(fieldName: String): MutableMethod {
-    val methodUsageIndex = findInstructionIndexFromToString(fieldName)
+    val methodUsageIndex = findInstructionIndexFromToString(fieldName, false)
     return context.navigate(this).to(methodUsageIndex).stop()
 }
 
@@ -103,7 +136,7 @@ internal fun Method.findMethodFromToString(fieldName: String): MutableMethod {
  * @param fieldName The name of the field to find. Partial matches are allowed.
  */
 internal fun Method.findFieldFromToString(fieldName: String): FieldReference {
-    val methodUsageIndex = findInstructionIndexFromToString(fieldName)
+    val methodUsageIndex = findInstructionIndexFromToString(fieldName, true)
     return getInstruction<ReferenceInstruction>(methodUsageIndex).getReference<FieldReference>()!!
 }
 

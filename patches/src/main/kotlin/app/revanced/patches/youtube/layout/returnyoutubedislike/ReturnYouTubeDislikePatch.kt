@@ -16,12 +16,14 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPref
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.shared.misc.litho.context.EXTENSION_CONTEXT_INTERFACE
+import app.revanced.patches.shared.misc.litho.context.conversionContextClassDef
+import app.revanced.patches.shared.misc.litho.context.conversionContextPatch
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.*
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.conversionContextToStringMethod
 import app.revanced.patches.youtube.shared.rollingNumberTextViewAnimationUpdateMethodMatch
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.hookVideoId
@@ -43,7 +45,6 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 private const val FILTER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/litho/ReturnYouTubeDislikeFilter;"
 
-@Suppress("ObjectPropertyName")
 val returnYouTubeDislikePatch = bytecodePatch(
     name = "Return YouTube Dislike",
     description = "Adds an option to show the dislike count of videos with Return YouTube Dislike.",
@@ -52,6 +53,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
         settingsPatch,
         sharedExtensionPatch,
         addResourcesPatch,
+        conversionContextPatch,
         lithoFilterPatch,
         videoIdPatch,
         playerTypeHookPatch,
@@ -65,7 +67,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
             "20.26.46",
             "20.31.42",
             "20.37.48",
-            "20.40.45"
+            "20.40.45",
+            "20.44.38"
         ),
     )
 
@@ -126,16 +129,10 @@ val returnYouTubeDislikePatch = bytecodePatch(
         // This hook handles all situations, as it's where the created Spans are stored and later reused.
 
         // Find the field name of the conversion context.
-        val conversionContextClass = conversionContextToStringMethod.immutableClassDef
         val textComponentConversionContextField =
             textComponentConstructorMethod.immutableClassDef.fields.find {
-                it.type == conversionContextClass.type ||
-                        // 20.41+ uses superclass field type.
-                        it.type == conversionContextClass.superclass
+                it.type == conversionContextClassDef.type
             } ?: throw PatchException("Could not find conversion context field")
-
-        val conversionContextPathBuilderField = conversionContextToStringMethod.immutableClassDef
-            .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
 
         // Old pre 20.40 and lower hook.
         // 21.05 clobbers p0 (this) register.
@@ -184,7 +181,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
                     # Copy conversion context.
                     move-object/from16 v$conversionContext, p0
                     iget-object v$conversionContext, v$conversionContext, $textComponentConversionContextField
-                    invoke-static { v$conversionContext, v$charSequenceRegister }, $EXTENSION_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                    invoke-static { v$conversionContext, v$charSequenceRegister }, $EXTENSION_CLASS_DESCRIPTOR->onLithoTextLoaded(${EXTENSION_CONTEXT_INTERFACE}Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
                     move-result-object v$charSequenceRegister
                     
                     :ignore
@@ -211,16 +208,15 @@ val returnYouTubeDislikePatch = bytecodePatch(
                     val insertIndex = it[1]
                     val charSequenceRegister =
                         getInstruction<FiveRegisterInstruction>(insertIndex).registerD
-                    val conversionContextPathRegister =
+                    val conversionContextRegister =
                         findFreeRegister(insertIndex, charSequenceRegister)
 
                     addInstructions(
                         insertIndex,
                         """
-                            move-object/from16 v$conversionContextPathRegister, p0
-                            iget-object v$conversionContextPathRegister, v$conversionContextPathRegister, $conversionContextField
-                            iget-object v$conversionContextPathRegister, v$conversionContextPathRegister, $conversionContextPathBuilderField
-                            invoke-static { v$conversionContextPathRegister, v$charSequenceRegister }, $EXTENSION_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                            move-object/from16 v$conversionContextRegister, p0
+                            iget-object v$conversionContextRegister, v$conversionContextRegister, $conversionContextField
+                            invoke-static { v$conversionContextRegister, v$charSequenceRegister }, $EXTENSION_CLASS_DESCRIPTOR->onLithoTextLoaded(${EXTENSION_CONTEXT_INTERFACE}Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
                             move-result-object v$charSequenceRegister
                         """
                     )
@@ -261,7 +257,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
                 insertIndex,
                 """
                     iget-object v$freeRegister, v$charSequenceInstanceRegister, $charSequenceFieldReference
-                    invoke-static { v$conversionContextRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberLoaded(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+                    invoke-static { v$conversionContextRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberLoaded(${EXTENSION_CONTEXT_INTERFACE}Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$freeRegister
                     iput-object v$freeRegister, v$charSequenceInstanceRegister, $charSequenceFieldReference
                 """,

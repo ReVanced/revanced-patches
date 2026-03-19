@@ -6,8 +6,8 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_MAIN_ACTIVITY_NAME
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
-import app.revanced.patches.music.misc.gms.musicActivityOnCreateMethod
 import app.revanced.patches.music.misc.settings.PreferenceScreen
+import app.revanced.patches.music.shared.mainActivityOnCreateMethod
 import app.revanced.patches.shared.layout.branding.EXTENSION_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
@@ -61,11 +61,10 @@ val customBrandingPatch = baseCustomBrandingPatch(
     originalAppPackageName = MUSIC_PACKAGE_NAME,
     isYouTubeMusic = true,
     numberOfPresetAppNames = 5,
-    getMainActivityOnCreate = { musicActivityOnCreateMethod },
+    getMainActivityOnCreate = { mainActivityOnCreateMethod },
     mainActivityName = MUSIC_MAIN_ACTIVITY_NAME,
     activityAliasNameWithIntents = MUSIC_MAIN_ACTIVITY_NAME,
     preferenceScreen = PreferenceScreen.GENERAL,
-
     block = {
         dependsOn(sharedExtensionPatch, disableSplashAnimationPatch)
 
@@ -75,6 +74,7 @@ val customBrandingPatch = baseCustomBrandingPatch(
                 "8.10.52",
                 "8.37.56",
                 "8.40.54",
+                "8.44.54"
             ),
         )
     },

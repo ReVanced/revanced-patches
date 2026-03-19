@@ -12,6 +12,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
+import app.revanced.extension.shared.ConversionContext;
+import app.revanced.extension.shared.ConversionContext.ContextInterface;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.ByteTrieSearch;
@@ -47,7 +49,7 @@ public final class KeywordContentFilter extends Filter {
 
     /**
      * Strings found in the buffer for every video. Full strings should be specified.
-     *
+     * <p>
      * This list does not include every common buffer string, and this can be added/changed as needed.
      * Words must be entered with the exact casing as found in the buffer.
      */
@@ -122,7 +124,7 @@ public final class KeywordContentFilter extends Filter {
     /**
      * Path components to not filter.  Cannot filter the buffer when these are present,
      * otherwise text in UI controls can be filtered as a keyword (such as using "Playlist" as a keyword).
-     *
+     * <p>
      * This is also a small performance improvement since
      * the buffer of the parent component was already searched and passed.
      */
@@ -156,10 +158,10 @@ public final class KeywordContentFilter extends Filter {
      * Rolling average of how many videos were filtered by a keyword.
      * Used to detect if a keyword passes the initial check against {@link #STRINGS_IN_EVERY_BUFFER}
      * but a keyword is still hiding all videos.
-     *
+     * <p>
      * This check can still fail if some extra UI elements pass the keywords,
      * such as the video chapter preview or any other elements.
-     *
+     * <p>
      * To test this, add a filter that appears in all videos (such as 'ovd='),
      * and open the subscription feed. In practice this does not always identify problems
      * in the home feed and search, because the home feed has a finite amount of content and
@@ -226,7 +228,7 @@ public final class KeywordContentFilter extends Filter {
      * @return If the string contains any characters from languages that do not use spaces between words.
      */
     private static boolean isLanguageWithNoSpaces(String text) {
-        for (int i = 0, length = text.length(); i < length;) {
+        for (int i = 0, length = text.length(); i < length; ) {
             final int codePoint = text.codePointAt(i);
 
             Character.UnicodeBlock block = Character.UnicodeBlock.of(codePoint);
@@ -277,7 +279,7 @@ public final class KeywordContentFilter extends Filter {
 
     /**
      * @return If the start and end indexes are not surrounded by other letters.
-     *         If the indexes are surrounded by numbers/symbols/punctuation it is considered a whole word.
+     * If the indexes are surrounded by numbers/symbols/punctuation it is considered a whole word.
      */
     private static boolean keywordMatchIsWholeWord(byte[] text, int keywordStartIndex, int keywordLength) {
         final Integer codePointBefore = getUtf8CodePointBefore(text, keywordStartIndex);
@@ -296,7 +298,7 @@ public final class KeywordContentFilter extends Filter {
 
     /**
      * @return The UTF8 character point immediately before the index,
-     *         or null if the bytes before the index is not a valid UTF8 character.
+     * or null if the bytes before the index is not a valid UTF8 character.
      */
     @Nullable
     private static Integer getUtf8CodePointBefore(byte[] data, int index) {
@@ -312,7 +314,7 @@ public final class KeywordContentFilter extends Filter {
 
     /**
      * @return The UTF8 character point at the index,
-     *         or null if the index holds no valid UTF8 character.
+     * or null if the index holds no valid UTF8 character.
      */
     @Nullable
     private static Integer getUtf8CodePointAt(byte[] data, int index) {
@@ -528,7 +530,7 @@ public final class KeywordContentFilter extends Filter {
         }
 
         return switch (selectedNavButton) {
-            case HOME, EXPLORE -> hideHome;
+            case HOME -> hideHome;
             case SUBSCRIPTIONS -> hideSubscriptions;
             // User is in the Library or notifications.
             default -> false;
@@ -556,8 +558,14 @@ public final class KeywordContentFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
-                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    public boolean isFiltered(ContextInterface contextInterface,
+                              String identifier,
+                              String accessibility,
+                              String path,
+                              byte[] buffer,
+                              StringFilterGroup matchedGroup,
+                              FilterContentType contentType,
+                              int contentIndex) {
         if (contentIndex != 0 && matchedGroup == startsWithFilter) {
             return false;
         }

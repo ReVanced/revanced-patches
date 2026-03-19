@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.patches.litho;
 
+import app.revanced.extension.shared.ConversionContext.ContextInterface;
 import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
@@ -112,8 +113,14 @@ public final class PlayerFlyoutMenuItemsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
-                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    public boolean isFiltered(ContextInterface contextInterface,
+                              String identifier,
+                              String accessibility,
+                              String path,
+                              byte[] buffer,
+                              StringFilterGroup matchedGroup,
+                              FilterContentType contentType,
+                              int contentIndex) {
         if (matchedGroup == videoQualityMenuFooter) {
             return true;
         }
@@ -126,6 +133,9 @@ public final class PlayerFlyoutMenuItemsFilter extends Filter {
         if (ShortsPlayerState.isOpen()) {
             return false;
         }
+
+        // 21.x+ fix.
+        if (path.contains("bottom_sheet_list_option.e")) return false;
 
         return flyoutFilterGroupList.check(buffer).isFiltered();
     }

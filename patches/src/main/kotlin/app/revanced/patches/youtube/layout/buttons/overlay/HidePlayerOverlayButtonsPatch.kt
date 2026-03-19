@@ -43,7 +43,8 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
             "20.26.46",
             "20.31.42",
             "20.37.48",
-            "20.40.45"
+            "20.40.45",
+            "20.44.38"
         ),
     )
 
@@ -146,7 +147,8 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
         titleAnchorMethodMatch.let {
             it.method.apply {
                 val titleAnchorIndex = it[-1]
-                val titleAnchorRegister = getInstruction<OneRegisterInstruction>(titleAnchorIndex).registerA
+                val titleAnchorRegister =
+                    getInstruction<OneRegisterInstruction>(titleAnchorIndex).registerA
 
                 addInstruction(
                     titleAnchorIndex + 1,
@@ -154,7 +156,8 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
                 )
 
                 val playerCollapseButtonIndex = it[1]
-                val playerCollapseButtonRegister = getInstruction<OneRegisterInstruction>(playerCollapseButtonIndex).registerA
+                val playerCollapseButtonRegister =
+                    getInstruction<OneRegisterInstruction>(playerCollapseButtonIndex).registerA
 
                 addInstruction(
                     playerCollapseButtonIndex + 1,
@@ -173,7 +176,8 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
                 // so match on move-result-object after findViewById instead of check-cast.
                 val moveResultIndex = it[2]
                 val insertIndex = moveResultIndex + 1
-                val insertRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
+                val insertRegister =
+                    getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
 
                 addInstructionsWithLabels(
                     insertIndex,

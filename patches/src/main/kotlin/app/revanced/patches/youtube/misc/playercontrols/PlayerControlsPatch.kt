@@ -307,5 +307,11 @@ val playerControlsPatch = bytecodePatch(
                 playerControlsButtonStrokeFeatureFlagMethod.returnLate(false)
             }
         }
+
+        if (is_21_03_or_greater) {
+            // If enabled it can show a black gradient on lower part of screen in fullscreen mode.
+            // This override may not be needed if the new bold player overlay icons are in use.
+            playerOverlayOpacityGradientFeatureFlagMethod.returnLate(false)
+        }
     }
 }

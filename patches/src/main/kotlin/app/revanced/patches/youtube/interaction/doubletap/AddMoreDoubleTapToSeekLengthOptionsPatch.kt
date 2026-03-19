@@ -22,18 +22,14 @@ val addMoreDoubleTapToSeekLengthOptionsPatch = resourcePatch(
             "20.26.46",
             "20.31.42",
             "20.37.48",
-            "20.40.45"
+            "20.40.45",
+            "20.44.38"
         )
     )
 
     execute {
         // Values are hard coded to keep patching simple.
-        val doubleTapLengthOptionsString = "3, 5, 10, 15, 20, 30, 60, 120, 180, 240"
-
-        val doubleTapLengths = doubleTapLengthOptionsString
-            .replace(" ", "")
-            .split(",")
-        if (doubleTapLengths.isEmpty()) throw PatchException("Invalid double-tap length elements")
+        val doubleTapLengths = listOf(3, 5, 10, 15, 20, 30, 60, 120, 180, 240)
 
         document("res/values/arrays.xml").use { document ->
             fun Element.removeAllChildren() {
@@ -56,10 +52,9 @@ val addMoreDoubleTapToSeekLengthOptionsPatch = resourcePatch(
             entries.removeAllChildren()
 
             doubleTapLengths.forEach { length ->
-                val item = document.createElement("item")
-                item.textContent = length
-                entries.appendChild(item)
-                values.appendChild(item.cloneNode(true))
+                document.createElement("item").apply { textContent = length.toString() }
+                    .also(entries::appendChild)
+                    .cloneNode(true).let(values::appendChild)
             }
         }
     }

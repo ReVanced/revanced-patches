@@ -358,6 +358,41 @@ public class Utils {
         return getContext().getResources().getStringArray(getResourceIdentifierOrThrow(ResourceType.ARRAY, resourceIdentifierName));
     }
 
+    /**
+     * Checks if a specific app package is installed and enabled on the device.
+     *
+     * @param packageName The application package name to check (e.g., "app.revanced.android.apps.youtube.music").
+     * @return True if the package is installed and enabled, false otherwise.
+     */
+    public static boolean isPackageEnabled(String packageName) {
+        Context context = getContext();
+        if (context == null || !isNotEmpty(packageName)) {
+            return false;
+        }
+
+        try {
+            PackageManager pm = context.getPackageManager();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                return pm.getApplicationInfo(packageName, PackageManager.ApplicationInfoFlags.of(0)).enabled;
+            } else {
+                return pm.getApplicationInfo(packageName, 0).enabled;
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+
+    public static boolean startsWithAny(String value, String...targets) {
+        if (isNotEmpty(value)) {
+            for (String string : targets) {
+                if (isNotEmpty(string) && value.startsWith(string)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public interface MatchFilter<T> {
         boolean matches(T object);
     }

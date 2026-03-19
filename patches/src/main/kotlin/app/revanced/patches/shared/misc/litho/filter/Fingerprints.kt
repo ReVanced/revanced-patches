@@ -1,9 +1,13 @@
 package app.revanced.patches.shared.misc.litho.filter
 
 import app.revanced.patcher.*
+import app.revanced.patcher.firstMethodComposite
+import app.revanced.patcher.instructions
 import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val BytecodePatchContext.accessibilityIdMethodMatch by composingFirstMethod {
@@ -16,29 +20,59 @@ internal val BytecodePatchContext.accessibilityIdMethodMatch by composingFirstMe
     )
 }
 
-internal fun BytecodePatchContext.getAccessibilityTextMethodMatch(accessibilityIdMethod: MethodReference) = firstMethodComposite {
-    returnType("V")
-    custom {
-        // 'public final synthetic' or 'public final bridge synthetic'.
-        AccessFlags.SYNTHETIC.isSet(accessFlags)
+internal fun BytecodePatchContext.getAccessibilityTextMethodMatch(accessibilityIdMethod: MethodReference) =
+    firstMethodComposite {
+        returnType("V")
+        custom {
+            // 'public final synthetic' or 'public final bridge synthetic'.
+            AccessFlags.SYNTHETIC.isSet(accessFlags)
+        }
+        instructions(
+            allOf(
+                Opcode.INVOKE_INTERFACE(),
+                method { parameterTypes.isEmpty() && returnType == "Ljava/lang/String;" }
+            ),
+            afterAtMost(5, method { this == accessibilityIdMethod })
+        )
     }
+
+
+context(_: BytecodePatchContext)
+internal fun ClassDef.getEmptyComponentMethod() = firstMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returnType("L")
+    parameterTypes("L")
+}
+
+internal val BytecodePatchContext.emptyComponentParentMethod by gettingFirstMethodDeclaratively {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
+    parameterTypes()
+    instructions("EmptyComponent"())
+}
+
+fun BytecodePatchContext.getComponentCreateMethodMatch(accessibilityIdMethod: MethodReference) = firstMethodComposite {
+    returnType("L")
     instructions(
-        allOf(
-            Opcode.INVOKE_INTERFACE(),
-            method { parameterTypes.isEmpty() && returnType == "Ljava/lang/String;" }
+        Opcode.IF_EQZ(),
+        afterAtMost(
+            5,
+            allOf(Opcode.CHECK_CAST(), type(accessibilityIdMethod.definingClass))
         ),
-        afterAtMost(5, method { this == accessibilityIdMethod })
+        Opcode.RETURN_OBJECT(),
+        "Element missing correct type extension"(),
+        "Element missing type"()
     )
 }
+
 internal val BytecodePatchContext.lithoFilterInitMethod by gettingFirstMethodDeclaratively {
     definingClass("/LithoFilterPatch;")
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
 }
 
-internal val BytecodePatchContext.protobufBufferReferenceMethodMatch by composingFirstMethod {
+internal val BytecodePatchContext.protobufBufferEncodeMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returnType("V")
-    parameterTypes("[B")
+    returnType("[B")
+    parameterTypes()
 
     var methodDefiningClass = ""
     custom {
@@ -51,31 +85,16 @@ internal val BytecodePatchContext.protobufBufferReferenceMethodMatch by composin
             Opcode.IGET_OBJECT(),
             field { definingClass == methodDefiningClass && type == "Lcom/google/android/libraries/elements/adl/UpbMessage;" },
         ),
-        method { definingClass == "Lcom/google/android/libraries/elements/adl/UpbMessage;" && name == "jniDecode" },
+        method { definingClass == "Lcom/google/android/libraries/elements/adl/UpbMessage;" && name == "jniEncode" },
     )
 }
 
-/**
- * Matches a method that use the protobuf of our component.
- */
-internal val BytecodePatchContext.protobufBufferReferenceLegacyMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.protobufBufferReferenceMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("I", "Ljava/nio/ByteBuffer;")
     opcodes(Opcode.IPUT, Opcode.INVOKE_VIRTUAL, Opcode.MOVE_RESULT, Opcode.SUB_INT_2ADDR)
 }
-
-internal val BytecodePatchContext.emptyComponentMethod by gettingFirstImmutableMethodDeclaratively {
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
-    parameterTypes()
-    instructions("EmptyComponent"())
-    custom { immutableClassDef.methods.filter { AccessFlags.STATIC.isSet(it.accessFlags) }.size == 1 }
-}
-
-internal val BytecodePatchContext.componentCreateMethod by gettingFirstMethod(
-    "Element missing correct type extension",
-    "Element missing type",
-)
 
 internal val BytecodePatchContext.lithoThreadExecutorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)

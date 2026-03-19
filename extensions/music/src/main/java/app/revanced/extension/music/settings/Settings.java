@@ -2,6 +2,8 @@ package app.revanced.extension.music.settings;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
+import static app.revanced.extension.music.patches.ChangeHeaderPatch.*;
+import static app.revanced.extension.music.patches.ChangeStartPagePatch.*;
 import static app.revanced.extension.shared.settings.Setting.parent;
 
 import app.revanced.extension.shared.settings.YouTubeAndMusicSettings;
@@ -16,6 +18,7 @@ public class Settings extends YouTubeAndMusicSettings {
     public static final BooleanSetting HIDE_GET_PREMIUM_LABEL = new BooleanSetting("revanced_music_hide_get_premium_label", TRUE, true);
 
     // General
+    public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.DEFAULT, true);
     public static final BooleanSetting HIDE_CAST_BUTTON = new BooleanSetting("revanced_music_hide_cast_button", TRUE, true);
     public static final BooleanSetting HIDE_CATEGORY_BAR = new BooleanSetting("revanced_music_hide_category_bar", FALSE, true);
     public static final BooleanSetting HIDE_HISTORY_BUTTON = new BooleanSetting("revanced_music_hide_history_button", FALSE, true);
@@ -28,9 +31,11 @@ public class Settings extends YouTubeAndMusicSettings {
     public static final BooleanSetting HIDE_NAVIGATION_BAR_UPGRADE_BUTTON = new BooleanSetting("revanced_music_hide_navigation_bar_upgrade_button", TRUE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR = new BooleanSetting("revanced_music_hide_navigation_bar", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR_LABEL = new BooleanSetting("revanced_music_hide_navigation_bar_labels", FALSE, true);
+    public static final EnumSetting<HeaderLogo> HEADER_LOGO = new EnumSetting<>("revanced_header_logo", HeaderLogo.DEFAULT, true);
 
     // Player
     public static final BooleanSetting CHANGE_MINIPLAYER_COLOR = new BooleanSetting("revanced_music_change_miniplayer_color", FALSE, true);
+    public static final BooleanSetting FORCIBLY_ENABLE_MINIPLAYER = new BooleanSetting("revanced_music_forcibly_enable_miniplayer", FALSE, true);
     public static final BooleanSetting PERMANENT_REPEAT = new BooleanSetting("revanced_music_play_permanent_repeat", FALSE, true);
 
     // Miscellaneous

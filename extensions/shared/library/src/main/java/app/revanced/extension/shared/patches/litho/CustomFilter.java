@@ -12,6 +12,8 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import app.revanced.extension.shared.ConversionContext;
+import app.revanced.extension.shared.ConversionContext.ContextInterface;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.StringTrieSearch;
 import app.revanced.extension.shared.Utils;
@@ -172,14 +174,21 @@ public final class CustomFilter extends Filter {
 
         if (!groups.isEmpty()) {
             CustomFilterGroup[] groupsArray = groups.toArray(new CustomFilterGroup[0]);
-            Logger.printDebug(()-> "Using Custom filters: " + Arrays.toString(groupsArray));
+            Logger.printDebug(() -> "Using Custom filters: " + Arrays.toString(groupsArray));
             addPathCallbacks(groupsArray);
         }
     }
 
     @Override
-    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
-                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    public boolean isFiltered(
+            ContextInterface contextInterface,
+            String identifier,
+            String accessibility,
+            String path,
+            byte[] buffer,
+            StringFilterGroup matchedGroup,
+            FilterContentType contentType,
+            int contentIndex) {
         // All callbacks are custom filter groups.
         CustomFilterGroup custom = (CustomFilterGroup) matchedGroup;
 

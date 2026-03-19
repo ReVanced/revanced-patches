@@ -12,7 +12,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.music.shared.conversionContextToStringMethod
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
@@ -21,6 +20,7 @@ import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.engagement.engagementPanelHookPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
+import app.revanced.patches.youtube.misc.litho.observer.layoutReloadObserverPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.*
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -146,11 +146,11 @@ private const val FILTER_CLASS_DESCRIPTOR =
 @Suppress("unused")
 val hideShortsComponentsPatch = bytecodePatch(
     name = "Hide Shorts components",
-    description = "Adds options to hide components related to Shorts. " +
-            "Patching version 20.21.37 or lower can hide more Shorts player button types."
+    description = "Adds options to hide components related to Shorts."
 ) {
     dependsOn(
         sharedExtensionPatch,
+        layoutReloadObserverPatch,
         lithoFilterPatch,
         hideShortsComponentsResourcePatch,
         resourceMappingPatch,
@@ -166,7 +166,8 @@ val hideShortsComponentsPatch = bytecodePatch(
             "20.26.46",
             "20.31.42",
             "20.37.48",
-            "20.40.45"
+            "20.40.45",
+            "20.44.38"
         ),
     )
 
@@ -188,7 +189,8 @@ val hideShortsComponentsPatch = bytecodePatch(
                     methodReference?.name == "getDimensionPixelSize"
                 } + 1
 
-                val sizeRegister = method.getInstruction<OneRegisterInstruction>(targetIndex).registerA
+                val sizeRegister =
+                    method.getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 return@forEachInstructionAsSequence targetIndex to sizeRegister
             }) { method, (targetIndex, sizeRegister) ->
@@ -198,42 +200,6 @@ val hideShortsComponentsPatch = bytecodePatch(
                     invoke-static { v$sizeRegister }, $FILTER_CLASS_DESCRIPTOR->getSoundButtonSize(I)I
                     move-result v$sizeRegister
                 """,
-                )
-            }
-        }
-
-        // endregion
-
-        // region Hide action buttons.
-
-        if (is_20_22_or_greater) {
-            componentContextParserMethod.immutableClassDef.getTreeNodeResultListMethod().apply {
-                val conversionContextPathBuilderField =
-                    conversionContextToStringMethod.immutableClassDef
-                        .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
-
-                val insertIndex = implementation!!.instructions.lastIndex
-                val listRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                val registerProvider = getFreeRegisterProvider(insertIndex, 2)
-                val freeRegister = registerProvider.getFreeRegister()
-                val pathRegister = registerProvider.getFreeRegister()
-
-                addInstructionsAtControlFlowLabel(
-                    insertIndex,
-                    """
-                        move-object/from16 v$freeRegister, p2
-                        
-                        # In YouTube 20.41 field is the abstract superclass.
-                        # Verify it's the expected subclass just in case.
-                        instance-of v$pathRegister, v$freeRegister, ${conversionContextToStringMethod.immutableClassDef}
-                        if-eqz v$pathRegister, :ignore
-                        
-                        iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
-                        invoke-static { v$pathRegister, v$listRegister }, ${FILTER_CLASS_DESCRIPTOR}->hideActionButtons(Ljava/lang/StringBuilder;Ljava/util/List;)V
-                        :ignore
-                        nop
-                    """
                 )
             }
         }

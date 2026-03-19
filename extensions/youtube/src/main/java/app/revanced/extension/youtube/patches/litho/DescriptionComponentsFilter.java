@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.patches.litho;
 
+import app.revanced.extension.shared.ConversionContext.ContextInterface;
 import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.shared.patches.litho.FilterGroup.*;
@@ -57,12 +58,13 @@ public final class DescriptionComponentsFilter extends Filter {
         playlistSectionGroupList.addAll(
                 new ByteArrayFilterGroup(
                         Settings.HIDE_EXPLORE_COURSE_SECTION,
-                        "yt_outline_creator_academy", // For Disable bold icons.
+                        "yt_outline_creator_academy",
                         "yt_outline_experimental_graduation_cap"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_EXPLORE_PODCAST_SECTION,
-                        "FEpodcasts_destination"
+                        "FEpodcasts_destination",
+                        "yt_outline_experimental_podcast"
                 )
         );
 
@@ -132,28 +134,26 @@ public final class DescriptionComponentsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
-                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    public boolean isFiltered(ContextInterface contextInterface,
+                              String identifier,
+                              String accessibility,
+                              String path,
+                              byte[] buffer,
+                              StringFilterGroup matchedGroup,
+                              FilterContentType contentType,
+                              int contentIndex) {
         // The description panel can be opened in both the regular player and Shorts.
         // If the description panel is opened in a Shorts, PlayerType is 'HIDDEN',
         // so 'PlayerType.getCurrent().isMaximizedOrFullscreen()' does not guarantee that the description panel is open.
         // Instead, use the engagement id to check if the description panel is opened.
-        if (!EngagementPanel.isDescription()
-                // The user can minimize the player while the engagement panel is open.
-                //
-                // In this case, the engagement panel is treated as open.
-                // (If the player is dismissed, the engagement panel is considered closed)
-                //
-                // Therefore, the following exceptions can occur:
-                // 1. The user opened a regular video and opened the description panel.
-                // 2. The 'horizontalShelf' elements were hidden.
-                // 3. The user minimized the player.
-                // 4. The user manually refreshed the library tab without dismissing the player.
-                // 5. Since the engagement panel is treated as open, the history shelf is filtered.
-                //
-                // To handle these exceptions, filtering is not performed even when the player is minimized.
-                || PlayerType.getCurrent() == PlayerType.WATCH_WHILE_MINIMIZED
-        ) {
+        if (!EngagementPanel.isDescription()) {
+            return false;
+        }
+
+        // PlayerType when the description panel is opened: NONE, HIDDEN,
+        // WATCH_WHILE_MAXIMIZED, WATCH_WHILE_FULLSCREEN, WATCH_WHILE_SLIDING_MAXIMIZED_FULLSCREEN.
+        PlayerType playerType = PlayerType.getCurrent();
+        if (!playerType.isNoneOrHidden() && !playerType.isMaximizedOrFullscreen()) {
             return false;
         }
 

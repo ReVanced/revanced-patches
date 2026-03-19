@@ -12,13 +12,18 @@ import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
+import app.revanced.patches.youtube.layout.hide.shelves.hideHorizontalShelvesPatch
 import app.revanced.patches.youtube.misc.engagement.engagementPanelHookPatch
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
+import app.revanced.patches.youtube.misc.litho.lazily.hookTreeNodeResult
+import app.revanced.patches.youtube.misc.litho.lazily.lazilyConvertedElementHookPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_20_21_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_21_11_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
@@ -83,6 +88,8 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         versionCheckPatch,
         engagementPanelHookPatch,
         resourceMappingPatch,
+        hideHorizontalShelvesPatch,
+        lazilyConvertedElementHookPatch
     ),
     filterClasses = setOf(
         LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR,
@@ -98,7 +105,8 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
             "20.26.46",
             "20.31.42",
             "20.37.48",
-            "20.40.45"
+            "20.40.45",
+            "20.44.38"
         ),
     ),
 ) {
@@ -140,7 +148,6 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
             "revanced_comments_screen",
             preferences = setOf(
                 SwitchPreference("revanced_hide_comments_ai_chat_summary"),
-                SwitchPreference("revanced_hide_comments_ai_summary"),
                 SwitchPreference("revanced_hide_comments_channel_guidelines"),
                 SwitchPreference("revanced_hide_comments_by_members_header"),
                 SwitchPreference("revanced_hide_comments_section"),
@@ -150,6 +157,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                 SwitchPreference("revanced_hide_comments_emoji_and_timestamp_buttons"),
                 SwitchPreference("revanced_hide_comments_preview_comment"),
                 SwitchPreference("revanced_hide_comments_thanks_button"),
+                SwitchPreference("revanced_sanitize_comments_category_bar"),
             ),
             sorting = Sorting.UNSORTED,
         ),
@@ -162,7 +170,7 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         SwitchPreference("revanced_hide_live_chat_replay_button"),
         SwitchPreference("revanced_hide_medical_panels"),
         SwitchPreference("revanced_hide_quick_actions"),
-        SwitchPreference("revanced_hide_related_videos"),
+        SwitchPreference("revanced_hide_quick_actions_related_videos"),
         SwitchPreference("revanced_hide_subscribers_community_guidelines"),
         SwitchPreference("revanced_hide_timed_reactions"),
         SwitchPreference("revanced_hide_video_title")
@@ -215,7 +223,6 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                     )
                 ),
                 SwitchPreference("revanced_hide_community_button"),
-                SwitchPreference("revanced_hide_for_you_shelf"),
                 SwitchPreference("revanced_hide_join_button"),
                 SwitchPreference("revanced_hide_links_preview"),
                 SwitchPreference("revanced_hide_members_shelf"),
@@ -241,7 +248,6 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
                 ),
             )
         ),
-        SwitchPreference("revanced_hide_floating_microphone_button"),
         SwitchPreference(
             key = "revanced_hide_horizontal_shelves",
             tag = "app.revanced.extension.shared.settings.preference.BulletPointSwitchPreference",
@@ -269,31 +275,32 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
         )
     }
 
+    if (!is_21_11_or_greater) {
+        PreferenceScreen.FEED.addPreferences(
+            SwitchPreference("revanced_hide_floating_microphone_button")
+        )
+    }
+
+    hookTreeNodeResult("$COMMENTS_FILTER_CLASS_NAME->sanitizeCommentsCategoryBar")
+
     // region Hide mix playlists
 
     parseElementFromBufferMethodMatch.let {
         it.method.apply {
-            val startIndex = it[0]
-            val insertIndex = startIndex + 1
+            val insertIndex = it[0]
 
             val byteArrayParameter = "p3"
-            val conversionContextRegister =
-                getInstruction<TwoRegisterInstruction>(startIndex).registerA
-            val returnEmptyComponentInstruction =
-                instructions.last { it.opcode == Opcode.INVOKE_STATIC }
+            val returnEmptyComponentIndex = it[4]
+            val returnEmptyComponentInstruction = getInstruction(returnEmptyComponentIndex)
+
             val returnEmptyComponentRegister =
                 (returnEmptyComponentInstruction as FiveRegisterInstruction).registerC
-            val freeRegister =
-                findFreeRegister(
-                    insertIndex,
-                    conversionContextRegister,
-                    returnEmptyComponentRegister
-                )
+            val freeRegister = findFreeRegister(insertIndex, returnEmptyComponentRegister)
 
-            addInstructionsWithLabels(
+            addInstructionsAtControlFlowLabel(
                 insertIndex,
                 """
-                    invoke-static { v$conversionContextRegister, $byteArrayParameter }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
+                    invoke-static { $byteArrayParameter }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists([B)Z
                     move-result v$freeRegister 
                     if-eqz v$freeRegister, :show
                     move-object v$returnEmptyComponentRegister, p1   # Required for 19.47
@@ -448,18 +455,22 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
 
     // region Hide Floating microphone
 
-    showFloatingMicrophoneButtonMethodMatch.let {
-        it.method.apply {
-            val index = it[-1]
-            val register = getInstruction<TwoRegisterInstruction>(index).registerA
+    if (!is_21_11_or_greater) {
+        // Code has moved in 21.11+, but it's not clear when/ where this
+        // floating microphone can show or if this patch is still relevant.
+        showFloatingMicrophoneButtonMethodMatch.let {
+            it.method.apply {
+                val index = it[-1]
+                val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
-            addInstructions(
-                index + 1,
-                """
+                addInstructions(
+                    index + 1,
+                    """
                         invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
                         move-result v$register
                     """,
-            )
+                )
+            }
         }
     }
 
