@@ -1,3 +1,11 @@
+## [6.1.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v6.1.1-dev.2...v6.1.1-dev.3) (2026-03-20)
+
+
+### Bug Fixes
+
+* **GmsCore support:** Correct option name ([6cbef5a](https://github.com/ReVanced/revanced-patches/commit/6cbef5a48a83e4a74de578e7d20f7d71a8b1de8e))
+* **GmsCore support:** Correct package name for custom vendor group id ([292728a](https://github.com/ReVanced/revanced-patches/commit/292728a8baddbca87993590db4a8bab60b564432))
+
 ## [6.1.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v6.1.1-dev.1...v6.1.1-dev.2) (2026-03-20)
 
 
