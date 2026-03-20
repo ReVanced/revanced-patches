@@ -15,7 +15,7 @@ val restoreOldEmojiDrawerPatch = bytecodePatch(
 
     apply {
         val isRedesignedDrawerEnabledMethod = with(renderRedesignedDrawerMethodMatch) {
-            firstMethod(it.method.getInstruction(this[0]).methodReference!!)
+            firstMethod(method.getInstruction(get(0)).methodReference!!)
         }
         isRedesignedDrawerEnabledMethod.returnEarly(false)
     }
