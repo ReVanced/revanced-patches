@@ -2,7 +2,9 @@ package app.revanced.patches.youtube.layout.sponsorblock
 
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.fieldReference
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -33,7 +35,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private val sponsorBlockResourcePatch = resourcePatch {
     dependsOn(
@@ -157,7 +158,7 @@ val sponsorBlockPatch = bytecodePatch(
                 val rectangleIndex = indexOfFirstInstructionReversedOrThrow(
                     it[0],
                 ) {
-                    getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
+                    fieldReference?.type == "Landroid/graphics/Rect;"
                 }
                 rectangleFieldName =
                     getInstruction<ReferenceInstruction>(rectangleIndex).reference as FieldReference
@@ -182,7 +183,7 @@ val sponsorBlockPatch = bytecodePatch(
 
                 // Find the drawCircle call and draw the segment before it.
                 val drawCircleIndex = indexOfFirstInstructionReversedOrThrow {
-                    getReference<MethodReference>()?.name == "drawCircle"
+                    methodReference?.name == "drawCircle"
                 }
                 val drawCircleInstruction = getInstruction<FiveRegisterInstruction>(drawCircleIndex)
                 val canvasInstanceRegister = drawCircleInstruction.registerC

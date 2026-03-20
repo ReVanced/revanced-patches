@@ -23,7 +23,6 @@ import app.revanced.patches.youtube.video.videoid.hookVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.addStaticFieldToExtension
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.patcher.patch.PatchException
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -105,7 +104,7 @@ val videoInformationPatch = bytecodePatch(
             // Find the location of the first invoke-direct call
             // and extract the register storing the 'this' object reference.
             val initThisIndex = playerInitMethod.indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
+                opcode == Opcode.INVOKE_DIRECT && methodReference?.name == "<init>"
             }
             playerInitInsertRegister =
                 playerInitMethod.getInstruction<FiveRegisterInstruction>(initThisIndex).registerC
@@ -123,7 +122,7 @@ val videoInformationPatch = bytecodePatch(
             mdxInitMethod = classDef.methods.first { MethodUtil.isConstructor(it) }
 
             val initThisIndex = mdxInitMethod.indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
+                opcode == Opcode.INVOKE_DIRECT && methodReference?.name == "<init>"
             }
             mdxInitInsertRegister =
                 mdxInitMethod.getInstruction<FiveRegisterInstruction>(initThisIndex).registerC
@@ -201,7 +200,7 @@ val videoInformationPatch = bytecodePatch(
 
             setPlaybackSpeedMethodReference = getInstruction<ReferenceInstruction>(
                 indexOfFirstInstructionOrThrow(speedSelectionValueInstructionIndex) {
-                    val reference = getReference<MethodReference>()
+                    val reference = methodReference
                     reference?.parameterTypes?.size == 1 && reference.parameterTypes.first() == "F"
                 }
             ).reference as MethodReference
@@ -231,7 +230,7 @@ val videoInformationPatch = bytecodePatch(
 
             setPlaybackSpeedClassFieldReference = getInstruction<ReferenceInstruction>(
                 indexOfFirstInstructionOrThrow(speedSelectionValueInstructionIndex) {
-                    getReference<FieldReference>()?.type?.startsWith("L") == true
+                    fieldReference?.type?.startsWith("L") == true
                 }
             ).reference as FieldReference
 
@@ -398,7 +397,6 @@ val videoInformationPatch = bytecodePatch(
 
         // Detect video quality changes and override the current quality.
         videoQualitySetterMethod.immutableClassDef.getSetVideoQualityMethod().let {
-            it
             // This instruction refers to the field with the type that contains the setQuality method.
             val onItemClickListenerClassReference =
                 it.getInstruction<ReferenceInstruction>(0).reference

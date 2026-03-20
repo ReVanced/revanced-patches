@@ -2,7 +2,9 @@ package app.revanced.patches.shared.layout.branding
 
 import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.fieldReference
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.typeReference
 import app.revanced.patcher.patch.*
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
@@ -14,8 +16,6 @@ import app.revanced.util.*
 import app.revanced.util.Utils.trimIndentMultiline
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import org.w3c.dom.Element
 import org.w3c.dom.NodeList
 import java.io.File
@@ -125,22 +125,22 @@ internal fun baseCustomBrandingPatch(
                     val getBuilderIndex = if (isYouTubeMusic) {
                         // YT Music the field is not a plain object type.
                         indexOfFirstInstructionOrThrow {
-                            getReference<FieldReference>()?.type == $$"Landroid/app/Notification$Builder;"
+                            fieldReference?.type == $$"Landroid/app/Notification$Builder;"
                         }
                     } else {
                         // Find the field name of the notification builder. Field is an Object type.
                         val builderCastIndex = indexOfFirstInstructionOrThrow {
-                            val reference = getReference<TypeReference>()
+                            val reference = typeReference
                             opcode == Opcode.CHECK_CAST &&
                                     reference?.type == $$"Landroid/app/Notification$Builder;"
                         }
                         indexOfFirstInstructionReversedOrThrow(builderCastIndex) {
-                            getReference<FieldReference>()?.type == "Ljava/lang/Object;"
+                            fieldReference?.type == "Ljava/lang/Object;"
                         }
                     }
 
                     val builderFieldName = getInstruction<ReferenceInstruction>(getBuilderIndex)
-                        .getReference<FieldReference>()
+                        .fieldReference
 
                     findInstructionIndicesReversedOrThrow(
                         Opcode.RETURN_VOID,

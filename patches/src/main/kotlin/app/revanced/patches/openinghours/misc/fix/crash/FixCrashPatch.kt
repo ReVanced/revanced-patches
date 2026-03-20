@@ -1,15 +1,14 @@
 package app.revanced.patches.openinghours.misc.fix.crash
 
 import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.newLabel
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21t
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 val fixCrashPatch = bytecodePatch(
@@ -78,7 +77,7 @@ val fixCrashPatch = bytecodePatch(
 }
 
 private fun isInvokeInstruction(instruction: Instruction, className: String, methodName: String): Boolean {
-    val methodRef = instruction.getReference<MethodReference>() ?: return false
+    val methodRef = instruction.methodReference ?: return false
     return methodRef.definingClass == className && methodRef.name == methodName
 }
 

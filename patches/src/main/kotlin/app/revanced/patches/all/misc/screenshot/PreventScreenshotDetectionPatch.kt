@@ -1,11 +1,10 @@
 package app.revanced.patches.all.misc.screenshot
 
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
@@ -39,7 +38,7 @@ val preventScreenshotDetectionPatch = bytecodePatch(
             filterMap = { _, _, instruction, instructionIndex ->
                 if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return@transformInstructionsPatch null
 
-                val reference = instruction.getReference<MethodReference>() ?: return@transformInstructionsPatch null
+                val reference = instruction.methodReference ?: return@transformInstructionsPatch null
 
                 instructionIndex.takeIf {
                     MethodUtil.methodSignaturesMatch(reference, registerScreenCaptureCallbackMethodReference) ||

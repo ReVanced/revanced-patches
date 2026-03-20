@@ -26,13 +26,11 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findInstructionIndicesReversedOrThrow
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import kotlin.collections.plusAssign
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
@@ -235,7 +233,7 @@ val navigationBarPatch = bytecodePatch(
             // Fix missing left padding when using wide searchbar.
             wideSearchbarLayoutMethod.apply {
                 findInstructionIndicesReversedOrThrow {
-                    val reference = getReference<MethodReference>()
+                    val reference = methodReference
                     reference?.definingClass == "Landroid/view/LayoutInflater;" && reference.name == "inflate"
                 }.forEach { inflateIndex ->
                     val register =

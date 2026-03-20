@@ -1,14 +1,13 @@
 package app.revanced.patches.primevideo.video.speed
 
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.fieldReference
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.primevideo.misc.extension.sharedExtensionPatch
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/primevideo/videoplayer/PlaybackSpeedPatch;"
@@ -30,7 +29,7 @@ val playbackSpeedPatch = bytecodePatch(
         playbackUserControlsInitializeMethod.apply {
             val getIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.IPUT_OBJECT &&
-                    getReference<FieldReference>()?.name == "mUserControls"
+                    fieldReference?.name == "mUserControls"
             }
 
             val getRegister = getInstruction<OneRegisterInstruction>(getIndex).registerA

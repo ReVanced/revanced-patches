@@ -3,13 +3,13 @@ package app.revanced.patches.youtube.layout.toolbar
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.fieldReference
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.shared.getToolBarButtonMethodMatch
 import app.revanced.util.findFreeRegister
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
@@ -17,7 +17,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ToolbarPatch;"
 
@@ -33,14 +32,14 @@ val toolbarHookPatch = bytecodePatch {
         fun indexOfGetDrawableInstruction(method: Method) =
             method.indexOfFirstInstruction {
                 opcode == Opcode.INVOKE_VIRTUAL &&
-                        getReference<MethodReference>()?.toString() == "Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;"
+                        methodReference?.toString() == "Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;"
             }
 
         getToolBarButtonMethodMatch().method.apply {
             val getDrawableIndex = indexOfGetDrawableInstruction(this)
             val enumOrdinalIndex = indexOfFirstInstructionReversedOrThrow(getDrawableIndex) {
                 opcode == Opcode.INVOKE_INTERFACE &&
-                        getReference<MethodReference>()?.returnType == "I"
+                        methodReference?.returnType == "I"
             }
             val replaceReference = getInstruction<ReferenceInstruction>(enumOrdinalIndex).reference
             val replaceRegister = getInstruction<FiveRegisterInstruction>(enumOrdinalIndex).registerC

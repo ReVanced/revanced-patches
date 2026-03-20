@@ -4,19 +4,18 @@ import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.fieldReference
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.typeReference
 import app.revanced.patcher.firstImmutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.strava.misc.extension.sharedExtensionPatch
-import app.revanced.util.getReference
 import app.revanced.util.writeRegister
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction22c
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 private const val ACTION_CLASS_DESCRIPTOR = "Lcom/strava/bottomsheet/Action;"
 private const val MEDIA_CLASS_DESCRIPTOR = "Lcom/strava/photos/data/Media;"
@@ -45,7 +44,7 @@ val addMediaDownloadPatch = bytecodePatch(
             }
             val actionRegistrarRegister = getInstruction<BuilderInstruction22c>(setTrueIndex).registerB
             val actionRegister = instructions.first { instruction ->
-                instruction.getReference<TypeReference>()?.type == ACTION_CLASS_DESCRIPTOR
+                instruction.typeReference?.type == ACTION_CLASS_DESCRIPTOR
             }.writeRegister!!
 
             fun addMenuItem(actionId: String, string: String, color: String, drawable: String) = addInstructions(
@@ -74,7 +73,7 @@ val addMediaDownloadPatch = bytecodePatch(
 
             // Move media to last parameter of `Action` constructor.
             val getMediaInstruction = instructions.first { instruction ->
-                instruction.getReference<FieldReference>()?.type == MEDIA_CLASS_DESCRIPTOR
+                instruction.fieldReference?.type == MEDIA_CLASS_DESCRIPTOR
             }
             addInstruction(
                 getMediaInstruction.location.index + 1,

@@ -4,15 +4,13 @@ import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.firstClassDef
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.shared.getEnterFromMethod
 import app.revanced.patches.tiktok.shared.onRenderFirstFrameMethod
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction11x
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 val playbackSpeedPatch = bytecodePatch(
@@ -28,7 +26,7 @@ val playbackSpeedPatch = bytecodePatch(
     apply {
         getSpeedMethod.apply {
             val injectIndex =
-                indexOfFirstInstructionOrThrow { getReference<MethodReference>()?.returnType == "F" } + 2
+                indexOfFirstInstructionOrThrow { methodReference?.returnType == "F" } + 2
             val register = getInstruction<Instruction11x>(injectIndex - 1).registerA
 
             addInstruction(
