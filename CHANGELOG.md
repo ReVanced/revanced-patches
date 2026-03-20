@@ -1,3 +1,10 @@
+## [6.1.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v6.1.1-dev.1...v6.1.1-dev.2) (2026-03-20)
+
+
+### Bug Fixes
+
+* **Twitter:** Correct extension path to fix crashes ([f4b2545](https://github.com/ReVanced/revanced-patches/commit/f4b2545742e0501ab252c70654993a4e4414319e))
+
 ## [6.1.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v6.1.0...v6.1.1-dev.1) (2026-03-19)
 
 
