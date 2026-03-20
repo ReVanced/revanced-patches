@@ -14,7 +14,7 @@ import java.net.InetAddress
 import java.net.UnknownHostException
 import java.util.logging.Logger
 
-internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/twitter/patches/links/ChangeLinkSharingDomainPatch;"
+internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/twitter/patches/links/ChangeLinkSharingDomainPatch;"
 
 internal val domainNameOption = stringOption(
     default = "fxtwitter.com",
