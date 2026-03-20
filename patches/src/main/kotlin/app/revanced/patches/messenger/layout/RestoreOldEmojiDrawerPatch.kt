@@ -14,10 +14,9 @@ val restoreOldEmojiDrawerPatch = bytecodePatch(
     compatibleWith("com.facebook.orca")
 
     apply {
-        val isRedesignedDrawerEnabledMethodReference = renderRedesignedDrawerMethodMatch.let {
-            it.method.getInstruction(it[0]).methodReference!!
+        val isRedesignedDrawerEnabledMethod = with(renderRedesignedDrawerMethodMatch) {
+            firstMethod(it.method.getInstruction(it[0]).methodReference!!)
         }
-        val isRedesignedDrawerEnabledMethod = firstMethod(isRedesignedDrawerEnabledMethodReference)
         isRedesignedDrawerEnabledMethod.returnEarly(false)
     }
 }
