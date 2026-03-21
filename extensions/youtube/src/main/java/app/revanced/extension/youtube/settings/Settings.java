@@ -324,7 +324,7 @@ public class Settings extends YouTubeAndMusicSettings {
     public static final BooleanSetting WIDE_SEARCHBAR = new BooleanSetting("revanced_wide_searchbar", FALSE, true);
 
     // Shorts
-    public static final BooleanSetting DISABLE_RESUMING_SHORTS_PLAYER = new BooleanSetting("revanced_disable_resuming_shorts_player", FALSE);
+    public static final BooleanSetting DISABLE_RESUMING_SHORTS_ON_STARTUP = new BooleanSetting("revanced_disable_resuming_shorts_on_startup", FALSE);
     public static final BooleanSetting DISABLE_SHORTS_BACKGROUND_PLAYBACK = new BooleanSetting("revanced_shorts_disable_background_playback", FALSE);
     public static final EnumSetting<ShortsPlayerType> SHORTS_PLAYER_TYPE = new EnumSetting<>("revanced_shorts_player_type", ShortsPlayerType.SHORTS_PLAYER);
     public static final BooleanSetting HIDE_SHORTS_AI_BUTTON = new BooleanSetting("revanced_hide_shorts_ai_button", FALSE);

@@ -1490,10 +1490,10 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
 Limitation: Using the back button on the toolbar may not work"</string>
             <string name="revanced_change_start_page_always_summary_off">Start page is changed only on app startup</string>
         </patch>
-        <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
-            <string name="revanced_disable_resuming_shorts_player_title">Disable resuming Shorts player</string>
-            <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts player will not resume on app startup</string>
-            <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts player will resume on app startup</string>
+        <patch id="layout.shortsresuming.disableResumingShortsOnStartupPatch">
+            <string name="revanced_disable_resuming_shorts_on_startup_title">Disable resuming Shorts player</string>
+            <string name="revanced_disable_resuming_shorts_on_startup_summary_on">Shorts player will not resume on app startup</string>
+            <string name="revanced_disable_resuming_shorts_on_startup_summary_off">Shorts player will resume on app startup</string>
         </patch>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch">
             <string name="revanced_shorts_player_type_title">Open Shorts with</string>
