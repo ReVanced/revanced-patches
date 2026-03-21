@@ -9,5 +9,13 @@ public final class ConversionContext {
         StringBuilder patch_getPathBuilder();
 
         String patch_getIdentifier();
+
+        default boolean isHomeFeedOrRelatedVideo() {
+            return toString().contains("horizontalCollectionSwipeProtector=null");
+        }
+
+        default boolean isSubscriptionOrLibrary() {
+            return toString().contains("heightConstraint=null");
+        }
     }
 }

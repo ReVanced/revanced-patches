@@ -56,6 +56,7 @@ public final class ShortsFilter extends Filter {
     private final StringFilterGroup shortsCompactFeedVideo;
     private final ByteArrayFilterGroup shortsCompactFeedVideoBuffer;
     private final StringFilterGroup channelProfile;
+    private final ByteArrayFilterGroup channelProfileShelfHeader;
 
     private final StringFilterGroup autoDubbedLabel;
     private final StringFilterGroup subscribeButton;
@@ -93,6 +94,11 @@ public final class ShortsFilter extends Filter {
         channelProfile = new StringFilterGroup(
                 Settings.HIDE_SHORTS_CHANNEL,
                 "shorts_pivot_item"
+        );
+
+        channelProfileShelfHeader = new ByteArrayFilterGroup(
+                Settings.HIDE_SHORTS_CHANNEL,
+                "Shorts"
         );
 
         // Feed Shorts shelf header.
@@ -412,8 +418,12 @@ public final class ShortsFilter extends Filter {
                 if (contentIndex != 0) {
                     return false;
                 }
-            }
-            if (matchedGroup == channelProfile) {
+                // Check ConversationContext to not hide shelf header in channel profile
+                // This value does not exist in the shelf header in the channel profile
+                if (!contextInterface.isHomeFeedOrRelatedVideo()) {
+                    return false;
+                }
+            } else if (matchedGroup == channelProfile) {
                 return true;
             }
 
@@ -433,7 +443,15 @@ public final class ShortsFilter extends Filter {
             }
 
             if (matchedGroup == shortsCompactFeedVideo) {
-                return shouldHideShortsFeedItems() && shortsCompactFeedVideoBuffer.check(buffer).isFiltered();
+                return shouldHideShortsFeedItems()
+                        && shortsCompactFeedVideoBuffer.check(buffer).isFiltered()
+                        // The litho path of the feed video is 'video_lockup_with_attachment.e'.
+                        // It appears shortsCompactFeedVideoBuffer is used after 20 seconds during autoplay in the feed in YouTube 20.44.38.
+                        // If the Shorts shelf is hidden on the Home feed, the video in the feed will be hidden after 20 seconds have passed since autoplay began in the feed.
+                        //
+                        // When a video is autoplaying in the feed, no new components are drawn on the screen.
+                        // Therefore, filtering is skipped when the current PlayerType is [INLINE_MINIMAL].
+                        && PlayerType.getCurrent() != PlayerType.INLINE_MINIMAL;
             }
 
             if (matchedGroup == shelfHeaderPath) {
@@ -441,6 +459,11 @@ public final class ShortsFilter extends Filter {
                 // Shorts header is always index 0
                 if (contentIndex != 0) {
                     return false;
+                }
+                // Check ConversationContext to not hide shelf header in channel profile
+                // This value does not exist in the shelf header in the channel profile
+                if (!contextInterface.isHomeFeedOrRelatedVideo()) {
+                    return channelProfileShelfHeader.check(buffer).isFiltered();
                 }
 
                 return shouldHideShortsFeedItems();
@@ -456,7 +479,7 @@ public final class ShortsFilter extends Filter {
             }
 
             if (matchedGroup == useButtons) {
-                return path.contains("button.e") && useButtonsBuffer.check(buffer).isFiltered();
+                return path.contains("|button.e") && useButtonsBuffer.check(buffer).isFiltered();
             }
 
             if (matchedGroup == suggestedAction) {
@@ -491,15 +514,6 @@ public final class ShortsFilter extends Filter {
         final boolean hideHistory = Settings.HIDE_SHORTS_HISTORY.get();
 
         if (!hideHome && !hideSubscriptions && !hideSearch && !hideVideoDescription && !hideHistory) {
-            return false;
-        }
-        // The Litho path of the feed video is 'video_lockup_with_attachment.e'.
-        // It appears shortsCompactFeedVideoBuffer is used after 20 seconds during autoplay in the feed in YouTube 20.44.38.
-        // If the Shorts shelf is hidden on the Home feed, the video in the feed will be hidden after 20 seconds have passed since autoplay began in the feed.
-        //
-        // When a video is autoplaying in the feed, no new components are drawn on the screen.
-        // Therefore, filtering is skipped when the current PlayerType is INLINE_MINIMAL.
-        if (PlayerType.getCurrent() == PlayerType.INLINE_MINIMAL) {
             return false;
         }
         if (hideHome && hideSubscriptions && hideSearch && hideVideoDescription && hideHistory) {
