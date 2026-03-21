@@ -26,6 +26,11 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
+internal val BytecodePatchContext.newAdvancedQualityMenuStyleFlyoutMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    instructions(45712556L())
+}
+
 internal val BytecodePatchContext.currentVideoFormatToStringMethod by gettingFirstImmutableMethodDeclaratively(
     "currentVideoFormat="
 ) {
