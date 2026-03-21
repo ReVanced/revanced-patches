@@ -21,12 +21,14 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_34_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_21_02_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.recyclerviewtree.hook.addRecyclerViewTreeHook
 import app.revanced.patches.youtube.misc.recyclerviewtree.hook.recyclerViewTreeHookPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.speed.settingsMenuVideoSpeedGroup
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import app.revanced.util.insertLiteralOverride
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -88,7 +90,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
             serverSideMaxSpeedFeatureFlagMethod.returnEarly(false)
         }
 
-        // region Force old video quality menu.
+        // region Force old playback speed menu.
 
         // Replace the speeds float array with custom speeds.
         speedArrayGeneratorMethodMatch.let {
@@ -160,6 +162,15 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         }
 
         // endregion
+
+        if (is_21_02_or_greater) {
+            flyoutMenuNonLegacyFeatureFlagMethodMatch.let {
+                it.method.insertLiteralOverride(
+                    it[0],
+                    "$EXTENSION_CLASS_DESCRIPTOR->useNewFlyoutMenu(Z)Z"
+                )
+            }
+        }
 
         // Close the unpatched playback dialog and show the custom speeds.
         addRecyclerViewTreeHook(EXTENSION_CLASS_DESCRIPTOR)

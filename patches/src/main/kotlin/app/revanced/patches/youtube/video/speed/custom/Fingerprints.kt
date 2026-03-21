@@ -32,6 +32,13 @@ internal val BytecodePatchContext.serverSideMaxSpeedFeatureFlagMethod by getting
     )
 }
 
+internal val BytecodePatchContext.flyoutMenuNonLegacyFeatureFlagMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes()
+    instructions(45731126L())
+}
+
 internal val BytecodePatchContext.speedArrayGeneratorMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("[L")
