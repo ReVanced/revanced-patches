@@ -46,7 +46,8 @@ val removeViewerDiscretionDialogPatch = bytecodePatch(
             "20.31.42",
             "20.37.48",
             "20.40.45",
-            "20.44.38"
+            "20.44.38",
+            "20.45.36"
         ),
     )
 

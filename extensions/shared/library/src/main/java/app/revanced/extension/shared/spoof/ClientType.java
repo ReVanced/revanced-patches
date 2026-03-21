@@ -28,7 +28,7 @@ public enum ClientType {
             Build.VERSION.RELEASE,
             String.valueOf(Build.VERSION.SDK_INT),
             Build.ID,
-            "20.44.38",
+            "20.45.36",
             // This client has been used by most open-source YouTube stream extraction tools since 2024, including NewPipe Extractor, SmartTube, and Grayjay.
             // This client can log in, but if an access token is used in the request, GVS can more easily identify the request as coming from ReVanced.
             // This means that the GVS server can strengthen its validation of the ANDROID_REEL client.
