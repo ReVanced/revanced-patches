@@ -1,0 +1,6 @@
+package app.revanced.patches.instagram.misc.download
+
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.patch.BytecodePatchContext
+
+internal val BytecodePatchContext.downloadAllowedMethod by gettingFirstMethodDeclaratively("clips_download_allowed_toggle_auto")

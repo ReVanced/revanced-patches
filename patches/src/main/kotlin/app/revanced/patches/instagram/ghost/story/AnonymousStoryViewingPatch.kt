@@ -17,7 +17,7 @@ val anonymousStoryViewingPatch = bytecodePatch(
     compatibleWith("com.instagram.android")
 
     apply {
-        // Prevent the hashmap of the seen media to be filled
-        setMediaSeenHashmapMethod.returnEarly()
+        // Prevent seen state from being written to the server
+        setMediaSeenMethod.returnEarly()
     }
 }

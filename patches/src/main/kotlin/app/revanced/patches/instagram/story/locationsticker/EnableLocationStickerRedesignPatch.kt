@@ -15,6 +15,6 @@ val enableLocationStickerRedesignPatch = bytecodePatch(
         // The gate method reads a MobileConfig boolean flag and returns it directly.
         // Returning early with true bypasses the flag check entirely,
         // enabling the redesigned sticker styles regardless of server configuration.
-        locationStickerRedesignGateMethodMatch.method.returnEarly(true)
+        locationStickerRedesignGateMethod.returnEarly(true)
     }
 }
