@@ -2,8 +2,8 @@ package app.revanced.extension.youtube.sponsorblock;
 
 import static app.revanced.extension.shared.StringRef.str;
 
+import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
 import android.util.Pair;
 import android.util.Patterns;
 import android.widget.LinearLayout;
@@ -34,12 +34,12 @@ public class SponsorBlockSettings {
 
     public static final Setting.ImportExportCallback SB_IMPORT_EXPORT_CALLBACK = new Setting.ImportExportCallback() {
         @Override
-        public void settingsImported(@Nullable Context context) {
+        public void settingsImported(@Nullable Activity context) {
             SegmentCategory.loadAllCategoriesFromSettings();
             SponsorBlockPreferenceGroup.settingsImported = true;
         }
         @Override
-        public void settingsExported(@Nullable Context context) {
+        public void settingsExported(@Nullable Activity context) {
             showExportWarningIfNeeded(context);
         }
     };
@@ -184,16 +184,16 @@ public class SponsorBlockSettings {
     /**
      * Export the categories using flatten JSON (no embedded dictionaries or arrays).
      */
-    private static void showExportWarningIfNeeded(@Nullable Context dialogContext) {
+    private static void showExportWarningIfNeeded(@Nullable Activity activity) {
         Utils.verifyOnMainThread();
         initialize();
 
         // If user has a SponsorBlock user ID then show a warning.
-        if (dialogContext != null && SponsorBlockSettings.userHasSBPrivateID()
+        if (activity != null && SponsorBlockSettings.userHasSBPrivateID()
                 && !Settings.SB_HIDE_EXPORT_WARNING.get()) {
             // Create the custom dialog.
             Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
-                    dialogContext,
+                    activity,
                     null, // No title.
                     str("revanced_sb_settings_revanced_export_user_id_warning"), // Message.
                     null, // No EditText.
@@ -205,11 +205,7 @@ public class SponsorBlockSettings {
                     true // Dismiss dialog when onNeutralClick.
             );
 
-            // Set dialog as non-cancelable.
-            dialogPair.first.setCancelable(false);
-
-            // Show the dialog.
-            dialogPair.first.show();
+            Utils.showDialog(activity, dialogPair.first, false, null);
         }
     }
 

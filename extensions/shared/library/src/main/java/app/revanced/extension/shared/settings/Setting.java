@@ -2,7 +2,7 @@ package app.revanced.extension.shared.settings;
 
 import static app.revanced.extension.shared.StringRef.str;
 
-import android.content.Context;
+import android.app.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -122,18 +122,18 @@ public abstract class Setting<T> {
         /**
          * Called after all settings have been imported.
          */
-        void settingsImported(@Nullable Context context);
+        void settingsImported(@Nullable Activity context);
 
         /**
          * Called after all settings have been exported.
          */
-        void settingsExported(@Nullable Context context);
+        void settingsExported(@Nullable Activity context);
     }
 
     private static final List<ImportExportCallback> importExportCallbacks = new ArrayList<>();
 
     /**
-     * Adds a callback for {@link #importFromJSON(Context, String)} and {@link #exportToJson(Context)}.
+     * Adds a callback for {@link #importFromJSON(Activity, String)} and {@link #exportToJson(Activity)}.
      */
     public static void addImportExportCallback(ImportExportCallback callback) {
         importExportCallbacks.add(Objects.requireNonNull(callback));
@@ -413,7 +413,7 @@ public abstract class Setting<T> {
         json.put(importExportKey, value);
     }
 
-    public static String exportToJson(@Nullable Context alertDialogContext) {
+    public static String exportToJson(@Nullable Activity alertDialogContext) {
         try {
             JSONObject json = new JSONObject();
             for (Setting<?> setting : allLoadedSettingsSorted()) {
@@ -439,11 +439,17 @@ public abstract class Setting<T> {
 
             String export = json.toString(0);
 
-            // Remove the outer JSON braces to make the output more compact,
-            // and leave less chance of the user forgetting to copy it
-            return export.substring(2, export.length() - 2);
+            if (export.startsWith("{") && export.endsWith("}")) {
+                // Remove the outer JSON braces to make the output more compact,
+                // and leave less chance of the user forgetting to copy it
+                export = export.substring(1, export.length() - 1);
+            }
+
+            export = export.replaceAll("^\\n+", "").replaceAll("\\n+$", "");
+
+            return export + ",";
         } catch (JSONException e) {
-            Logger.printException(() -> "Export failure", e); // should never happen
+            Logger.printException(() -> "Export failure", e); // Should never happen
             return "";
         }
     }
@@ -451,10 +457,16 @@ public abstract class Setting<T> {
     /**
      * @return if any settings that require a reboot were changed.
      */
-    public static boolean importFromJSON(Context alertDialogContext, String settingsJsonString) {
+    public static boolean importFromJSON(Activity alertDialogContext, String settingsJsonString) {
         try {
-            if (!settingsJsonString.matches("[\\s\\S]*\\{")) {
-                settingsJsonString = '{' + settingsJsonString + '}'; // Restore outer JSON braces
+            settingsJsonString = settingsJsonString.trim();
+
+            if (settingsJsonString.endsWith(",")) {
+                settingsJsonString = settingsJsonString.substring(0, settingsJsonString.length() - 1);
+            }
+
+            if (!settingsJsonString.trim().startsWith("{")) {
+                settingsJsonString = "{\n" + settingsJsonString + "\n}"; // Restore outer JSON braces
             }
             JSONObject json = new JSONObject(settingsJsonString);
 

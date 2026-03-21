@@ -95,6 +95,13 @@ To translate new languages or improve the existing translations, visit translate
             <string name="revanced_language_DEFAULT">App language</string>
             <string name="revanced_pref_import_export_title">Import / Export</string>
             <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
+            <string name="revanced_settings_import_file">Import from file</string>
+            <string name="revanced_settings_import_file_success">Settings imported successfully, save to apply</string>
+            <string name="revanced_settings_import_file_failed">Failed to import settings</string>
+            <string name="revanced_settings_export_file">Export to file</string>
+            <string name="revanced_settings_export_file_success">Settings exported successfully</string>
+            <string name="revanced_settings_export_file_failed">Failed to export settings</string>
+
             <!-- Settings about dialog. -->
             <string name="revanced_settings_about_links_body">You are using ReVanced Patches version &lt;i>%s&lt;/i></string>
             <string name="revanced_settings_about_links_dev_header">Note</string>
