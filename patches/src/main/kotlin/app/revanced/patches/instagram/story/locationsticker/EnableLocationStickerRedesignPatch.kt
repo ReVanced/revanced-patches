@@ -12,9 +12,6 @@ val enableLocationStickerRedesignPatch = bytecodePatch(
     compatibleWith("com.instagram.android")
 
     apply {
-        // The gate method reads a MobileConfig boolean flag and returns it directly.
-        // Returning early with true bypasses the flag check entirely,
-        // enabling the redesigned sticker styles regardless of server configuration.
-        locationStickerRedesignGateMethod.returnEarly(true)
+        locationStickerRedesignGateMethodMatch.method.returnEarly()
     }
 }

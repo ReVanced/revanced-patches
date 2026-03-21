@@ -12,6 +12,6 @@ val downloadMediaPatch = bytecodePatch(
     compatibleWith("com.instagram.android")
 
     apply {
-        downloadAllowedMethod.returnEarly(true)
+        downloadAllowedMethodMatch.method.returnEarly()
     }
 }
