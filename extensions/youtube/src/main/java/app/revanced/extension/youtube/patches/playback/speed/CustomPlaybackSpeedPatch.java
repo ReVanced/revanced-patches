@@ -81,9 +81,9 @@ public class CustomPlaybackSpeedPatch {
     private static final float customPlaybackSpeedsMin, customPlaybackSpeedsMax;
 
     /**
-     * The last time the old playback menu was forcefully called.
+     * The last time the playback menu was forcefully called.
      */
-    private static volatile long lastTimeOldPlaybackMenuInvoked;
+    private static volatile long lastTimePlaybackMenuInvoked;
 
     /**
      * Formats speeds to UI strings.
@@ -238,6 +238,15 @@ public class CustomPlaybackSpeedPatch {
             return false;
         }
 
+        // This method is sometimes used multiple times.
+        // To prevent this, ignore method reuse within 1 second.
+        final long now = System.currentTimeMillis();
+        if (now - lastTimePlaybackMenuInvoked < 1000) {
+            Logger.printDebug(() -> "Ignoring call to hideLithoMenuAndShowSpeedMenu");
+            return true;
+        }
+        lastTimePlaybackMenuInvoked = now;
+
         // Dismiss View [R.id.touch_outside] is the 1st ChildView of the 4th ParentView.
         // This only shows in phone layout.
         var touchInsidedView = parentView4th.getChildAt(0);
@@ -261,16 +270,8 @@ public class CustomPlaybackSpeedPatch {
     }
 
     public static void showOldPlaybackSpeedMenu() {
-        // This method is sometimes used multiple times.
-        // To prevent this, ignore method reuse within 1 second.
-        final long now = System.currentTimeMillis();
-        if (now - lastTimeOldPlaybackMenuInvoked < 1000) {
-            Logger.printDebug(() -> "Ignoring call to showOldPlaybackSpeedMenu");
-            return;
-        }
-        lastTimeOldPlaybackMenuInvoked = now;
-
         // Rest of the implementation added by patch.
+        Logger.printDebug(() -> "showOldPlaybackSpeedMenu");
     }
 
     /**
