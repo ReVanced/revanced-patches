@@ -16,7 +16,7 @@ val changeLinkSharingDomainPatch = bytecodePatch(
     description = "Replaces the domain name of shared links.",
     use = false,
 ) {
-    compatibleWith("com.instagram.android")
+    compatibleWith("com.instagram.android"("421.0.0.51.66"))
 
     dependsOn(sharedExtensionPatch)
 

@@ -21,6 +21,7 @@ internal fun BytecodePatchContext.editShareLinksPatch(block: MutableMethod.(inde
                 match[0],
                 Opcode.IPUT_OBJECT
             )
+            if (putSharingUrlIndex == -1) return@apply
             val sharingUrlRegister = getInstruction<TwoRegisterInstruction>(putSharingUrlIndex).registerA
             block(putSharingUrlIndex, sharingUrlRegister)
         }

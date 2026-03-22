@@ -11,7 +11,7 @@ val hideHighlightsTrayPatch = bytecodePatch(
     description = "Hides the highlights tray in profile section.",
     use = false,
 ) {
-    compatibleWith("com.instagram.android")
+    compatibleWith("com.instagram.android"("421.0.0.51.66"))
 
     apply {
         highlightsUrlBuilderMethodMatch.method.apply {

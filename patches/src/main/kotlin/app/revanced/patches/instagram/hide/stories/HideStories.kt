@@ -9,7 +9,7 @@ val hideStoriesFromHomePatch = bytecodePatch(
     description = "Hides Stories from the main page, by removing the buttons.",
     use = false,
 ) {
-    compatibleWith("com.instagram.android")
+    compatibleWith("com.instagram.android"("421.0.0.51.66"))
 
     apply {
         getOrCreateAvatarViewMethodMatch.let {

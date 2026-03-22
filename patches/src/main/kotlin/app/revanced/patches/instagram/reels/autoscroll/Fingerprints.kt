@@ -19,6 +19,5 @@ internal val BytecodePatchContext.clipsAutoScrollFeatureCheckMethod by gettingFi
  * the auto-scroll button. Contains analytics logging strings.
  */
 internal val BytecodePatchContext.clipsAutoScrollToggleMethod by gettingFirstMethodDeclaratively(
-    "auto_scroll",
     "instagram_clips_viewer_autoplay_tap",
 )

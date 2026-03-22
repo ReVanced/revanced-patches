@@ -11,7 +11,7 @@ val disableAnalyticsPatch = bytecodePatch(
     name = "Disable analytics",
     description = "Disables analytics that are sent periodically.",
 ) {
-    compatibleWith("com.instagram.android")
+    compatibleWith("com.instagram.android"("421.0.0.51.66"))
 
     apply {
         // Returns BOGUS as analytics url.

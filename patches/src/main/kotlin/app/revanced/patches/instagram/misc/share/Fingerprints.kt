@@ -1,16 +1,13 @@
 package app.revanced.patches.instagram.misc.share
 
 import app.revanced.patcher.composingFirstMethod
-import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
-import app.revanced.patcher.name
+import app.revanced.patcher.strings
 import app.revanced.patcher.opcodes
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val BytecodePatchContext.permalinkResponseJsonParserMethodMatch by composingFirstMethod {
-    name("unsafeParseFromJson")
-    instructions("permalink"())
+    strings("permalink")
     opcodes(
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
@@ -19,16 +16,13 @@ internal val BytecodePatchContext.permalinkResponseJsonParserMethodMatch by comp
 }
 
 internal val BytecodePatchContext.storyUrlResponseJsonParserMethodMatch by composingFirstMethod {
-    name("unsafeParseFromJson")
-    instructions("story_item_to_share_url"())
+    strings("story_item_to_share_url")
 }
 
 internal val BytecodePatchContext.profileUrlResponseJsonParserMethodMatch by composingFirstMethod {
-    name("unsafeParseFromJson")
-    instructions("profile_to_share_url"())
+    strings("profile_to_share_url")
 }
 
 internal val BytecodePatchContext.liveUrlResponseJsonParserMethodMatch by composingFirstMethod {
-    name("unsafeParseFromJson")
-    instructions("live_to_share_url"())
+    strings("live_to_share_url")
 }

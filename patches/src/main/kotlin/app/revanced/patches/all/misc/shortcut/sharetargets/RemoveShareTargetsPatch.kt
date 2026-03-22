@@ -24,7 +24,7 @@ val removeShareTargetsPatch = resourcePatch(
             val rootNode = document.getNode("shortcuts") as? Element ?: return@use
 
             document.getElementsByTagName("share-target").asSequence().forEach {
-                rootNode.removeChild(it)
+                it.parentNode?.removeChild(it)
             }
         }
     }
