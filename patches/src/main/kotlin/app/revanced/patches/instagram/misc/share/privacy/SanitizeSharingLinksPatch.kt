@@ -1,12 +1,12 @@
 package app.revanced.patches.instagram.misc.share.privacy
 
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
-import app.revanced.patches.instagram.misc.share.editShareLinksPatch
-
-private const val EXTENSION_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/instagram/misc/share/privacy/SanitizeSharingLinksPatch;"
+import app.revanced.util.forEachInstructionAsSequence
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Suppress("unused")
 val sanitizeSharingLinksPatch = bytecodePatch(
@@ -15,17 +15,21 @@ val sanitizeSharingLinksPatch = bytecodePatch(
 ) {
     compatibleWith("com.instagram.android")
 
-    dependsOn(sharedExtensionPatch)
-
     apply {
-        editShareLinksPatch { index, register ->
-            addInstructions(
-                index,
-                """
-                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->sanitizeSharingLink(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v$register
-                """,
-            )
-        }
+        forEachInstructionAsSequence(
+            match = { classDef, _, instruction, index ->
+                if (!classDef.type.startsWith("Lcom/instagram/")) return@forEachInstructionAsSequence null
+                if (instruction !is ReferenceInstruction) return@forEachInstructionAsSequence null
+                val reference = instruction.reference as? StringReference
+                    ?: return@forEachInstructionAsSequence null
+                if (reference.string != "igsh") return@forEachInstructionAsSequence null
+
+                return@forEachInstructionAsSequence index
+            },
+            transform = { method, index ->
+                val register = method.getInstruction<OneRegisterInstruction>(index).registerA
+                method.replaceInstruction(index, "const-string v$register, \"\"")
+            },
+        )
     }
 }
