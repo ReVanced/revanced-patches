@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.video.codecs
 
 import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -10,9 +11,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableVideoCodecsPatch;"
@@ -35,7 +34,7 @@ val disableVideoCodecsPatch = bytecodePatch(
                     return@filterMap null
                 }
 
-                val reference = instruction.getReference<MethodReference>()
+                val reference = instruction.methodReference
                 if (reference?.definingClass == "Landroid/view/Display\$HdrCapabilities;" && reference.name == "getSupportedHdrTypes") {
                     return@filterMap instruction to instructionIndex
                 }

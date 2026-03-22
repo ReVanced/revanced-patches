@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.layout.hide.fullscreenambientmode
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -9,10 +10,8 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableFullscreenAmbientModePatch;"
@@ -51,7 +50,7 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
 
         setFullScreenBackgroundColorMethod.apply {
             val insertIndex = indexOfFirstInstructionReversedOrThrow {
-                getReference<MethodReference>()?.name == "setBackgroundColor"
+                methodReference?.name == "setBackgroundColor"
             }
             val register = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 

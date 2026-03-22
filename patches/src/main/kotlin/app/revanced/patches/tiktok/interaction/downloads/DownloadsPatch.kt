@@ -6,11 +6,9 @@ import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
 import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadMethod
 import app.revanced.util.findInstructionIndicesReversedOrThrow
-import app.revanced.util.getReference
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/tiktok/download/DownloadsPatch;"
 
@@ -50,7 +48,7 @@ val downloadsPatch = bytecodePatch(
         // Change the download path patch.
         downloadUriMethod.apply {
             findInstructionIndicesReversedOrThrow {
-                getReference<FieldReference>().let {
+                fieldReference.let {
                     it?.definingClass == "Landroid/os/Environment;" && it.name.startsWith("DIRECTORY_")
                 }
             }.forEach { fieldIndex ->

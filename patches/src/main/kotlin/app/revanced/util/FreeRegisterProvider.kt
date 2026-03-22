@@ -2,6 +2,7 @@ package app.revanced.util
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.reference
 import app.revanced.util.FreeRegisterProvider.Companion.conditionalBranchOpcodes
 import app.revanced.util.FreeRegisterProvider.Companion.logFreeRegisterSearch
 import app.revanced.util.FreeRegisterProvider.Companion.returnOpcodes
@@ -345,7 +346,7 @@ private fun Method.findFreeRegistersInternal(
             // If it appears more than once, it's also read.
             if (occurrences <= 1) {
                 if (logFreeRegisterSearch) println("Found free register at $i: $writeRegister " +
-                        "opcode: " + instruction.opcode + " reference: " + (instruction.getReference()))
+                        "opcode: " + instruction.opcode + " reference: " + (instruction.reference))
                 freeRegisters.add(writeRegister)
                 // If the requested number of free registers is found and this is not a branch,
                 // then no additional searching is needed.

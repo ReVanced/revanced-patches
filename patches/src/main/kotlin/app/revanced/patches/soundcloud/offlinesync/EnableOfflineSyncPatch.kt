@@ -3,10 +3,8 @@ package app.revanced.patches.soundcloud.offlinesync
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.soundcloud.shared.featureConstructorMethod
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Suppress("unused")
 val enableOfflineSyncPatch = bytecodePatch("Enable offline sync") {
@@ -40,7 +38,7 @@ val enableOfflineSyncPatch = bytecodePatch("Enable offline sync") {
             val getEndpointsEnumFieldInstruction = getInstruction<OneRegisterInstruction>(getEndpointsEnumFieldIndex)
 
             val targetRegister = getEndpointsEnumFieldInstruction.registerA
-            val endpointsType = getEndpointsEnumFieldInstruction.getReference<FieldReference>()!!.type
+            val endpointsType = getEndpointsEnumFieldInstruction.fieldReference!!.type
 
             replaceInstruction(
                 getEndpointsEnumFieldIndex,

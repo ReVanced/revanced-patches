@@ -81,7 +81,7 @@ Some of the features the patches provide are:
   export activities, etc.
 * ✨ **And much more!**
 
-For a complete list of all available patches, visit [revanced.app/patches](https://revanced.app/patches).
+For a complete list of all available patches, see [this](https://github.com/ReVanced/revanced-documentation/blob/main/docs/revanced-resources/questions.md#5-which-patches-are-available).
 
 ## 🚀 How to get started
 

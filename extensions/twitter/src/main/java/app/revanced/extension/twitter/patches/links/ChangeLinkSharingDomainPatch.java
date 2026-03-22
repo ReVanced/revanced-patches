@@ -1,4 +1,4 @@
-package app.revanced.twitter.patches.links;
+package app.revanced.extension.twitter.patches.links;
 
 @SuppressWarnings("unused")
 public final class ChangeLinkSharingDomainPatch {

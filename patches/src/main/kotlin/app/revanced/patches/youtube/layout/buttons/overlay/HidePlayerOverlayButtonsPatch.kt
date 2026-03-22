@@ -17,12 +17,11 @@ import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HidePlayerOverlayButtonsPatch;"
 
-@Suppress("ObjectPropertyName")
+@Suppress("unused")
 val hidePlayerOverlayButtonsPatch = bytecodePatch(
     name = "Hide player overlay buttons",
     description = "Adds options to hide the player Cast, Autoplay, Captions, Previous & Next buttons, and the player " +
@@ -121,7 +120,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
             // Add a conditional branch around the code that inflates and adds the auto-repeat button.
             val gotoIndex = indexOfFirstInstructionOrThrow(constIndex) {
-                val parameterTypes = getReference<MethodReference>()?.parameterTypes
+                val parameterTypes = methodReference?.parameterTypes
                 opcode == Opcode.INVOKE_VIRTUAL &&
                         parameterTypes?.size == 2 &&
                         parameterTypes.first() == "Landroid/view/ViewStub;"

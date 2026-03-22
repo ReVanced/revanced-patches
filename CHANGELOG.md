@@ -1,3 +1,33 @@
+## [6.1.1-dev.4](https://github.com/ReVanced/revanced-patches/compare/v6.1.1-dev.3...v6.1.1-dev.4) (2026-03-22)
+
+
+### Bug Fixes
+
+* **Instagram - Disable signature check:** Set correct return type ([#6918](https://github.com/ReVanced/revanced-patches/issues/6918)) ([4a36d1a](https://github.com/ReVanced/revanced-patches/commit/4a36d1ab569201316ee3b83be9f5ab9539c3336d))
+* **YouTube - Announcements:** Parse announcement correctly by using `Instant` instead of `LocalDateTime` for `archived_at` ([#6889](https://github.com/ReVanced/revanced-patches/issues/6889)) ([77098b2](https://github.com/ReVanced/revanced-patches/commit/77098b2c057e53f375bca8dffd369e801fdaed52))
+
+## [6.1.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v6.1.1-dev.2...v6.1.1-dev.3) (2026-03-20)
+
+
+### Bug Fixes
+
+* **GmsCore support:** Correct option name ([6cbef5a](https://github.com/ReVanced/revanced-patches/commit/6cbef5a48a83e4a74de578e7d20f7d71a8b1de8e))
+* **GmsCore support:** Correct package name for custom vendor group id ([292728a](https://github.com/ReVanced/revanced-patches/commit/292728a8baddbca87993590db4a8bab60b564432))
+
+## [6.1.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v6.1.1-dev.1...v6.1.1-dev.2) (2026-03-20)
+
+
+### Bug Fixes
+
+* **Twitter:** Correct extension path to fix crashes ([f4b2545](https://github.com/ReVanced/revanced-patches/commit/f4b2545742e0501ab252c70654993a4e4414319e))
+
+## [6.1.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v6.1.0...v6.1.1-dev.1) (2026-03-19)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Set `ANDROID_REEL` client as default ([#6878](https://github.com/ReVanced/revanced-patches/issues/6878)) ([a9aeb32](https://github.com/ReVanced/revanced-patches/commit/a9aeb325de1160262c4db9b4b60c6c5e39730620))
+
 # [6.1.0](https://github.com/ReVanced/revanced-patches/compare/v6.0.1...v6.1.0) (2026-03-18)
 
 

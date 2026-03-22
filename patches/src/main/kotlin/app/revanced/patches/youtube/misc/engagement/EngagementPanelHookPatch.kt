@@ -9,9 +9,7 @@ import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.shared.getEngagementPanelControllerMethodMatch
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import kotlin.properties.Delegates
 
 private const val EXTENSION_CLASS_DESCRIPTOR =

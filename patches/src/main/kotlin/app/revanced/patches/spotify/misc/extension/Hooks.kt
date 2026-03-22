@@ -1,15 +1,14 @@
 package app.revanced.patches.spotify.misc.extension
 
+import app.revanced.patcher.extensions.fieldReference
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.string
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
 import app.revanced.patches.shared.misc.extension.activityOnCreateExtensionHook
 import app.revanced.patches.shared.misc.extension.extensionHook
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 internal val mainActivityOnCreateHook = activityOnCreateExtensionHook(
     "Lcom/spotify/music/SpotifyMainActivity;"
@@ -25,7 +24,7 @@ internal val loadOrbitLibraryHook = extensionHook(
     },
     getContextRegister = {
         contextReferenceIndex = indexOfFirstInstruction {
-            getReference<FieldReference>()?.type == "Landroid/content/Context;"
+            fieldReference?.type == "Landroid/content/Context;"
         }
         val contextRegister =
             getInstruction<TwoRegisterInstruction>(contextReferenceIndex).registerA

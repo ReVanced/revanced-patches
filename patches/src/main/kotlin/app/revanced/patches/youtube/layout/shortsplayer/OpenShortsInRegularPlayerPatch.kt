@@ -24,13 +24,11 @@ import app.revanced.patches.youtube.shared.mainActivityOnCreateMethod
 import app.revanced.patches.youtube.video.information.playbackStartDescriptorToStringMethodMatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findInstructionIndicesReversedOrThrow
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/OpenShortsInRegularPlayerPatch;"
@@ -149,14 +147,14 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
 
             // Method call for Activity.finish()
             val finishIndexFirst = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
+                val reference = methodReference
                 reference?.name == "finish"
             }
 
             // Second Activity.finish() call. Has been present since 19.x but started
             // to interfere with back to exit fullscreen around 20.47.
             val finishIndexSecond = indexOfFirstInstruction(finishIndexFirst + 1) {
-                val reference = getReference<MethodReference>()
+                val reference = methodReference
                 reference?.name == "finish"
             }
             val getBooleanFieldIndex = indexOfFirstInstructionReversedOrThrow(finishIndexSecond) {

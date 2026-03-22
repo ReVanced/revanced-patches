@@ -2,6 +2,7 @@ package app.revanced.patches.music.layout.branding
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.typeReference
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_MAIN_ACTIVITY_NAME
@@ -12,12 +13,10 @@ import app.revanced.patches.shared.layout.branding.EXTENSION_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 private val disableSplashAnimationPatch = bytecodePatch {
 
@@ -37,7 +36,7 @@ private val disableSplashAnimationPatch = bytecodePatch {
             )
             val checkCastIndex = indexOfFirstInstructionOrThrow(literalIndex) {
                 opcode == Opcode.CHECK_CAST &&
-                        getReference<TypeReference>()?.type == "Lcom/airbnb/lottie/LottieAnimationView;"
+                        typeReference?.type == "Lcom/airbnb/lottie/LottieAnimationView;"
             }
             val register = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 

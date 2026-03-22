@@ -14,10 +14,8 @@ import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.findInstructionIndicesReversed
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/SlideToSeekPatch;"
 
@@ -45,7 +43,7 @@ val enableSlideToSeekPatch = bytecodePatch(
 
         val checkIndex = slideToSeekMethodMatch[0]
         val checkReference = slideToSeekMethodMatch.method.getInstruction(checkIndex)
-            .getReference<MethodReference>()!!
+            .methodReference!!
 
         val extensionMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->isSlideToSeekDisabled(Z)Z"
 

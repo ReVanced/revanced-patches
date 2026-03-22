@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 
 import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.shared.mainActivityOnBackPressedMethod
 import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/FixBackToExitGesturePatch;"
 
@@ -26,7 +25,7 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
         with(scrollPositionMethodMatch) {
             navigate(immutableMethod).to(scrollPositionMethodMatch[0] + 1).stop().apply {
                 val index = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.definingClass ==
+                    opcode == Opcode.INVOKE_VIRTUAL && methodReference?.definingClass ==
                         "Landroid/support/v7/widget/RecyclerView;"
                 }
 

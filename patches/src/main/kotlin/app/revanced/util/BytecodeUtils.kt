@@ -21,9 +21,7 @@ import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.MethodParameter
 import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.Reference
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.iface.value.*
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
@@ -40,7 +38,7 @@ import kotlin.collections.remove
  */
 private fun Method.findInstructionIndexFromToString(fieldName: String): Int {
     val stringIndex = indexOfFirstInstruction {
-        val reference = getReference<StringReference>()
+        val reference = stringReference
         reference?.string?.contains(fieldName) == true
     }
     if (stringIndex < 0) {
@@ -50,7 +48,7 @@ private fun Method.findInstructionIndexFromToString(fieldName: String): Int {
 
     // Find use of the string with a StringBuilder.
     val stringUsageIndex = indexOfFirstInstruction(stringIndex) {
-        val reference = getReference<MethodReference>()
+        val reference = methodReference
         reference?.definingClass == "Ljava/lang/StringBuilder;" &&
                 (this as? FiveRegisterInstruction)?.registerD == stringRegister
     }
@@ -60,7 +58,7 @@ private fun Method.findInstructionIndexFromToString(fieldName: String): Int {
 
     // Find the next usage of StringBuilder, which should be the desired field.
     val fieldUsageIndex = indexOfFirstInstruction(stringUsageIndex + 1) {
-        val reference = getReference<MethodReference>()
+        val reference = methodReference
         reference?.definingClass == "Ljava/lang/StringBuilder;" && reference.name == "append"
     }
     if (fieldUsageIndex < 0) {
@@ -104,7 +102,7 @@ internal fun Method.findMethodFromToString(fieldName: String): MutableMethod {
  */
 internal fun Method.findFieldFromToString(fieldName: String): FieldReference {
     val methodUsageIndex = findInstructionIndexFromToString(fieldName)
-    return getInstruction<ReferenceInstruction>(methodUsageIndex).getReference<FieldReference>()!!
+    return getInstruction<ReferenceInstruction>(methodUsageIndex).fieldReference!!
 }
 
 /**
@@ -380,6 +378,8 @@ fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClassDef, ca
  * if the [Instruction] is not a [ReferenceInstruction] or the [Reference] is not of type [T].
  * @see ReferenceInstruction
  */
+@Deprecated("Instead use `methodReference`, `fieldReference`, `typeReference` or `stringReference`")
+@Suppress("unused")
 inline fun <reified T : Reference> Instruction.getReference() = (this as? ReferenceInstruction)?.reference as? T
 
 /**

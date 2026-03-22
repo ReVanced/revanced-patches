@@ -1,17 +1,16 @@
 package app.revanced.patches.reddit.customclients.baconreader.fix.redgifs
 
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.removeInstructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.extensions.typeReference
 import app.revanced.patches.reddit.customclients.INSTALL_NEW_CLIENT_METHOD
 import app.revanced.patches.reddit.customclients.baconreader.misc.extension.sharedExtensionPatch
 import app.revanced.patches.reddit.customclients.fixRedgifsApiPatch
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/baconreader/FixRedgifsApiPatch;"
 
@@ -34,7 +33,7 @@ val fixRedgifsApi = fixRedgifsApiPatch(
         getOkHttpClientMethod.removeInstructions(originalInterceptorInstallIndex, 5)
 
         val index = getOkHttpClientMethod.indexOfFirstInstructionOrThrow {
-            val reference = getReference<MethodReference>()
+            val reference = methodReference
             reference?.name == "build" && reference.definingClass == $$"Lokhttp3/OkHttpClient$Builder;"
         }
         val register = getOkHttpClientMethod.getInstruction<FiveRegisterInstruction>(index).registerC

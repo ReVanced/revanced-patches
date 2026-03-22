@@ -1,12 +1,11 @@
 package app.revanced.patches.all.misc.adb
 
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
@@ -44,7 +43,7 @@ val hideADBStatusPatch = bytecodePatch(
             filterMap = filterMap@{ classDef, method, instruction, instructionIndex ->
                 val reference = instruction
                     .takeIf { it.opcode == Opcode.INVOKE_STATIC }
-                    ?.getReference<MethodReference>()
+                    ?.methodReference
                     ?.takeIf { reference ->
                         getIntMethodReferences.any { MethodUtil.methodSignaturesMatch(it, reference) }
                     }

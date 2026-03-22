@@ -65,10 +65,9 @@ fun gmsCoreSupportPatch(
             "using a GmsCore instead of Google Play Services.",
 ) {
     val gmsCoreVendorGroupIdOption = stringOption(
-        key = "gmsCoreVendorGroupId",
+        name = "GmsCore vendor group ID",
         default = "app.revanced",
         values = mapOf("ReVanced" to "app.revanced"),
-        title = "GmsCore vendor group ID",
         description = "The vendor's group ID for GmsCore.",
         required = true,
     ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) }

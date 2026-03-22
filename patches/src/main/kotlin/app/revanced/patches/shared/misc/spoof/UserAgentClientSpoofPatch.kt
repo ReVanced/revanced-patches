@@ -1,16 +1,15 @@
 package app.revanced.patches.shared.misc.spoof
 
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.stringReference
 import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 private const val USER_AGENT_STRING_BUILDER_APPEND_METHOD_REFERENCE =
     "Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;"
@@ -37,7 +36,7 @@ fun userAgentClientSpoofPatch(originalPackageName: String) = transformInstructio
 
             // IndexOutOfBoundsException is technically possible here,
             // but no such occurrences are present in the app.
-            val referee = getInstruction(instructionIndex + 2).getReference<MethodReference>()?.toString()
+            val referee = getInstruction(instructionIndex + 2).methodReference?.toString()
 
             // Only replace string builder usage.
             if (referee != USER_AGENT_STRING_BUILDER_APPEND_METHOD_REFERENCE) {
@@ -48,7 +47,7 @@ fun userAgentClientSpoofPatch(originalPackageName: String) = transformInstructio
             // Changing these package names will result in playback limitations,
             // particularly Android VR background audio only playback.
             val resourceOrGmsStringInstructionIndex = indexOfFirstInstruction {
-                val reference = getReference<StringReference>()
+                val reference = stringReference
                 opcode == Opcode.CONST_STRING &&
                     (reference?.string == "android.resource://" || reference?.string == "gcore_")
             }

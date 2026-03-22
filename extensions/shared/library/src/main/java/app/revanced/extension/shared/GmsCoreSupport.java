@@ -105,7 +105,7 @@ public class GmsCoreSupport {
                 return null;
             }
         }),
-        UNKNOWN(getGmsCoreVendorGroupId(), getGmsCoreVendorGroupId() + "android.gms", () -> null);
+        UNKNOWN(getGmsCoreVendorGroupId(), getGmsCoreVendorGroupId() + ".android.gms", () -> null);
 
         private static final String DONT_KILL_MY_APP_URL
                 = "https://dontkillmyapp.com/";

@@ -7,6 +7,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.reference
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.PatchException
@@ -20,19 +21,14 @@ import app.revanced.patches.youtube.shared.mainActivityOnBackPressedMethod
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.findFreeRegister
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.util.MethodUtil
-import java.util.logging.Logger
 
 internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/shared/NavigationBar;"
@@ -84,14 +80,14 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             val navigationEnumClassName = navigationEnumMethod.classDef.type
             addHook(NavigationHook.SET_LAST_APP_NAVIGATION_ENUM) {
                 opcode == Opcode.INVOKE_STATIC &&
-                    getReference<MethodReference>()?.definingClass == navigationEnumClassName
+                    methodReference?.definingClass == navigationEnumClassName
             }
 
             // Hook the creation of navigation tab views.
             val drawableTabMethod = pivotBarButtonsCreateDrawableViewMethod
             addHook(NavigationHook.NAVIGATION_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
-                    getReference<MethodReference>() ?: return@predicate false,
+                    methodReference ?: return@predicate false,
                     drawableTabMethod,
                 )
             }
@@ -99,7 +95,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             if (is_20_21_or_greater && !is_20_28_or_greater) {
                 addHook(NavigationHook.NAVIGATION_TAB_LOADED) predicate@{
                     MethodUtil.methodSignaturesMatch(
-                        getReference<MethodReference>() ?: return@predicate false,
+                        methodReference ?: return@predicate false,
                         pivotBarButtonsCreateResourceIntViewMethod,
                     )
                 }
@@ -107,7 +103,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
 
             addHook(NavigationHook.NAVIGATION_IMAGE_RESOURCE_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
-                    getReference<MethodReference>() ?: return@predicate false,
+                    methodReference ?: return@predicate false,
                     pivotBarButtonsCreateResourceStyledViewMethod,
                 )
             }

@@ -4,12 +4,12 @@ import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Compan
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.typeReference
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.childElementsSequence
 import app.revanced.util.findElementByAttributeValueOrThrow
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -18,7 +18,6 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction31i
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableClassDef
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
@@ -115,7 +114,7 @@ val addGiveGroupKudosButtonToGroupActivityPatch = bytecodePatch(
             val checkCastButtonInstruction =
                 getInstruction<BuilderInstruction21c>(constLeaveIdInstruction.location.index + 3)
 
-            val buttonClassName = checkCastButtonInstruction.getReference<TypeReference>()!!.type
+            val buttonClassName = checkCastButtonInstruction.typeReference!!.type
 
             addInstructions(
                 constLeaveIdInstruction.location.index,

@@ -4,6 +4,7 @@ package app.revanced.patches.music.layout.miniplayercolor
 
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.firstMethodDeclaratively
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.bytecodePatch
@@ -20,7 +21,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/music/patches/ChangeMiniplayerColorPatch;"
@@ -72,7 +72,7 @@ val changeMiniplayerColorPatch = bytecodePatch(
 
             val colorGreyIndex =
                 miniPlayerConstructorMethodMatch.immutableMethod.indexOfFirstInstructionReversedOrThrow {
-                    getReference<MethodReference>()?.name == "getColor"
+                    methodReference?.name == "getColor"
                 }
             val iPutIndex =
                 miniPlayerConstructorMethodMatch.immutableMethod.indexOfFirstInstructionOrThrow(

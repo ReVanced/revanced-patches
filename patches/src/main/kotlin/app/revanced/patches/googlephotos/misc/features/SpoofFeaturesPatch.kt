@@ -2,12 +2,11 @@ package app.revanced.patches.googlephotos.misc.features
 
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.stringReference
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringsOption
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Suppress("unused")
 val spoofFeaturesPatch = bytecodePatch(
@@ -62,7 +61,7 @@ val spoofFeaturesPatch = bytecodePatch(
 
         initializeFeaturesEnumMethod.apply {
             instructions.filter { it.opcode == Opcode.CONST_STRING }.forEach {
-                val feature = it.getReference<StringReference>()!!.string
+                val feature = it.stringReference!!.string
 
                 val spoofedFeature = when (feature) {
                     in featuresToEnable -> "android.hardware.wifi"

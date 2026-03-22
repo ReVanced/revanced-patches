@@ -1,12 +1,11 @@
 package app.revanced.patches.all.misc.build
 
+import app.revanced.patcher.extensions.fieldReference
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
-import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val BUILD_CLASS_DESCRIPTOR = "Landroid/os/Build;"
 
@@ -75,7 +74,7 @@ fun baseSpoofBuildInfoPatch(buildInfoSupplier: () -> BuildInfo) = bytecodePatch 
     dependsOn(
         transformInstructionsPatch(
             filterMap = filterMap@{ _, _, instruction, instructionIndex ->
-                val reference = instruction.getReference<FieldReference>() ?: return@filterMap null
+                val reference = instruction.fieldReference ?: return@filterMap null
                 if (reference.definingClass != BUILD_CLASS_DESCRIPTOR) return@filterMap null
 
                 return@filterMap replacements[reference.name]?.let { instructionIndex to it }
