@@ -14,6 +14,6 @@ val disableSignatureCheckPatch = bytecodePatch(
     compatibleWith("com.instagram.android")
 
     apply {
-        isValidSignatureMethodMethod.immutableClassDef.getIsValidSignatureClassMethod().returnEarly(true)
+        isValidSignatureMethodMethod.immutableClassDef.getIsValidSignatureClassMethod().returnEarly()
     }
 }
