@@ -11,7 +11,7 @@ val disableSignatureCheckPatch = bytecodePatch(
         "Using this patch may cause issues with sharing or opening external Instagram links.",
     use = false,
 ) {
-    compatibleWith("com.instagram.android")
+    compatibleWith("com.instagram.android"("421.0.0.51.66"))
 
     apply {
         isValidSignatureMethodMethod.immutableClassDef.getIsValidSignatureClassMethod().returnEarly()

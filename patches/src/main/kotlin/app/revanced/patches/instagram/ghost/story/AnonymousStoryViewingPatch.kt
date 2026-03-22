@@ -14,10 +14,12 @@ val anonymousStoryViewingPatch = bytecodePatch(
     """.trimIndentMultiline(),
     use = false,
 ) {
-    compatibleWith("com.instagram.android")
+    compatibleWith("com.instagram.android"("421.0.0.51.66"))
 
     apply {
         // Prevent the hashmap of the seen media to be filled
-        setMediaSeenHashmapMethod.returnEarly()
+        runCatching {
+            setMediaSeenHashmapFingerprint.method.returnEarly()
+        }
     }
 }

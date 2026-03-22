@@ -1,9 +1,11 @@
 package app.revanced.patches.instagram.story.locationsticker
 
 import app.revanced.patcher.composingFirstMethod
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
 import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 
 // MobileConfig boolean key that gates the redesigned location sticker styles.
 // The method containing this constant reads the flag and returns it directly,
@@ -13,4 +15,11 @@ private const val LOCATION_STICKER_REDESIGN_CONFIG_KEY = 0x8105a100041e0dL
 
 internal val BytecodePatchContext.locationStickerRedesignGateMethodMatch by composingFirstMethod {
     instructions(LOCATION_STICKER_REDESIGN_CONFIG_KEY())
+}
+
+internal val BytecodePatchContext.locationStickerRedesignGateFallbackMethod by gettingFirstMethodDeclaratively(
+    "location_sticker_redesign_default",
+    "location_sticker_redesign_vibrant",
+) {
+    returnType("Z")
 }

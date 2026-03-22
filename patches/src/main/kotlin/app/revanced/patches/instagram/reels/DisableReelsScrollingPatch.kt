@@ -12,7 +12,7 @@ val disableReelsScrollingPatch = bytecodePatch(
         "Note: On a clean install, the 'Tip' animation may appear but will stop on its own after a few seconds.",
     use = false
 ) {
-    compatibleWith("com.instagram.android")
+    compatibleWith("com.instagram.android"("421.0.0.51.66"))
 
     apply {
         val viewPagerField = clipsViewPagerImplGetViewAtIndexMethod.classDef.fields.first {

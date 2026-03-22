@@ -11,7 +11,7 @@ val hideExploreFeedPatch = bytecodePatch(
     description = "Hides posts and reels from the explore/search page.",
     use = false,
 ) {
-    compatibleWith("com.instagram.android")
+    compatibleWith("com.instagram.android"("421.0.0.51.66"))
 
     apply {
         exploreResponseJsonParserMethodMatch.method.apply {

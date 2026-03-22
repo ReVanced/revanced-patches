@@ -13,7 +13,7 @@ val sanitizeSharingLinksPatch = bytecodePatch(
     name = "Sanitize sharing links",
     description = "Removes the tracking query parameters from shared links.",
 ) {
-    compatibleWith("com.instagram.android")
+    compatibleWith("com.instagram.android"("421.0.0.51.66"))
 
     apply {
         forEachInstructionAsSequence(
