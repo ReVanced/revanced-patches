@@ -165,6 +165,10 @@ public final class app/revanced/patches/amazon/DeepLinkingPatchKt {
 	public static final fun getAlwaysAllowDeepLinkingPatch ()Lapp/revanced/patcher/patch/Patch;
 }
 
+public final class app/revanced/patches/amazonmusic/misc/UnlimitedTrackSkippingPatchKt {
+	public static final fun getUnlimitedTrackSkippingPatch ()Lapp/revanced/patcher/patch/Patch;
+}
+
 public final class app/revanced/patches/angulus/ads/RemoveAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/Patch;
 }
