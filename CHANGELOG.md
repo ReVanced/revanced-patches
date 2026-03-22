@@ -1,3 +1,11 @@
+## [6.1.1-dev.4](https://github.com/ReVanced/revanced-patches/compare/v6.1.1-dev.3...v6.1.1-dev.4) (2026-03-22)
+
+
+### Bug Fixes
+
+* **Instagram - Disable signature check:** Set correct return type ([#6918](https://github.com/ReVanced/revanced-patches/issues/6918)) ([4a36d1a](https://github.com/ReVanced/revanced-patches/commit/4a36d1ab569201316ee3b83be9f5ab9539c3336d))
+* **YouTube - Announcements:** Parse announcement correctly by using `Instant` instead of `LocalDateTime` for `archived_at` ([#6889](https://github.com/ReVanced/revanced-patches/issues/6889)) ([77098b2](https://github.com/ReVanced/revanced-patches/commit/77098b2c057e53f375bca8dffd369e801fdaed52))
+
 ## [6.1.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v6.1.1-dev.2...v6.1.1-dev.3) (2026-03-20)
 
 
