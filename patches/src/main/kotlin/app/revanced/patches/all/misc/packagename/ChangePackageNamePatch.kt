@@ -1,6 +1,9 @@
 package app.revanced.patches.all.misc.packagename
 
-import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.Option
+import app.revanced.patcher.patch.booleanOption
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.stringOption
 import app.revanced.util.asSequence
 import app.revanced.util.getNode
 import org.w3c.dom.Element
@@ -13,7 +16,7 @@ private val packageNameOption = stringOption(
     description = "The name of the package to rename the app to.",
     required = true,
 ) {
-    it == "Default" || it!!.matches(Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$"))
+    it == "Default" || it!!.matches(Regex("^[a-zA-Z]\\w*(\\.[a-zA-Z]\\w*)+$"))
 }
 
 /**
@@ -111,7 +114,7 @@ val changePackageNamePatch = resourcePatch(
                     val provider = node as Element
 
                     val authorities = provider.getAttribute("android:authorities")
-                    if (!authorities.startsWith("$packageName.")) continue
+                    if ("$packageName." !in authorities && !authorities.endsWith(packageName)) continue
 
                     provider.setAttribute("android:authorities", authorities.replace(packageName, newPackageName))
                 }
