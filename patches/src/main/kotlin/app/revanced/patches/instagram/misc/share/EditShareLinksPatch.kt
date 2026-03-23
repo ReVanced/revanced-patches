@@ -16,13 +16,19 @@ internal fun BytecodePatchContext.editShareLinksPatch(block: MutableMethod.(inde
     )
 
     methodsToPatch.forEach { match ->
-        match.method.apply {
-            val putSharingUrlIndex = indexOfFirstInstruction(
-                match[0],
-                Opcode.IPUT_OBJECT
-            )
-            val sharingUrlRegister = getInstruction<TwoRegisterInstruction>(putSharingUrlIndex).registerA
-            block(putSharingUrlIndex, sharingUrlRegister)
+        try {
+            match.method.apply {
+                val putSharingUrlIndex = indexOfFirstInstruction(
+                    match[0],
+                    Opcode.IPUT_OBJECT
+                )
+                val sharingUrlRegister = getInstruction<TwoRegisterInstruction>(putSharingUrlIndex).registerA
+                block(putSharingUrlIndex, sharingUrlRegister)
+            }
+        } catch (e: java.lang.IllegalArgumentException) {
+            java.util.logging.Logger.getLogger("EditShareLinksPatch").warning("Failed to find IPUT_OBJECT in share link method: ${e.message}")
+        } catch (e: java.lang.Exception) {
+            java.util.logging.Logger.getLogger("EditShareLinksPatch").warning("Error patching share link method: ${e.message}")
         }
     }
 }

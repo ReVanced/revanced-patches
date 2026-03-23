@@ -19,15 +19,18 @@ public class HideNavigationButtonsPatch {
             String enumNameField
     )
             throws IllegalAccessException, NoSuchFieldException {
-        for (Object button : navigationButtonsList) {
+        List<Object> mutableList = new java.util.ArrayList<>(navigationButtonsList);
+        for (int i = 0; i < mutableList.size(); i++) {
+            Object button = mutableList.get(i);
             Field f = button.getClass().getDeclaredField(enumNameField);
+            f.setAccessible(true);
             String currentButtonEnumName = (String) f.get(button);
 
             if (buttonNameToRemove.equals(currentButtonEnumName)) {
-                navigationButtonsList.remove(button);
+                mutableList.remove(i);
                 break;
             }
         }
-        return navigationButtonsList;
+        return mutableList;
     }
 }

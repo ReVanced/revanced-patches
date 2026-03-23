@@ -10,12 +10,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val BytecodePatchContext.permalinkResponseJsonParserMethodMatch by composingFirstMethod {
     name("unsafeParseFromJson")
-    instructions("permalink"())
-    opcodes(
-        Opcode.NEW_INSTANCE,
-        Opcode.INVOKE_DIRECT,
-        Opcode.INVOKE_VIRTUAL
-    )
+    instructions("create_highlight_permalink_share_url"())
 }
 
 internal val BytecodePatchContext.storyUrlResponseJsonParserMethodMatch by composingFirstMethod {
